@@ -10,7 +10,7 @@ The key documents are:
 
 * The [ontology](Ontology/ROADMAP.omn) in Manchester OWL syntax (open with Prot&eacute;g&eacute;)
 
-* Text-document [outline](Ontology/RMDO-outline.txt)
+* Text-document [outline](Ontology/ROADMAP-outline.txt)
 
 ## JSON Schema
 
