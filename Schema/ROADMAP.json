@@ -1,0 +1,38 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$id": "ROADMAP.json",
+	"title": "Project",
+	"description": "A Project is described by the Descriptor entities (Author, Date, Comments, etc.) and is comprised of zero or more Models and zero or more Datasets.",
+	"$comment": "ROADMAP:00010",
+	"type": "object",
+	"properties": {
+		"ROADMAP version": {
+			"type": "string",
+			"format": "date",
+			"enum": ["2025-01-06"]
+		},
+		"Project": {
+			"type": "object",
+			"properties": {
+				"Name": {"type": "string"},
+				"Details": {"$ref": "ROADMAP.descriptor.json"}
+			},
+			"additionalProperties": false
+		},
+		"Model": {
+			"description": "Descriptions of each Model",
+			"type": "array",
+			"items": {"$ref": "./ROADMAP.model.json"}
+		},
+		"Dataset": {
+			"description": "Descriptions of each Dataset",
+			"type": "array",
+			"items": {"$ref": "./ROADMAP.dataset.json"}
+		}
+	},
+	"required": [
+		"ROADMAP version",
+		"Project"
+	],
+	"additionalProperties": false
+}

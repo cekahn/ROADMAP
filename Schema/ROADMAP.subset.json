@@ -1,0 +1,164 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$id": "ROADMAP.subset.json",
+	"description": "Patient descriptor: age, sex, race, and/or other criterion.",
+	"$comment": "ROADMAP:03422",
+	"type": "object",
+	"properties": {
+		"Sites": {
+			"description": "Number of sites",
+			"$comment": "Site count (ROADMAP:03358)",
+			"type": "integer"
+		},
+		"Patients": {
+			"description": "Number of distinct patients",
+			"$comment": "Patient count (ROADMAP:00056)",
+			"type": "integer"
+		},
+		"Exams": {
+			"description": "Number of exams",
+			"$comment": "Study count (ROADMAP:00057)",
+			"type": "integer"
+		},
+		"Series": {
+			"description": "Number of imaging series",
+			"$comment": "Series count (ROADMAP:00632)",
+			"type": "integer"
+		},
+		"Images": {
+			"description": "Number of images",
+			"$comment": "Image count (ROADMAP:00058)",
+			"type": "integer"
+		},
+		"Age range": {
+			"title": "Age range",
+			"description": "Age range, specified as a 2-element array: [Lower bound, Upper bound]",
+			"type": "array",
+			"minItems": 2,
+			"maxItems": 2,
+			"items": {
+				"description": "Lower or upper bound",
+				"type": "array",
+				"minItems": 2,
+				"maxItems": 2,
+				"items": [
+					{
+						"description": "Value",
+						"type": "integer",
+						"minimum": 0,
+						"maximum": 240
+					}
+				],
+				"additionalItems": {
+					"description": "Units",
+					"type": "string",
+					"enum": [
+						"days",
+						"months",
+						"years"
+					]
+				},
+				"examples": [
+					[
+						10,
+						"days"
+					],
+					[
+						3,
+						"months"
+					],
+					[
+						18,
+						"years"
+					]
+				]
+			},
+			"examples": [
+				[
+					[
+						2,
+						"years"
+					],
+					[
+						17,
+						"years"
+					]
+				],
+				[
+					[
+						65,
+						"years"
+					],
+					[
+						100,
+						"years"
+					]
+				]
+			]
+		},
+		"Sex": {
+			"type": "string",
+			"enum": [
+				"Female",
+				"Male",
+				"Unknown",
+				"Not specified"
+			]
+		},
+		"Demographic": {
+			"description": "Race / ethnicity (U.S. reporting categories)",
+			"$comment": "Race / ethnicity (ROADMAP:03441): American Indian or Alaska Native (ROADMAP:03448), Asian (ROADMAP:03442), Black or African American (ROADMAP:03443), Hispanic or Latino (ROADMAP:03444), Middle Eastern or North African (ROADMAP:03445), Native Hawaiian or Pacific Islander (ROADMAP:03446), White (ROADMAP:03447)",
+			"type": "string",
+			"enum": [
+				"American Indian or Alaska Native",
+				"Asian",
+				"Black or African American",
+				"Hispanic or Latino",
+				"Middle Eastern or North African",
+				"Native Hawaiian or Pacific Islander",
+				"White"
+			]
+		},
+		"Criterion": {
+			"description": "Other subset criterion, such as reference-standard value, imaging finding, or other factor",
+			"$comment": "ROADMAP:03477",
+			"type": "string"
+		},
+		"Comments": {
+			"type": "string"
+		},
+		"Subsets": {
+			"description": "A Subset may describe all or part of a Dataset, Partition, or Subset",
+			"$comment": "ROADMAP:3472",
+			"type": "array",
+			"items": {
+				"description": "Subset data by age, sex, and/or race.",
+				"$ref": "#"
+			}
+		}
+	},
+	"additionalProperties": false,
+	"examples": [
+		{
+			"Patients": 501,
+			"Sex": "Female"
+		},
+		{
+			"Patients": 42,
+			"Exams": 50,
+			"Images": 572,
+			"Age range": [
+				[
+					50,
+					"years"
+				],
+				[
+					59,
+					"years"
+				]
+			],
+			"Sex": "Male",
+			"Demographics": "Asian"
+		}
+	]
+}

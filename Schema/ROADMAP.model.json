@@ -1,0 +1,176 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$id": "ROADMAP.model.json",
+	"title": "Model",
+	"description": "Description of each Model",
+	"$comment": "ROADMAP:00002",
+	"type": "object",
+	"properties": {
+		"Name": {
+			"description": "Model name",
+			"type": "string"
+		},
+		"Details": {
+			"$ref": "ROADMAP.descriptor.json"
+		},
+		"Use": {
+			"type": "object",
+			"properties": {
+				"Intended": {
+					"description": "Intended model use",
+					"$comment": "ROADMAP:00012",
+					"type": "array",
+					"uniqueItems": true,
+					"items": {
+						"$ref": "ROADMAP.use.json"
+					}
+				},
+				"Out-of-scope": {
+					"description": "Out-of-scope model use",
+					"$comment": "ROADMAP:00013",
+					"type": "array",
+					"uniqueItems": true,
+					"items": {
+						"$ref": "ROADMAP.use.json"
+					}
+				},
+				"Excluded": {
+					"description": "Excluded model use",
+					"$comment": "ROADMAP:00014",
+					"type": "array",
+					"uniqueItems": true,
+					"items": {
+						"$ref": "ROADMAP.use.json"
+					}
+				}
+			},
+			"additionalProperties": false
+		},
+		"User": {
+			"type": "object",
+			"properties": {
+				"Intended": {
+					"description": "Intended model user",
+					"$comment": "ROADMAP:00037",
+					"type": "array",
+					"uniqueItems": true,
+					"items": {
+						"$ref": "ROADMAP.user.json"
+					}
+				},
+				"Out-of-scope": {
+					"description": "Out-of-scope model user",
+					"$comment": "ROADMAP:00038",
+					"type": "array",
+					"uniqueItems": true,
+					"items": {
+						"$ref": "ROADMAP.user.json"
+					}
+				},
+				"Excluded": {
+					"description": "Excluded model user",
+					"$comment": "ROADMAP:00039",
+					"type": "array",
+					"uniqueItems": true,
+					"items": {
+						"$ref": "ROADMAP.user.json"
+					}
+				}
+			},
+			"additionalProperties": false
+		},
+		"Metric": {
+			"$ref": "ROADMAP.metric.json"
+		},
+		"Caveat": {
+			"$comment": "ROADMAP:03353",
+			"type": "string"
+		},
+		"Decision threshold": {
+			"$comment": "ROADMAP:03351",
+			"type": "string"
+		},
+		"Ethical consideration": {
+			"$comment": "ROADMAP:03352",
+			"type": "string"
+		},
+		"Recommendation": {
+			"$comment": "ROADMAP:03354",
+			"type": "string"
+		},
+		"Availability": {
+			"description": "Model availability",
+			"$comment": "ROADMAP:03373",
+			"type": "string"
+		},
+		"Sustainability": {
+			"description": "Sustainability",
+			"$comment": "ROADMAP:03376",
+			"type": "string"
+		},
+		"Time to train model": {
+			"description": "Sustainability: Time to train model",
+			"$comment": "ROADMAP:03377",
+			"type": "string"
+		},
+		"Time to evaluate single input": {
+			"description": "Sustainability: Time to evaluate single input",
+			"$comment": "ROADMAP:03378",
+			"type": "string"
+		},
+		"Required processor": {
+			"description": "Sustainability: Required processors",
+			"$comment": "ROADMAP:03379",
+			"type": "string"
+		},
+		"Carbon footprint calculation": {
+			"description": "Sustainability: Carbon footprint calculation",
+			"$comment": "ROADMAP:03380",
+			"type": "string"
+		},
+		"Method": {
+			"description": "Relevant machine-learning methods, from Papers With Code",
+			"$comment": "ROADMAP:00118",
+			"type": "array",
+			"uniqueItems": true,
+			"items": {
+				"anyOf": [
+					{
+						"type": "string",
+						"format": "uri-template",
+						"pattern": "https://paperswithcode.com/method/.+"
+					},
+					{
+						"type": "string",
+						"format": "uri-template",
+						"pattern": "https://paperswithcode.com/methods/category/.+"
+					}
+				],
+				"examples": [
+					"https://paperswithcode.com/method/autoencoder",
+					"https://paperswithcode.com/method/unet",
+					"https://paperswithcode.com/methods/category/image-feature-extractors"
+				]
+			}
+		},
+		"Task": {
+			"description": "Tasks to which the model is applied, from Papers With Code",
+			"$comment": "ROADMAP:00119",
+			"type": "array",
+			"uniqueItems": true,
+			"items": {
+				"type": "string",
+				"format": "uri-template",
+				"pattern": "https://paperswithcode.com/task/.+",
+				"examples": [
+					"https://paperswithcode.com/task/object-detection",
+					"https://paperswithcode.com/task/semantic-segmentation"
+				]
+			}
+		}
+	},
+	"required": [
+		"Name"
+	],
+	"additionalProperties": false
+}
