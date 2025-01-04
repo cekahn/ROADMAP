@@ -4,8 +4,8 @@
 	"description": "Description of each partition",
 	"type": "object",
 	"properties": {
-		"Subsets": {
-			"description": "Subsets of partition by age, sex, and/or race.",
+		"Subset": {
+			"description": "Array of Subsets of partition by age, sex, race, and/or other criteria.",
 			"type": "array",
 			"items": {
 				"$ref": "ROADMAP.subset.json#"

@@ -14,14 +14,26 @@
 			"type": "array",
 			"uniqueItems": true,
 			"items": {
-				"description": "RadLex codes; pointers to https://radlex.org/RID/{code}",
+				"description": "RadLex codes",
 				"$comment": "ROADMAP:00117",
-				"type": "string",
-				"format": "uri",
-				"pattern": "https://radlex.org/RID/RID[0-9]+",
-				"examples": [
-					"https://radlex.org/RID/RID58",
-					"https://radlex.org/RID/RID1169"
+				"anyOf": [
+					{
+						"type": "string",
+						"pattern": "RID[0-9]+",
+						"examples": [
+							"RID58",
+							"RID1169"
+						]
+					},
+					{
+						"type": "string",
+						"format": "uri",
+						"pattern": "https://radlex.org/RID/RID[0-9]+",
+						"examples": [
+							"https://radlex.org/RID/RID58",
+							"https://radlex.org/RID/RID1169"
+						]
+					}
 				]
 			}
 		},
@@ -152,10 +164,19 @@
 					},
 					"DOI": {
 						"description": "Digital Object Identifer (DOI)",
-						"type": "string",
-						"format": "uri",
-						"pattern": "https://doi.org/.+",
-						"examples": ["https://doi.org/10.1148/ryai.240101"]
+						"anyOf": [
+							{
+								"type": "string",
+								"pattern": "[0-9]+.[0-9]+/.+",
+								"examples": ["10.1148/ryai.240101"]
+							},
+							{
+								"type": "string",
+								"format": "uri",
+								"pattern": "https://doi.org/.+",
+								"examples": ["https://doi.org/10.1148/ryai.240101"]
+							}
+						]
 					},
 					"URL": {
 						"description": "Pointer to online reference",
@@ -180,9 +201,19 @@
 		"License": {
 			"description": "License or rights to access this resource",
 			"$comment": "ROADMAP:00068",
-			"type": "string",
-			"format": "uri",
-			"examples": ["https://creativecommons.org/licenses/by-nc-nd/4.0/"]
+			"properties": {
+				"Text": {
+					"type": "string",
+					"examples": ["Non-commercial use"]
+				},
+				"URL": {
+					"type": "string",
+					"format": "uri",
+					"examples": ["https://creativecommons.org/licenses/by-nc-nd/4.0/"]
+				}
+			},
+			"additionalProperties": false,
+			"minProperties": 1
 		},
 		"Contact": {
 			"$comment": "ROADMAP:00069",

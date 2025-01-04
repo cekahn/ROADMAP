@@ -5,27 +5,27 @@
 	"$comment": "ROADMAP:03422",
 	"type": "object",
 	"properties": {
-		"Sites": {
+		"Site count": {
 			"description": "Number of sites",
 			"$comment": "Site count (ROADMAP:03358)",
 			"type": "integer"
 		},
-		"Patients": {
+		"Patient count": {
 			"description": "Number of distinct patients",
 			"$comment": "Patient count (ROADMAP:00056)",
 			"type": "integer"
 		},
-		"Exams": {
+		"Exam count": {
 			"description": "Number of exams",
 			"$comment": "Study count (ROADMAP:00057)",
 			"type": "integer"
 		},
-		"Series": {
+		"Series count": {
 			"description": "Number of imaging series",
 			"$comment": "Series count (ROADMAP:00632)",
 			"type": "integer"
 		},
-		"Images": {
+		"Image count": {
 			"description": "Number of images",
 			"$comment": "Image count (ROADMAP:00058)",
 			"type": "integer"
@@ -124,15 +124,13 @@
 			"$comment": "ROADMAP:03477",
 			"type": "string"
 		},
-		"Comments": {
-			"type": "string"
-		},
-		"Subsets": {
+		"Comments": {"type": "string"},
+		"Subset": {
 			"description": "A Subset may describe all or part of a Dataset, Partition, or Subset",
 			"$comment": "ROADMAP:3472",
 			"type": "array",
 			"items": {
-				"description": "Subset data by age, sex, and/or race.",
+				"description": "Subset data by age, sex, race, and/or other criteria.",
 				"$ref": "#"
 			}
 		}
@@ -140,13 +138,10 @@
 	"additionalProperties": false,
 	"examples": [
 		{
-			"Patients": 501,
-			"Sex": "Female"
+			"Sex": "Female",
+			"Patient count": 501
 		},
 		{
-			"Patients": 42,
-			"Exams": 50,
-			"Images": 572,
 			"Age range": [
 				[
 					50,
@@ -158,7 +153,10 @@
 				]
 			],
 			"Sex": "Male",
-			"Demographics": "Asian"
+			"Demographics": "Asian",
+			"Patient count": 42,
+			"Exam  count": 50,
+			"Image count": 572
 		}
 	]
 }
