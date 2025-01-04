@@ -1,6 +1,6 @@
 # ROADMAP
 
-Radiology Ontology for AI Datasets, Models and Projects 
+__Radiology Ontology for AI Datasets, Models and Projects__
 
 This repository contains draft versions of an ontology to describe the metadata for radiology AI models and datasets.  (ROADMAP was previously "RMDO.")
 
