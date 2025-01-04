@@ -7,12 +7,12 @@
 	"anyOf": [
 		{
 			"type": "string",
-			"format": "uri-template",
+			"format": "uri",
 			"pattern": "https://paperswithcode.com/method/.+"
 		},
 		{
 			"type": "string",
-			"format": "uri-template",
+			"format": "uri",
 			"pattern": "https://paperswithcode.com/methods/category/.+"
 		}
 	],

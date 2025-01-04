@@ -4,11 +4,11 @@
 	"description": "Details for Project, Model, and Dataset entities",
 	"type": "object",
 	"properties": {
-		"Content codes": {
+		"Content code": {
 			"description": "RSNA content codes",
 			"$ref": "ROADMAP.content-code.json#"
 		},
-		"RadLex codes": {
+		"RadLex code": {
 			"description": "RadLex codes",
 			"$comment": "ROADMAP:00117",
 			"type": "array",
@@ -17,63 +17,27 @@
 				"description": "RadLex codes; pointers to https://radlex.org/RID/{code}",
 				"$comment": "ROADMAP:00117",
 				"type": "string",
-				"pattern": "RID[0-9]+",
+				"format": "uri",
+				"pattern": "https://radlex.org/RID/RID[0-9]+",
 				"examples": [
-					"RID58",
-					"RID1169"
+					"https://radlex.org/RID/RID58",
+					"https://radlex.org/RID/RID1169"
 				]
 			}
 		},
-		"Persons": {
-			"description": "Individual authors and contributors",
-			"$comment": "Person (ROADMAP:00071), Author (ROADMAP:00064), Contributor (ROADMAP:03471)",
+		"Author": {
+			"description": "List of Authors",
+			"$comment": "ROADMAP:00064",
 			"type": "array",
-			"items": {
-				"description": "Information about each person",
-				"type": "object",
-				"properties": {
-					"Name": {
-						"description": "The person's name",
-						"type": "string"
-					},
-					"Role": {
-						"description": "The individual's role",
-						"type": "string",
-						"enum": [
-							"Author",
-							"Contributor"
-						]
-					},
-					"Email": {
-						"type": "string",
-						"format": "email"
-					},
-					"Address": {
-						"description": "Person's physical (real-world) address",
-						"type": "string"
-					},
-					"ORCID": {
-						"description": "Unique ORCID (Open Researcher and Contributor ID) identifier",
-						"type": "string",
-						"pattern": "https://orcid.org/[0-9X]{4}-[0-9X]{4}-[0-9X]{4}-[0-9X]{4}",
-						"format": "uri-template",
-						"examples": [
-							"https://orcid.org/0000-0000-0000-0000"
-						]
-					},
-					"URL": {
-						"type": "string",
-						"format": "uri"
-					}
-				},
-				"required": [
-					"Name",
-					"Role"
-				],
-				"additionalProperties": false
-			}
+			"items": {"$ref": "ROADMAP.person.json"}
 		},
-		"Organizations": {
+		"Contributor": {
+			"description": "List of individual Contributors",
+			"$comment": "ROADMAP:03471",
+			"type": "array",
+			"items": {"$ref": "ROADMAP.person.json"}
+		},
+		"Organization": {
 			"description": "Organizations that developed and/or sponsored the resource",
 			"$comment": "Organization (ROADMAP:00072)",
 			"type": "array",
@@ -101,9 +65,7 @@
 						"format": "uri"
 					}
 				},
-				"required": [
-					"Name"
-				],
+				"required": ["Name"],
 				"additionalProperties": false
 			}
 		},
@@ -111,7 +73,7 @@
 			"type": "object",
 			"properties": {
 				"Created": {
-					"description": "Creation date: ISO date (e.g., 2024-01-01) or year",
+					"description": "Creation date (ISO format, e.g., 2024-01-01) or year",
 					"$comment": "ROADMAP:03419",
 					"type": [
 						"string",
@@ -125,7 +87,7 @@
 					]
 				},
 				"Published": {
-					"description": "Publication date",
+					"description": "Publication date (ISO format) or year",
 					"$comment": "ROADMAP:03420",
 					"type": [
 						"string",
@@ -160,7 +122,7 @@
 			"$comment": "ROADMAP:00066",
 			"type": "string"
 		},
-		"References": {
+		"Reference": {
 			"$comment": "ROADMAP:00067",
 			"type": "array",
 			"items": {
@@ -169,61 +131,47 @@
 					"Authors": {
 						"description": "Reference authors",
 						"type": "string",
-						"examples": [
-							"Rudie JD, et al."
-						]
+						"examples": ["Rudie JD, et al."]
 					},
 					"Title": {
 						"description": "Reference title",
 						"type": "string",
-						"examples": [
-							"The RSNA Abdominal Traumatic Injury CT (RATIC) Dataset"
-						]
+						"examples": ["The RSNA Abdominal Traumatic Injury CT (RATIC) Dataset"]
 					},
 					"Source": {
 						"description": "Name of journal, book, or other source",
 						"type": "string",
-						"examples": [
-							"Radiology: Artificial Intelligence"
-						]
+						"examples": ["Radiology: Artificial Intelligence"]
 					},
 					"Year": {
 						"$comment": "By 2100, you'll need to update this schema! ;-)",
 						"type": "integer",
 						"minimum": 1900,
 						"maximum": 2100,
-						"examples": [
-							2024
-						]
+						"examples": [2024]
 					},
 					"DOI": {
 						"description": "Digital Object Identifer (DOI)",
 						"type": "string",
-						"examples": [
-							"10.1148/ryai.240101"
-						]
+						"format": "uri",
+						"pattern": "https://doi.org/.+",
+						"examples": ["https://doi.org/10.1148/ryai.240101"]
 					},
 					"URL": {
 						"description": "Pointer to online reference",
 						"type": "string",
 						"format": "uri",
-						"examples": [
-							"https://doi.org/10.1148/ryai.240101"
-						]
+						"examples": ["https://doi.org/10.1148/ryai.240101"]
 					},
 					"PMID": {
 						"description": "PubMed ID",
 						"type": "integer",
-						"examples": [
-							39441109
-						]
+						"examples": [39441109]
 					},
 					"PMCID": {
 						"description": "PubMed Central ID",
 						"type": "string",
-						"examples": [
-							"PMC8017407"
-						]
+						"examples": ["PMC8017407"]
 					}
 				},
 				"additionalProperties": false
@@ -234,9 +182,7 @@
 			"$comment": "ROADMAP:00068",
 			"type": "string",
 			"format": "uri",
-			"examples": [
-				"https://creativecommons.org/licenses/by-nc-nd/4.0/"
-			]
+			"examples": ["https://creativecommons.org/licenses/by-nc-nd/4.0/"]
 		},
 		"Contact": {
 			"$comment": "ROADMAP:00069",

@@ -1,0 +1,34 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$id": "ROADMAP.person.json",
+	"description": "Description for individual Person (ROADMAP:00071)",
+	"type": "object",
+	"$comment": "ROADMAP:00071",
+	"properties": {
+		"Name": {
+			"description": "The person's name",
+			"type": "string"
+		},
+		"Email": {
+			"type": "string",
+			"format": "email"
+		},
+		"Address": {
+			"description": "Person's physical (real-world) address",
+			"type": "string"
+		},
+		"ORCID": {
+			"description": "Unique ORCID (Open Researcher and Contributor ID) identifier",
+			"type": "string",
+			"pattern": "https://orcid.org/.+",
+			"format": "uri",
+			"examples": ["https://orcid.org/0000-0000-0000-0000"]
+		},
+		"URL": {
+			"type": "string",
+			"format": "uri"
+		}
+	},
+	"required": ["Name"],
+	"additionalProperties": false
+}
