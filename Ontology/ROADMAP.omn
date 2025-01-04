@@ -36588,17 +36588,19 @@ Class: <https://rsna.org/roadmap/ROADMAP_03307>
         rdfs:label "Accuracy"@en
     
     SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_03302>
+        <https://rsna.org/roadmap/ROADMAP_03501>
     
     
 Class: <https://rsna.org/roadmap/ROADMAP_03308>
 
     Annotations: 
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "BA"@en,
-        rdfs:label "Balanced accuracy"@en
+        rdfs:comment "Balanced Accuracy is the average of recall obtained on each class. It can be computed with: Balanced Accuracy = (TPR + TNR) / N Where: TPR: True positive rate TNR: True negative rate N: Number of classes.",
+        rdfs:label "Balanced accuracy"@en,
+        rdfs:seeAlso "https://huggingface.co/spaces/hyperml/balanced_accuracy"^^xsd:anyURI
     
     SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_03302>,
+        <https://rsna.org/roadmap/ROADMAP_03501>,
         <https://rsna.org/roadmap/ROADMAP_03507>
     
     
@@ -36645,7 +36647,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03313>
         rdfs:label "Specificity"@en
     
     SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_03302>
+        <https://rsna.org/roadmap/ROADMAP_03501>
     
     
 Class: <https://rsna.org/roadmap/ROADMAP_03314>
@@ -36666,6 +36668,9 @@ Class: <https://rsna.org/roadmap/ROADMAP_03314>
 Class: <https://rsna.org/roadmap/ROADMAP_03315>
 
     Annotations: 
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "DR",
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Detection rate",
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Detection rate (DR), in the field of computer science, refers to the percentage of anomalies detected out of the total number of anomalies present in the data. It is also known as precision.",
         rdfs:comment "Precision = TP / (TP + FP)",
         rdfs:comment "Precision is the fraction of correctly labeled positive examples out of all of the examples that were labeled as positive.",
         rdfs:label "Precision"@en
@@ -36747,7 +36752,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03322>
         rdfs:label "False positive rate"@en
     
     SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_03302>
+        <https://rsna.org/roadmap/ROADMAP_03323>
     
     
 Class: <https://rsna.org/roadmap/ROADMAP_03323>
@@ -36757,7 +36762,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03323>
         rdfs:label "False positives per image"@en
     
     SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_03302>
+        <https://rsna.org/roadmap/ROADMAP_03501>
     
     
 Class: <https://rsna.org/roadmap/ROADMAP_03324>
@@ -36834,7 +36839,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03330>
         rdfs:label "Class error"@en
     
     SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_03302>
+        <https://rsna.org/roadmap/ROADMAP_03501>
     
     
 Class: <https://rsna.org/roadmap/ROADMAP_03331>
@@ -36844,7 +36849,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03331>
         rdfs:label "Class-wise calibration error"@en
     
     SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_03302>
+        <https://rsna.org/roadmap/ROADMAP_03501>
     
     
 Class: <https://rsna.org/roadmap/ROADMAP_03332>
@@ -36911,7 +36916,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03337>
         rdfs:label "Dice similarity coefficient"@en
     
     SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_03302>
+        <https://rsna.org/roadmap/ROADMAP_03503>
     
     
 Class: <https://rsna.org/roadmap/ROADMAP_03338>
@@ -36969,7 +36974,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03342>
         rdfs:label "Intersection over Union"@en
     
     SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_03302>
+        <https://rsna.org/roadmap/ROADMAP_03503>
     
     
 Class: <https://rsna.org/roadmap/ROADMAP_03343>
@@ -36979,7 +36984,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03343>
         rdfs:label "Hausdorff distance"@en
     
     SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_03302>
+        <https://rsna.org/roadmap/ROADMAP_03503>
     
     
 Class: <https://rsna.org/roadmap/ROADMAP_03344>
@@ -36989,7 +36994,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03344>
         rdfs:label "Mean absolute surface distance"@en
     
     SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_03302>
+        <https://rsna.org/roadmap/ROADMAP_03503>
     
     
 Class: <https://rsna.org/roadmap/ROADMAP_03345>
@@ -38570,7 +38575,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_03514>
         rdfs:label "Mutual information"@en
     
     SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_03506>
+        <https://rsna.org/roadmap/ROADMAP_03507>,
+        <https://rsna.org/roadmap/ROADMAP_03581>
     
     
 Class: <https://rsna.org/roadmap/ROADMAP_03515>
@@ -38713,15 +38719,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03528>
         rdfs:label "Mean square error"@en
     
     SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_03507>
-    
-    
-Class: <https://rsna.org/roadmap/ROADMAP_03529>
-
-    Annotations: 
-        rdfs:label "Normalized mutual information"@en
-    
-    SubClassOf: 
+        <https://rsna.org/roadmap/ROADMAP_03505>,
         <https://rsna.org/roadmap/ROADMAP_03507>
     
     
@@ -38827,16 +38825,6 @@ Class: <https://rsna.org/roadmap/ROADMAP_03542>
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_03507>
-    
-    
-Class: <https://rsna.org/roadmap/ROADMAP_03543>
-
-    Annotations: 
-        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "MI",
-        rdfs:label "Mutual Information"@en
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_03581>
     
     
 Class: <https://rsna.org/roadmap/ROADMAP_03544>
@@ -39013,17 +39001,6 @@ Class: <https://rsna.org/roadmap/ROADMAP_03559>
         <https://rsna.org/roadmap/ROADMAP_03329>
     
     
-Class: <https://rsna.org/roadmap/ROADMAP_03560>
-
-    Annotations: 
-        rdfs:comment "Balanced Accuracy is the average of recall obtained on each class. It can be computed with: Balanced Accuracy = (TPR + TNR) / N Where: TPR: True positive rate TNR: True negative rate N: Number of classes",
-        rdfs:label "Balanced accurary"@en,
-        rdfs:seeAlso "https://huggingface.co/spaces/hyperml/balanced_accuracy"
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_03302>
-    
-    
 Class: <https://rsna.org/roadmap/ROADMAP_03561>
 
     Annotations: 
@@ -39182,15 +39159,6 @@ Class: <https://rsna.org/roadmap/ROADMAP_03574>
         <https://rsna.org/roadmap/ROADMAP_03505>
     
     
-Class: <https://rsna.org/roadmap/ROADMAP_03575>
-
-    Annotations: 
-        rdfs:label "Mean square error"@en
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_03505>
-    
-    
 Class: <https://rsna.org/roadmap/ROADMAP_03576>
 
     Annotations: 
@@ -39341,6 +39309,36 @@ Class: <https://rsna.org/roadmap/ROADMAP_03592>
     
 Class: owl:Thing
 
+    
+Class: rmdo:RMDO_03593
+
+    Annotations: 
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "EDR",
+        rdfs:comment "The Enhanced Detection Rate (EDR) = ( the number of AI-positive exams not detection by the human reads) / (the number of radiologist-detected positive exams). The value represents the improvement in sensitivity that could reached by optimaly combining human and AI results.",
+        rdfs:label "Enhanced detection rate"@en
+    
+    SubClassOf: 
+        <https://rsna.org/roadmap/ROADMAP_03302>,
+        <https://rsna.org/roadmap/ROADMAP_03501>
+    
+    
+Class: rmdo:RMDO_03594
+
+    Annotations: 
+        rdfs:label "Positive concordance rate"@en
+    
+    SubClassOf: 
+        <https://rsna.org/roadmap/ROADMAP_03501>
+    
+    
+Class: rmdo:RMDO_03595
+
+    Annotations: 
+        rdfs:label "Negative discordance rate"@en
+    
+    SubClassOf: 
+        <https://rsna.org/roadmap/ROADMAP_03506>
+    
     
 Individual: <https://rsna.org/roadmap/ROADMAP_03468>
 
