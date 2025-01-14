@@ -48,7 +48,7 @@ AnnotationProperty: rdfs:label
 AnnotationProperty: rdfs:seeAlso
 
     
-AnnotationProperty: rmdo:RMDO_03626
+AnnotationProperty: rmdo:ROADMAP_03626
 
     Annotations: 
         rdfs:label "pattern"@en
@@ -100,6 +100,11 @@ ObjectProperty: <https://rsna.org/roadmap/ROADMAP_00116>
     Annotations: 
         <http://www.geneontology.org/formats/oboInOwl#id> "ROADMAP:00116",
         rdfs:label "hasDescriptor"@en
+    
+    Domain: 
+        <https://rsna.org/roadmap/ROADMAP_00002>,
+        <https://rsna.org/roadmap/ROADMAP_00003>,
+        <https://rsna.org/roadmap/ROADMAP_00010>
     
     Range: 
         <https://rsna.org/roadmap/ROADMAP_00004>
@@ -332,7 +337,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_00012>
         rdfs:label "Intended model use"
     
     SubClassOf: 
-        rmdo:RMDO_03600,
+        rmdo:ROADMAP_03600,
         <https://rsna.org/roadmap/ROADMAP_00011>
     
     
@@ -588,7 +593,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_00037>
         rdfs:label "Intended model user"
     
     SubClassOf: 
-        rmdo:RMDO_03600,
+        rmdo:ROADMAP_03600,
         <https://rsna.org/roadmap/ROADMAP_00036>
     
     
@@ -995,7 +1000,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_00075>
         rdfs:label "Physician"
     
     SubClassOf: 
-        rmdo:RMDO_03599
+        rmdo:ROADMAP_03599
     
     
 Class: <https://rsna.org/roadmap/ROADMAP_00076>
@@ -1045,7 +1050,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_00080>
         rdfs:label "Referring provider"
     
     SubClassOf: 
-        rmdo:RMDO_03599
+        rmdo:ROADMAP_03599
     
     
 Class: <https://rsna.org/roadmap/ROADMAP_00081>
@@ -1447,7 +1452,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_00117>
         <http://purl.org/dc/elements/1.1/source> <https://radlex.org/>,
         <http://www.geneontology.org/formats/oboInOwl#id> "ROADMAP:00117",
         rdfs:label "RadLex code",
-        rmdo:RMDO_03626 "https://radlex.org/RID/RID[0-9]+"
+        rmdo:ROADMAP_03626 "https://radlex.org/RID/RID[0-9]+"
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_00074>
@@ -36553,7 +36558,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03302>
         rdfs:seeAlso "https://doi.org/10.1038/s41592-023-02151-z"^^xsd:anyURI
     
     SubClassOf: 
-        rmdo:RMDO_03615
+        rmdo:ROADMAP_03615
     
     
 Class: <https://rsna.org/roadmap/ROADMAP_03303>
@@ -37092,7 +37097,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03355>
         rdfs:label "Model property"@en
     
     SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_03463>
+        <https://rsna.org/roadmap/ROADMAP_00001>
     
     
 Class: <https://rsna.org/roadmap/ROADMAP_03356>
@@ -38367,7 +38372,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03490>
         rdfs:label "Dosimetrist"@en
     
     SubClassOf: 
-        rmdo:RMDO_03599
+        rmdo:ROADMAP_03599
     
     
 Class: <https://rsna.org/roadmap/ROADMAP_03491>
@@ -38377,7 +38382,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03491>
         rdfs:label "Radiology staff member"@en
     
     SubClassOf: 
-        rmdo:RMDO_03599
+        rmdo:ROADMAP_03599
     
     
 Class: <https://rsna.org/roadmap/ROADMAP_03492>
@@ -38386,7 +38391,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03492>
         rdfs:label "Medical physicist"@en
     
     SubClassOf: 
-        rmdo:RMDO_03599
+        rmdo:ROADMAP_03599
     
     
 Class: <https://rsna.org/roadmap/ROADMAP_03493>
@@ -39319,14 +39324,45 @@ Class: <https://rsna.org/roadmap/ROADMAP_03592>
         <https://rsna.org/roadmap/ROADMAP_03591>
     
     
+Class: <https://rsna.org/roadmap/ROADMAP_03629>
+
+    Annotations: 
+        <http://purl.org/dc/elements/1.1/source> "https://www.fda.gov/media/184856/download",
+        rdfs:label "Known bias or failure mode"@en
+    
+    SubClassOf: 
+        rmdo:ROADMAP_03621
+    
+    
+Class: <https://rsna.org/roadmap/ROADMAP_03630>
+
+    Annotations: 
+        <http://purl.org/dc/elements/1.1/source> "https://www.fda.gov/media/184856/download",
+        rdfs:comment "Known gaps in the data characterization, such as patient populations that are not well represented in development (e.g., training) or testing datasets, and therefore, may be at risk of bias.",
+        rdfs:label "Known data-characterization gap"@en
+    
+    SubClassOf: 
+        rmdo:ROADMAP_03621
+    
+    
+Class: <https://rsna.org/roadmap/ROADMAP_03631>
+
+    Annotations: 
+        rdfs:comment "Use other than one of the predefined classes; should be specified as text.",
+        rdfs:label "Other use"@en
+    
+    SubClassOf: 
+        <https://rsna.org/roadmap/ROADMAP_00015>
+    
+    
 Class: owl:Thing
 
     
-Class: rmdo:RMDO_03593
+Class: rmdo:ROADMAP_03593
 
     Annotations: 
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "EDR",
-        rdfs:comment "The Enhanced Detection Rate (EDR) = ( the number of AI-positive exams not detection by the human reads) / (the number of radiologist-detected positive exams). The value represents the improvement in sensitivity that could reached by optimaly combining human and AI results.",
+        rdfs:comment "The Enhanced Detection Rate (EDR) = ( the number of AI-positive exams not detection by the human reads) / (the number of radiologist-detected positive exams). The value represents the improvement in sensitivity that could reached by optimaly combining human and AI results (Kottler N, personal communication)."@en,
         rdfs:label "Enhanced detection rate"@en
     
     SubClassOf: 
@@ -39334,25 +39370,27 @@ Class: rmdo:RMDO_03593
         <https://rsna.org/roadmap/ROADMAP_03501>
     
     
-Class: rmdo:RMDO_03594
+Class: rmdo:ROADMAP_03594
 
     Annotations: 
+        rdfs:comment "(Kottler N, personal communication).",
         rdfs:label "Positive concordance rate"@en
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_03501>
     
     
-Class: rmdo:RMDO_03595
+Class: rmdo:ROADMAP_03595
 
     Annotations: 
+        rdfs:comment "(Kottler N, personal communication).",
         rdfs:label "Negative discordance rate"@en
     
     SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_03506>
+        <https://rsna.org/roadmap/ROADMAP_03501>
     
     
-Class: rmdo:RMDO_03596
+Class: rmdo:ROADMAP_03596
 
     Annotations: 
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Date of last update",
@@ -39364,7 +39402,7 @@ Class: rmdo:RMDO_03596
         <https://rsna.org/roadmap/ROADMAP_03421>
     
     
-Class: rmdo:RMDO_03597
+Class: rmdo:ROADMAP_03597
 
     Annotations: 
         rdfs:comment "Name of the project, model, or dataset.",
@@ -39374,7 +39412,7 @@ Class: rmdo:RMDO_03597
         <https://rsna.org/roadmap/ROADMAP_00004>
     
     
-Class: rmdo:RMDO_03598
+Class: rmdo:ROADMAP_03598
 
     Annotations: 
         rdfs:comment "Textual description of underlying model technology, e.g., \"Convolutional Neural Network\". If possible, includes Method array to indicate architecture as linked from PapersWithCode.",
@@ -39384,7 +39422,7 @@ Class: rmdo:RMDO_03598
         <https://rsna.org/roadmap/ROADMAP_03355>
     
     
-Class: rmdo:RMDO_03599
+Class: rmdo:ROADMAP_03599
 
     Annotations: 
         rdfs:label "Healthcare professional"@en
@@ -39393,7 +39431,7 @@ Class: rmdo:RMDO_03599
         <https://rsna.org/roadmap/ROADMAP_00040>
     
     
-Class: rmdo:RMDO_03600
+Class: rmdo:ROADMAP_03600
 
     Annotations: 
         rdfs:comment "Describes the disease or condition that the AI system will diagnose, treat, prevent, cure, or mitigate. Describes the target patient population for which the model is intended and the intended use environment (e.g., ICU, step-down unit, home).",
@@ -39403,7 +39441,7 @@ Class: rmdo:RMDO_03600
         <https://rsna.org/roadmap/ROADMAP_03355>
     
     
-Class: rmdo:RMDO_03601
+Class: rmdo:ROADMAP_03601
 
     Annotations: 
         rdfs:comment "Directions and recommendations for optimal use of the model.",
@@ -39413,34 +39451,36 @@ Class: rmdo:RMDO_03601
         <https://rsna.org/roadmap/ROADMAP_03355>
     
     
-Class: rmdo:RMDO_03602
+Class: rmdo:ROADMAP_03602
 
     Annotations: 
-        rdfs:label "Regulatory status"@en
+        <http://purl.org/dc/elements/1.1/source> "https://www.fda.gov/media/184856/download",
+        rdfs:comment "Information used to support regulatory review.",
+        rdfs:label "Regulatory information"@en
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_03355>
     
     
-Class: rmdo:RMDO_03603
+Class: rmdo:ROADMAP_03603
 
     Annotations: 
         rdfs:label "Regulatory authorization status"@en
     
     SubClassOf: 
-        rmdo:RMDO_03602
+        rmdo:ROADMAP_03602
     
     
-Class: rmdo:RMDO_03604
+Class: rmdo:ROADMAP_03604
 
     Annotations: 
         rdfs:label "Regulatory file number"@en
     
     SubClassOf: 
-        rmdo:RMDO_03602
+        rmdo:ROADMAP_03602
     
     
-Class: rmdo:RMDO_03605
+Class: rmdo:ROADMAP_03605
 
     Annotations: 
         rdfs:label "Treatment"@en
@@ -39449,7 +39489,7 @@ Class: rmdo:RMDO_03605
         <https://rsna.org/roadmap/ROADMAP_00015>
     
     
-Class: rmdo:RMDO_03606
+Class: rmdo:ROADMAP_03606
 
     Annotations: 
         rdfs:label "Cure"@en
@@ -39458,7 +39498,7 @@ Class: rmdo:RMDO_03606
         <https://rsna.org/roadmap/ROADMAP_00015>
     
     
-Class: rmdo:RMDO_03607
+Class: rmdo:ROADMAP_03607
 
     Annotations: 
         rdfs:label "Mitigation"@en
@@ -39467,7 +39507,7 @@ Class: rmdo:RMDO_03607
         <https://rsna.org/roadmap/ROADMAP_00015>
     
     
-Class: rmdo:RMDO_03608
+Class: rmdo:ROADMAP_03608
 
     Annotations: 
         rdfs:label "Prevention"@en
@@ -39476,7 +39516,7 @@ Class: rmdo:RMDO_03608
         <https://rsna.org/roadmap/ROADMAP_00015>
     
     
-Class: rmdo:RMDO_03609
+Class: rmdo:ROADMAP_03609
 
     Annotations: 
         rdfs:comment "Indicates a user type other than a predefined subclass of User type; should be recorded as text.",
@@ -39486,26 +39526,26 @@ Class: rmdo:RMDO_03609
         <https://rsna.org/roadmap/ROADMAP_00040>
     
     
-Class: rmdo:RMDO_03610
+Class: rmdo:ROADMAP_03610
 
     Annotations: 
         rdfs:comment "Disease or condition for which the model is intended to be used. Should be an array of pointers to SNOMED and/or ICD terms.",
         rdfs:label "Indicated disease or condition"@en
     
     SubClassOf: 
-        rmdo:RMDO_03600
+        rmdo:ROADMAP_03600
     
     
-Class: rmdo:RMDO_03611
+Class: rmdo:ROADMAP_03611
 
     Annotations: 
         rdfs:label "Indicated setting"@en
     
     SubClassOf: 
-        rmdo:RMDO_03600
+        rmdo:ROADMAP_03600
     
     
-Class: rmdo:RMDO_03612
+Class: rmdo:ROADMAP_03612
 
     Annotations: 
         rdfs:comment "Clinical benefits, such as: 
@@ -39519,7 +39559,7 @@ Limitations, including whether the device is intended to be used by, or under th
         <https://rsna.org/roadmap/ROADMAP_03355>
     
     
-Class: rmdo:RMDO_03613
+Class: rmdo:ROADMAP_03613
 
     Annotations: 
         rdfs:comment "Clinical workflow phase (e.g., patient pre-registration, digitization of forms or clinical  scales, patients’ triage, telehealth & virtual rounds, clinical decision support systems, workflow optimization, evidence-based methods to optimize medical interventions, feedback from users).",
@@ -39529,7 +39569,7 @@ Class: rmdo:RMDO_03613
         <https://rsna.org/roadmap/ROADMAP_03355>
     
     
-Class: rmdo:RMDO_03614
+Class: rmdo:ROADMAP_03614
 
     Annotations: 
         rdfs:comment "Degree of automation compared to the current standard of care, including whether the device supports or automates decision making.",
@@ -39539,7 +39579,7 @@ Class: rmdo:RMDO_03614
         <https://rsna.org/roadmap/ROADMAP_03355>
     
     
-Class: rmdo:RMDO_03615
+Class: rmdo:ROADMAP_03615
 
     Annotations: 
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Model performance",
@@ -39550,26 +39590,26 @@ Class: rmdo:RMDO_03615
         <https://rsna.org/roadmap/ROADMAP_03355>
     
     
-Class: rmdo:RMDO_03616
+Class: rmdo:ROADMAP_03616
 
     Annotations: 
         rdfs:label "Model performance value"@en
     
     SubClassOf: 
-        rmdo:RMDO_03615
+        rmdo:ROADMAP_03615
     
     
-Class: rmdo:RMDO_03617
+Class: rmdo:ROADMAP_03617
 
     Annotations: 
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Observed",
         rdfs:label "Observed value"@en
     
     SubClassOf: 
-        rmdo:RMDO_03616
+        rmdo:ROADMAP_03616
     
     
-Class: rmdo:RMDO_03618
+Class: rmdo:ROADMAP_03618
 
     Annotations: 
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Lower bound",
@@ -39577,10 +39617,10 @@ Class: rmdo:RMDO_03618
         rdfs:label "Lower bound value"@en
     
     SubClassOf: 
-        rmdo:RMDO_03616
+        rmdo:ROADMAP_03616
     
     
-Class: rmdo:RMDO_03619
+Class: rmdo:ROADMAP_03619
 
     Annotations: 
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Upper bound",
@@ -39588,33 +39628,34 @@ Class: rmdo:RMDO_03619
         rdfs:label "Upper bound value"@en
     
     SubClassOf: 
-        rmdo:RMDO_03616
+        rmdo:ROADMAP_03616
     
     
-Class: rmdo:RMDO_03620
+Class: rmdo:ROADMAP_03620
 
     Annotations: 
-        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Precision (reproducibility) associated with the provided outputs.",
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Precision (reproducibility) associated with the provided outputs. (Source: FDA draft model card)",
         rdfs:label "Reproducibility"@en
     
     SubClassOf: 
-        rmdo:RMDO_03615
+        rmdo:ROADMAP_03615
     
     
-Class: rmdo:RMDO_03621
+Class: rmdo:ROADMAP_03621
 
     Annotations: 
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "- Known biases or failure modes.
 Known gaps in the data characterization, such as patient populations that are not well represented in development (e.g., training) or testing datasets, and therefore, may be at risk of bias. 
 - Limitations in the model development or performance evaluation. 
 - Known circumstances where the device input will not align with the data used in development and validation.",
+        <http://purl.org/dc/elements/1.1/source> "https://www.fda.gov/media/184856/download",
         rdfs:label "Limitations"@en
     
     SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_03355>
+        rmdo:ROADMAP_03615
     
     
-Class: rmdo:RMDO_03622
+Class: rmdo:ROADMAP_03622
 
     Annotations: 
         rdfs:comment "Evidence (e.g., clinical trial number or for published results of a supporting study, the unique reference ID such as Digital Object Identifier, or PubMed Identifier information).",
@@ -39624,26 +39665,26 @@ Class: rmdo:RMDO_03622
         <https://rsna.org/roadmap/ROADMAP_03355>
     
     
-Class: rmdo:RMDO_03623
+Class: rmdo:ROADMAP_03623
 
     Annotations: 
         rdfs:label "Clinical trial number"@en
     
     SubClassOf: 
-        rmdo:RMDO_03622
+        rmdo:ROADMAP_03622
     
     
-Class: rmdo:RMDO_03624
+Class: rmdo:ROADMAP_03624
 
     Annotations: 
         rdfs:comment "For published results of a supporting study, the unique reference ID such as Digital Object Identifier or PubMed Identifier.",
         rdfs:label "Published results identifier"@en
     
     SubClassOf: 
-        rmdo:RMDO_03622
+        rmdo:ROADMAP_03622
     
     
-Class: rmdo:RMDO_03625
+Class: rmdo:ROADMAP_03625
 
     Annotations: 
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "SNOMED CT code",
