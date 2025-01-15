@@ -2,29 +2,34 @@
 	"$schema": "https://json-schema.org/draft/2020-12/schema",
 	"$id": "ROADMAP.use.json",
 	"title": "Use type",
-	"description": "Model use type (values for Model use)",
+	"description": "Model use",
 	"$comment": "ROADMAP:00015",
 	"type": "string",
-	"enum": [
-		"Artifact reduction",
-		"Decision support",
-		"Detection",
-		"Diagnosis",
-		"Exam protocol selection",
-		"Image processing",
-		"Image reconstruction",
-		"Image style transfer",
-		"Noise reduction",
-		"Procedure selection",
-		"Prognosis",
-		"Report data extraction",
-		"Report generation",
-		"Report impression generation",
-		"Report processing",
-		"Report summarization",
-		"Report translation",
-		"Risk assessment",
-		"Segmentation",
-		"Triage"
+	"oneOf": [
+		{
+			"enum": [
+				"Artifact reduction",
+				"Decision support",
+				"Detection",
+				"Diagnosis",
+				"Exam protocol selection",
+				"Image processing",
+				"Image reconstruction",
+				"Image style transfer",
+				"Noise reduction",
+				"Procedure selection",
+				"Prognosis",
+				"Report data extraction",
+				"Report generation",
+				"Report impression generation",
+				"Report processing",
+				"Report summarization",
+				"Report translation",
+				"Risk assessment",
+				"Segmentation",
+				"Triage"
+			]
+		},
+		true
 	]
 }
