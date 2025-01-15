@@ -1,5 +1,5 @@
 {
-	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
 	"$id": "ROADMAP.subset.json",
 	"description": "Patient descriptor: age, sex, race, and/or other criterion.",
 	"$comment": "ROADMAP:03422",
@@ -41,7 +41,7 @@
 				"type": "array",
 				"minItems": 2,
 				"maxItems": 2,
-				"items": [
+				"prefixItems": [
 					{
 						"description": "Value",
 						"type": "integer",
@@ -49,7 +49,7 @@
 						"maximum": 240
 					}
 				],
-				"additionalItems": {
+				"items": {
 					"description": "Units",
 					"type": "string",
 					"enum": [
@@ -124,7 +124,9 @@
 			"$comment": "ROADMAP:03477",
 			"type": "string"
 		},
-		"Comments": {"type": "string"},
+		"Comments": {
+			"type": "string"
+		},
 		"Subset": {
 			"description": "A Subset may describe all or part of a Dataset, Partition, or Subset",
 			"$comment": "ROADMAP:3472",

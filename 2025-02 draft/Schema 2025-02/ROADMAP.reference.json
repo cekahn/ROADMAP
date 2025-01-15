@@ -1,0 +1,76 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"$id": "ROADMAP.reference.json",
+	"$comment": "ROADMAP:00067",
+	"type": "array",
+	"items": {
+		"type": "object",
+		"properties": {
+			"Authors": {
+				"description": "Author names",
+				"type": "string",
+				"examples": [
+					"Rudie JD, et al."
+				]
+			},
+			"Title": {
+				"description": "Reference title",
+				"type": "string",
+				"examples": [
+					"The RSNA Abdominal Traumatic Injury CT (RATIC) Dataset"
+				]
+			},
+			"Source": {
+				"description": "Name of journal, book, or other source",
+				"type": "string",
+				"examples": [
+					"Radiology: Artificial Intelligence"
+				]
+			},
+			"Date": {
+				"description": "Year or date of publication",
+				"$ref": "ROADMAP.date.json"
+			},
+			"DOI": {
+				"description": "Digital Object Identifer (DOI)",
+				"$comment": "https://doi.org/$",
+				"type": "string",
+				"pattern": "[0-9]+\\.[0-9]+/.+",
+				"examples": [
+					"10.1148/ryai.240101"
+				]
+			},
+			"URL": {
+				"description": "Pointer to online reference",
+				"type": "string",
+				"format": "uri",
+				"examples": [
+					"https://doi.org/10.1148/ryai.240101"
+				]
+			},
+			"PMID": {
+				"description": "PubMed ID",
+				"$comment": "https://pubmed.ncbi.nlm.nih.gov/$/",
+				"type": "integer",
+				"examples": [
+					39441109
+				]
+			},
+			"PMCID": {
+				"description": "PubMed Central ID",
+				"$comment": "https://pmc.ncbi.nlm.nih.gov/articles/$/",
+				"type": "string",
+				"examples": [
+					"PMC8017407"
+				]
+			},
+			"Notes": {
+				"type": "string"
+			}
+		},
+		"required": [
+			"Title"
+		],
+		"additionalProperties": false
+	}
+}

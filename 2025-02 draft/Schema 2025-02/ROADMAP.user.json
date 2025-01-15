@@ -1,9 +1,9 @@
 {
-	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
 	"$id": "ROADMAP.user.json",
 	"title": "User type",
-	"$comment": "ROADMAP:00040",
 	"description": "Subclasses of Model user",
+	"$comment": "ROADMAP:00040",
 	"type": "string",
 	"enum": [
 		"Administrator",

@@ -1,5 +1,5 @@
 {
-	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$schema": "http://json-schema.org/draft/2020-12/schema#",
 	"$id": "ROADMAP.method.json",
 	"title": "Method",
 	"description": "Reference to Papers With Code (https://paperswithcode.com/) Method or Methods Category",

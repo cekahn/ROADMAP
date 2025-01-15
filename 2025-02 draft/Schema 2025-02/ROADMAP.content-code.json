@@ -1,7 +1,7 @@
 {
-	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
 	"$id": "ROADMAP.content-code.json",
-	"title": "Content code",
+	"title": "Content code(s)",
 	"description": "RSNA content codes",
 	"$comment": "ROADMAP:00073",
 	"type": "array",
@@ -47,6 +47,5 @@
 			"CT",
 			"GI"
 		]
-	},
-	"additionalItems": false
+	}
 }

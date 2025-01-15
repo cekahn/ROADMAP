@@ -1,5 +1,5 @@
 {
-	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
 	"$id": "ROADMAP.model.json",
 	"title": "Model",
 	"description": "Description of each Model",
@@ -131,13 +131,13 @@
 			"type": "array",
 			"uniqueItems": true,
 			"items": {
+				"type": "string",
+				"format": "uri",
 				"examples": [
 					"https://paperswithcode.com/method/autoencoder",
 					"https://paperswithcode.com/method/unet",
 					"https://paperswithcode.com/methods/category/image-feature-extractors"
 				],
-				"type": "string",
-				"format": "uri",
 				"anyOf": [
 					{
 						"pattern": "https://paperswithcode.com/method/.+"

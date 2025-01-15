@@ -1,5 +1,5 @@
 {
-	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
 	"$id": "ROADMAP.descriptor.json",
 	"description": "Details for Project, Model, and Dataset entities",
 	"type": "object",
@@ -267,6 +267,8 @@
 			"type": "string"
 		}
 	},
-	"required": ["Name"],
+	"required": [
+		"Name"
+	],
 	"additionalProperties": false
 }

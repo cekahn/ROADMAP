@@ -1,9 +1,9 @@
 {
-	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
 	"$id": "ROADMAP.person.json",
 	"description": "Description for individual Person (ROADMAP:00071)",
-	"type": "object",
 	"$comment": "ROADMAP:00071",
+	"type": "object",
 	"properties": {
 		"Name": {
 			"description": "The person's name",
@@ -22,13 +22,17 @@
 			"type": "string",
 			"pattern": "https://orcid.org/.+",
 			"format": "uri",
-			"examples": ["https://orcid.org/0000-0000-0000-0000"]
+			"examples": [
+				"https://orcid.org/0000-0000-0000-0000"
+			]
 		},
 		"URL": {
 			"type": "string",
 			"format": "uri"
 		}
 	},
-	"required": ["Name"],
+	"required": [
+		"Name"
+	],
 	"additionalProperties": false
 }

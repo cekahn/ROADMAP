@@ -1,5 +1,5 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$schema": "http://json-schema.org/draft/2020-12/schema#",
     "$id": "ROADMAP.task.json",
     "title": "Task",
     "description": "Papers With Code (https://paperswithcode.com/) Tasks listing as of 2024-04-30",

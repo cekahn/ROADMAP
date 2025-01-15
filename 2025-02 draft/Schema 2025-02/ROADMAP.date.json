@@ -1,0 +1,20 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"$id": "date",
+	"description": "Date (Year or ISO-format date)",
+	"oneOf": [
+		{
+			"type": "string",
+			"format": "date",
+			"examples": [
+				"2025-01-01"
+			]
+		},
+		{
+			"type": "number",
+			"examples": [
+				2025
+			]
+		}
+	]
+}

@@ -1,0 +1,16 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"$id": "ROADMAP.radlex.json",
+	"description": "RadLex code(s)",
+	"$comment": "ROADMAP:00117",
+	"type": "array",
+	"uniqueItems": true,
+	"items": {
+		"type": "string",
+		"pattern": "RID[0-9]+",
+		"examples": [
+			"RID58",
+			"RID1169"
+		]
+	}
+}
