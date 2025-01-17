@@ -8,58 +8,28 @@
 			"type": "string"
 		},
 		"Content code": {
-			"description": "RSNA content codes",
 			"$ref": "ROADMAP.content-code.json#"
 		},
 		"RadLex code": {
-			"description": "RadLex codes",
-			"$comment": "ROADMAP:00117",
-			"type": "array",
-			"uniqueItems": true,
-			"items": {
-				"description": "RadLex codes",
-				"$comment": "ROADMAP:00117",
-				"type": "string",
-				"anyOf": [
-					{
-						"type": "string",
-						"pattern": "RID[0-9]+",
-						"examples": [
-							"RID58",
-							"RID1169"
-						]
-					},
-					{
-						"type": "string",
-						"pattern": "https://radlex.org/RID/RID[0-9]+",
-						"format": "uri",
-						"examples": [
-							"https://radlex.org/RID/RID58",
-							"https://radlex.org/RID/RID1169"
-						]
-					}
-				]
-			}
+			"$ref": "ROADMAP.radlex.json#"
 		},
 		"Author": {
-			"description": "List of Authors",
-			"$comment": "ROADMAP:00064",
+			"description": "Author(s) (ROADMAP:00064)",
+			"$comment": "",
 			"type": "array",
 			"items": {
 				"$ref": "ROADMAP.person.json"
 			}
 		},
 		"Contributor": {
-			"description": "List of individual Contributors",
-			"$comment": "ROADMAP:03471",
+			"description": "Contributor(s) (ROADMAP:03471)",
 			"type": "array",
 			"items": {
 				"$ref": "ROADMAP.person.json"
 			}
 		},
 		"Organization": {
-			"description": "Organizations that developed and/or sponsored the resource",
-			"$comment": "Organization (ROADMAP:00072)",
+			"description": "Developing or sponsoring Organization(s) (ROADMAP:00072)",
 			"type": "array",
 			"items": {
 				"type": "object",
@@ -95,46 +65,16 @@
 			"type": "object",
 			"properties": {
 				"Created": {
-					"description": "Creation date (ISO format, e.g., 2024-01-01) or year",
-					"$comment": "ROADMAP:03419",
-					"type": [
-						"string",
-						"number"
-					],
-					"format": "date",
-					"minimum": 2012,
-					"examples": [
-						2024,
-						"2024-11-08"
-					]
+					"description": "Creation date (ROADMAP:03419)",
+					"$ref": "ROADMAP.date.json"
 				},
 				"Published": {
-					"description": "Publication date (ISO format) or year",
-					"$comment": "ROADMAP:03420",
-					"type": [
-						"string",
-						"number"
-					],
-					"format": "date",
-					"minimum": 2012,
-					"examples": [
-						2024,
-						"2024-11-08"
-					]
+					"description": "Publication date (ROADMAP:03420)",
+					"$ref": "ROADMAP.date.json"
 				},
 				"Updated": {
-					"description": "Date of last update",
-					"$comment": "ROADMAP:03421",
-					"type": [
-						"string",
-						"number"
-					],
-					"format": "date",
-					"minimum": 2012,
-					"examples": [
-						2024,
-						"2024-11-08"
-					]
+					"description": "Date of last update (ROADMAP:03421)",
+					"$ref": "ROADMAP.date.json"
 				}
 			},
 			"additionalProperties": false
@@ -182,23 +122,12 @@
 					},
 					"DOI": {
 						"description": "Digital Object Identifer (DOI)",
-						"anyOf": [
-							{
+
 								"type": "string",
-								"pattern": "[0-9]+.[0-9]+/.+",
+								"pattern": "[0-9]+\\.[0-9]+/.+",
 								"examples": [
 									"10.1148/ryai.240101"
 								]
-							},
-							{
-								"type": "string",
-								"pattern": "https://doi.org/.+",
-								"format": "uri",
-								"examples": [
-									"https://doi.org/10.1148/ryai.240101"
-								]
-							}
-						]
 					},
 					"URL": {
 						"description": "Pointer to online reference",

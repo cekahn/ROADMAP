@@ -16,29 +16,17 @@
 				"Intended": {
 					"description": "Intended model use",
 					"$comment": "ROADMAP:00012",
-					"type": "array",
-					"uniqueItems": true,
-					"items": {
-						"$ref": "ROADMAP.use.json"
-					}
+					"$ref": "ROADMAP.use.json"
 				},
 				"Out-of-scope": {
 					"description": "Out-of-scope model use",
 					"$comment": "ROADMAP:00013",
-					"type": "array",
-					"uniqueItems": true,
-					"items": {
-						"$ref": "ROADMAP.use.json"
-					}
+					"$ref": "ROADMAP.use.json"
 				},
 				"Excluded": {
 					"description": "Excluded model use",
 					"$comment": "ROADMAP:00014",
-					"type": "array",
-					"uniqueItems": true,
-					"items": {
-						"$ref": "ROADMAP.use.json"
-					}
+					"$ref": "ROADMAP.use.json"
 				}
 			},
 			"additionalProperties": false
@@ -48,30 +36,15 @@
 			"properties": {
 				"Intended": {
 					"description": "Intended model user",
-					"$comment": "ROADMAP:00037",
-					"type": "array",
-					"uniqueItems": true,
-					"items": {
-						"$ref": "ROADMAP.user.json"
-					}
+					"$ref": "#/$defs/user"
 				},
 				"Out-of-scope": {
 					"description": "Out-of-scope model user",
-					"$comment": "ROADMAP:00038",
-					"type": "array",
-					"uniqueItems": true,
-					"items": {
-						"$ref": "ROADMAP.user.json"
-					}
+					"$ref": "#/$defs/user"
 				},
 				"Excluded": {
 					"description": "Excluded model user",
-					"$comment": "ROADMAP:00039",
-					"type": "array",
-					"uniqueItems": true,
-					"items": {
-						"$ref": "ROADMAP.user.json"
-					}
+					"$ref": "#/$defs/user"
 				}
 			},
 			"additionalProperties": false
@@ -164,5 +137,44 @@
 			}
 		}
 	},
-	"additionalProperties": false
+	"additionalProperties": false,
+	"$defs": {
+		"user": {
+			"type": "array",
+			"unevaluatedItems": false,
+			"uniqueItems": true,
+			"items": {
+				"type": "string",
+				"enum": [
+					"Administrator",
+					"Advanced practice provider",
+					"Caregiver",
+					"Diagnostic radiologist",
+					"Family member",
+					"General diagnostic radiologist",
+					"Interventional radiologist",
+					"Layperson",
+					"Non-physician provider",
+					"Nurse practitioner",
+					"Other",
+					"Patient",
+					"Physician assistant",
+					"Physician",
+					"Radiologist",
+					"Radiology nurse",
+					"Radiology technologist",
+					"Referring physician",
+					"Referring provider",
+					"Researcher",
+					"Subspecialist diagnostic radiologist"
+				]
+			},
+			"examples": [
+				[
+					"Radiologist",
+					"Radiology technologist"
+				]
+			]
+		}
+	}
 }

@@ -1,35 +1,51 @@
 {
 	"$schema": "https://json-schema.org/draft/2020-12/schema",
 	"$id": "ROADMAP.use.json",
-	"title": "Use type",
-	"description": "Model use",
+	"description": "Model use(s)",
 	"$comment": "ROADMAP:00015",
-	"type": "string",
 	"oneOf": [
 		{
-			"enum": [
-				"Artifact reduction",
-				"Decision support",
-				"Detection",
-				"Diagnosis",
-				"Exam protocol selection",
-				"Image processing",
-				"Image reconstruction",
-				"Image style transfer",
-				"Noise reduction",
-				"Procedure selection",
-				"Prognosis",
-				"Report data extraction",
-				"Report generation",
-				"Report impression generation",
-				"Report processing",
-				"Report summarization",
-				"Report translation",
-				"Risk assessment",
-				"Segmentation",
-				"Triage"
-			]
+			"type": "array",
+			"uniqueItems": true,
+			"items": {
+				"type": "string",
+				"enum": [
+					"Artifact reduction",
+					"Cure",
+					"Decision support",
+					"Detection",
+					"Diagnosis",
+					"Exam protocol selection",
+					"Image processing",
+					"Image reconstruction",
+					"Image style transfer",
+					"Noise reduction",
+					"Prevention",
+					"Procedure selection",
+					"Prognosis",
+					"Report data extraction",
+					"Report generation",
+					"Report impression generation",
+					"Report processing",
+					"Report summarization",
+					"Report translation",
+					"Risk assessment",
+					"Segmentation",
+					"Triage"
+				]
+			}
 		},
-		true
+		{
+			"type": "string",
+			"minLength": 4,
+			"maxLength": 255
+		}
+	],
+	"examples": [
+		[
+			"Detection",
+			"Diagnosis"
+		],
+		"Something else"
 	]
 }

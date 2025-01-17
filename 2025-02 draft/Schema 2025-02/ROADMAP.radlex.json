@@ -1,8 +1,8 @@
 {
 	"$schema": "https://json-schema.org/draft/2020-12/schema",
 	"$id": "ROADMAP.radlex.json",
-	"description": "RadLex code(s)",
-	"$comment": "ROADMAP:00117",
+	"description": "RadLex code(s) (ROADMAP:00117)",
+	"$comment": "https://radlex.org/RID/$",
 	"type": "array",
 	"uniqueItems": true,
 	"items": {
