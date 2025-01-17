@@ -1,0 +1,738 @@
+{
+	"ROADMAP version": "2025-01-06",
+	"Project": {
+		"Name": "String",
+		"Content code": [
+			"AI",
+			"CT"
+		],
+		"RadLex code": [
+			"RID58",
+			"RID1169"
+		],
+		"Contact": [
+			{
+				"Name": "String",
+				"Email": "jdoe@example.com",
+				"Address": "String",
+				"ORCID": "https://orcid.org/0000-0000-0000-0000",
+				"URL": "http://www.altova.com/"
+			},
+			{
+				"Name": "String",
+				"Email": "jdoe@example.com",
+				"Address": "String",
+				"ORCID": "https://orcid.org/0000-0000-0000-0000",
+				"URL": "http://www.altova.com/"
+			}
+		],
+		"Organization": [
+			{
+				"Name": "String",
+				"Contact name": "String",
+				"Email": "jdoe@example.com",
+				"Address": "String",
+				"URL": "http://www.altova.com/"
+			},
+			{
+				"Name": "String",
+				"Contact name": "String",
+				"Email": "jdoe@example.com",
+				"Address": "String",
+				"URL": "http://www.altova.com/"
+			}
+		],
+		"Date": {
+			"Created": 2024,
+			"Published": 2024,
+			"Updated": 2024
+		},
+		"Reference": [
+			{
+				"Authors": "Rudie JD, et al.",
+				"Title": "The RSNA Abdominal Traumatic Injury CT (RATIC) Dataset",
+				"Source": "Radiology: Artificial Intelligence",
+				"Date": "2025-01-01",
+				"DOI": "10.1148/ryai.240101",
+				"URL": "https://doi.org/10.1148/ryai.240101",
+				"PMID": 39441109,
+				"PMCID": "PMC8017407",
+				"Notes": "String"
+			},
+			{
+				"Authors": "Rudie JD, et al.",
+				"Title": "The RSNA Abdominal Traumatic Injury CT (RATIC) Dataset",
+				"Source": "Radiology: Artificial Intelligence",
+				"Date": "2025-01-01",
+				"DOI": "10.1148/ryai.240101",
+				"URL": "https://doi.org/10.1148/ryai.240101",
+				"PMID": 39441109,
+				"PMCID": "PMC8017407",
+				"Notes": "String"
+			}
+		],
+		"Comments": "String"
+	},
+	"Model": [
+		{
+			"Details": {
+				"Name": "String",
+				"Content code": [
+					"AI",
+					"CT"
+				],
+				"RadLex code": [
+					"RID58",
+					"RID1169"
+				],
+				"Author": [
+					{
+						"Name": "String",
+						"Email": "jdoe@example.com",
+						"Address": "String",
+						"ORCID": "https://orcid.org/0000-0000-0000-0000",
+						"URL": "http://www.altova.com/"
+					},
+					{
+						"Name": "String",
+						"Email": "jdoe@example.com",
+						"Address": "String",
+						"ORCID": "https://orcid.org/0000-0000-0000-0000",
+						"URL": "http://www.altova.com/"
+					}
+				],
+				"Contributor": [
+					{
+						"Name": "String",
+						"Email": "jdoe@example.com",
+						"Address": "String",
+						"ORCID": "https://orcid.org/0000-0000-0000-0000",
+						"URL": "http://www.altova.com/"
+					},
+					{
+						"Name": "String",
+						"Email": "jdoe@example.com",
+						"Address": "String",
+						"ORCID": "https://orcid.org/0000-0000-0000-0000",
+						"URL": "http://www.altova.com/"
+					}
+				],
+				"Organization": [
+					{
+						"Name": "String",
+						"Contact name": "String",
+						"Email": "jdoe@example.com",
+						"Address": "String",
+						"URL": "http://www.altova.com/"
+					},
+					{
+						"Name": "String",
+						"Contact name": "String",
+						"Email": "jdoe@example.com",
+						"Address": "String",
+						"URL": "http://www.altova.com/"
+					}
+				],
+				"Date": {
+					"Created": "2025-01-01",
+					"Published": "2025-01-01",
+					"Updated": "2025-01-01"
+				},
+				"Version": "String",
+				"Reference": [
+					{
+						"Authors": "Rudie JD, et al.",
+						"Title": "The RSNA Abdominal Traumatic Injury CT (RATIC) Dataset",
+						"Source": "Radiology: Artificial Intelligence",
+						"Year": 2024,
+						"DOI": "10.1148/ryai.240101",
+						"URL": "https://doi.org/10.1148/ryai.240101",
+						"PMID": 39441109,
+						"PMCID": "PMC8017407"
+					},
+					{
+						"Authors": "Rudie JD, et al.",
+						"Title": "The RSNA Abdominal Traumatic Injury CT (RATIC) Dataset",
+						"Source": "Radiology: Artificial Intelligence",
+						"Year": 2024,
+						"DOI": "10.1148/ryai.240101",
+						"URL": "https://doi.org/10.1148/ryai.240101",
+						"PMID": 39441109,
+						"PMCID": "PMC8017407"
+					}
+				],
+				"License": {
+					"Text": "Non-commercial use",
+					"URL": "https://creativecommons.org/licenses/by-nc-nd/4.0/"
+				},
+				"Contact": "String",
+				"Funding": "String",
+				"Ethical review": "String",
+				"Comments": "String"
+			},
+			"Use": {
+				"Intended": [
+					"Detection",
+					"Diagnosis"
+				],
+				"Out-of-scope": [
+					"Detection",
+					"Diagnosis"
+				],
+				"Excluded": [
+					"Detection",
+					"Diagnosis"
+				]
+			},
+			"User": {
+				"Intended": [
+					"Radiologist",
+					"Radiology technologist"
+				],
+				"Out-of-scope": [
+					"Radiologist",
+					"Radiology technologist"
+				],
+				"Excluded": [
+					"Radiologist",
+					"Radiology technologist"
+				]
+			},
+			"Metric": [
+				"Precision",
+				"Recall"
+			],
+			"Caveat": "String",
+			"Decision threshold": "String",
+			"Ethical consideration": "String",
+			"Recommendation": "String",
+			"Availability": "String",
+			"Sustainability": "String",
+			"Time to train model": "String",
+			"Time to evaluate single input": "String",
+			"Required processor": "String",
+			"Carbon footprint calculation": "String",
+			"Method": [
+				"https://paperswithcode.com/method/autoencoder",
+				"https://paperswithcode.com/method/unet"
+			],
+			"Task": [
+				"https://paperswithcode.com/task/object-detection",
+				"https://paperswithcode.com/task/semantic-segmentation"
+			]
+		},
+		{
+			"Details": {
+				"Name": "String",
+				"Content code": [
+					"AI",
+					"CT"
+				],
+				"RadLex code": [
+					"RID58",
+					"RID1169"
+				],
+				"Author": [
+					{
+						"Name": "String",
+						"Email": "jdoe@example.com",
+						"Address": "String",
+						"ORCID": "https://orcid.org/0000-0000-0000-0000",
+						"URL": "http://www.altova.com/"
+					},
+					{
+						"Name": "String",
+						"Email": "jdoe@example.com",
+						"Address": "String",
+						"ORCID": "https://orcid.org/0000-0000-0000-0000",
+						"URL": "http://www.altova.com/"
+					}
+				],
+				"Contributor": [
+					{
+						"Name": "String",
+						"Email": "jdoe@example.com",
+						"Address": "String",
+						"ORCID": "https://orcid.org/0000-0000-0000-0000",
+						"URL": "http://www.altova.com/"
+					},
+					{
+						"Name": "String",
+						"Email": "jdoe@example.com",
+						"Address": "String",
+						"ORCID": "https://orcid.org/0000-0000-0000-0000",
+						"URL": "http://www.altova.com/"
+					}
+				],
+				"Organization": [
+					{
+						"Name": "String",
+						"Contact name": "String",
+						"Email": "jdoe@example.com",
+						"Address": "String",
+						"URL": "http://www.altova.com/"
+					},
+					{
+						"Name": "String",
+						"Contact name": "String",
+						"Email": "jdoe@example.com",
+						"Address": "String",
+						"URL": "http://www.altova.com/"
+					}
+				],
+				"Date": {
+					"Created": "2025-01-01",
+					"Published": "2025-01-01",
+					"Updated": "2025-01-01"
+				},
+				"Version": "String",
+				"Reference": [
+					{
+						"Authors": "Rudie JD, et al.",
+						"Title": "The RSNA Abdominal Traumatic Injury CT (RATIC) Dataset",
+						"Source": "Radiology: Artificial Intelligence",
+						"Year": 2024,
+						"DOI": "10.1148/ryai.240101",
+						"URL": "https://doi.org/10.1148/ryai.240101",
+						"PMID": 39441109,
+						"PMCID": "PMC8017407"
+					},
+					{
+						"Authors": "Rudie JD, et al.",
+						"Title": "The RSNA Abdominal Traumatic Injury CT (RATIC) Dataset",
+						"Source": "Radiology: Artificial Intelligence",
+						"Year": 2024,
+						"DOI": "10.1148/ryai.240101",
+						"URL": "https://doi.org/10.1148/ryai.240101",
+						"PMID": 39441109,
+						"PMCID": "PMC8017407"
+					}
+				],
+				"License": {
+					"Text": "Non-commercial use",
+					"URL": "https://creativecommons.org/licenses/by-nc-nd/4.0/"
+				},
+				"Contact": "String",
+				"Funding": "String",
+				"Ethical review": "String",
+				"Comments": "String"
+			},
+			"Use": {
+				"Intended": [
+					"Detection",
+					"Diagnosis"
+				],
+				"Out-of-scope": [
+					"Detection",
+					"Diagnosis"
+				],
+				"Excluded": [
+					"Detection",
+					"Diagnosis"
+				]
+			},
+			"User": {
+				"Intended": [
+					"Radiologist",
+					"Radiology technologist"
+				],
+				"Out-of-scope": [
+					"Radiologist",
+					"Radiology technologist"
+				],
+				"Excluded": [
+					"Radiologist",
+					"Radiology technologist"
+				]
+			},
+			"Metric": [
+				"Precision",
+				"Recall"
+			],
+			"Caveat": "String",
+			"Decision threshold": "String",
+			"Ethical consideration": "String",
+			"Recommendation": "String",
+			"Availability": "String",
+			"Sustainability": "String",
+			"Time to train model": "String",
+			"Time to evaluate single input": "String",
+			"Required processor": "String",
+			"Carbon footprint calculation": "String",
+			"Method": [
+				"https://paperswithcode.com/method/autoencoder",
+				"https://paperswithcode.com/method/unet"
+			],
+			"Task": [
+				"https://paperswithcode.com/task/object-detection",
+				"https://paperswithcode.com/task/semantic-segmentation"
+			]
+		}
+	],
+	"Dataset": [
+		{
+			"Name": "String",
+			"Details": {
+				"Name": "String",
+				"Content code": [
+					"AI",
+					"CT"
+				],
+				"RadLex code": [
+					"RID58",
+					"RID1169"
+				],
+				"Author": [
+					{
+						"Name": "String",
+						"Email": "jdoe@example.com",
+						"Address": "String",
+						"ORCID": "https://orcid.org/0000-0000-0000-0000",
+						"URL": "http://www.altova.com/"
+					},
+					{
+						"Name": "String",
+						"Email": "jdoe@example.com",
+						"Address": "String",
+						"ORCID": "https://orcid.org/0000-0000-0000-0000",
+						"URL": "http://www.altova.com/"
+					}
+				],
+				"Contributor": [
+					{
+						"Name": "String",
+						"Email": "jdoe@example.com",
+						"Address": "String",
+						"ORCID": "https://orcid.org/0000-0000-0000-0000",
+						"URL": "http://www.altova.com/"
+					},
+					{
+						"Name": "String",
+						"Email": "jdoe@example.com",
+						"Address": "String",
+						"ORCID": "https://orcid.org/0000-0000-0000-0000",
+						"URL": "http://www.altova.com/"
+					}
+				],
+				"Organization": [
+					{
+						"Name": "String",
+						"Contact name": "String",
+						"Email": "jdoe@example.com",
+						"Address": "String",
+						"URL": "http://www.altova.com/"
+					},
+					{
+						"Name": "String",
+						"Contact name": "String",
+						"Email": "jdoe@example.com",
+						"Address": "String",
+						"URL": "http://www.altova.com/"
+					}
+				],
+				"Date": {
+					"Created": "2025-01-01",
+					"Published": "2025-01-01",
+					"Updated": "2025-01-01"
+				},
+				"Version": "String",
+				"Reference": [
+					{
+						"Authors": "Rudie JD, et al.",
+						"Title": "The RSNA Abdominal Traumatic Injury CT (RATIC) Dataset",
+						"Source": "Radiology: Artificial Intelligence",
+						"Year": 2024,
+						"DOI": "10.1148/ryai.240101",
+						"URL": "https://doi.org/10.1148/ryai.240101",
+						"PMID": 39441109,
+						"PMCID": "PMC8017407"
+					},
+					{
+						"Authors": "Rudie JD, et al.",
+						"Title": "The RSNA Abdominal Traumatic Injury CT (RATIC) Dataset",
+						"Source": "Radiology: Artificial Intelligence",
+						"Year": 2024,
+						"DOI": "10.1148/ryai.240101",
+						"URL": "https://doi.org/10.1148/ryai.240101",
+						"PMID": 39441109,
+						"PMCID": "PMC8017407"
+					}
+				],
+				"License": {
+					"Text": "Non-commercial use",
+					"URL": "https://creativecommons.org/licenses/by-nc-nd/4.0/"
+				},
+				"Contact": "String",
+				"Funding": "String",
+				"Ethical review": "String",
+				"Comments": "String"
+			},
+			"Imaging": {
+				"Modality": [
+					"3-Dimensional ultrasound (RID10920)",
+					"3-Dimensional ultrasound (RID10920)"
+				],
+				"Procedure": [
+					{
+						"LOINC": "36623-7",
+						"Name": "XR Hand - left PA"
+					},
+					{
+						"LOINC": "36623-7",
+						"Name": "XR Hand - left PA"
+					}
+				],
+				"File format": [
+					"DICOM",
+					"DICOM"
+				],
+				"Resolution": "String",
+				"Pre-processing": "String",
+				"Burned-in PHI": "Yes"
+			},
+			"Labeling": "String",
+			"Missing information": "String",
+			"Relationships between instances": "String",
+			"Noise": "String",
+			"External data": "String",
+			"Confidentiality": "String",
+			"Subpopulations": "String",
+			"Re-identification": "String",
+			"Sensitive data": "String",
+			"Collection process": "String",
+			"Composition": {
+				"Confidentiality": "String",
+				"Number of instances": 1,
+				"Representativeness": {
+					"Population": "String",
+					"Verification": "String"
+				}
+			},
+			"Motivation": {
+				"Purpose": "String",
+				"Team": "String",
+				"Funding": "String",
+				"Comments": "String"
+			},
+			"Partioning scheme": "String",
+			"Partition": {
+				"Training": {
+					"Sex": "Female",
+					"Patient count": 501
+				},
+				"Optimization": {
+					"Sex": "Female",
+					"Patient count": 501
+				},
+				"Validation": {
+					"Sex": "Female",
+					"Patient count": 501
+				},
+				"Testing": {
+					"Sex": "Female",
+					"Patient count": 501
+				},
+				"Internal testing": {
+					"Sex": "Female",
+					"Patient count": 501
+				},
+				"External testing": {
+					"Sex": "Female",
+					"Patient count": 501
+				}
+			},
+			"Subsets": [
+				{
+					"Sex": "Female",
+					"Patient count": 501
+				},
+				{
+					"Sex": "Female",
+					"Patient count": 501
+				}
+			]
+		},
+		{
+			"Name": "String",
+			"Details": {
+				"Name": "String",
+				"Content code": [
+					"AI",
+					"CT"
+				],
+				"RadLex code": [
+					"RID58",
+					"RID1169"
+				],
+				"Author": [
+					{
+						"Name": "String",
+						"Email": "jdoe@example.com",
+						"Address": "String",
+						"ORCID": "https://orcid.org/0000-0000-0000-0000",
+						"URL": "http://www.altova.com/"
+					},
+					{
+						"Name": "String",
+						"Email": "jdoe@example.com",
+						"Address": "String",
+						"ORCID": "https://orcid.org/0000-0000-0000-0000",
+						"URL": "http://www.altova.com/"
+					}
+				],
+				"Contributor": [
+					{
+						"Name": "String",
+						"Email": "jdoe@example.com",
+						"Address": "String",
+						"ORCID": "https://orcid.org/0000-0000-0000-0000",
+						"URL": "http://www.altova.com/"
+					},
+					{
+						"Name": "String",
+						"Email": "jdoe@example.com",
+						"Address": "String",
+						"ORCID": "https://orcid.org/0000-0000-0000-0000",
+						"URL": "http://www.altova.com/"
+					}
+				],
+				"Organization": [
+					{
+						"Name": "String",
+						"Contact name": "String",
+						"Email": "jdoe@example.com",
+						"Address": "String",
+						"URL": "http://www.altova.com/"
+					},
+					{
+						"Name": "String",
+						"Contact name": "String",
+						"Email": "jdoe@example.com",
+						"Address": "String",
+						"URL": "http://www.altova.com/"
+					}
+				],
+				"Date": {
+					"Created": "2025-01-01",
+					"Published": "2025-01-01",
+					"Updated": "2025-01-01"
+				},
+				"Version": "String",
+				"Reference": [
+					{
+						"Authors": "Rudie JD, et al.",
+						"Title": "The RSNA Abdominal Traumatic Injury CT (RATIC) Dataset",
+						"Source": "Radiology: Artificial Intelligence",
+						"Year": 2024,
+						"DOI": "10.1148/ryai.240101",
+						"URL": "https://doi.org/10.1148/ryai.240101",
+						"PMID": 39441109,
+						"PMCID": "PMC8017407"
+					},
+					{
+						"Authors": "Rudie JD, et al.",
+						"Title": "The RSNA Abdominal Traumatic Injury CT (RATIC) Dataset",
+						"Source": "Radiology: Artificial Intelligence",
+						"Year": 2024,
+						"DOI": "10.1148/ryai.240101",
+						"URL": "https://doi.org/10.1148/ryai.240101",
+						"PMID": 39441109,
+						"PMCID": "PMC8017407"
+					}
+				],
+				"License": {
+					"Text": "Non-commercial use",
+					"URL": "https://creativecommons.org/licenses/by-nc-nd/4.0/"
+				},
+				"Contact": "String",
+				"Funding": "String",
+				"Ethical review": "String",
+				"Comments": "String"
+			},
+			"Imaging": {
+				"Modality": [
+					"3-Dimensional ultrasound (RID10920)",
+					"3-Dimensional ultrasound (RID10920)"
+				],
+				"Procedure": [
+					{
+						"LOINC": "36623-7",
+						"Name": "XR Hand - left PA"
+					},
+					{
+						"LOINC": "36623-7",
+						"Name": "XR Hand - left PA"
+					}
+				],
+				"File format": [
+					"DICOM",
+					"DICOM"
+				],
+				"Resolution": "String",
+				"Pre-processing": "String",
+				"Burned-in PHI": "Yes"
+			},
+			"Labeling": "String",
+			"Missing information": "String",
+			"Relationships between instances": "String",
+			"Noise": "String",
+			"External data": "String",
+			"Confidentiality": "String",
+			"Subpopulations": "String",
+			"Re-identification": "String",
+			"Sensitive data": "String",
+			"Collection process": "String",
+			"Composition": {
+				"Confidentiality": "String",
+				"Number of instances": 1,
+				"Representativeness": {
+					"Population": "String",
+					"Verification": "String"
+				}
+			},
+			"Motivation": {
+				"Purpose": "String",
+				"Team": "String",
+				"Funding": "String",
+				"Comments": "String"
+			},
+			"Partioning scheme": "String",
+			"Partition": {
+				"Training": {
+					"Sex": "Female",
+					"Patient count": 501
+				},
+				"Optimization": {
+					"Sex": "Female",
+					"Patient count": 501
+				},
+				"Validation": {
+					"Sex": "Female",
+					"Patient count": 501
+				},
+				"Testing": {
+					"Sex": "Female",
+					"Patient count": 501
+				},
+				"Internal testing": {
+					"Sex": "Female",
+					"Patient count": 501
+				},
+				"External testing": {
+					"Sex": "Female",
+					"Patient count": 501
+				}
+			},
+			"Subsets": [
+				{
+					"Sex": "Female",
+					"Patient count": 501
+				},
+				{
+					"Sex": "Female",
+					"Patient count": 501
+				}
+			]
+		}
+	]
+}
