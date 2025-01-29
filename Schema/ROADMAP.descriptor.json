@@ -4,6 +4,9 @@
 	"description": "Details for Project, Model, and Dataset entities",
 	"type": "object",
 	"properties": {
+		"Name": {
+			"type": "string"
+		},
 		"Content code": {
 			"description": "RSNA content codes",
 			"$ref": "ROADMAP.content-code.json#"
@@ -16,6 +19,7 @@
 			"items": {
 				"description": "RadLex codes",
 				"$comment": "ROADMAP:00117",
+				"type": "string",
 				"anyOf": [
 					{
 						"type": "string",
@@ -27,8 +31,8 @@
 					},
 					{
 						"type": "string",
-						"format": "uri",
 						"pattern": "https://radlex.org/RID/RID[0-9]+",
+						"format": "uri",
 						"examples": [
 							"https://radlex.org/RID/RID58",
 							"https://radlex.org/RID/RID1169"
@@ -41,13 +45,17 @@
 			"description": "List of Authors",
 			"$comment": "ROADMAP:00064",
 			"type": "array",
-			"items": {"$ref": "ROADMAP.person.json"}
+			"items": {
+				"$ref": "ROADMAP.person.json"
+			}
 		},
 		"Contributor": {
 			"description": "List of individual Contributors",
 			"$comment": "ROADMAP:03471",
 			"type": "array",
-			"items": {"$ref": "ROADMAP.person.json"}
+			"items": {
+				"$ref": "ROADMAP.person.json"
+			}
 		},
 		"Organization": {
 			"description": "Organizations that developed and/or sponsored the resource",
@@ -77,7 +85,9 @@
 						"format": "uri"
 					}
 				},
-				"required": ["Name"],
+				"required": [
+					"Name"
+				],
 				"additionalProperties": false
 			}
 		},
@@ -143,24 +153,32 @@
 					"Authors": {
 						"description": "Reference authors",
 						"type": "string",
-						"examples": ["Rudie JD, et al."]
+						"examples": [
+							"Rudie JD, et al."
+						]
 					},
 					"Title": {
 						"description": "Reference title",
 						"type": "string",
-						"examples": ["The RSNA Abdominal Traumatic Injury CT (RATIC) Dataset"]
+						"examples": [
+							"The RSNA Abdominal Traumatic Injury CT (RATIC) Dataset"
+						]
 					},
 					"Source": {
 						"description": "Name of journal, book, or other source",
 						"type": "string",
-						"examples": ["Radiology: Artificial Intelligence"]
+						"examples": [
+							"Radiology: Artificial Intelligence"
+						]
 					},
 					"Year": {
 						"$comment": "By 2100, you'll need to update this schema! ;-)",
 						"type": "integer",
 						"minimum": 1900,
 						"maximum": 2100,
-						"examples": [2024]
+						"examples": [
+							2024
+						]
 					},
 					"DOI": {
 						"description": "Digital Object Identifer (DOI)",
@@ -168,13 +186,17 @@
 							{
 								"type": "string",
 								"pattern": "[0-9]+.[0-9]+/.+",
-								"examples": ["10.1148/ryai.240101"]
+								"examples": [
+									"10.1148/ryai.240101"
+								]
 							},
 							{
 								"type": "string",
-								"format": "uri",
 								"pattern": "https://doi.org/.+",
-								"examples": ["https://doi.org/10.1148/ryai.240101"]
+								"format": "uri",
+								"examples": [
+									"https://doi.org/10.1148/ryai.240101"
+								]
 							}
 						]
 					},
@@ -182,38 +204,51 @@
 						"description": "Pointer to online reference",
 						"type": "string",
 						"format": "uri",
-						"examples": ["https://doi.org/10.1148/ryai.240101"]
+						"examples": [
+							"https://doi.org/10.1148/ryai.240101"
+						]
 					},
 					"PMID": {
 						"description": "PubMed ID",
 						"type": "integer",
-						"examples": [39441109]
+						"examples": [
+							39441109
+						]
 					},
 					"PMCID": {
 						"description": "PubMed Central ID",
 						"type": "string",
-						"examples": ["PMC8017407"]
+						"examples": [
+							"PMC8017407"
+						]
 					}
 				},
+				"required": [
+					"Title"
+				],
 				"additionalProperties": false
 			}
 		},
 		"License": {
 			"description": "License or rights to access this resource",
 			"$comment": "ROADMAP:00068",
+			"minProperties": 1,
 			"properties": {
 				"Text": {
 					"type": "string",
-					"examples": ["Non-commercial use"]
+					"examples": [
+						"Non-commercial use"
+					]
 				},
 				"URL": {
 					"type": "string",
 					"format": "uri",
-					"examples": ["https://creativecommons.org/licenses/by-nc-nd/4.0/"]
+					"examples": [
+						"https://creativecommons.org/licenses/by-nc-nd/4.0/"
+					]
 				}
 			},
-			"additionalProperties": false,
-			"minProperties": 1
+			"additionalProperties": false
 		},
 		"Contact": {
 			"$comment": "ROADMAP:00069",
@@ -232,5 +267,6 @@
 			"type": "string"
 		}
 	},
+	"required": ["Name"],
 	"additionalProperties": false
 }

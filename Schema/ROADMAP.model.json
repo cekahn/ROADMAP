@@ -6,14 +6,11 @@
 	"$comment": "ROADMAP:00002",
 	"type": "object",
 	"properties": {
-		"Name": {
-			"description": "Model name",
-			"type": "string"
-		},
 		"Details": {
 			"$ref": "ROADMAP.descriptor.json"
 		},
 		"Use": {
+			"description": "Model use information",
 			"type": "object",
 			"properties": {
 				"Intended": {
@@ -129,27 +126,25 @@
 			"type": "string"
 		},
 		"Method": {
-			"description": "Relevant machine-learning methods, from Papers With Code",
+			"description": "Array of relevant machine-learning methods or method categories, from Papers With Code",
 			"$comment": "ROADMAP:00118",
 			"type": "array",
 			"uniqueItems": true,
 			"items": {
-				"anyOf": [
-					{
-						"type": "string",
-						"format": "uri-template",
-						"pattern": "https://paperswithcode.com/method/.+"
-					},
-					{
-						"type": "string",
-						"format": "uri-template",
-						"pattern": "https://paperswithcode.com/methods/category/.+"
-					}
-				],
 				"examples": [
 					"https://paperswithcode.com/method/autoencoder",
 					"https://paperswithcode.com/method/unet",
 					"https://paperswithcode.com/methods/category/image-feature-extractors"
+				],
+				"type": "string",
+				"format": "uri",
+				"anyOf": [
+					{
+						"pattern": "https://paperswithcode.com/method/.+"
+					},
+					{
+						"pattern": "https://paperswithcode.com/methods/category/.+"
+					}
 				]
 			}
 		},
@@ -160,8 +155,8 @@
 			"uniqueItems": true,
 			"items": {
 				"type": "string",
-				"format": "uri-template",
 				"pattern": "https://paperswithcode.com/task/.+",
+				"format": "uri",
 				"examples": [
 					"https://paperswithcode.com/task/object-detection",
 					"https://paperswithcode.com/task/semantic-segmentation"
@@ -169,8 +164,5 @@
 			}
 		}
 	},
-	"required": [
-		"Name"
-	],
 	"additionalProperties": false
 }
