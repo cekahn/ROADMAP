@@ -2,9 +2,10 @@
 	"$schema": "https://json-schema.org/draft/2020-12/schema",
 	"$id": "ROADMAP.content-code.json",
 	"title": "Content code(s)",
-	"description": "RSNA content codes",
+	"description": "RSNA 2-letter content code, e.g., CT",
 	"$comment": "ROADMAP:00073",
 	"type": "array",
+	"minItems": 1,
 	"uniqueItems": true,
 	"items": {
 		"type": "string",

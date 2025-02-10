@@ -36603,18 +36603,21 @@ Class: roadmap:ROADMAP_03306
 Class: roadmap:ROADMAP_03307
 
     Annotations: 
-        rdfs:comment "Accuracy is the proportion of correct predictions among the total number of cases processed.:  Accuracy = (TP + TN) / (TP + TN + FP + FN)",
+        rdfs:comment "Accuracy is a metric used to measure the overall correctness of a model or test. It is defined as the ratio of correctly predicted observations (both true positives and true negatives) to the total number of observations.
+
+Accuracy = (TP + TN) / (TP + TN + FP + FN)",
         rdfs:label "Accuracy"@en
     
     SubClassOf: 
-        roadmap:ROADMAP_03501
+        roadmap:ROADMAP_03501,
+        roadmap:ROADMAP_03635
     
     
 Class: roadmap:ROADMAP_03308
 
     Annotations: 
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "BA"@en,
-        rdfs:comment "Balanced Accuracy is the average of recall obtained on each class. It can be computed with: Balanced Accuracy = (TPR + TNR) / N Where: TPR: True positive rate TNR: True negative rate N: Number of classes.",
+        rdfs:comment "Balanced accuracy is a version of accuracy that accounts for class imbalance by averaging the proportion of correct predictions in each class independently. It is calculated as the average of sensitivity (true positive rate) and specificity (true negative rate).",
         rdfs:label "Balanced accuracy"@en,
         rdfs:seeAlso "https://huggingface.co/spaces/hyperml/balanced_accuracy"^^xsd:anyURI
     
@@ -36627,6 +36630,7 @@ Class: roadmap:ROADMAP_03309
 
     Annotations: 
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "EC"@en,
+        rdfs:comment "Expected cost is a statistical concept that represents the average cost of an outcome based on its probability of occurrence. In medical testing or decision-making scenarios, it may refer to the anticipated costs associated with different interventions, considering both the likelihood and financial impact of potential results or complications.",
         rdfs:label "Expected cost"@en
     
     SubClassOf: 
@@ -36637,6 +36641,7 @@ Class: roadmap:ROADMAP_03311
 
     Annotations: 
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Weighted kappa"@en,
+        rdfs:comment "Weighted Cohen's kappa is similar to Cohen's kappa but takes into account the degree of disagreement. It assigns weights to disagreements; greater weights are typically assigned to larger differences.",
         rdfs:label "Weighted Cohen's kappa"@en
     
     SubClassOf: 
@@ -36648,10 +36653,12 @@ Class: roadmap:ROADMAP_03312
 
     Annotations: 
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Sens",
+        rdfs:comment "Sensitivity, also known as the true positive rate, measures the proportion of actual positives correctly identified by a test. In other words, it indicates how effectively a test or tool can identify those with the condition from all those who actually have it.",
         rdfs:label "Sensitivity"@en
     
     EquivalentTo: 
-        roadmap:ROADMAP_03316
+        roadmap:ROADMAP_03316,
+        roadmap:ROADMAP_03339
     
     SubClassOf: 
         roadmap:ROADMAP_03302
@@ -36662,8 +36669,11 @@ Class: roadmap:ROADMAP_03313
     Annotations: 
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Spec",
         rdfs:comment "Specificity = TN / (TN + FP)",
-        rdfs:comment "Specificity is the fraction of the negatives examples that were correctly labeled by the model as negatives.",
+        rdfs:comment "Specificity, also known as the true negative rate, measures the proportion of actual negatives that are correctly identified by a test or classifier. It reflects how well a test can identify negative instances among all actual negatives.",
         rdfs:label "Specificity"@en
+    
+    EquivalentTo: 
+        roadmap:ROADMAP_03340
     
     SubClassOf: 
         roadmap:ROADMAP_03501
@@ -36678,7 +36688,12 @@ Class: roadmap:ROADMAP_03314
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "AUROC score",
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Area under the ROC curve"@en,
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "ROC-AUC",
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "AUC-ROC",
+        rdfs:comment "The area under the Receiver Operating Characteristic curve is a measure of a model’s ability to distinguish between classes. An AUC of 1 indicates perfect discrimination, while an AUC of 0.5 suggests no discrimination.",
         rdfs:label "Area under the receiver operating characteristic curve"@en
+    
+    EquivalentTo: 
+        roadmap:ROADMAP_03572
     
     SubClassOf: 
         roadmap:ROADMAP_03506
@@ -36691,7 +36706,7 @@ Class: roadmap:ROADMAP_03315
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Detection rate",
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Detection rate (DR), in the field of computer science, refers to the percentage of anomalies detected out of the total number of anomalies present in the data. It is also known as precision.",
         rdfs:comment "Precision = TP / (TP + FP)",
-        rdfs:comment "Precision is the fraction of correctly labeled positive examples out of all of the examples that were labeled as positive.",
+        rdfs:comment "Precision, or positive predictive value (PPV), is the fraction of correctly labeled positive examples out of all of the examples that were labeled as positive. High precision implies that when the test predicts a condition, it is likely correct.",
         rdfs:label "Precision"@en
     
     EquivalentTo: 
@@ -36706,7 +36721,7 @@ Class: roadmap:ROADMAP_03316
 
     Annotations: 
         rdfs:comment "Recall = TP / (TP + FN)",
-        rdfs:comment "Recall is the fraction of the positive examples that were correctly labeled by the model as positive.",
+        rdfs:comment "Recall is synonymous with sensitivity; it measures how many actual positives a test correctly identifies as such. It answers: Of all individuals who truly have a condition, how many did the test correctly diagnose?",
         rdfs:label "Recall"@en
     
     EquivalentTo: 
@@ -36721,6 +36736,8 @@ Class: roadmap:ROADMAP_03317
 
     Annotations: 
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "F-score",
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "F measure",
+        rdfs:comment "An F score (also called F measure) is a harmonic mean of precision and recall and conveys the balance between them. It is used in binary classification to provide a single measure for evaluating how well an algorithm performs overall.",
         rdfs:label "F score"@en
     
     SubClassOf: 
@@ -36734,6 +36751,9 @@ Class: roadmap:ROADMAP_03319
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "F1-score",
         rdfs:comment "F1 = 2 * (precision * recall) / (precision + recall)",
         rdfs:comment "The F1 score is the harmonic mean of the precision and recall.",
+        rdfs:comment "The F1 score is a specific F score where precision and recall are equally weighted. It's calculated as 2 times the product of precision and recall divided by their sum:
+
+F1 = (2 * precision * recall) / (precision + recall)",
         rdfs:label "F1 score"@en
     
     SubClassOf: 
@@ -36748,6 +36768,7 @@ Class: roadmap:ROADMAP_03320
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "F beta",
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "F-beta",
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "F-beta score",
+        rdfs:comment "The F(beta) score allows different weighting between precision and recall using a beta parameter; beta > 1 weighs recall higher than precision (more emphasis on minimizing false negatives), while beta < 1 weighs precision more (emphasizing minimizing false positives).",
         rdfs:label "F(beta) score"@en
     
     SubClassOf: 
@@ -36758,6 +36779,11 @@ Class: roadmap:ROADMAP_03321
 
     Annotations: 
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "FROC score"@en,
+        rdfs:comment "The free-response receiver operating characteristic (FROC) score is a performance metric used to evaluate diagnostic tests and systems where the responses are not constrained to a fixed set of locations or regions. Unlike traditional ROC curves that consider binary outcomes, FROC analysis allows for the possibility of multiple lesions or findings per image and does not penalize for the number of false-positive markings as long as every true lesion is detected.
+
+In an FROC curve, the sensitivity (true positive rate) is plotted against the average number of false positives per image, rather than against 1-specificity as in typical ROC curves. This provides a more detailed assessment of diagnostic performance in tasks like medical imaging, where it is common to have multiple findings and where the localization of these findings is crucial.
+
+Assessing an AI system with an FROC score involves examining its ability to correctly identify and localize targets (such as tumors in radiology images) while accounting for any false-positive marks it makes. The higher the FROC score, the better the system is at detecting true positives with fewer false alarms.",
         rdfs:label "Free-response receiver operating characteristic score"@en
     
     SubClassOf: 
@@ -36768,16 +36794,18 @@ Class: roadmap:ROADMAP_03322
 
     Annotations: 
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "FPR",
+        rdfs:comment "The false positive rate measures how many false positives are identified out of all actual negative cases. It is calculated as 1 minus specificity (1 - TNR), indicating how often non-existing conditions are falsely detected.",
         rdfs:label "False positive rate"@en
     
     SubClassOf: 
-        roadmap:ROADMAP_03323
+        roadmap:ROADMAP_03501
     
     
 Class: roadmap:ROADMAP_03323
 
     Annotations: 
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "FPPI",
+        rdfs:comment "This metric indicates the average number of false-positive detections made by an imaging-based diagnostic system per image. It's particularly useful in medical imaging where multiple potential findings may be present in each image.",
         rdfs:label "False positives per image"@en
     
     SubClassOf: 
@@ -36788,7 +36816,7 @@ Class: roadmap:ROADMAP_03324
 
     Annotations: 
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "PPV",
-        rdfs:comment "Precision measures how accurate your predictions are, i.e., the percentage of your predictions that are correct; it is the same as positive predictive value",
+        rdfs:comment "PPV is another term for precision; it quantifies how many positive results from a test were true positives.",
         rdfs:label "Positive predictive value"@en
     
     EquivalentTo: 
@@ -36802,6 +36830,7 @@ Class: roadmap:ROADMAP_03325
 
     Annotations: 
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "NPV",
+        rdfs:comment "Negative predictive value (NPV) measures the proportion of negative results that are true negatives—how many instances identified by the test as not having the condition truly do not have it.",
         rdfs:label "Negative predictive value"@en
     
     SubClassOf: 
@@ -36814,6 +36843,9 @@ Class: roadmap:ROADMAP_03326
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "LR+",
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "PLR",
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Positive LR",
+        rdfs:comment "The positive likelihood ratio quantifies how much more likely it is for someone with a condition/disease to have a positive test result compared with someone without it. It's calculated as TPR divided by 1 minus TNR.
+
+LR+ = sensitivity / (1-specificity)",
         rdfs:label "Positive likelihood ratio"@en
     
     SubClassOf: 
@@ -36824,6 +36856,7 @@ Class: roadmap:ROADMAP_03327
 
     Annotations: 
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "PQ",
+        rdfs:comment "Panoptic Quality is a metric used in computer vision, particularly for the task of image segmentation that combines both instance segmentation and semantic segmentation. PQ measures the quality of object detection (how well each object is detected) and segmentation (how well the shape of each object is delineated). It combines recognition (detection) and segmentation quality into a single score.",
         rdfs:label "Panoptic quality"@en
     
     SubClassOf: 
@@ -36834,7 +36867,7 @@ Class: roadmap:ROADMAP_03328
 
     Annotations: 
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "AP",
-        rdfs:comment "The average precision is the area under the precision recall curve, i.e., the average of the precisions for different thresholds of the recall which is the same as sensitivity using as decision variable",
+        rdfs:comment "Average Precision is a performance metric that summarizes the precision-recall curve as a single value, reflecting the ability of a classifier to identify only relevant instances across different threshold levels. AP is calculated by taking the weighted mean of precisions achieved at each threshold, with the increase in recall from the previous threshold used as the weight; it is the area under the precision recall curve.",
         rdfs:label "Average precision"@en
     
     SubClassOf: 
@@ -36845,7 +36878,7 @@ Class: roadmap:ROADMAP_03328
 Class: roadmap:ROADMAP_03329
 
     Annotations: 
-        rdfs:comment "The Brier score is a measure of the error between two probability distributions.",
+        rdfs:comment "The Brier score measures the accuracy of probabilistic predictions. It is calculated as the mean squared difference between predicted probabilities and actual outcomes; a lower Brier score indicates more accurate predictions.",
         rdfs:label "Brier score"@en
     
     SubClassOf: 
@@ -36855,6 +36888,7 @@ Class: roadmap:ROADMAP_03329
 Class: roadmap:ROADMAP_03330
 
     Annotations: 
+        rdfs:comment "Class error refers to the rate at which instances of a particular class are incorrectly classified by a model or system. It's essentially 1 minus class-specific accuracy for that category.",
         rdfs:label "Class error"@en
     
     SubClassOf: 
@@ -36865,6 +36899,7 @@ Class: roadmap:ROADMAP_03331
 
     Annotations: 
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "CWCE",
+        rdfs:comment "Class-wise calibration error measures how well predicted probabilities from a model correspond to actual probabilities on a per-class basis. This metric assesses whether, for instance, an estimated probability of belonging to a specific class truly reflects the empirical likelihood across different confidence levels within that class.",
         rdfs:label "Class-wise calibration error"@en
     
     SubClassOf: 
@@ -36875,6 +36910,7 @@ Class: roadmap:ROADMAP_03332
 
     Annotations: 
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "ECE",
+        rdfs:comment "Expected Calibration Error (ECE) quantifies how closely predicted probabilities from a model reflect empirical probabilities. ECE aggregates differences between predicted probabilities and observed proportions over a range of confidence intervals or bins; ideally, predicted probabilities should match observed frequencies.",
         rdfs:label "Expected calibration error"@en
     
     SubClassOf: 
@@ -36885,6 +36921,7 @@ Class: roadmap:ROADMAP_03333
 
     Annotations: 
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "KCE",
+        rdfs:comment "Kernel Calibration Error is another metric to assess calibration in probabilistic predictions but uses kernel methods to provide smoother estimates over continuous ranges rather than discrete bins used in ECE calculations. This approach can provide more nuanced insights into model calibration over different segments of prediction probability space.",
         rdfs:label "Kernel calibration error"@en
     
     SubClassOf: 
@@ -36895,6 +36932,7 @@ Class: roadmap:ROADMAP_03334
 
     Annotations: 
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "NLL",
+        rdfs:comment "Negative log likelihood (NLL) is a measure used to assess the performance of a probabilistic model. It quantifies how well the model predicts a set of outcomes by taking the natural logarithm of the likelihood function and changing its sign. A lower NLL indicates that the model is more likely to predict the observed data.",
         rdfs:label "Negative log likelihood"@en
     
     SubClassOf: 
@@ -36906,6 +36944,8 @@ Class: roadmap:ROADMAP_03335
     Annotations: 
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "O:E ratio",
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Observed:Expected ratio"@en,
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "O/E ratio",
+        rdfs:comment "The observed-to-expected ratio is a metric commonly used in epidemiology and other fields to compare an observed number of events to the number that would be expected if a certain hypothesis were true. An O/E ratio greater than 1 suggests more occurrences than expected, while an O/E ratio less than 1 suggests fewer occurrences than expected.",
         rdfs:label "Observed-to-expected ratio"@en
     
     SubClassOf: 
@@ -36916,6 +36956,7 @@ Class: roadmap:ROADMAP_03336
 
     Annotations: 
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "RBS",
+        rdfs:comment "The Root Brier Score is simply the square root of the Brier score. Taking the root provides a scale that can be more interpretable, similar to how one might interpret standard deviation.",
         rdfs:label "Root Brier score"@en
     
     SubClassOf: 
@@ -36942,6 +36983,8 @@ Class: roadmap:ROADMAP_03338
 
     Annotations: 
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "clDSC",
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "The Centerline Dice similarity coefficient is a variation of the Dice coefficient, which measures overlap between two samples. Specifically for centerlines, this metric compares the similarity between predicted and true centerline structures, often used in medical imaging to evaluate vessel segmentation algorithms.",
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "centerline DSC",
         rdfs:label "Centerline Dice similarity coefficient"@en
     
     SubClassOf: 
@@ -36952,7 +36995,11 @@ Class: roadmap:ROADMAP_03339
 
     Annotations: 
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "TPR",
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "True positive rate, also known as sensitivity or recall, measures the proportion of actual positives correctly identified by a classifier or test out of all actual positives present.",
         rdfs:label "True positive rate"@en
+    
+    EquivalentTo: 
+        roadmap:ROADMAP_03312
     
     SubClassOf: 
         roadmap:ROADMAP_03302
@@ -36962,7 +37009,11 @@ Class: roadmap:ROADMAP_03340
 
     Annotations: 
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "TNR",
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "True negative rate, also known as specificity, measures the proportion of actual negatives correctly identified by a classifier or test out of all actual negatives present.",
         rdfs:label "True negative rate"@en
+    
+    EquivalentTo: 
+        roadmap:ROADMAP_03313
     
     SubClassOf: 
         roadmap:ROADMAP_03302
@@ -36972,6 +37023,7 @@ Class: roadmap:ROADMAP_03341
 
     Annotations: 
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "ASSD",
+        rdfs:comment "Average symmetric surface distance is used in medical image analysis to quantify the average distance between surfaces of two objects—often between ground truth and predicted segmentation maps. ASSD considers distances from each point on one surface to another and averages them symmetrically for both directions.",
         rdfs:label "Average symmetric surface distance"@en
     
     SubClassOf: 
@@ -37026,6 +37078,7 @@ Class: roadmap:ROADMAP_03345
 
     Annotations: 
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "NSD",
+        rdfs:comment "Normalized surface distance similarly measures discrepancies between two surfaces but normalizes these distances relative to some reference dimension or value, which allows comparison across different scales or sizes.",
         rdfs:label "Normalized surface distance"@en
     
     SubClassOf: 
@@ -37115,6 +37168,9 @@ Class: roadmap:ROADMAP_03356
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "LR-",
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "NLR"@en,
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Negative LR",
+        rdfs:comment "The negative likelihood ratio quantifies how much less likely it is for someone with a condition/disease to have a negative test result compared with someone without it. It's calculated as 1 minus TPR divided by TNR.
+
+LR- = (1-sensitivity) / specificity",
         rdfs:label "Negative likelihood ratio"@en
     
     SubClassOf: 
@@ -38566,6 +38622,7 @@ Class: roadmap:ROADMAP_03509
 Class: roadmap:ROADMAP_03510
 
     Annotations: 
+        rdfs:comment "This statistic measures inter-rater reliability for categorical items. It is more robust than simple percent agreement calculation because it takes into account the possibility of agreement occurring by chance.",
         rdfs:label "Cohen's kappa"@en
     
     SubClassOf: 
@@ -38589,6 +38646,7 @@ Class: roadmap:ROADMAP_03513
 
     Annotations: 
         rdfs:comment "F2 = 5*(precision*recall) / (4*precision+recall)",
+        rdfs:comment "The F2 score gives more weight to recall than to precision. It's calculated similarly to F1 but squares beta (=2), putting more emphasis on reducing false negatives over reducing false positives.",
         rdfs:label "F2 score"@en
     
     SubClassOf: 
@@ -38741,7 +38799,7 @@ Class: roadmap:ROADMAP_03528
     Annotations: 
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "MSE",
         <http://purl.org/dc/elements/1.1/source> "https://huggingface.co/spaces/evaluate-metric/mse",
-        rdfs:comment "Mean Squared Error(MSE) is the average of the square of difference between the predicted and actual values.",
+        rdfs:comment "Mean square error is a measure of the average squared difference between estimated values and the actual value. It is commonly used to evaluate the accuracy of a model or estimator.",
         rdfs:label "Mean square error"@en
     
     SubClassOf: 
@@ -38796,7 +38854,7 @@ Class: roadmap:ROADMAP_03536
 
     Annotations: 
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "mAP",
-        rdfs:comment "The mean average precision (mAP) then, is the average precision averaged over multiple object classes (cats, dogs, horses, fish etc.) at a given definition of true positive and false positive detections, or averaged over possible thresholds defining true positive vs. false positive detections (such as the intersection over union, IoU, of bounding boxes).",
+        rdfs:comment "Mean Average Precision extends AP to datasets with multiple classes or queries. It calculates the AP for each class or query separately and then takes their average. This provides an overall effectiveness measure for multi-class classification problems.",
         rdfs:label "Mean average precision"@en
     
     SubClassOf: 
@@ -38815,7 +38873,8 @@ Class: roadmap:ROADMAP_03537
 Class: roadmap:ROADMAP_03538
 
     Annotations: 
-        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "AVD",
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "AHD",
+        rdfs:comment "In image processing, this metric measures how far two subsets of a space are from each other, on average. It is often used for comparing the similarity of two sets of points.",
         rdfs:label "Average Hausdorff distance"@en
     
     SubClassOf: 
@@ -38826,6 +38885,7 @@ Class: roadmap:ROADMAP_03540
 
     Annotations: 
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "GCE",
+        rdfs:comment "Global Consistency Error (GCE) evaluates the consistency of segmentations in comparison with ground truth segmentation, taking into account both over-segmentation and under-segmentation.",
         rdfs:label "Global consistency error"@en
     
     SubClassOf: 
@@ -38866,6 +38926,7 @@ Class: roadmap:ROADMAP_03544
 Class: roadmap:ROADMAP_03545
 
     Annotations: 
+        rdfs:comment "This measure evaluates the similarity between two data clusterings. A higher Rand index indicates greater similarity between two clusterings.",
         rdfs:label "Rand index"@en
     
     SubClassOf: 
@@ -38877,6 +38938,7 @@ Class: roadmap:ROADMAP_03546
     Annotations: 
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "VS",
         rdfs:comment "Volumetric similarity (VS) is an indicator of similarity between the volumes of segments based on volumetric distance measure. There are multiple ways to define the volumetric distance. Here we take the definition adopted by (Taha and Hanbury 2015, Cardenes et al. 2009, Reddy et al. 2013, Vadaparthi et al. 2011, Reddy et al. 2013), i.e., the absolute volume difference divided by the sum of two volumes being compared.",
+        rdfs:comment "In medical imaging and other fields dealing with 3D shapes, volumetric similarity compares the volume overlap between two objects or regions. It’s a ratio that quantifies their volumetric overlap accuracy.",
         rdfs:label "Volumetric similarity"@en
     
     SubClassOf: 
@@ -38922,6 +38984,7 @@ Class: roadmap:ROADMAP_03550
     Annotations: 
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "MASE",
         rdfs:comment "Mean Absolute Scaled Error (MASE) is the mean absolute error of the forecast values, divided by the mean absolute error of the in-sample one-step naive forecast on the training set.",
+        rdfs:comment "Mean Absolute Scaled Error (MASE) is a measure that scales absolute errors based on an in-sample historical mean absolute error. Unlike MAPE, MASE can be used when actual demand includes zero or near-zero demands without inflating errors.",
         rdfs:label "Mean absolute scaled error"@en
     
     SubClassOf: 
@@ -39020,6 +39083,7 @@ Class: roadmap:ROADMAP_03558
 Class: roadmap:ROADMAP_03559
 
     Annotations: 
+        rdfs:comment "The Multiclass Brier Score generalizes the original binary-score concept to situations where there are more than two possible outcomes or classes. It calculates mean squared error over multiple classes, providing an aggregate measure of accuracy for multiclass probability forecasts.",
         rdfs:label "Multiclass Brier score"@en,
         rdfs:seeAlso "https://huggingface.co/spaces/huanghuayu/multiclass_brier_score"
     
@@ -39121,6 +39185,7 @@ Class: roadmap:ROADMAP_03568
 Class: roadmap:ROADMAP_03569
 
     Annotations: 
+        rdfs:comment "In statistics, bias refers to a systematic error in an estimator that causes it to deviate from the true parameter being estimated. It measures how far the expected value of an estimate is from the true value.",
         rdfs:label "Bias"@en
     
     SubClassOf: 
@@ -39130,6 +39195,7 @@ Class: roadmap:ROADMAP_03569
 Class: roadmap:ROADMAP_03570
 
     Annotations: 
+        rdfs:comment "Calibration in statistical modeling refers to the agreement between predicted probabilities and observed outcomes. A well-calibrated model will have predicted probabilities that match the empirical frequencies of events.",
         rdfs:label "Calibration"@en
     
     SubClassOf: 
@@ -39140,6 +39206,7 @@ Class: roadmap:ROADMAP_03571
 
     Annotations: 
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "CCC",
+        rdfs:comment "The concordance correlation coefficient measures the agreement between two variables or sets of data. It evaluates both precision and accuracy to determine how well pairs of observations fall on a line through the origin at 45 degrees.",
         rdfs:label "Concordance correlation coefficient"@en
     
     SubClassOf: 
@@ -39150,7 +39217,11 @@ Class: roadmap:ROADMAP_03572
 
     Annotations: 
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "c-index",
+        rdfs:comment "Often used as another term for the area under the ROC curve (AUC), it measures the discriminatory power of a model, which is its ability to correctly classify outcomes into two groups.",
         rdfs:label "Concordance statistic"@en
+    
+    EquivalentTo: 
+        roadmap:ROADMAP_03314
     
     SubClassOf: 
         roadmap:ROADMAP_03505
@@ -39170,6 +39241,7 @@ REFERENCES
 2.. M. J. Pencina, J. P. Fine, and R. B. D’Agostino Sr., “Discrimination slope and integrated discrimination improvement – properties, relationships and impact of calibration,” Statistics in Medicine 36(28), 4482–4490 (2017) [doi:10.1002/sim.7139].
 
 from: https://www.midrc.org/performance-metrics-decision-tree",
+        rdfs:comment "Discrimination slope is a metric used in survival analysis and other fields that quantifies how well a prognostic model can distinguish between different outcome groups. It's based on differences in predicted risks across groups.",
         rdfs:label "Discrimination slope"@en
     
     SubClassOf: 
@@ -39179,6 +39251,8 @@ from: https://www.midrc.org/performance-metrics-decision-tree",
 Class: roadmap:ROADMAP_03574
 
     Annotations: 
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "ICC",
+        rdfs:comment "Intraclass Correlation Coefficient (ICC) assesses reliability when rating or measuring subjects by different raters or instruments, reflecting both degree of correlation and agreement among measurements.",
         rdfs:label "Intraclass correlation coefficient"@en
     
     SubClassOf: 
@@ -39188,6 +39262,7 @@ Class: roadmap:ROADMAP_03574
 Class: roadmap:ROADMAP_03576
 
     Annotations: 
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Ensemble mean square error extends MSE to ensemble methods in machine learning, aggregating errors across multiple models' predictions to judge their combined performance.",
         rdfs:label "Ensemble mean square error"@en
     
     SubClassOf: 
@@ -39198,6 +39273,7 @@ Class: roadmap:ROADMAP_03577
 
     Annotations: 
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "RC",
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "This statistic quantifies how much variation is present when repeat measurements are taken under identical conditions on the same subject by the same instrument or observer.",
         rdfs:comment "The repeatability coefficient (RC) is the least significant difference when two repeated measures are collected under the same conditions.
 
 2. N. A. Obuchowski, A. P. Reeves, E. P. Huang, X.-F. Wang, A. J. Buckler, H. J. (Grace) Kim, H. X. Barnhart, E. F. Jackson, M. L. Giger, G. Pennello, A. Y. Toledano, J. Kalpathy-Cramer, T. V. Apanasovich, P. E. Kinahan, K. J. Myers, D. B. Goldgof, D. P. Barboriak, R. J. Gillies, L. H. Schwartz, D. C. Sullivan, and (for the Algorithm Comparison Working Group), “Quantitative imaging biomarkers: A review of statistical methods for computer algorithm comparisons,” Stat Methods Med Res 24(1), 68–106 (2015) [doi:10.1177/0962280214537390].",
@@ -39211,6 +39287,7 @@ Class: roadmap:ROADMAP_03578
 
     Annotations: 
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "RDC",
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Reproducibility coefficient measures variation but does so for repeat measurements made under changed conditions, such as by different observers or instruments, reflecting consistency over changes in measurement context.",
         rdfs:comment "The reproducibility coefficient (RDC) is the least significant difference when two repeated measures are collected under different conditions.
 
 N. A. Obuchowski, A. P. Reeves, E. P. Huang, X.-F. Wang, A. J. Buckler, H. J. (Grace) Kim, H. X. Barnhart, E. F. Jackson, M. L. Giger, G. Pennello, A. Y. Toledano, J. Kalpathy-Cramer, T. V. Apanasovich, P. E. Kinahan, K. J. Myers, D. B. Goldgof, D. P. Barboriak, R. J. Gillies, L. H. Schwartz, D. C. Sullivan, and (for the Algorithm Comparison Working Group), “Quantitative imaging biomarkers: A review of statistical methods for computer algorithm comparisons,” Stat Methods Med Res 24(1), 68–106 (2015) [doi:10.1177/0962280214537390].",
@@ -39223,6 +39300,7 @@ N. A. Obuchowski, A. P. Reeves, E. P. Huang, X.-F. Wang, A. J. Buckler, H. J. (G
 Class: roadmap:ROADMAP_03579
 
     Annotations: 
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Variance is a measure of dispersion that represents how much values in a dataset differ from their mean. High variance indicates that data points are spread out widely around the mean; low variance indicates they are clustered closely around it.",
         rdfs:comment "References:
 
 1. N. A. Obuchowski, A. P. Reeves, E. P. Huang, X.-F. Wang, A. J. Buckler, H. J. (Grace) Kim, H. X. Barnhart, E. F. Jackson, M. L. Giger, G. Pennello, A. Y. Toledano, J. Kalpathy-Cramer, T. V. Apanasovich, P. E. Kinahan, K. J. Myers, D. B. Goldgof, D. P. Barboriak, R. J. Gillies, L. H. Schwartz, D. C. Sullivan, and (for the Algorithm Comparison Working Group), “Quantitative imaging biomarkers: A review of statistical methods for computer algorithm comparisons,” Stat Methods Med Res 24(1), 68–106 (2015) [doi:10.1177/0962280214537390].
@@ -39238,13 +39316,15 @@ Class: roadmap:ROADMAP_03580
 
     Annotations: 
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "CV",
-        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Coefficient of variance (CV): when assessed for a given measurand, it is sometimes called the “within-case coefficient of variance” and is measured as the ratio of the standard error of the measurement to the mean.",
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "relative standard deviation",
         <http://purl.org/dc/elements/1.1/source> "https://www.midrc.org/performance-metrics-decision-tree",
         rdfs:comment "References:
 
 1. N. A. Obuchowski, A. P. Reeves, E. P. Huang, X.-F. Wang, A. J. Buckler, H. J. (Grace) Kim, H. X. Barnhart, E. F. Jackson, M. L. Giger, G. Pennello, A. Y. Toledano, J. Kalpathy-Cramer, T. V. Apanasovich, P. E. Kinahan, K. J. Myers, D. B. Goldgof, D. P. Barboriak, R. J. Gillies, L. H. Schwartz, D. C. Sullivan, and (for the Algorithm Comparison Working Group), “Quantitative imaging biomarkers: A review of statistical methods for computer algorithm comparisons,” Stat Methods Med Res 24(1), 68–106 (2015) [doi:10.1177/0962280214537390].
 
  2. D. L. Raunig, L. M. McShane, G. Pennello, C. Gatsonis, P. L. Carson, J. T. Voyvodic, R. L. Wahl, B. F. Kurland, A. J. Schwarz, M. Gönen, G. Zahlmann, M. V. Kondratovich, K. O’Donnell, N. Petrick, P. E. Cole, B. Garra, and D. C. Sullivan, “Quantitative imaging biomarkers: A review of statistical methods for technical performance assessment,” Stat Methods Med Res 24(1), 27–67, SAGE Publications Ltd STM (2015) [doi:10.1177/0962280214537344].",
+        rdfs:comment "Also known as relative standard deviation, CV expresses standard deviation as a proportion of the mean, allowing comparison between datasets with different units or scales.",
+        rdfs:comment "Coefficient of variance (CV): when assessed for a given measurand, it is sometimes called the “within-case coefficient of variance” and is measured as the ratio of the standard error of the measurement to the mean.",
         rdfs:label "Coefficient of variance"@en
     
     SubClassOf: 
@@ -39613,7 +39693,7 @@ Class: roadmap:ROADMAP_03620
         rdfs:label "Reproducibility"@en
     
     SubClassOf: 
-        roadmap:ROADMAP_03615
+        roadmap:ROADMAP_03355
     
     
 Class: roadmap:ROADMAP_03621
@@ -39627,7 +39707,7 @@ Known gaps in the data characterization, such as patient populations that are no
         rdfs:label "Limitations"@en
     
     SubClassOf: 
-        roadmap:ROADMAP_03615
+        roadmap:ROADMAP_03355
     
     
 Class: roadmap:ROADMAP_03622
@@ -39724,6 +39804,28 @@ Scores are calculated for individual translated segments—generally sentences�
     
     SubClassOf: 
         roadmap:ROADMAP_03302
+    
+    
+Class: roadmap:ROADMAP_03634
+
+    Annotations: 
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Recall-Oriented Understudy for Gisting Evaluation",
+        <http://purl.org/dc/elements/1.1/source> "https://aclanthology.org/W04-1013/"^^xsd:anyURI,
+        rdfs:comment "ROUGE (Recall-Oriented Understudy for Gisting Evaluation) is a set of metrics and a software package to evaluate automatic summarization and machine translation software in natural language processing. The metrics compare an automatically produced summary or translation against a reference or a set of references (human-produced) summary or translation."@en,
+        rdfs:label "ROUGE"@en
+    
+    SubClassOf: 
+        roadmap:ROADMAP_03302
+    
+    
+Class: roadmap:ROADMAP_03635
+
+    Annotations: 
+        rdfs:label "Overall performance metric"@en
+    
+    SubClassOf: 
+        roadmap:ROADMAP_03302,
+        roadmap:ROADMAP_03635
     
     
 Individual: roadmap:ROADMAP_03468

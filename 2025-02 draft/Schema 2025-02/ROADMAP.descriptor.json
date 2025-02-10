@@ -21,13 +21,6 @@
 				"$ref": "ROADMAP.person.json"
 			}
 		},
-		"Contributor": {
-			"description": "Contributor(s) (ROADMAP:03471)",
-			"type": "array",
-			"items": {
-				"$ref": "ROADMAP.person.json"
-			}
-		},
 		"Organization": {
 			"description": "Developing or sponsoring Organization(s) (ROADMAP:00072)",
 			"type": "array",
@@ -85,78 +78,7 @@
 			"type": "string"
 		},
 		"Reference": {
-			"$comment": "ROADMAP:00067",
-			"type": "array",
-			"items": {
-				"type": "object",
-				"properties": {
-					"Authors": {
-						"description": "Reference authors",
-						"type": "string",
-						"examples": [
-							"Rudie JD, et al."
-						]
-					},
-					"Title": {
-						"description": "Reference title",
-						"type": "string",
-						"examples": [
-							"The RSNA Abdominal Traumatic Injury CT (RATIC) Dataset"
-						]
-					},
-					"Source": {
-						"description": "Name of journal, book, or other source",
-						"type": "string",
-						"examples": [
-							"Radiology: Artificial Intelligence"
-						]
-					},
-					"Year": {
-						"$comment": "By 2100, you'll need to update this schema! ;-)",
-						"type": "integer",
-						"minimum": 1900,
-						"maximum": 2100,
-						"examples": [
-							2024
-						]
-					},
-					"DOI": {
-						"description": "Digital Object Identifer (DOI)",
-
-								"type": "string",
-								"pattern": "[0-9]+\\.[0-9]+/.+",
-								"examples": [
-									"10.1148/ryai.240101"
-								]
-					},
-					"URL": {
-						"description": "Pointer to online reference",
-						"type": "string",
-						"format": "uri",
-						"examples": [
-							"https://doi.org/10.1148/ryai.240101"
-						]
-					},
-					"PMID": {
-						"description": "PubMed ID",
-						"type": "integer",
-						"examples": [
-							39441109
-						]
-					},
-					"PMCID": {
-						"description": "PubMed Central ID",
-						"type": "string",
-						"examples": [
-							"PMC8017407"
-						]
-					}
-				},
-				"required": [
-					"Title"
-				],
-				"additionalProperties": false
-			}
+			"$ref": "ROADMAP.ref.json"
 		},
 		"License": {
 			"description": "License or rights to access this resource",
