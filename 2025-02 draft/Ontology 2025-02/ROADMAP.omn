@@ -36564,42 +36564,6 @@ Class: roadmap:ROADMAP_03302
         roadmap:ROADMAP_03615
     
     
-Class: roadmap:ROADMAP_03303
-
-    Annotations: 
-        rdfs:label "Image-level classification metric"@en
-    
-    SubClassOf: 
-        roadmap:ROADMAP_03302
-    
-    
-Class: roadmap:ROADMAP_03304
-
-    Annotations: 
-        rdfs:label "Semantic segmentation metric"@en
-    
-    SubClassOf: 
-        roadmap:ROADMAP_03503
-    
-    
-Class: roadmap:ROADMAP_03305
-
-    Annotations: 
-        rdfs:label "Object detection metric"@en
-    
-    SubClassOf: 
-        roadmap:ROADMAP_03302
-    
-    
-Class: roadmap:ROADMAP_03306
-
-    Annotations: 
-        rdfs:label "Instance segmentation metric"@en
-    
-    SubClassOf: 
-        roadmap:ROADMAP_03503
-    
-    
 Class: roadmap:ROADMAP_03307
 
     Annotations: 
@@ -36609,8 +36573,7 @@ Accuracy = (TP + TN) / (TP + TN + FP + FN)",
         rdfs:label "Accuracy"@en
     
     SubClassOf: 
-        roadmap:ROADMAP_03501,
-        roadmap:ROADMAP_03635
+        roadmap:ROADMAP_03302
     
     
 Class: roadmap:ROADMAP_03308
@@ -36622,8 +36585,7 @@ Class: roadmap:ROADMAP_03308
         rdfs:seeAlso "https://huggingface.co/spaces/hyperml/balanced_accuracy"^^xsd:anyURI
     
     SubClassOf: 
-        roadmap:ROADMAP_03501,
-        roadmap:ROADMAP_03507
+        roadmap:ROADMAP_03302
     
     
 Class: roadmap:ROADMAP_03309
@@ -36645,7 +36607,6 @@ Class: roadmap:ROADMAP_03311
         rdfs:label "Weighted Cohen's kappa"@en
     
     SubClassOf: 
-        roadmap:ROADMAP_03507,
         roadmap:ROADMAP_03510
     
     
@@ -36676,7 +36637,7 @@ Class: roadmap:ROADMAP_03313
         roadmap:ROADMAP_03340
     
     SubClassOf: 
-        roadmap:ROADMAP_03501
+        roadmap:ROADMAP_03302
     
     
 Class: roadmap:ROADMAP_03314
@@ -36684,19 +36645,16 @@ Class: roadmap:ROADMAP_03314
     Annotations: 
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "AUC"@en,
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "AUC score",
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "AUC-ROC",
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "AUROC"@en,
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "AUROC score",
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Area under the ROC curve"@en,
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "ROC-AUC",
-        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "AUC-ROC",
         rdfs:comment "The area under the Receiver Operating Characteristic curve is a measure of a model’s ability to distinguish between classes. An AUC of 1 indicates perfect discrimination, while an AUC of 0.5 suggests no discrimination.",
         rdfs:label "Area under the receiver operating characteristic curve"@en
     
-    EquivalentTo: 
-        roadmap:ROADMAP_03572
-    
     SubClassOf: 
-        roadmap:ROADMAP_03506
+        roadmap:ROADMAP_03302
     
     
 Class: roadmap:ROADMAP_03315
@@ -36713,8 +36671,7 @@ Class: roadmap:ROADMAP_03315
         roadmap:ROADMAP_03324
     
     SubClassOf: 
-        roadmap:ROADMAP_03302,
-        roadmap:ROADMAP_03506
+        roadmap:ROADMAP_03302
     
     
 Class: roadmap:ROADMAP_03316
@@ -36728,15 +36685,14 @@ Class: roadmap:ROADMAP_03316
         roadmap:ROADMAP_03312
     
     SubClassOf: 
-        roadmap:ROADMAP_03302,
-        roadmap:ROADMAP_03506
+        roadmap:ROADMAP_03302
     
     
 Class: roadmap:ROADMAP_03317
 
     Annotations: 
-        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "F-score",
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "F measure",
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "F-score",
         rdfs:comment "An F score (also called F measure) is a harmonic mean of precision and recall and conveys the balance between them. It is used in binary classification to provide a single measure for evaluating how well an algorithm performs overall.",
         rdfs:label "F score"@en
     
@@ -36750,16 +36706,14 @@ Class: roadmap:ROADMAP_03319
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "F1",
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "F1-score",
         rdfs:comment "F1 = 2 * (precision * recall) / (precision + recall)",
-        rdfs:comment "The F1 score is the harmonic mean of the precision and recall.",
         rdfs:comment "The F1 score is a specific F score where precision and recall are equally weighted. It's calculated as 2 times the product of precision and recall divided by their sum:
 
 F1 = (2 * precision * recall) / (precision + recall)",
+        rdfs:comment "The F1 score is the harmonic mean of the precision and recall.",
         rdfs:label "F1 score"@en
     
     SubClassOf: 
-        roadmap:ROADMAP_03317,
-        roadmap:ROADMAP_03506,
-        roadmap:ROADMAP_03507
+        roadmap:ROADMAP_03317
     
     
 Class: roadmap:ROADMAP_03320
@@ -36798,7 +36752,7 @@ Class: roadmap:ROADMAP_03322
         rdfs:label "False positive rate"@en
     
     SubClassOf: 
-        roadmap:ROADMAP_03501
+        roadmap:ROADMAP_03302
     
     
 Class: roadmap:ROADMAP_03323
@@ -36809,7 +36763,7 @@ Class: roadmap:ROADMAP_03323
         rdfs:label "False positives per image"@en
     
     SubClassOf: 
-        roadmap:ROADMAP_03501
+        roadmap:ROADMAP_03302
     
     
 Class: roadmap:ROADMAP_03324
@@ -36871,8 +36825,7 @@ Class: roadmap:ROADMAP_03328
         rdfs:label "Average precision"@en
     
     SubClassOf: 
-        roadmap:ROADMAP_03302,
-        roadmap:ROADMAP_03534
+        roadmap:ROADMAP_03302
     
     
 Class: roadmap:ROADMAP_03329
@@ -36892,7 +36845,7 @@ Class: roadmap:ROADMAP_03330
         rdfs:label "Class error"@en
     
     SubClassOf: 
-        roadmap:ROADMAP_03501
+        roadmap:ROADMAP_03302
     
     
 Class: roadmap:ROADMAP_03331
@@ -36903,7 +36856,7 @@ Class: roadmap:ROADMAP_03331
         rdfs:label "Class-wise calibration error"@en
     
     SubClassOf: 
-        roadmap:ROADMAP_03501
+        roadmap:ROADMAP_03302
     
     
 Class: roadmap:ROADMAP_03332
@@ -36942,9 +36895,9 @@ Class: roadmap:ROADMAP_03334
 Class: roadmap:ROADMAP_03335
 
     Annotations: 
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "O/E ratio",
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "O:E ratio",
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Observed:Expected ratio"@en,
-        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "O/E ratio",
         rdfs:comment "The observed-to-expected ratio is a metric commonly used in epidemiology and other fields to compare an observed number of events to the number that would be expected if a certain hypothesis were true. An O/E ratio greater than 1 suggests more occurrences than expected, while an O/E ratio less than 1 suggests fewer occurrences than expected.",
         rdfs:label "Observed-to-expected ratio"@en
     
@@ -36976,15 +36929,15 @@ Class: roadmap:ROADMAP_03337
         rdfs:label "Dice similarity coefficient"@en
     
     SubClassOf: 
-        roadmap:ROADMAP_03503
+        roadmap:ROADMAP_03302
     
     
 Class: roadmap:ROADMAP_03338
 
     Annotations: 
-        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "clDSC",
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "The Centerline Dice similarity coefficient is a variation of the Dice coefficient, which measures overlap between two samples. Specifically for centerlines, this metric compares the similarity between predicted and true centerline structures, often used in medical imaging to evaluate vessel segmentation algorithms.",
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "centerline DSC",
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "clDSC",
         rdfs:label "Centerline Dice similarity coefficient"@en
     
     SubClassOf: 
@@ -37042,10 +36995,10 @@ Class: roadmap:ROADMAP_03342
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Jaccard similarity coefficient",
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Jaccard similarity coefficient score",
         rdfs:comment "Jaccard similarity coefficient score (also IoU) is defined as the size of the intersection divided by the size of the union of two label sets. It is used to compare the set of predicted labels for a sample to the corresponding set of true labels.",
-        rdfs:label "Intersection over Union"@en
+        rdfs:label "Intersection over union"@en
     
     SubClassOf: 
-        roadmap:ROADMAP_03503
+        roadmap:ROADMAP_03302
     
     
 Class: roadmap:ROADMAP_03343
@@ -37061,7 +37014,7 @@ Informally, two sets are close in the Hausdorff distance if every point of eithe
         rdfs:label "Hausdorff distance"@en
     
     SubClassOf: 
-        roadmap:ROADMAP_03503
+        roadmap:ROADMAP_03302
     
     
 Class: roadmap:ROADMAP_03344
@@ -37071,7 +37024,7 @@ Class: roadmap:ROADMAP_03344
         rdfs:label "Mean absolute surface distance"@en
     
     SubClassOf: 
-        roadmap:ROADMAP_03503
+        roadmap:ROADMAP_03302
     
     
 Class: roadmap:ROADMAP_03345
@@ -37088,9 +37041,9 @@ Class: roadmap:ROADMAP_03345
 Class: roadmap:ROADMAP_03346
 
     Annotations: 
-        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Boundary intersection over union",
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Boundary IoU"@en,
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Boundary intersection-over-union"@en,
-        rdfs:label "Boundary IoU"@en
+        rdfs:label "Boundary intersection over union"
     
     SubClassOf: 
         roadmap:ROADMAP_03342
@@ -37099,8 +37052,8 @@ Class: roadmap:ROADMAP_03346
 Class: roadmap:ROADMAP_03347
 
     Annotations: 
-        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Mask Intersection over Union",
-        rdfs:label "Mask IoU"@en
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Mask IoU"@en,
+        rdfs:label "Mask Intersection over union"
     
     SubClassOf: 
         roadmap:ROADMAP_03342
@@ -37109,8 +37062,8 @@ Class: roadmap:ROADMAP_03347
 Class: roadmap:ROADMAP_03348
 
     Annotations: 
-        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Box Intersection over Union",
-        rdfs:label "Box IoU"@en
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Box IoU"@en,
+        rdfs:label "Box Intersection over union"
     
     SubClassOf: 
         roadmap:ROADMAP_03342
@@ -38531,34 +38484,6 @@ Class: roadmap:ROADMAP_03500
         roadmap:ROADMAP_03484
     
     
-Class: roadmap:ROADMAP_03501
-
-    Annotations: 
-        rdfs:label "Classification metric"@en
-    
-    SubClassOf: 
-        roadmap:ROADMAP_03302
-    
-    
-Class: roadmap:ROADMAP_03502
-
-    Annotations: 
-        rdfs:label "Detection or localization metric"@en
-    
-    SubClassOf: 
-        roadmap:ROADMAP_03302
-    
-    
-Class: roadmap:ROADMAP_03503
-
-    Annotations: 
-        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Segmentation metric",
-        rdfs:label "Image segmentation metric"@en
-    
-    SubClassOf: 
-        roadmap:ROADMAP_03302
-    
-    
 Class: roadmap:ROADMAP_03504
 
     Annotations: 
@@ -38570,35 +38495,6 @@ Class: roadmap:ROADMAP_03504
         roadmap:ROADMAP_03302
     
     
-Class: roadmap:ROADMAP_03505
-
-    Annotations: 
-        rdfs:label "Estimation metric"@en
-    
-    SubClassOf: 
-        roadmap:ROADMAP_03302
-    
-    
-Class: roadmap:ROADMAP_03506
-
-    Annotations: 
-        rdfs:comment "A measurement of performance for binary (2-class) classification models.",
-        rdfs:label "Binary classification metric"@en
-    
-    SubClassOf: 
-        roadmap:ROADMAP_03501
-    
-    
-Class: roadmap:ROADMAP_03507
-
-    Annotations: 
-        rdfs:comment "A measurement of the performace of a multi-class classification model.",
-        rdfs:label "Mutli-class classification metric"@en
-    
-    SubClassOf: 
-        roadmap:ROADMAP_03501
-    
-    
 Class: roadmap:ROADMAP_03508
 
     Annotations: 
@@ -38606,17 +38502,7 @@ Class: roadmap:ROADMAP_03508
         rdfs:label "Area under the precision-recall curve"@en
     
     SubClassOf: 
-        roadmap:ROADMAP_03506
-    
-    
-Class: roadmap:ROADMAP_03509
-
-    Annotations: 
-        rdfs:label "Area under the PROC curve"@en
-    
-    SubClassOf: 
-        roadmap:ROADMAP_03302,
-        roadmap:ROADMAP_03506
+        roadmap:ROADMAP_03302
     
     
 Class: roadmap:ROADMAP_03510
@@ -38626,9 +38512,7 @@ Class: roadmap:ROADMAP_03510
         rdfs:label "Cohen's kappa"@en
     
     SubClassOf: 
-        roadmap:ROADMAP_03302,
-        roadmap:ROADMAP_03506,
-        roadmap:ROADMAP_03507
+        roadmap:ROADMAP_03302
     
     
 Class: roadmap:ROADMAP_03511
@@ -38638,8 +38522,7 @@ Class: roadmap:ROADMAP_03511
         rdfs:label "Interchangeability metric"@en
     
     SubClassOf: 
-        roadmap:ROADMAP_03506,
-        roadmap:ROADMAP_03507
+        roadmap:ROADMAP_03302
     
     
 Class: roadmap:ROADMAP_03513
@@ -38659,8 +38542,7 @@ Class: roadmap:ROADMAP_03514
         rdfs:label "Mutual information"@en
     
     SubClassOf: 
-        roadmap:ROADMAP_03507,
-        roadmap:ROADMAP_03581
+        roadmap:ROADMAP_03302
     
     
 Class: roadmap:ROADMAP_03515
@@ -38680,16 +38562,16 @@ Class: roadmap:ROADMAP_03516
         rdfs:label "Partial area under the ROC curve"@en
     
     SubClassOf: 
-        roadmap:ROADMAP_03506
+        roadmap:ROADMAP_03302
     
     
 Class: roadmap:ROADMAP_03517
 
     Annotations: 
-        rdfs:label "Percent agreement metric"@en
+        rdfs:label "Percent agreement"@en
     
     SubClassOf: 
-        roadmap:ROADMAP_03506
+        roadmap:ROADMAP_03302
     
     
 Class: roadmap:ROADMAP_03518
@@ -38723,7 +38605,7 @@ J = sensitivity + specificity – 1.",
         rdfs:label "Youden index"@en
     
     SubClassOf: 
-        roadmap:ROADMAP_03506
+        roadmap:ROADMAP_03302
     
     
 Class: roadmap:ROADMAP_03521
@@ -38732,7 +38614,7 @@ Class: roadmap:ROADMAP_03521
         rdfs:label "Generalized percent agreement metric"@en
     
     SubClassOf: 
-        roadmap:ROADMAP_03507
+        roadmap:ROADMAP_03302
     
     
 Class: roadmap:ROADMAP_03522
@@ -38751,7 +38633,7 @@ Class: roadmap:ROADMAP_03523
         rdfs:label "Kendall's tau coefficient"@en
     
     SubClassOf: 
-        roadmap:ROADMAP_03507
+        roadmap:ROADMAP_03302
     
     
 Class: roadmap:ROADMAP_03524
@@ -38760,7 +38642,7 @@ Class: roadmap:ROADMAP_03524
         rdfs:label "Prediction probability"@en
     
     SubClassOf: 
-        roadmap:ROADMAP_03507
+        roadmap:ROADMAP_03302
     
     
 Class: roadmap:ROADMAP_03525
@@ -38771,7 +38653,7 @@ Class: roadmap:ROADMAP_03525
         rdfs:label "Spearman's rho"@en
     
     SubClassOf: 
-        roadmap:ROADMAP_03507
+        roadmap:ROADMAP_03302
     
     
 Class: roadmap:ROADMAP_03526
@@ -38780,7 +38662,7 @@ Class: roadmap:ROADMAP_03526
         rdfs:label "Top-N accuracy"@en
     
     SubClassOf: 
-        roadmap:ROADMAP_03507
+        roadmap:ROADMAP_03302
     
     
 Class: roadmap:ROADMAP_03527
@@ -38791,7 +38673,7 @@ Class: roadmap:ROADMAP_03527
         rdfs:label "Mean absolute error"@en
     
     SubClassOf: 
-        roadmap:ROADMAP_03507
+        roadmap:ROADMAP_03302
     
     
 Class: roadmap:ROADMAP_03528
@@ -38803,17 +38685,18 @@ Class: roadmap:ROADMAP_03528
         rdfs:label "Mean square error"@en
     
     SubClassOf: 
-        roadmap:ROADMAP_03505,
-        roadmap:ROADMAP_03507
+        roadmap:ROADMAP_03302
     
     
 Class: roadmap:ROADMAP_03531
 
     Annotations: 
-        rdfs:label "Alternative free-response operating characteristic (AFROC) analysis"@en
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "AFROC",
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "AFROC analysis",
+        rdfs:label "Alternative free-response operating characteristic analysis"@en
     
     SubClassOf: 
-        roadmap:ROADMAP_03502
+        roadmap:ROADMAP_03302
     
     
 Class: roadmap:ROADMAP_03532
@@ -38828,16 +38711,18 @@ M. Niemeijer, M. Loog, M. D. Abràmoff, M. A. Viergever, M. Prokop and B. van Gi
         rdfs:label "Competition performance metric"@en
     
     SubClassOf: 
-        roadmap:ROADMAP_03502
+        roadmap:ROADMAP_03302
     
     
 Class: roadmap:ROADMAP_03533
 
     Annotations: 
-        rdfs:label "Free-response operating characteristic (FROC) analysis"@en
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "FROC",
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "FROC analysis",
+        rdfs:label "Free-response operating characteristic analysis"@en
     
     SubClassOf: 
-        roadmap:ROADMAP_03502
+        roadmap:ROADMAP_03302
     
     
 Class: roadmap:ROADMAP_03534
@@ -38847,7 +38732,7 @@ Class: roadmap:ROADMAP_03534
         rdfs:label "Location precision recall metric"@en
     
     SubClassOf: 
-        roadmap:ROADMAP_03502
+        roadmap:ROADMAP_03302
     
     
 Class: roadmap:ROADMAP_03536
@@ -38867,7 +38752,7 @@ Class: roadmap:ROADMAP_03537
         rdfs:label "Sensitivity at false-positive per image"@en
     
     SubClassOf: 
-        roadmap:ROADMAP_03502
+        roadmap:ROADMAP_03302
     
     
 Class: roadmap:ROADMAP_03538
@@ -38910,7 +38795,7 @@ Class: roadmap:ROADMAP_03542
         rdfs:label "Mahalanobis distance"@en
     
     SubClassOf: 
-        roadmap:ROADMAP_03507
+        roadmap:ROADMAP_03302
     
     
 Class: roadmap:ROADMAP_03544
@@ -38920,7 +38805,7 @@ Class: roadmap:ROADMAP_03544
         rdfs:label "Variation of Information"@en
     
     SubClassOf: 
-        roadmap:ROADMAP_03581
+        roadmap:ROADMAP_03302
     
     
 Class: roadmap:ROADMAP_03545
@@ -38937,8 +38822,8 @@ Class: roadmap:ROADMAP_03546
 
     Annotations: 
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "VS",
-        rdfs:comment "Volumetric similarity (VS) is an indicator of similarity between the volumes of segments based on volumetric distance measure. There are multiple ways to define the volumetric distance. Here we take the definition adopted by (Taha and Hanbury 2015, Cardenes et al. 2009, Reddy et al. 2013, Vadaparthi et al. 2011, Reddy et al. 2013), i.e., the absolute volume difference divided by the sum of two volumes being compared.",
         rdfs:comment "In medical imaging and other fields dealing with 3D shapes, volumetric similarity compares the volume overlap between two objects or regions. It’s a ratio that quantifies their volumetric overlap accuracy.",
+        rdfs:comment "Volumetric similarity (VS) is an indicator of similarity between the volumes of segments based on volumetric distance measure. There are multiple ways to define the volumetric distance. Here we take the definition adopted by (Taha and Hanbury 2015, Cardenes et al. 2009, Reddy et al. 2013, Vadaparthi et al. 2011, Reddy et al. 2013), i.e., the absolute volume difference divided by the sum of two volumes being compared.",
         rdfs:label "Volumetric similarity"@en
     
     SubClassOf: 
@@ -38954,8 +38839,7 @@ Class: roadmap:ROADMAP_03547
         rdfs:label "Matthew correlation coefficient"@en
     
     SubClassOf: 
-        roadmap:ROADMAP_03302,
-        roadmap:ROADMAP_03506
+        roadmap:ROADMAP_03302
     
     
 Class: roadmap:ROADMAP_03548
@@ -38965,7 +38849,7 @@ Class: roadmap:ROADMAP_03548
         rdfs:label "Confusion matrix"@en
     
     SubClassOf: 
-        roadmap:ROADMAP_03507
+        roadmap:ROADMAP_03302
     
     
 Class: roadmap:ROADMAP_03549
@@ -38983,8 +38867,8 @@ Class: roadmap:ROADMAP_03550
 
     Annotations: 
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "MASE",
-        rdfs:comment "Mean Absolute Scaled Error (MASE) is the mean absolute error of the forecast values, divided by the mean absolute error of the in-sample one-step naive forecast on the training set.",
         rdfs:comment "Mean Absolute Scaled Error (MASE) is a measure that scales absolute errors based on an in-sample historical mean absolute error. Unlike MAPE, MASE can be used when actual demand includes zero or near-zero demands without inflating errors.",
+        rdfs:comment "Mean Absolute Scaled Error (MASE) is the mean absolute error of the forecast values, divided by the mean absolute error of the in-sample one-step naive forecast on the training set.",
         rdfs:label "Mean absolute scaled error"@en
     
     SubClassOf: 
@@ -39055,7 +38939,7 @@ Class: roadmap:ROADMAP_03556
         rdfs:label "Entropy"@en
     
     SubClassOf: 
-        roadmap:ROADMAP_03581
+        roadmap:ROADMAP_03302
     
     
 Class: roadmap:ROADMAP_03557
@@ -39189,7 +39073,7 @@ Class: roadmap:ROADMAP_03569
         rdfs:label "Bias"@en
     
     SubClassOf: 
-        roadmap:ROADMAP_03505
+        roadmap:ROADMAP_03302
     
     
 Class: roadmap:ROADMAP_03570
@@ -39199,7 +39083,7 @@ Class: roadmap:ROADMAP_03570
         rdfs:label "Calibration"@en
     
     SubClassOf: 
-        roadmap:ROADMAP_03505
+        roadmap:ROADMAP_03302
     
     
 Class: roadmap:ROADMAP_03571
@@ -39210,7 +39094,7 @@ Class: roadmap:ROADMAP_03571
         rdfs:label "Concordance correlation coefficient"@en
     
     SubClassOf: 
-        roadmap:ROADMAP_03505
+        roadmap:ROADMAP_03302
     
     
 Class: roadmap:ROADMAP_03572
@@ -39220,11 +39104,8 @@ Class: roadmap:ROADMAP_03572
         rdfs:comment "Often used as another term for the area under the ROC curve (AUC), it measures the discriminatory power of a model, which is its ability to correctly classify outcomes into two groups.",
         rdfs:label "Concordance statistic"@en
     
-    EquivalentTo: 
-        roadmap:ROADMAP_03314
-    
     SubClassOf: 
-        roadmap:ROADMAP_03505
+        roadmap:ROADMAP_03302
     
     
 Class: roadmap:ROADMAP_03573
@@ -39245,7 +39126,7 @@ from: https://www.midrc.org/performance-metrics-decision-tree",
         rdfs:label "Discrimination slope"@en
     
     SubClassOf: 
-        roadmap:ROADMAP_03505
+        roadmap:ROADMAP_03302
     
     
 Class: roadmap:ROADMAP_03574
@@ -39256,7 +39137,7 @@ Class: roadmap:ROADMAP_03574
         rdfs:label "Intraclass correlation coefficient"@en
     
     SubClassOf: 
-        roadmap:ROADMAP_03505
+        roadmap:ROADMAP_03302
     
     
 Class: roadmap:ROADMAP_03576
@@ -39266,7 +39147,7 @@ Class: roadmap:ROADMAP_03576
         rdfs:label "Ensemble mean square error"@en
     
     SubClassOf: 
-        roadmap:ROADMAP_03505
+        roadmap:ROADMAP_03302
     
     
 Class: roadmap:ROADMAP_03577
@@ -39280,7 +39161,7 @@ Class: roadmap:ROADMAP_03577
         rdfs:label "Repeatability coeeficient"@en
     
     SubClassOf: 
-        roadmap:ROADMAP_03505
+        roadmap:ROADMAP_03302
     
     
 Class: roadmap:ROADMAP_03578
@@ -39294,7 +39175,7 @@ N. A. Obuchowski, A. P. Reeves, E. P. Huang, X.-F. Wang, A. J. Buckler, H. J. (G
         rdfs:label "Reproducibility coefficient"@en
     
     SubClassOf: 
-        roadmap:ROADMAP_03505
+        roadmap:ROADMAP_03302
     
     
 Class: roadmap:ROADMAP_03579
@@ -39309,7 +39190,7 @@ Class: roadmap:ROADMAP_03579
         rdfs:label "Variance"@en
     
     SubClassOf: 
-        roadmap:ROADMAP_03505
+        roadmap:ROADMAP_03302
     
     
 Class: roadmap:ROADMAP_03580
@@ -39318,23 +39199,14 @@ Class: roadmap:ROADMAP_03580
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "CV",
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "relative standard deviation",
         <http://purl.org/dc/elements/1.1/source> "https://www.midrc.org/performance-metrics-decision-tree",
+        rdfs:comment "Also known as relative standard deviation, CV expresses standard deviation as a proportion of the mean, allowing comparison between datasets with different units or scales.",
+        rdfs:comment "Coefficient of variance (CV): when assessed for a given measurand, it is sometimes called the “within-case coefficient of variance” and is measured as the ratio of the standard error of the measurement to the mean.",
         rdfs:comment "References:
 
 1. N. A. Obuchowski, A. P. Reeves, E. P. Huang, X.-F. Wang, A. J. Buckler, H. J. (Grace) Kim, H. X. Barnhart, E. F. Jackson, M. L. Giger, G. Pennello, A. Y. Toledano, J. Kalpathy-Cramer, T. V. Apanasovich, P. E. Kinahan, K. J. Myers, D. B. Goldgof, D. P. Barboriak, R. J. Gillies, L. H. Schwartz, D. C. Sullivan, and (for the Algorithm Comparison Working Group), “Quantitative imaging biomarkers: A review of statistical methods for computer algorithm comparisons,” Stat Methods Med Res 24(1), 68–106 (2015) [doi:10.1177/0962280214537390].
 
  2. D. L. Raunig, L. M. McShane, G. Pennello, C. Gatsonis, P. L. Carson, J. T. Voyvodic, R. L. Wahl, B. F. Kurland, A. J. Schwarz, M. Gönen, G. Zahlmann, M. V. Kondratovich, K. O’Donnell, N. Petrick, P. E. Cole, B. Garra, and D. C. Sullivan, “Quantitative imaging biomarkers: A review of statistical methods for technical performance assessment,” Stat Methods Med Res 24(1), 27–67, SAGE Publications Ltd STM (2015) [doi:10.1177/0962280214537344].",
-        rdfs:comment "Also known as relative standard deviation, CV expresses standard deviation as a proportion of the mean, allowing comparison between datasets with different units or scales.",
-        rdfs:comment "Coefficient of variance (CV): when assessed for a given measurand, it is sometimes called the “within-case coefficient of variance” and is measured as the ratio of the standard error of the measurement to the mean.",
         rdfs:label "Coefficient of variance"@en
-    
-    SubClassOf: 
-        roadmap:ROADMAP_03505
-    
-    
-Class: roadmap:ROADMAP_03581
-
-    Annotations: 
-        rdfs:label "Information-theoretic metric"@en
     
     SubClassOf: 
         roadmap:ROADMAP_03302
@@ -39421,8 +39293,7 @@ Class: roadmap:ROADMAP_03593
         rdfs:label "Enhanced detection rate"@en
     
     SubClassOf: 
-        roadmap:ROADMAP_03302,
-        roadmap:ROADMAP_03501
+        roadmap:ROADMAP_03302
     
     
 Class: roadmap:ROADMAP_03594
@@ -39432,7 +39303,7 @@ Class: roadmap:ROADMAP_03594
         rdfs:label "Positive concordance rate"@en
     
     SubClassOf: 
-        roadmap:ROADMAP_03501
+        roadmap:ROADMAP_03302
     
     
 Class: roadmap:ROADMAP_03595
@@ -39442,7 +39313,7 @@ Class: roadmap:ROADMAP_03595
         rdfs:label "Negative discordance rate"@en
     
     SubClassOf: 
-        roadmap:ROADMAP_03501
+        roadmap:ROADMAP_03302
     
     
 Class: roadmap:ROADMAP_03596
@@ -39642,7 +39513,7 @@ Class: roadmap:ROADMAP_03615
         rdfs:label "Model performance characteristic"@en
     
     SubClassOf: 
-        roadmap:ROADMAP_03355
+        roadmap:ROADMAP_00001
     
     
 Class: roadmap:ROADMAP_03616
@@ -39818,14 +39689,18 @@ Class: roadmap:ROADMAP_03634
         roadmap:ROADMAP_03302
     
     
-Class: roadmap:ROADMAP_03635
+Class: roadmap:ROADMAP_03637
 
     Annotations: 
-        rdfs:label "Overall performance metric"@en
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "ROC",
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "ROC analysis",
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "ROC curve",
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Receiver operating characteristic",
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Receiver operating characteristic curve",
+        rdfs:label "Receiver operating characteristic analysis"@en
     
     SubClassOf: 
-        roadmap:ROADMAP_03302,
-        roadmap:ROADMAP_03635
+        roadmap:ROADMAP_03302
     
     
 Individual: roadmap:ROADMAP_03468
