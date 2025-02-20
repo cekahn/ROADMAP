@@ -9,6 +9,9 @@
 				"$schema": {
 					"$ref": "#/$defs/schema"
 				},
+				"Card": {
+					"$ref": "#/$defs/card"
+				},
 				"Model": {
 					"$ref": "#/$defs/model"
 				}
@@ -25,6 +28,9 @@
 				"$schema": {
 					"$ref": "#/$defs/schema"
 				},
+				"Card": {
+					"$ref": "#/$defs/card"
+				},
 				"Dataset": {
 					"$ref": "#/$defs/dataset"
 				}
@@ -39,6 +45,71 @@
 	"$defs": {
 		"schema": {
 			"const": "ROADMAP-schema-2025-02.json"
+		},
+		"authentication": {
+			"description": "Authentication information for ROADMAP user; must include the Authority and Date, plus at least one user identifier (ID, Name, Email).",
+			"type": "object",
+			"properties": {
+				"ID": {
+					"description": "User's ID on authenticating site",
+					"type": "string"
+				},
+				"Name": {
+					"description": "User's name (from authenticating site)",
+					"type": "string"
+				},
+				"Email": {
+					"description": "User's email address (from authenticating site)",
+					"type": "string",
+					"format": "email"
+				},
+				"Authority": {
+					"description": "Service used to authenicate the individual",
+					"type": "string",
+					"examples": [
+						"rsna.org",
+						"login.gov",
+						"google.com",
+						"microsoft.com",
+						"orcid.org"
+					]
+				},
+				"Date": {
+					"type": "string",
+					"format": "date"
+				}
+			},
+			"additionalProperties": false,
+			"minProperties": 3,
+			"required": [
+				"Authority",
+				"Date"
+			]
+		},
+		"card": {
+			"description": "Information about this model or dataset card",
+			"type": "object",
+			"properties": {
+				"ID": {
+					"description": "ROADMAP accession number",
+					"type": "integer",
+					"minimum": 1
+				},
+				"URL": {
+					"description": "This card's assigned URL",
+					"type": "string",
+					"format": "uri"
+				},
+				"Submitted": {
+					"description": "Person who submitted this card",
+					"$ref": "#/$defs/authentication"
+				},
+				"Approved": {
+					"description": "Person (editor) who approved this card",
+					"$ref": "#/$defs/authentication"
+				}
+			},
+			"additionalProperties": false
 		},
 		"content-code": {
 			"title": "Content code(s)",
@@ -482,13 +553,13 @@
 						"additionalProperties": false,
 						"examples": [
 							{
-								"LOINC": "36623-7",
-								"Name": "XR Hand - left PA"
+								"Name": "XR Hand - left PA",
+								"LOINC": "36623-7"
 							},
 							{
+								"Name": "CT Abdomen and Pelvis W contrast IV",
 								"LOINC": "36813-4",
-								"RadLex": "RPID145",
-								"Name": "CT Abdomen and Pelvis W contrast IV"
+								"RadLex": "RPID145"
 							}
 						]
 					}
@@ -770,18 +841,15 @@
 					"type": "object",
 					"properties": {
 						"Intended": {
-							"description": "Intended model use",
-							"$comment": "ROADMAP:00012",
+							"description": "Intended model use(s)",
 							"$ref": "#/$defs/use"
 						},
 						"Out-of-scope": {
-							"description": "Out-of-scope model use",
-							"$comment": "ROADMAP:00013",
+							"description": "Out-of-scope model use(s)",
 							"$ref": "#/$defs/use"
 						},
 						"Excluded": {
-							"description": "Excluded model use",
-							"$comment": "ROADMAP:00014",
+							"description": "Excluded model use(s)",
 							"$ref": "#/$defs/use"
 						}
 					},
@@ -891,6 +959,25 @@
 							"https://paperswithcode.com/task/semantic-segmentation"
 						]
 					}
+				},
+				"Predicate device": {
+					"description": "Describes the AI model(s) or other medical device(s) considered 'predicate devices' for the purpose of regulatory review. Includes both a Text field and a URL array.",
+					"type": "object",
+					"properties": {
+						"Text": {
+							"type": "string"
+						},
+						"URL": {
+							"description": "An array listing the URLs of predicate devices for regulatory review. For example, may include URL of FDA submissions or approvals.",
+							"type": "array",
+							"items": {
+								"type": "string",
+								"format": "uri"
+							}
+						}
+					},
+					"additionalProperties": false,
+					"minProperties": 1
 				}
 			},
 			"additionalProperties": false
@@ -1281,7 +1368,6 @@
 						}
 					},
 					"additionalProperties": false
-					
 				}
 			],
 			"examples": [
@@ -1289,7 +1375,9 @@
 					"Detection",
 					"Diagnosis"
 				],
-				{"Other": "Something else"}
+				{
+					"Other": "Something else"
+				}
 			]
 		},
 		"user": {

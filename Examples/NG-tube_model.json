@@ -1,0 +1,59 @@
+{
+	"$schema": "ROADMAP-schema-2025-02.json",
+	"Model": {
+		"Name": "An Artificial Neural Network for Nasogastric Tube Position Decision Support",
+		"Indexing code": {
+			"Content": [
+				"AI",
+				"CH"
+			]
+		},
+		"Date": {
+			"Published": "2023-02-01"
+		},
+		"License": "https://creativecommons.org/licenses/by/4.0/",
+		"Use": {
+			"Intended": [
+				"Decision support",
+				"Detection"
+			]
+		},
+		"User": {
+			"Intended": [
+				"Radiologist",
+				"Radiology technologist",
+				"Researcher",
+				"Physician"
+			]
+		},
+		"Reference": [
+			{
+				"Authors": "Drozdov I, Dixon R, Szubert B, Dunn J, Green D, Hall N, Shirandami A, Rosas S, Grech R, Puttagunta S, Hall M, Lowe DJ",
+				"Title": "An artificial neural network for nasogastric tube position decision support",
+				"Source": "Radiol Artif Intell",
+				"Year": 2023,
+				"Date": "2023-02-01",
+				"DOI": "10.1148/ryai.220165",
+				"URL": "https://doi.org/10.1148/ryai.220165",
+				"PMID": 37035435,
+				"PMCID": "PMC10077078"
+			}
+		],
+		"Author": [
+			{
+				"Name": "Ignat Drozdov",
+				"ORCID": "https://orcid.org/0000-0001-6727-4688",
+				"Email": "idrozdov@beringresearch.com",
+				"Address": "Bering Limited, 54 Portland Place, 2nd Floor, London W1B 1DY, England"
+			}
+		],
+		"Availability": "Not specified",
+		"Sustainability": "Not specified",
+		"Time to train model": "The low-resolution (764 x 764 pixel) and high-resolution (1024 x 1024 pixel) models trained for 16 and 19 epochs, respectively",
+		"Required processor": "Not specified",
+		"Method": [
+			"https://paperswithcode.com/method/inception-v3"
+		],
+		"Comments": "Neural network ensemble using modified InceptionV3 architecture with high and low resolution inputs."
+	}
+}
