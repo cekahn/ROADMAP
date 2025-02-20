@@ -1,0 +1,73 @@
+{
+	"Version": "ROADMAP-schema-2025-02.json",
+	"Model": {
+		"Name": "TotalSegmentator",
+		"Indexing code": {
+			"Content": [
+				"AI",
+				"CH",
+				"GI",
+				"GU",
+				"MK",
+				"VA"
+			]
+		},
+		"Date": {
+			"Published": 2023
+		},
+		"Comments": "Segmentation of 104 anatomic structures in CT images, including 27 organs, 59 bones, 10 muscles, and 8 vessels.",
+		"License": "Publicly available",
+		"Availability": "Publicly available via Zenodo and GitHub",
+		"Repository": [
+			"https://doi.org/10.5281/zenodo.6802613",
+			"https://www.github.com/wasserth/TotalSegmentator"
+		],
+		"Reference": [
+			{
+				"Authors": "Wasserthal J, Breit HC, Meyer MT, Pradella M, Hinck D, Sauter AW, Heye T, Boll DT, Cyriac J, Yang S, Bach M, Segeroth M",
+				"Title": "TotalSegmentator: Robust segmentation of 104 anatomic structures in CT images",
+				"Source": "Radiol Artif Intell",
+				"Year": 2023,
+				"Date": "2023-07-05",
+				"DOI": "10.1148/ryai.230024",
+				"URL": "https://doi.org/10.1148/ryai.230024",
+				"PMID": 37795137,
+				"PMCID": "PMC10546353"
+			}
+		],
+		"Author": [
+			{
+				"Name": "Jakob Wasserthal",
+				"ORCID": "https://orcid.org/0000-0002-9921-5698",
+				"Email": "jakob.wasserthal@usb.ch"
+			}
+		],
+		"Use": {
+			"Intended": [
+				"Segmentation"
+			],
+			"Excluded": [
+				"Diagnosis"
+			]
+		},
+		"User": {
+			"Intended": [
+				"Radiologist",
+				"Researcher"
+			]
+		},
+		"Funding": "No funding declared",
+		"Carbon footprint calculation": "",
+		"Caveat": "The model works robustly across diverse clinical data but has typical failure cases such as missing small parts of organs or mixing up neighboring bones.",
+		"Sustainability": "Requires less than 12 GB of RAM and does not require a GPU, which allows running on a normal laptop.",
+		"Time to train model": "",
+		"Time to evaluate single input": "",
+		"Method": [
+			"https://paperswithcode.com/method/unet"
+		],
+		"Task": [
+			"https://paperswithcode.com/task/medical-image-segmentation"
+		],
+		"Required processor": "Local workstation with Intel Core i9 3.5-GHz CPU and NVIDIA GeForce RTX 3090 GPU for checking inference runtime."
+	}
+}

@@ -1,0 +1,94 @@
+{
+	"Version": "ROADMAP-schema-2025-02.json",
+	"Dataset": {
+		"Name": "TotalSegmentator Dataset",
+		"Indexing code": {
+			"Content": [
+				"AI",
+				"CH",
+				"GI",
+				"GU",
+				"MK"
+			]
+		},
+		"Imaging": {
+			"Modality": [
+				"Computed tomography (RID10321)"
+			],
+			"File format": [
+				"Other"
+			],
+			"Burned-in PHI": "Unknown",
+			"Resolution": "1.5-mm isotropic and 3-mm isotropic resolutions are used for images",
+			"Comments": [
+				"CT images",
+				"1.5 mm isotropic resolution",
+				"3 mm isotropic resolution",
+				"Various slice thickness",
+				"Different contrast phases: native, arterial, portal venous, late phase, and others"
+			]
+		},
+		"Labeling": "The dataset contains segmentations of 104 anatomic structures (27 organs, 59 bones, 10 muscles, and eight vessels). Annotation was supervised by two physicians.",
+		"Missing information": "CT series of upper and lower extremities, CT series with missing slices, and series where structures were distorted due to abnormalities were excluded.",
+		"Relationships between instances": "No specific relationships like longitudinal studies are pointed out, dataset contains different patients.",
+		"Noise": "Images with high ambiguity or distortion were excluded",
+		"External data": "The study does not mention the use of external data.",
+		"Subpopulations": "Includes patients with various abnormalities: tumor, vascular, trauma, inflammation, bleeding and also patients with no abnormalities, distributed by age and different CT scan setups.",
+		"Re-identification": "Not directly mentioned, but since it is a medical dataset and includes CT images with anatomical structures, re-identification risks cannot be fully ruled out without anonymization.",
+		"Collection process": "1368 CT examinations were randomly sampled from the University Hospital Basel's PACS, excluding those with missing slices or ambiguous segments. The final dataset included 1204 examinations across various years and conditions.",
+		"Composition": {
+			"Confidentiality": "The dataset was collected with approval from Ethics Committee Northwest and Central Switzerland, stating that an ethics waiver was applicable for the retrospective study.",
+			"Representativeness": {
+				"Population": "",
+				"Verification": "Real-world clinical settings verification."
+			}
+		},
+		"Motivation": {
+			"Purpose": "To develop a model for robust and accurate segmentation of 104 anatomical structures usable in general radiology and specific surgical or therapeutic planning.",
+			"Comments": "To improve the accessibility and coverage of segmentation models for a wide array of anatomical structures on CT Imaging."
+		},
+		"Partioning scheme": "90% training, 5% validation, 5% test",
+		"Partition": {
+			"Training": {
+				"Site count": 8,
+				"Exam count": 1082
+			},
+			"Validation": {
+				"Site count": 8,
+				"Exam count": 57
+			},
+			"Testing": {
+				"Site count": 8,
+				"Exam count": 65
+			}
+		},
+		"Date": {
+			"Published": 2023
+		},
+		"License": "Publicly available",
+		"Repository": [
+			"https://doi.org/10.5281/zenodo.6802613"
+		],
+		"Reference": [
+			{
+				"Authors": "Wasserthal J, Breit HC, Meyer MT, Pradella M, Hinck D, Sauter AW, Heye T, Boll DT, Cyriac J, Yang S, Bach M, Segeroth M",
+				"Title": "TotalSegmentator: Robust segmentation of 104 anatomic structures in CT images",
+				"Source": "Radiol Artif Intell",
+				"Year": 2023,
+				"Date": "2023-07-05",
+				"DOI": "10.1148/ryai.230024",
+				"URL": "https://doi.org/10.1148/ryai.230024",
+				"PMID": 37795137,
+				"PMCID": "PMC10546353"
+			}
+		],
+		"Author": [
+			{
+				"Name": "Jakob Wasserthal",
+				"ORCID": "https://orcid.org/0000-0002-9921-5698",
+				"Email": "jakob.wasserthal@usb.ch"
+				
+			}
+		]
+	}
+}

@@ -407,6 +407,9 @@ Class: roadmap:ROADMAP_00018
 Class: roadmap:ROADMAP_00019
 
     Annotations: 
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "CADt",
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Computer-assisted triage",
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Computer-assisted triage and notification",
         <http://www.geneontology.org/formats/oboInOwl#id> "ROADMAP:00019",
         rdfs:label "Triage"
     
@@ -417,23 +420,29 @@ Class: roadmap:ROADMAP_00019
 Class: roadmap:ROADMAP_00020
 
     Annotations: 
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "CADe",
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Computer-assisted detection",
         <http://www.geneontology.org/formats/oboInOwl#id> "ROADMAP:00020",
         rdfs:comment "Detection of single disorder or condition.",
         rdfs:label "Detection"
     
     SubClassOf: 
-        roadmap:ROADMAP_00015
+        roadmap:ROADMAP_03638
     
     
 Class: roadmap:ROADMAP_00021
 
     Annotations: 
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "CADx",
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Computer-assisted diagnosis",
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Computer-assisted diagnostic",
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Diagnosis / detection",
         <http://www.geneontology.org/formats/oboInOwl#id> "ROADMAP:00021",
         rdfs:comment "Identification of a single diagnosis or a list of possible diagnoses.",
         rdfs:label "Diagnosis"
     
     SubClassOf: 
-        roadmap:ROADMAP_00015
+        roadmap:ROADMAP_03638
     
     
 Class: roadmap:ROADMAP_00022
@@ -36738,6 +36747,7 @@ Class: roadmap:ROADMAP_03321
 In an FROC curve, the sensitivity (true positive rate) is plotted against the average number of false positives per image, rather than against 1-specificity as in typical ROC curves. This provides a more detailed assessment of diagnostic performance in tasks like medical imaging, where it is common to have multiple findings and where the localization of these findings is crucial.
 
 Assessing an AI system with an FROC score involves examining its ability to correctly identify and localize targets (such as tumors in radiology images) while accounting for any false-positive marks it makes. The higher the FROC score, the better the system is at detecting true positives with fewer false alarms.",
+        rdfs:comment "Free-Response Receiver Operating Characteristic (FROC) score combines aspects from both receiver operating characteristic curves and free-response task performance into one measure that captures detection accuracy including multiple responses per subject/image without requiring binary classification thresholds.",
         rdfs:label "Free-response receiver operating characteristic score"@en
     
     SubClassOf: 
@@ -36748,7 +36758,10 @@ Class: roadmap:ROADMAP_03322
 
     Annotations: 
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "FPR",
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "fall-out",
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "fall-out rate",
         rdfs:comment "The false positive rate measures how many false positives are identified out of all actual negative cases. It is calculated as 1 minus specificity (1 - TNR), indicating how often non-existing conditions are falsely detected.",
+        rdfs:comment "Also known as fall-out, it measures how many false positives occur compared to all actual negatives — that is, instances incorrectly labeled as positive out of all true negatives.",
         rdfs:label "False positive rate"@en
     
     SubClassOf: 
@@ -37021,6 +37034,7 @@ Class: roadmap:ROADMAP_03344
 
     Annotations: 
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "MASD",
+        rdfs:comment "Mean Absolute Surface Distance measures the average distance between the surfaces of two volumes and is used in medical imaging to compare different segmentation results. It calculates the average of all distances from points on one surface to the closest points on another surface.",
         rdfs:label "Mean absolute surface distance"@en
     
     SubClassOf: 
@@ -37043,6 +37057,7 @@ Class: roadmap:ROADMAP_03346
     Annotations: 
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Boundary IoU"@en,
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Boundary intersection-over-union"@en,
+        rdfs:comment "Similar to Box IoU, this metric evaluates how well two boundaries or perimeters align with each other. It's often used in segmentation tasks to measure how closely the boundary of a predicted segment matches that of a ground truth segment.",
         rdfs:label "Boundary intersection over union"
     
     SubClassOf: 
@@ -37053,6 +37068,7 @@ Class: roadmap:ROADMAP_03347
 
     Annotations: 
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Mask IoU"@en,
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "In image segmentation tasks, Mask IoU (Intersection over Union) specifically refers to measuring overlap between predicted masks and ground truth masks. The 'mask' indicates that this metric is applied pixel-wise to binary masks representing segmented areas within images.",
         rdfs:label "Mask Intersection over union"
     
     SubClassOf: 
@@ -37063,6 +37079,7 @@ Class: roadmap:ROADMAP_03348
 
     Annotations: 
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Box IoU"@en,
+        rdfs:comment "Box Intersection over Union (IoU) is used in object detection where it measures the overlap between predicted bounding boxes and ground truth bounding boxes. Box IoU is calculated by dividing the area of overlap between the two boxes by the area of their union.",
         rdfs:label "Box Intersection over union"
     
     SubClassOf: 
@@ -38489,6 +38506,7 @@ Class: roadmap:ROADMAP_03504
     Annotations: 
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "TTE metric",
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Time-to-event metric",
+        rdfs:comment "In survival analysis, time-to-event metrics refer to various statistical methods used to analyze time until an event occurs, such as failure or death. Common metrics include survival functions, hazard functions, and median survival times.",
         rdfs:label "Time-to-event analysis metric"@en
     
     SubClassOf: 
@@ -38499,6 +38517,7 @@ Class: roadmap:ROADMAP_03508
 
     Annotations: 
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "AUPRC",
+        rdfs:comment "Area Under the Precision-Recall Curve (AUPRC): summarizes a precision-recall curve as a single value by calculating the area under this curve, which combines measures of precision and recall for various thresholds. This metric is particularly useful when dealing with imbalanced datasets.",
         rdfs:label "Area under the precision-recall curve"@en
     
     SubClassOf: 
@@ -38519,6 +38538,7 @@ Class: roadmap:ROADMAP_03511
 
     Annotations: 
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Individual equivalence index",
+        rdfs:comment "A measure of how exchangeable two or more items (such as diagnostic tests) are with respect to their outcomes or results. High interchangeability would mean that swapping one item for another would likely result in similar outcomes.",
         rdfs:label "Interchangeability metric"@en
     
     SubClassOf: 
@@ -38539,6 +38559,8 @@ Class: roadmap:ROADMAP_03513
 Class: roadmap:ROADMAP_03514
 
     Annotations: 
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "MI",
+        rdfs:comment "Mutual information is a measure from information theory that quantifies the mutual dependence between two variables. In essence, it measures how much knowing one variable reduces uncertainty about the other. For example, it can be used to assess alignment between image pairs in medical imaging registration tasks.",
         rdfs:label "Mutual information"@en
     
     SubClassOf: 
@@ -38548,6 +38570,8 @@ Class: roadmap:ROADMAP_03514
 Class: roadmap:ROADMAP_03515
 
     Annotations: 
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "NMI",
+        rdfs:comment "Normalized Mutual Information (NMI) is an adjustment of mutual information that normalizes its value to fall between 0 and 1, where 0 indicates no shared information and 1 indicates perfect correlation. NMI accounts for different entropies in datasets and allows comparison across different contexts.",
         rdfs:label "Normalized mutual information"@en
     
     SubClassOf: 
@@ -38611,6 +38635,7 @@ J = sensitivity + specificity – 1.",
 Class: roadmap:ROADMAP_03521
 
     Annotations: 
+        rdfs:comment "This metric measures the agreement between different raters or methods, generalizing beyond simple percent agreement to account for chance agreement and different levels of disagreement in a more nuanced way than raw percentages.",
         rdfs:label "Generalized percent agreement metric"@en
     
     SubClassOf: 
@@ -38630,6 +38655,8 @@ Class: roadmap:ROADMAP_03522
 Class: roadmap:ROADMAP_03523
 
     Annotations: 
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "tau",
+        rdfs:comment "A measure of rank correlation; it evaluates ordinal associations between two measured quantities without requiring assumptions about their distribution. It reflects both strength and direction of association between two variables.",
         rdfs:label "Kendall's tau coefficient"@en
     
     SubClassOf: 
@@ -38639,6 +38666,7 @@ Class: roadmap:ROADMAP_03523
 Class: roadmap:ROADMAP_03524
 
     Annotations: 
+        rdfs:comment "In machine learning, prediction probability refers to a model's estimated probability for a particular outcome or class membership. For classification tasks, models often output probabilities for each class rather than just making a binary prediction.",
         rdfs:label "Prediction probability"@en
     
     SubClassOf: 
@@ -38648,8 +38676,11 @@ Class: roadmap:ROADMAP_03524
 Class: roadmap:ROADMAP_03525
 
     Annotations: 
-        rdfs:comment "Rho",
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Spearman rank correlation coefficient",
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Spearman's rank correlation coefficient",
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "rho",
         rdfs:comment "Spearman rho coefficient",
+        rdfs:comment "Spearman's rho, or Spearman's rank correlation coefficient, measures statistical dependence between the rankings of two variables. It assesses how well the relationship between two variables can be described by a monotonic function.",
         rdfs:label "Spearman's rho"@en
     
     SubClassOf: 
@@ -38659,6 +38690,7 @@ Class: roadmap:ROADMAP_03525
 Class: roadmap:ROADMAP_03526
 
     Annotations: 
+        rdfs:comment "This metric is used in classification problems and measures accuracy based on whether the correct label is within the top N predicted labels according to their prediction scores. For example, top-5 accuracy checks if the true label is among the five highest scored classes predicted by a classifier.",
         rdfs:label "Top-N accuracy"@en
     
     SubClassOf: 
@@ -38693,6 +38725,7 @@ Class: roadmap:ROADMAP_03531
     Annotations: 
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "AFROC",
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "AFROC analysis",
+        rdfs:comment "Alternative Free-Response Operating Characteristic (AFROC) analysis is an evaluation method for medical imaging systems, particularly those involving lesion detection. It plots sensitivity versus the average number of false positives on images without lesions, allowing assessment of detection performance without a fixed number of response alternatives.",
         rdfs:label "Alternative free-response operating characteristic analysis"@en
     
     SubClassOf: 
@@ -38719,6 +38752,7 @@ Class: roadmap:ROADMAP_03533
     Annotations: 
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "FROC",
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "FROC analysis",
+        rdfs:comment "Free-Response Operating Characteristic (FROC) analysis evaluates imaging systems by plotting sensitivity (true positive rate) against average number of false positives per image without any predefined threshold for calling an image positive or negative. Unlike ROC analysis which sets strict binary decisions, free-response allows observers to indicate multiple potential lesions or findings per image.",
         rdfs:label "Free-response operating characteristic analysis"@en
     
     SubClassOf: 
@@ -38729,6 +38763,7 @@ Class: roadmap:ROADMAP_03534
 
     Annotations: 
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "LPR metric",
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "This metric is often used in object detection and localization tasks; it measures both precision (the number of correct positive predictions divided by the total number of positive predictions) and recall (the number of correct positive predictions divided by the total number actual positives), taking into account their location accuracy.",
         rdfs:label "Location precision recall metric"@en
     
     SubClassOf: 
@@ -38749,6 +38784,7 @@ Class: roadmap:ROADMAP_03536
 Class: roadmap:ROADMAP_03537
 
     Annotations: 
+        rdfs:comment "This metric refers to the sensitivity (true positive rate) of a test or model at a given average number of false positives per image. It is often used in medical imaging to evaluate the performance of diagnostic tests where false positives are likely.",
         rdfs:label "Sensitivity at false-positive per image"@en
     
     SubClassOf: 
@@ -38759,18 +38795,20 @@ Class: roadmap:ROADMAP_03538
 
     Annotations: 
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "AHD",
-        rdfs:comment "In image processing, this metric measures how far two subsets of a space are from each other, on average. It is often used for comparing the similarity of two sets of points.",
+        rdfs:comment "The average Hausdorff distance measures how far two subsets of a space are from each other on average. It's used in various applications including comparing shapes and analyzing spatial patterns.",
         rdfs:label "Average Hausdorff distance"@en
     
     SubClassOf: 
-        roadmap:ROADMAP_03302
+        roadmap:ROADMAP_03343
     
     
 Class: roadmap:ROADMAP_03540
 
     Annotations: 
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "GCE",
-        rdfs:comment "Global Consistency Error (GCE) evaluates the consistency of segmentations in comparison with ground truth segmentation, taking into account both over-segmentation and under-segmentation.",
+        rdfs:comment "Global Consistency Error (GCE) evaluates the consistency of segmentations in comparison with ground truth segmentation, taking into account both over-segmentation and under-segmentation.
+
+The GCE quantifies the consistency of a segmentation by measuring how each pixel's label agrees with the majority label in its neighborhood across different segmentations. It is used as an error metric for evaluating image segmentation algorithms.",
         rdfs:label "Global consistency error"@en
     
     SubClassOf: 
@@ -38781,6 +38819,7 @@ Class: roadmap:ROADMAP_03541
 
     Annotations: 
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "ICC",
+        rdfs:comment "A statistical measure that assesses how strongly units in different groups resemble each other, typically used when data can be categorized into classes that are expected to vary between classes but be homogeneous within them.",
         rdfs:label "Interclass correlation"@en
     
     SubClassOf: 
@@ -38791,6 +38830,7 @@ Class: roadmap:ROADMAP_03542
 
     Annotations: 
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "MHD",
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "A distance measure based on correlations between variables that scales with respect to variance and accounts for covariance structure. It's useful for identifying outliers within multivariate data since it provides a way to determine how far away an observation is from the mean of a distribution.",
         rdfs:comment "The Mahalonobis distance is the distance between a point and a distribution; It can be considered as a multivariate equivalent of  Euclidean distance.",
         rdfs:label "Mahalanobis distance"@en
     
@@ -38802,6 +38842,8 @@ Class: roadmap:ROADMAP_03544
 
     Annotations: 
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "VOI",
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "VI",
+        rdfs:comment "Variation of Information (VI) is an information-theoretic measure that quantifies how much one random variable tells us about another; it's symmetric and non-negative. In clustering, it's used as a measure of distance between two clusterings: how much information is lost or gained when transitioning from one clustering to another.",
         rdfs:label "Variation of Information"@en
     
     SubClassOf: 
@@ -38834,9 +38876,13 @@ Class: roadmap:ROADMAP_03547
 
     Annotations: 
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "MCC",
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "mean square contingency coefficient",
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "phi",
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "phi coefficient",
         <http://purl.org/dc/elements/1.1/source> "https://huggingface.co/spaces/evaluate-metric/matthews_correlation",
         rdfs:comment "The Matthews correlation coefficient is used in machine learning as a measure of the quality of binary and multiclass classifications.",
-        rdfs:label "Matthew correlation coefficient"@en
+        rdfs:comment "Matthews Correlation Coefficient (MCC) takes true and false positives and negatives into account, providing a balanced measure that can be used even if classes are very different sizes. It ranges from -1 (total disagreement between prediction and truth) through 0 (no better than random prediction) to +1 (perfect prediction). It's particularly useful for evaluating binary classification problems with imbalanced datasets.",
+        rdfs:label "Matthews correlation coefficient"@en
     
     SubClassOf: 
         roadmap:ROADMAP_03302
@@ -38878,6 +38924,7 @@ Class: roadmap:ROADMAP_03550
 Class: roadmap:ROADMAP_03551
 
     Annotations: 
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Measure Aggregated from Unsupervised Evaluation",
         <http://purl.org/dc/elements/1.1/source> "https://huggingface.co/spaces/evaluate-metric/mauve",
         rdfs:comment "MAUVE is a measure of the statistical gap between two text distributions, e.g., how far the text written by a model is the distribution of human text, using samples from both distributions.",
         rdfs:label "MAUVE"@en
@@ -38936,6 +38983,7 @@ Class: roadmap:ROADMAP_03555
 Class: roadmap:ROADMAP_03556
 
     Annotations: 
+        rdfs:comment "In the context of information theory, entropy is a measure of unpredictability or information content. In machine learning, it often refers to the entropy of a variable and is used to gauge the impurity or randomness in data. It's also used in decision trees as a criterion for splitting nodes.",
         rdfs:label "Entropy"@en
     
     SubClassOf: 
@@ -38948,6 +38996,7 @@ Class: roadmap:ROADMAP_03557
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "S-N ratio",
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "SNR",
         rdfs:comment "An image quality metric.",
+        rdfs:comment "Signal-to-Noise Ratio (SNR) is a measure used in science and engineering that compares the level of a desired signal to the level of background noise. It is defined as the ratio of signal power to the noise power and is often expressed in decibels.",
         rdfs:label "Signal-to-noise ratio"@en
     
     SubClassOf: 
@@ -38958,6 +39007,8 @@ Class: roadmap:ROADMAP_03558
 
     Annotations: 
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Peak SNR",
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "PSNR",
+        rdfs:comment "Peak Signal-to-Noise Ratio (PSNR) is commonly used in image processing to measure the quality of reconstructed or compressed images compared to the original images. It's defined as the ratio between the maximum possible value of a signal and the power of distorting noise that affects its representation, typically expressed in logarithmic decibels scale.",
         rdfs:label "Peak signal-to-noise ratio"@en
     
     SubClassOf: 
@@ -39147,7 +39198,7 @@ Class: roadmap:ROADMAP_03576
         rdfs:label "Ensemble mean square error"@en
     
     SubClassOf: 
-        roadmap:ROADMAP_03302
+        roadmap:ROADMAP_03528
     
     
 Class: roadmap:ROADMAP_03577
@@ -39206,6 +39257,8 @@ Class: roadmap:ROADMAP_03580
 1. N. A. Obuchowski, A. P. Reeves, E. P. Huang, X.-F. Wang, A. J. Buckler, H. J. (Grace) Kim, H. X. Barnhart, E. F. Jackson, M. L. Giger, G. Pennello, A. Y. Toledano, J. Kalpathy-Cramer, T. V. Apanasovich, P. E. Kinahan, K. J. Myers, D. B. Goldgof, D. P. Barboriak, R. J. Gillies, L. H. Schwartz, D. C. Sullivan, and (for the Algorithm Comparison Working Group), “Quantitative imaging biomarkers: A review of statistical methods for computer algorithm comparisons,” Stat Methods Med Res 24(1), 68–106 (2015) [doi:10.1177/0962280214537390].
 
  2. D. L. Raunig, L. M. McShane, G. Pennello, C. Gatsonis, P. L. Carson, J. T. Voyvodic, R. L. Wahl, B. F. Kurland, A. J. Schwarz, M. Gönen, G. Zahlmann, M. V. Kondratovich, K. O’Donnell, N. Petrick, P. E. Cole, B. Garra, and D. C. Sullivan, “Quantitative imaging biomarkers: A review of statistical methods for technical performance assessment,” Stat Methods Med Res 24(1), 27–67, SAGE Publications Ltd STM (2015) [doi:10.1177/0962280214537344].",
+        rdfs:comment "RSD",
+        rdfs:comment "Relative standard deviation",
         rdfs:label "Coefficient of variance"@en
     
     SubClassOf: 
@@ -39656,6 +39709,7 @@ Class: roadmap:ROADMAP_03632
 
     Annotations: 
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "HD95",
+        rdfs:comment "The 95th percentile Hausdorff distance is a metric used to measure the similarity between two sets of points (often used in image segmentation) that is less sensitive to outliers than the maximum Hausdorff distance. It represents the distance at which 95% of points from one set are within this distance to the nearest point in the other set.",
         rdfs:label "95th percentile Hausdorff distance"@en
     
     SubClassOf: 
@@ -39697,10 +39751,32 @@ Class: roadmap:ROADMAP_03637
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "ROC curve",
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Receiver operating characteristic",
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Receiver operating characteristic curve",
+        rdfs:comment "Receiver Operating Characteristic (ROC) analysis is a graphical plot that illustrates the diagnostic ability of a binary classifier system as its discrimination threshold varies. It plots the true positive rate (sensitivity) against the false positive rate (1-specificity) at various threshold settings. The area under the ROC curve (AUC) provides an aggregate measure of performance across all classification thresholds.",
         rdfs:label "Receiver operating characteristic analysis"@en
     
     SubClassOf: 
         roadmap:ROADMAP_03302
+    
+    
+Class: roadmap:ROADMAP_03638
+
+    Annotations: 
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "CADe/x",
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Computer-assisted detection/diagnosis",
+        rdfs:label "Detection and diagnosis"@en
+    
+    SubClassOf: 
+        roadmap:ROADMAP_00015
+    
+    
+Class: roadmap:ROADMAP_03639
+
+    Annotations: 
+        rdfs:comment "A predicate device is an FDA-cleared medical device used as point of comparison for new medical devices seeking approval through FDA’s 510(k) pre-market clearance pathway.",
+        rdfs:label "Predicate device"@en
+    
+    SubClassOf: 
+        roadmap:ROADMAP_03355
     
     
 Individual: roadmap:ROADMAP_03468

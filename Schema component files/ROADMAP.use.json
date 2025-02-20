@@ -13,13 +13,18 @@
 					"Artifact reduction",
 					"Cure",
 					"Decision support",
+					"Detection and diagnosis",
 					"Detection",
 					"Diagnosis",
 					"Exam protocol selection",
 					"Image processing",
 					"Image reconstruction",
+					"Image segmentation",
 					"Image style transfer",
+					"Instance segmentation",
+					"Mitigation",
 					"Noise reduction",
+					"Other use",
 					"Prevention",
 					"Procedure selection",
 					"Prognosis",
@@ -30,7 +35,8 @@
 					"Report summarization",
 					"Report translation",
 					"Risk assessment",
-					"Segmentation",
+					"Semantic segmentation",
+					"Treatment",
 					"Triage"
 				]
 			}

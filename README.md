@@ -8,14 +8,11 @@ The key documents are:
 
 ## Ontology
 
-* The [ontology](Ontology/ROADMAP.omn) in Manchester OWL syntax (open with Prot&eacute;g&eacute;)
-
-* Text-document [outline](Ontology/ROADMAP-outline.txt)
+* The [ontology](ROADMAP.omn) in Manchester OWL syntax (open with Prot&eacute;g&eacute;)
 
 ## JSON Schema
 
-* Top-level [JSON Schema](Schema/ROADMAP.json) document
-  - The other schema documents are referenced from this one
+* The [JSON Schema](ROADMAP-schema-2025-02.json) document, version 2025-02
 
 ## Presentations
 

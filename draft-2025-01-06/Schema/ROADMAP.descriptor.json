@@ -1,0 +1,272 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$id": "ROADMAP.descriptor.json",
+	"description": "Details for Project, Model, and Dataset entities",
+	"type": "object",
+	"properties": {
+		"Name": {
+			"type": "string"
+		},
+		"Content code": {
+			"description": "RSNA content codes",
+			"$ref": "ROADMAP.content-code.json#"
+		},
+		"RadLex code": {
+			"description": "RadLex codes",
+			"$comment": "ROADMAP:00117",
+			"type": "array",
+			"uniqueItems": true,
+			"items": {
+				"description": "RadLex codes",
+				"$comment": "ROADMAP:00117",
+				"type": "string",
+				"anyOf": [
+					{
+						"type": "string",
+						"pattern": "RID[0-9]+",
+						"examples": [
+							"RID58",
+							"RID1169"
+						]
+					},
+					{
+						"type": "string",
+						"pattern": "https://radlex.org/RID/RID[0-9]+",
+						"format": "uri",
+						"examples": [
+							"https://radlex.org/RID/RID58",
+							"https://radlex.org/RID/RID1169"
+						]
+					}
+				]
+			}
+		},
+		"Author": {
+			"description": "List of Authors",
+			"$comment": "ROADMAP:00064",
+			"type": "array",
+			"items": {
+				"$ref": "ROADMAP.person.json"
+			}
+		},
+		"Contributor": {
+			"description": "List of individual Contributors",
+			"$comment": "ROADMAP:03471",
+			"type": "array",
+			"items": {
+				"$ref": "ROADMAP.person.json"
+			}
+		},
+		"Organization": {
+			"description": "Organizations that developed and/or sponsored the resource",
+			"$comment": "Organization (ROADMAP:00072)",
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"Name": {
+						"description": "Name of organization",
+						"type": "string"
+					},
+					"Contact name": {
+						"description": "Name or role of organizational contact",
+						"type": "string"
+					},
+					"Email": {
+						"type": "string",
+						"format": "email"
+					},
+					"Address": {
+						"description": "Organizations's physical (real-world) address",
+						"type": "string"
+					},
+					"URL": {
+						"type": "string",
+						"format": "uri"
+					}
+				},
+				"required": [
+					"Name"
+				],
+				"additionalProperties": false
+			}
+		},
+		"Date": {
+			"type": "object",
+			"properties": {
+				"Created": {
+					"description": "Creation date (ISO format, e.g., 2024-01-01) or year",
+					"$comment": "ROADMAP:03419",
+					"type": [
+						"string",
+						"number"
+					],
+					"format": "date",
+					"minimum": 2012,
+					"examples": [
+						2024,
+						"2024-11-08"
+					]
+				},
+				"Published": {
+					"description": "Publication date (ISO format) or year",
+					"$comment": "ROADMAP:03420",
+					"type": [
+						"string",
+						"number"
+					],
+					"format": "date",
+					"minimum": 2012,
+					"examples": [
+						2024,
+						"2024-11-08"
+					]
+				},
+				"Updated": {
+					"description": "Date of last update",
+					"$comment": "ROADMAP:03421",
+					"type": [
+						"string",
+						"number"
+					],
+					"format": "date",
+					"minimum": 2012,
+					"examples": [
+						2024,
+						"2024-11-08"
+					]
+				}
+			},
+			"additionalProperties": false
+		},
+		"Version": {
+			"description": "Version designation of this resource",
+			"$comment": "ROADMAP:00066",
+			"type": "string"
+		},
+		"Reference": {
+			"$comment": "ROADMAP:00067",
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"Authors": {
+						"description": "Reference authors",
+						"type": "string",
+						"examples": [
+							"Rudie JD, et al."
+						]
+					},
+					"Title": {
+						"description": "Reference title",
+						"type": "string",
+						"examples": [
+							"The RSNA Abdominal Traumatic Injury CT (RATIC) Dataset"
+						]
+					},
+					"Source": {
+						"description": "Name of journal, book, or other source",
+						"type": "string",
+						"examples": [
+							"Radiology: Artificial Intelligence"
+						]
+					},
+					"Year": {
+						"$comment": "By 2100, you'll need to update this schema! ;-)",
+						"type": "integer",
+						"minimum": 1900,
+						"maximum": 2100,
+						"examples": [
+							2024
+						]
+					},
+					"DOI": {
+						"description": "Digital Object Identifer (DOI)",
+						"anyOf": [
+							{
+								"type": "string",
+								"pattern": "[0-9]+.[0-9]+/.+",
+								"examples": [
+									"10.1148/ryai.240101"
+								]
+							},
+							{
+								"type": "string",
+								"pattern": "https://doi.org/.+",
+								"format": "uri",
+								"examples": [
+									"https://doi.org/10.1148/ryai.240101"
+								]
+							}
+						]
+					},
+					"URL": {
+						"description": "Pointer to online reference",
+						"type": "string",
+						"format": "uri",
+						"examples": [
+							"https://doi.org/10.1148/ryai.240101"
+						]
+					},
+					"PMID": {
+						"description": "PubMed ID",
+						"type": "integer",
+						"examples": [
+							39441109
+						]
+					},
+					"PMCID": {
+						"description": "PubMed Central ID",
+						"type": "string",
+						"examples": [
+							"PMC8017407"
+						]
+					}
+				},
+				"required": [
+					"Title"
+				],
+				"additionalProperties": false
+			}
+		},
+		"License": {
+			"description": "License or rights to access this resource",
+			"$comment": "ROADMAP:00068",
+			"minProperties": 1,
+			"properties": {
+				"Text": {
+					"type": "string",
+					"examples": [
+						"Non-commercial use"
+					]
+				},
+				"URL": {
+					"type": "string",
+					"format": "uri",
+					"examples": [
+						"https://creativecommons.org/licenses/by-nc-nd/4.0/"
+					]
+				}
+			},
+			"additionalProperties": false
+		},
+		"Contact": {
+			"$comment": "ROADMAP:00069",
+			"type": "string"
+		},
+		"Funding": {
+			"$comment": "ROADMAP:03385",
+			"type": "string"
+		},
+		"Ethical review": {
+			"$comment": "ROADMAP:03418",
+			"type": "string"
+		},
+		"Comments": {
+			"$comment": "ROADMAP:00070",
+			"type": "string"
+		}
+	},
+	"required": ["Name"],
+	"additionalProperties": false
+}

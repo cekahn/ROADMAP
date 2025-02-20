@@ -1,100 +1,112 @@
 {
-	"ROADMAP version": "2025-01-06",
-	"Project": {
+	"Version": "ROADMAP-schema-2025-02.json",
+	"Dataset": {
 		"Name": "RSNA 2019 Brain Hemorrhage Detection Challenge",
-		"Details": {
-			"Author": [
-				{
-					"Name": "Adam Flanders, MD",
-					"Email": "adam.flanders@jefferson.edu",
-					"Address": "Department of Radiology, Thomas Jefferson University, Philadelphia, PA",
-					"ORCID": "https://orcid.org/0000-0002-4679-0787"
-				}
-			],
-			"Organization": [
-				{
-					"Name": "Radiological Society of North America",
-					"Contact name": "Michele Riopel",
-					"Email": "informatics@rsna.org",
-					"Address": "820 Jorie Blvd, Suite 200, Oak Brook, IL 60523 USA",
-					"URL": "https://rsna.org"
-				}
-			],
-			"Reference": [
-				{
-					"Authors": "Flanders AE, et al.",
-					"Title": "Construction of a Machine Learning Dataset through Collaboration: The RSNA 2019 Brain CT Hemorrhage Challenge",
-					"Source": "Radiology: Artificial Intelligence",
-					"Year": 2020,
-					"DOI": "https://doi.org/10.1148/ryai.2020190211",
-					"URL": "https://doi.org/10.1148/ryai.2020190211",
-					"PMID": 33937827,
-					"PMCID": "PMC8082297"
-				}
-			]
-		}
-	},
-	"Dataset": [
-		{
-			"Name": "RSNA 2019 Brain Hemorrhage Detection Challenge",
-			"Details": {
-				"Date": {"Published": 2019},
-				"Content code": [
-					"AI",
-					"NR"
-				],
-				"License": "Non-commercial purpose"
+		"Author": [
+			{
+				"Name": "Adam Flanders, MD",
+				"Email": "adam.flanders@jefferson.edu",
+				"Address": "Department of Radiology, Thomas Jefferson University, Philadelphia, PA",
+				"ORCID": "https://orcid.org/0000-0002-4679-0787"
 			},
-			"Imaging": {
-				"Modality": ["Computed tomography (RID10321)"],
-				"Procedure": [
+			{
+				"Name": "Luciano M. Prevedello, MD",
+				"ORCID": "https://orcid.org/0000-0002-6768-6452"
+			},
+			{
+				"Name": "George Shih, MD",
+				"ORCID": "https://orcid.org/0000-0002-8356-2011"
+			}
+		],
+		"Organization": [
+			{
+				"Name": "Radiological Society of North America",
+				"Contact name": "Michele Riopel",
+				"Email": "informatics@rsna.org",
+				"Address": "820 Jorie Blvd, Suite 200, Oak Brook, IL 60523 USA",
+				"URL": "https://rsna.org"
+			},
+			{
+				"Name": "American Society of Neuroradiology",
+				"URL": "https://www.asnr.org/"
+			}
+		],
+		"Reference": [
+			{
+				"Authors": "Flanders AE, Prevedello LM, Shih G, Halabi SS, Kalpathy-Cramer J, Ball R, Mongan JT, Stein A, Kitamura FC, Lungren MP, Choudhary G, Cala L, Coelho L, Mogensen M, Morón F, Miller E, Ikuta I, Zohrabian V, McDonnell O, Lincoln C, Shah L, Joyner D, Agarwal A, Lee RK, Nath J; RSNA-ASNR 2019 Brain Hemorrhage CT Annotators",
+				"Title": "Construction of a machine learning dataset through collaboration: The RSNA 2019 Brain CT Hemorrhage Challenge",
+				"Source": "Radiol Artif Intell",
+				"Year": 2020,
+				"DOI": "10.1148/ryai.2020190211",
+				"URL": "https://doi.org/10.1148/ryai.2020190211",
+				"PMID": 33937827,
+				"PMCID": "PMC8082297"
+			}
+		],
+		"Date": {
+			"Published": 2019
+		},
+		"Content code": [
+			"AI",
+			"CT",
+			"NR"
+		],
+		"License": {
+			"Text": "Non-commercial purpose"
+		},
+		"Imaging": {
+			"Modality": [
+				"Computed tomography (RID10321)"
+			],
+			"Procedure": [
+				{
+					"LOINC": "30799-1",
+					"Name": "CT Head WO contrast"
+				}
+			],
+			"File format": [
+				"DICOM"
+			],
+			"Resolution": "Image Plane: Axial only; Resolution: 512 x 512 original, Original for at least one site, Downsampled/re-sampled to 5mm for one site",
+			"Pre-processing": "Not performed by sites submitting data",
+			"Burned-in PHI": "No",
+			"Comments": "CTP Anonymizer and other programs used"
+		},
+		"Labeling": "Method of annotation: Semi-automated (First and last slice could be noted, slices in between were interpolated); Annotation output: JSON; Annotation software: md.ai",
+		"Confidentiality": "Manual review of images to exclude PHI",
+		"Partition": {
+			"Training": {
+				"Exam count": 21784,
+				"Image count": 752803,
+				"Subset": [
 					{
-						"LOINC": "30799-1",
-						"Name": "CT Head WO contrast"
+						"Criterion": "Any hemorrhage type",
+						"Exam count": 8889,
+						"Image count": 107933
+					},
+					{
+						"Exam count": 12895,
+						"Image count": 644870,
+						"Criterion": "No hemorrhage"
 					}
-				],
-				"File format": ["DICOM"],
-				"Resolution": "Image Plane: Axial only; Resolution: 512 x 512 original, Original for at least one site, Downsampled/re-sampled to 5mm for one site",
-				"Pre-processing": "Not performed by sites submitting data",
-				"Burned-in PHI": "No",
-				"Comments": "CTP Anonymizer and other programs used"
+				]
 			},
-			"Labeling": "Method of annotation: Semi-automated (First and last slice could be noted, slices in between were interpolated); Annotation output: JSON; Annotation software: md.ai",
-			"Confidentiality": "Manual review of images to exclude PHI",
-			"Partition": {
-				"Training": {
-					"Exam count": 21784,
-					"Image count": 752803,
-					"Subset": [
-						{
-							"Criterion": "Any hemorrhage type",
-							"Exam count": 8889,
-							"Image count": 107933
-						},
-						{
-							"Exam count": 12895,
-							"Image count": 644870,
-							"Criterion": "No hemorrhage"
-						}
-					]
-				},
-				"Testing": {
-					"Exam count": 3528,
-					"Image count": 121232,
-					"Subset": [
-						{
-							"Exam count": 1243,
-							"Image count": 15902,
-							"Criterion": "Any hemorrhage type"
-						},
-						{
-							"Exam count": 2285,
-							"Image count": 105330,
-							"Criterion": "No hemorrhage"
-						}
-					]
-				}
+			"Testing": {
+				"Exam count": 3528,
+				"Image count": 121232,
+				"Subset": [
+					{
+						"Exam count": 1243,
+						"Image count": 15902,
+						"Criterion": "Any hemorrhage type"
+					},
+					{
+						"Exam count": 2285,
+						"Image count": 105330,
+						"Criterion": "No hemorrhage"
+					}
+				]
 			}
 		}
-	]
+	}
 }
