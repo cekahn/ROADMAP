@@ -1,5 +1,5 @@
 {
-	"Version": "ROADMAP-schema-2025-02.json",
+	"$schema": "ROADMAP-schema-2025-02.json",
 	"Model": {
 		"Name": "TotalSegmentator",
 		"Indexing code": {

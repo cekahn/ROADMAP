@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="color-scheme" content="dark light" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" media="(prefers-color-scheme: dark)" />
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" media="(prefers-color-scheme: light)" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/13.0.1/markdown-it.min.js"></script>
+	<style type="text/css" media="screen">
+ html, body {
+	font-family: sans-serif;
+	font-size: 14px;
+	padding: 0 26px;
+	line-height: 22px;
+	word-wrap: break-word;
+}
+
+body {
+	background-color: #efefef;
+}
+
+@media (prefers-color-scheme: dark) {
+	body {
+		background-color: #303335;
+		color: #EDEDED;
+	}
+}
+
+#__markdown
+{
+	 margin: 0 auto;
+	 padding: 25px;
+	 width: 1200px;
+	 border-radius: 6px;
+	 border: 1px solid #e0e0e0;
+	 background-color: white;
+}
+
+@media (prefers-color-scheme: dark) {
+	#__markdown {
+		background-color: #1E1F20;
+	}
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-color: #ccc;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+h1 code,
+h2 code,
+h3 code,
+h4 code,
+h5 code,
+h6 code {
+	line-height: inherit;
+}
+
+table {
+	border-collapse: collapse;
+	text-align: left;
+	border: 1px solid lightgray;
+	padding: 2px;
+}
+
+th, td {
+    padding: 0 8px 0 4px;
+    border: 1px solid lightgray;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+	border-color: lightblue;
+	background-color: #f0f4f5;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+	color: #A31515;
+}
+
+pre {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+	
+	tab-size: 4;
+	border-radius: 3px;
+	overflow: auto;
+	background-color: #f7f5f2;
+	border: 1px solid #dcdcdc;
+	padding: 4px;
+}
+
+@media (prefers-color-scheme: dark) {
+	code {
+		color: #dab53c;
+	}
+
+	pre {
+		background-color: #2D2D2D;
+	}
+
+	button {
+		background-color: #4F4F4F;
+		border-width: 1px;
+		border-style: solid;
+		border-radius: 2px;
+		border-color: #5E5E5E;
+		color: #EDEDED;
+	}
+
+	button:hover {
+		background-color: #686868;
+	}
+	
+	a {
+		color: #3cbef2;
+	}
+
+	blockquote {
+		border-color: #4f6168;
+		background-color: #43474a;
+	}
+}
+
+.token.cr:before,
+.token.lf:before,
+.token.space:before {
+	opacity: 0;
+}
+
+.token.tab:not(:empty):before {
+	opacity: 0.8;
+}
+
+kbd {
+  display: inline-block;
+  padding: 5px 5px;
+  margin: 1px 0px;
+  font-family: monospace;
+  font-size: 11px;
+  line-height: 10px;
+  vertical-align: middle;
+  color: #444d56;
+  background-color: #f3f4f5;
+  border: solid 1px #c6cbd1;
+  border-bottom-color: #959da5;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #959da5;
+}
+
+details {
+    border-radius: 3px;
+    background-color: #fafaff;
+	border: 1px solid #dcdcdc;
+	padding: .5em .5em 0;
+}
+
+summary {
+    font-weight: bold;
+    margin: -.5em -.5em 0;
+    padding: .5em;
+}
+
+details[open] {
+    padding: .5em;
+}
+
+details[open] summary {
+    border-bottom: 1px solid #dcdcdc;
+    margin-bottom: .5em;
+}
+	</style>
+</head>
+<body>
+	<div id="__markdown"></div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+	<!--[if IE]>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Base64/1.2.0/base64.min.js></script>
+	<![endif]-->
+	<script>
+"use strict";
+function base64_decode(s) {
+	return decodeURIComponent(escape(atob(s)));
+}
+
+const mdText = base64_decode("KipEYXRhc2V0IE5hbWUqKjogIk5hc29nYXN0cmljIFR1YmUgUG9zaXRpb24gRGVjaXNpb24gU3VwcG9ydCBDaGVzdCBSYWRpb2dyYXBocyIKCioqSW1hZ2luZyBEZXRhaWxzKio6CgogIC0gIkZyb250YWwgY2hlc3QgcmFkaW9ncmFwaHMiCgoqKkZpbGUgRm9ybWF0Kio6CgogIC0gIkRJQ09NIgoKKipSZXNvbHV0aW9uKio6ICJSZXNvbHV0aW9uIHJhbmdlZCBmcm9tIDI1M3g5MDIgdG8gNDI4MHgzNTIwIHBpeGVscyIKCioqQnVybmVkIEluIFBoaSoqOiAiTm8gaWRlbnRpZmlhYmxlIHBhdGllbnQgZGF0YSIKCioqTGFiZWxpbmcqKjogIkxhYmVsZWQgZm9yICdzYXRpc2ZhY3RvcnkgcG9zaXRpb24nLCAnbWFscG9zaXRpb25lZCcsIG9yICdicm9uY2hpYWwgaW5zZXJ0aW9uJyBieSB0aHJlZSByYWRpb2xvZ2lzdHMiCgoqKk1pc3NpbmcgSW5mb3JtYXRpb24qKjogIk5vbmUgcmVwb3J0ZWQiCgoqKlJlbGF0aW9uc2hpcHMgQmV0d2VlbiBJbnN0YW5jZXMqKjogIlJhbmRvbWl6ZWQgaW50byBzdHJhdGlmaWVkIHNldHMsIG1haW50YWluaW5nIGdyb3VuZCB0cnV0aCBsYWJlbHMsIHNleCwgYW5kIHZpZXcgcG9zaXRpb25zIHdpdGhvdXQgb3ZlcmxhcHBlZCBwYXRpZW50IGlkZW50aWZpZXJzIGFtb25nIHNwbGl0cy4iCgoqKk5vaXNlKio6ICJObyBzcGVjaWZpYyBub2lzZSBzb3VyY2VzIG1lbnRpb25lZCIKCioqRXh0ZXJuYWwgRGF0YSoqOiAiTm9uZSBtZW50aW9uZWQiCgoqKkNvbmZpZGVudGlhbGl0eSoqOiAiTm8gaWRlbnRpZmlhYmxlIHBhdGllbnQgZGF0YSB1c2VkLCBldGhpY2FsIGFwcHJvdmFsIGdyYW50ZWQgd2l0aG91dCBjb25zZW50LiIKCioqU3VicG9wdWxhdGlvbnMqKjogIkRlbW9ncmFwaGljcyBzdWNoIGFzIGFnZSBhbmQgc2V4IGNvbnNpZGVyZWQgZHVyaW5nIHN0cmF0aWZpY2F0aW9uLiIKCioqUmUgSWRlbnRpZmljYXRpb24qKjogIk5vdCBwb3NzaWJsZSwgZGUtaWRlbnRpZmllZCBkYXRhIHVzZWQiCgoqKkNvbGxlY3Rpb24gUHJvY2VzcyoqOiAiUmV0cm9zcGVjdGl2ZSBjb2xsZWN0aW9uIGZyb20gTkhTIEdyZWF0ZXIgR2xhc2dvdyBhbmQgQ2x5ZGUuIEV0aGljcyBhcHByb3ZhbCBmcm9tIExvY2FsIFByaXZhY3kgYW5kIEFkdmlzb3J5IENvbW1pdHRlZS4iCgoqKkNvbXBvc2l0aW9uKio6ICJNb3JlIHRoYW4gMS4xMyBtaWxsaW9uIHJldHJvc3BlY3RpdmVseSBjb2xsZWN0ZWQgZnJvbnRhbCBjaGVzdCByYWRpb2dyYXBocyBmcm9tIDE0IGFjdXRlIHNpdGVzLCBmdXJ0aGVyIGRpdmlkZWQgaW50byB0cmFpbmluZywgdmFsaWRhdGlvbiwgYW5kIHRlc3Rpbmcgc2V0cy4iCgoqKk51bWJlciBPZiBJbnN0YW5jZXMqKjogIjEsMTMyLDE0MiBpbnN0YW5jZXMgKHJldHJvc3BlY3RpdmVseSBjb2xsZWN0ZWQgY2hlc3QgcmFkaW9ncmFwaHMpIgoKKipSZXByZXNlbnRhdGl2ZW5lc3MqKjogIkNvbGxlY3RlZCBmcm9tIHJvdXRpbmUgY2xpbmljYWwgcHJhY3RpY2Ugd2l0aG91dCBiaWFzIHRvd2FyZHMgc3BlY2lmaWMgY2FzZXMuIgoKKipWZXJpZmljYXRpb24qKjogIkdyb3VuZCB0cnV0aCBiYXNlZCBvbiBtYWpvcml0eSBjb25zZW5zdXMgb2YgdGhyZWUgY2VydGlmaWVkIHJhZGlvbG9naXN0cy4iCgoqKk1vdGl2YXRpb24qKjogIlRvIGRldmVsb3AgYW4gQUkgdG9vbCBmb3IgTkdUIG1hbHBvc2l0aW9uIGRldGVjdGlvbiBpbiBjaGVzdCByYWRpb2dyYXBocy4iCgoqKlB1cnBvc2UqKjogIlRvIGFzc2lzdCBqdW5pb3IgcGh5c2ljaWFucyB3aXRoIGNsaW5pY2FsIGRlY2lzaW9ucyByZWdhcmRpbmcgTkdUIGZlZWRpbmcgc2FmZXR5LiIKCioqUGFydGlvbmluZyBTY2hlbWUqKjogIlJhbmRvbWl6ZWQgaW50byBzdHJhdGlmaWVkIHRyYWluaW5nICg5MCUpLCB2YWxpZGF0aW9uICg1JSksIGFuZCB0ZXN0aW5nICg1JSkgc2V0cyIKCioqUGFydGl0aW9ucyoqOgoKfCBTdWJzZXQgTmFtZSB8IFN1YnNldCBEZXNjcmlwdGlvbiB8IFNpdGUgQ291bnQgfCBQYXRpZW50IENvdW50IHwgTnVtYmVyIEluc3RhbmNlcyB8IEFnZSB8IFNleCB8IERlbW9ncmFwaGljIHwgQ3JpdGVyaW9uIHwKfCAtLS0gfCAtLS0gfCAtLS0gfCAtLS0gfCAtLS0gfCAtLS0gfCAtLS0gfCAtLS0gfCAtLS0gfAp8IFRyYWluaW5nIFNldCB8IEltYWdlcyB1c2VkIGZvciBuZXVyYWwgbmV0d29yayBwcmV0cmFpbmluZyBhbmQgTkdUIG1vZGVsIHRyYWluaW5nIHwgTXVsdGlwbGUgc2l0ZXMgYWNyb3NzIE5IUyBHcmVhdGVyIEdsYXNnb3cgYW5kIENseWRlIHwgTm90IHNwZWNpZmllZCB8IDEsMTMyLDE0MiBmb3IgZ2VuZXJhbCBwcmV0cmFpbmluZywgNywwODEgZm9yIHNwZWNpZmljIE5HVCB0cmFpbmluZyBhbmQgdGVzdGluZyB8IE1lZGlhbiA2Ni4zIHllYXJzIMOCwrEgMTQuOSBTRCB8IE1hbGUgdG8gZmVtYWxlIHJhdGlvIDEuNMOi4oKs4oCcMS41OjEgfCBJbmNsdWRlZCBhZHVsdHMsIGV4Y2x1ZGluZyBwZWRpYXRyaWNzIHwgSW1hZ2VzIGluY2x1ZGVkIGlmIGFzc29jaWF0ZWQgd2l0aCBOR1QgcmV2aWV3IHJlcXVlc3QgfAp8IFRlc3RpbmcgU2V0IHwgVGVzdGluZyBzZXQgZm9yIG1vZGVsIHBlcmZvcm1hbmNlIGV2YWx1YXRpb24gfCBNdWx0aXBsZSBzaXRlcyBhY3Jvc3MgTkhTIEdyZWF0ZXIgR2xhc2dvdyBhbmQgQ2x5ZGUgfCBOb3Qgc3BlY2lmaWVkIHwgMzU1IHwgU2ltaWxhciB0byB0cmFpbmluZyBzZXQsIGFwcHJveGltYXRlbHkgNjYuMyB5ZWFycyBtZWRpYW4gfCBNYWxlIHRvIGZlbWFsZSByYXRpbyAxLjTDouKCrOKAnDEuNToxIHwgTWF0Y2hlZCB0byBOR1QgbW9kZWwgdHJhaW5pbmcgc2V0IHwgU2FtZSBhcyB0cmFpbmluZyBzZXQsIGVuc3VyaW5nIG5vIG92ZXJsYXAgaW4gcGF0aWVudCBpZGVudGlmaWVycyB8CnwgQ2xpbmljYWwgRXZhbHVhdGlvbiBTZXQgfCBTZXQgZm9yIGNoZWNraW5nIEFJLWFzc2lzdGVkIGRlY2lzaW9ucyB8IE11bHRpcGxlIHNpdGVzIGFjcm9zcyBOSFMgR3JlYXRlciBHbGFzZ293IGFuZCBDbHlkZSB8IE5vdCBzcGVjaWZpZWQgfCAzMzUgfCA2Ni4zw6LigqzigJw2Ny40IHllYXJzIG9sZCB8IE5vdCBzcGVjaWZpZWQgfCBOb3Qgc3BlY2lmaWVkIHwgVXNlZCBieSBqdW5pb3IgcGh5c2ljaWFucyBmb3IgZXZhbHVhdGlvbiB1bmRlciBBSSBzdXBwb3J0IGNvbmRpdGlvbnMgfAoKCioqRGF0YXNldCBBdmFpbGFiaWxpdHkqKjogIk5vdCBzcGVjaWZpZWQgaW4gZXh0cmFjdGVkIHRleHQsIGJ1dCBkZS1pZGVudGlmaWVkIGFuZCBldGhpY2FsbHkgYXBwcm92ZWQgZm9yIHJlc2VhcmNoLiIKCioqRGF0YXNldCBMaWNlbnNlKio6ICJDQyBCWSA0LjAgbGljZW5zZSIKCg==");
+var converter = window.markdownit();
+converter.set({ html: true, xhtmlOut: true  });
+document.getElementById('__markdown').innerHTML = converter.render(mdText);
+	</script>
+</body>
+</html>

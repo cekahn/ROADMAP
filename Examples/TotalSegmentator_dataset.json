@@ -1,5 +1,5 @@
 {
-	"Version": "ROADMAP-schema-2025-02.json",
+	"$schema": "ROADMAP-schema-2025-02.json",
 	"Dataset": {
 		"Name": "TotalSegmentator Dataset",
 		"Indexing code": {
@@ -87,7 +87,6 @@
 				"Name": "Jakob Wasserthal",
 				"ORCID": "https://orcid.org/0000-0002-9921-5698",
 				"Email": "jakob.wasserthal@usb.ch"
-				
 			}
 		]
 	}

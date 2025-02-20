@@ -6,15 +6,15 @@
 		{
 			"type": "object",
 			"properties": {
-				"Version": {
-					"$ref": "#/$defs/version"
+				"$schema": {
+					"$ref": "#/$defs/schema"
 				},
 				"Model": {
 					"$ref": "#/$defs/model"
 				}
 			},
 			"required": [
-				"Version",
+				"$schema",
 				"Model"
 			],
 			"additionalProperties": false
@@ -22,22 +22,22 @@
 		{
 			"type": "object",
 			"properties": {
-				"Version": {
-					"$ref": "#/$defs/version"
+				"$schema": {
+					"$ref": "#/$defs/schema"
 				},
 				"Dataset": {
 					"$ref": "#/$defs/dataset"
 				}
 			},
 			"required": [
-				"Version",
+				"$schema",
 				"Dataset"
 			],
 			"additionalProperties": false
 		}
 	],
 	"$defs": {
-		"version": {
+		"schema": {
 			"const": "ROADMAP-schema-2025-02.json"
 		},
 		"content-code": {
