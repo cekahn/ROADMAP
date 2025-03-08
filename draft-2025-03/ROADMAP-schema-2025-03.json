@@ -246,7 +246,11 @@
 					]
 				},
 				"Reference": {
-					"$ref": "#/$defs/ref"
+					"description": "Information about supporting reference (could be paper underlying model itself, or published results of another study)",
+					"type": "array",
+					"items": {
+						"$ref": "#/$defs/ref"
+					}
 				},
 				"License": {
 					"$ref": "#/$defs/license"
@@ -338,6 +342,10 @@
 						},
 						"Number of instances": {
 							"type": "integer"
+						},
+						"Sample Size Calculation": {
+							"description": "Details about the sample size calculation",
+							"type": "string"
 						},
 						"Representativeness": {
 							"type": "object",
@@ -851,6 +859,18 @@
 					"$comment": "ROADMAP:03418",
 					"type": "string"
 				},
+				"FDA Authorization Status": {
+					"type": "string",
+					"enum": [
+						"Not applicable",
+						"Pending",
+						"Approved",
+						"Denied"
+					]
+				},
+				"FDA File Number": {
+					"type": "string"
+				},
 				"Comments": {
 					"$comment": "ROADMAP:00070",
 					"type": "string"
@@ -870,6 +890,26 @@
 						"Excluded": {
 							"description": "Excluded model use(s)",
 							"$ref": "#/$defs/use"
+						}, 
+						"Target Condition": {
+							"description": "Describes the disease or condition the device will diagnose, treat,prevent, cure or mitigate",
+							"type": "string"
+						},
+						"Target Population": {
+							"description": "Describes the patient population for which the device is intended",
+							"type": "string"
+						},
+						"Benefits": {
+							"description": "Describes the benefits of the model outputs",
+							"type": "string"
+						},
+						"Use Environment": {
+							"description": "Describes the environment in which the device will be used (e.g., intensive care unit, step-down unit, home)",
+							"type": "string"
+						},
+						"Workflow Phase": {
+							"description": "For FDA submissions, Clinical workflow phase (e.g., patient pre-registration, digitization of forms or clinical scales, patients triage, telehealth & virtual rounds, clinical decision support systems, workflow optimization, evidence-based methods to optimize medical interventions, feedback from users).",
+							"type": "string"
 						}
 					},
 					"additionalProperties": false
@@ -892,58 +932,109 @@
 					},
 					"additionalProperties": false
 				},
-				"Metric": {
-					"$ref": "#/$defs/metric"
+				"Input": {
+					"description": "Describes the input data for the model",
+					"type": "string"
+				},
+				"Output": {
+					"description": "Describes the output data for the model",
+					"type": "string"
+				},
+				"Results": {
+					"description": "Describes the results of the model",
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"Result Information": {
+								"description": "Free text description of purpose of the result (e.g. reporting macro AUC, stratified analysis, reproducibility analysis, etc.)",
+								"type": "string"
+							},
+							"Metric": {
+								"$ref": "#/$defs/metric"
+							},
+							"Decision Threshold": {
+								"description": "Describes the decision threshold for the result metric if any",
+								"type": "string"
+							},
+							"Value": {
+								"description": "Value of the result metric",
+								"type": "string"
+							},
+							"Uncertainty": {
+								"description": "Uncertainty of the result metric (as quantified by a 95% CI for example)",
+								"type": "string"
+							},
+							"Subset": {
+								"description": "Describes the subset of the data used to generate the result",
+								"type": "string"
+							}
+						}
+					}
 				},
 				"Caveat": {
-					"$comment": "ROADMAP:03353",
-					"type": "string"
+					"type": "object",
+					"properties": {
+						"Limitations": {
+							"description": "Limitations of the model develop or performance evaluation as well as known circumstances where the device input will not align with data used in development and validation currently and in the future (for products)",
+							"type": "string"
+						},
+						"Automation Degree": {
+							"description": "Degree of automation compared to the current standard of care, including whether the device supports or automates decision making",
+							"type": "string"
+						},
+						"Bias": {
+							"description": "Known biasses or failure modes of the model",
+							"type": "string"
+						},
+						"Known gaps": {
+							"description": "Known gaps in the data characterization, such as patient populations that are not well represented in development or testing dataset",
+							"type": "string"
+						},
+						"Risks": {
+							"description": "Risks associated with the model and outputs (e.g. contraindications, side effects, data privacy risks, etc.)",
+							"type": "string"
+						},
+						"Lifecycle Considerations": {
+							"description": "For FDA submissions, details regarding how the model is deployed and updated, including monitoring and post-market surveillance",
+							"type": "string"
+						}
+					}
 				},
 				"Decision threshold": {
 					"$comment": "ROADMAP:03351",
 					"type": "string"
 				},
-				"Ethical consideration": {
-					"$comment": "ROADMAP:03352",
-					"type": "string"
-				},
 				"Recommendation": {
-					"$comment": "ROADMAP:03354",
+					"description": "Directions and recommendations for optimal use of the model.",
 					"type": "string"
 				},
 				"Availability": {
 					"description": "Model availability",
-					"$comment": "ROADMAP:03373",
 					"type": "string"
 				},
 				"Sustainability": {
 					"description": "Sustainability",
-					"$comment": "ROADMAP:03376",
 					"type": "string"
 				},
 				"Time to train model": {
 					"description": "Sustainability: Time to train model",
-					"$comment": "ROADMAP:03377",
 					"type": "string"
 				},
 				"Time to evaluate single input": {
 					"description": "Sustainability: Time to evaluate single input",
-					"$comment": "ROADMAP:03378",
 					"type": "string"
 				},
 				"Required processor": {
 					"description": "Sustainability: Required processors",
-					"$comment": "ROADMAP:03379",
 					"type": "string"
 				},
 				"Carbon footprint calculation": {
 					"description": "Sustainability: Carbon footprint calculation",
-					"$comment": "ROADMAP:03380",
 					"type": "string"
 				},
 				"Method": {
 					"description": "Array of relevant machine-learning methods or method categories, from Papers With Code",
-					"$comment": "ROADMAP:00118",
 					"type": "array",
 					"uniqueItems": true,
 					"items": {
@@ -964,8 +1055,8 @@
 						]
 					}
 				},
-				"Task": {
-					"description": "Tasks to which the model is applied, from Papers With Code",
+				"Computational Task": {
+					"description": "Computational task to which the model is applied, from Papers With Code",
 					"$comment": "ROADMAP:00119",
 					"type": "array",
 					"uniqueItems": true,
