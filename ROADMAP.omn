@@ -54,6 +54,18 @@ AnnotationProperty: roadmap:ROADMAP_03626
         rdfs:label "pattern"@en
     
     
+AnnotationProperty: roadmap:ROADMAP_03651
+
+    Annotations: 
+        rdfs:label "lowerBound"@en
+    
+    
+AnnotationProperty: roadmap:ROADMAP_03652
+
+    Annotations: 
+        rdfs:label "upperBound"@en
+    
+    
 Datatype: rdf:PlainLiteral
 
     
@@ -63,10 +75,22 @@ Datatype: xsd:anyURI
 Datatype: xsd:dateTime
 
     
+Datatype: xsd:decimal
+
+    
+Datatype: xsd:float
+
+    
+Datatype: xsd:integer
+
+    
 Datatype: xsd:nonNegativeInteger
 
     
 Datatype: xsd:string
+
+    
+ObjectProperty: owl:topObjectProperty
 
     
 ObjectProperty: roadmap:ROADMAP_00114
@@ -193,6 +217,98 @@ ObjectProperty: roadmap:ROADMAP_03382
         roadmap:ROADMAP_03381
     
     
+ObjectProperty: roadmap:ROADMAP_03644
+
+    Annotations: 
+        rdfs:comment "The \"hasPerformance\" property links a Model to one or more Model performance metrics.",
+        rdfs:label "hasPerformance"@en
+    
+    Domain: 
+        roadmap:ROADMAP_00002
+    
+    Range: 
+        roadmap:ROADMAP_03642
+    
+    
+ObjectProperty: roadmap:ROADMAP_03645
+
+    Annotations: 
+        rdfs:comment "This property links a Graphic model performance metric (e.g., an ROC curve) to a scarlar metric (e.g.,AUROC).",
+        rdfs:label "hasScalarMetric"@en
+    
+    SubPropertyOf: 
+        owl:topObjectProperty
+    
+    Domain: 
+        roadmap:ROADMAP_03641
+    
+    Range: 
+        roadmap:ROADMAP_03302
+    
+    
+ObjectProperty: roadmap:ROADMAP_03648
+
+    Annotations: 
+        rdfs:label "metricFor"@en
+    
+    Characteristics: 
+        Irreflexive,
+        Asymmetric
+    
+    Domain: 
+        roadmap:ROADMAP_03642
+    
+    Range: 
+        roadmap:ROADMAP_00119
+    
+    InverseOf: 
+        roadmap:ROADMAP_03709
+    
+    
+ObjectProperty: roadmap:ROADMAP_03649
+
+    Annotations: 
+        rdfs:label "hasLowerBound"@en
+    
+    Domain: 
+        roadmap:ROADMAP_03302
+    
+    Range: 
+        owl:topDataProperty exactly 1 xsd:float
+    
+    
+ObjectProperty: roadmap:ROADMAP_03650
+
+    Annotations: 
+        rdfs:label "hasUpperBound"@en
+    
+    Domain: 
+        roadmap:ROADMAP_03302
+    
+    Range: 
+        owl:topDataProperty exactly 1 xsd:float
+    
+    
+ObjectProperty: roadmap:ROADMAP_03709
+
+    Annotations: 
+        rdfs:comment "Defines a relationship between a Task (as defined in PaperWithCode.com) and a Model performance metric."@en,
+        rdfs:label "hasMetric"@en
+    
+    Characteristics: 
+        Irreflexive,
+        Asymmetric
+    
+    Domain: 
+        roadmap:ROADMAP_00119
+    
+    Range: 
+        roadmap:ROADMAP_03642
+    
+    InverseOf: 
+        roadmap:ROADMAP_03648
+    
+    
 DataProperty: owl:topDataProperty
 
     
@@ -223,7 +339,8 @@ Class: roadmap:ROADMAP_00002
         roadmap:ROADMAP_00631 some roadmap:ROADMAP_00074,
         roadmap:ROADMAP_03300 some roadmap:ROADMAP_00118,
         roadmap:ROADMAP_03301 some roadmap:ROADMAP_00119,
-        roadmap:ROADMAP_03350 some roadmap:ROADMAP_03355
+        roadmap:ROADMAP_03350 some roadmap:ROADMAP_03355,
+        roadmap:ROADMAP_03644 some roadmap:ROADMAP_03642
     
     
 Class: roadmap:ROADMAP_00003
@@ -408,6 +525,7 @@ Class: roadmap:ROADMAP_00019
 
     Annotations: 
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "CADt",
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Computer-aided triage",
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Computer-assisted triage",
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Computer-assisted triage and notification",
         <http://www.geneontology.org/formats/oboInOwl#id> "ROADMAP:00019",
@@ -421,6 +539,7 @@ Class: roadmap:ROADMAP_00020
 
     Annotations: 
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "CADe",
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Computer-aided detection",
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Computer-assisted detection",
         <http://www.geneontology.org/formats/oboInOwl#id> "ROADMAP:00020",
         rdfs:comment "Detection of single disorder or condition.",
@@ -434,6 +553,7 @@ Class: roadmap:ROADMAP_00021
 
     Annotations: 
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "CADx",
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Computer-aided diagnosis",
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Computer-assisted diagnosis",
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Computer-assisted diagnostic",
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Diagnosis / detection",
@@ -530,7 +650,7 @@ Class: roadmap:ROADMAP_00030
 
     Annotations: 
         <http://www.geneontology.org/formats/oboInOwl#id> "ROADMAP:00030",
-        rdfs:label "Report processing"
+        rdfs:label "Text processing"
     
     SubClassOf: 
         roadmap:ROADMAP_00015
@@ -540,7 +660,7 @@ Class: roadmap:ROADMAP_00031
 
     Annotations: 
         <http://www.geneontology.org/formats/oboInOwl#id> "ROADMAP:00031",
-        rdfs:label "Report summarization"
+        rdfs:label "Text summarization"
     
     SubClassOf: 
         roadmap:ROADMAP_00030
@@ -1473,8 +1593,9 @@ Class: roadmap:ROADMAP_00117
 Class: roadmap:ROADMAP_00118
 
     Annotations: 
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "https://paperswithcode.com/methods"^^xsd:anyURI,
         <http://www.geneontology.org/formats/oboInOwl#id> "ROADMAP:00118",
-        rdfs:comment "Extracted from the Papers With Code (https://paperswithcode.com/) \"Methods\" hierarchy as of 2024-04-30."@en,
+        rdfs:comment "Method as specified in the Papers With Code \"Methods\" hierarchy as of 2024-04-30."@en,
         rdfs:label "Method"
     
     SubClassOf: 
@@ -1484,6 +1605,7 @@ Class: roadmap:ROADMAP_00118
 Class: roadmap:ROADMAP_00119
 
     Annotations: 
+        <http://purl.org/dc/elements/1.1/source> "https://paperswithcode.com/"^^xsd:anyURI,
         <http://www.geneontology.org/formats/oboInOwl#id> "ROADMAP:00119",
         rdfs:comment "Based on Papers With Code (https://paperswithcode.com/) \"Tasks\" listing as of 2024-04-30."@en,
         rdfs:label "Task"
@@ -2260,20 +2382,11 @@ Class: roadmap:ROADMAP_00189
 Class: roadmap:ROADMAP_00190
 
     Annotations: 
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "ASR",
         <http://purl.org/dc/elements/1.1/source> <https://paperswithcode.com/task/automatic-speech-recognition-2>,
+        <http://purl.org/dc/elements/1.1/source> "https://paperswithcode.com/task/automatic-speech-recognition"^^xsd:anyURI,
         <http://www.geneontology.org/formats/oboInOwl#id> "ROADMAP:00190",
         rdfs:label "Automatic Speech Recognition"
-    
-    SubClassOf: 
-        roadmap:ROADMAP_00119
-    
-    
-Class: roadmap:ROADMAP_00191
-
-    Annotations: 
-        <http://purl.org/dc/elements/1.1/source> <https://paperswithcode.com/task/automatic-speech-recognition>,
-        <http://www.geneontology.org/formats/oboInOwl#id> "ROADMAP:00191",
-        rdfs:label "Automatic Speech Recognition (ASR)"
     
     SubClassOf: 
         roadmap:ROADMAP_00119
@@ -2364,7 +2477,8 @@ Class: roadmap:ROADMAP_00199
         rdfs:label "Binary Classification"
     
     SubClassOf: 
-        roadmap:ROADMAP_00119
+        roadmap:ROADMAP_00119,
+        roadmap:ROADMAP_00213
     
     
 Class: roadmap:ROADMAP_00200
@@ -2518,7 +2632,10 @@ Class: roadmap:ROADMAP_00213
         rdfs:label "Classification"
     
     SubClassOf: 
-        roadmap:ROADMAP_00119
+        roadmap:ROADMAP_00119,
+        roadmap:ROADMAP_03709 some roadmap:ROADMAP_03307,
+        roadmap:ROADMAP_03709 some roadmap:ROADMAP_03315,
+        roadmap:ROADMAP_03709 some roadmap:ROADMAP_03316
     
     
 Class: roadmap:ROADMAP_00214
@@ -3514,9 +3631,10 @@ Class: roadmap:ROADMAP_00303
 Class: roadmap:ROADMAP_00304
 
     Annotations: 
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "FER",
         <http://purl.org/dc/elements/1.1/source> <https://paperswithcode.com/task/facial-expression-recognition>,
         <http://www.geneontology.org/formats/oboInOwl#id> "ROADMAP:00304",
-        rdfs:label "Facial Expression Recognition (FER)"
+        rdfs:label "Facial Expression Recognition"
     
     SubClassOf: 
         roadmap:ROADMAP_00119
@@ -4267,7 +4385,8 @@ Class: roadmap:ROADMAP_00372
         rdfs:label "Instance Segmentation"
     
     SubClassOf: 
-        roadmap:ROADMAP_00119
+        roadmap:ROADMAP_00119,
+        roadmap:ROADMAP_00365
     
     
 Class: roadmap:ROADMAP_00373
@@ -4762,7 +4881,8 @@ Class: roadmap:ROADMAP_00417
         rdfs:label "Multi-class Classification"
     
     SubClassOf: 
-        roadmap:ROADMAP_00119
+        roadmap:ROADMAP_00119,
+        roadmap:ROADMAP_00213
     
     
 Class: roadmap:ROADMAP_00418
@@ -5252,9 +5372,10 @@ Class: roadmap:ROADMAP_00461
 Class: roadmap:ROADMAP_00462
 
     Annotations: 
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "OCR",
         <http://purl.org/dc/elements/1.1/source> <https://paperswithcode.com/task/optical-character-recognition>,
         <http://www.geneontology.org/formats/oboInOwl#id> "ROADMAP:00462",
-        rdfs:label "Optical Character Recognition (OCR)"
+        rdfs:label "Optical Character Recognition"
     
     SubClassOf: 
         roadmap:ROADMAP_00119
@@ -5573,7 +5694,7 @@ Class: roadmap:ROADMAP_00491
     Annotations: 
         <http://purl.org/dc/elements/1.1/source> <https://paperswithcode.com/task/regression-1>,
         <http://www.geneontology.org/formats/oboInOwl#id> "ROADMAP:00491",
-        rdfs:label "regression"
+        rdfs:label "Regression"
     
     SubClassOf: 
         roadmap:ROADMAP_00119
@@ -5582,9 +5703,11 @@ Class: roadmap:ROADMAP_00491
 Class: roadmap:ROADMAP_00492
 
     Annotations: 
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "RL",
         <http://purl.org/dc/elements/1.1/source> <https://paperswithcode.com/task/reinforcement-learning-1>,
+        <http://purl.org/dc/elements/1.1/source> "https://paperswithcode.com/task/reinforcement-learning"^^xsd:anyURI,
         <http://www.geneontology.org/formats/oboInOwl#id> "ROADMAP:00492",
-        rdfs:label "Reinforcement Learning (RL)"
+        rdfs:label "Reinforcement Learning"
     
     SubClassOf: 
         roadmap:ROADMAP_00119
@@ -5840,7 +5963,8 @@ Class: roadmap:ROADMAP_00515
         rdfs:label "Semantic Segmentation"
     
     SubClassOf: 
-        roadmap:ROADMAP_00119
+        roadmap:ROADMAP_00119,
+        roadmap:ROADMAP_00365
     
     
 Class: roadmap:ROADMAP_00516
@@ -36561,25 +36685,29 @@ Class: roadmap:ROADMAP_03216
 Class: roadmap:ROADMAP_03302
 
     Annotations: 
-        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Metric"@en,
-        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Performance metric",
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Scalar metric"@en,
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Scalar performance metric",
         <http://purl.org/dc/elements/1.1/source> "Drukker, Karen, Berkman Sahiner, Tingting Hu, Grace Hyun Kim, Heather M. Whitney, Natalie Baughan, Kyle J. Myers, Maryellen L. Giger, Michael McNitt-Gray, MIDRC-MetricTree: a decision tree-based tool for recommending performance metrics in artificial intelligence-assisted medical image analysis, J. Med. Imag. 11(2), 024504 (2024), doi: 10.1117/1.JMI.11.2.024504.",
-        <http://purl.org/dc/elements/1.1/source> "https://www.midrc.org/performance-metrics-decision-tree"^^xsd:anyURI,
+        <http://purl.org/dc/elements/1.1/source> "https://www.midrc.org/performance-metrics-decision-tree",
         <http://www.geneontology.org/formats/oboInOwl#id> "ROADMAP:03302",
-        rdfs:label "Model performance metric"@en,
-        rdfs:seeAlso "https://doi.org/10.1038/s41592-023-02151-z"^^xsd:anyURI
+        rdfs:comment "A model performance metric presented as a single numerical (scalar) value.",
+        rdfs:label "Scalar model performance metric"@en
     
     SubClassOf: 
-        roadmap:ROADMAP_03615
+        roadmap:ROADMAP_03642,
+        roadmap:ROADMAP_00631 some roadmap:ROADMAP_03616
     
     
 Class: roadmap:ROADMAP_03307
 
     Annotations: 
+        <http://purl.org/dc/elements/1.1/source> "https://doi.org/10.1016/j.aci.2018.08.003"^^xsd:anyURI,
         rdfs:comment "Accuracy is a metric used to measure the overall correctness of a model or test. It is defined as the ratio of correctly predicted observations (both true positives and true negatives) to the total number of observations.
 
 Accuracy = (TP + TN) / (TP + TN + FP + FN)",
-        rdfs:label "Accuracy"@en
+        rdfs:label "Accuracy"@en,
+        roadmap:ROADMAP_03651 0,
+        roadmap:ROADMAP_03652 1
     
     SubClassOf: 
         roadmap:ROADMAP_03302
@@ -36589,12 +36717,17 @@ Class: roadmap:ROADMAP_03308
 
     Annotations: 
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "BA"@en,
-        rdfs:comment "Balanced accuracy is a version of accuracy that accounts for class imbalance by averaging the proportion of correct predictions in each class independently. It is calculated as the average of sensitivity (true positive rate) and specificity (true negative rate).",
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "BCR",
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Balanced classification rate",
+        <http://purl.org/dc/elements/1.1/source> "https://doi.org/10.1016/j.aci.2018.08.003"^^xsd:anyURI,
+        rdfs:comment "Balanced accuracy is a version of accuracy that accounts for class imbalance by averaging the proportion of correct predictions in each class independently. It is calculated as the average of sensitivity (true positive rate) and specificity (true negative rate).
+
+BA = (TPR + TNR) / 2",
         rdfs:label "Balanced accuracy"@en,
         rdfs:seeAlso "https://huggingface.co/spaces/hyperml/balanced_accuracy"^^xsd:anyURI
     
     SubClassOf: 
-        roadmap:ROADMAP_03302
+        roadmap:ROADMAP_03307
     
     
 Class: roadmap:ROADMAP_03309
@@ -36612,7 +36745,7 @@ Class: roadmap:ROADMAP_03311
 
     Annotations: 
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Weighted kappa"@en,
-        rdfs:comment "Weighted Cohen's kappa is similar to Cohen's kappa but takes into account the degree of disagreement. It assigns weights to disagreements; greater weights are typically assigned to larger differences.",
+        rdfs:comment "Weighted Cohen's kappa is a generalization of Cohen's kappa; it calculates the degree of agreement between the reference and prediction while incorporating the agreement resulting from chance.",
         rdfs:label "Weighted Cohen's kappa"@en
     
     SubClassOf: 
@@ -36660,7 +36793,9 @@ Class: roadmap:ROADMAP_03314
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Area under the ROC curve"@en,
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "ROC-AUC",
         rdfs:comment "The area under the Receiver Operating Characteristic curve is a measure of a model’s ability to distinguish between classes. An AUC of 1 indicates perfect discrimination, while an AUC of 0.5 suggests no discrimination.",
-        rdfs:label "Area under the receiver operating characteristic curve"@en
+        rdfs:label "Area under the receiver operating characteristic curve"@en,
+        roadmap:ROADMAP_03651 0,
+        roadmap:ROADMAP_03652 1
     
     SubClassOf: 
         roadmap:ROADMAP_03302
@@ -36691,10 +36826,12 @@ Class: roadmap:ROADMAP_03316
         rdfs:label "Recall"@en
     
     EquivalentTo: 
-        roadmap:ROADMAP_03312
+        roadmap:ROADMAP_03312,
+        roadmap:ROADMAP_03339
     
     SubClassOf: 
-        roadmap:ROADMAP_03302
+        roadmap:ROADMAP_03302,
+        roadmap:ROADMAP_03648 some roadmap:ROADMAP_00213
     
     
 Class: roadmap:ROADMAP_03317
@@ -36742,12 +36879,12 @@ Class: roadmap:ROADMAP_03321
 
     Annotations: 
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "FROC score"@en,
+        rdfs:comment "Free-Response Receiver Operating Characteristic (FROC) score combines aspects from both receiver operating characteristic curves and free-response task performance into one measure that captures detection accuracy including multiple responses per subject/image without requiring binary classification thresholds.",
         rdfs:comment "The free-response receiver operating characteristic (FROC) score is a performance metric used to evaluate diagnostic tests and systems where the responses are not constrained to a fixed set of locations or regions. Unlike traditional ROC curves that consider binary outcomes, FROC analysis allows for the possibility of multiple lesions or findings per image and does not penalize for the number of false-positive markings as long as every true lesion is detected.
 
 In an FROC curve, the sensitivity (true positive rate) is plotted against the average number of false positives per image, rather than against 1-specificity as in typical ROC curves. This provides a more detailed assessment of diagnostic performance in tasks like medical imaging, where it is common to have multiple findings and where the localization of these findings is crucial.
 
 Assessing an AI system with an FROC score involves examining its ability to correctly identify and localize targets (such as tumors in radiology images) while accounting for any false-positive marks it makes. The higher the FROC score, the better the system is at detecting true positives with fewer false alarms.",
-        rdfs:comment "Free-Response Receiver Operating Characteristic (FROC) score combines aspects from both receiver operating characteristic curves and free-response task performance into one measure that captures detection accuracy including multiple responses per subject/image without requiring binary classification thresholds.",
         rdfs:label "Free-response receiver operating characteristic score"@en
     
     SubClassOf: 
@@ -36760,8 +36897,8 @@ Class: roadmap:ROADMAP_03322
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "FPR",
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "fall-out",
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "fall-out rate",
-        rdfs:comment "The false positive rate measures how many false positives are identified out of all actual negative cases. It is calculated as 1 minus specificity (1 - TNR), indicating how often non-existing conditions are falsely detected.",
         rdfs:comment "Also known as fall-out, it measures how many false positives occur compared to all actual negatives — that is, instances incorrectly labeled as positive out of all true negatives.",
+        rdfs:comment "The false positive rate measures how many false positives are identified out of all actual negative cases. It is calculated as 1 minus specificity (1 - TNR), indicating how often non-existing conditions are falsely detected.",
         rdfs:label "False positive rate"@en
     
     SubClassOf: 
@@ -36939,7 +37076,9 @@ Class: roadmap:ROADMAP_03337
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Dice score",
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Sørensen–Dice coefficient"@en,
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Sørensen–Dice score",
-        rdfs:label "Dice similarity coefficient"@en
+        rdfs:label "Dice similarity coefficient"@en,
+        roadmap:ROADMAP_03651 0,
+        roadmap:ROADMAP_03652 1
     
     SubClassOf: 
         roadmap:ROADMAP_03302
@@ -36965,7 +37104,8 @@ Class: roadmap:ROADMAP_03339
         rdfs:label "True positive rate"@en
     
     EquivalentTo: 
-        roadmap:ROADMAP_03312
+        roadmap:ROADMAP_03312,
+        roadmap:ROADMAP_03316
     
     SubClassOf: 
         roadmap:ROADMAP_03302
@@ -37008,7 +37148,9 @@ Class: roadmap:ROADMAP_03342
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Jaccard similarity coefficient",
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Jaccard similarity coefficient score",
         rdfs:comment "Jaccard similarity coefficient score (also IoU) is defined as the size of the intersection divided by the size of the union of two label sets. It is used to compare the set of predicted labels for a sample to the corresponding set of true labels.",
-        rdfs:label "Intersection over union"@en
+        rdfs:label "Intersection over union"@en,
+        roadmap:ROADMAP_03651 0,
+        roadmap:ROADMAP_03652 1
     
     SubClassOf: 
         roadmap:ROADMAP_03302
@@ -37067,8 +37209,8 @@ Class: roadmap:ROADMAP_03346
 Class: roadmap:ROADMAP_03347
 
     Annotations: 
-        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Mask IoU"@en,
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "In image segmentation tasks, Mask IoU (Intersection over Union) specifically refers to measuring overlap between predicted masks and ground truth masks. The 'mask' indicates that this metric is applied pixel-wise to binary masks representing segmented areas within images.",
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Mask IoU"@en,
         rdfs:label "Mask Intersection over union"
     
     SubClassOf: 
@@ -38518,7 +38660,9 @@ Class: roadmap:ROADMAP_03508
     Annotations: 
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "AUPRC",
         rdfs:comment "Area Under the Precision-Recall Curve (AUPRC): summarizes a precision-recall curve as a single value by calculating the area under this curve, which combines measures of precision and recall for various thresholds. This metric is particularly useful when dealing with imbalanced datasets.",
-        rdfs:label "Area under the precision-recall curve"@en
+        rdfs:label "Area under the precision-recall curve"@en,
+        roadmap:ROADMAP_03651 0,
+        roadmap:ROADMAP_03652 1
     
     SubClassOf: 
         roadmap:ROADMAP_03302
@@ -38626,10 +38770,13 @@ Class: roadmap:ROADMAP_03520
         rdfs:comment "Youden index (J) is a measure of sensitivity and specificity
 
 J = sensitivity + specificity – 1.",
-        rdfs:label "Youden index"@en
+        rdfs:label "Youden index"@en,
+        roadmap:ROADMAP_03651 -1,
+        roadmap:ROADMAP_03652 1
     
     SubClassOf: 
-        roadmap:ROADMAP_03302
+        roadmap:ROADMAP_03302,
+        roadmap:ROADMAP_03648 some roadmap:ROADMAP_00213
     
     
 Class: roadmap:ROADMAP_03521
@@ -38691,10 +38838,12 @@ Class: roadmap:ROADMAP_03526
 
     Annotations: 
         rdfs:comment "This metric is used in classification problems and measures accuracy based on whether the correct label is within the top N predicted labels according to their prediction scores. For example, top-5 accuracy checks if the true label is among the five highest scored classes predicted by a classifier.",
-        rdfs:label "Top-N accuracy"@en
+        rdfs:label "Top-N accuracy"@en,
+        roadmap:ROADMAP_03651 0,
+        roadmap:ROADMAP_03652 1
     
     SubClassOf: 
-        roadmap:ROADMAP_03302
+        roadmap:ROADMAP_03307
     
     
 Class: roadmap:ROADMAP_03527
@@ -38725,11 +38874,12 @@ Class: roadmap:ROADMAP_03531
     Annotations: 
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "AFROC",
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "AFROC analysis",
+        rdfs:comment "AFROC curve",
         rdfs:comment "Alternative Free-Response Operating Characteristic (AFROC) analysis is an evaluation method for medical imaging systems, particularly those involving lesion detection. It plots sensitivity versus the average number of false positives on images without lesions, allowing assessment of detection performance without a fixed number of response alternatives.",
         rdfs:label "Alternative free-response operating characteristic analysis"@en
     
     SubClassOf: 
-        roadmap:ROADMAP_03302
+        roadmap:ROADMAP_03641
     
     
 Class: roadmap:ROADMAP_03532
@@ -38752,11 +38902,12 @@ Class: roadmap:ROADMAP_03533
     Annotations: 
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "FROC",
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "FROC analysis",
+        rdfs:comment "FROC curve",
         rdfs:comment "Free-Response Operating Characteristic (FROC) analysis evaluates imaging systems by plotting sensitivity (true positive rate) against average number of false positives per image without any predefined threshold for calling an image positive or negative. Unlike ROC analysis which sets strict binary decisions, free-response allows observers to indicate multiple potential lesions or findings per image.",
         rdfs:label "Free-response operating characteristic analysis"@en
     
     SubClassOf: 
-        roadmap:ROADMAP_03302
+        roadmap:ROADMAP_03641
     
     
 Class: roadmap:ROADMAP_03534
@@ -38829,8 +38980,8 @@ Class: roadmap:ROADMAP_03541
 Class: roadmap:ROADMAP_03542
 
     Annotations: 
-        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "MHD",
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "A distance measure based on correlations between variables that scales with respect to variance and accounts for covariance structure. It's useful for identifying outliers within multivariate data since it provides a way to determine how far away an observation is from the mean of a distribution.",
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "MHD",
         rdfs:comment "The Mahalonobis distance is the distance between a point and a distribution; It can be considered as a multivariate equivalent of  Euclidean distance.",
         rdfs:label "Mahalanobis distance"@en
     
@@ -38841,8 +38992,8 @@ Class: roadmap:ROADMAP_03542
 Class: roadmap:ROADMAP_03544
 
     Annotations: 
-        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "VOI",
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "VI",
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "VOI",
         rdfs:comment "Variation of Information (VI) is an information-theoretic measure that quantifies how much one random variable tells us about another; it's symmetric and non-negative. In clustering, it's used as a measure of distance between two clusterings: how much information is lost or gained when transitioning from one clustering to another.",
         rdfs:label "Variation of Information"@en
     
@@ -38880,8 +39031,8 @@ Class: roadmap:ROADMAP_03547
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "phi",
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "phi coefficient",
         <http://purl.org/dc/elements/1.1/source> "https://huggingface.co/spaces/evaluate-metric/matthews_correlation",
-        rdfs:comment "The Matthews correlation coefficient is used in machine learning as a measure of the quality of binary and multiclass classifications.",
         rdfs:comment "Matthews Correlation Coefficient (MCC) takes true and false positives and negatives into account, providing a balanced measure that can be used even if classes are very different sizes. It ranges from -1 (total disagreement between prediction and truth) through 0 (no better than random prediction) to +1 (perfect prediction). It's particularly useful for evaluating binary classification problems with imbalanced datasets.",
+        rdfs:comment "The Matthews correlation coefficient is used in machine learning as a measure of the quality of binary and multiclass classifications.",
         rdfs:label "Matthews correlation coefficient"@en
     
     SubClassOf: 
@@ -38895,7 +39046,7 @@ Class: roadmap:ROADMAP_03548
         rdfs:label "Confusion matrix"@en
     
     SubClassOf: 
-        roadmap:ROADMAP_03302
+        roadmap:ROADMAP_03640
     
     
 Class: roadmap:ROADMAP_03549
@@ -39006,8 +39157,8 @@ Class: roadmap:ROADMAP_03557
 Class: roadmap:ROADMAP_03558
 
     Annotations: 
-        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Peak SNR",
         <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "PSNR",
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Peak SNR",
         rdfs:comment "Peak Signal-to-Noise Ratio (PSNR) is commonly used in image processing to measure the quality of reconstructed or compressed images compared to the original images. It's defined as the ratio between the maximum possible value of a signal and the power of distorting noise that affects its representation, typically expressed in logarithmic decibels scale.",
         rdfs:label "Peak signal-to-noise ratio"@en
     
@@ -39130,11 +39281,15 @@ Class: roadmap:ROADMAP_03569
 Class: roadmap:ROADMAP_03570
 
     Annotations: 
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Calibration",
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Calibration analysis",
         rdfs:comment "Calibration in statistical modeling refers to the agreement between predicted probabilities and observed outcomes. A well-calibrated model will have predicted probabilities that match the empirical frequencies of events.",
-        rdfs:label "Calibration"@en
+        rdfs:label "Calibration curve"@en
     
     SubClassOf: 
-        roadmap:ROADMAP_03302
+        roadmap:ROADMAP_03641,
+        roadmap:ROADMAP_03645 some roadmap:ROADMAP_03653,
+        roadmap:ROADMAP_03645 some roadmap:ROADMAP_03654
     
     
 Class: roadmap:ROADMAP_03571
@@ -39252,12 +39407,12 @@ Class: roadmap:ROADMAP_03580
         <http://purl.org/dc/elements/1.1/source> "https://www.midrc.org/performance-metrics-decision-tree",
         rdfs:comment "Also known as relative standard deviation, CV expresses standard deviation as a proportion of the mean, allowing comparison between datasets with different units or scales.",
         rdfs:comment "Coefficient of variance (CV): when assessed for a given measurand, it is sometimes called the “within-case coefficient of variance” and is measured as the ratio of the standard error of the measurement to the mean.",
+        rdfs:comment "RSD",
         rdfs:comment "References:
 
 1. N. A. Obuchowski, A. P. Reeves, E. P. Huang, X.-F. Wang, A. J. Buckler, H. J. (Grace) Kim, H. X. Barnhart, E. F. Jackson, M. L. Giger, G. Pennello, A. Y. Toledano, J. Kalpathy-Cramer, T. V. Apanasovich, P. E. Kinahan, K. J. Myers, D. B. Goldgof, D. P. Barboriak, R. J. Gillies, L. H. Schwartz, D. C. Sullivan, and (for the Algorithm Comparison Working Group), “Quantitative imaging biomarkers: A review of statistical methods for computer algorithm comparisons,” Stat Methods Med Res 24(1), 68–106 (2015) [doi:10.1177/0962280214537390].
 
  2. D. L. Raunig, L. M. McShane, G. Pennello, C. Gatsonis, P. L. Carson, J. T. Voyvodic, R. L. Wahl, B. F. Kurland, A. J. Schwarz, M. Gönen, G. Zahlmann, M. V. Kondratovich, K. O’Donnell, N. Petrick, P. E. Cole, B. Garra, and D. C. Sullivan, “Quantitative imaging biomarkers: A review of statistical methods for technical performance assessment,” Stat Methods Med Res 24(1), 27–67, SAGE Publications Ltd STM (2015) [doi:10.1177/0962280214537344].",
-        rdfs:comment "RSD",
         rdfs:comment "Relative standard deviation",
         rdfs:label "Coefficient of variance"@en
     
@@ -39362,6 +39517,7 @@ Class: roadmap:ROADMAP_03594
 Class: roadmap:ROADMAP_03595
 
     Annotations: 
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "NDR",
         rdfs:comment "(Kottler N, personal communication).",
         rdfs:label "Negative discordance rate"@en
     
@@ -39558,24 +39714,14 @@ Class: roadmap:ROADMAP_03614
         roadmap:ROADMAP_03355
     
     
-Class: roadmap:ROADMAP_03615
-
-    Annotations: 
-        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Model performance",
-        rdfs:comment "Model performane information (e.g., sensitivity, specificity, positive/negative predictive values, and their 95% two-sided confidence intervals).",
-        rdfs:label "Model performance characteristic"@en
-    
-    SubClassOf: 
-        roadmap:ROADMAP_00001
-    
-    
 Class: roadmap:ROADMAP_03616
 
     Annotations: 
+        <http://purl.org/dc/elements/1.1/source> "Model performane information (e.g., sensitivity, specificity, positive/negative predictive values, and its 95% two-sided confidence intervals).",
         rdfs:label "Model performance value"@en
     
     SubClassOf: 
-        roadmap:ROADMAP_03615
+        roadmap:ROADMAP_00001
     
     
 Class: roadmap:ROADMAP_03617
@@ -39755,7 +39901,8 @@ Class: roadmap:ROADMAP_03637
         rdfs:label "Receiver operating characteristic analysis"@en
     
     SubClassOf: 
-        roadmap:ROADMAP_03302
+        roadmap:ROADMAP_03641,
+        roadmap:ROADMAP_03645 some roadmap:ROADMAP_03314
     
     
 Class: roadmap:ROADMAP_03638
@@ -39777,6 +39924,562 @@ Class: roadmap:ROADMAP_03639
     
     SubClassOf: 
         roadmap:ROADMAP_03355
+    
+    
+Class: roadmap:ROADMAP_03640
+
+    Annotations: 
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Matrix metric",
+        rdfs:comment "A model performance metric presented as a matrix, such as a confusion matrix or 2x2 contingency table.",
+        rdfs:label "Matrix model performance metric"@en
+    
+    SubClassOf: 
+        roadmap:ROADMAP_03642
+    
+    
+Class: roadmap:ROADMAP_03641
+
+    Annotations: 
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Graphical metric",
+        rdfs:comment "A model performance metric presented as a graphical object, such as a histogram or an ROC curve.",
+        rdfs:label "Graphical model performance metric"@en
+    
+    SubClassOf: 
+        roadmap:ROADMAP_03642
+    
+    
+Class: roadmap:ROADMAP_03642
+
+    Annotations: 
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Metric",
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Performance metric",
+        <http://purl.org/dc/elements/1.1/source> "Drukker, Karen, Berkman Sahiner, Tingting Hu, Grace Hyun Kim, Heather M. Whitney, Natalie Baughan, Kyle J. Myers, Maryellen L. Giger, Michael McNitt-Gray, MIDRC-MetricTree: a decision tree-based tool for recommending performance metrics in artificial intelligence-assisted medical image analysis, J. Med. Imag. 11(2), 024504 (2024), doi: 10.1117/1.JMI.11.2.024504.",
+        <http://purl.org/dc/elements/1.1/source> "https://www.midrc.org/performance-metrics-decision-tree",
+        <http://purl.org/dc/elements/1.1/source> "https://doi.org/10.1117/1.JMI.11.2.024504"^^xsd:anyURI,
+        rdfs:label "Model performance metric"@en,
+        rdfs:seeAlso "https://doi.org/10.1038/s41592-023-02151-z"^^xsd:anyURI
+    
+    SubClassOf: 
+        roadmap:ROADMAP_00001
+    
+    
+Class: roadmap:ROADMAP_03643
+
+    Annotations: 
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "P-R curve",
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "PR curve",
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Precision recall curve",
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Precision-recall analysis",
+        rdfs:label "Precision-recall curve"@en
+    
+    SubClassOf: 
+        roadmap:ROADMAP_03641,
+        roadmap:ROADMAP_03645 some roadmap:ROADMAP_03508
+    
+    
+Class: roadmap:ROADMAP_03646
+
+    Annotations: 
+        rdfs:label "Histogram"@en
+    
+    SubClassOf: 
+        roadmap:ROADMAP_03641
+    
+    
+Class: roadmap:ROADMAP_03653
+
+    Annotations: 
+        rdfs:label "Calibration slope"@en
+    
+    SubClassOf: 
+        roadmap:ROADMAP_03302
+    
+    
+Class: roadmap:ROADMAP_03654
+
+    Annotations: 
+        rdfs:label "Calibration intercept"@en
+    
+    SubClassOf: 
+        roadmap:ROADMAP_03302
+    
+    
+Class: roadmap:ROADMAP_03655
+
+    Annotations: 
+        rdfs:label "Calibration-in-the-large"@en
+    
+    SubClassOf: 
+        roadmap:ROADMAP_03302
+    
+    
+Class: roadmap:ROADMAP_03656
+
+    Annotations: 
+        rdfs:label "Expected calibration error kernel density estimate"@en
+    
+    SubClassOf: 
+        roadmap:ROADMAP_03302
+    
+    
+Class: roadmap:ROADMAP_03657
+
+    Annotations: 
+        rdfs:label "Hosmer–Lemeshow goodness-of-fit test"@en
+    
+    SubClassOf: 
+        roadmap:ROADMAP_03302
+    
+    
+Class: roadmap:ROADMAP_03658
+
+    Annotations: 
+        rdfs:label "Maximum calibration error"@en
+    
+    SubClassOf: 
+        roadmap:ROADMAP_03302
+    
+    
+Class: roadmap:ROADMAP_03659
+
+    Annotations: 
+        rdfs:label "Macro average mean probability rate"@en
+    
+    SubClassOf: 
+        roadmap:ROADMAP_03302
+    
+    
+Class: roadmap:ROADMAP_03660
+
+    Annotations: 
+        rdfs:label "Macro average precision"@en
+    
+    SubClassOf: 
+        roadmap:ROADMAP_03302
+    
+    
+Class: roadmap:ROADMAP_03661
+
+    Annotations: 
+        rdfs:label "Macro average recall"@en
+    
+    SubClassOf: 
+        roadmap:ROADMAP_03302
+    
+    
+Class: roadmap:ROADMAP_03662
+
+    Annotations: 
+        rdfs:label "Net benefit"@en
+    
+    SubClassOf: 
+        roadmap:ROADMAP_03302
+    
+    
+Class: roadmap:ROADMAP_03663
+
+    Annotations: 
+        rdfs:label "Bland-Altman analysis"@en
+    
+    SubClassOf: 
+        roadmap:ROADMAP_03302
+    
+    
+Class: roadmap:ROADMAP_03664
+
+    Annotations: 
+        rdfs:label "Individual equivalence index"@en
+    
+    SubClassOf: 
+        roadmap:ROADMAP_03302
+    
+    
+Class: roadmap:ROADMAP_03665
+
+    Annotations: 
+        rdfs:label "Latent class model"@en
+    
+    SubClassOf: 
+        roadmap:ROADMAP_03302
+    
+    
+Class: roadmap:ROADMAP_03666
+
+    Annotations: 
+        rdfs:label "Diagnostic yield"@en
+    
+    SubClassOf: 
+        roadmap:ROADMAP_03302
+    
+    
+Class: roadmap:ROADMAP_03667
+
+    Annotations: 
+        rdfs:label "Point inside mask/box/approximation"@en
+    
+    SubClassOf: 
+        roadmap:ROADMAP_03302
+    
+    
+Class: roadmap:ROADMAP_03668
+
+    Annotations: 
+        rdfs:label "Center distance"@en
+    
+    SubClassOf: 
+        roadmap:ROADMAP_03302
+    
+    
+Class: roadmap:ROADMAP_03669
+
+    Annotations: 
+        rdfs:label "Mean average surface distance"@en
+    
+    SubClassOf: 
+        roadmap:ROADMAP_03302
+    
+    
+Class: roadmap:ROADMAP_03670
+
+    Annotations: 
+        rdfs:label "Contrast-to-noise ratio"@en
+    
+    SubClassOf: 
+        roadmap:ROADMAP_03302
+    
+    
+Class: roadmap:ROADMAP_03671
+
+    Annotations: 
+        rdfs:label "Structural similarity index measure"@en
+    
+    SubClassOf: 
+        roadmap:ROADMAP_03302
+    
+    
+Class: roadmap:ROADMAP_03672
+
+    Annotations: 
+        rdfs:label "BERTScore"@en
+    
+    SubClassOf: 
+        roadmap:ROADMAP_03302
+    
+    
+Class: roadmap:ROADMAP_03673
+
+    Annotations: 
+        rdfs:label "Flesch reading ease score"@en
+    
+    SubClassOf: 
+        roadmap:ROADMAP_03302
+    
+    
+Class: roadmap:ROADMAP_03674
+
+    Annotations: 
+        rdfs:label "Flesch–Kincaid reading level"@en
+    
+    SubClassOf: 
+        roadmap:ROADMAP_03302
+    
+    
+Class: roadmap:ROADMAP_03675
+
+    Annotations: 
+        rdfs:label "Metric for evaluation of translation with explicit ordering score"@en
+    
+    SubClassOf: 
+        roadmap:ROADMAP_03302
+    
+    
+Class: roadmap:ROADMAP_03676
+
+    Annotations: 
+        rdfs:label "Intersection over reference"@en
+    
+    SubClassOf: 
+        roadmap:ROADMAP_03302
+    
+    
+Class: roadmap:ROADMAP_03678
+
+    Annotations: 
+        rdfs:label "Root mean square error"@en
+    
+    SubClassOf: 
+        roadmap:ROADMAP_03302
+    
+    
+Class: roadmap:ROADMAP_03679
+
+    Annotations: 
+        rdfs:label "Area under the predictive receiver operating characteristic"@en
+    
+    SubClassOf: 
+        roadmap:ROADMAP_03302
+    
+    
+Class: roadmap:ROADMAP_03680
+
+    Annotations: 
+        rdfs:label "AUC of each class vs. each of the other k−1 classes"@en
+    
+    SubClassOf: 
+        roadmap:ROADMAP_03302
+    
+    
+Class: roadmap:ROADMAP_03681
+
+    Annotations: 
+        rdfs:label "AUC of each class vs. the rest combined"@en
+    
+    SubClassOf: 
+        roadmap:ROADMAP_03302
+    
+    
+Class: roadmap:ROADMAP_03682
+
+    Annotations: 
+        rdfs:label "Location receiver operating characteristic"@en
+    
+    SubClassOf: 
+        roadmap:ROADMAP_03302
+    
+    
+Class: roadmap:ROADMAP_03683
+
+    Annotations: 
+        rdfs:label "Obuchowski index"@en
+    
+    SubClassOf: 
+        roadmap:ROADMAP_03302
+    
+    
+Class: roadmap:ROADMAP_03684
+
+    Annotations: 
+        rdfs:label "Time-dependent ROC analysis"@en
+    
+    SubClassOf: 
+        roadmap:ROADMAP_03641
+    
+    
+Class: roadmap:ROADMAP_03685
+
+    Annotations: 
+        rdfs:label "Statistical mean"@en
+    
+    SubClassOf: 
+        roadmap:ROADMAP_03302
+    
+    
+Class: roadmap:ROADMAP_03686
+
+    Annotations: 
+        rdfs:label "Cox proportional hazards model"@en
+    
+    SubClassOf: 
+        roadmap:ROADMAP_03641
+    
+    
+Class: roadmap:ROADMAP_03687
+
+    Annotations: 
+        rdfs:label "Hazard ratio"@en
+    
+    SubClassOf: 
+        roadmap:ROADMAP_03302
+    
+    
+Class: roadmap:ROADMAP_03688
+
+    Annotations: 
+        rdfs:label "Kaplan–Meier estimator"@en
+    
+    SubClassOf: 
+        roadmap:ROADMAP_03302
+    
+    
+Class: roadmap:ROADMAP_03689
+
+    Annotations: 
+        rdfs:label "Parametric hazard model"@en
+    
+    SubClassOf: 
+        roadmap:ROADMAP_03302
+    
+    
+Class: roadmap:ROADMAP_03690
+
+    Annotations: 
+        rdfs:label "Fraction of cases with user adjustment"@en
+    
+    SubClassOf: 
+        roadmap:ROADMAP_03302
+    
+    
+Class: roadmap:ROADMAP_03691
+
+    Annotations: 
+        rdfs:label "Time for user adjustment"@en
+    
+    SubClassOf: 
+        roadmap:ROADMAP_03302
+    
+    
+Class: roadmap:ROADMAP_03692
+
+    Annotations: 
+        rdfs:label "Uncertainty associated with user interaction"@en
+    
+    SubClassOf: 
+        roadmap:ROADMAP_03302
+    
+    
+Class: roadmap:ROADMAP_03693
+
+    Annotations: 
+        rdfs:label "1/RadCliQ-v1"@en
+    
+    SubClassOf: 
+        roadmap:ROADMAP_03302
+    
+    
+Class: roadmap:ROADMAP_03696
+
+    Annotations: 
+        rdfs:label "SembScore"@en
+    
+    SubClassOf: 
+        roadmap:ROADMAP_03302
+    
+    
+Class: roadmap:ROADMAP_03697
+
+    Annotations: 
+        rdfs:label "RadGraph"@en
+    
+    SubClassOf: 
+        roadmap:ROADMAP_03302
+    
+    
+Class: roadmap:ROADMAP_03698
+
+    Annotations: 
+        rdfs:label "RaTEScore"@en
+    
+    SubClassOf: 
+        roadmap:ROADMAP_03302
+    
+    
+Class: roadmap:ROADMAP_03699
+
+    Annotations: 
+        rdfs:label "GREEN"@en
+    
+    SubClassOf: 
+        roadmap:ROADMAP_03302
+    
+    
+Class: roadmap:ROADMAP_03700
+
+    Annotations: 
+        rdfs:label "1/FineRadScore"@en
+    
+    SubClassOf: 
+        roadmap:ROADMAP_03302
+    
+    
+Class: roadmap:ROADMAP_03701
+
+    Annotations: 
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Flesch‐Kincaid readability score",
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Flesch‐Kincaid score",
+        rdfs:label "Flesch‐Kincaid readability index"@en
+    
+    SubClassOf: 
+        roadmap:ROADMAP_03302
+    
+    
+Class: roadmap:ROADMAP_03702
+
+    Annotations: 
+        rdfs:label "Flesch reading ease"@en
+    
+    SubClassOf: 
+        roadmap:ROADMAP_03302
+    
+    
+Class: roadmap:ROADMAP_03703
+
+    Annotations: 
+        rdfs:label "Gunning Fog"@en
+    
+    SubClassOf: 
+        roadmap:ROADMAP_03302
+    
+    
+Class: roadmap:ROADMAP_03704
+
+    Annotations: 
+        rdfs:label "Fry Graph"@en
+    
+    SubClassOf: 
+        roadmap:ROADMAP_03302
+    
+    
+Class: roadmap:ROADMAP_03705
+
+    Annotations: 
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "SMOG",
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "SMOG index",
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "SMOG score",
+        rdfs:label "McLaughlin Smog index"@en
+    
+    SubClassOf: 
+        roadmap:ROADMAP_03302
+    
+    
+Class: roadmap:ROADMAP_03706
+
+    Annotations: 
+        rdfs:label "FORCAST"@en
+    
+    SubClassOf: 
+        roadmap:ROADMAP_03302
+    
+    
+Class: roadmap:ROADMAP_03707
+
+    Annotations: 
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "MK",
+        <http://purl.org/dc/elements/1.1/source> "https://doi.org/10.1016/j.aci.2018.08.003"^^xsd:anyURI,
+        rdfs:comment "Markedness is defined based on PPV and NPV metrics. This metric sensitive to data changes and hence it is not suitable for imbalanced data.
+
+MK = PPV + NPV - 1",
+        rdfs:label "Markedness"@en,
+        roadmap:ROADMAP_03651 -1,
+        roadmap:ROADMAP_03652 1
+    
+    SubClassOf: 
+        roadmap:ROADMAP_03302
+    
+    
+Class: roadmap:ROADMAP_03708
+
+    Annotations: 
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "BER",
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "HTER",
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Half total error rate",
+        <http://purl.obolibrary.org/obo/urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#altLabel> "Related to balanced classification rate (BCR; balanced accuracy). Both BCR and BER can be used with imbalanced datasets.
+
+BER = 1 - BCR",
+        <http://purl.org/dc/elements/1.1/source> "https://doi.org/10.1016/j.aci.2018.08.003"^^xsd:anyURI,
+        rdfs:label "Balanced error rate"@en
+    
+    SubClassOf: 
+        roadmap:ROADMAP_03302
     
     
 Individual: roadmap:ROADMAP_03468
@@ -39803,6 +40506,19 @@ Individual: roadmap:ROADMAP_03470
         rdfs:label "Years"@en
     
     Types: 
+        roadmap:ROADMAP_03467
+    
+    
+Individual: roadmap:ROADMAP_03647
+
+    Annotations: 
+        rdfs:label "Days of gestation"@en
+    
+    Types: 
+        
+            Annotations: rdfs:comment "Gestational age in days (converted if necessary from weeks or months) as measured from last menstrual period (LMP), to be used for antenatal or perinatal exams. For example, antenatal US of a 10 week 2 day fetus would be recorded as 72 days.
+
+For premature neonates, use \"Days of gestation\" to indicate gestation age and \"Days\" to indicate days of life (i.e., since birth)"
         roadmap:ROADMAP_03467
     
     
