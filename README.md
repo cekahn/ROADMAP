@@ -14,8 +14,8 @@ The key documents are:
     * View in [WebProtege](https://webprotege.stanford.edu/#projects/8afb476f-b7ad-407d-b401-996623275257)
  
 * The Metrics components of the ontology provides a compendium of AI model performance measures
-    * View an [alphabetical list](ROADMAP - Metrics.txt) of the 191 scalar metrics
-    * View a list of metric [preferred and alternate names](ROADMAP metrics - label and altLabel.txt)
+    * View an [alphabetical list](ROADMAP%20-%20Metrics.txt) of the 191 scalar metrics
+    * View a list of metric [preferred and alternate names](ROADMAP%20metrics%20-%20label%20and%20altLabel.txt)
 
 ## JSON Schema
 
