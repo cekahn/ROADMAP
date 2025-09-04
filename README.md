@@ -1,15 +1,17 @@
 # ROADMAP
 
-__Radiology Ontology for AI Datasets, Models and Projects__
+__ROADMAP Ontology for AI Datasets, Models and Projects__
 
-This repository contains draft versions of an ontology to describe the metadata for radiology AI models and datasets.  (ROADMAP was previously "RMDO.")
+The ROADMAP Ontology for Artificial Intelligence Models, Datasets, and Projects (ROADMAP) seeks to provide a formal description of the metadata to index the growing number of artificial intelligence (AI) models and datasets, especially in diagnostic radiology. ROADMAP builds upon generalized "model cards" and "datasheets for datasets" by highlighting features specific to medical imaging and by referencing concepts from related ontologies, coding schemes, and common data elements. In accordance with the FAIR guiding principles, application of the ontology will allow AI resources to be more readily discoverable and reusable. Its application also is expected to improve the ability to match AI models with relevant datasets and to facilitate detection of potential biases in released AI models.  
+
+The production version of the ontology and JSON schema will be released by 7 Sept. 2025.  An "almost final" version of the ontology has been uploaded.
 
 The key documents are:
 
 ## Ontology
 
 * The [ontology](ROADMAP.omn) in Manchester OWL syntax (open with Prot&eacute;g&eacute;)
- * View in [WebProtege](https://webprotege.stanford.edu/#projects/8afb476f-b7ad-407d-b401-996623275257/sharing)
+    * View in [WebProtege](https://webprotege.stanford.edu/#projects/8afb476f-b7ad-407d-b401-996623275257)
 
 ## JSON Schema
 
@@ -17,4 +19,4 @@ The key documents are:
 
 ## Presentations
 
-* A [presentation](CMIMI%202024%20-%20RMDO.pptx) given at the CMIMI 2024 meeting
+* A [presentation](CMIMI%202024%20-%20RMDO.pptx) at the CMIMI 2024 meeting describes RMDO, the precursor to ROADMAP.
