@@ -814,17 +814,24 @@
 					"$comment": "ROADMAP:03418",
 					"type": "string"
 				},
-				"FDA Authorization Status": {
-					"type": "string",
-					"enum": [
-						"Not applicable",
-						"Pending",
-						"Approved",
-						"Denied"
-					]
-				},
-				"FDA File Number": {
-					"type": "string"
+				"FDA information": {
+					"type": "object",
+					"description": "Information about U.S. Food and Drug Administration submission",
+					"properties": {
+						"Authorization status": {
+							"type": "string",
+							"enum": [
+								"Not applicable",
+								"Pending",
+								"Approved",
+								"Denied"
+							]
+						},
+						"File number": {
+							"type": "string"
+						}
+					},
+					"additionalProperties": false
 				},
 				"Comments": {
 					"$comment": "ROADMAP:00070",
