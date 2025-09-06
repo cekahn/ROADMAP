@@ -191,11 +191,7 @@ ObjectProperty: <https://rsna.org/roadmap/ROADMAP_03300>
         <https://rsna.org/roadmap/ROADMAP_00002>
     
     Range: 
-<<<<<<< HEAD
         <https://rsna.org/roadmap/ROADMAP_03598>
-=======
-        <https://rsna.org/roadmap/ROADMAP_00118>
->>>>>>> a9a0aba6e7b0ff8be1bf6e450555c33c7f3ad6e6
     
     
 ObjectProperty: <https://rsna.org/roadmap/ROADMAP_03301>
@@ -205,12 +201,6 @@ ObjectProperty: <https://rsna.org/roadmap/ROADMAP_03301>
     
     Domain: 
         <https://rsna.org/roadmap/ROADMAP_00003>
-<<<<<<< HEAD
-=======
-    
-    Range: 
-        <https://rsna.org/roadmap/ROADMAP_00119>
->>>>>>> a9a0aba6e7b0ff8be1bf6e450555c33c7f3ad6e6
     
     
 ObjectProperty: <https://rsna.org/roadmap/ROADMAP_03350>
@@ -271,13 +261,9 @@ ObjectProperty: <https://rsna.org/roadmap/ROADMAP_03645>
 ObjectProperty: <https://rsna.org/roadmap/ROADMAP_03648>
 
     Annotations: 
-<<<<<<< HEAD
         rdfs:label "hasMetricType"@en,
         <http://www.w3.org/2004/02/skos/core#altLabel> "has metric type"@en,
         <http://www.w3.org/2004/02/skos/core#altLabel> "metricType"@en,
-=======
-        rdfs:label "metricType"@en,
->>>>>>> a9a0aba6e7b0ff8be1bf6e450555c33c7f3ad6e6
         <http://www.w3.org/2004/02/skos/core#definition> "Expresses the relationship between a model performance metric (e.g., Dice coefficient) and the metric type (e.g., image segmentation metric)."@en
     
     Characteristics: 
@@ -329,11 +315,7 @@ ObjectProperty: <https://rsna.org/roadmap/ROADMAP_03709>
         Asymmetric
     
     Domain: 
-<<<<<<< HEAD
         <https://rsna.org/roadmap/ROADMAP_00002>
-=======
-        <https://rsna.org/roadmap/ROADMAP_00119>
->>>>>>> a9a0aba6e7b0ff8be1bf6e450555c33c7f3ad6e6
     
     Range: 
         <https://rsna.org/roadmap/ROADMAP_03642>
@@ -370,12 +352,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_00002>
         <https://rsna.org/roadmap/ROADMAP_00629> some <https://rsna.org/roadmap/ROADMAP_00011>,
         <https://rsna.org/roadmap/ROADMAP_00630> some <https://rsna.org/roadmap/ROADMAP_00036>,
         <https://rsna.org/roadmap/ROADMAP_00631> some <https://rsna.org/roadmap/ROADMAP_00074>,
-<<<<<<< HEAD
         <https://rsna.org/roadmap/ROADMAP_03300> some <https://rsna.org/roadmap/ROADMAP_03598>,
-=======
-        <https://rsna.org/roadmap/ROADMAP_03300> some <https://rsna.org/roadmap/ROADMAP_00118>,
-        <https://rsna.org/roadmap/ROADMAP_03301> some <https://rsna.org/roadmap/ROADMAP_00119>,
->>>>>>> a9a0aba6e7b0ff8be1bf6e450555c33c7f3ad6e6
         <https://rsna.org/roadmap/ROADMAP_03350> some <https://rsna.org/roadmap/ROADMAP_03355>,
         <https://rsna.org/roadmap/ROADMAP_03644> some <https://rsna.org/roadmap/ROADMAP_03642>
     
@@ -434,14 +411,9 @@ Class: <https://rsna.org/roadmap/ROADMAP_00006>
 Class: <https://rsna.org/roadmap/ROADMAP_00007>
 
     Annotations: 
-<<<<<<< HEAD
         rdfs:label "testing dataset"@en,
         <http://www.w3.org/2004/02/skos/core#altLabel> "testing data"@en,
         <http://www.w3.org/2004/02/skos/core#definition> "Data on which a model's performance is assessed. Can be \"internal\" (a partition of the original dataset) or \"external\" (from another dataset or institution)."@en
-=======
-        rdfs:label "testing dataset"^^xsd:string,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "testing data"^^xsd:string
->>>>>>> a9a0aba6e7b0ff8be1bf6e450555c33c7f3ad6e6
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_00003>
@@ -463,11 +435,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_00008>
 Class: <https://rsna.org/roadmap/ROADMAP_00009>
 
     Annotations: 
-<<<<<<< HEAD
         rdfs:comment "The term \"external testing\" is preferred over \"external validation,\" as the term \"validation\" can be ambiguous."@en,
-=======
-        rdfs:comment "The term \"external testing\" is preferred over \"external validation\" as the term \"validation\" can be ambiguous."@en,
->>>>>>> a9a0aba6e7b0ff8be1bf6e450555c33c7f3ad6e6
         rdfs:label "external testing dataset"@en,
         <http://www.w3.org/2004/02/skos/core#altLabel> "external testing data"@en,
         <http://www.w3.org/2004/02/skos/core#altLabel> "external testing dataset"@en,
@@ -533,12 +501,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_00014>
 Class: <https://rsna.org/roadmap/ROADMAP_00015>
 
     Annotations: 
-<<<<<<< HEAD
         rdfs:label "use type"@en,
         <http://www.w3.org/2004/02/skos/core#altLabel> "task"@en,
-=======
-        rdfs:label "use type"^^xsd:string,
->>>>>>> a9a0aba6e7b0ff8be1bf6e450555c33c7f3ad6e6
         <http://www.w3.org/2004/02/skos/core#definition> "The task to which the AI model is applied, such as image segmentation."@en
     
     SubClassOf: 
@@ -887,15 +851,9 @@ Class: <https://rsna.org/roadmap/ROADMAP_00050>
 Class: <https://rsna.org/roadmap/ROADMAP_00051>
 
     Annotations: 
-<<<<<<< HEAD
         rdfs:label "annotation level"@en,
         <http://www.w3.org/2004/02/skos/core#altLabel> "annotation type"@en,
         <http://www.w3.org/2004/02/skos/core#altLabel> "level of annotation"@en,
-=======
-        rdfs:label "annotation type"^^xsd:string,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "annotation level"^^xsd:string,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "level of annotation"^^xsd:string,
->>>>>>> a9a0aba6e7b0ff8be1bf6e450555c33c7f3ad6e6
         <http://www.w3.org/2004/02/skos/core#definition> "Defines the level at which annotations were made, such as per patient, per image, etc."@en
     
     SubClassOf: 
@@ -905,17 +863,10 @@ Class: <https://rsna.org/roadmap/ROADMAP_00051>
 Class: <https://rsna.org/roadmap/ROADMAP_00052>
 
     Annotations: 
-<<<<<<< HEAD
         rdfs:label "image-level annotation"@en,
         <http://www.w3.org/2004/02/skos/core#altLabel> "image label"@en,
         <http://www.w3.org/2004/02/skos/core#altLabel> "image-level label"@en,
         <http://www.w3.org/2004/02/skos/core#definition> "Annotation applied to each image."@en
-=======
-        rdfs:label "image-level annotation"^^xsd:string,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "image label"^^xsd:string,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "image-level label"^^xsd:string,
-        <http://www.w3.org/2004/02/skos/core#definition> "Annotation applied to each image."^^xsd:string
->>>>>>> a9a0aba6e7b0ff8be1bf6e450555c33c7f3ad6e6
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_00051>
@@ -924,17 +875,10 @@ Class: <https://rsna.org/roadmap/ROADMAP_00052>
 Class: <https://rsna.org/roadmap/ROADMAP_00053>
 
     Annotations: 
-<<<<<<< HEAD
         rdfs:label "patient-level annotation"@en,
         <http://www.w3.org/2004/02/skos/core#altLabel> "patient label"@en,
         <http://www.w3.org/2004/02/skos/core#altLabel> "patient-level label"@en,
         <http://www.w3.org/2004/02/skos/core#definition> "Annotation applied to a patient, which applies to all of that patient's exams and images."@en
-=======
-        rdfs:label "patient-level annotation"^^xsd:string,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "patient label"^^xsd:string,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "patient-level label"^^xsd:string,
-        <http://www.w3.org/2004/02/skos/core#definition> "Annotation applied to a patient, which applies to all of that patient's exams and images."^^xsd:string
->>>>>>> a9a0aba6e7b0ff8be1bf6e450555c33c7f3ad6e6
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_00051>
@@ -943,15 +887,9 @@ Class: <https://rsna.org/roadmap/ROADMAP_00053>
 Class: <https://rsna.org/roadmap/ROADMAP_00054>
 
     Annotations: 
-<<<<<<< HEAD
         rdfs:label "examination-level annotation"@en,
         <http://www.w3.org/2004/02/skos/core#altLabel> "exam-level annotation"@en,
         <http://www.w3.org/2004/02/skos/core#altLabel> "study-level annotation"@en,
-=======
-        rdfs:label "examination-level annotation"^^xsd:string,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "exam-level annotation"^^xsd:string,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "study-level annotation"^^xsd:string,
->>>>>>> a9a0aba6e7b0ff8be1bf6e450555c33c7f3ad6e6
         <http://www.w3.org/2004/02/skos/core#definition> "Annotation applied to the entire examination. If an exam comprises multiple series and/or images, all of them share the exam-level label(s)."@en
     
     SubClassOf: 
@@ -961,16 +899,11 @@ Class: <https://rsna.org/roadmap/ROADMAP_00054>
 Class: <https://rsna.org/roadmap/ROADMAP_00055>
 
     Annotations: 
-<<<<<<< HEAD
         rdfs:label "count"@en,
         <http://www.w3.org/2004/02/skos/core#altLabel> "number"@en,
         <http://www.w3.org/2004/02/skos/core#altLabel> "number of items"@en,
         <http://www.w3.org/2004/02/skos/core#altLabel> "número de artículos"@es,
         <http://www.w3.org/2004/02/skos/core#definition> "The number of items in a dataset, partition, or subset. Subclasses include counts for exams, images, patients, series, and sites."@en
-=======
-        rdfs:label "count"^^xsd:string,
-        <http://www.w3.org/2004/02/skos/core#definition> "The number of items in a dataset."@en
->>>>>>> a9a0aba6e7b0ff8be1bf6e450555c33c7f3ad6e6
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_00001>,
@@ -980,20 +913,12 @@ Class: <https://rsna.org/roadmap/ROADMAP_00055>
 Class: <https://rsna.org/roadmap/ROADMAP_00056>
 
     Annotations: 
-<<<<<<< HEAD
         rdfs:label "patient count"@en,
         <http://www.w3.org/2004/02/skos/core#altLabel> "number of distinct patients"@en,
         <http://www.w3.org/2004/02/skos/core#altLabel> "number of patients"@en,
         <http://www.w3.org/2004/02/skos/core#altLabel> "number of subjects"@en,
         <http://www.w3.org/2004/02/skos/core#altLabel> "number of unique patients"@en,
         <http://www.w3.org/2004/02/skos/core#altLabel> "número de pacientes"@es,
-=======
-        rdfs:label "patient count"^^xsd:string,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "number of distinct patients"^^xsd:string,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "number of patients"@en,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "number of subjects"^^xsd:string,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "number of unique patients"^^xsd:string,
->>>>>>> a9a0aba6e7b0ff8be1bf6e450555c33c7f3ad6e6
         <http://www.w3.org/2004/02/skos/core#definition> "The number of distinct patients. Each patient may have one or more examinations, each of which comprises one or more series and one or more images."@en
     
     SubClassOf: 
@@ -1007,10 +932,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_00057>
         <http://www.w3.org/2004/02/skos/core#altLabel> "number of examinations"@en,
         <http://www.w3.org/2004/02/skos/core#altLabel> "number of exams"@en,
         <http://www.w3.org/2004/02/skos/core#altLabel> "number of studies"@en,
-<<<<<<< HEAD
         <http://www.w3.org/2004/02/skos/core#altLabel> "número de exámenes"@es,
-=======
->>>>>>> a9a0aba6e7b0ff8be1bf6e450555c33c7f3ad6e6
         <http://www.w3.org/2004/02/skos/core#altLabel> "study count"@en,
         <http://www.w3.org/2004/02/skos/core#definition> "Number of imaging examinations. A patient may have more than one exam."@en
     
@@ -1021,11 +943,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_00057>
 Class: <https://rsna.org/roadmap/ROADMAP_00058>
 
     Annotations: 
-<<<<<<< HEAD
         rdfs:label "image count"@en,
-=======
-        rdfs:label "image count"^^xsd:string,
->>>>>>> a9a0aba6e7b0ff8be1bf6e450555c33c7f3ad6e6
         <http://www.w3.org/2004/02/skos/core#altLabel> "number of images"@en,
         <http://www.w3.org/2004/02/skos/core#altLabel> "número de imágenes"@es,
         <http://www.w3.org/2004/02/skos/core#altLabel> "图像数量"@zh
@@ -1696,7 +1614,6 @@ Class: <https://rsna.org/roadmap/ROADMAP_00117>
         <https://rsna.org/roadmap/ROADMAP_00074>
     
     
-<<<<<<< HEAD
 Class: <https://rsna.org/roadmap/ROADMAP_00120>
 
     Annotations: 
@@ -1704,58 +1621,32 @@ Class: <https://rsna.org/roadmap/ROADMAP_00120>
         rdfs:label "imaging modality"^^xsd:string,
         <http://www.w3.org/2004/02/skos/core#altLabel> "modality"^^xsd:string,
         <http://www.w3.org/2004/02/skos/core#definition> "The type of device used to obtain the images, such as CT."@en
-=======
-Class: <https://rsna.org/roadmap/ROADMAP_00118>
-
-    Annotations: 
-        rdfs:comment "Method as specified in the Papers With Code \"Methods\" hierarchy as of 2024-04-30."@en,
-        rdfs:label "method"^^xsd:string
->>>>>>> a9a0aba6e7b0ff8be1bf6e450555c33c7f3ad6e6
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_00001>
     
     
-<<<<<<< HEAD
 Class: <https://rsna.org/roadmap/ROADMAP_00121>
 
     Annotations: 
         rdfs:label "imaging procedure"@en,
         rdfs:seeAlso "http://www.radlex.org/RID/RID13060"@en,
         rdfs:seeAlso "https://loinc.org/LP29684-5"@en
-=======
-Class: <https://rsna.org/roadmap/ROADMAP_00119>
-
-    Annotations: 
-        rdfs:comment "Based on Papers With Code (https://paperswithcode.com/) \"Tasks\" listing as of 2024-04-30."@en,
-        rdfs:label "task"^^xsd:string
->>>>>>> a9a0aba6e7b0ff8be1bf6e450555c33c7f3ad6e6
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_00001>
     
     
-<<<<<<< HEAD
 Class: <https://rsna.org/roadmap/ROADMAP_00122>
 
     Annotations: 
         rdfs:label "image characteristic"@en,
         <http://www.w3.org/2004/02/skos/core#definition> "Information about a dataset's images."@en
-=======
-Class: <https://rsna.org/roadmap/ROADMAP_00120>
-
-    Annotations: 
-        <http://purl.org/dc/elements/1.1/source> "http://www.radlex.org/RID/RID10311"@en,
-        rdfs:label "imaging modality"^^xsd:string,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "modality"^^xsd:string,
-        <http://www.w3.org/2004/02/skos/core#definition> "The type of device used to obtain the images, such as CT."@en
->>>>>>> a9a0aba6e7b0ff8be1bf6e450555c33c7f3ad6e6
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_00001>
     
     
-<<<<<<< HEAD
 Class: <https://rsna.org/roadmap/ROADMAP_00123>
 
     Annotations: 
@@ -2041,363 +1932,12 @@ Class: <https://rsna.org/roadmap/ROADMAP_03227>
         rdfs:label "equality of opportunity"@en,
         <http://www.w3.org/2004/02/skos/core#definition> "Equality of opportunity, an extension of group fairness, states that groups should have equal true positive rates. This metric is defined as:
 P( ˆ Y = 1|D = d, Y = 1) = P( ˆ Y = 1|D <> d, Y = 1)"^^xsd:string
-=======
-Class: <https://rsna.org/roadmap/ROADMAP_00121>
-
-    Annotations: 
-        rdfs:label "imaging procedure"@en,
-        rdfs:seeAlso "http://www.radlex.org/RID/RID13060"@en,
-        rdfs:seeAlso "https://loinc.org/LP29684-5"@en
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_00001>
-    
-    
-Class: <https://rsna.org/roadmap/ROADMAP_00122>
-
-    Annotations: 
-        rdfs:label "image characteristic"@en,
-        <http://www.w3.org/2004/02/skos/core#definition> "Information about a dataset's images."@en
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_00001>
-    
-    
-Class: <https://rsna.org/roadmap/ROADMAP_00123>
-
-    Annotations: 
-        rdfs:label "resolution"@en,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "image resolution"@en,
-        <http://www.w3.org/2004/02/skos/core#definition> "Describes whether the dataset used original or down-sampled images."@en
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_00122>
-    
-    
-Class: <https://rsna.org/roadmap/ROADMAP_00124>
-
-    Annotations: 
-        rdfs:label "original resolution"^^xsd:string
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_00123>
-    
-    
-Class: <https://rsna.org/roadmap/ROADMAP_00125>
-
-    Annotations: 
-        rdfs:label "downsampled resolution"^^xsd:string
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_00123>
-    
-    
-Class: <https://rsna.org/roadmap/ROADMAP_00126>
-
-    Annotations: 
-        rdfs:label "pre-processing"@en,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "preprocessing"@en,
-        <http://www.w3.org/2004/02/skos/core#definition> "Describes the type(s) of pre-processing applied to a dataset's images."@en
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_00122>
-    
-    
-Class: <https://rsna.org/roadmap/ROADMAP_00127>
-
-    Annotations: 
-        rdfs:label "standard normalization"^^xsd:string
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_00126>
-    
-    
-Class: <https://rsna.org/roadmap/ROADMAP_00128>
-
-    Annotations: 
-        rdfs:label "histogram normalization"^^xsd:string
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_00126>
-    
-    
-Class: <https://rsna.org/roadmap/ROADMAP_00129>
-
-    Annotations: 
-        rdfs:label "Protected Health Information"@en,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "PHI"@en
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_00122>
-    
-    
-Class: <https://rsna.org/roadmap/ROADMAP_00131>
-
-    Annotations: 
-        <http://purl.org/dc/elements/1.1/source> "https://www.mpeg.org/standards/"@en,
-        rdfs:label "MPEG"@en,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "Moving Picture Experts Group"@en
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_00059>
-    
-    
-Class: <https://rsna.org/roadmap/ROADMAP_00191>
-
-    Annotations: 
-        <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1038/s41592-023-02151-z>,
-        <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1111/j.1469-8137.1912.tb05611.x>,
-        rdfs:label "mask intersection over union > 0"@en,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "mask IoU > 0"^^xsd:string,
-        <http://www.w3.org/2004/02/skos/core#definition> "Mask intersection over union > 0 determines whether a predicted region shares at least one pixel with the reference region. It operates as a binary localization criterion, indicating only the presence or absence of spatial overlap. This metric provides an extremely permissive threshold for detection tasks where coarse positional matching is sufficient."^^xsd:string,
-        <https://rsna.org/roadmap/ROADMAP_03651> false,
-        <https://rsna.org/roadmap/ROADMAP_03652> true
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_03342>
-    
-    
-Class: <https://rsna.org/roadmap/ROADMAP_00632>
-
-    Annotations: 
-        rdfs:label "series count"^^xsd:string,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "number of series"@en,
-        <http://www.w3.org/2004/02/skos/core#definition> "Number of imaging series. An examination comprises one or more imaging series, each of which has one or more images."^^xsd:string
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_00055>
-    
-    
-Class: <https://rsna.org/roadmap/ROADMAP_00633>
-
-    Annotations: 
-        rdfs:label "administrator"^^xsd:string
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_00040>
-    
-    
-Class: <https://rsna.org/roadmap/ROADMAP_00634>
-
-    Annotations: 
-        <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1038/s41592-023-02151-z>,
-        <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1198/016214506000001437>,
-        rdfs:label "Brier skill score"@en,
-        rdfs:seeAlso <https://en.wikipedia.org/wiki/Brier_score>,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "BSS"^^xsd:string,
-        <http://www.w3.org/2004/02/skos/core#definition> "The Brier skill score is a normalized form of the Brier score that compares the predictive performance of a model to that of a reference forecast, such as the base rate probability. It is calculated as one minus the ratio of the model’s Brier score to the reference Brier score, producing positive values when the model outperforms the reference, zero when performance is equal, and negative values when performance is worse."^^xsd:string,
-        <https://rsna.org/roadmap/ROADMAP_03652> 1
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_03329>,
-        <https://rsna.org/roadmap/ROADMAP_03648> some <https://rsna.org/roadmap/ROADMAP_04061>
-    
-    
-Class: <https://rsna.org/roadmap/ROADMAP_03217>
-
-    Annotations: 
-        <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1186/s12859-015-0564-6>,
-        rdfs:label "lenient accuracy"@en,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "LACC"^^xsd:string,
-        <http://www.w3.org/2004/02/skos/core#definition> "Lenient accuracy is a relaxed evaluation metric that considers a response correct if any of the system’s returned answers matches one of the acceptable gold-standard answers. Unlike strict accuracy, it allows for synonyms, equivalent expressions, or alternative correct forms, making it more tolerant in domains where multiple valid answer variants exist. It is frequently used in factoid question answering to avoid penalizing systems for producing correct but differently worded outputs."^^xsd:string,
-        <https://rsna.org/roadmap/ROADMAP_03652> 1
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_03307>
-    
-    
-Class: <https://rsna.org/roadmap/ROADMAP_03218>
-
-    Annotations: 
-        <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1080/02664763.2016.1174195>,
-        <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1177/0962280214537390>,
-        rdfs:label "second-order coefficient of variation"@en,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "CV2"^^xsd:string,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "CV_2"^^xsd:string,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "V2"^^xsd:string,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "V_2"^^xsd:string,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "normalized coefficient of variation"^^xsd:string,
-        <http://www.w3.org/2004/02/skos/core#definition> "The second-order coefficient of variation is an alternative formulation that expresses relative variability as the ratio of the standard deviation to the square root of the second raw moment. Unlike the classical coefficient of variation, it is always defined for real-valued data, bounded between 0 and 1, and less sensitive to extreme values. Its bounded range and geometric interpretation as a ratio of distances make it a more robust and interpretable measure of dispersion."^^xsd:string,
-        <https://rsna.org/roadmap/ROADMAP_03652> 1
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_03580>
-    
-    
-Class: <https://rsna.org/roadmap/ROADMAP_03219>
-
-    Annotations: 
-        <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.4103/crst.crst_283_23>,
-        rdfs:label "relative standard error"@en,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "RSE"^^xsd:string,
-        <http://www.w3.org/2004/02/skos/core#definition> "The relative standard error is a percentage-based measure of the reliability of an estimate, defined as the standard error divided by the estimate itself and multiplied by 100. It expresses the precision of the estimate relative to its magnitude, with smaller values indicating greater reliability. Estimates with large RSE values are often considered too unstable for reporting and may be flagged, suppressed, or presented with cautionary notes."^^xsd:string
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_03302>
-    
-    
-Class: <https://rsna.org/roadmap/ROADMAP_03220>
-
-    Annotations: 
-        <http://purl.org/dc/elements/1.1/source> <http://dx.doi.org/10.1016/j.acra.2014.07.004>,
-        <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1080/10543400701329489>,
-        rdfs:label "individual equivalence index"@en,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "IEC"^^xsd:string,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "IEI"^^xsd:string,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "individual equivalence coefficient"^^xsd:string,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "interchangeability metric"^^xsd:string,
-        <http://www.w3.org/2004/02/skos/core#definition> "The individual equivalence index is a statistical measure used to determine whether a new diagnostic method can be considered interchangeable with a reference method. It is defined as the probability that the new test and the reference test provide the same result, relative to the probability that two independent replicates of the reference agree with each other. Values close to one indicate that the new test agrees with the reference to the same degree as the reference agrees with itself, making the index a tool for formally assessing interchangeability in diagnostic imaging and related settings."^^xsd:string
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_03302>
-    
-    
-Class: <https://rsna.org/roadmap/ROADMAP_03221>
-
-    Annotations: 
-        <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1109/TIT.2005.844059>,
-        rdfs:label "normalized compression distance"@en,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "NCD"^^xsd:string,
-        <http://www.w3.org/2004/02/skos/core#definition> "Normalized compression distance is a practical approximation of normalized information distance that replaces Kolmogorov complexity with the length of compressed data produced by a real-world compression algorithm. It measures the relative similarity of two objects by comparing the compression of each individually with the compression of their concatenation, yielding values close to zero for highly similar objects and close to one for dissimilar ones. While dependent on the choice of compressor and only approximately metric, it provides a widely usable, domain-independent method for quantifying similarity across diverse data types."^^xsd:string,
-        <https://rsna.org/roadmap/ROADMAP_03652> 1
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_04053>
-    
-    
-Class: <https://rsna.org/roadmap/ROADMAP_03222>
-
-    Annotations: 
-        <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1111/j.0006-341X.2000.00337.x>,
-        <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1111/j.0006-341X.2005.030814.x>,
-        rdfs:label "time-dependent area under the receiver operating characteristic curve"@en,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "AUC at time (t)"^^xsd:string,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "AUC(t)"^^xsd:string,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "area under the receiver operating curve at time (t)"^^xsd:string,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "time-dependent AUC"^^xsd:string,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "time-specific AUC"^^xsd:string,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "time-specific area under the receiver operating characteristic curve"^^xsd:string,
-        <http://www.w3.org/2004/02/skos/core#definition> "The time-dependent area under the receiver operating characteristic curve is a measure of a prognostic marker’s or model’s ability to discriminate between individuals who will experience an event by a specified time and those who will remain event-free. It generalizes the classical area under the curve to survival data by defining cases and controls dynamically over time and computing the probability that a subject with an event has a higher predicted risk than one without an event at time t. This metric provides a time-specific summary of discriminatory accuracy in the presence of censoring and evolving event status."^^xsd:string,
-        <https://rsna.org/roadmap/ROADMAP_03652> 1
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_03314>
-    
-    
-Class: <https://rsna.org/roadmap/ROADMAP_03223>
-
-    Annotations: 
-        <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.3348/kjr.2021.0223>,
-        rdfs:label "integrated time-dependent area under the ROC curve"@en,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "iAUC"^^xsd:string,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "integrated time-dependent AUC"^^xsd:string,
-        <http://www.w3.org/2004/02/skos/core#definition> "An integrated AUC (iAUC) is a mathematical integration of multiple time-dependent AUC values across the follow-up period, and it can be expressed as follows: iAUC= ∫AUC(t)·w(t)dt, where t = time and w = weight. Heagerty and Zheng suggested that w(t) should be proportional to the marginal density of survival time multiplied by the survival function, which makes the iAUC equivalent to ‘concordance,’ which is the probability that the order of deaths in randomly chosen two patients agrees with the order predicted by the model. In other words, iAUC is a weighted sum or a global average of time-dependent AUC values from time-dependent ROC analyses across the follow-up duration. 
-- from Park SY, et al. KJR 2021."^^xsd:string
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_03302>,
-        <https://rsna.org/roadmap/ROADMAP_03648> some <https://rsna.org/roadmap/ROADMAP_03504>,
-        <https://rsna.org/roadmap/ROADMAP_03648> some <https://rsna.org/roadmap/ROADMAP_04058>
-    
-    
-Class: <https://rsna.org/roadmap/ROADMAP_03224>
-
-    Annotations: 
-        rdfs:label "autonomous diagnosis"@en,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "CADa"^^xsd:string
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_00021>
-    
-    
-Class: <https://rsna.org/roadmap/ROADMAP_03225>
-
-    Annotations: 
-        <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1109/IRI62200.2024.00065>,
-        <http://purl.org/dc/elements/1.1/source> "D. Pessach and E. Shmueli, “Algorithmic fairness,” in Machine Learning for Data Science Handbook, pp. 867–886, Springer International Publishing, 2023."^^xsd:string,
-        rdfs:comment "Group fairness, also known as statistical or demographic fairness, requires that predictive outcomes are independent of specific sensitive attributes such as race, gender, or age."^^xsd:string,
-        rdfs:label "group fairness"@en,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "demographic fairness"^^xsd:string,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "statistical fairness"^^xsd:string,
-        <http://www.w3.org/2004/02/skos/core#definition> "Assuming ˆ Y is the predicted outcome and D is the sensitive attribute with a given value d, then group fairness can be expressed as: 
-P( ˆ Y = 1|D = d) = P( ˆ Y = 1|D <> d)"^^xsd:string
->>>>>>> a9a0aba6e7b0ff8be1bf6e450555c33c7f3ad6e6
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_03302>,
         <https://rsna.org/roadmap/ROADMAP_03648> some <https://rsna.org/roadmap/ROADMAP_04064>
     
     
-<<<<<<< HEAD
-Class: <https://rsna.org/roadmap/ROADMAP_03228>
-
-    Annotations: 
-        <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1109/IRI62200.2024.00065>,
-        rdfs:label "demographic parity"@en,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "statistical parity"^^xsd:string,
-        <http://www.w3.org/2004/02/skos/core#definition> "Demographic parity, also known as statistical parity, requires the decision outcomes to be independent of the sensitive attributes. It aims for the probability of a positive prediction to be the same across different groups defined by the sensitive attribute. It is defined as:
-P( ˆ Y = 1|D = d) = P( ˆ Y = 1|D <> d)"^^xsd:string
-=======
-Class: <https://rsna.org/roadmap/ROADMAP_03226>
-
-    Annotations: 
-        <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1109/IRI62200.2024.00065>,
-        rdfs:label "individual fairness"@en,
-        <http://www.w3.org/2004/02/skos/core#definition> "Individual fairness mandates that similar individuals should receive similar predictions. It can be mathematically formalized using a distance metric d(·), which measures the similarity between individuals: d( ˆ Yi, ˆ Yj) ≤ D(xi, xj) ∀i, j"^^xsd:string
->>>>>>> a9a0aba6e7b0ff8be1bf6e450555c33c7f3ad6e6
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_03302>,
-        <https://rsna.org/roadmap/ROADMAP_03648> some <https://rsna.org/roadmap/ROADMAP_04064>
-    
-    
-<<<<<<< HEAD
-Class: <https://rsna.org/roadmap/ROADMAP_03229>
-
-    Annotations: 
-        <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1109/IRI62200.2024.00065>,
-        rdfs:label "equalized odds"@en,
-        <http://www.w3.org/2004/02/skos/core#definition> "Equalized odds require that the model’s true positive rate and false positive rate be the same across groups, defined as: 
-P( ˆ Y = 1|D = d, Y = y) = P( ˆ Y = 1|D <> d, Y = y) for all y in {0, 1}"^^xsd:string
-=======
-Class: <https://rsna.org/roadmap/ROADMAP_03227>
-
-    Annotations: 
-        <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1109/IRI62200.2024.00065>,
-        rdfs:label "equality of opportunity"@en,
-        <http://www.w3.org/2004/02/skos/core#definition> "Equality of opportunity, an extension of group fairness, states that groups should have equal true positive rates. This metric is defined as:
-P( ˆ Y = 1|D = d, Y = 1) = P( ˆ Y = 1|D <> d, Y = 1)"^^xsd:string
->>>>>>> a9a0aba6e7b0ff8be1bf6e450555c33c7f3ad6e6
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_03302>,
-        <https://rsna.org/roadmap/ROADMAP_03648> some <https://rsna.org/roadmap/ROADMAP_04064>
-    
-    
-<<<<<<< HEAD
-Class: <https://rsna.org/roadmap/ROADMAP_03302>
-
-    Annotations: 
-        <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1038/s41592-023-02151-z>,
-        <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1038/s41598-024-56706-x>,
-        <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1117/1.JMI.11.2.024504>,
-        rdfs:label "model performance metric"@en,
-        rdfs:seeAlso "https://www.midrc.org/performance-metrics-decision-tree"@en,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "metric"@en,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "scalar metric"@en,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "scalar model performance data"@en,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "scalar performance metric"@en,
-        <http://www.w3.org/2004/02/skos/core#definition> "Model performance information presented as a single numerical (scalar) value."@en
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_03642>,
-        <https://rsna.org/roadmap/ROADMAP_00631> some <https://rsna.org/roadmap/ROADMAP_03616>
-    
-    
-Class: <https://rsna.org/roadmap/ROADMAP_03307>
-
-    Annotations: 
-=======
 Class: <https://rsna.org/roadmap/ROADMAP_03228>
 
     Annotations: 
@@ -2447,7 +1987,6 @@ Class: <https://rsna.org/roadmap/ROADMAP_03302>
 Class: <https://rsna.org/roadmap/ROADMAP_03307>
 
     Annotations: 
->>>>>>> a9a0aba6e7b0ff8be1bf6e450555c33c7f3ad6e6
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1016/j.aci.2018.08.003>,
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1038/s41592-023-02151-z>,
         rdfs:label "accuracy"@en,
@@ -2880,8 +2419,6 @@ Class: <https://rsna.org/roadmap/ROADMAP_03338>
     
     
 Class: <https://rsna.org/roadmap/ROADMAP_03339>
-<<<<<<< HEAD
-=======
 
     Annotations: 
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1016/j.aci.2018.08.003>,
@@ -2914,56 +2451,6 @@ TPR = TP / (TP + FN)"@en,
     
     
 Class: <https://rsna.org/roadmap/ROADMAP_03340>
->>>>>>> a9a0aba6e7b0ff8be1bf6e450555c33c7f3ad6e6
-
-    Annotations: 
-        <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1016/j.aci.2018.08.003>,
-        <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1038/s41592-023-02151-z>,
-<<<<<<< HEAD
-        rdfs:comment "TPR = TP / (TP + FN)"@en,
-        rdfs:label "tasa de verdaderos positivos"@es,
-        rdfs:label "true positive rate"@en,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "Se"@en,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "Sens"@en,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "TPF"@en,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "TPR"@en,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "exhaustividad"@es,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "hit rate"@en,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "potencia"@es,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "probabilidad de detección"@es,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "recall"@en,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "sensibilidad"@es,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "sensitivity"@en,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "tasa de aciertos"@es,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "true positive fraction"@en,
-        <http://www.w3.org/2004/02/skos/core#definition> "The true positive rate is the proportion of actual positive cases that a classifier or test correctly identifies as positive. It is calculated as the number of true positives divided by the sum of true positives and false negatives. This measure reflects how effectively a system detects the presence of the condition or class of interest.
-
-TPR = TP / (TP + FN)"@en,
-=======
-        rdfs:label "tasa de verdaderos negativos"@es,
-        rdfs:label "true negative rate"@en,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "Sp"@en,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "Spec"@en,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "TNF"@en,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "TNR"@en,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "especificidad"@es,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "selectivity"@en,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "specificity"@en,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "true negative fraction"@en,
-        <http://www.w3.org/2004/02/skos/core#definition> "The true negative rate is the proportion of actual negative cases that are correctly identified as negative by a test or classifier. It quantifies a system’s ability to avoid false alarms by distinguishing true negatives from false positives. This measure is independent of disease or class prevalence and complements the true positive rate by capturing classification accuracy for the negative class.
-
-TNR = TN / (TN + FP)"^^xsd:string,
->>>>>>> a9a0aba6e7b0ff8be1bf6e450555c33c7f3ad6e6
-        <https://rsna.org/roadmap/ROADMAP_03651> 0,
-        <https://rsna.org/roadmap/ROADMAP_03652> 1
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_03302>,
-        <https://rsna.org/roadmap/ROADMAP_03648> some <https://rsna.org/roadmap/ROADMAP_04058>
-    
-    
-<<<<<<< HEAD
-Class: <https://rsna.org/roadmap/ROADMAP_03340>
 
     Annotations: 
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1016/j.aci.2018.08.003>,
@@ -2981,53 +2468,11 @@ Class: <https://rsna.org/roadmap/ROADMAP_03340>
         <http://www.w3.org/2004/02/skos/core#definition> "The true negative rate is the proportion of actual negative cases that are correctly identified as negative by a test or classifier. It quantifies a system’s ability to avoid false alarms by distinguishing true negatives from false positives. This measure is independent of disease or class prevalence and complements the true positive rate by capturing classification accuracy for the negative class.
 
 TNR = TN / (TN + FP)"^^xsd:string,
-=======
-Class: <https://rsna.org/roadmap/ROADMAP_03341>
-
-    Annotations: 
-        <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1038/s41592-023-02151-z>,
-        <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1117/1.JMI.11.2.024504>,
-        rdfs:label "average symmetric surface distance"@en,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "ASSD"@en,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "weighted bilateral mean contour distance"^^xsd:string,
-        <http://www.w3.org/2004/02/skos/core#definition> "Average Symmetric Surface Distance calculates the mean of all shortest distances between boundary points of two segmentations, considering both directions equally. It evaluates the overall agreement of contour locations and provides a balanced view of segmentation accuracy. This metric is useful for applications where consistent boundary alignment is clinically important."^^xsd:string
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_03302>,
-        <https://rsna.org/roadmap/ROADMAP_03648> some <https://rsna.org/roadmap/ROADMAP_04060>
-    
-    
-Class: <https://rsna.org/roadmap/ROADMAP_03342>
-
-    Annotations: 
-        <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1038/s41592-023-02151-z>,
-        <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1111/j.1469-8137.1912.tb05611.x>,
-        rdfs:comment "IoU = TP / (TP + FN + FP)"@en,
-        rdfs:label "intersection over union"@en,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "CSI"@en,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "Intersection over Union score"@en,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "IoU"@en,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "IoU coefficient"@en,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "IoU score"@en,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "Jaccard coefficient"@en,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "Jaccard index"@en,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "Jaccard similarity coefficient"@en,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "Jaccard similarity coefficient score"@en,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "TS"@en,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "Tanimoto coefficient"@en,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "critical success index"@en,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "threat score"@en,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "índice de Jaccard"@es,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "índice de amenaza"@es,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "índice de éxito crítico"@es,
-        <http://www.w3.org/2004/02/skos/core#definition> "Intersection over union quantifies the overlap between two regions by dividing the intersection by the union of the predicted and reference sets. It captures both false positives and false negatives by considering all pixels in either region. This metric is widely applied in segmentation and detection tasks to measure how comprehensively two regions coincide spatially."@en,
->>>>>>> a9a0aba6e7b0ff8be1bf6e450555c33c7f3ad6e6
         <https://rsna.org/roadmap/ROADMAP_03651> 0,
         <https://rsna.org/roadmap/ROADMAP_03652> 1
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_03302>,
-<<<<<<< HEAD
         <https://rsna.org/roadmap/ROADMAP_03648> some <https://rsna.org/roadmap/ROADMAP_04058>
     
     
@@ -3117,87 +2562,12 @@ Class: <https://rsna.org/roadmap/ROADMAP_03346>
         <http://www.w3.org/2004/02/skos/core#altLabel> "boundary IoU"@en,
         <http://www.w3.org/2004/02/skos/core#altLabel> "boundary intersection-over-union"@en,
         <http://www.w3.org/2004/02/skos/core#definition> "Boundary intersection over union measures alignment between predicted and reference regions by considering only pixels located within a fixed distance from their respective contours. It focuses exclusively on boundary accuracy and disregards interior areas beyond the defined margin. This metric is designed for tasks where precise delineation of edges or margins is critical."^^xsd:string,
-=======
-        <https://rsna.org/roadmap/ROADMAP_03648> some <https://rsna.org/roadmap/ROADMAP_04058>,
-        <https://rsna.org/roadmap/ROADMAP_03648> some <https://rsna.org/roadmap/ROADMAP_04060>
-    
-    
-Class: <https://rsna.org/roadmap/ROADMAP_03343>
-
-    Annotations: 
-        <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1038/s41592-023-02151-z>,
-        <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1109/34.232073>,
-        rdfs:label "Hausdorff distance"@en,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "HD"@en,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "Hausdorff metric"@en,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "Pompeiu-Hausdorff distance"@en,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "maximum symmetric surface distance"^^xsd:string,
-        <http://www.w3.org/2004/02/skos/core#definition> "Hausdorff distance quantifies the maximum boundary discrepancy between two sets of points by measuring the greatest distance from any point on one boundary to its closest point on the other boundary. It is commonly used to assess segmentation accuracy by focusing on worst-case spatial deviations. This metric is sensitive to outliers because a single distant point can dominate the result."@en
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_03341>
-    
-    
-Class: <https://rsna.org/roadmap/ROADMAP_03345>
-
-    Annotations: 
-        <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1038/s41592-023-02151-z>,
-        <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.2196/26151>,
-        rdfs:label "normalized surface distance"@en,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "NSD"@en,
-        <http://www.w3.org/2004/02/skos/core#definition> "Normalized surface distance assesses segmentation quality by computing the proportion of surface points on both boundaries that lie within a specified tolerance distance from each other. It accounts for boundary uncertainty and allows user-defined flexibility through the tolerance parameter. This metric is particularly useful when annotation imprecision or clinically acceptable deviations need to be incorporated."^^xsd:string
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_03669>
-    
-    
-Class: <https://rsna.org/roadmap/ROADMAP_03346>
-
-    Annotations: 
-        <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1038/s41592-023-02151-z>,
-        <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1109/CVPR46437.2021.01508>,
-        rdfs:label "boundary intersection over union"^^xsd:string,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "boundary IoU"@en,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "boundary intersection-over-union"@en,
-        <http://www.w3.org/2004/02/skos/core#definition> "Boundary intersection over union measures alignment between predicted and reference regions by considering only pixels located within a fixed distance from their respective contours. It focuses exclusively on boundary accuracy and disregards interior areas beyond the defined margin. This metric is designed for tasks where precise delineation of edges or margins is critical."^^xsd:string,
         <https://rsna.org/roadmap/ROADMAP_03652> 1
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_03342>
     
     
-Class: <https://rsna.org/roadmap/ROADMAP_03347>
-
-    Annotations: 
-        <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1038/s41592-023-02151-z>,
-        <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1111/j.1469-8137.1912.tb05611.x>,
-        rdfs:label "mask intersection over union"^^xsd:string,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "mask IoU"@en,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "mask intersection over union"^^xsd:string,
-        <http://www.w3.org/2004/02/skos/core#definition> "Mask intersection over union evaluates the overlap between two segmentation masks by comparing their shared area to the total area covered by either mask. It considers the entire region within both masks, providing a comprehensive measure of spatial agreement. This metric is commonly used in semantic and instance segmentation where pixel-level accuracy across the full object is important."^^xsd:string,
-        <https://rsna.org/roadmap/ROADMAP_03652> 1
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_03342>
-    
-    
-Class: <https://rsna.org/roadmap/ROADMAP_03348>
-
-    Annotations: 
-        <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1038/s41592-023-02151-z>,
-        <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1111/j.1469-8137.1912.tb05611.x>,
-        rdfs:label "box intersection over union"^^xsd:string,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "box IoU"@en,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "box intersection-over-union"^^xsd:string,
-        <http://www.w3.org/2004/02/skos/core#definition> "Box intersection over union quantifies the spatial overlap between two axis-aligned or oriented bounding boxes based on the ratio of their intersection to their union. It is applied in object detection to determine how well a predicted bounding box encloses the target structure. This metric reflects positional and scale accuracy without assessing fine object shape details."^^xsd:string,
->>>>>>> a9a0aba6e7b0ff8be1bf6e450555c33c7f3ad6e6
-        <https://rsna.org/roadmap/ROADMAP_03652> 1
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_03342>
-    
-    
-<<<<<<< HEAD
 Class: <https://rsna.org/roadmap/ROADMAP_03347>
 
     Annotations: 
@@ -3232,11 +2602,6 @@ Class: <https://rsna.org/roadmap/ROADMAP_03351>
 
     Annotations: 
         rdfs:label "decision threshold"@en
-=======
-Class: <https://rsna.org/roadmap/ROADMAP_03351>
-
-    Annotations: 
-        rdfs:label "decision threshold"@en
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_03355>
@@ -3251,36 +2616,6 @@ Class: <https://rsna.org/roadmap/ROADMAP_03352>
         <https://rsna.org/roadmap/ROADMAP_03355>
     
     
-Class: <https://rsna.org/roadmap/ROADMAP_03353>
-
-    Annotations: 
-        rdfs:label "caveat"@en,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "caution"@en,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "warning"@en,
-        <http://www.w3.org/2004/02/skos/core#definition> "Describes concerns specific to the use of the AI model."@en
->>>>>>> a9a0aba6e7b0ff8be1bf6e450555c33c7f3ad6e6
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_03355>
-    
-    
-<<<<<<< HEAD
-Class: <https://rsna.org/roadmap/ROADMAP_03352>
-
-    Annotations: 
-        rdfs:label "ethical consideration"@en
-=======
-Class: <https://rsna.org/roadmap/ROADMAP_03354>
-
-    Annotations: 
-        rdfs:label "recommendation"@en
->>>>>>> a9a0aba6e7b0ff8be1bf6e450555c33c7f3ad6e6
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_03355>
-    
-    
-<<<<<<< HEAD
 Class: <https://rsna.org/roadmap/ROADMAP_03354>
 
     Annotations: 
@@ -3657,409 +2992,6 @@ Class: <https://rsna.org/roadmap/ROADMAP_03408>
         rdfs:comment "Describes what information, if any, is missing from the dataset and explains why it is missing (for example, because it was unavailable)."@en,
         rdfs:comment "Does not include intentionally removed information, but might include, for example, redacted text."@en,
         rdfs:label "missing information"@en
-=======
-Class: <https://rsna.org/roadmap/ROADMAP_03355>
-
-    Annotations: 
-        rdfs:label "model property"@en,
-        <http://www.w3.org/2004/02/skos/core#definition> "Specifies the characteristics of an AI model."@en
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_00001>
-    
-    
-Class: <https://rsna.org/roadmap/ROADMAP_03356>
-
-    Annotations: 
-        <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1002/9780470317082>,
-        <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1117/1.JMI.11.2.024504>,
-        rdfs:label "negative likelihood ratio"@en,
-        rdfs:label "razón de verosimilitud negativa"@es,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "LR-"@en,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "NLR"@en,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "negative LR"@en,
-        <http://www.w3.org/2004/02/skos/core#definition> "Negative Likelihood Ratio expresses how much less likely a negative test result is in individuals with the condition compared to those without it. It is calculated as the ratio of one minus sensitivity to specificity. Lower values indicate stronger evidence for the absence of the condition.
-
-LR- = (1-sensitivity) / specificity"@en
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_03357>
-    
-    
-Class: <https://rsna.org/roadmap/ROADMAP_03357>
-
-    Annotations: 
-        <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1002/9780470317082>,
-        rdfs:label "likelihood ratio"@en,
-        rdfs:label "razón de verosimilitud"@es,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "LR"@en,
-        <http://www.w3.org/2004/02/skos/core#definition> "Likelihood ratio quantifies how much a diagnostic test result changes the odds of having a condition. It compares the probability of a given test result in individuals with the condition to the probability of the same result in those without it. This measure is independent of disease prevalence and can be computed for both positive and negative results."@en
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_03302>,
-        <https://rsna.org/roadmap/ROADMAP_03648> some <https://rsna.org/roadmap/ROADMAP_04058>
-    
-    
-Class: <https://rsna.org/roadmap/ROADMAP_03358>
-
-    Annotations: 
-        rdfs:comment "Not body sites."^^xsd:string,
-        rdfs:comment "Number of distinct imaging sites, i.e., imaging facilities."^^xsd:string,
-        rdfs:label "site count"@en,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "facility count"^^xsd:string,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "number of facilities"^^xsd:string,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "number of imaging facilities"^^xsd:string,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "number of sites"@en
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_00055>
-    
-    
-Class: <https://rsna.org/roadmap/ROADMAP_03359>
-
-    Annotations: 
-        rdfs:label "layperson"@en,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "Nonmedical individual"@en
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_00040>
-    
-    
-Class: <https://rsna.org/roadmap/ROADMAP_03360>
-
-    Annotations: 
-        rdfs:label "family member"@en
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_03359>
-    
-    
-Class: <https://rsna.org/roadmap/ROADMAP_03362>
-
-    Annotations: 
-        rdfs:label "2D image label"@en,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "2D image annotation"^^xsd:string,
-        <http://www.w3.org/2004/02/skos/core#definition> "Annotation applied to two-dimensional (planar) images."^^xsd:string
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_00052>
-    
-    
-Class: <https://rsna.org/roadmap/ROADMAP_03363>
-
-    Annotations: 
-        rdfs:label "3D image label"@en,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "3D image annotation"^^xsd:string,
-        <http://www.w3.org/2004/02/skos/core#definition> "Annotation applied to three-dimensional image volume."^^xsd:string
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_00052>
-    
-    
-Class: <https://rsna.org/roadmap/ROADMAP_03364>
-
-    Annotations: 
-        rdfs:comment "Examples of regions of interest:
-* 1D dataset: a time or frequency interval on a waveform
-* 2D dataset: the boundaries of an object on an image
-* 3D dataset: the contours or surfaces outlining an object (sometimes known as the Volume of Interest (VOI)) in a volume
-* 4D dataset: the outline of an object at or during a particular time interval in a time-volume"^^xsd:string,
-        rdfs:label "region-of-interest annotation"^^xsd:string,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "ROI annotation"@en,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "ROI label"^^xsd:string,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "region of interest annotation"@en,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "region of interest label"^^xsd:string,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "region-of-interest label"^^xsd:string,
-        <http://www.w3.org/2004/02/skos/core#definition> "Annotation applied to a subset of a planar image or image volume."^^xsd:string
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_03479>
-    
-    
-Class: <https://rsna.org/roadmap/ROADMAP_03365>
-
-    Annotations: 
-        rdfs:comment "Indicate the number of annotators (total, per exam, etc.), the instructions given to them, their qualifications, and the scope of annotation."^^xsd:string,
-        rdfs:label "annotation labeler description"@en,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "annotator description"@en,
-        <http://www.w3.org/2004/02/skos/core#definition> "Information about the people or entities that applied the annotation labels."@en
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_00001>
-    
-    
-Class: <https://rsna.org/roadmap/ROADMAP_03369>
-
-    Annotations: 
-        rdfs:label "burned-in PHI present"@en
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_00129>
-    
-    
-Class: <https://rsna.org/roadmap/ROADMAP_03370>
-
-    Annotations: 
-        rdfs:label "burned-in PHI absent"@en
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_00129>
-    
-    
-Class: <https://rsna.org/roadmap/ROADMAP_03371>
-
-    Annotations: 
-        rdfs:label "burned-in PHI removed"@en
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_00129>
-    
-    
-Class: <https://rsna.org/roadmap/ROADMAP_03373>
-
-    Annotations: 
-        rdfs:label "model availability"@en,
-        <http://www.w3.org/2004/02/skos/core#definition> "Defines where and/or how the model is available; can include a URL."^^xsd:string
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_03355>
-    
-    
-Class: <https://rsna.org/roadmap/ROADMAP_03376>
-
-    Annotations: 
-        rdfs:label "sustainability"@en,
-        <http://www.w3.org/2004/02/skos/core#definition> "Describes parameters associated with use of the AI model related to energy consumption, running time, and other factors."@en
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_03355>
-    
-    
-Class: <https://rsna.org/roadmap/ROADMAP_03377>
-
-    Annotations: 
-        rdfs:label "time to train model"@en
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_03376>
-    
-    
-Class: <https://rsna.org/roadmap/ROADMAP_03378>
-
-    Annotations: 
-        rdfs:label "time to evaluate single input"@en
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_03376>
-    
-    
-Class: <https://rsna.org/roadmap/ROADMAP_03379>
-
-    Annotations: 
-        rdfs:label "required processors"@en
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_03376>
-    
-    
-Class: <https://rsna.org/roadmap/ROADMAP_03380>
-
-    Annotations: 
-        rdfs:label "carbon footprint calculation"@en
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_03376>
-    
-    
-Class: <https://rsna.org/roadmap/ROADMAP_03381>
-
-    Annotations: 
-        rdfs:label "dataset property"@en,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "composition"@en,
-        <http://www.w3.org/2004/02/skos/core#definition> "Defines the properties of a dataset, in addition to the generic properties of the Descriptor class."@en
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_00001>
-    
-    
-Class: <https://rsna.org/roadmap/ROADMAP_03383>
-
-    Annotations: 
-        rdfs:label "motivation"@en,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "dataset purpose"@en,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "purpose"@en,
-        <http://www.w3.org/2004/02/skos/core#definition> "Describes the specific purpose for which the dataset was created."@en
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_03381>
-    
-    
-Class: <https://rsna.org/roadmap/ROADMAP_03385>
-
-    Annotations: 
-        rdfs:comment "Specify grantor, grant name, and number."@en,
-        rdfs:label "funding"@en
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_00004>
-    
-    
-Class: <https://rsna.org/roadmap/ROADMAP_03389>
-
-    Annotations: 
-        rdfs:comment "Defines the instances that comprise the dataset, such as images, patients, or reports."@en,
-        rdfs:label "data"@en
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_00001>
-    
-    
-Class: <https://rsna.org/roadmap/ROADMAP_03390>
-
-    Annotations: 
-        rdfs:label "radiology report text"@en,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "radiology report"@en
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_03484>
-    
-    
-Class: <https://rsna.org/roadmap/ROADMAP_03391>
-
-    Annotations: 
-        rdfs:label "image"@en
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_03389>
-    
-    
-Class: <https://rsna.org/roadmap/ROADMAP_03392>
-
-    Annotations: 
-        rdfs:label "non-text medical record data"@en
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_03389>
-    
-    
-Class: <https://rsna.org/roadmap/ROADMAP_03393>
-
-    Annotations: 
-        rdfs:label "photograph"@en
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_03391>
-    
-    
-Class: <https://rsna.org/roadmap/ROADMAP_03394>
-
-    Annotations: 
-        rdfs:label "graph"@en
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_03389>
-    
-    
-Class: <https://rsna.org/roadmap/ROADMAP_03396>
-
-    Annotations: 
-        rdfs:comment "\"Does the dataset contain all possible instances or is it a sample (not necessarily random) of instances from a larger set? If the dataset is a sample, then what is the larger set? Is the sample representative of the larger set (for example, geographic coverage)? If so, please describe how this representativeness was validated/verified. If it is not representative of the larger set, please describe why not (for example, to cover a more diverse range of instances, because instances were withheld or unavailable).\"
-\"17. Does the dataset identify any subpopulations (for example, by age, gender)? If so, please describe how these subpopulations are identified and provide a description of their respective distributions within the dataset.\""@en,
-        rdfs:label "representativeness"@en
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_03381>
-    
-    
-Class: <https://rsna.org/roadmap/ROADMAP_03397>
-
-    Annotations: 
-        rdfs:comment "\"23. If the dataset is a sample from a larger set, what was the sampling strategy (for example, deterministic, probabilistic with specific sampling probabilities)?\""@en,
-        rdfs:label "sample type"@en
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_03396>
-    
-    
-Class: <https://rsna.org/roadmap/ROADMAP_03398>
-
-    Annotations: 
-        rdfs:label "complete population"@en
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_03397>
-    
-    
-Class: <https://rsna.org/roadmap/ROADMAP_03399>
-
-    Annotations: 
-        rdfs:label "random sample"@en
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_03397>
-    
-    
-Class: <https://rsna.org/roadmap/ROADMAP_03400>
-
-    Annotations: 
-        rdfs:label "convenience sample"@en
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_03397>
-    
-    
-Class: <https://rsna.org/roadmap/ROADMAP_03401>
-
-    Annotations: 
-        rdfs:label "population"@en
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_03396>
-    
-    
-Class: <https://rsna.org/roadmap/ROADMAP_03402>
-
-    Annotations: 
-        rdfs:label "verification of representativeness"@en
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_03396>
-    
-    
-Class: <https://rsna.org/roadmap/ROADMAP_03404>
-
-    Annotations: 
-        rdfs:label "non-random sample"@en
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_03397>
-    
-    
-Class: <https://rsna.org/roadmap/ROADMAP_03405>
-
-    Annotations: 
-        rdfs:label "no pre-processing"@en,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "raw data"^^xsd:string
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_00126>
-    
-    
-Class: <https://rsna.org/roadmap/ROADMAP_03406>
-
-    Annotations: 
-        rdfs:label "feature extraction"@en
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_00126>
-    
-    
-Class: <https://rsna.org/roadmap/ROADMAP_03408>
-
-    Annotations: 
-        rdfs:comment "Describes what information, if any, is missing from the dataset and explains why it is missing (for example, because it was unavailable)."@en,
-        rdfs:comment "Does not include intentionally removed information, but might include, for example, redacted text."@en,
-        rdfs:label "missing information"@en
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_03381>
@@ -4075,97 +3007,46 @@ Class: <https://rsna.org/roadmap/ROADMAP_03409>
         <https://rsna.org/roadmap/ROADMAP_03381>
     
     
-Class: <https://rsna.org/roadmap/ROADMAP_03410>
-
-    Annotations: 
-        rdfs:comment "\"Are there recommended data splits (for example, training, development/validation, testing)? If so, please provide a description of these splits, explaining the rationale behind them.\""@en,
-        rdfs:label "partitions"@en
->>>>>>> a9a0aba6e7b0ff8be1bf6e450555c33c7f3ad6e6
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_03381>
-    
-    
-<<<<<<< HEAD
-Class: <https://rsna.org/roadmap/ROADMAP_03409>
-
-    Annotations: 
-        rdfs:comment "Describes if and how any relationships between individual data items are made explicit."@en,
-        rdfs:label "relationships between instances"@en
-=======
-Class: <https://rsna.org/roadmap/ROADMAP_03411>
-
-    Annotations: 
-        rdfs:comment "Describes any errors, sources of noise, or redundancies in the dataset."@en,
-        rdfs:label "noise"@en
->>>>>>> a9a0aba6e7b0ff8be1bf6e450555c33c7f3ad6e6
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_03381>
-    
-    
-<<<<<<< HEAD
 Class: <https://rsna.org/roadmap/ROADMAP_03410>
 
     Annotations: 
         rdfs:label "partitioning scheme"@en,
         <http://www.w3.org/2004/02/skos/core#definition> "Describes how a dataset was partitioned for training, optimization (\"validation\"), and testing."@en
-=======
-Class: <https://rsna.org/roadmap/ROADMAP_03412>
-
-    Annotations: 
-        rdfs:comment "Describes any external resources such as web sites, social-media posts or other datasets. Include information about their permanence, archival versions, and any restrictions on their use (e.g., data-use agreements, licenses, fees),"@en,
-        rdfs:label "external data"@en
->>>>>>> a9a0aba6e7b0ff8be1bf6e450555c33c7f3ad6e6
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_03381>
     
     
-<<<<<<< HEAD
 Class: <https://rsna.org/roadmap/ROADMAP_03411>
 
     Annotations: 
         rdfs:label "noise"@en,
         <http://www.w3.org/2004/02/skos/core#definition> "Describes any errors, sources of noise, or redundancies in the dataset."@en
-=======
-Class: <https://rsna.org/roadmap/ROADMAP_03413>
-
-    Annotations: 
-        rdfs:comment "Describes any data that might be confidential, such as those protected by law or doctor-patient confidentiality."@en,
-        rdfs:label "confidentiality"@en
->>>>>>> a9a0aba6e7b0ff8be1bf6e450555c33c7f3ad6e6
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_03381>
     
     
-<<<<<<< HEAD
 Class: <https://rsna.org/roadmap/ROADMAP_03412>
 
     Annotations: 
         rdfs:comment "Describes any external resources such as web sites, social-media posts or other datasets. Include information about their permanence, archival versions, and any restrictions on their use (e.g., data-use agreements, licenses, fees),"@en,
         rdfs:label "external data"@en
-=======
-Class: <https://rsna.org/roadmap/ROADMAP_03414>
-
-    Annotations: 
-        rdfs:comment "Describe how subpopulations are identified and their respective distributions within the dataset."^^xsd:string,
-        rdfs:label "subpopulations"@en,
-        <http://www.w3.org/2004/02/skos/core#definition> "Describes any subpopulations within the dataset, such as by age and/or sex."@en
->>>>>>> a9a0aba6e7b0ff8be1bf6e450555c33c7f3ad6e6
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_03381>
     
     
-<<<<<<< HEAD
 Class: <https://rsna.org/roadmap/ROADMAP_03413>
 
     Annotations: 
         rdfs:comment "Describes any data that might be confidential, such as those protected by law or doctor-patient confidentiality."@en,
         rdfs:label "confidentiality"@en
-=======
+    
+    SubClassOf: 
+        <https://rsna.org/roadmap/ROADMAP_03381>
+    
+    
 Class: <https://rsna.org/roadmap/ROADMAP_03415>
 
     Annotations: 
@@ -4176,24 +3057,11 @@ Class: <https://rsna.org/roadmap/ROADMAP_03415>
         <http://www.w3.org/2004/02/skos/core#altLabel> "re-identification risk"^^xsd:string,
         <http://www.w3.org/2004/02/skos/core#altLabel> "reidentification"^^xsd:string,
         <http://www.w3.org/2004/02/skos/core#altLabel> "reidentification risk"^^xsd:string
->>>>>>> a9a0aba6e7b0ff8be1bf6e450555c33c7f3ad6e6
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_03381>
     
     
-<<<<<<< HEAD
-Class: <https://rsna.org/roadmap/ROADMAP_03415>
-
-    Annotations: 
-        rdfs:comment "Describes if and how it is possible to identify individual persons, either directly or indirectly, from the dataset."@en,
-        rdfs:label "re-identification"@en,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "re-ID"^^xsd:string,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "re-ID risk"^^xsd:string,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "re-identification risk"^^xsd:string,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "reidentification"^^xsd:string,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "reidentification risk"^^xsd:string
-=======
 Class: <https://rsna.org/roadmap/ROADMAP_03416>
 
     Annotations: 
@@ -4204,29 +3072,6 @@ Biometric or genetic data;
 Government identification, such as social security number or criminal history"@en,
         rdfs:label "sensitive data"@en,
         <http://www.w3.org/2004/02/skos/core#definition> "Describes any data that might be considered sensitive."@en
->>>>>>> a9a0aba6e7b0ff8be1bf6e450555c33c7f3ad6e6
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_03381>
-    
-    
-<<<<<<< HEAD
-Class: <https://rsna.org/roadmap/ROADMAP_03416>
-
-    Annotations: 
-        rdfs:comment "Sensitive data might include:
-Data that reveal race or ethnic origin, sexual orientation, religious belief, political opinion, union membership, or physical location;
-Financial or health data;
-Biometric or genetic data;
-Government identification, such as social security number or criminal history"@en,
-        rdfs:label "sensitive data"@en,
-        <http://www.w3.org/2004/02/skos/core#definition> "Describes any data that might be considered sensitive."@en
-=======
-Class: <https://rsna.org/roadmap/ROADMAP_03417>
-
-    Annotations: 
-        rdfs:label "collection process"@en
->>>>>>> a9a0aba6e7b0ff8be1bf6e450555c33c7f3ad6e6
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_03381>
@@ -4618,18 +3463,11 @@ Class: <https://rsna.org/roadmap/ROADMAP_03471>
 Class: <https://rsna.org/roadmap/ROADMAP_03472>
 
     Annotations: 
-<<<<<<< HEAD
         rdfs:comment "For example, if a Partition has 500 male patients and 600 female patients, one could list two Subsets to indicate those two groups.  One also could indicate a Subset of 1100 patients to cover the entire Partition.
 
 A Subset has one of more Count values (e.g., number of patients, number of images) and one or more Patient descriptors (age, sex, etc.)"@en,
         rdfs:label "subset"@en,
         <http://www.w3.org/2004/02/skos/core#definition> "A subset is all or part of a dataset or partition: it is used to describe the demographics of the entity of which it's a part."@en
-=======
-        rdfs:comment "A Subset is all or part of a Dataset or Partition: it is used to describe the demographics of the entity of which it's a part.  For example, if a Partition has 500 male patients and 600 female patients, one could list two Subsets to indicate those two groups.  One also could indicate a Subset of 1100 patients to cover the entire Partition.
-
-A Subset has one of more Count values (e.g., number of patients, number of images) and one or more Patient descriptors (age, sex, etc.)"@en,
-        rdfs:label "subset"@en
->>>>>>> a9a0aba6e7b0ff8be1bf6e450555c33c7f3ad6e6
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_00001>,
@@ -4657,17 +3495,10 @@ Class: <https://rsna.org/roadmap/ROADMAP_03479>
 
     Annotations: 
         rdfs:label "pixel-level annotation"@en,
-<<<<<<< HEAD
         <http://www.w3.org/2004/02/skos/core#altLabel> "pixel annotation"@en,
         <http://www.w3.org/2004/02/skos/core#altLabel> "pixel label"@en,
         <http://www.w3.org/2004/02/skos/core#altLabel> "pixel-level label"@en,
         <http://www.w3.org/2004/02/skos/core#definition> "Annotation applied to one or more pixels of an image, either as a segmentation or as a simple geometric shape such a rectangle (bounding box)."@en
-=======
-        <http://www.w3.org/2004/02/skos/core#altLabel> "pixel annotation"^^xsd:string,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "pixel label"^^xsd:string,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "pixel-level label"^^xsd:string,
-        <http://www.w3.org/2004/02/skos/core#definition> "Annotation applied to one or more pixels of an image, either as a segmentation or as a simple geometric shape such a rectangle."^^xsd:string
->>>>>>> a9a0aba6e7b0ff8be1bf6e450555c33c7f3ad6e6
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_00051>
@@ -5919,17 +4750,11 @@ Class: <https://rsna.org/roadmap/ROADMAP_03597>
 Class: <https://rsna.org/roadmap/ROADMAP_03598>
 
     Annotations: 
-<<<<<<< HEAD
         rdfs:comment "Method as specified in the Papers With Code \"Methods\" hierarchy as of 2024-04-30."@en,
         rdfs:label "model architecture"@en,
         <http://www.w3.org/2004/02/skos/core#altLabel> "architecture"@en,
         <http://www.w3.org/2004/02/skos/core#altLabel> "method"@en,
         <http://www.w3.org/2004/02/skos/core#definition> "Textual description of underlying model technology, e.g., \"Convolutional Neural Network\"."@en
-=======
-        rdfs:comment "If possible, includes Method array to indicate architecture as linked from PapersWithCode."@en,
-        rdfs:comment "Textual description of underlying model technology, e.g., \"Convolutional Neural Network\"."@en,
-        rdfs:label "model architecture"@en
->>>>>>> a9a0aba6e7b0ff8be1bf6e450555c33c7f3ad6e6
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_03355>
@@ -6048,7 +4873,6 @@ Class: <https://rsna.org/roadmap/ROADMAP_03609>
     
     
 Class: <https://rsna.org/roadmap/ROADMAP_03612>
-<<<<<<< HEAD
 
     Annotations: 
         rdfs:comment "Clinical benefits, such as diagnosis, risk assessment, or treatment selection."@en,
@@ -6126,92 +4950,6 @@ Class: <https://rsna.org/roadmap/ROADMAP_03620>
         <http://purl.org/dc/elements/1.1/source> <https://www.regulations.gov/docket/FDA-2024-D-4488>,
         rdfs:label "reproducibility"@en,
         <http://www.w3.org/2004/02/skos/core#definition> "Describes the AI model's reproducibility associated with the provided outputs."@en
-=======
-
-    Annotations: 
-        rdfs:comment "Clinical benefits, such as: 
-- analyze personalized patient information to improve diagnosis, treatment assignment, monitoring, or prevention of a medical condition,
-- risk assessment."@en,
-        rdfs:label "clinical benefit"@en
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_03355>
-    
-    
-Class: <https://rsna.org/roadmap/ROADMAP_03613>
-
-    Annotations: 
-        rdfs:comment "Clinical workflow phase (e.g., patient pre-registration, digitization of forms or clinical  scales, patients’ triage, telehealth & virtual rounds, clinical decision support systems, workflow optimization, evidence-based methods to optimize medical interventions, feedback from users)."@en,
-        rdfs:label "clinical workflow phase"@en
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_03355>
-    
-    
-Class: <https://rsna.org/roadmap/ROADMAP_03614>
-
-    Annotations: 
-        rdfs:comment "Degree of automation compared to the current standard of care, including whether the device supports or automates decision making."@en,
-        rdfs:label "degree of automation"@en
->>>>>>> a9a0aba6e7b0ff8be1bf6e450555c33c7f3ad6e6
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_03355>
-    
-    
-<<<<<<< HEAD
-Class: <https://rsna.org/roadmap/ROADMAP_03621>
-
-    Annotations: 
-=======
-Class: <https://rsna.org/roadmap/ROADMAP_03616>
-
-    Annotations: 
-        rdfs:label "model performance value"@en,
-        <http://www.w3.org/2004/02/skos/core#definition> "Model performance information (e.g., sensitivity) and its 95% two-sided confidence intervals)."^^xsd:string
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_00001>
-    
-    
-Class: <https://rsna.org/roadmap/ROADMAP_03617>
-
-    Annotations: 
-        rdfs:label "observed value"@en,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "observed"^^xsd:string
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_03616>
-    
-    
-Class: <https://rsna.org/roadmap/ROADMAP_03618>
-
-    Annotations: 
-        rdfs:comment "Value at lower bound of 95% confidence interval for the specified metric."@en,
-        rdfs:label "lower bound value"@en,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "lower bound"^^xsd:string
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_03616>
-    
-    
-Class: <https://rsna.org/roadmap/ROADMAP_03619>
-
-    Annotations: 
-        rdfs:comment "Value at upper bound of 95% confidence interval for the specified metric."@en,
-        rdfs:label "upper bound value"@en,
-        <http://www.w3.org/2004/02/skos/core#altLabel> "upper bound"^^xsd:string
-    
-    SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_03616>
-    
-    
-Class: <https://rsna.org/roadmap/ROADMAP_03620>
-
-    Annotations: 
-        <http://purl.org/dc/elements/1.1/source> <https://www.regulations.gov/docket/FDA-2024-D-4488>,
-        rdfs:label "reproducibility"@en,
-        <http://www.w3.org/2004/02/skos/core#definition> "Describes the AI model's reproducibility associated with the provided outputs."@en
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_03355>
@@ -6220,22 +4958,17 @@ Class: <https://rsna.org/roadmap/ROADMAP_03620>
 Class: <https://rsna.org/roadmap/ROADMAP_03621>
 
     Annotations: 
->>>>>>> a9a0aba6e7b0ff8be1bf6e450555c33c7f3ad6e6
         <http://purl.org/dc/elements/1.1/source> "https://www.fda.gov/media/184856/download"@en,
         rdfs:label "limitations"@en,
         <http://www.w3.org/2004/02/skos/core#altLabel> "- Known biases or failure modes.
 Known gaps in the data characterization, such as patient populations that are not well represented in development (e.g., training) or testing datasets, and therefore, may be at risk of bias. 
 - Limitations in the model development or performance evaluation. 
 - Known circumstances where the device input will not align with the data used in development and validation."@en,
-<<<<<<< HEAD
         <http://www.w3.org/2004/02/skos/core#altLabel> "caution"@en,
         <http://www.w3.org/2004/02/skos/core#altLabel> "caveat"@en,
         <http://www.w3.org/2004/02/skos/core#altLabel> "limitation"@en,
         <http://www.w3.org/2004/02/skos/core#altLabel> "warning"@en,
         <http://www.w3.org/2004/02/skos/core#definition> "Describes concerns specific to the use of the AI model."@en
-=======
-        <http://www.w3.org/2004/02/skos/core#altLabel> "limitation"@en
->>>>>>> a9a0aba6e7b0ff8be1bf6e450555c33c7f3ad6e6
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_03355>
@@ -6396,11 +5129,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03639>
         <http://www.w3.org/2004/02/skos/core#definition> "A predicate device is an FDA-cleared medical device used as point of comparison for new medical devices seeking approval through FDA’s 510(k) pre-market clearance pathway."@en
     
     SubClassOf: 
-<<<<<<< HEAD
         <https://rsna.org/roadmap/ROADMAP_03602>
-=======
-        <https://rsna.org/roadmap/ROADMAP_03355>
->>>>>>> a9a0aba6e7b0ff8be1bf6e450555c33c7f3ad6e6
     
     
 Class: <https://rsna.org/roadmap/ROADMAP_03640>
@@ -7125,12 +5854,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_04003>
         rdfs:isDefinedBy <https://doi.org/>,
         rdfs:label "digital object identifier"@en,
         <http://www.w3.org/2004/02/skos/core#altLabel> "DOI"@en,
-<<<<<<< HEAD
         <http://www.w3.org/2004/02/skos/core#definition> "The Digital Object Identifier (DOI), expressed as a URL: https://doi.org/{DOI}."@en,
         <https://rsna.org/roadmap/ROADMAP_03626> <https://doi.org/.*>
-=======
-        <http://www.w3.org/2004/02/skos/core#definition> "The Digital Object Identifier (DOI), expressed as a URL: https://doi.org/{DOI}."@en
->>>>>>> a9a0aba6e7b0ff8be1bf6e450555c33c7f3ad6e6
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_03624>
@@ -7141,12 +5866,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_04004>
     Annotations: 
         rdfs:label "PubMed identifier"@en,
         <http://www.w3.org/2004/02/skos/core#altLabel> "PMID"@en,
-<<<<<<< HEAD
         <http://www.w3.org/2004/02/skos/core#altLabel> "PubMed ID"@en,
         <https://rsna.org/roadmap/ROADMAP_03626> <https://pubmed.gov/[0-9]+>
-=======
-        <http://www.w3.org/2004/02/skos/core#altLabel> "PubMed ID"@en
->>>>>>> a9a0aba6e7b0ff8be1bf6e450555c33c7f3ad6e6
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_03624>
@@ -8178,10 +6899,4 @@ For premature neonates, use \"Days of gestation\" to indicate gestation age and 
     
 DisjointClasses: 
     <https://rsna.org/roadmap/ROADMAP_03390>,<https://rsna.org/roadmap/ROADMAP_03391>,<https://rsna.org/roadmap/ROADMAP_03392>,<https://rsna.org/roadmap/ROADMAP_03393>,<https://rsna.org/roadmap/ROADMAP_03394>
-<<<<<<< HEAD
-=======
-
-DisjointClasses: 
-    <https://rsna.org/roadmap/ROADMAP_03398>,<https://rsna.org/roadmap/ROADMAP_03399>,<https://rsna.org/roadmap/ROADMAP_03400>
->>>>>>> a9a0aba6e7b0ff8be1bf6e450555c33c7f3ad6e6
 
