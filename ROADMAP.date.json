@@ -1,0 +1,18 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"$id": "ROADMAP.date.json",
+	"description": "Date (Year or ISO-format date)",
+	"anyOf": [
+		{
+			"type": "string",
+			"format": "date"
+		},
+		{
+			"type": "integer"
+		}
+	],
+	"examples": [
+		"2025-01-01",
+		2025
+	]
+}

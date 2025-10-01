@@ -1,0 +1,34 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"$id": "ROADMAP.org.json",
+	"description": "Details for each organization",
+	"$comment": "ROADMAP:00072",
+	"title": "Organization description",
+	"type": "object",
+	"properties": {
+		"Name": {
+			"description": "Name of organization",
+			"type": "string"
+		},
+		"Contact name": {
+			"description": "Name or role of organizational contact",
+			"type": "string"
+		},
+		"Email": {
+			"type": "string",
+			"format": "email"
+		},
+		"Address": {
+			"description": "Organizations's physical (real-world) address",
+			"type": "string"
+		},
+		"URL": {
+			"type": "string",
+			"format": "uri"
+		}
+	},
+	"required": [
+		"Name"
+	],
+	"additionalProperties": false
+}

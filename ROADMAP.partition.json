@@ -1,0 +1,20 @@
+{
+	"$schema": "http://json-schema.org/draft/2020-12/schema#",
+	"$id": "ROADMAP.partition.json",
+	"description": "Description of each partition",
+	"type": "object",
+	"properties": {
+		"Subset": {
+			"description": "Array of Subsets of partition by age, sex, race, and/or other criteria.",
+			"type": "array",
+			"items": {
+				"$ref": "ROADMAP.subset.json#"
+			}
+		},
+		"Comments": {
+			"$comment": "ROADMAP:00070",
+			"type": "string"
+		}
+	},
+	"additionalProperties": false
+}

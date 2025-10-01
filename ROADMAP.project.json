@@ -1,0 +1,98 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"title": "Project",
+	"description": "ROADMAP Project document schema, 2025-10 version",
+	"$comment": "Copyright (c) 2025, Radiological Society of North America",
+	"type": "object",
+	"properties": {
+		"$schema": {
+			"type": "string",
+			"const": "ROADMAP-project.json"
+		},
+		"Project": {
+			"description": "A Project links one or more Models and one or more Datasets",
+			"$comment": "ROADMAP:00010",
+			"type": "object",
+			"properties": {
+				"Name": {
+					"description": "Project name",
+					"$comment": "ROADMAP:03597",
+					"type": "string"
+				},
+				"Indexing": {
+					"description": "Indexing information, such as content codes, RadLex + SNOMED codes, and keywords)",
+					"$comment": "ROADMAP:00074",
+					"$ref": "ROADMAP.indexing.json"
+				},
+				"Descriptors": {
+					"description": "Details of the project",
+					"$comment": "ROADMAP:00004",
+					"$ref": "ROADMAP.descriptor.json"
+				},
+				"Models": {
+					"description": "Array of Model references",
+					"$ref": "#/$defs/resources"
+				},
+				"Datasets": {
+					"description": "Array of Dataset references",
+					"$ref": "#/$defs/resources"
+				}
+			},
+			"required": [
+				"Name",
+				"Models",
+				"Datasets"
+			],
+			"additionalProperties": false
+		}
+	},
+	"required": [
+		"$schema",
+		"Project"
+	],
+	"additionalProperties": false,
+	"$defs": {
+		"resources": {
+			"type": "array",
+			"minItems": 1,
+			"uniqueItems": true,
+			"items": {
+				"description": "Each resource must include Name and either ATLAS ID or URL.",
+				"type": "object",
+				"minProperties": 2,
+				"properties": {
+					"Name": {
+						"title": "Resource name",
+						"type": "string"
+					},
+					"ATLAS ID": {
+						"description": "ATLAS resource ID",
+						"$comment": "https://doi.org/10.1148/atlas.$",
+						"type": [
+							"string",
+							"integer"
+						],
+						"minLength": 1,
+						"maxLength": 9,
+						"pattern": "[0-9]+",
+						"minimum": 1,
+						"maximum": 999999999,
+						"examples": [
+							101,
+							"000101"
+						]
+					},
+					"URL": {
+						"description": "URL of external site",
+						"type": "string",
+						"format": "uri"
+					}
+				},
+				"required": [
+					"Name"
+				],
+				"additionalProperties": false
+			}
+		}
+	}
+}

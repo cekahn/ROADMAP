@@ -1,0 +1,37 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"$id": "ROADMAP.user.json",
+	"title": "User type",
+	"description": "Model user(s)",
+	"$comment": "ROADMAP:00040",
+	"type": "array",
+	"uniqueItems": true,
+	"items": {
+		"type": "string",
+		"minLength": 4,
+		"maxLength": 255,
+		"examples": [
+			"Administrator",
+			"Advanced practice provider",
+			"Caregiver",
+			"Diagnostic radiologist",
+			"Family member",
+			"General diagnostic radiologist",
+			"Interventional radiologist",
+			"Layperson",
+			"Non-physician provider",
+			"Nurse practitioner",
+			"Other",
+			"Patient",
+			"Physician assistant",
+			"Physician",
+			"Radiologist",
+			"Radiology nurse",
+			"Radiology technologist",
+			"Referring physician",
+			"Referring provider",
+			"Researcher",
+			"Subspecialist diagnostic radiologist"
+		]
+	}
+}
