@@ -1,6 +1,6 @@
 {
 	"$schema": "https://json-schema.org/draft/2020-12/schema",
-	"$id": "ROADMAP.reference.json",
+	"$id": "ATLAS.reference.json",
 	"description": "A reference about the resource, such as a clinical trial identifier or a pointer to a peer-reviewed publication or conference proceedings.",
 	"$comment": "ROADMAP:00067",
 	"type": "array",
@@ -31,7 +31,7 @@
 			},
 			"Date": {
 				"description": "Year or date of publication",
-				"$ref": "ROADMAP.date.json"
+				"$ref": "ATLAS.date.json"
 			},
 			"DOI": {
 				"description": "Digital Object Identifer (DOI)",

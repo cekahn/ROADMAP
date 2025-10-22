@@ -1,6 +1,6 @@
 {
 	"$schema": "https://json-schema.org/draft/2020-12/schema",
-	"$id": "ROADMAP.use.json",
+	"$id": "ATLAS.use.json",
 	"description": "Model use(s)",
 	"$comment": "ROADMAP:00015",
 	"type": "array",

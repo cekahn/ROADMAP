@@ -1,6 +1,6 @@
 {
 	"$schema": "https://json-schema.org/draft/2020-12/schema",
-	"$id": "ROADMAP.date.json",
+	"$id": "ATLAS.date.json",
 	"description": "Date (Year or ISO-format date)",
 	"anyOf": [
 		{

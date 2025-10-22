@@ -1,7 +1,7 @@
 {
 	"$schema": "https://json-schema.org/draft/2020-12/schema",
 	"title": "Project",
-	"description": "ROADMAP Project document schema, 2025-10 version",
+	"description": "RSNA ATLAS project card schema, 2025-10 version",
 	"$comment": "Copyright (c) 2025, Radiological Society of North America",
 	"type": "object",
 	"properties": {
@@ -22,12 +22,12 @@
 				"Indexing": {
 					"description": "Indexing information, such as content codes, RadLex + SNOMED codes, and keywords)",
 					"$comment": "ROADMAP:00074",
-					"$ref": "ROADMAP.indexing.json"
+					"$ref": "ATLAS.indexing.json"
 				},
 				"Descriptors": {
 					"description": "Details of the project",
 					"$comment": "ROADMAP:00004",
-					"$ref": "ROADMAP.descriptor.json"
+					"$ref": "ATLAS.descriptor.json"
 				},
 				"Models": {
 					"description": "Array of Model references",

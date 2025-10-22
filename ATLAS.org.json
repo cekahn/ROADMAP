@@ -1,6 +1,6 @@
 {
 	"$schema": "https://json-schema.org/draft/2020-12/schema",
-	"$id": "ROADMAP.org.json",
+	"$id": "ATLAS.org.json",
 	"description": "Details for each organization",
 	"$comment": "ROADMAP:00072",
 	"title": "Organization description",

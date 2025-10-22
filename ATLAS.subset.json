@@ -1,6 +1,6 @@
 {
 	"$schema": "https://json-schema.org/draft/2020-12/schema",
-	"$id": "ROADMAP.subset.json",
+	"$id": "ATLAS.subset.json",
 	"description": "Patient descriptor: age, sex, race, and/or other criterion.",
 	"$comment": "ROADMAP:03422",
 	"type": "object",

@@ -1,6 +1,6 @@
 {
 	"$schema": "https://json-schema.org/draft/2020-12/schema",
-	"$id": "ROADMAP.metric.json",
+	"$id": "ATLAS.metric.json",
 	"title": "Metric",
 	"description": "A scalar numerical value by which the model's performance is measured.",
 	"$comment": "ROADMAP:03302",

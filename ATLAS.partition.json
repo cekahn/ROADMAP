@@ -1,6 +1,6 @@
 {
 	"$schema": "http://json-schema.org/draft/2020-12/schema#",
-	"$id": "ROADMAP.partition.json",
+	"$id": "ATLAS.partition.json",
 	"description": "Description of each partition",
 	"type": "object",
 	"properties": {
@@ -8,7 +8,7 @@
 			"description": "Array of Subsets of partition by age, sex, race, and/or other criteria.",
 			"type": "array",
 			"items": {
-				"$ref": "ROADMAP.subset.json#"
+				"$ref": "ATLAS.subset.json#"
 			}
 		},
 		"Comments": {

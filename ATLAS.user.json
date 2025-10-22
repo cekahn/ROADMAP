@@ -1,6 +1,6 @@
 {
 	"$schema": "https://json-schema.org/draft/2020-12/schema",
-	"$id": "ROADMAP.user.json",
+	"$id": "ATLAS.user.json",
 	"title": "User type",
 	"description": "Model user(s)",
 	"$comment": "ROADMAP:00040",

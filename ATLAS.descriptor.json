@@ -1,6 +1,6 @@
 {
 	"$schema": "https://json-schema.org/draft/2020-12/schema",
-	"$id": "ROADMAP.descriptor.json",
+	"$id": "ATLAS.descriptor.json",
 	"description": "Details for Project, Model, and Dataset entities",
 	"type": "object",
 	"properties": {
@@ -9,7 +9,7 @@
 			"$comment": "ROADMAP:00064",
 			"type": "array",
 			"items": {
-				"$ref": "ROADMAP.person.json"
+				"$ref": "ATLAS.person.json"
 			}
 		},
 		"Comments": {
@@ -25,15 +25,15 @@
 			"properties": {
 				"Created": {
 					"description": "Creation date (ROADMAP:03419)",
-					"$ref": "ROADMAP.date.json"
+					"$ref": "ATLAS.date.json"
 				},
 				"Published": {
 					"description": "Publication date (ROADMAP:03420)",
-					"$ref": "ROADMAP.date.json"
+					"$ref": "ATLAS.date.json"
 				},
 				"Updated": {
 					"description": "Date of last update (ROADMAP:03421)",
-					"$ref": "ROADMAP.date.json"
+					"$ref": "ATLAS.date.json"
 				}
 			},
 			"additionalProperties": false
@@ -72,11 +72,11 @@
 			"$comment": "ROADMAP:00072",
 			"type": "array",
 			"items": {
-				"$ref": "ROADMAP.org.json"
+				"$ref": "ATLAS.org.json"
 			}
 		},
 		"References": {
-			"$ref": "ROADMAP.reference.json"
+			"$ref": "ATLAS.reference.json"
 		},
 		"Version": {
 			"description": "Version designation of this resource",

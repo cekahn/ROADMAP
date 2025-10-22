@@ -1,6 +1,6 @@
 {
 	"$schema": "https://json-schema.org/draft/2020-12/schema",
-	"$id": "ROADMAP.indexing.json",
+	"$id": "ATLAS.indexing.json",
 	"title": "Indexing codes: Content codes, RadLex, SNOMED, and keywords",
 	"$comment": "Copyright (c) 2025, Radiological Society of North America",
 	"type": "object",
