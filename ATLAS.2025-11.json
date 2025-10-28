@@ -1,60 +1,198 @@
 {
 	"$schema": "https://json-schema.org/draft/2020-12/schema",
-	"title": "Model",
-	"description": "RSNA ATLAS model card schema, 2025-10 version",
+	"title": "ATLAS schema",
+	"description": "RSNA ATLAS schema, 2025-11 version",
 	"$comment": "Copyright (c) 2025, Radiological Society of North America",
 	"type": "object",
-	"properties": {
-		"$schema": {
-			"type": "string",
-			"const": "model.json"
-		},
-		"Model": {
+	"additionalProperties": false,
+	"oneOf": [
+		{
 			"type": "object",
 			"properties": {
-				"Name": {
-					"description": "Model name",
-					"$comment": "ROADMAP:03597",
-					"type": "string"
+				"$schema": {
+					"ref": "#/$defs/$schema",
+					"$ref": "#/$defs/$schema"
 				},
-				"Link": {
-					"description": "URL pointer to source",
-					"type": "string",
-					"format": "uri"
-				},
-				"Indexing": {
-					"description": "Indexing information, such as content codes, RadLex + SNOMED codes, and keywords)",
-					"$comment": "ROADMAP:00074",
-					"$ref": "#/$defs/Indexing"
-				},
-				"Descriptors": {
-					"description": "Details of the model",
-					"$comment": "ROADMAP:00004",
-					"$ref": "#/$defs/Descriptors"
-				},
-				"Model properties": {
-					"description": "Model-specific properties",
-					"$comment": "ROADMAP:03355",
-					"$ref": "#/$defs/Model-properties"
-				},
-				"Metrics": {
-					"description": "The metrics used assess the model's performance.",
-					"$ref": "#/$defs/Metrics"
+				"Model": {
+					"$ref": "#/$defs/Model"
 				}
 			},
 			"required": [
-				"Name",
-				"Link"
+				"$schema",
+				"Model"
+			],
+			"additionalProperties": false
+		},
+		{
+			"type": "object",
+			"properties": {
+				"$schema": {
+					"$ref": "#/$defs/$schema"
+				},
+				"Dataset": {
+					"$ref": "#/$defs/Dataset"
+				}
+			},
+			"required": [
+				"$schema",
+				"Dataset"
+			],
+			"additionalProperties": false
+		},
+		{
+			"type": "object",
+			"properties": {
+				"$schema": {
+					"$ref": "#/$defs/$schema"
+				},
+				"Project": {
+					"$ref": "#/$defs/Project"
+				}
+			},
+			"required": [
+				"$schema",
+				"Project"
 			],
 			"additionalProperties": false
 		}
-	},
-	"required": [
-		"$schema",
-		"Model"
 	],
-	"additionalProperties": false,
 	"$defs": {
+		"$schema": {
+			"type": "string",
+			"const": "ATLAS.2025-11.json"
+		},
+		"Dataset": {
+			"$comment": "Copyright (c) 2025, Radiological Society of North America",
+			"type": "object",
+			"properties": {
+				"$schema": {
+					"type": "string",
+					"const": "dataset.json"
+				},
+				"Dataset": {
+					"description": "Describes an AI dataset",
+					"$comment": "ROADMAP:00003",
+					"type": "object",
+					"properties": {
+						"Name": {
+							"description": "Dataset name",
+							"$comment": "ROADMAP:03597",
+							"type": "string"
+						},
+						"Link": {
+							"description": "URL pointer to source",
+							"type": "string",
+							"format": "uri"
+						},
+						"Indexing": {
+							"description": "Indexing information, such as content codes, RadLex + SNOMED codes, and keywords)",
+							"$comment": "ROADMAP:00074",
+							"$ref": "#/$defs/Indexing"
+						},
+						"Descriptors": {
+							"description": "Details of the dataset",
+							"$comment": "ROADMAP:00004",
+							"$ref": "#/$defs/Descriptors"
+						},
+						"Dataset properties": {
+							"description": "Properties specific to datasets",
+							"$comment": "ROADMAP:03381",
+							"$ref": "#/$defs/Dataset-properties"
+						},
+						"Partitions": {
+							"type": "array",
+							"items": {
+								"type": "object",
+								"properties": {
+									"Partition name": {
+										"description": "The name of the partition, such as Training.",
+										"type": "string",
+										"examples": [
+											"Training",
+											"Optimization",
+											"Validation",
+											"Internal testing",
+											"External testing"
+										]
+									},
+									"Content": {
+										"description": "Attributes of the dataset, including possible subsets",
+										"$ref": "#/$defs/Subset"
+									}
+								},
+								"additionalProperties": false
+							}
+						}
+					},
+					"required": [
+						"Name",
+						"Link"
+					],
+					"additionalProperties": false
+				}
+			},
+			"required": [
+				"$schema",
+				"Dataset"
+			],
+			"additionalProperties": false
+		},
+		"Dataset-properties": {
+			"type": "object",
+			"properties": {
+				"Confidentiality": {
+					"description": "Describes any data that might be confidential, such as those protected by law or doctor-patient confidentiality.",
+					"$comment": "ROADMAP:03413",
+					"type": "string"
+				},
+				"External data": {
+					"description": "External resources such as web sites, social-media posts or other datasets. Include information about their permanence, archival versions, and any restrictions on their use (e.g., data-use agreements, licenses, fees),",
+					"$comment": "ROADMAP:03412",
+					"type": "string"
+				},
+				"Missing information": {
+					"description": "Describes what information, if any, is missing from the dataset and why.",
+					"$comment": "ROADMAP:03408",
+					"type": "string"
+				},
+				"Motivation": {
+					"description": "Describes the specific purpose for which the dataset was created. May include information about funding sources.",
+					"$comment": "ROADMAP:03383",
+					"type": "string"
+				},
+				"Noise": {
+					"description": "Describes any errors, sources of noise, or redundancies in the dataset.",
+					"$comment": "ROADMAP:03411",
+					"type": "string"
+				},
+				"Partitioning scheme": {
+					"description": "Describes how a dataset was partitioned for training, optimization (\\validation\") and testing.",
+					"$comment": "ROADMAP:03410",
+					"type": "string"
+				},
+				"Re-identification": {
+					"description": "Describes if and how it is possible to identify individual persons, either directly or indirectly, from the dataset.",
+					"$comment": "ROADMAP:03415",
+					"type": "string"
+				},
+				"Relationships between instances": {
+					"description": "Describes if and how any relationships between individual data items are made explicit.",
+					"$comment": "ROADMAP:03409",
+					"type": "string"
+				},
+				"Sampling": {
+					"description": "Describes how the data that form the dataset were selected.",
+					"$comment": "ROADMAP:03396",
+					"type": "string"
+				},
+				"Sensitive data": {
+					"description": "Describes any data that might be considered sensitive.",
+					"$comment": "ROADMAP:03416",
+					"type": "string"
+				}
+			},
+			"additionalProperties": false
+		},
 		"Date": {
 			"description": "Date (Year or ISO-format date)",
 			"examples": [
@@ -72,7 +210,8 @@
 			]
 		},
 		"Descriptors": {
-			"description": "Details for Project, Model, and Dataset entities",
+			"description": "Characteristics of a project, model, or dataset.  Whenever possible, values should link to other ontologies or controlled vocabularies.",
+			"$comment": "ROADMAP:00004",
 			"type": "object",
 			"properties": {
 				"Authors": {
@@ -304,45 +443,13 @@
 			},
 			"additionalProperties": false
 		},
-		"Org": {
-			"title": "Organization description",
-			"description": "Details for each organization",
-			"$comment": "ROADMAP:00072",
-			"type": "object",
-			"properties": {
-				"Name": {
-					"description": "Name of organization",
-					"type": "string"
-				},
-				"Contact name": {
-					"description": "Name or role of organizational contact",
-					"type": "string"
-				},
-				"Email": {
-					"type": "string",
-					"format": "email"
-				},
-				"Address": {
-					"description": "Organizations's physical (real-world) address",
-					"type": "string"
-				},
-				"URL": {
-					"type": "string",
-					"format": "uri"
-				}
-			},
-			"required": [
-				"Name"
-			],
-			"additionalProperties": false
-		},
 		"Metrics": {
-			"description": "The metrics used to measure the model's performance.",
+			"description": "Information about the model's performance. Includes a list of the reported metrics and a text field where one can specify values for the metrics.",
 			"$comment": "ROADMAP:03302",
 			"type": "object",
 			"properties": {
-				"Metric names": {
-					"description": "An array of the metrics used to assess the model's performance, including scalar, matrix, and graphical metrics (e.g., sensitivity, confusion matrix, ROC curve). If not one of the enumerated metrics, check the ROADMAP ontology for a possible synonym and/or provide a textual description in the Metrics description field.",
+				"Metrics": {
+					"description": "An array of the metrics used to assess the model's performance, including scalar, matrix, and graphical metrics (e.g., sensitivity, confusion matrix, ROC curve). If not one of the enumerated metrics, check the ROADMAP ontology for a possible synonym or report as \"other\".  Provide a textual description in the Comments field.",
 					"$comment": "ROADMAP:03642",
 					"type": "array",
 					"items": {
@@ -564,11 +671,50 @@
 						]
 					}
 				},
-				"Metrics description": {
+				"Comments": {
 					"description": "Describes the metric(s) used, the data on which the model was evaluated, and the value(s) of the metrics.",
 					"type": "string"
 				}
 			},
+			"additionalProperties": false
+		},
+		"Model": {
+			"type": "object",
+			"properties": {
+				"Name": {
+					"description": "Model name",
+					"$comment": "ROADMAP:03597",
+					"type": "string"
+				},
+				"Link": {
+					"description": "URL pointer to source",
+					"type": "string",
+					"format": "uri"
+				},
+				"Indexing": {
+					"description": "Indexing information, such as content codes, RadLex + SNOMED codes, and keywords)",
+					"$comment": "ROADMAP:00074",
+					"$ref": "#/$defs/Indexing"
+				},
+				"Descriptors": {
+					"description": "Details of the model",
+					"$comment": "ROADMAP:00004",
+					"$ref": "#/$defs/Descriptors"
+				},
+				"Model properties": {
+					"description": "Model-specific properties",
+					"$comment": "ROADMAP:03355",
+					"$ref": "#/$defs/Model-properties"
+				},
+				"Model performance": {
+					"description": "Information about the model's performance and the metrics used to measure performance.",
+					"$ref": "#/$defs/Metrics"
+				}
+			},
+			"required": [
+				"Name",
+				"Link"
+			],
 			"additionalProperties": false
 		},
 		"Model-properties": {
@@ -733,6 +879,38 @@
 			},
 			"additionalProperties": false
 		},
+		"Org": {
+			"title": "Organization description",
+			"description": "Details for each organization",
+			"$comment": "ROADMAP:00072",
+			"type": "object",
+			"properties": {
+				"Name": {
+					"description": "Name of organization",
+					"type": "string"
+				},
+				"Contact name": {
+					"description": "Name or role of organizational contact",
+					"type": "string"
+				},
+				"Email": {
+					"type": "string",
+					"format": "email"
+				},
+				"Address": {
+					"description": "Organizations's physical (real-world) address",
+					"type": "string"
+				},
+				"URL": {
+					"type": "string",
+					"format": "uri"
+				}
+			},
+			"required": [
+				"Name"
+			],
+			"additionalProperties": false
+		},
 		"Person": {
 			"description": "Description for individual Person (ROADMAP:00071)",
 			"$comment": "ROADMAP:00071",
@@ -768,6 +946,84 @@
 				"Name"
 			],
 			"additionalProperties": false
+		},
+		"Project": {
+			"description": "A Project links one or more Models and one or more Datasets",
+			"$comment": "ROADMAP:00010",
+			"type": "object",
+			"properties": {
+				"Name": {
+					"description": "Project name",
+					"$comment": "ROADMAP:03597",
+					"type": "string"
+				},
+				"Indexing": {
+					"description": "Indexing information, such as content codes, RadLex + SNOMED codes, and keywords)",
+					"$comment": "ROADMAP:00074",
+					"$ref": "#/$defs/Indexing"
+				},
+				"Descriptors": {
+					"description": "Details of the project",
+					"$comment": "ROADMAP:00004",
+					"$ref": "#/$defs/Descriptors"
+				},
+				"Models": {
+					"description": "Array of Model references",
+					"$ref": "#/$defs/Project-resources"
+				},
+				"Datasets": {
+					"description": "Array of Dataset references",
+					"$ref": "#/$defs/Project-resources"
+				}
+			},
+			"required": [
+				"Name",
+				"Models",
+				"Datasets"
+			],
+			"additionalProperties": false
+		},
+		"Project-resources": {
+			"type": "array",
+			"minItems": 1,
+			"uniqueItems": true,
+			"items": {
+				"description": "Each resource must include Name and either ATLAS ID or URL.",
+				"type": "object",
+				"minProperties": 2,
+				"properties": {
+					"Name": {
+						"title": "Resource name",
+						"type": "string"
+					},
+					"ATLAS ID": {
+						"description": "ATLAS resource ID",
+						"$comment": "https://doi.org/10.1148/atlas.$",
+						"type": [
+							"string",
+							"integer"
+						],
+						"minLength": 1,
+						"maxLength": 9,
+						"pattern": "[0-9]+",
+						"minimum": 1,
+						"maximum": 999999999,
+						"examples": [
+							101,
+							"000101"
+						]
+					},
+					"URL": {
+						"description": "URL of external site",
+						"type": "string",
+						"format": "uri"
+					}
+				},
+				"required": [
+					"Name"
+				],
+				"additionalProperties": false
+			}
 		},
 		"Reference": {
 			"description": "A reference about the resource, such as a clinical trial identifier or a pointer to a peer-reviewed publication or conference proceedings.",
@@ -845,6 +1101,168 @@
 				],
 				"additionalProperties": false
 			}
+		},
+		"Subset": {
+			"description": "A Subset may describe all or part of a Dataset, Partition, or Subset by age, sex, race, and/or other criterion.",
+			"$comment": "ROADMAP:03422",
+			"type": "object",
+			"properties": {
+				"Site count": {
+					"description": "Number of sites",
+					"$comment": "Site count (ROADMAP:03358)",
+					"type": "integer"
+				},
+				"Patient count": {
+					"description": "Number of distinct patients",
+					"$comment": "Patient count (ROADMAP:00056)",
+					"type": "integer"
+				},
+				"Exam count": {
+					"description": "Number of exams",
+					"$comment": "Study count (ROADMAP:00057)",
+					"type": "integer"
+				},
+				"Series count": {
+					"description": "Number of imaging series",
+					"$comment": "Series count (ROADMAP:00632)",
+					"type": "integer"
+				},
+				"Image count": {
+					"description": "Number of images",
+					"$comment": "Image count (ROADMAP:00058)",
+					"type": "integer"
+				},
+				"Age range": {
+					"title": "Age range",
+					"description": "Age range, specified as a 2-element array: [Lower bound, Upper bound]",
+					"type": "array",
+					"minItems": 2,
+					"maxItems": 2,
+					"items": {
+						"description": "Lower or upper bound",
+						"type": "array",
+						"minItems": 2,
+						"maxItems": 2,
+						"prefixItems": [
+							{
+								"description": "Value",
+								"type": "integer",
+								"minimum": 0,
+								"maximum": 240
+							}
+						],
+						"items": {
+							"description": "Units",
+							"type": "string",
+							"enum": [
+								"days",
+								"months",
+								"years"
+							]
+						},
+						"examples": [
+							[
+								10,
+								"days"
+							],
+							[
+								3,
+								"months"
+							],
+							[
+								18,
+								"years"
+							]
+						]
+					},
+					"examples": [
+						[
+							[
+								2,
+								"years"
+							],
+							[
+								17,
+								"years"
+							]
+						],
+						[
+							[
+								65,
+								"years"
+							],
+							[
+								100,
+								"years"
+							]
+						]
+					]
+				},
+				"Sex": {
+					"type": "string",
+					"enum": [
+						"Female",
+						"Male",
+						"Unknown",
+						"Not specified"
+					]
+				},
+				"Demographic": {
+					"description": "Race / ethnicity (U.S. reporting categories)",
+					"$comment": "Race / ethnicity (ROADMAP:03441)",
+					"type": "string",
+					"enum": [
+						"American Indian or Alaska Native",
+						"Asian",
+						"Black or African American",
+						"Hispanic or Latino",
+						"Middle Eastern or North African",
+						"Native Hawaiian or Pacific Islander",
+						"White"
+					]
+				},
+				"Criterion": {
+					"description": "Other subset criterion, such as reference-standard value, imaging finding, or other factor",
+					"$comment": "ROADMAP:03477",
+					"type": "string"
+				},
+				"Comments": {
+					"type": "string"
+				},
+				"Subsets": {
+					"description": "A Subset may describe all or part of a Dataset, Partition, or Subset",
+					"$comment": "ROADMAP:03472",
+					"type": "array",
+					"items": {
+						"description": "Subset data by age, sex, race, and/or other criteria.",
+						"$ref": "#/$defs/Subset"
+					}
+				}
+			},
+			"additionalProperties": false,
+			"examples": [
+				{
+					"Sex": "Female",
+					"Patient count": 501
+				},
+				{
+					"Age range": [
+						[
+							50,
+							"years"
+						],
+						[
+							59,
+							"years"
+						]
+					],
+					"Sex": "Male",
+					"Demographics": "Asian",
+					"Patient count": 42,
+					"Exam  count": 50,
+					"Image count": 572
+				}
+			]
 		},
 		"Use": {
 			"description": "Model use(s)",
