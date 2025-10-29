@@ -1,10 +1,10 @@
+Prefix: : <urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6>
 Prefix: owl: <http://www.w3.org/2002/07/owl#>
 Prefix: rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 Prefix: rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 Prefix: skos: <http://www.w3.org/2004/02/skos/core#>
 Prefix: xml: <http://www.w3.org/XML/1998/namespace>
 Prefix: xsd: <http://www.w3.org/2001/XMLSchema#>
-Prefix: : <urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6>
 
 
 
@@ -337,6 +337,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_00001>
 
     Annotations: 
         rdfs:label "ROADMAP entity"@en,
+        rdfs:label "entidad de ontología ROADMAP"@es,
         skos:definition "The top-level class in the ROADMAP ontology."@en
     
     SubClassOf: 
@@ -347,6 +348,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_00002>
 
     Annotations: 
         rdfs:label "model"@en,
+        rdfs:label "modelo"@es,
         skos:definition "An AI model, described by descriptors and model properties."@en
     
     SubClassOf: 
@@ -376,7 +378,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_00003>
 Class: <https://rsna.org/roadmap/ROADMAP_00004>
 
     Annotations: 
-        rdfs:label "descriptor",
+        rdfs:label "descriptor"@en,
+        rdfs:label "descriptor"@es,
         skos:altLabel "detail",
         skos:altLabel "details",
         skos:definition "A characteristic of a project, model, or dataset.  Whenever possible, values should link to other ontologies or controlled vocabularies."
@@ -388,6 +391,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_00004>
 Class: <https://rsna.org/roadmap/ROADMAP_00005>
 
     Annotations: 
+        rdfs:label "conjunto de datos de entrenamiento"@es,
         rdfs:label "training dataset"@en,
         skos:altLabel "training data"@en,
         skos:definition "The data on which an AI model is trained."@en
@@ -399,6 +403,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_00005>
 Class: <https://rsna.org/roadmap/ROADMAP_00006>
 
     Annotations: 
+        rdfs:label "conjunto de datos de optimización"@es,
         rdfs:label "optimization dataset"@en,
         skos:altLabel "optimization data"@en,
         skos:altLabel "tuning data"@en,
@@ -414,6 +419,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_00006>
 Class: <https://rsna.org/roadmap/ROADMAP_00007>
 
     Annotations: 
+        rdfs:label "conjunto de datos de prueba"@es,
         rdfs:label "testing dataset"@en,
         skos:altLabel "testing data"@en,
         skos:definition "Data on which a model's performance is assessed. Can be \"internal\" (a partition of the original dataset) or \"external\" (from another dataset or institution)."@en
@@ -425,6 +431,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_00007>
 Class: <https://rsna.org/roadmap/ROADMAP_00008>
 
     Annotations: 
+        rdfs:label "conjunto de datos de pruebas internas"@es,
         rdfs:label "internal testing dataset"@en,
         skos:altLabel "internal test data"@en,
         skos:altLabel "internal test dataset"@en,
@@ -439,6 +446,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_00009>
 
     Annotations: 
         rdfs:comment "The term \"external testing\" is preferred over \"external validation,\" as the term \"validation\" can be ambiguous."@en,
+        rdfs:label "conjunto de datos de pruebas externas"@es,
         rdfs:label "external testing dataset"@en,
         skos:altLabel "external testing data"@en,
         skos:altLabel "external testing dataset"@en,
@@ -453,7 +461,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_00009>
 Class: <https://rsna.org/roadmap/ROADMAP_00010>
 
     Annotations: 
-        rdfs:label "project",
+        rdfs:label "project"@en,
+        rdfs:label "proyecto"@es,
         skos:definition "A Project allows one to aggregate Models and Datasets;  a Project can comprise a model and its data, a model only, or a dataset only. It is described by Descriptor entities (Author, Date, Comments, etc.)."@en
     
     SubClassOf: 
@@ -467,7 +476,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_00010>
 Class: <https://rsna.org/roadmap/ROADMAP_00011>
 
     Annotations: 
-        rdfs:label "model use"
+        rdfs:label "model use"@en,
+        rdfs:label "uso del modelo"@es
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_03355>,
@@ -477,7 +487,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_00011>
 Class: <https://rsna.org/roadmap/ROADMAP_00012>
 
     Annotations: 
-        rdfs:label "intended model use"
+        rdfs:label "intended model use"@en,
+        rdfs:label "uso previsto del modelo"@es
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_00011>
@@ -486,7 +497,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_00012>
 Class: <https://rsna.org/roadmap/ROADMAP_00013>
 
     Annotations: 
-        rdfs:label "out-of-scope model use"
+        rdfs:label "out-of-scope model use"@en,
+        rdfs:label "uso fuera del alcance del modelo"@es
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_00011>
@@ -495,7 +507,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_00013>
 Class: <https://rsna.org/roadmap/ROADMAP_00014>
 
     Annotations: 
-        rdfs:label "excluded model use"
+        rdfs:label "excluded model use"@en,
+        rdfs:label "uso excluido del modelo"@es
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_00011>
@@ -504,6 +517,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_00014>
 Class: <https://rsna.org/roadmap/ROADMAP_00015>
 
     Annotations: 
+        rdfs:label "tipo de uso"@es,
         rdfs:label "use type"@en,
         skos:altLabel "task"@en,
         skos:definition "The task to which the AI model is applied, such as image segmentation."@en
@@ -515,7 +529,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_00015>
 Class: <https://rsna.org/roadmap/ROADMAP_00016>
 
     Annotations: 
-        rdfs:label "risk assessment"
+        rdfs:label "evaluación de riesgos"@es,
+        rdfs:label "risk assessment"@en
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_00015>
@@ -524,7 +539,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_00016>
 Class: <https://rsna.org/roadmap/ROADMAP_00017>
 
     Annotations: 
-        rdfs:label "procedure selection"
+        rdfs:label "procedure selection"@en,
+        rdfs:label "selección del procedimiento"@es
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_00015>
@@ -533,7 +549,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_00017>
 Class: <https://rsna.org/roadmap/ROADMAP_00018>
 
     Annotations: 
-        rdfs:label "exam protocol selection",
+        rdfs:label "exam protocol selection"@en,
+        rdfs:label "selección del protocolo de examen"@es,
         skos:altLabel "protocol selection",
         skos:altLabel "protocoling"
     
@@ -544,7 +561,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_00018>
 Class: <https://rsna.org/roadmap/ROADMAP_00019>
 
     Annotations: 
-        rdfs:label "triage",
+        rdfs:label "triage"@en,
+        rdfs:label "triaje"@es,
         skos:altLabel "CADt"@en,
         skos:altLabel "Computer-aided triage"@en,
         skos:altLabel "Computer-assisted triage"@en,
@@ -558,7 +576,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_00020>
 
     Annotations: 
         rdfs:comment "Detection of single disorder or condition."@en,
-        rdfs:label "detection",
+        rdfs:label "detección"@es,
+        rdfs:label "detection"@en,
         skos:altLabel "CADe"@en,
         skos:altLabel "computer-aided detection",
         skos:altLabel "computer-assisted detection"
@@ -571,7 +590,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_00021>
 
     Annotations: 
         rdfs:comment "Identification of a single diagnosis or a list of possible diagnoses."@en,
-        rdfs:label "diagnosis",
+        rdfs:label "diagnosis"@en,
+        rdfs:label "diagnóstico"@es,
         skos:altLabel "CADx"@en,
         skos:altLabel "computer-aided diagnosis",
         skos:altLabel "computer-assisted diagnosis",
@@ -584,7 +604,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_00021>
 Class: <https://rsna.org/roadmap/ROADMAP_00022>
 
     Annotations: 
-        rdfs:label "decision support"
+        rdfs:label "apoyo a la toma de decisiones"@es,
+        rdfs:label "decision support"@en
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_00015>
@@ -593,7 +614,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_00022>
 Class: <https://rsna.org/roadmap/ROADMAP_00023>
 
     Annotations: 
-        rdfs:label "prognosis"
+        rdfs:label "prognosis"@en,
+        rdfs:label "pronóstico"@es
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_00015>
@@ -602,7 +624,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_00023>
 Class: <https://rsna.org/roadmap/ROADMAP_00024>
 
     Annotations: 
-        rdfs:label "image processing"
+        rdfs:label "image processing"@en
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_00015>
@@ -611,7 +633,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_00024>
 Class: <https://rsna.org/roadmap/ROADMAP_00025>
 
     Annotations: 
-        rdfs:label "image reconstruction"
+        rdfs:label "image reconstruction"@en,
+        rdfs:label "reconstrucción de imágenes"@es
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_00024>
@@ -620,7 +643,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_00025>
 Class: <https://rsna.org/roadmap/ROADMAP_00026>
 
     Annotations: 
-        rdfs:label "image style transfer"
+        rdfs:label "image style transfer"@en,
+        rdfs:label "transferencia de estilo de imagen"@es
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_00024>
@@ -629,7 +653,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_00026>
 Class: <https://rsna.org/roadmap/ROADMAP_00027>
 
     Annotations: 
-        rdfs:label "noise reduction"
+        rdfs:label "noise reduction"@en,
+        rdfs:label "reducción de ruido"@es
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_00024>
@@ -638,7 +663,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_00027>
 Class: <https://rsna.org/roadmap/ROADMAP_00028>
 
     Annotations: 
-        rdfs:label "artifact reduction"
+        rdfs:label "artifact reduction"@en,
+        rdfs:label "reducción de artefactos"@es
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_00024>
@@ -647,7 +673,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_00028>
 Class: <https://rsna.org/roadmap/ROADMAP_00029>
 
     Annotations: 
-        rdfs:label "image segmentation",
+        rdfs:label "image segmentation"@en,
         skos:altLabel "segmentation"
     
     SubClassOf: 
@@ -657,7 +683,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_00029>
 Class: <https://rsna.org/roadmap/ROADMAP_00030>
 
     Annotations: 
-        rdfs:label "text processing"
+        rdfs:label "procesamiento de textos"@es,
+        rdfs:label "text processing"@en
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_00015>
@@ -666,7 +693,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_00030>
 Class: <https://rsna.org/roadmap/ROADMAP_00031>
 
     Annotations: 
-        rdfs:label "text summarization"
+        rdfs:label "resumen de textos"@es,
+        rdfs:label "text summarization"@en
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_00030>
@@ -675,7 +703,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_00031>
 Class: <https://rsna.org/roadmap/ROADMAP_00032>
 
     Annotations: 
-        rdfs:label "report generation"
+        rdfs:label "generación de informes"@es,
+        rdfs:label "report generation"@en
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_00030>
@@ -684,7 +713,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_00032>
 Class: <https://rsna.org/roadmap/ROADMAP_00033>
 
     Annotations: 
-        rdfs:label "report impression generation"
+        rdfs:label "generación de impresiones de informes"@es,
+        rdfs:label "report impression generation"@en
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_00030>
@@ -693,7 +723,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_00033>
 Class: <https://rsna.org/roadmap/ROADMAP_00034>
 
     Annotations: 
-        rdfs:label "report data extraction"
+        rdfs:label "extracción de datos de informes"@es,
+        rdfs:label "report data extraction"@en
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_00030>
@@ -702,7 +733,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_00034>
 Class: <https://rsna.org/roadmap/ROADMAP_00035>
 
     Annotations: 
-        rdfs:label "report translation"
+        rdfs:label "report translation"@en,
+        rdfs:label "traducción de informes"@es
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_00030>
@@ -711,7 +743,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_00035>
 Class: <https://rsna.org/roadmap/ROADMAP_00036>
 
     Annotations: 
-        rdfs:label "model user"
+        rdfs:label "model user"@en,
+        rdfs:label "usuario del modelo"@es
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_03355>,
@@ -722,7 +755,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_00037>
 
     Annotations: 
         rdfs:comment "Intended users, e.g., heathcare professional, caregivers, patients."@en,
-        rdfs:label "intended model user"
+        rdfs:label "intended model user"@en,
+        rdfs:label "usuario previsto del modelo"@es
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_00036>
@@ -731,7 +765,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_00037>
 Class: <https://rsna.org/roadmap/ROADMAP_00038>
 
     Annotations: 
-        rdfs:label "out-of-scope model user"
+        rdfs:label "out-of-scope model user"@en,
+        rdfs:label "usuario fuera del alcance del modelo"@es
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_00036>
@@ -740,7 +775,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_00038>
 Class: <https://rsna.org/roadmap/ROADMAP_00039>
 
     Annotations: 
-        rdfs:label "excluded model user"
+        rdfs:label "excluded model user"@en,
+        rdfs:label "usuario excluido del modelo"@es
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_00036>
@@ -749,7 +785,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_00039>
 Class: <https://rsna.org/roadmap/ROADMAP_00040>
 
     Annotations: 
-        rdfs:label "user type",
+        rdfs:label "tipo de usuario"@es,
+        rdfs:label "user type"@en,
         skos:definition "The type of human user(s) of the AI model, such as general practitioner."@en
     
     SubClassOf: 
@@ -759,7 +796,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_00040>
 Class: <https://rsna.org/roadmap/ROADMAP_00041>
 
     Annotations: 
-        rdfs:label "patient"
+        rdfs:label "paciente"@es,
+        rdfs:label "patient"@en
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_03359>
@@ -769,6 +807,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_00042>
 
     Annotations: 
         rdfs:label "radiology technologist"@en,
+        rdfs:label "tecnólogo en radiología"@es,
         rdfs:seeAlso <https://www.arrt.org/>,
         skos:altLabel "radiographer"@en-gb,
         skos:definition "A radiology professional who operates the imaging devices, performs the imaging examinations, and/or performs image post-processing."
@@ -780,7 +819,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_00042>
 Class: <https://rsna.org/roadmap/ROADMAP_00043>
 
     Annotations: 
-        rdfs:label "radiology nurse"
+        rdfs:label "enfermero/a de radiología"@es,
+        rdfs:label "radiology nurse"@en
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_03491>
@@ -789,7 +829,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_00043>
 Class: <https://rsna.org/roadmap/ROADMAP_00044>
 
     Annotations: 
-        rdfs:label "radiologist"
+        rdfs:label "radiologist"@en,
+        rdfs:label "radiólogo"@es
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_00075>
@@ -798,7 +839,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_00044>
 Class: <https://rsna.org/roadmap/ROADMAP_00045>
 
     Annotations: 
-        rdfs:label "diagnostic radiologist"
+        rdfs:label "diagnostic radiologist"@en,
+        rdfs:label "radiólogo de diagnóstico"@es
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_00044>
@@ -807,7 +849,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_00045>
 Class: <https://rsna.org/roadmap/ROADMAP_00046>
 
     Annotations: 
-        rdfs:label "general diagnostic radiologist"
+        rdfs:label "general diagnostic radiologist"@en,
+        rdfs:label "radiólogo de diagnóstico general"@es
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_00045>
@@ -816,7 +859,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_00046>
 Class: <https://rsna.org/roadmap/ROADMAP_00047>
 
     Annotations: 
-        rdfs:label "subspecialist diagnostic radiologist"
+        rdfs:label "radiólogo de diagnóstico subespecialista"@es,
+        rdfs:label "subspecialist diagnostic radiologist"@en
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_00045>
@@ -825,7 +869,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_00047>
 Class: <https://rsna.org/roadmap/ROADMAP_00048>
 
     Annotations: 
-        rdfs:label "interventional radiologist",
+        rdfs:label "interventional radiologist"@en,
+        rdfs:label "radiólogo intervencionista"@es,
         skos:altLabel "IR physician"
     
     SubClassOf: 
@@ -835,7 +880,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_00048>
 Class: <https://rsna.org/roadmap/ROADMAP_00049>
 
     Annotations: 
-        rdfs:label "referring physician"
+        rdfs:label "médico remitente"@es,
+        rdfs:label "referring physician"@en
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_00075>,
@@ -845,7 +891,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_00049>
 Class: <https://rsna.org/roadmap/ROADMAP_00050>
 
     Annotations: 
-        rdfs:label "researcher"
+        rdfs:label "investigador"@es,
+        rdfs:label "researcher"@en
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_00040>
@@ -855,6 +902,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_00051>
 
     Annotations: 
         rdfs:label "annotation level"@en,
+        rdfs:label "nivel de anotación"@es,
         skos:altLabel "annotation type"@en,
         skos:altLabel "level of annotation"@en,
         skos:definition "Defines the level at which annotations were made, such as per patient, per image, etc."@en
@@ -866,6 +914,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_00051>
 Class: <https://rsna.org/roadmap/ROADMAP_00052>
 
     Annotations: 
+        rdfs:label "anotación a nivel de imagen"@es,
         rdfs:label "image-level annotation"@en,
         skos:altLabel "image label"@en,
         skos:altLabel "image-level label"@en,
@@ -878,6 +927,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_00052>
 Class: <https://rsna.org/roadmap/ROADMAP_00053>
 
     Annotations: 
+        rdfs:label "anotación a nivel de paciente"@es,
         rdfs:label "patient-level annotation"@en,
         skos:altLabel "patient label"@en,
         skos:altLabel "patient-level label"@en,
@@ -890,6 +940,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_00053>
 Class: <https://rsna.org/roadmap/ROADMAP_00054>
 
     Annotations: 
+        rdfs:label "anotación a nivel de examen"@es,
         rdfs:label "examination-level annotation"@en,
         skos:altLabel "exam-level annotation"@en,
         skos:altLabel "study-level annotation"@en,
@@ -903,6 +954,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_00055>
 
     Annotations: 
         rdfs:label "count"@en,
+        rdfs:label "número"@es,
         skos:altLabel "number"@en,
         skos:altLabel "number of items"@en,
         skos:altLabel "número de artículos"@es,
@@ -916,6 +968,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_00055>
 Class: <https://rsna.org/roadmap/ROADMAP_00056>
 
     Annotations: 
+        rdfs:label "número de pacientes"@es,
         rdfs:label "patient count"@en,
         skos:altLabel "number of distinct patients"@en,
         skos:altLabel "number of patients"@en,
@@ -932,6 +985,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_00057>
 
     Annotations: 
         rdfs:label "exam count"@en,
+        rdfs:label "número de exámenes"@es,
         skos:altLabel "number of examinations"@en,
         skos:altLabel "number of exams"@en,
         skos:altLabel "number of studies"@en,
@@ -947,6 +1001,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_00058>
 
     Annotations: 
         rdfs:label "image count"@en,
+        rdfs:label "número de imágenes"@es,
         skos:altLabel "number of images"@en,
         skos:altLabel "número de imágenes"@es,
         skos:altLabel "图像数量"@zh
@@ -958,6 +1013,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_00058>
 Class: <https://rsna.org/roadmap/ROADMAP_00059>
 
     Annotations: 
+        rdfs:label "formato de archivo de imagen"@es,
         rdfs:label "image file format"@en,
         skos:altLabel "image format"@en,
         skos:definition "Describes the imaging standard, such as DICOM or NiFTI, in which images are stored."@en
@@ -1015,6 +1071,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_00064>
 
     Annotations: 
         rdfs:label "author"@en,
+        rdfs:label "autor"@es,
         skos:altLabel "individual author"@en,
         skos:definition "An individual human who can claim authorship of the model, dataset, or project."@en
     
@@ -1025,7 +1082,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_00064>
 Class: <https://rsna.org/roadmap/ROADMAP_00065>
 
     Annotations: 
-        rdfs:label "date"
+        rdfs:label "date"@en,
+        rdfs:label "fecha"@es
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_00004>,
@@ -1036,6 +1094,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_00066>
 
     Annotations: 
         rdfs:label "version"@en,
+        rdfs:label "versión"@es,
         skos:definition "The number or date of the version described."@en
     
     SubClassOf: 
@@ -1047,6 +1106,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_00067>
     Annotations: 
         rdfs:comment "Ideally should include an unambiguous pointer, such as PubMed identifier or digital object identifier (DOI)."@en,
         rdfs:label "reference"@en,
+        rdfs:label "referencia"@es,
         skos:altLabel "evidence of performance"@en,
         skos:altLabel "literature reference"@en,
         skos:definition "A reference about the resource, such as a clinical trial identifier or a pointer to a peer-reviewed publication or conference proceedings."@en
@@ -1059,6 +1119,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_00068>
 
     Annotations: 
         rdfs:comment "It is preferred to specify the URL of the selected license."@en,
+        rdfs:label "licencia"@es,
         rdfs:label "license"@en,
         skos:altLabel "license model"@en,
         skos:altLabel "licensing"@en,
@@ -1072,6 +1133,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_00069>
 
     Annotations: 
         rdfs:label "contact information"@en,
+        rdfs:label "información de contacto"@es,
         skos:altLabel "contact"@en,
         skos:definition "Physical address or email address of a contact."@en
     
@@ -1082,6 +1144,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_00069>
 Class: <https://rsna.org/roadmap/ROADMAP_00070>
 
     Annotations: 
+        rdfs:label "comentarios"@es,
         rdfs:label "comments"@en,
         skos:altLabel "comment"@en,
         skos:definition "Textual comments about the model, dataset, or project."@en
@@ -1094,6 +1157,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_00071>
 
     Annotations: 
         rdfs:label "person"@en,
+        rdfs:label "persona"@es,
         skos:definition "An individual human author or contributor.  Ideally should link to a unique identifier such as the ORCID identifier."@en
     
     SubClassOf: 
@@ -1104,6 +1168,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_00072>
 
     Annotations: 
         rdfs:comment "An organizational entity that developed and/or supported the resource."@en,
+        rdfs:label "organización"@es,
         rdfs:label "organization"@en,
         skos:altLabel "organisation"@en-gb
     
@@ -1115,7 +1180,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_00073>
 
     Annotations: 
         <http://purl.org/dc/elements/1.1/source> <https://archive.rsna.org/2019/Specialty%20Content%20Codes.pdf>,
-        rdfs:label "content code",
+        rdfs:label "content code"@en,
+        rdfs:label "código de contenido"@es,
         rdfs:seeAlso <http://www.radlex.org/RID/RID50607>,
         skos:definition "An RSNA subspecialty content code, each of which has a 2-letter abbreviation, such as CT or GI."@en
     
@@ -1126,6 +1192,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_00073>
 Class: <https://rsna.org/roadmap/ROADMAP_00074>
 
     Annotations: 
+        rdfs:label "código de indexación"@es,
         rdfs:label "indexing code"@en,
         skos:altLabel "index code"@en,
         skos:definition "An indexing code is a term from a related ontology, such as RadLex, SNOMED Clinical Terms, or the RSNA 2-letter subspecialty content codes."@en
@@ -1137,7 +1204,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_00074>
 Class: <https://rsna.org/roadmap/ROADMAP_00075>
 
     Annotations: 
-        rdfs:label "physician"
+        rdfs:label "médico"@es,
+        rdfs:label "physician"@en
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_03599>
@@ -1146,7 +1214,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_00075>
 Class: <https://rsna.org/roadmap/ROADMAP_00076>
 
     Annotations: 
-        rdfs:label "advanced practice provider",
+        rdfs:label "advanced practice provider"@en,
+        rdfs:label "proveedor de práctica avanzada"@es,
         skos:altLabel "APP"
     
     SubClassOf: 
@@ -1156,7 +1225,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_00076>
 Class: <https://rsna.org/roadmap/ROADMAP_00077>
 
     Annotations: 
-        rdfs:label "nurse practitioner",
+        rdfs:label "enfermero/a especializado/a"@es,
+        rdfs:label "nurse practitioner"@en,
         skos:altLabel "NP"
     
     SubClassOf: 
@@ -1166,7 +1236,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_00077>
 Class: <https://rsna.org/roadmap/ROADMAP_00078>
 
     Annotations: 
-        rdfs:label "physician assistant",
+        rdfs:label "asistente médico/a"@es,
+        rdfs:label "physician assistant"@en,
         skos:altLabel "PA"
     
     SubClassOf: 
@@ -1176,7 +1247,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_00078>
 Class: <https://rsna.org/roadmap/ROADMAP_00079>
 
     Annotations: 
-        rdfs:label "non-physician provider"
+        rdfs:label "non-physician provider"@en,
+        rdfs:label "proveedor/a no médico/a"@es
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_00080>
@@ -1185,7 +1257,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_00079>
 Class: <https://rsna.org/roadmap/ROADMAP_00080>
 
     Annotations: 
-        rdfs:label "referring provider"
+        rdfs:label "proveedor/a referente"@es,
+        rdfs:label "referring provider"@en
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_03599>
@@ -1527,13 +1600,13 @@ Class: <https://rsna.org/roadmap/ROADMAP_00108>
     Annotations: 
         rdfs:label "SQ Safety and Quality"@en,
         rdfs:seeAlso <http://www.radlex.org/RID/RID50624>,
-        skos:altLabel "Quality Assurance"@en,
-        skos:altLabel "Quality Improvement"@en,
-        skos:altLabel "SQ"@en,
-        skos:altLabel "Safety"@en,
         skos:altLabel "QA",
         skos:altLabel "QI",
+        skos:altLabel "Quality Assurance"@en,
+        skos:altLabel "Quality Improvement"@en,
         skos:altLabel "Radiation safety",
+        skos:altLabel "SQ"@en,
+        skos:altLabel "Safety"@en,
         skos:altLabel "imaging quality improvement",
         skos:altLabel "quality improvement"
     
@@ -1595,6 +1668,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_00113>
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1038/s41592-023-02151-z>,
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1111/j.1469-8137.1912.tb05611.x>,
         rdfs:label "approximate intersection over union"@en,
+        rdfs:label "intersección aproximada sobre unión"@es,
         skos:altLabel "approx IoU",
         skos:altLabel "approx intersection over union",
         skos:altLabel "approximate IoU",
@@ -1610,6 +1684,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_00117>
     Annotations: 
         <http://purl.org/dc/elements/1.1/source> <https://radlex.org/>,
         rdfs:label "RadLex code"@en,
+        rdfs:label "código RadLex"@es,
         skos:altLabel "RadLex indexing code"@en,
         <https://rsna.org/roadmap/ROADMAP_03626> "https://radlex.org/RID/RID[0-9]+"
     
@@ -1620,6 +1695,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_00117>
 Class: <https://rsna.org/roadmap/ROADMAP_00118>
 
     Annotations: 
+        rdfs:label "deriva del modelo"@es,
         rdfs:label "model drift"@en,
         skos:altLabel "model performance drift"@en,
         skos:altLabel "performance drift"@en,
@@ -1633,6 +1709,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_00119>
 
     Annotations: 
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1007/978-3-031-43898-1_32>,
+        rdfs:label "concordancia multimodal"@es,
         rdfs:label "multi-modal concordance"@en,
         skos:altLabel "MMC"@en,
         skos:altLabel "multi-modal concordance index"@en,
@@ -1647,7 +1724,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_00120>
 
     Annotations: 
         <http://purl.org/dc/elements/1.1/source> "http://www.radlex.org/RID/RID10311"@en,
-        rdfs:label "imaging modality",
+        rdfs:label "imaging modality"@en,
+        rdfs:label "modalidad de imagen"@es,
         skos:altLabel "modality",
         skos:definition "The type of device used to obtain the images, such as CT."@en
     
@@ -1659,6 +1737,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_00121>
 
     Annotations: 
         rdfs:label "imaging procedure"@en,
+        rdfs:label "procedimiento de imagen"@es,
         rdfs:seeAlso "http://www.radlex.org/RID/RID13060"@en,
         rdfs:seeAlso "https://loinc.org/LP29684-5"@en
     
@@ -1669,6 +1748,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_00121>
 Class: <https://rsna.org/roadmap/ROADMAP_00122>
 
     Annotations: 
+        rdfs:label "característica de la imagen"@es,
         rdfs:label "image characteristic"@en,
         skos:definition "Information about a dataset's images."@en
     
@@ -1679,6 +1759,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_00122>
 Class: <https://rsna.org/roadmap/ROADMAP_00123>
 
     Annotations: 
+        rdfs:label "resolución"@es,
         rdfs:label "resolution"@en,
         skos:altLabel "image resolution"@en,
         skos:definition "Describes whether the dataset used original or down-sampled images."@en
@@ -1690,7 +1771,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_00123>
 Class: <https://rsna.org/roadmap/ROADMAP_00124>
 
     Annotations: 
-        rdfs:label "original resolution"
+        rdfs:label "original resolution"@en,
+        rdfs:label "resolución original"@es
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_00123>
@@ -1699,7 +1781,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_00124>
 Class: <https://rsna.org/roadmap/ROADMAP_00125>
 
     Annotations: 
-        rdfs:label "downsampled resolution"
+        rdfs:label "downsampled resolution"@en,
+        rdfs:label "resolución submuestreada"@es
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_00123>
@@ -1709,6 +1792,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_00126>
 
     Annotations: 
         rdfs:label "pre-processing"@en,
+        rdfs:label "preprocesamiento"@es,
         skos:altLabel "preprocessing"@en,
         skos:definition "Describes the type(s) of pre-processing applied to a dataset's images."@en
     
@@ -1719,7 +1803,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_00126>
 Class: <https://rsna.org/roadmap/ROADMAP_00127>
 
     Annotations: 
-        rdfs:label "standard normalization"
+        rdfs:label "normalización estándar"@es,
+        rdfs:label "standard normalization"@en
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_00126>
@@ -1728,7 +1813,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_00127>
 Class: <https://rsna.org/roadmap/ROADMAP_00128>
 
     Annotations: 
-        rdfs:label "histogram normalization"
+        rdfs:label "histogram normalization"@en,
+        rdfs:label "normalización del histograma"@es
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_00126>
@@ -1738,6 +1824,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_00129>
 
     Annotations: 
         rdfs:label "Protected Health Information"@en,
+        rdfs:label "información sanitaria protegida"@es,
         skos:altLabel "PHI"@en
     
     SubClassOf: 
@@ -1749,6 +1836,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_00131>
     Annotations: 
         <http://purl.org/dc/elements/1.1/source> "https://www.mpeg.org/standards/"@en,
         rdfs:label "MPEG"@en,
+        rdfs:label "MPEG"@es,
         skos:altLabel "Moving Picture Experts Group"@en
     
     SubClassOf: 
@@ -1759,6 +1847,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_00132>
 
     Annotations: 
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.48550/arXiv.2410.13174>,
+        rdfs:label "concordancia multimodal mejorada"@es,
         rdfs:label "enhanced multi-modal concordance"@en,
         skos:altLabel "MMC+"@en,
         skos:altLabel "enhanced multi-modal concordance index"@en
@@ -1772,6 +1861,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_00191>
     Annotations: 
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1038/s41592-023-02151-z>,
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1111/j.1469-8137.1912.tb05611.x>,
+        rdfs:label "intersección de máscara sobre unión > 0"@es,
         rdfs:label "mask intersection over union > 0"@en,
         skos:altLabel "mask IoU > 0",
         skos:definition "Mask intersection over union > 0 determines whether a predicted region shares at least one pixel with the reference region. It operates as a binary localization criterion, indicating only the presence or absence of spatial overlap. This metric provides an extremely permissive threshold for detection tasks where coarse positional matching is sufficient.",
@@ -1785,6 +1875,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_00191>
 Class: <https://rsna.org/roadmap/ROADMAP_00632>
 
     Annotations: 
+        rdfs:label "recuento de series"@es,
         rdfs:label "series count"@en,
         skos:altLabel "number of series"@en,
         skos:altLabel "número de series"@es,
@@ -1798,7 +1889,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_00632>
 Class: <https://rsna.org/roadmap/ROADMAP_00633>
 
     Annotations: 
-        rdfs:label "administrator"
+        rdfs:label "administrador"@es,
+        rdfs:label "administrator"@en
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_00040>
@@ -1810,6 +1902,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_00634>
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1038/s41592-023-02151-z>,
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1198/016214506000001437>,
         rdfs:label "Brier skill score"@en,
+        rdfs:label "puntuación de habilidad de Brier"@es,
         rdfs:seeAlso <https://en.wikipedia.org/wiki/Brier_score>,
         skos:altLabel "BSS",
         skos:definition "The Brier skill score is a normalized form of the Brier score that compares the predictive performance of a model to that of a reference forecast, such as the base rate probability. It is calculated as one minus the ratio of the model’s Brier score to the reference Brier score, producing positive values when the model outperforms the reference, zero when performance is equal, and negative values when performance is worse.",
@@ -1825,8 +1918,10 @@ Class: <https://rsna.org/roadmap/ROADMAP_03217>
     Annotations: 
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1186/s12859-015-0564-6>,
         rdfs:label "lenient accuracy"@en,
+        rdfs:label "precisión flexible"@es,
         skos:altLabel "LACC",
         skos:definition "Lenient accuracy is a relaxed evaluation metric that considers a response correct if any of the system’s returned answers matches one of the acceptable gold-standard answers. Unlike strict accuracy, it allows for synonyms, equivalent expressions, or alternative correct forms, making it more tolerant in domains where multiple valid answer variants exist. It is frequently used in factoid question answering to avoid penalizing systems for producing correct but differently worded outputs.",
+        <https://rsna.org/roadmap/ROADMAP_03651> 0,
         <https://rsna.org/roadmap/ROADMAP_03652> 1
     
     SubClassOf: 
@@ -1838,6 +1933,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03218>
     Annotations: 
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1080/02664763.2016.1174195>,
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1177/0962280214537390>,
+        rdfs:label "coeficiente de variación de segundo orden"@es,
         rdfs:label "second-order coefficient of variation"@en,
         skos:altLabel "CV2",
         skos:altLabel "CV_2",
@@ -1855,6 +1951,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03219>
 
     Annotations: 
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.4103/crst.crst_283_23>,
+        rdfs:label "error estándar relativo"@es,
         rdfs:label "relative standard error"@en,
         skos:altLabel "RSE",
         skos:definition "The relative standard error is a percentage-based measure of the reliability of an estimate, defined as the standard error divided by the estimate itself and multiplied by 100. It expresses the precision of the estimate relative to its magnitude, with smaller values indicating greater reliability. Estimates with large RSE values are often considered too unstable for reporting and may be flagged, suppressed, or presented with cautionary notes."
@@ -1869,6 +1966,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03220>
         <http://purl.org/dc/elements/1.1/source> <http://dx.doi.org/10.1016/j.acra.2014.07.004>,
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1080/10543400701329489>,
         rdfs:label "individual equivalence index"@en,
+        rdfs:label "índice de equivalencia individual"@es,
         skos:altLabel "IEC",
         skos:altLabel "IEI",
         skos:altLabel "individual equivalence coefficient",
@@ -1883,6 +1981,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03221>
 
     Annotations: 
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1109/TIT.2005.844059>,
+        rdfs:label "distancia de compresión normalizada"@es,
         rdfs:label "normalized compression distance"@en,
         skos:altLabel "NCD",
         skos:definition "Normalized compression distance is a practical approximation of normalized information distance that replaces Kolmogorov complexity with the length of compressed data produced by a real-world compression algorithm. It measures the relative similarity of two objects by comparing the compression of each individually with the compression of their concatenation, yielding values close to zero for highly similar objects and close to one for dissimilar ones. While dependent on the choice of compressor and only approximately metric, it provides a widely usable, domain-independent method for quantifying similarity across diverse data types.",
@@ -1898,6 +1997,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03222>
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1111/j.0006-341X.2000.00337.x>,
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1111/j.0006-341X.2005.030814.x>,
         rdfs:label "time-dependent area under the receiver operating characteristic curve"@en,
+        rdfs:label "área bajo la curva ROC dependiente del tiempo"@es,
         skos:altLabel "AUC at time (t)",
         skos:altLabel "AUC(t)",
         skos:altLabel "area under the receiver operating curve at time (t)",
@@ -1916,6 +2016,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03223>
     Annotations: 
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.3348/kjr.2021.0223>,
         rdfs:label "integrated time-dependent area under the ROC curve"@en,
+        rdfs:label "área bajo la curva ROC integrada dependiente del tiempo"@es,
         skos:altLabel "iAUC",
         skos:altLabel "integrated time-dependent AUC",
         skos:definition "An integrated AUC (iAUC) is a mathematical integration of multiple time-dependent AUC values across the follow-up period, and it can be expressed as follows: iAUC= ∫AUC(t)·w(t)dt, where t = time and w = weight. Heagerty and Zheng suggested that w(t) should be proportional to the marginal density of survival time multiplied by the survival function, which makes the iAUC equivalent to ‘concordance,’ which is the probability that the order of deaths in randomly chosen two patients agrees with the order predicted by the model. In other words, iAUC is a weighted sum or a global average of time-dependent AUC values from time-dependent ROC analyses across the follow-up duration. 
@@ -1931,6 +2032,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03224>
 
     Annotations: 
         rdfs:label "autonomous diagnosis"@en,
+        rdfs:label "diagnóstico autónomo"@es,
         skos:altLabel "CADa"
     
     SubClassOf: 
@@ -1943,6 +2045,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03225>
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1109/IRI62200.2024.00065>,
         <http://purl.org/dc/elements/1.1/source> "D. Pessach and E. Shmueli, “Algorithmic fairness,” in Machine Learning for Data Science Handbook, pp. 867–886, Springer International Publishing, 2023.",
         rdfs:comment "Group fairness, also known as statistical or demographic fairness, requires that predictive outcomes are independent of specific sensitive attributes such as race, gender, or age.",
+        rdfs:label "equidad grupal"@es,
         rdfs:label "group fairness"@en,
         skos:altLabel "demographic fairness",
         skos:altLabel "statistical fairness",
@@ -1958,6 +2061,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03226>
 
     Annotations: 
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1109/IRI62200.2024.00065>,
+        rdfs:label "equidad individual"@es,
         rdfs:label "individual fairness"@en,
         skos:definition "Individual fairness mandates that similar individuals should receive similar predictions. It can be mathematically formalized using a distance metric d(·), which measures the similarity between individuals: d( ˆ Yi, ˆ Yj) ≤ D(xi, xj) ∀i, j"
     
@@ -1971,6 +2075,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03227>
     Annotations: 
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1109/IRI62200.2024.00065>,
         rdfs:label "equality of opportunity"@en,
+        rdfs:label "igualdad de oportunidades"@es,
         skos:definition "Equality of opportunity, an extension of group fairness, states that groups should have equal true positive rates. This metric is defined as:
 P( ˆ Y = 1|D = d, Y = 1) = P( ˆ Y = 1|D <> d, Y = 1)"
     
@@ -1984,6 +2089,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03228>
     Annotations: 
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1109/IRI62200.2024.00065>,
         rdfs:label "demographic parity"@en,
+        rdfs:label "paridad demográfica"@es,
         skos:altLabel "statistical parity",
         skos:definition "Demographic parity, also known as statistical parity, requires the decision outcomes to be independent of the sensitive attributes. It aims for the probability of a positive prediction to be the same across different groups defined by the sensitive attribute. It is defined as:
 P( ˆ Y = 1|D = d) = P( ˆ Y = 1|D <> d)"
@@ -1998,6 +2104,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03229>
     Annotations: 
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1109/IRI62200.2024.00065>,
         rdfs:label "equalized odds"@en,
+        rdfs:label "probabilidades igualadas"@es,
         skos:definition "Equalized odds require that the model’s true positive rate and false positive rate be the same across groups, defined as: 
 P( ˆ Y = 1|D = d, Y = y) = P( ˆ Y = 1|D <> d, Y = y) for all y in {0, 1}"
     
@@ -2012,6 +2119,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03302>
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1038/s41592-023-02151-z>,
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1038/s41598-024-56706-x>,
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1117/1.JMI.11.2.024504>,
+        rdfs:label "métrica escalar del rendimiento del modelo"@es,
         rdfs:label "scalar metric of model performance"@en,
         rdfs:seeAlso "https://www.midrc.org/performance-metrics-decision-tree"@en,
         skos:altLabel "scalar metric"@en,
@@ -2069,6 +2177,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03309>
     Annotations: 
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1001/jama.295.20.2374>,
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1038/s41592-023-02151-z>,
+        rdfs:label "costo esperado"@es,
         rdfs:label "expected cost"@en,
         skos:altLabel "EC"@en,
         skos:altLabel "expected loss",
@@ -2086,9 +2195,10 @@ Class: <https://rsna.org/roadmap/ROADMAP_03311>
     Annotations: 
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1038/s41592-023-02151-z>,
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1177/001316446002000104>,
+        rdfs:label "Kappa de Cohen ponderado"@es,
         rdfs:label "weighted Cohen's kappa"@en,
-        skos:altLabel "weighted kappa"@en,
         skos:altLabel "WCK",
+        skos:altLabel "weighted kappa"@en,
         skos:definition "Weighted Cohen’s kappa extends Cohen’s kappa by incorporating a weighting scheme that reflects the severity or cost of different types of misclassification. It is particularly suited for ordinal or multi-class problems, where misclassifications between distant classes can be penalized more heavily than near-misses. Like Cohen’s Kappa, its value ranges from -1 to 1, with higher scores indicating better agreement beyond chance.",
         <https://rsna.org/roadmap/ROADMAP_03651> -1,
         <https://rsna.org/roadmap/ROADMAP_03652> 1
@@ -2103,15 +2213,17 @@ Class: <https://rsna.org/roadmap/ROADMAP_03314>
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1038/s41592-023-02151-z>,
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1148/radiology.143.1.7063747>,
         rdfs:label "area under the receiver operating characteristic curve"@en,
+        rdfs:label "área bajo la curva característica operativa del receptor"@es,
         skos:altLabel "AUC"@en,
         skos:altLabel "AUC score"@en,
         skos:altLabel "AUC-ROC"@en,
         skos:altLabel "AUROC"@en,
         skos:altLabel "AUROC score"@en,
         skos:altLabel "ROC-AUC"@en,
-        skos:altLabel "area under the ROC curve"@en,
         skos:altLabel "area under TPR-FPR curve",
+        skos:altLabel "area under the ROC curve"@en,
         skos:definition "The area under the receiver operating characteristic curve measures how well a model distinguishes between positive and negative classes across all possible thresholds. It represents the probability that a randomly chosen positive instance will receive a higher predicted score than a randomly chosen negative instance. This metric provides a threshold-independent assessment of a model’s discriminative ability.",
+        <https://rsna.org/roadmap/ROADMAP_03651> 0,
         <https://rsna.org/roadmap/ROADMAP_03652> 1
     
     SubClassOf: 
@@ -2142,11 +2254,12 @@ Class: <https://rsna.org/roadmap/ROADMAP_03320>
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1038/s41592-023-02151-z>,
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.3115/1072064.1072067>,
         rdfs:label "F(beta) score"@en,
+        rdfs:label "puntaje F(beta)"@es,
         skos:altLabel "F beta"@en,
-        skos:altLabel "F-beta"@en,
-        skos:altLabel "F-beta score"@en,
         skos:altLabel "F(β)",
         skos:altLabel "F(β) score",
+        skos:altLabel "F-beta"@en,
+        skos:altLabel "F-beta score"@en,
         skos:altLabel "F-β",
         skos:altLabel "F_β",
         skos:altLabel "Fβ",
@@ -2271,6 +2384,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03327>
     Annotations: 
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1038/s41592-023-02151-z>,
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1109/CVPR.2019.00963>,
+        rdfs:label "calidad panóptica"@es,
         rdfs:label "panoptic quality"@en,
         skos:altLabel "PQ"@en,
         skos:definition "Panoptic quality evaluates panoptic segmentation by integrating instance detection accuracy with segmentation precision into a single metric. It calculates the sum of intersection-over-union values for correctly matched segments, normalized by the total number of matches and weighted penalties for false positives and false negatives. This metric provides a class-balanced measure of overall scene understanding, decomposable into segmentation quality and recognition quality components.",
@@ -2287,8 +2401,10 @@ Class: <https://rsna.org/roadmap/ROADMAP_03328>
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1038/s41592-023-02151-z>,
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1145/1148170.1148262>,
         rdfs:label "average precision"@en,
+        rdfs:label "precisión promedio"@es,
         skos:altLabel "AP"@en,
         skos:definition "Average precision summarizes the precision-recall curve as a single value, representing the area under this curve through an interpolated integration. It reflects how well a model maintains high precision while increasing recall across different decision thresholds, making it especially useful for imbalanced datasets where true negatives dominate. Unlike metrics based on the receiver operating characteristic curve, average precision focuses exclusively on the relationship between precision and recall, ignoring true negatives to emphasize performance on positive cases.",
+        <https://rsna.org/roadmap/ROADMAP_03651> 0,
         <https://rsna.org/roadmap/ROADMAP_03652> 1
     
     SubClassOf: 
@@ -2302,10 +2418,11 @@ Class: <https://rsna.org/roadmap/ROADMAP_03329>
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1038/s41592-023-02151-z>,
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1198/016214506000001437>,
         rdfs:label "Brier score"@en,
+        rdfs:label "puntuación de Brier"@es,
         rdfs:seeAlso <https://en.wikipedia.org/wiki/Brier_score>,
         skos:altLabel "BS",
         skos:definition "The Brier score quantifies the accuracy of probabilistic predictions by computing the mean squared difference between predicted probabilities and the actual binary outcomes. It captures both the ability of a model to discriminate between events and non-events and the degree to which predicted probabilities reflect observed frequencies. Scores range from 0 for perfect predictions to higher values for less accurate forecasts.",
-        <https://rsna.org/roadmap/ROADMAP_03652> 1
+        <https://rsna.org/roadmap/ROADMAP_03651> 0
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_03302>,
@@ -2318,6 +2435,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03330>
     Annotations: 
         <http://purl.org/dc/elements/1.1/source> <https://dl.acm.org/doi/abs/10.5555/954544>,
         rdfs:label "class error"@en,
+        rdfs:label "error de clase"@es,
         skos:altLabel "classification error",
         skos:definition "Classification error quantifies the proportion of samples incorrectly assigned to a class by a classifier. It is calculated as the number of misclassified samples divided by the total number of samples evaluated, representing the complement of accuracy. Lower values indicate better classification performance, while higher values signify more frequent misclassifications.",
         <https://rsna.org/roadmap/ROADMAP_03652> 1
@@ -2333,6 +2451,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03331>
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1038/s41592-023-02151-z>,
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.48550/arXiv.1910.12656>,
         rdfs:label "class-wise calibration error"@en,
+        rdfs:label "error de calibración por clase"@es,
         skos:altLabel "CWCE"@en,
         skos:definition "Class-wise calibration error measures the alignment between predicted probabilities and observed outcomes for each class individually. It calculates the difference between confidence and accuracy across bins per class and aggregates these differences, optionally applying class-specific weights. Lower values indicate better marginal calibration across classes.",
         <https://rsna.org/roadmap/ROADMAP_03652> 1
@@ -2348,6 +2467,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03332>
     Annotations: 
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1038/s41592-023-02151-z>,
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1609/aaai.v29i1.9602>,
+        rdfs:label "error de calibración esperado"@es,
         rdfs:label "expected calibration error"@en,
         skos:altLabel "ECE"@en,
         skos:definition "Expected calibration error estimates the average discrepancy between predicted confidence and actual accuracy for the predicted top class. It partitions predictions into bins and computes a weighted average of the differences between predicted and observed values, summarizing top-label calibration. Lower values reflect better overall calibration.",
@@ -2364,6 +2484,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03333>
     Annotations: 
         <http://purl.org/dc/elements/1.1/source> <https://dl.acm.org/doi/abs/10.5555/3454287.3455385>,
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1038/s41592-023-02151-z>,
+        rdfs:label "error de calibración de kernel"@es,
         rdfs:label "kernel calibration error"@en,
         skos:altLabel "KCE"@en,
         skos:definition "Kernel calibration error is a measure of canonical calibration error based on the maximum mean discrepancy between predicted probability distributions and true outcomes. It uses a matrix-valued kernel to capture differences across the entire probability space and provides an unbiased estimator of this discrepancy. This metric is primarily used for comparative calibration assessment, especially in settings with many classes or limited sample sizes."
@@ -2378,6 +2499,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03334>
     Annotations: 
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1007/978-1-4612-1524-0>,
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1038/s41592-023-02151-z>,
+        rdfs:label "logaritmo de verosimilitud negativo"@es,
         rdfs:label "negative log likelihood"@en,
         skos:altLabel "NLL"@en,
         skos:definition "Negative log likelihood quantifies the quality of probabilistic predictions by penalizing the log probability assigned to the correct class. It is a proper scoring rule that combines calibration and discrimination into a single metric, assigning larger penalties to overconfident incorrect predictions. Lower values correspond to more accurate and well-calibrated probability estimates."
@@ -2392,10 +2514,11 @@ Class: <https://rsna.org/roadmap/ROADMAP_03335>
     Annotations: 
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1002/sim.3517>,
         rdfs:label "observed-to-expected ratio"@en,
+        rdfs:label "razón observado-esperado"@es,
+        skos:altLabel "E/O ratio",
         skos:altLabel "O/E ratio"@en,
         skos:altLabel "O:E ratio"@en,
         skos:altLabel "observed:expected ratio"@en,
-        skos:altLabel "E/O ratio",
         skos:definition "The observed-to-expected ratio evaluates calibration by comparing the total number of observed events to the number of events predicted by a model within a specified time frame. A value of one indicates perfect calibration, while ratios greater than one suggest underprediction and values less than one indicate overprediction. This metric is widely used in risk prediction and survival analysis, often requiring adjustments for censoring to produce unbiased estimates."
     
     SubClassOf: 
@@ -2408,6 +2531,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03336>
     Annotations: 
         <http://purl.org/dc/elements/1.1/source> <https://dl.acm.org/doi/abs/10.5555/3600270.3600897>,
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1038/s41592-023-02151-z>,
+        rdfs:label "puntuación de Brier raíz"@es,
         rdfs:label "root Brier score"@en,
         skos:altLabel "RBS"@en,
         skos:definition "The root Brier score is the square root of the Brier score, applicable in both binary and multiclass settings. It expresses the average magnitude of probabilistic prediction error on the same scale as the predicted probabilities, providing an interpretable measure of calibration and accuracy where lower values reflect better performance.",
@@ -2423,15 +2547,16 @@ Class: <https://rsna.org/roadmap/ROADMAP_03337>
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1038/s41592-023-02151-z>,
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.2307/1932409>,
         rdfs:label "Dice similarity coefficient"@en,
+        rdfs:label "coeficiente de similitud de Dice"@es,
         skos:altLabel "DSC"@en,
         skos:altLabel "Dice"@en,
         skos:altLabel "Dice coefficient"@en,
         skos:altLabel "Dice index"@en,
         skos:altLabel "Dice score"@en,
-        skos:altLabel "Sørensen–Dice coefficient"@en,
-        skos:altLabel "Sørensen–Dice score"@en,
         skos:altLabel "Dice–Sørensen coefficient",
         skos:altLabel "Dice–Sørensen score",
+        skos:altLabel "Sørensen–Dice coefficient"@en,
+        skos:altLabel "Sørensen–Dice score"@en,
         skos:altLabel "coincidence index",
         skos:definition "The Dice similarity coefficient quantifies the spatial overlap between two sets, such as predicted and reference segmentations, by calculating twice the size of their intersection divided by the sum of their sizes. It is mathematically equivalent to the F1 score when applied at the pixel level and ranges from 0 (no overlap) to 1 (perfect overlap). DSC is widely used in image segmentation evaluation to measure volumetric agreement and is closely related to the Jaccard index, with which it has a one-to-one correspondence.",
         <https://rsna.org/roadmap/ROADMAP_03651> 0,
@@ -2449,6 +2574,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03338>
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1038/s41592-023-02151-z>,
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1109/CVPR46437.2021.01629>,
         rdfs:label "centerline Dice similarity coefficient"@en,
+        rdfs:label "coeficiente de similitud de Dice de la línea central"@es,
         skos:altLabel "centerline DSC"@en,
         skos:altLabel "clDSC"@en,
         skos:definition "The centerline Dice similarity coefficient adapts the Dice formulation to assess segmentation quality for tubular or curvilinear structures by comparing the skeletons of the predicted and reference masks. It computes the harmonic mean of topology precision (fraction of predicted skeleton within the reference mask) and topology sensitivity (fraction of reference skeleton within the predicted mask), yielding a score between 0 and 1. It is designed to reflect both volumetric accuracy and preservation of structural connectivity.",
@@ -2523,6 +2649,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03341>
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1038/s41592-023-02151-z>,
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1117/1.JMI.11.2.024504>,
         rdfs:label "average symmetric surface distance"@en,
+        rdfs:label "distancia superficial simétrica promedio"@es,
         skos:altLabel "ASSD"@en,
         skos:altLabel "weighted bilateral mean contour distance",
         skos:definition "Average Symmetric Surface Distance calculates the mean of all shortest distances between boundary points of two segmentations, considering both directions equally. It evaluates the overall agreement of contour locations and provides a balanced view of segmentation accuracy. This metric is useful for applications where consistent boundary alignment is clinically important."
@@ -2538,6 +2665,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03342>
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1038/s41592-023-02151-z>,
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1111/j.1469-8137.1912.tb05611.x>,
         rdfs:comment "IoU = TP / (TP + FN + FP)"@en,
+        rdfs:label "intersección sobre unión"@es,
         rdfs:label "intersection over union"@en,
         skos:altLabel "CSI"@en,
         skos:altLabel "Intersection over Union score"@en,
@@ -2599,7 +2727,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03346>
     Annotations: 
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1038/s41592-023-02151-z>,
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1109/CVPR46437.2021.01508>,
-        rdfs:label "boundary intersection over union",
+        rdfs:label "boundary intersection over union"@en,
         skos:altLabel "boundary IoU"@en,
         skos:altLabel "boundary intersection-over-union"@en,
         skos:definition "Boundary intersection over union measures alignment between predicted and reference regions by considering only pixels located within a fixed distance from their respective contours. It focuses exclusively on boundary accuracy and disregards interior areas beyond the defined margin. This metric is designed for tasks where precise delineation of edges or margins is critical.",
@@ -2614,7 +2742,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03347>
     Annotations: 
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1038/s41592-023-02151-z>,
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1111/j.1469-8137.1912.tb05611.x>,
-        rdfs:label "mask intersection over union",
+        rdfs:label "mask intersection over union"@en,
         skos:altLabel "mask IoU"@en,
         skos:altLabel "mask intersection over union",
         skos:definition "Mask intersection over union evaluates the overlap between two segmentation masks by comparing their shared area to the total area covered by either mask. It considers the entire region within both masks, providing a comprehensive measure of spatial agreement. This metric is commonly used in semantic and instance segmentation where pixel-level accuracy across the full object is important.",
@@ -2629,7 +2757,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03348>
     Annotations: 
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1038/s41592-023-02151-z>,
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1111/j.1469-8137.1912.tb05611.x>,
-        rdfs:label "box intersection over union",
+        rdfs:label "box intersection over union"@en,
         skos:altLabel "box IoU"@en,
         skos:altLabel "box intersection-over-union",
         skos:definition "Box intersection over union quantifies the spatial overlap between two axis-aligned or oriented bounding boxes based on the ratio of their intersection to their union. It is applied in object detection to determine how well a predicted bounding box encloses the target structure. This metric reflects positional and scale accuracy without assessing fine object shape details.",
@@ -2713,12 +2841,12 @@ Class: <https://rsna.org/roadmap/ROADMAP_03358>
     Annotations: 
         rdfs:comment "Not body sites."@en,
         rdfs:comment "Number of distinct imaging sites, i.e., imaging facilities."@en,
+        rdfs:label "número de sitios"@es,
         rdfs:label "site count"@en,
         skos:altLabel "facility count"@en,
         skos:altLabel "number of facilities"@en,
         skos:altLabel "number of imaging facilities"@en,
-        skos:altLabel "number of sites"@en,
-        skos:altLabel "número de sitios"@es
+        skos:altLabel "number of sites"@en
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_00055>
@@ -2728,6 +2856,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03359>
 
     Annotations: 
         rdfs:label "layperson"@en,
+        rdfs:label "personal común"@es,
         skos:altLabel "Nonmedical individual"@en
     
     SubClassOf: 
@@ -2737,7 +2866,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_03359>
 Class: <https://rsna.org/roadmap/ROADMAP_03360>
 
     Annotations: 
-        rdfs:label "family member"@en
+        rdfs:label "family member"@en,
+        rdfs:label "miembro de la familia"@es
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_03359>
@@ -2747,6 +2877,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03362>
 
     Annotations: 
         rdfs:label "2D image label"@en,
+        rdfs:label "etiqueta de imagen 2D"@es,
         skos:altLabel "2D image annotation",
         skos:definition "Annotation applied to two-dimensional (planar) images."
     
@@ -2758,6 +2889,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03363>
 
     Annotations: 
         rdfs:label "3D image label"@en,
+        rdfs:label "etiqueta de imagen 3D"@es,
         skos:altLabel "3D image annotation",
         skos:definition "Annotation applied to three-dimensional image volume."
     
@@ -2773,10 +2905,11 @@ Class: <https://rsna.org/roadmap/ROADMAP_03364>
 * 2D dataset: the boundaries of an object on an image
 * 3D dataset: the contours or surfaces outlining an object (sometimes known as the Volume of Interest (VOI)) in a volume
 * 4D dataset: the outline of an object at or during a particular time interval in a time-volume",
-        rdfs:label "region-of-interest annotation",
+        rdfs:label "anotación de la región de interés"@es,
+        rdfs:label "region-of-interest annotation"@en,
         skos:altLabel "ROI annotation"@en,
-        skos:altLabel "region of interest annotation"@en,
         skos:altLabel "ROI label",
+        skos:altLabel "region of interest annotation"@en,
         skos:altLabel "region of interest label",
         skos:altLabel "region-of-interest label",
         skos:definition "Annotation applied to a subset of a planar image or image volume."
@@ -2790,6 +2923,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03365>
     Annotations: 
         rdfs:comment "Indicate the number of annotators (total, per exam, etc.), the instructions given to them, their qualifications, and the scope of annotation.",
         rdfs:label "annotation labeler description"@en,
+        rdfs:label "descripción del etiquetador de anotaciones"@es,
         skos:altLabel "annotator description"@en,
         skos:definition "Information about the people or entities that applied the annotation labels."@en
     
@@ -2827,6 +2961,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03371>
 Class: <https://rsna.org/roadmap/ROADMAP_03373>
 
     Annotations: 
+        rdfs:label "disponibilidad del modelo"@es,
         rdfs:label "model availability"@en,
         skos:definition "Defines where and/or how the model is available; can include a URL."
     
@@ -2837,6 +2972,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03373>
 Class: <https://rsna.org/roadmap/ROADMAP_03376>
 
     Annotations: 
+        rdfs:label "sostenibilidad"@es,
         rdfs:label "sustainability"@en,
         skos:definition "Describes parameters associated with use of the AI model related to energy consumption, running time, and other factors."@en
     
@@ -2847,6 +2983,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03376>
 Class: <https://rsna.org/roadmap/ROADMAP_03377>
 
     Annotations: 
+        rdfs:label "tiempo de entrenamiento del modelo"@es,
         rdfs:label "time to train model"@en
     
     SubClassOf: 
@@ -2856,6 +2993,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03377>
 Class: <https://rsna.org/roadmap/ROADMAP_03378>
 
     Annotations: 
+        rdfs:label "tiempo de evaluación de una sola entrada"@es,
         rdfs:label "time to evaluate single input"@en
     
     SubClassOf: 
@@ -2865,6 +3003,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03378>
 Class: <https://rsna.org/roadmap/ROADMAP_03379>
 
     Annotations: 
+        rdfs:label "procesadores necesarios"@es,
         rdfs:label "required processors"@en
     
     SubClassOf: 
@@ -2874,7 +3013,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_03379>
 Class: <https://rsna.org/roadmap/ROADMAP_03380>
 
     Annotations: 
-        rdfs:label "carbon footprint calculation"@en
+        rdfs:label "carbon footprint calculation"@en,
+        rdfs:label "cálculo de la huella de carbono"@es
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_03376>
@@ -2884,6 +3024,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03381>
 
     Annotations: 
         rdfs:label "dataset property"@en,
+        rdfs:label "descripción del conjunto de datos"@es,
         skos:altLabel "composition"@en,
         skos:definition "Defines the properties of a dataset, in addition to the generic properties of the Descriptor class."@en
     
@@ -2919,7 +3060,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03389>
     Annotations: 
         rdfs:comment "Defines the instances that comprise the dataset, such as images, patients, or reports."@en,
         rdfs:label "data"@en,
-        skos:altLabel "datos"@es
+        rdfs:label "datos"@es
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_00001>
@@ -2929,6 +3070,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03390>
 
     Annotations: 
         rdfs:label "radiology report text"@en,
+        rdfs:label "texto del informe de radiología"@es,
         skos:altLabel "radiology report"@en
     
     SubClassOf: 
@@ -2938,7 +3080,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_03390>
 Class: <https://rsna.org/roadmap/ROADMAP_03391>
 
     Annotations: 
-        rdfs:label "image"@en
+        rdfs:label "image"@en,
+        rdfs:label "imagen"@es
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_03389>
@@ -2966,7 +3109,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03394>
 
     Annotations: 
         rdfs:label "graph"@en,
-        skos:altLabel "gráfico"@es
+        rdfs:label "gráfico"@es
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_03389>
@@ -3132,6 +3275,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03419>
 
     Annotations: 
         rdfs:label "creation date"@en,
+        rdfs:label "fecha de creación"@es,
         skos:altLabel "date created"
     
     SubClassOf: 
@@ -3141,6 +3285,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03419>
 Class: <https://rsna.org/roadmap/ROADMAP_03420>
 
     Annotations: 
+        rdfs:label "fecha de publicación"@es,
         rdfs:label "publication date"@en,
         skos:altLabel "date of publication"@en
     
@@ -3151,6 +3296,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03420>
 Class: <https://rsna.org/roadmap/ROADMAP_03421>
 
     Annotations: 
+        rdfs:label "fecha de actualización"@es,
         rdfs:label "update date"@en
     
     SubClassOf: 
@@ -3170,6 +3316,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03423>
 
     Annotations: 
         rdfs:label "age"@en,
+        rdfs:label "edad"@es,
         skos:altLabel "patient age"
     
     SubClassOf: 
@@ -3180,6 +3327,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03424>
 
     Annotations: 
         rdfs:label "sex"@en,
+        rdfs:label "sexo"@es,
         skos:altLabel "patient sex"
     
     SubClassOf: 
@@ -3200,6 +3348,7 @@ Male. M
 Unknown. nullFlavor UNK
 Adopted at 45 CFR 170.207(n)"@en,
         rdfs:label "sex assigned at birth"@en,
+        rdfs:label "sexo asignado al nacer"@es,
         skos:altLabel "SAAB"@en,
         skos:altLabel "birth sex"@en,
         skos:altLabel "sex at birth"@en
@@ -3212,6 +3361,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03426>
 
     Annotations: 
         rdfs:label "recorded sex or gender"@en,
+        rdfs:label "sexo o género registrado"@es,
         skos:altLabel "RSoG"@en
     
     SubClassOf: 
@@ -3222,6 +3372,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03427>
 
     Annotations: 
         rdfs:label "sex for clinical use"@en,
+        rdfs:label "sexo para uso clínico"@es,
         skos:altLabel "SFCU"@en,
         skos:altLabel "clinical sex"@en
     
@@ -3232,7 +3383,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_03427>
 Class: <https://rsna.org/roadmap/ROADMAP_03428>
 
     Annotations: 
-        rdfs:label "sex value"@en
+        rdfs:label "sex value"@en,
+        rdfs:label "valor de sexo"@es
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_00001>
@@ -3242,6 +3394,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03429>
 
     Annotations: 
         rdfs:label "male sex"@en,
+        rdfs:label "sexo masculino"@es,
         skos:altLabel "male"
     
     SubClassOf: 
@@ -3252,6 +3405,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03430>
 
     Annotations: 
         rdfs:label "female sex"@en,
+        rdfs:label "sexo femenino"@es,
         skos:altLabel "female"
     
     SubClassOf: 
@@ -3261,6 +3415,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03430>
 Class: <https://rsna.org/roadmap/ROADMAP_03431>
 
     Annotations: 
+        rdfs:label "sexo desconocido"@es,
         rdfs:label "unknown sex"@en,
         skos:altLabel "unknown"@en
     
@@ -3273,6 +3428,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03432>
     Annotations: 
         rdfs:comment "Values for gender identity should include male, female, nonbinary, exploring or questioning, another not listed (specify), choose not to disclose, and unknown. CSTE recommends that the terms transgender, female to male and transgender male to female be deprecated."@en,
         rdfs:label "gender identity"@en,
+        rdfs:label "identidad de género"@es,
         skos:altLabel "gender"@en,
         skos:altLabel "patient gender"@en
     
@@ -3283,7 +3439,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_03432>
 Class: <https://rsna.org/roadmap/ROADMAP_03440>
 
     Annotations: 
-        rdfs:label "sex not listed"@en
+        rdfs:label "sex not listed"@en,
+        rdfs:label "sexo no registrado"@es
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_03428>
@@ -3294,7 +3451,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03441>
     Annotations: 
         rdfs:comment "Standard values for U.S.: 
 Asian, Black or African American, Hispanic or Latino, Middle Eastern or North African, Native Hawaiian or Pacific Islander, White",
-        rdfs:label "race / ethnicity",
+        rdfs:label "race / ethnicity"@en,
         skos:altLabel "demographic group"@en,
         skos:altLabel "ethnic group",
         skos:altLabel "ethnicity",
@@ -3308,7 +3465,8 @@ Asian, Black or African American, Hispanic or Latino, Middle Eastern or North Af
 Class: <https://rsna.org/roadmap/ROADMAP_03449>
 
     Annotations: 
-        rdfs:label "age group"@en
+        rdfs:label "age group"@en,
+        rdfs:label "grupo de edad"@es
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_03423>
@@ -3318,6 +3476,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03450>
 
     Annotations: 
         rdfs:label "adult"@en,
+        rdfs:label "adulto"@es,
         skos:definition "Age 18 years or more
 
 MeSH definition:  A person having attained full growth or maturity. Adults are of 19 through 44 years of age. For a person between 19 and 24 years of age, YOUNG ADULT is available."@en
@@ -3329,7 +3488,8 @@ MeSH definition:  A person having attained full growth or maturity. Adults are o
 Class: <https://rsna.org/roadmap/ROADMAP_03451>
 
     Annotations: 
-        rdfs:label "child",
+        rdfs:label "child"@en,
+        rdfs:label "niño"@es,
         skos:definition "Age 2 - 12 years
 
 MeSH definition:  A person 6 to 12 years of age. An individual 2 to 5 years old is CHILD, PRESCHOOL."@en
@@ -3342,7 +3502,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_03452>
 
     Annotations: 
         rdfs:isDefinedBy "An individual less than 2 years of age."@en,
-        rdfs:label "infant"@en
+        rdfs:label "infant"@en,
+        rdfs:label "lactante"@es
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_03461>
@@ -3353,6 +3514,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03453>
     Annotations: 
         rdfs:isDefinedBy "An infant during the first 28 days after birth."@en,
         rdfs:label "neonate"@en,
+        rdfs:label "neonato"@es,
         skos:altLabel "newborn",
         skos:altLabel "newborn infant"
     
@@ -3363,7 +3525,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_03453>
 Class: <https://rsna.org/roadmap/ROADMAP_03454>
 
     Annotations: 
-        rdfs:label "child  2 - 5 years",
+        rdfs:label "child  2 - 5 years"@en,
+        rdfs:label "niño de 2 a 5 años"@es,
         skos:altLabel "preschool child"@en,
         skos:definition "An individual 2 to 5 years old is CHILD, PRESCHOOL."@en
     
@@ -3375,6 +3538,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03455>
 
     Annotations: 
         rdfs:label "adolescent"@en,
+        rdfs:label "adolescente"@es,
         skos:altLabel "teen",
         skos:altLabel "teenager",
         skos:definition "A person 13 to 17 years of age."@en
@@ -3388,6 +3552,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03456>
     Annotations: 
         rdfs:isDefinedBy "A person between 19 and 24 years of age."@en,
         rdfs:label "adult 18 - 24 years"@en,
+        rdfs:label "adulto de 18 a 24 años"@es,
         skos:altLabel "young adult"
     
     SubClassOf: 
@@ -3397,9 +3562,10 @@ Class: <https://rsna.org/roadmap/ROADMAP_03456>
 Class: <https://rsna.org/roadmap/ROADMAP_03457>
 
     Annotations: 
-        rdfs:label "adult 45 - 64 years",
-        skos:altLabel "middle-aged adult"@en,
+        rdfs:label "adult 45 - 64 years"@en,
+        rdfs:label "adulto de 45 a 64 años"@es,
         skos:altLabel "middle-aged",
+        skos:altLabel "middle-aged adult"@en,
         skos:definition "An adult aged 45 - 64 years."@en
     
     SubClassOf: 
@@ -3410,7 +3576,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_03458>
 
     Annotations: 
         rdfs:isDefinedBy "A person 65 years of age or older. For a person older than 79 years, AGED, 80 AND OVER is available."@en,
-        rdfs:label "adult 65 years and over",
+        rdfs:label "adult 65 years and over"@en,
+        rdfs:label "adulto de 65 años o más"@es,
         skos:altLabel "aged adult"@en,
         skos:altLabel "senior"
     
@@ -3423,7 +3590,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_03459>
     Annotations: 
         rdfs:label "Adult 80 years and over"@en,
         rdfs:label "Aged"@en,
-        rdfs:label "Aged adult"@en
+        rdfs:label "Aged adult"@en,
+        rdfs:label "adulto de 80 años o más"@es
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_03458>
@@ -3432,7 +3600,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03459>
 Class: <https://rsna.org/roadmap/ROADMAP_03460>
 
     Annotations: 
-        rdfs:label "child  6 - 12 years",
+        rdfs:label "child  6 - 12 years"@en,
         skos:altLabel "school-age child"@en,
         skos:definition "Age 6 - 12 years"@en
     
@@ -3535,6 +3703,7 @@ Criteria (described as text) include:
 Class: <https://rsna.org/roadmap/ROADMAP_03479>
 
     Annotations: 
+        rdfs:label "anotación a nivel de píxel"@es,
         rdfs:label "pixel-level annotation"@en,
         skos:altLabel "pixel annotation"@en,
         skos:altLabel "pixel label"@en,
@@ -3548,6 +3717,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03479>
 Class: <https://rsna.org/roadmap/ROADMAP_03480>
 
     Annotations: 
+        rdfs:label "anotación de cuadro delimitador"@es,
         rdfs:label "bounding box annotation"@en,
         skos:altLabel "bounding box",
         skos:altLabel "bounding box label",
@@ -3562,6 +3732,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03480>
 Class: <https://rsna.org/roadmap/ROADMAP_03481>
 
     Annotations: 
+        rdfs:label "entrada del modelo"@es,
         rdfs:label "model input"@en,
         skos:definition "Describes the type(s) of information used as input into the model; for example, abdomen/pelvis CT images and laboratory data."@en
     
@@ -3573,6 +3744,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03482>
 
     Annotations: 
         rdfs:label "model output"@en,
+        rdfs:label "salida del modelo"@es,
         skos:definition "Describes the type of output produced by the model, such as classification (diagnosis) results or image segmentation."@en
     
     SubClassOf: 
@@ -3582,6 +3754,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03482>
 Class: <https://rsna.org/roadmap/ROADMAP_03483>
 
     Annotations: 
+        rdfs:label "anotación de segmentación"@es,
         rdfs:label "segmentation annotation"@en,
         skos:altLabel "segmentation label"
     
@@ -3593,6 +3766,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03484>
 
     Annotations: 
         rdfs:label "text"@en,
+        rdfs:label "texto"@es,
         skos:altLabel "text data",
         skos:altLabel "textual data"
     
@@ -3604,6 +3778,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03485>
 
     Annotations: 
         rdfs:label "pathology report text"@en,
+        rdfs:label "texto del informe de patología"@es,
         skos:altLabel "path report",
         skos:altLabel "pathology report"
     
@@ -3615,6 +3790,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03486>
 
     Annotations: 
         rdfs:label "electronic health record text"@en,
+        rdfs:label "texto del historial clínico electrónico"@es,
         skos:altLabel "EHR text"@en,
         skos:altLabel "EMR text",
         skos:altLabel "electronic medical record text"
@@ -3626,6 +3802,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03486>
 Class: <https://rsna.org/roadmap/ROADMAP_03487>
 
     Annotations: 
+        rdfs:label "auxiliar médico de radiología"@es,
         rdfs:label "radiology physician assistant"@en,
         skos:altLabel "RPA"@en
     
@@ -3636,6 +3813,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03487>
 Class: <https://rsna.org/roadmap/ROADMAP_03488>
 
     Annotations: 
+        rdfs:label "auxiliar de radiología"@es,
         rdfs:label "radiology assistant"@en
     
     SubClassOf: 
@@ -3645,6 +3823,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03488>
 Class: <https://rsna.org/roadmap/ROADMAP_03489>
 
     Annotations: 
+        rdfs:label "oncólogo radioterapeuta"@es,
         rdfs:label "radiation oncologist"@en,
         skos:altLabel "radiation therapist"
     
@@ -3656,6 +3835,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03490>
 
     Annotations: 
         rdfs:label "dosimetrist"@en,
+        rdfs:label "dosimetrista"@es,
         skos:definition "Radiation dosimetrist."
     
     SubClassOf: 
@@ -3665,6 +3845,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03490>
 Class: <https://rsna.org/roadmap/ROADMAP_03491>
 
     Annotations: 
+        rdfs:label "miembro del personal de radiología"@es,
         rdfs:label "radiology staff member"@en,
         skos:altLabel "radiology staff"
     
@@ -3675,6 +3856,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03491>
 Class: <https://rsna.org/roadmap/ROADMAP_03492>
 
     Annotations: 
+        rdfs:label "físico médico"@es,
         rdfs:label "medical physicist"@en,
         skos:altLabel "radiation physicist"@en,
         skos:definition "A Board-certified medical physicist; includes both therapeutic (radiation oncology) and diagnostic medical physicists."
@@ -3687,6 +3869,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03493>
 
     Annotations: 
         rdfs:label "diagnostic radiology physicist"@en,
+        rdfs:label "físico de radiología diagnóstica"@es,
         skos:altLabel "diagnostic medical physicist",
         skos:definition "A Board-certified medical physicist working in diagnostic radiology."
     
@@ -3697,6 +3880,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03493>
 Class: <https://rsna.org/roadmap/ROADMAP_03494>
 
     Annotations: 
+        rdfs:label "físico de radioterapia"@es,
         rdfs:label "radiation therapy physicist"@en,
         skos:altLabel "radiation oncology medical physicist"@en,
         skos:altLabel "radiation oncology physicist"@en,
@@ -3709,6 +3893,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03494>
 Class: <https://rsna.org/roadmap/ROADMAP_03495>
 
     Annotations: 
+        rdfs:label "médico de medicina nuclear"@es,
         rdfs:label "nuclear medicine physician"@en
     
     SubClassOf: 
@@ -3718,6 +3903,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03495>
 Class: <https://rsna.org/roadmap/ROADMAP_03496>
 
     Annotations: 
+        rdfs:label "imagen de radiología"@es,
         rdfs:label "radiology image"@en
     
     SubClassOf: 
@@ -3727,6 +3913,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03496>
 Class: <https://rsna.org/roadmap/ROADMAP_03497>
 
     Annotations: 
+        rdfs:label "imagen de patología"@es,
         rdfs:label "pathology image"@en
     
     SubClassOf: 
@@ -3736,7 +3923,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_03497>
 Class: <https://rsna.org/roadmap/ROADMAP_03498>
 
     Annotations: 
-        rdfs:label "other image"@en
+        rdfs:label "other image"@en,
+        rdfs:label "otra imagen"@es
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_03391>
@@ -3745,6 +3933,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03498>
 Class: <https://rsna.org/roadmap/ROADMAP_03499>
 
     Annotations: 
+        rdfs:label "datos de laboratorio"@es,
         rdfs:label "laboratory data"@en
     
     SubClassOf: 
@@ -3754,7 +3943,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_03499>
 Class: <https://rsna.org/roadmap/ROADMAP_03500>
 
     Annotations: 
-        rdfs:label "other text data"@en
+        rdfs:label "other text data"@en,
+        rdfs:label "otros datos de texto"@es
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_03484>
@@ -3766,7 +3956,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03504>
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1213/ANE.0000000000003653>,
         <http://purl.org/dc/elements/1.1/source> "Schober P, Vetter TR. Survival analysis and interpretation of time-to-event data: The tortoise and the hare. Anesth Analg 2018; 127(3):792-798.",
         rdfs:comment "In survival analysis, time-to-event metrics refer to various statistical methods used to analyze time until an event occurs, such as failure or death. Common metrics include survival functions, hazard functions, and median survival times."@en,
-        rdfs:label "time to event",
+        rdfs:label "time to event"@en,
         skos:altLabel "TTE metric"@en,
         skos:altLabel "time-to-event analysis metric"@en
     
@@ -3780,9 +3970,10 @@ Class: <https://rsna.org/roadmap/ROADMAP_03508>
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1117/1.JMI.11.2.024504>,
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1117/12.2254742>,
         rdfs:label "area under the precision-recall curve"@en,
-        skos:altLabel "AUPRC"@en,
         skos:altLabel "AUC_PR",
+        skos:altLabel "AUPRC"@en,
         skos:definition "The area under the precision-recall curve quantifies a model’s performance by summarizing the relationship between precision and recall across all classification thresholds. It captures the trade-off between identifying relevant positive cases and avoiding false positives, making it particularly informative for binary classification tasks with imbalanced class distributions. This metric is sensitive to the prevalence of the positive class and reflects how well a model maintains precision while maximizing recall.",
+        <https://rsna.org/roadmap/ROADMAP_03651> 0,
         <https://rsna.org/roadmap/ROADMAP_03652> 1
     
     SubClassOf: 
@@ -3815,6 +4006,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03513>
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1038/s41592-023-02151-z>,
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.3115/1072064.1072067>,
         rdfs:label "F2 score"@en,
+        rdfs:label "puntaje F2"@es,
         skos:altLabel "F2",
         skos:altLabel "F2-score",
         skos:definition "F2 score is a variant of the F(beta) score with β = 2, assigning greater weight to sensitivity than to precision. It is particularly useful in applications where identifying as many positive cases as possible is prioritized over minimizing false positives. This metric is often applied in medical and safety-critical domains where missed detections carry higher consequences.",
@@ -3889,9 +4081,9 @@ Class: <https://rsna.org/roadmap/ROADMAP_03518>
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1148/radiol.2282011860>,
         rdfs:comment "Positive concordance rate refers to the percentage of cases where two different tests or assessments agree on a positive result. It's a measure of agreement, specifically focusing on the instances where both methods indicate a positive finding. [Kottler]",
         rdfs:label "positive percent agreement"@en,
+        skos:altLabel "PCR",
         skos:altLabel "PPA"@en,
         skos:altLabel "positive concordance rate"@en,
-        skos:altLabel "PCR",
         skos:definition "Positive percent agreement is the proportion of comparator-positive cases that are also identified as positive by the new test. It quantifies agreement in the positive subset and is mathematically equivalent to sensitivity but is used specifically when the comparator is not a definitive reference standard.",
         <https://rsna.org/roadmap/ROADMAP_03652> 1
     
@@ -3935,9 +4127,9 @@ Class: <https://rsna.org/roadmap/ROADMAP_03523>
         <http://purl.org/dc/elements/1.1/source> <http://doi.org/10.1177/1536867X0200200103>,
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1117/1.JMI.11.2.024504>,
         rdfs:label "Kendall's tau coefficient"@en,
-        skos:altLabel "tau"@en,
         skos:altLabel "Kendall’s τ",
         skos:altLabel "Kendall’s τ coefficient",
+        skos:altLabel "tau"@en,
         skos:altLabel "τ",
         skos:definition "Kendall’s tau coefficient is a non-parametric statistic that measures the ordinal association between two ranked variables. It is calculated from the difference between the number of concordant and discordant observation pairs, with adjustments for tied ranks in some variants, and yields a value between −1 and 1. A value of 1 indicates perfect agreement in rank order, −1 indicates perfect inverse ordering, and 0 indicates no association in the rankings.",
         <https://rsna.org/roadmap/ROADMAP_03651> -1,
@@ -3970,10 +4162,10 @@ Class: <https://rsna.org/roadmap/ROADMAP_03525>
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.2307/1412159>,
         rdfs:label "Spearman's rho"@en,
         skos:altLabel "Spearman rank correlation coefficient"@en,
+        skos:altLabel "Spearman rho",
         skos:altLabel "Spearman rho coefficient"@en,
         skos:altLabel "Spearman's rank correlation coefficient"@en,
         skos:altLabel "rho"@en,
-        skos:altLabel "Spearman rho",
         skos:altLabel "ρ",
         skos:definition "Spearman’s rho (ρ) is a nonparametric statistic that quantifies the strength and direction of a monotonic relationship between two variables. It is computed from the ranked values of the data rather than the raw values, making it suitable for ordinal data or continuous data that do not meet assumptions of linearity or normality. The coefficient ranges from –1 to +1, with values near the extremes indicating strong increasing or decreasing monotonic associations and values near zero indicating little to no monotonic correlation.",
         <https://rsna.org/roadmap/ROADMAP_03651> -1,
@@ -3990,6 +4182,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03526>
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1117/1.JMI.11.2.024504>,
         rdfs:label "top-n accuracy"@en,
         skos:definition "Top-n accuracy measures the proportion of cases where the true answer appears within the first n predicted outputs of a system, regardless of order. It generalizes standard accuracy by treating inclusion within the top-n list as a success, rather than requiring the single top prediction to be correct. This metric is widely used in multi-class classification and question answering, reflecting realistic settings where users often examine several leading predictions rather than relying only on the first.",
+        <https://rsna.org/roadmap/ROADMAP_03651> 0,
         <https://rsna.org/roadmap/ROADMAP_03652> 1
     
     SubClassOf: 
@@ -4017,7 +4210,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03528>
     Annotations: 
         <http://purl.org/dc/elements/1.1/source> <http://doi.org/10.1142/S0218001411009093>,
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1117/1.JMI.11.2.024504>,
-        rdfs:label "mean squared error",
+        rdfs:label "mean squared error"@en,
         skos:altLabel "MSE"@en,
         skos:altLabel "mean square error"@en,
         skos:altLabel "mean-square error",
@@ -4106,6 +4299,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03536>
         rdfs:label "mean average precision"@en,
         skos:altLabel "mAP"@en,
         skos:definition "Mean average precision is an evaluation metric that summarizes the effectiveness of a system across multiple queries or tasks by averaging the average precision values for each. It reflects the ability of a model to retrieve relevant items by considering both the precision and recall at various thresholds for every query, then aggregating these results into a single overall score.",
+        <https://rsna.org/roadmap/ROADMAP_03651> 0,
         <https://rsna.org/roadmap/ROADMAP_03652> 1
     
     SubClassOf: 
@@ -4236,8 +4430,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_03547>
         skos:altLabel "mean square contingency coefficient"@en,
         skos:altLabel "phi"@en,
         skos:altLabel "phi coefficient"@en,
-        skos:altLabel "φ coefficient"@en,
         skos:altLabel "φ",
+        skos:altLabel "φ coefficient"@en,
         skos:definition "Matthews correlation coefficient evaluates the correlation between observed and predicted classifications, considering all four confusion matrix components. It provides a single summary score that reflects both correct and incorrect predictions across classes. It is regarded as a balanced metric even in the presence of class imbalance."@en,
         <https://rsna.org/roadmap/ROADMAP_03651> -1,
         <https://rsna.org/roadmap/ROADMAP_03652> 1
@@ -4341,8 +4535,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_03553>
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1098/rspl.1895.0041>,
         rdfs:label "Pearson correlation coefficient"@en,
         skos:altLabel "Pearson r coefficient"@en,
-        skos:altLabel "r"@en,
         skos:altLabel "R",
+        skos:altLabel "r"@en,
         skos:definition "The Pearson correlation coefficient is a dimensionless statistic that quantifies the strength and direction of a linear relationship between two continuous variables. It is computed by standardizing the covariance of the variables, producing a value between –1 and +1, where the sign indicates the direction of association and the magnitude reflects its strength. Statistical inference for this coefficient commonly assumes that the paired variables are jointly normally distributed, particularly when deriving p-values or confidence intervals.",
         <https://rsna.org/roadmap/ROADMAP_03651> -1,
         <https://rsna.org/roadmap/ROADMAP_03652> 1
@@ -4357,9 +4551,9 @@ Class: <https://rsna.org/roadmap/ROADMAP_03554>
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.7717/peerj-cs.623>,
         rdfs:label "R-squared"@en,
         skos:altLabel "R squared"@en,
-        skos:altLabel "r^2"@en,
         skos:altLabel "R²",
         skos:altLabel "coefficient of determination",
+        skos:altLabel "r^2"@en,
         skos:altLabel "r²",
         skos:definition "The coefficient of determination (R^2), is a statistical measure that expresses the proportion of variance in a dependent variable that is explained by the independent variable(s) in a regression model. It is calculated from the squared Pearson correlation between predicted and observed values and commonly ranges from 0 (no variance explained) to 1 (all variance explained), though values below 0 can occur when the model performs worse than a mean-based prediction. R^2 is widely used to assess the goodness of fit in regression analysis, with higher values indicating greater explanatory power."
     
@@ -4372,7 +4566,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03555>
 
     Annotations: 
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1016/0169-2070(92)90008-W>,
-        rdfs:label "symmetric mean absolute percentage error",
+        rdfs:label "symmetric mean absolute percentage error"@en,
         skos:altLabel "sMAPE"@en,
         skos:definition "Symmetric mean absolute percentage error is a modification of mean absolute percentage error that addresses its asymmetry in penalizing over- and under-predictions. It is defined as the average of the absolute differences between predicted and true values, divided by the mean of their absolute values. This metric is bounded between 0% and 200%, ensuring equal treatment of overestimation and underestimation of the same magnitude.",
         <https://rsna.org/roadmap/ROADMAP_03652> 200
@@ -4400,9 +4594,9 @@ Class: <https://rsna.org/roadmap/ROADMAP_03557>
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1371/journal.pone.0077089>,
         rdfs:label "signal-to-noise ratio"@en,
         skos:altLabel "S-N ratio"@en,
+        skos:altLabel "S/N ratio",
         skos:altLabel "SNR"@en,
         skos:altLabel "signal to noise ratio"@en,
-        skos:altLabel "S/N ratio",
         skos:definition "Signal-to-noise ratio quantifies the relationship between the strength of a signal and the level of background noise in a measurement or image. It is calculated as the ratio of the mean signal intensity to the standard deviation of the noise, indicating how clearly the signal can be distinguished from noise. Higher signal-to-noise ratio values correspond to better image or data quality."
     
     SubClassOf: 
@@ -4565,7 +4759,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03572>
     Annotations: 
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1186/1471-2288-12-82>,
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.3348/kjr.2021.0223>,
-        rdfs:label "concordance index",
+        rdfs:label "concordance index"@en,
         skos:altLabel "C index",
         skos:altLabel "C statistic",
         skos:altLabel "C-index",
@@ -4741,8 +4935,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_03593>
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1016/j.ejmp.2024.104842>,
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1148/ryai.230513>,
         rdfs:label "enhanced detection rate"@en,
-        skos:altLabel "EDR"@en,
         skos:altLabel "AI-enhanced detection rate",
+        skos:altLabel "EDR"@en,
         skos:definition "The enhanced detection rate is a metric that quantifies the additional diagnostic value contributed by an artificial intelligence system when combined with a human reader. It is defined as the proportion of true positive cases correctly identified by the artificial intelligence but missed by the radiologist, relative to the number of positive cases detected by the radiologist. This measure reflects the incremental gain in sensitivity provided by artificial intelligence beyond the baseline human performance.
 
 EDR = (the number of AI-positive exams not detected by the human reader) / (the number of human-detected positive exams)"@en,
@@ -4770,6 +4964,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03596>
 
     Annotations: 
         rdfs:label "date last updated"@en,
+        rdfs:label "fecha de última actualización"@es,
         skos:altLabel "date of last update",
         skos:altLabel "last update",
         skos:altLabel "last updated"
@@ -4869,6 +5064,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03604>
 Class: <https://rsna.org/roadmap/ROADMAP_03605>
 
     Annotations: 
+        rdfs:label "tratamiento"@es,
         rdfs:label "treatment"@en
     
     SubClassOf: 
@@ -4878,6 +5074,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03605>
 Class: <https://rsna.org/roadmap/ROADMAP_03606>
 
     Annotations: 
+        rdfs:label "cura"@es,
         rdfs:label "cure"@en
     
     SubClassOf: 
@@ -4887,6 +5084,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03606>
 Class: <https://rsna.org/roadmap/ROADMAP_03607>
 
     Annotations: 
+        rdfs:label "mitigación"@es,
         rdfs:label "mitigation"@en,
         skos:altLabel "risk mitigation"
     
@@ -4897,6 +5095,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03607>
 Class: <https://rsna.org/roadmap/ROADMAP_03608>
 
     Annotations: 
+        rdfs:label "prevención"@es,
         rdfs:label "prevention"@en
     
     SubClassOf: 
@@ -4907,7 +5106,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_03609>
 
     Annotations: 
         rdfs:comment "Indicates a user type other than a predefined subclass of User type; should be recorded as text."@en,
-        rdfs:label "other user"@en
+        rdfs:label "other user"@en,
+        rdfs:label "otro/a usuario/a"@es
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_00040>
@@ -5039,6 +5239,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03625>
 
     Annotations: 
         rdfs:label "SNOMED code"@en,
+        rdfs:label "código SNOMED"@es,
         rdfs:seeAlso <https://browser.ihtsdotools.org/>,
         rdfs:seeAlso <https://www.nlm.nih.gov/research/umls/Snomed/snomed_browsers.html>,
         skos:altLabel "SNOMED CT code"@en,
@@ -5083,7 +5284,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_03631>
 
     Annotations: 
         rdfs:comment "Use other than one of the predefined classes; should be specified as text."@en,
-        rdfs:label "other use"@en
+        rdfs:label "other use"@en,
+        rdfs:label "otro uso"@es
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_00015>
@@ -5095,8 +5297,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_03632>
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1038/s41592-023-02151-z>,
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1109/34.232073>,
         rdfs:label "95th percentile Hausdorff distance"@en,
-        skos:altLabel "HD95"@en,
         skos:altLabel "95HD",
+        skos:altLabel "HD95"@en,
         skos:definition "The 95th percentile Hausdorff distance measures the distance threshold below which 95% of the closest point distances between two boundaries fall, reducing sensitivity to extreme outliers. It evaluates boundary alignment while mitigating the influence of isolated segmentation errors. This metric is widely adopted in medical imaging tasks for robust surface distance assessment."
     
     SubClassOf: 
@@ -5109,8 +5311,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_03633>
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1007/s11547-024-01886-9>,
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.3115/1073083.1073135>,
         rdfs:label "BLEU"@en,
-        skos:altLabel "Bilingual Evaluation Understudy"@en,
         skos:altLabel "BLEU score",
+        skos:altLabel "Bilingual Evaluation Understudy"@en,
         skos:definition "BLEU is an automatic, language-independent metric for assessing the quality of machine-generated text, most commonly machine translation, by comparing a candidate output with one or more human reference texts. It aggregates modified n-gram precisions across multiple n-gram sizes and applies a brevity penalty, yielding a standardized, inexpensive corpus-level score that correlates strongly with human judgments. BLEU primarily reflects surface n-gram precision between system and reference texts and does not directly evaluate semantic meaning.",
         <https://rsna.org/roadmap/ROADMAP_03652> 1
     
@@ -5153,6 +5355,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03637>
 Class: <https://rsna.org/roadmap/ROADMAP_03638>
 
     Annotations: 
+        rdfs:label "detección y diagnóstico"@es,
         rdfs:label "detection and diagnosis"@en,
         skos:altLabel "CADe/x"@en,
         skos:altLabel "computer-assisted detection/diagnosis",
@@ -5178,6 +5381,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03640>
     Annotations: 
         rdfs:comment "Model performance metric presented as a matrix, such as a confusion matrix or 2x2 contingency table."@en,
         rdfs:label "matrix metric of model performance"@en,
+        rdfs:label "métrica matricial del rendimiento del modelo"@es,
         skos:altLabel "matrix metric"@en,
         skos:altLabel "matrix model performance data"@en,
         skos:altLabel "matrix model performance metric"@en,
@@ -5192,6 +5396,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03641>
     Annotations: 
         rdfs:comment "Model performance metric presented as a graphical object, such as a histogram or an ROC curve."@en,
         rdfs:label "graphical metric of model performance"@en,
+        rdfs:label "métrica gráfica del rendimiento del modelo"@es,
         skos:altLabel "graphical metric"@en,
         skos:altLabel "graphical model performance data"@en,
         skos:altLabel "graphical model performance metric"@en,
@@ -5206,6 +5411,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03642>
     Annotations: 
         <http://purl.org/dc/elements/1.1/source> "https://doi.org/10.1117/1.JMI.11.2.024504"@en,
         rdfs:label "model performance metric"@en,
+        rdfs:label "métrica de rendimiento del modelo"@es,
         skos:altLabel "metric"@en,
         skos:altLabel "metric of model performance"@en,
         skos:altLabel "model performance data"@en,
@@ -5350,11 +5556,11 @@ Class: <https://rsna.org/roadmap/ROADMAP_03663>
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.11613/BM.2015.015>,
         rdfs:label "Bland-Altman analysis"@en,
         rdfs:seeAlso <https://en.wikipedia.org/wiki/Bland%E2%80%93Altman_plot>,
-        skos:altLabel "difference plot"@en,
         skos:altLabel "B&A",
         skos:altLabel "B&A plot",
         skos:altLabel "Bland-Altman plot",
         skos:altLabel "Tukey mean-difference plot",
+        skos:altLabel "difference plot"@en,
         skos:altLabel "mean-difference plot",
         skos:definition "A Bland–Altman plot (difference plot) in biomedicine is a method of data plotting used in analyzing the agreement between two different test. It is identical to a Tukey mean-difference plot."
     
@@ -5490,7 +5696,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03674>
 
     Annotations: 
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.21236/ADA006655>,
-        rdfs:label "Flesch-Kincaid grade level",
+        rdfs:label "Flesch-Kincaid grade level"@en,
         skos:altLabel "F-K grade level",
         skos:altLabel "F-K reading grade level",
         skos:altLabel "FKGL",
@@ -5524,9 +5730,9 @@ Class: <https://rsna.org/roadmap/ROADMAP_03678>
 
     Annotations: 
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.5194/gmd-15-5481-2022>,
-        rdfs:label "root mean squared error",
-        skos:altLabel "root mean square error"@en,
+        rdfs:label "root mean squared error"@en,
         skos:altLabel "RMSE",
+        skos:altLabel "root mean square error"@en,
         skos:definition "Root mean squared error is a statistical measure that quantifies the average magnitude of prediction errors by taking the square root of the mean of squared differences between observed and predicted values. It expresses errors in the same units as the original data, which makes the metric directly interpretable as a typical deviation. It penalizes larger errors more heavily than smaller ones, and under the assumption of normally distributed independent errors, minimizing it corresponds to finding the most likely model fit."
     
     SubClassOf: 
@@ -5544,6 +5750,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03679>
         skos:altLabel "AUC-PROC"@en,
         skos:altLabel "AUPROC",
         skos:definition "The area under the predictive receiver operating characteristic curve evaluates the overall quality of probabilistic predictions in binary classification by plotting positive predictive value against negative predictive value across thresholds. Unlike the traditional receiver operating characteristic curve, this approach conditions on the predicted outcome and incorporates the prevalence of the condition in the population. The area under this curve reflects the model’s average predictive validity across different decision thresholds and is particularly useful when the focus is on the reliability of predictions rather than classification accuracy.",
+        <https://rsna.org/roadmap/ROADMAP_03651> 0,
         <https://rsna.org/roadmap/ROADMAP_03652> 1
     
     SubClassOf: 
@@ -5600,7 +5807,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03683>
 
     Annotations: 
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1016/j.acra.2005.05.013>,
-        rdfs:label "Obuchowski index",
+        rdfs:label "Obuchowski index"@en,
         skos:altLabel "weighted average of AUROC",
         skos:definition "The Obuchowski index is a nonparametric measure of diagnostic accuracy that generalizes the area under the ROC curve (AUC) to settings where the reference standard is continuous, ordinal, or nominal. It estimates the probability that a subject with a higher reference standard value receives a higher test score, averaging results from all relevant category or value pairs with optional weighting and penalties to reflect the clinical importance of different misclassifications. When the reference standard is binary, the Obuchowski index reduces to the conventional ROC AUC.",
         <https://rsna.org/roadmap/ROADMAP_03651> 0.5,
@@ -5616,7 +5823,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03684>
     Annotations: 
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.3348/kjr.2021.0223>,
         rdfs:comment "The summary metrics include AUROC at each time point and an integrated AUC (iAUC), which is a mathematical integration of multiple time-dependent AUC values across the follow-up period.",
-        rdfs:label "time-dependent receiver operating characteristic analysis",
+        rdfs:label "time-dependent receiver operating characteristic analysis"@en,
         skos:altLabel "time-dependent ROC analysis"@en,
         skos:definition "Time-dependent receiver operating characteristic (ROC) analysis refers to a set of ROC analyses performed at specific follow-up time points in time-to-event prediction. It typically involves multiple ROC analyses, each corresponding to a distinct time point during the follow-up period. For each time point, a separate ROC curve and its corresponding area under the curve (AUC) are generated. As a result, the ROC curves and their AUC values are provided as a function of time."
     
@@ -5794,7 +6001,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03703>
 
     Annotations: 
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.21236/ADA006655>,
-        rdfs:label "Gunning Fog index",
+        rdfs:label "Gunning Fog index"@en,
         skos:altLabel "Fog index",
         skos:altLabel "Fog score",
         skos:altLabel "GF",
@@ -5822,10 +6029,10 @@ Class: <https://rsna.org/roadmap/ROADMAP_03705>
     Annotations: 
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1080/19325037.2008.10599016>,
         <http://purl.org/dc/elements/1.1/source> <https://www.jstor.org/stable/40011226>,
-        rdfs:label "SMOG index",
-        skos:altLabel "SMOG score"@en,
+        rdfs:label "SMOG index"@en,
         skos:altLabel "McLaughlin SMOG index",
         skos:altLabel "SMOG",
+        skos:altLabel "SMOG score"@en,
         skos:altLabel "simple measure of gobbledygook",
         skos:definition "The SMOG index is a readability metric that estimates the years of formal education required for full comprehension of a text. It is calculated by counting the number of polysyllabic words in a 30-sentence sample, taking the square root of this count, and adding three to yield the SMOG grade level. Developed for accuracy and simplicity, it is widely used in health communication to ensure written materials are accessible to target audiences.",
         <https://rsna.org/roadmap/ROADMAP_03651> 4
@@ -5882,6 +6089,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_03708>
         skos:altLabel "HTER"@en,
         skos:altLabel "half total error rate",
         skos:definition "Balanced error rate measures the average of the false positive rate and the false negative rate, giving equal weight to both types of errors. It is conceptually the counterpart of the balanced accuracy (balanced classification rate), emphasizing error rather than correct classification, and is particularly useful for imbalanced datasets where overall accuracy can be misleading. Lower values indicate better performance, with zero representing perfect classification and one representing the worst case.",
+        <https://rsna.org/roadmap/ROADMAP_03651> 0,
         <https://rsna.org/roadmap/ROADMAP_03652> 1
     
     SubClassOf: 
@@ -5932,8 +6140,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_04005>
         rdfs:comment "Video images of surgical procedure"@en,
         rdfs:label "surgical video"@en,
         skos:altLabel "operative video"@en,
-        skos:altLabel "surgery video"@en,
-        skos:altLabel "procedural video"
+        skos:altLabel "procedural video",
+        skos:altLabel "surgery video"@en
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_03391>
@@ -6104,6 +6312,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_04019>
         rdfs:label "strict accuracy"@en,
         skos:altLabel "SACC",
         skos:definition "Strict accuracy is an evaluation metric that measures the proportion of questions or instances answered exactly correctly according to a gold-standard reference. In question answering, it requires that the system’s top response matches the expected answer precisely, without credit for synonyms, partial matches, or alternate valid forms. It is most often applied to binary or factoid-style tasks, where correctness is defined in absolute terms.",
+        <https://rsna.org/roadmap/ROADMAP_03651> 0,
         <https://rsna.org/roadmap/ROADMAP_03652> 1
     
     SubClassOf: 
@@ -6118,6 +6327,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_04020>
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1007/978-3-642-41230-1_36>,
         rdfs:label "top-5 accuracy"@en,
         skos:definition "Top-5 accuracy measures the proportion of instances where the true class label appears within the top 5 predicted class labels, regardless of their order.",
+        <https://rsna.org/roadmap/ROADMAP_03651> 0,
         <https://rsna.org/roadmap/ROADMAP_03652> 1
     
     SubClassOf: 
@@ -6351,6 +6561,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_04039>
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1002/j.1538-7305.1950.tb00463.x>,
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1145/375360.375365>,
         rdfs:label "Hamming distance"@en,
+        rdfs:label "distancia Hamming"@es,
         skos:definition "The Hamming distance is defined for two strings of equal length and counts the number of positions at which the corresponding characters differ. It is a metric commonly used in coding theory to measure error detection and correction capability, with values ranging from zero to the string length."
     
     SubClassOf: 
@@ -6363,6 +6574,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_04040>
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1145/363958.363994>,
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1145/375360.375365>,
         rdfs:label "Damerau–Levenshtein distance"@en,
+        rdfs:label "distancia Damerau–Levenshtein"@es,
         skos:definition "The Damerau–Levenshtein distance extends the standard edit distance by including adjacent transposition as a primitive operation, in addition to insertion, deletion, and substitution. It reflects the minimum number of these edits needed to transform one string into another, making it particularly suitable for modeling common human typing errors."
     
     SubClassOf: 
@@ -6374,6 +6586,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_04041>
     Annotations: 
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1080/01621459.1989.10478785>,
         rdfs:label "Jaro distance"@en,
+        rdfs:label "distancia Jaro"@es,
         skos:definition "The Jaro distance is a similarity measure designed for record linkage that accounts for insertions, deletions, replacements, and transpositions of characters. It assigns a prorated weight based on the degree of character agreement between two strings, with higher values indicating greater similarity; its normalized form is widely used for matching names and short text fields.",
         <https://rsna.org/roadmap/ROADMAP_03652> 1
     
@@ -6387,6 +6600,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_04042>
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1001/jama.1982.03320430047030>,
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1177/0962280216680245>,
         rdfs:label "Harrell’s C-index"@en,
+        rdfs:label "índice C de Harrell"@es,
         skos:altLabel "Harrell C index",
         skos:altLabel "Harrell C-index",
         skos:altLabel "Harrell’s C index",
@@ -6415,6 +6629,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_04045>
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1002/sim.4154>,
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.3348/kjr.2021.0223>,
         rdfs:label "Uno's C-index"@en,
+        rdfs:label "índice C de Uno"@es,
         skos:altLabel "Uno C index",
         skos:altLabel "Uno C-index",
         skos:altLabel "Uno's C index",
@@ -6431,6 +6646,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_04046>
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1177/0962280216680245>,
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.3348/kjr.2021.0223>,
         rdfs:label "Efron's C-index"@en,
+        rdfs:label "índice C de Efron"@es,
         skos:altLabel "Efron C index",
         skos:altLabel "Efron C-index",
         skos:altLabel "Efron's C index",
@@ -6445,7 +6661,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_04047>
 
     Annotations: 
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.48550/arXiv.2405.17878>,
-        rdfs:label "information difference index",
+        rdfs:label "information difference index"@en,
         skos:altLabel "IDI"@en,
         skos:definition "The information difference index is an information-theoretic metric designed to evaluate the effectiveness of machine unlearning. It quantifies the amount of residual information about the data to be forgotten that remains in a model’s intermediate representations, by comparing mutual information between those features and the forget labels against a reference retrained model. The index is normalized such that values near one indicate no unlearning, values near zero indicate effective unlearning comparable to retraining, and negative values indicate over-unlearning, making it a robust white-box measure that complements output-based black-box metrics."
     
@@ -6460,12 +6676,13 @@ Class: <https://rsna.org/roadmap/ROADMAP_04048>
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1007/s11547-024-01886-9>,
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1093/rpd/ncp305>,
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1118/1.596358>,
-        rdfs:label "area under the alternative free-response operating characteristic curve",
-        skos:altLabel "area under the AFROC curve"@en,
+        rdfs:label "area under the alternative free-response operating characteristic curve"@en,
         skos:altLabel "AUAFROC",
         skos:altLabel "AUC_AFROC",
         skos:altLabel "area under AFROC curve",
+        skos:altLabel "area under the AFROC curve"@en,
         skos:definition "The area under the alternative free-response operating characteristic curve is a figure of merit used to quantify observer performance in free-response diagnostic imaging studies. It is derived from the alternative free-response operating characteristic curve, which plots the lesion localization fraction against the false-positive fraction, providing a bounded, case-based representation of detection and localization accuracy. It reflects the probability that a correctly localized lesion receives a higher confidence rating than a false-positive mark, and serves as a single, standardized summary measure of localization-based diagnostic accuracy.",
+        <https://rsna.org/roadmap/ROADMAP_03651> 0,
         <https://rsna.org/roadmap/ROADMAP_03652> 1
     
     SubClassOf: 
@@ -6654,6 +6871,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_04064>
 Class: <https://rsna.org/roadmap/ROADMAP_04065>
 
     Annotations: 
+        rdfs:label "utilidad"@es,
         rdfs:label "utility"@en
     
     SubClassOf: 
@@ -6663,6 +6881,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_04065>
 Class: <https://rsna.org/roadmap/ROADMAP_04066>
 
     Annotations: 
+        rdfs:label "respuesta del usuario"@es,
         rdfs:label "user response"@en
     
     SubClassOf: 
@@ -6672,6 +6891,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_04066>
 Class: <https://rsna.org/roadmap/ROADMAP_04067>
 
     Annotations: 
+        rdfs:label "contrato de usuario"@es,
         rdfs:label "user agreement"@en
     
     SubClassOf: 
@@ -6681,10 +6901,11 @@ Class: <https://rsna.org/roadmap/ROADMAP_04067>
 Class: <https://rsna.org/roadmap/ROADMAP_04068>
 
     Annotations: 
-        rdfs:label "volume-of-interest annotation",
-        skos:altLabel "volume of interest annotation"@en,
+        rdfs:label "anotación de volumen de interés"@es,
+        rdfs:label "volume-of-interest annotation"@en,
         skos:altLabel "VOI annotation",
         skos:altLabel "VOI label",
+        skos:altLabel "volume of interest annotation"@en,
         skos:altLabel "volume of interest label",
         skos:altLabel "volume-of-interest label",
         skos:definition "Annotation applied to a three-dimensional (3D) dataset, with the contours or surfaces outlining an object in a volume."
@@ -6697,6 +6918,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_04069>
 
     Annotations: 
         rdfs:label "binary confusion matrix"@en,
+        rdfs:label "matriz de confusión binaria"@es,
         skos:altLabel "2x2 contingency table",
         skos:definition "A confusion matrix for two classes, such as normal or abnormal."
     
@@ -6707,6 +6929,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_04069>
 Class: <https://rsna.org/roadmap/ROADMAP_04070>
 
     Annotations: 
+        rdfs:label "matriz de confusión multiclase"@es,
         rdfs:label "multi-class confusion matrix"@en,
         skos:definition "An N x N confusion matrix, where N > 2."
     
@@ -6782,6 +7005,7 @@ For EDRr, the denominator is the total number of exams detected by the radiologi
 
 - Nina Kottler",
         rdfs:label "absolute enhanced detection rate"@en,
+        rdfs:label "tasa absoluta de detección mejorada"@es,
         skos:altLabel "EDRa",
         skos:altLabel "aEDR",
         skos:altLabel "absolute EDR",
@@ -6803,6 +7027,7 @@ For EDRr, the denominator is the total number of exams detected by the radiologi
 
 - Nina Kottler",
         rdfs:label "relative enhanced detection rate"@en,
+        rdfs:label "tasa relativa de detección mejorada"@es,
         skos:altLabel "EDRr",
         skos:altLabel "rEDR",
         skos:altLabel "relative EDR",
@@ -6857,6 +7082,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_04082>
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1007/978-3-642-41230-1_36>,
         rdfs:label "top-10 accuracy"@en,
         skos:definition "Top-10 accuracy measures the proportion of instances where the true class label appears within the top 10 predicted class labels, regardless of their order."@en,
+        <https://rsna.org/roadmap/ROADMAP_03651> 0,
         <https://rsna.org/roadmap/ROADMAP_03652> 1
     
     SubClassOf: 
@@ -6868,6 +7094,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_04086>
     Annotations: 
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.3348/kjr.2021.0223>,
         rdfs:label "log-risk score"@en,
+        rdfs:label "puntuación de riesgo logarítmico"@es,
         skos:altLabel "log risk score",
         skos:definition "The log-risk score is a time-independent linear predictor derived from the Cox proportional hazards model that represents an individual’s overall risk of experiencing an event, such as death or disease recurrence. It is computed as the weighted sum of patient covariates, where the weights are regression coefficients estimated from the model. Higher log-risk scores correspond to higher event risk, and while the score itself is not a probability, it can be transformed into time-dependent survival probabilities when combined with baseline survival estimates."
     
@@ -6880,6 +7107,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_04087>
 
     Annotations: 
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1038/sj.bjc.6601118>,
+        rdfs:label "probabilidad de supervivencia"@es,
         rdfs:label "survival probability"@en,
         skos:definition "Survival probability is the probability that an individual remains free of a specified event, such as death or relapse, beyond a given time point measured from the study origin. It is expressed by the survival function, which represents the cumulative likelihood of continuing survival up to time t, and forms the foundation of survival analysis. This measure is typically estimated with methods such as the Kaplan–Meier estimator, accommodates censoring, and provides clinically interpretable outcomes including median survival and fixed-time survival rates.",
         <https://rsna.org/roadmap/ROADMAP_03652> 1
@@ -6894,6 +7122,7 @@ Class: <https://rsna.org/roadmap/ROADMAP_04088>
     Annotations: 
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.3348/kjr.2021.0223>,
         rdfs:label "cumulative hazard"@en,
+        rdfs:label "riesgo acumulado"@es,
         skos:altLabel "CH",
         skos:altLabel "CHF",
         skos:altLabel "cumulative hazard function",
@@ -6912,6 +7141,7 @@ Individual: <https://rsna.org/roadmap/ROADMAP_03468>
     Annotations: 
         rdfs:comment "In premature infants, values for both Days of life and Days of gestation may be relevant."@en,
         rdfs:label "days"@en,
+        rdfs:label "días"@es,
         skos:altLabel "DOL"@en,
         skos:altLabel "days of life"@en,
         skos:definition "Unit for number of days of life, i.e., days since birth."@en
@@ -6923,6 +7153,7 @@ Individual: <https://rsna.org/roadmap/ROADMAP_03468>
 Individual: <https://rsna.org/roadmap/ROADMAP_03469>
 
     Annotations: 
+        rdfs:label "meses"@es,
         rdfs:label "months"@en,
         skos:definition "Unit for months of life, i.e., since birth."@en
     
@@ -6933,6 +7164,7 @@ Individual: <https://rsna.org/roadmap/ROADMAP_03469>
 Individual: <https://rsna.org/roadmap/ROADMAP_03470>
 
     Annotations: 
+        rdfs:label "años"@es,
         rdfs:label "years"@en
     
     Types: 
@@ -6943,6 +7175,7 @@ Individual: <https://rsna.org/roadmap/ROADMAP_03647>
 
     Annotations: 
         rdfs:label "days of gestation"@en,
+        rdfs:label "días de gestación"@es,
         skos:definition "Unit for Gestational age, as measured in days from the onset of the mother's last menstrual period. To simplify comparison, gestational age should be converted from the weeks / days format."@en
     
     Types: 
