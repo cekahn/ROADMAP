@@ -1,0 +1,95 @@
+{
+	"$schema": "https://atlas.rsna.org/schema.2025-11.json",
+	"Dataset": {
+		"Name": "Nasogastric Tube Position in Chest Radiographs",
+		"Indexing code": {
+			"Content": [
+				"AI",
+				"CH"
+			]
+		},
+		"Imaging": {
+			"Modality": [
+				"Digital radiography (RID10351)"
+			],
+			"File format": [
+				"DICOM"
+			],
+			"Procedure": [
+				{
+					"Name": "XR Chest Single view",
+					"LOINC": "36554-4",
+					"RadLex": "RPID2502"
+				},
+				{
+					"Name": "XR Chest AP",
+					"LOINC": "36572-6"
+				},
+				{
+					"Name": "XR Chest 1V PA",
+					"RadLex": "RPID6035"
+				}
+			],
+			"Burned-in PHI": "No",
+			"Resolution": "Resolution ranged from 253x902 to 4280x3520 pixels"
+		},
+		"Labeling": "Labeled for 'satisfactory position', 'malpositioned', or 'bronchial insertion' by three radiologists",
+		"Missing information": "None reported",
+		"Relationships between instances": "Randomized into stratified sets, maintaining ground truth labels, sex, and view positions without overlapped patient identifiers among splits.",
+		"Noise": "No specific noise sources mentioned",
+		"External data": "None mentioned",
+		"Subpopulations": "Demographics such as age and sex considered during stratification.",
+		"Re-identification": "Not possible, de-identified data used",
+		"Collection process": "Retrospective collection from NHS Greater Glasgow and Clyde. Ethics approval from Local Privacy and Advisory Committee.",
+		"Composition": {
+			"Confidentiality": "No identifiable patient data used, ethical approval granted without consent.",
+			"Representativeness": {
+				"Population": "",
+				"Verification": "Ground truth based on majority consensus of three certified radiologists."
+			}
+		},
+		"Motivation": {
+			"Purpose": "To develop an AI tool for NGT malposition detection in chest radiographs.",
+			"Comments": "To improve the accessibility and coverage of segmentation models for a wide array of anatomical structures on CT Imaging."
+		},
+		"Partioning scheme": "Randomized into stratified training (90%), validation (5%), and testing (5%) sets",
+		"Partition": {
+			"Training": {
+				"Site count": 14,
+				"Exam count": 1132142
+			},
+			"Validation": {
+				"Site count": 14,
+				"Exam count": 7081
+			},
+			"Testing": {
+				"Exam count": 355
+			}
+		},
+		"Date": {
+			"Published": 2023
+		},
+		"License": "Not specified in extracted text, but de-identified and ethically approved for research. CC BY 4.0 license",
+		"Reference": [
+			{
+				"Authors": "Drozdov I, Dixon R, Szubert B, Dunn J, Green D, Hall N, Shirandami A, Rosas S, Grech R, Puttagunta S, Hall M, Lowe DJ",
+				"Title": "An artificial neural network for nasogastric tube position decision support",
+				"Source": "Radiol Artif Intell",
+				"Year": 2023,
+				"Date": "2023-02-01",
+				"DOI": "10.1148/ryai.220165",
+				"URL": "https://doi.org/10.1148/ryai.220165",
+				"PMID": 37035435,
+				"PMCID": "PMC10077078"
+			}
+		],
+		"Author": [
+			{
+				"Name": "Ignat Drozdov",
+				"ORCID": "https://orcid.org/0000-0001-6727-4688",
+				"Email": "idrozdov@beringresearch.com",
+				"Address": "Bering Limited, 54 Portland Place, 2nd Floor, London W1B 1DY, England"
+			}
+		]
+	}
+}

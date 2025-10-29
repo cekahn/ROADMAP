@@ -1,63 +1,24 @@
 {
 	"$schema": "https://json-schema.org/draft/2020-12/schema",
-	"title": "ATLAS schema",
-	"description": "RSNA ATLAS schema, 2025-11 version",
+	"title": "ATLAS dataset schema",
+	"description": "RSNA ATLAS dataset schema, 2025-11 version",
 	"$comment": "Copyright (c) 2025, Radiological Society of North America",
-	"oneOf": [
-		{
-			"type": "object",
-			"properties": {
-				"$schema": {
-					"$ref": "#/$defs/$schema"
-				},
-				"Model": {
-					"$ref": "#/$defs/Model"
-				}
-			},
-			"required": [
-				"$schema",
-				"Model"
-			],
-			"additionalProperties": false
-		},
-		{
-			"type": "object",
-			"properties": {
-				"$schema": {
-					"$ref": "#/$defs/$schema"
-				},
-				"Dataset": {
-					"$ref": "#/$defs/Dataset"
-				}
-			},
-			"required": [
-				"$schema",
-				"Dataset"
-			],
-			"additionalProperties": false
-		},
-		{
-			"type": "object",
-			"properties": {
-				"$schema": {
-					"$ref": "#/$defs/$schema"
-				},
-				"Project": {
-					"$ref": "#/$defs/Project"
-				}
-			},
-			"required": [
-				"$schema",
-				"Project"
-			],
-			"additionalProperties": false
-		}
-	],
-	"$defs": {
+	"type": "object",
+	"properties": {
 		"$schema": {
 			"type": "string",
-			"const": "https://atlas.rsna.org/schema.2025-11.json"
+			"const": "https://atlas.rsna.org/schema/2025-11/dataset.json"
 		},
+		"Dataset": {
+			"$ref": "#/$defs/Dataset"
+		}
+	},
+	"required": [
+		"$schema",
+		"Dataset"
+	],
+	"additionalProperties": false,
+	"$defs": {
 		"Dataset": {
 			"type": "object",
 			"description": "Describes an AI dataset",
@@ -667,207 +628,6 @@
 			},
 			"additionalProperties": false
 		},
-		"Model": {
-			"type": "object",
-			"properties": {
-				"Name": {
-					"description": "Model name (required)",
-					"$comment": "ROADMAP:03597",
-					"type": "string"
-				},
-				"Link": {
-					"description": "URL pointer to source (required)",
-					"type": "string",
-					"format": "uri"
-				},
-				"Indexing": {
-					"description": "Indexing information, such as content codes, RadLex + SNOMED codes, and keywords)",
-					"$comment": "ROADMAP:00074",
-					"$ref": "#/$defs/Indexing"
-				},
-				"Descriptors": {
-					"description": "Details of the model",
-					"$comment": "ROADMAP:00004",
-					"$ref": "#/$defs/Descriptors"
-				},
-				"Model properties": {
-					"description": "Model-specific properties",
-					"$comment": "ROADMAP:03355",
-					"$ref": "#/$defs/Model-properties"
-				},
-				"Model performance": {
-					"description": "Information about the model's performance and the metrics used to measure performance.",
-					"$ref": "#/$defs/Metrics"
-				}
-			},
-			"required": [
-				"Name",
-				"Link"
-			],
-			"additionalProperties": false
-		},
-		"Model-properties": {
-			"type": "object",
-			"properties": {
-				"Architecture": {
-					"description": "Textual description of underlying model technology, e.g., \"Convolutional Neural Network\".",
-					"$comment": "ROADMAP:03598",
-					"type": "string"
-				},
-				"Availability": {
-					"description": "Defines where and/or how the model is available; can include a URL.",
-					"$comment": "ROADMAP:03373",
-					"type": "string"
-				},
-				"Clinical benefit": {
-					"description": "Clinical benefits, such as diagnosis, risk assessment, or treatment selection.",
-					"$comment": "ROADMAP:03612",
-					"type": "string"
-				},
-				"Clinical workflow phase": {
-					"description": "Clinical workflow phase (e.g., patient pre-registration, digitization of forms or clinical  scales, patients’ triage, telehealth & virtual rounds, clinical decision support systems, workflow optimization, evidence-based methods to optimize medical interventions, feedback from users).",
-					"$comment": "ROADMAP:03613",
-					"type": "string"
-				},
-				"Decision threshold": {
-					"$comment": "ROADMAP:03351",
-					"type": "string"
-				},
-				"Degree of automation": {
-					"description": "Degree of automation compared to the current standard of care, including whether the device supports or automates decision making.",
-					"$comment": "ROADMAP:03614",
-					"type": "string"
-				},
-				"Indications for use": {
-					"description": "The indications for use describe: (1) the disease or condition that the AI system will diagnose, treat, prevent, cure, or mitigate; (2) the intended patient population; and (3) the intended use environment (e.g., ICU, step-down unit, home).",
-					"$comment": "ROADMAP:03600",
-					"type": "string"
-				},
-				"Input": {
-					"description": "Describes the type(s) of information used as input into the model; for example, abdomen/pelvis CT images and laboratory data.",
-					"$comment": "ROADMAP:03481",
-					"type": "string"
-				},
-				"Instructions for use": {
-					"description": "Directions and recommendations for optimal use of the model.",
-					"$comment": "ROADMAP:03601",
-					"type": "string"
-				},
-				"Limitations": {
-					"description": "Describes concerns specific to the use of the AI model. Includes: (1) Known biases or failure modes; (2) Known gaps in the data characterization, such as patient populations that are not well represented in development (e.g., training) or testing datasets, and therefore, may be at risk of bias; (3) Limitations in the model development or performance evaluation; and (4) Known circumstances where the device input will not align with the data used in development and validation.",
-					"$comment": "ROADMAP:03621",
-					"type": "string"
-				},
-				"Output": {
-					"description": "Describes the type of output produced by the model, such as classification (diagnosis) results or image segmentation.",
-					"$comment": "ROADMAP:03482",
-					"type": "object",
-					"minProperties": 1,
-					"properties": {
-						"Description": {
-							"description": "Textual description of model's output.",
-							"type": "string"
-						},
-						"CDE": {
-							"description": "An array of radiology Common Data Elements (CDEs) and/or CDE Set identifiers from RadElement.org.",
-							"type": "array",
-							"uniqueItems": true,
-							"items": {
-								"type": "string",
-								"pattern": "RDE[S]?[0-9]+",
-								"examples": [
-									"RDES174",
-									"RDE1193"
-								]
-							}
-						}
-					},
-					"additionalProperties": false
-				},
-				"Recommendation": {
-					"$comment": "ROADMAP:03354",
-					"type": "string"
-				},
-				"Regulatory information": {
-					"description": "Information used to support or document regulatory review.",
-					"$comment": "ROADMAP:03602",
-					"type": "object",
-					"properties": {
-						"Predicate device": {
-							"description": "A predicate device is an FDA-cleared medical device used as point of comparison for new medical devices seeking approval through FDA’s 510(k) pre-market clearance pathway. It is useful to provide the URL to the FDA clearance statement regarding the predicate device.",
-							"$comment": "ROADMAP:03639",
-							"type": "string"
-						},
-						"Authorization status": {
-							"description": "Describes the regulatory status of the AI model, such as Cleared, Application submitted, etc.",
-							"$comment": "ROADMAP:03603",
-							"type": "string"
-						},
-						"File number": {
-							"description": "Identifies the AI model's application number related to its regulatory clearance.",
-							"$comment": "ROADMAP:03604",
-							"type": "string"
-						},
-						"Comment": {
-							"type": "string"
-						}
-					},
-					"additionalProperties": false
-				},
-				"Reproducibility": {
-					"description": "Describes the AI model's reproducibility associated with the provided outputs.",
-					"$comment": "ROADMAP:03620",
-					"type": "string"
-				},
-				"Sustainability": {
-					"description": "Describes parameters associated with use of the AI model related to energy consumption, running time, and other factors.",
-					"$comment": "ROADMAP:03376",
-					"type": "string"
-				},
-				"Use": {
-					"description": "Model use information",
-					"$comment": "ROADMAP:00011",
-					"type": "object",
-					"properties": {
-						"Intended": {
-							"description": "Intended model use",
-							"$comment": "ROADMAP:00012",
-							"$ref": "#/$defs/Use"
-						},
-						"Out-of-scope": {
-							"description": "Out-of-scope model use",
-							"$comment": "ROADMAP:00013",
-							"$ref": "#/$defs/Use"
-						},
-						"Excluded": {
-							"description": "Excluded model use",
-							"$comment": "ROADMAP:00014",
-							"$ref": "#/$defs/Use"
-						}
-					},
-					"additionalProperties": false
-				},
-				"User": {
-					"type": "object",
-					"properties": {
-						"Intended": {
-							"description": "Intended model user",
-							"$ref": "#/$defs/User"
-						},
-						"Out-of-scope": {
-							"description": "Out-of-scope model user",
-							"$ref": "#/$defs/User"
-						},
-						"Excluded": {
-							"description": "Excluded model user",
-							"$ref": "#/$defs/User"
-						}
-					},
-					"additionalProperties": false
-				}
-			},
-			"additionalProperties": false
-		},
 		"Org": {
 			"title": "Organization description",
 			"description": "Details for each organization",
@@ -950,84 +710,6 @@
 				"Name"
 			],
 			"additionalProperties": false
-		},
-		"Project": {
-			"description": "A Project links one or more Models and one or more Datasets",
-			"$comment": "ROADMAP:00010",
-			"type": "object",
-			"properties": {
-				"Name": {
-					"description": "Project name (required)",
-					"$comment": "ROADMAP:03597",
-					"type": "string"
-				},
-				"Indexing": {
-					"description": "Indexing information, such as content codes, RadLex + SNOMED codes, and keywords)",
-					"$comment": "ROADMAP:00074",
-					"$ref": "#/$defs/Indexing"
-				},
-				"Descriptors": {
-					"description": "Details of the project",
-					"$comment": "ROADMAP:00004",
-					"$ref": "#/$defs/Descriptors"
-				},
-				"Models": {
-					"description": "Array of Model references (required)",
-					"$ref": "#/$defs/Project-resources"
-				},
-				"Datasets": {
-					"description": "Array of Dataset references (required)",
-					"$ref": "#/$defs/Project-resources"
-				}
-			},
-			"required": [
-				"Name",
-				"Models",
-				"Datasets"
-			],
-			"additionalProperties": false
-		},
-		"Project-resources": {
-			"type": "array",
-			"minItems": 1,
-			"uniqueItems": true,
-			"items": {
-				"description": "Each resource must include Name and either ATLAS ID or URL.",
-				"type": "object",
-				"minProperties": 2,
-				"properties": {
-					"Name": {
-						"title": "Resource name",
-						"type": "string"
-					},
-					"ATLAS ID": {
-						"description": "ATLAS resource ID",
-						"$comment": "https://doi.org/10.1148/atlas.$",
-						"type": [
-							"string",
-							"integer"
-						],
-						"minLength": 1,
-						"maxLength": 9,
-						"pattern": "[0-9]+",
-						"minimum": 1,
-						"maximum": 999999999,
-						"examples": [
-							101,
-							"000101"
-						]
-					},
-					"URL": {
-						"description": "URL of external site",
-						"type": "string",
-						"format": "uri"
-					}
-				},
-				"required": [
-					"Name"
-				],
-				"additionalProperties": false
-			}
 		},
 		"Reference": {
 			"description": "A reference about the resource, such as a clinical trial identifier or a pointer to a peer-reviewed publication or conference proceedings.",
@@ -1267,82 +949,6 @@
 					"Image count": 572
 				}
 			]
-		},
-		"Use": {
-			"description": "Model use(s)",
-			"$comment": "ROADMAP:00015",
-			"type": "array",
-			"uniqueItems": true,
-			"items": {
-				"type": "string",
-				"minLength": 4,
-				"maxLength": 64,
-				"examples": [
-					"Artifact reduction",
-					"Cure",
-					"Decision support",
-					"Detection and diagnosis",
-					"Detection",
-					"Diagnosis",
-					"Exam protocol selection",
-					"Image processing",
-					"Image reconstruction",
-					"Image segmentation",
-					"Image style transfer",
-					"Instance segmentation",
-					"Mitigation",
-					"Noise reduction",
-					"Other",
-					"Prevention",
-					"Procedure selection",
-					"Prognosis",
-					"Report data extraction",
-					"Report generation",
-					"Report impression generation",
-					"Report processing",
-					"Report summarization",
-					"Report translation",
-					"Risk assessment",
-					"Semantic segmentation",
-					"Treatment",
-					"Triage"
-				]
-			}
-		},
-		"User": {
-			"title": "User type",
-			"description": "Model user(s)",
-			"$comment": "ROADMAP:00040",
-			"type": "array",
-			"uniqueItems": true,
-			"items": {
-				"type": "string",
-				"minLength": 4,
-				"maxLength": 64,
-				"examples": [
-					"Administrator",
-					"Advanced practice provider",
-					"Caregiver",
-					"Diagnostic radiologist",
-					"Family member",
-					"General diagnostic radiologist",
-					"Interventional radiologist",
-					"Layperson",
-					"Non-physician provider",
-					"Nurse practitioner",
-					"Other",
-					"Patient",
-					"Physician assistant",
-					"Physician",
-					"Radiologist",
-					"Radiology nurse",
-					"Radiology technologist",
-					"Referring physician",
-					"Referring provider",
-					"Researcher",
-					"Subspecialist diagnostic radiologist"
-				]
-			}
 		}
 	}
 }
