@@ -3,14 +3,11 @@
 	"title": "ATLAS schema",
 	"description": "RSNA ATLAS schema, 2025-11 version",
 	"$comment": "Copyright (c) 2025, Radiological Society of North America",
-	"type": "object",
-	"additionalProperties": false,
 	"oneOf": [
 		{
 			"type": "object",
 			"properties": {
 				"$schema": {
-					"ref": "#/$defs/$schema",
 					"$ref": "#/$defs/$schema"
 				},
 				"Model": {
@@ -62,78 +59,70 @@
 			"const": "ATLAS.2025-11.json"
 		},
 		"Dataset": {
-			"$comment": "Copyright (c) 2025, Radiological Society of North America",
+			"type": "object",
+			"description": "Describes an AI dataset",
+			"$comment": "ROADMAP:00003",
 			"type": "object",
 			"properties": {
-				"$schema": {
+				"Name": {
+					"description": "Dataset name (required)",
+					"$comment": "ROADMAP:03597",
 					"type": "string",
-					"const": "dataset.json"
+					"examples": [
+						"Radiological Society of North America Abdominal Traumatic Injury CT (RATIC) Dataset"
+					]
 				},
-				"Dataset": {
-					"description": "Describes an AI dataset",
-					"$comment": "ROADMAP:00003",
-					"type": "object",
-					"properties": {
-						"Name": {
-							"description": "Dataset name",
-							"$comment": "ROADMAP:03597",
-							"type": "string"
-						},
-						"Link": {
-							"description": "URL pointer to source",
-							"type": "string",
-							"format": "uri"
-						},
-						"Indexing": {
-							"description": "Indexing information, such as content codes, RadLex + SNOMED codes, and keywords)",
-							"$comment": "ROADMAP:00074",
-							"$ref": "#/$defs/Indexing"
-						},
-						"Descriptors": {
-							"description": "Details of the dataset",
-							"$comment": "ROADMAP:00004",
-							"$ref": "#/$defs/Descriptors"
-						},
-						"Dataset properties": {
-							"description": "Properties specific to datasets",
-							"$comment": "ROADMAP:03381",
-							"$ref": "#/$defs/Dataset-properties"
-						},
-						"Partitions": {
-							"type": "array",
-							"items": {
-								"type": "object",
-								"properties": {
-									"Partition name": {
-										"description": "The name of the partition, such as Training.",
-										"type": "string",
-										"examples": [
-											"Training",
-											"Optimization",
-											"Validation",
-											"Internal testing",
-											"External testing"
-										]
-									},
-									"Content": {
-										"description": "Attributes of the dataset, including possible subsets",
-										"$ref": "#/$defs/Subset"
-									}
-								},
-								"additionalProperties": false
+				"Link": {
+					"description": "URL pointer to source (required)",
+					"type": "string",
+					"format": "uri",
+					"examples": [
+						"https://doi.org/10.1148/dataset.ratic.2024"
+					]
+				},
+				"Indexing": {
+					"description": "Indexing information, such as content codes, RadLex + SNOMED codes, and keywords)",
+					"$comment": "ROADMAP:00074",
+					"$ref": "#/$defs/Indexing"
+				},
+				"Descriptors": {
+					"description": "Details of the dataset",
+					"$comment": "ROADMAP:00004",
+					"$ref": "#/$defs/Descriptors"
+				},
+				"Dataset properties": {
+					"description": "Properties specific to datasets",
+					"$comment": "ROADMAP:03381",
+					"$ref": "#/$defs/Dataset-properties"
+				},
+				"Partitions": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"Partition name": {
+								"description": "The name of the partition, such as Training.",
+								"type": "string",
+								"examples": [
+									"Training",
+									"Optimization",
+									"Validation",
+									"Internal testing",
+									"External testing"
+								]
+							},
+							"Content": {
+								"description": "Attributes of the dataset, including possible subsets",
+								"$ref": "#/$defs/Subset"
 							}
-						}
-					},
-					"required": [
-						"Name",
-						"Link"
-					],
-					"additionalProperties": false
+						},
+						"additionalProperties": false
+					}
 				}
 			},
 			"required": [
-				"$schema",
-				"Dataset"
+				"Name",
+				"Link"
 			],
 			"additionalProperties": false
 		},
@@ -452,6 +441,7 @@
 					"description": "An array of the metrics used to assess the model's performance, including scalar, matrix, and graphical metrics (e.g., sensitivity, confusion matrix, ROC curve). If not one of the enumerated metrics, check the ROADMAP ontology for a possible synonym or report as \"other\".  Provide a textual description in the Comments field.",
 					"$comment": "ROADMAP:03642",
 					"type": "array",
+					"uniqueItems": true,
 					"items": {
 						"type": "string",
 						"enum": [
@@ -586,7 +576,6 @@
 							"micro-F1",
 							"micro-precision",
 							"micro-recall",
-							"model performance metric",
 							"multi-class confusion matrix",
 							"multi-modal concordance",
 							"multiclass Brier score",
@@ -682,12 +671,12 @@
 			"type": "object",
 			"properties": {
 				"Name": {
-					"description": "Model name",
+					"description": "Model name (required)",
 					"$comment": "ROADMAP:03597",
 					"type": "string"
 				},
 				"Link": {
-					"description": "URL pointer to source",
+					"description": "URL pointer to source (required)",
 					"type": "string",
 					"format": "uri"
 				},
@@ -887,23 +876,38 @@
 			"properties": {
 				"Name": {
 					"description": "Name of organization",
-					"type": "string"
+					"type": "string",
+					"examples": [
+						"RSNA"
+					]
 				},
 				"Contact name": {
 					"description": "Name or role of organizational contact",
-					"type": "string"
+					"type": "string",
+					"examples": [
+						"Informatics Department"
+					]
 				},
 				"Email": {
 					"type": "string",
-					"format": "email"
+					"format": "email",
+					"examples": [
+						"informatics@rsna.org"
+					]
 				},
 				"Address": {
 					"description": "Organizations's physical (real-world) address",
-					"type": "string"
+					"type": "string",
+					"examples": [
+						"820 Jorie Blvd, Oak Brook, IL 60523-2251, USA"
+					]
 				},
 				"URL": {
 					"type": "string",
-					"format": "uri"
+					"format": "uri",
+					"examples": [
+						"https://rsna.org"
+					]
 				}
 			},
 			"required": [
@@ -953,7 +957,7 @@
 			"type": "object",
 			"properties": {
 				"Name": {
-					"description": "Project name",
+					"description": "Project name (required)",
 					"$comment": "ROADMAP:03597",
 					"type": "string"
 				},
@@ -968,11 +972,11 @@
 					"$ref": "#/$defs/Descriptors"
 				},
 				"Models": {
-					"description": "Array of Model references",
+					"description": "Array of Model references (required)",
 					"$ref": "#/$defs/Project-resources"
 				},
 				"Datasets": {
-					"description": "Array of Dataset references",
+					"description": "Array of Dataset references (required)",
 					"$ref": "#/$defs/Project-resources"
 				}
 			},
