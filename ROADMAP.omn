@@ -267,7 +267,7 @@ ObjectProperty: <https://rsna.org/roadmap/ROADMAP_03648>
         rdfs:label "measures"@en,
         skos:altLabel "metric for"@en,
         skos:altLabel "metricFor"@en,
-        skos:definition "Expresses the relationship between a model performance metric (e.g., Dice coefficient) and the performance criterion (e.g., image segmentation) that it measures."@en
+        skos:definition "Expresses the relationship between a model performance metric and the performance criterion that it measures. For example, (e.g., Dice coefficient measures image segmentation performance."@en
     
     Characteristics: 
         Irreflexive,
@@ -280,7 +280,7 @@ ObjectProperty: <https://rsna.org/roadmap/ROADMAP_03648>
         <https://rsna.org/roadmap/ROADMAP_04043>
     
     InverseOf: 
-        <https://rsna.org/roadmap/ROADMAP_03709>
+        <https://rsna.org/roadmap/ROADMAP_03719>
     
     
 ObjectProperty: <https://rsna.org/roadmap/ROADMAP_03649>
@@ -319,6 +319,19 @@ ObjectProperty: <https://rsna.org/roadmap/ROADMAP_03709>
     
     Domain: 
         <https://rsna.org/roadmap/ROADMAP_00002>
+    
+    Range: 
+        <https://rsna.org/roadmap/ROADMAP_03642>
+    
+    
+ObjectProperty: <https://rsna.org/roadmap/ROADMAP_03719>
+
+    Annotations: 
+        rdfs:label "is measured by"@en,
+        skos:altLabel "isMeasuredBy"
+    
+    Domain: 
+        <https://rsna.org/roadmap/ROADMAP_04043>
     
     Range: 
         <https://rsna.org/roadmap/ROADMAP_03642>
@@ -1925,7 +1938,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_03217>
         <https://rsna.org/roadmap/ROADMAP_03652> 1
     
     SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_03307>
+        <https://rsna.org/roadmap/ROADMAP_03307>,
+        <https://rsna.org/roadmap/ROADMAP_03648> some <https://rsna.org/roadmap/ROADMAP_04059>
     
     
 Class: <https://rsna.org/roadmap/ROADMAP_03218>
@@ -3956,8 +3970,10 @@ Class: <https://rsna.org/roadmap/ROADMAP_03504>
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1213/ANE.0000000000003653>,
         <http://purl.org/dc/elements/1.1/source> "Schober P, Vetter TR. Survival analysis and interpretation of time-to-event data: The tortoise and the hare. Anesth Analg 2018; 127(3):792-798.",
         rdfs:comment "In survival analysis, time-to-event metrics refer to various statistical methods used to analyze time until an event occurs, such as failure or death. Common metrics include survival functions, hazard functions, and median survival times."@en,
-        rdfs:label "time to event"@en,
+        rdfs:label "time-to-event analysis performance"@en,
         skos:altLabel "TTE metric"@en,
+        skos:altLabel "time to event"@en,
+        skos:altLabel "time-to-event analysis"@en,
         skos:altLabel "time-to-event analysis metric"@en
     
     SubClassOf: 
@@ -4161,11 +4177,13 @@ Class: <https://rsna.org/roadmap/ROADMAP_03525>
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1213/ANE.0000000000002864>,
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.2307/1412159>,
         rdfs:label "Spearman's rho"@en,
+        rdfs:label "coeficiente de correlación de Spearman"@es,
         skos:altLabel "Spearman rank correlation coefficient"@en,
         skos:altLabel "Spearman rho",
         skos:altLabel "Spearman rho coefficient"@en,
         skos:altLabel "Spearman's rank correlation coefficient"@en,
         skos:altLabel "rho"@en,
+        skos:altLabel "ro"@es,
         skos:altLabel "ρ",
         skos:definition "Spearman’s rho (ρ) is a nonparametric statistic that quantifies the strength and direction of a monotonic relationship between two variables. It is computed from the ranked values of the data rather than the raw values, making it suitable for ordinal data or continuous data that do not meet assumptions of linearity or normality. The coefficient ranges from –1 to +1, with values near the extremes indicating strong increasing or decreasing monotonic associations and values near zero indicating little to no monotonic correlation.",
         <https://rsna.org/roadmap/ROADMAP_03651> -1,
@@ -6030,11 +6048,12 @@ Class: <https://rsna.org/roadmap/ROADMAP_03705>
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1080/19325037.2008.10599016>,
         <http://purl.org/dc/elements/1.1/source> <https://www.jstor.org/stable/40011226>,
         rdfs:label "SMOG index"@en,
-        skos:altLabel "McLaughlin SMOG index",
+        rdfs:label "índice SMOG"@es,
+        skos:altLabel "McLaughlin SMOG index"@en,
         skos:altLabel "SMOG",
         skos:altLabel "SMOG score"@en,
         skos:altLabel "simple measure of gobbledygook",
-        skos:definition "The SMOG index is a readability metric that estimates the years of formal education required for full comprehension of a text. It is calculated by counting the number of polysyllabic words in a 30-sentence sample, taking the square root of this count, and adding three to yield the SMOG grade level. Developed for accuracy and simplicity, it is widely used in health communication to ensure written materials are accessible to target audiences.",
+        skos:definition "The SMOG index is a readability metric that estimates the years of formal education required for full comprehension of a text. It is calculated by counting the number of polysyllabic words in a 30-sentence sample, taking the square root of this count, and adding three to yield the SMOG grade level. Developed for accuracy and simplicity, it is widely used in health communication to ensure written materials are accessible to target audiences."@en,
         <https://rsna.org/roadmap/ROADMAP_03651> 4
     
     SubClassOf: 
@@ -6757,11 +6776,13 @@ Class: <https://rsna.org/roadmap/ROADMAP_04053>
 Class: <https://rsna.org/roadmap/ROADMAP_04054>
 
     Annotations: 
-        rdfs:comment "If the dataset is imbalanced (some classes have significantly more instances than others), a micro-averaged metric can be misleading if the model performs poorly on minority classes but well on the majority class.",
-        rdfs:label "micro-averaged classification metric"@en,
-        skos:altLabel "micro average metric",
-        skos:altLabel "micro-average metric",
-        skos:definition "A micro-averaged metric is one that aggregates data from all classes before calculation; thus, the metric is the aggregate across all classes."
+        rdfs:comment "If the dataset is imbalanced (some classes have significantly more instances than others), a micro-averaged metric can be misleading if the model performs poorly on minority classes but well on the majority class."@en,
+        rdfs:label "micro-averaged classification"@en,
+        rdfs:label "micro-averaged classification performance"@en,
+        skos:altLabel "micro average metric"@en,
+        skos:altLabel "micro-average metric"@en,
+        skos:altLabel "micro-averaged classification metric"@en,
+        skos:definition "A micro-averaged metric is one that aggregates data from all classes before calculation; thus, the metric is the aggregate across all classes."@en
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_04058>
@@ -6771,9 +6792,11 @@ Class: <https://rsna.org/roadmap/ROADMAP_04055>
 
     Annotations: 
         rdfs:comment "A macro-averaged metric gives equal weight to each class, so it can be more sensitive to a model's performance on minority classes in imbalanced datasets.",
-        rdfs:label "macro-averaged classification metric"@en,
+        rdfs:label "macro-averaged classification performance"@en,
         skos:altLabel "macro average metric",
         skos:altLabel "macro-average metric",
+        skos:altLabel "macro-averaged classification"@en,
+        skos:altLabel "macro-averaged classification metric"@en,
         skos:definition "A macro-averaged metric, such as precision or recall, is the unweighted average of the metric score calculated for each class independently."
     
     SubClassOf: 
@@ -6794,7 +6817,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_04056>
 Class: <https://rsna.org/roadmap/ROADMAP_04057>
 
     Annotations: 
-        rdfs:label "readability"@en,
+        rdfs:label "readability performance"@en,
+        skos:altLabel "readability"@en,
         skos:definition "A metric that describes the type level of education required to read the subject text."
     
     SubClassOf: 
@@ -6804,7 +6828,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_04057>
 Class: <https://rsna.org/roadmap/ROADMAP_04058>
 
     Annotations: 
-        rdfs:label "classification"@en,
+        rdfs:label "classification performance"@en,
+        skos:altLabel "classification"@en,
         skos:definition "A measure of the performance of a system to distinguish various classes of items: can be binary (e.g., normal vs. abnormal) or multiclass."
     
     SubClassOf: 
@@ -6814,7 +6839,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_04058>
 Class: <https://rsna.org/roadmap/ROADMAP_04059>
 
     Annotations: 
-        rdfs:label "text analysis"@en,
+        rdfs:label "text analysis performance"@en,
+        skos:altLabel "text analysis"@en,
         skos:definition "A metric used to judge the performance of a text-analysis system."
     
     SubClassOf: 
@@ -6824,7 +6850,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_04059>
 Class: <https://rsna.org/roadmap/ROADMAP_04060>
 
     Annotations: 
-        rdfs:label "image segmentation"@en,
+        rdfs:label "image segmentation performance"@en,
+        skos:altLabel "image segmentation"@en,
         skos:definition "A metric that indicates the quality of segmentation of image data."@en
     
     SubClassOf: 
@@ -6834,7 +6861,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_04060>
 Class: <https://rsna.org/roadmap/ROADMAP_04061>
 
     Annotations: 
-        rdfs:label "prediction"@en
+        rdfs:label "prediction performance"@en,
+        skos:altLabel "prediction"@en
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_04043>
@@ -6843,7 +6871,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_04061>
 Class: <https://rsna.org/roadmap/ROADMAP_04062>
 
     Annotations: 
-        rdfs:label "calibration"@en
+        rdfs:label "calibration performance"@en,
+        skos:altLabel "calibration"@en
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_04043>
@@ -6852,7 +6881,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_04062>
 Class: <https://rsna.org/roadmap/ROADMAP_04063>
 
     Annotations: 
-        rdfs:label "signal analysis"@en
+        rdfs:label "signal analysis performance"@en,
+        skos:altLabel "signal analysis"@en
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_04043>
@@ -6979,7 +7009,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_04075>
 - Mean Squared Error (MSE)
 - Root Mean Squared Error (RMSE)
 - R² (R-Squared)",
-        rdfs:label "regression"@en,
+        rdfs:label "regression performance"@en,
+        skos:altLabel "regression"@en,
         skos:definition "Regression models have continuous output; a regression metric measures some sort of distance between predictions and reference standard."
     
     SubClassOf: 
@@ -6989,7 +7020,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_04075>
 Class: <https://rsna.org/roadmap/ROADMAP_04077>
 
     Annotations: 
-        rdfs:label "image processing"@en,
+        rdfs:label "image processing performance"@en,
+        skos:altLabel "image processing"@en,
         skos:definition "A metric used to measure the quality of image manipulation, such as reconstruction, compression, noise reduction, or signal enhancement."@en
     
     SubClassOf: 
