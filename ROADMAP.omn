@@ -4932,7 +4932,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_03580>
         skos:definition "The coefficient of variation is a standardized measure of relative variability, defined as the ratio of the standard deviation to the mean of a dataset. It is dimensionless, allowing direct comparison of variability across datasets with different units or scales. While widely used, it becomes unstable when the mean is near zero and is sensitive to outliers, limiting its interpretability in some contexts."
     
     SubClassOf: 
-        <https://rsna.org/roadmap/ROADMAP_03302>
+        <https://rsna.org/roadmap/ROADMAP_03302>,
+        <https://rsna.org/roadmap/ROADMAP_03648> some <https://rsna.org/roadmap/ROADMAP_04061>
     
     
 Class: <https://rsna.org/roadmap/ROADMAP_03584>
@@ -6390,8 +6391,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_04019>
     Annotations: 
         <http://purl.org/dc/elements/1.1/source> <https://doi.org/10.1186/s12859-015-0564-6>,
         rdfs:label "strict accuracy"@en,
-        skos:altLabel "SACC",
-        skos:definition "Strict accuracy is an evaluation metric that measures the proportion of questions or instances answered exactly correctly according to a gold-standard reference. In question answering, it requires that the system’s top response matches the expected answer precisely, without credit for synonyms, partial matches, or alternate valid forms. It is most often applied to binary or factoid-style tasks, where correctness is defined in absolute terms.",
+        skos:altLabel "SACC"@en,
+        skos:definition "Strict accuracy is an evaluation metric that measures the proportion of questions or instances answered exactly correctly according to a reference standard. In question answering, it requires that the system’s top response matches the expected answer precisely, without credit for synonyms, partial matches, or alternate valid forms. It is most often applied to binary or factoid-style tasks, where correctness is defined in absolute terms."@en,
         <https://rsna.org/roadmap/ROADMAP_03651> 0,
         <https://rsna.org/roadmap/ROADMAP_03652> 1
     
@@ -6986,7 +6987,8 @@ Class: <https://rsna.org/roadmap/ROADMAP_04067>
 
     Annotations: 
         rdfs:label "contrato de usuario"@es,
-        rdfs:label "user agreement"@en
+        rdfs:label "user agreement performance"@en,
+        skos:altLabel "user agreement"@en
     
     SubClassOf: 
         <https://rsna.org/roadmap/ROADMAP_04043>
