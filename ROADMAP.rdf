@@ -201,7 +201,8 @@
     <owl:ObjectProperty rdf:about="https://rsna.org/roadmap/ROADMAP_00114">
         <rdfs:domain rdf:resource="https://rsna.org/roadmap/ROADMAP_00010"/>
         <rdfs:range rdf:resource="https://rsna.org/roadmap/ROADMAP_00002"/>
-        <rdfs:label xml:lang="en">hasModel</rdfs:label>
+        <rdfs:label xml:lang="en">has model</rdfs:label>
+        <skos:altLabel xml:lang="en">hasModel</skos:altLabel>
         <skos:definition xml:lang="en">The property that links a Project to its related Model(s).</skos:definition>
     </owl:ObjectProperty>
     
@@ -212,7 +213,8 @@
     <owl:ObjectProperty rdf:about="https://rsna.org/roadmap/ROADMAP_00115">
         <rdfs:domain rdf:resource="https://rsna.org/roadmap/ROADMAP_00010"/>
         <rdfs:range rdf:resource="https://rsna.org/roadmap/ROADMAP_00003"/>
-        <rdfs:label xml:lang="en">hasDataset</rdfs:label>
+        <rdfs:label xml:lang="en">has dataset</rdfs:label>
+        <skos:altLabel xml:lang="en">hasDataset</skos:altLabel>
         <skos:definition>The property that links a Project to its related Dataset(s).</skos:definition>
     </owl:ObjectProperty>
     
@@ -225,7 +227,9 @@
         <rdfs:domain rdf:resource="https://rsna.org/roadmap/ROADMAP_00003"/>
         <rdfs:domain rdf:resource="https://rsna.org/roadmap/ROADMAP_00010"/>
         <rdfs:range rdf:resource="https://rsna.org/roadmap/ROADMAP_00004"/>
-        <rdfs:label xml:lang="en">hasDescriptor</rdfs:label>
+        <rdfs:label xml:lang="en">has descriptor</rdfs:label>
+        <skos:altLabel xml:lang="en">has descriptor</skos:altLabel>
+        <skos:definition xml:lang="en">Links a model, dataset, or project to the resource descriptors.</skos:definition>
     </owl:ObjectProperty>
     
 
@@ -234,7 +238,9 @@
 
     <owl:ObjectProperty rdf:about="https://rsna.org/roadmap/ROADMAP_00130">
         <rdfs:range rdf:resource="https://rsna.org/roadmap/ROADMAP_00055"/>
-        <rdfs:label xml:lang="en">hasCount</rdfs:label>
+        <rdfs:label xml:lang="en">has count</rdfs:label>
+        <skos:altLabel xml:lang="en">hasCount</skos:altLabel>
+        <skos:definition xml:lang="en">Specifies the number of patients, images, etc. for a subset or partition.</skos:definition>
     </owl:ObjectProperty>
     
 
@@ -244,7 +250,9 @@
     <owl:ObjectProperty rdf:about="https://rsna.org/roadmap/ROADMAP_00629">
         <rdfs:domain rdf:resource="https://rsna.org/roadmap/ROADMAP_00002"/>
         <rdfs:range rdf:resource="https://rsna.org/roadmap/ROADMAP_00011"/>
-        <rdfs:label>hasUse</rdfs:label>
+        <rdfs:label xml:lang="en">has use</rdfs:label>
+        <skos:altLabel xml:lang="en">hasUse</skos:altLabel>
+        <skos:definition xml:lang="en">Specifies a model&apos;s types of intended, out-of-scope, and/or excluded uses.</skos:definition>
     </owl:ObjectProperty>
     
 
@@ -254,7 +262,9 @@
     <owl:ObjectProperty rdf:about="https://rsna.org/roadmap/ROADMAP_00630">
         <rdfs:domain rdf:resource="https://rsna.org/roadmap/ROADMAP_00002"/>
         <rdfs:range rdf:resource="https://rsna.org/roadmap/ROADMAP_00036"/>
-        <rdfs:label>hasUser</rdfs:label>
+        <rdfs:label xml:lang="en">has user</rdfs:label>
+        <skos:altLabel xml:lang="en">hasUser</skos:altLabel>
+        <skos:definition xml:lang="en">Specifies a model&apos;s types of intended, out-of-scope, and/or excluded users.</skos:definition>
     </owl:ObjectProperty>
     
 
@@ -262,7 +272,8 @@
     <!-- https://rsna.org/roadmap/ROADMAP_00631 -->
 
     <owl:ObjectProperty rdf:about="https://rsna.org/roadmap/ROADMAP_00631">
-        <rdfs:label>hasValue</rdfs:label>
+        <rdfs:label xml:lang="en">has value</rdfs:label>
+        <skos:altLabel xml:lang="en">hasValue</skos:altLabel>
     </owl:ObjectProperty>
     
 
@@ -272,7 +283,10 @@
     <owl:ObjectProperty rdf:about="https://rsna.org/roadmap/ROADMAP_03300">
         <rdfs:domain rdf:resource="https://rsna.org/roadmap/ROADMAP_00002"/>
         <rdfs:range rdf:resource="https://rsna.org/roadmap/ROADMAP_03598"/>
-        <rdfs:label>hasMethod</rdfs:label>
+        <rdfs:comment xml:lang="en">Originally, this relation pointed to entities from the PapersWithCode.com Methods hierarchy. That listing is no longer available.</rdfs:comment>
+        <rdfs:label xml:lang="en">has method</rdfs:label>
+        <skos:altLabel xml:lang="en">hasMethod</skos:altLabel>
+        <skos:definition xml:lang="en">Specifies the methodology, such as model architecture.</skos:definition>
     </owl:ObjectProperty>
     
 
@@ -281,7 +295,10 @@
 
     <owl:ObjectProperty rdf:about="https://rsna.org/roadmap/ROADMAP_03301">
         <rdfs:domain rdf:resource="https://rsna.org/roadmap/ROADMAP_00003"/>
-        <rdfs:label>hasTask</rdfs:label>
+        <rdfs:comment xml:lang="en">Originally, this relation pointed to entities from the PapersWithCode.com Task hierarchy. That listing is no longer available.</rdfs:comment>
+        <rdfs:label xml:lang="en">has task</rdfs:label>
+        <skos:altLabel xml:lang="en">hasTask</skos:altLabel>
+        <skos:definition xml:lang="en">Specifies the task (e.g., image segmentation) to be performed by the model.</skos:definition>
     </owl:ObjectProperty>
     
 
@@ -291,7 +308,8 @@
     <owl:ObjectProperty rdf:about="https://rsna.org/roadmap/ROADMAP_03350">
         <rdfs:domain rdf:resource="https://rsna.org/roadmap/ROADMAP_00002"/>
         <rdfs:range rdf:resource="https://rsna.org/roadmap/ROADMAP_03355"/>
-        <rdfs:label xml:lang="en">hasModelProperty</rdfs:label>
+        <rdfs:label xml:lang="en">has model property</rdfs:label>
+        <skos:altLabel xml:lang="en">hasModelProperty</skos:altLabel>
         <skos:definition xml:lang="en">Links a model to its properties.</skos:definition>
     </owl:ObjectProperty>
     
@@ -302,7 +320,9 @@
     <owl:ObjectProperty rdf:about="https://rsna.org/roadmap/ROADMAP_03382">
         <rdfs:domain rdf:resource="https://rsna.org/roadmap/ROADMAP_00003"/>
         <rdfs:range rdf:resource="https://rsna.org/roadmap/ROADMAP_03381"/>
-        <rdfs:label xml:lang="en">hasDatasetProperty</rdfs:label>
+        <rdfs:label xml:lang="en">has dataset property</rdfs:label>
+        <skos:altLabel xml:lang="en">hasDatasetProperty</skos:altLabel>
+        <skos:definition xml:lang="en">Links a dataset to its properties.</skos:definition>
     </owl:ObjectProperty>
     
 
@@ -312,8 +332,9 @@
     <owl:ObjectProperty rdf:about="https://rsna.org/roadmap/ROADMAP_03644">
         <rdfs:domain rdf:resource="https://rsna.org/roadmap/ROADMAP_00002"/>
         <rdfs:range rdf:resource="https://rsna.org/roadmap/ROADMAP_03642"/>
-        <rdfs:comment xml:lang="en">The &quot;hasPerformance&quot; property links a Model to one or more Model performance metrics.</rdfs:comment>
-        <rdfs:label xml:lang="en">hasPerformance</rdfs:label>
+        <rdfs:comment xml:lang="en">This property links a model to one or more model performance metrics.</rdfs:comment>
+        <rdfs:label xml:lang="en">has performance</rdfs:label>
+        <skos:altLabel xml:lang="en">hasPerformance</skos:altLabel>
     </owl:ObjectProperty>
     
 
@@ -322,10 +343,14 @@
 
     <owl:ObjectProperty rdf:about="https://rsna.org/roadmap/ROADMAP_03645">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#ROADMAP_03629"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
         <rdfs:domain rdf:resource="https://rsna.org/roadmap/ROADMAP_03640"/>
         <rdfs:domain rdf:resource="https://rsna.org/roadmap/ROADMAP_03641"/>
         <rdfs:range rdf:resource="https://rsna.org/roadmap/ROADMAP_03302"/>
-        <rdfs:label xml:lang="en">hasScalarMetric</rdfs:label>
+        <rdfs:label xml:lang="en">has scalar metric</rdfs:label>
+        <skos:altLabel xml:lang="en">hasScalarMetric</skos:altLabel>
         <skos:definition xml:lang="en">This property links a graphical metric (e.g., an ROC curve) or a matrix metric to a scalar metric (e.g., AUROC).</skos:definition>
     </owl:ObjectProperty>
     
@@ -359,7 +384,9 @@
                 <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
             </owl:Restriction>
         </rdfs:range>
-        <rdfs:label xml:lang="en">hasLowerBound</rdfs:label>
+        <rdfs:label xml:lang="en">has lower bound</rdfs:label>
+        <skos:altLabel xml:lang="en">hasLowerBound</skos:altLabel>
+        <skos:definition xml:lang="en">Specifies the lower bound estimate of a scalar metric, typically the minimum value of the 95% confidence internal</skos:definition>
     </owl:ObjectProperty>
     
 
@@ -375,7 +402,9 @@
                 <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
             </owl:Restriction>
         </rdfs:range>
-        <rdfs:label xml:lang="en">hasUpperBound</rdfs:label>
+        <rdfs:label xml:lang="en">has upper bound</rdfs:label>
+        <skos:altLabel xml:lang="en">hasUpperBound</skos:altLabel>
+        <skos:definition xml:lang="en">Specifies the upper bound estimate of a scalar metric, typically the maximum value of the 95% confidence internal</skos:definition>
     </owl:ObjectProperty>
     
 
@@ -388,7 +417,8 @@
         <rdfs:domain rdf:resource="https://rsna.org/roadmap/ROADMAP_00002"/>
         <rdfs:range rdf:resource="https://rsna.org/roadmap/ROADMAP_03642"/>
         <rdfs:comment xml:lang="en">Defines a relationship between a Model and the Model performance metrics that describe its performance.</rdfs:comment>
-        <rdfs:label xml:lang="en">hasMetric</rdfs:label>
+        <rdfs:label xml:lang="en">has metric</rdfs:label>
+        <skos:altLabel xml:lang="en">hasMetric</skos:altLabel>
     </owl:ObjectProperty>
     
 
@@ -396,10 +426,27 @@
     <!-- https://rsna.org/roadmap/ROADMAP_03719 -->
 
     <owl:ObjectProperty rdf:about="https://rsna.org/roadmap/ROADMAP_03719">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
         <rdfs:domain rdf:resource="https://rsna.org/roadmap/ROADMAP_04043"/>
         <rdfs:range rdf:resource="https://rsna.org/roadmap/ROADMAP_03642"/>
         <rdfs:label xml:lang="en">is measured by</rdfs:label>
-        <skos:altLabel>isMeasuredBy</skos:altLabel>
+        <skos:altLabel xml:lang="en">isMeasuredBy</skos:altLabel>
+        <skos:definition xml:lang="en">Inverse of &quot;measures&quot; relation.</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#ROADMAP_03629 -->
+
+    <owl:ObjectProperty rdf:about="urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#ROADMAP_03629">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="https://rsna.org/roadmap/ROADMAP_03302"/>
+        <rdfs:range rdf:resource="https://rsna.org/roadmap/ROADMAP_03640"/>
+        <rdfs:range rdf:resource="https://rsna.org/roadmap/ROADMAP_03641"/>
+        <rdfs:label xml:lang="en">is scalar metric for</rdfs:label>
+        <skos:definition xml:lang="en">Inverse of &quot;has scalar metric&quot; relation.</skos:definition>
     </owl:ObjectProperty>
     
 
@@ -533,6 +580,7 @@
         <rdfs:label xml:lang="es">descriptor</rdfs:label>
         <skos:altLabel>detail</skos:altLabel>
         <skos:altLabel>details</skos:altLabel>
+        <skos:altLabel xml:lang="en">resource descriptor</skos:altLabel>
         <skos:definition>A characteristic of a project, model, or dataset.  Whenever possible, values should link to other ontologies or controlled vocabularies.</skos:definition>
     </owl:Class>
     
@@ -7672,6 +7720,7 @@ ARI = 4.71 (characters / words) + 0.5 (words / sentences) - 21.43</skos:definiti
 
     <owl:Class rdf:about="https://rsna.org/roadmap/ROADMAP_04043">
         <rdfs:subClassOf rdf:resource="https://rsna.org/roadmap/ROADMAP_00001"/>
+        <rdfs:label xml:lang="es">criterio de rendimiento</rdfs:label>
         <rdfs:label xml:lang="en">performance criterion</rdfs:label>
         <skos:altLabel xml:lang="en">metric type</skos:altLabel>
         <skos:altLabel xml:lang="en">objective function</skos:altLabel>
@@ -7846,10 +7895,10 @@ ARI = 4.71 (characters / words) + 0.5 (words / sentences) - 21.43</skos:definiti
     <owl:Class rdf:about="https://rsna.org/roadmap/ROADMAP_04054">
         <rdfs:subClassOf rdf:resource="https://rsna.org/roadmap/ROADMAP_04058"/>
         <rdfs:comment xml:lang="en">If the dataset is imbalanced (some classes have significantly more instances than others), a micro-averaged metric can be misleading if the model performs poorly on minority classes but well on the majority class.</rdfs:comment>
-        <rdfs:label xml:lang="en">micro-averaged classification</rdfs:label>
         <rdfs:label xml:lang="en">micro-averaged classification performance</rdfs:label>
         <skos:altLabel xml:lang="en">micro average metric</skos:altLabel>
         <skos:altLabel xml:lang="en">micro-average metric</skos:altLabel>
+        <skos:altLabel xml:lang="en">micro-averaged classification</skos:altLabel>
         <skos:altLabel xml:lang="en">micro-averaged classification metric</skos:altLabel>
         <skos:definition xml:lang="en">A micro-averaged metric is one that aggregates data from all classes before calculation; thus, the metric is the aggregate across all classes.</skos:definition>
     </owl:Class>
@@ -7888,7 +7937,7 @@ ARI = 4.71 (characters / words) + 0.5 (words / sentences) - 21.43</skos:definiti
         <rdfs:subClassOf rdf:resource="https://rsna.org/roadmap/ROADMAP_04043"/>
         <rdfs:label xml:lang="en">readability performance</rdfs:label>
         <skos:altLabel xml:lang="en">readability</skos:altLabel>
-        <skos:definition>A metric that describes the type level of education required to read the subject text.</skos:definition>
+        <skos:definition xml:lang="en">Readability measures the ease with which users can read a text; it may measure the level of education required to read the subject text.</skos:definition>
     </owl:Class>
     
 
@@ -7961,6 +8010,7 @@ ARI = 4.71 (characters / words) + 0.5 (words / sentences) - 21.43</skos:definiti
     <owl:Class rdf:about="https://rsna.org/roadmap/ROADMAP_04064">
         <rdfs:subClassOf rdf:resource="https://rsna.org/roadmap/ROADMAP_04043"/>
         <rdfs:label xml:lang="en">fairness</rdfs:label>
+        <rdfs:label xml:lang="es">justicia</rdfs:label>
         <skos:definition xml:lang="en">A measure of the fairness of a model&apos;s performance across a certain category.</skos:definition>
     </owl:Class>
     
@@ -7981,7 +8031,8 @@ ARI = 4.71 (characters / words) + 0.5 (words / sentences) - 21.43</skos:definiti
     <owl:Class rdf:about="https://rsna.org/roadmap/ROADMAP_04066">
         <rdfs:subClassOf rdf:resource="https://rsna.org/roadmap/ROADMAP_04043"/>
         <rdfs:label xml:lang="es">respuesta del usuario</rdfs:label>
-        <rdfs:label xml:lang="en">user response</rdfs:label>
+        <rdfs:label xml:lang="en">user response performance</rdfs:label>
+        <skos:altLabel xml:lang="en">user response</skos:altLabel>
     </owl:Class>
     
 
@@ -8264,6 +8315,19 @@ FOR = FN / (TN + FN) = 1 - NPV</skos:definition>
         <skos:altLabel>CHF</skos:altLabel>
         <skos:altLabel>cumulative hazard function</skos:altLabel>
         <skos:definition>The cumulative hazard is a time-dependent function in survival analysis that represents the total risk of an event occurring up to a given time point. It accumulates the instantaneous hazard over time and serves as the mathematical basis for deriving survival probabilities. Many survival models, including proportional hazards models and random survival forests, estimate cumulative hazard as a primary output, which can then be used directly for risk assessment or transformed into survival probabilities and summary measures for model evaluation.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#ROADMAP_03630 -->
+
+    <owl:Class rdf:about="urn:webprotege:ontology:8c46d389-52ef-468b-a58c-f168e57d95e6#ROADMAP_03630">
+        <rdfs:subClassOf rdf:resource="https://rsna.org/roadmap/ROADMAP_00004"/>
+        <rdfs:label xml:lang="en">link</rdfs:label>
+        <skos:altLabel xml:lang="en">repo link</skos:altLabel>
+        <skos:altLabel xml:lang="en">repository link</skos:altLabel>
+        <skos:altLabel xml:lang="en">repository site</skos:altLabel>
+        <skos:definition xml:lang="en">URL of the site where the resource (model, dataset, or project) can be obtained.</skos:definition>
     </owl:Class>
     
 
