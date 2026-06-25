@@ -1,0 +1,170 @@
+'annotation level'	supports value 'CLAIM item 03'
+'annotation level'	supports value 'CLAIM item 14'
+'annotation level'	supports value 'CLAIM item 16'
+'annotation level'	supports value 'CLAIM item 17'
+
+'clinical benefit'	supports value 'CLAIM item 03'
+'clinical benefit'	supports value 'CLAIM item 41'
+
+'clinical trial number'	supports value 'CLAIM item 04'
+'clinical trial number'	supports value 'CLAIM item 34'
+
+'clinical workflow phase'	supports value 'CLAIM item 03'
+'clinical workflow phase'	supports value 'CLAIM item 41'
+
+'contact information'	supports value 'D3 - Maintenance Policy'
+'contact information'	supports value accessibility
+
+'decision threshold'	supports value 'CLAIM item 41'
+
+'degree of automation'	supports value 'CLAIM item 41'
+
+'ethical consideration'	supports value 'CLAIM item 43'
+
+'external data'	supports value 'CLAIM item 33'
+'external testing dataset'	supports value 'CLAIM item 33'
+
+'image characteristic'	supports value 'CLAIM item 13'
+
+'image file format'	supports value 'B1 - Standardized Formats'
+'image file format'	supports value 'CLAIM item 13'
+
+'imaging modality'	supports value 'CLAIM item 13'
+
+'imaging procedure'	supports value 'CLAIM item 13'
+
+'indication for use'	supports value 'CLAIM item 03'
+'indication for use'	supports value 'CLAIM item 41'
+
+'instructions for use'	supports value 'CLAIM item 03'
+'instructions for use'	supports value 'CLAIM item 31'
+'instructions for use'	supports value 'CLAIM item 41'
+
+'intended model use'	supports value 'CLAIM item 03'
+'intended model use'	supports value 'CLAIM item 41'
+
+'intended model user'	supports value 'CLAIM item 03'
+'intended model user'	supports value 'CLAIM item 41'
+
+'internal testing dataset'	supports value 'CLAIM item 32'
+
+'missing information'	supports value 'CLAIM item 12'
+'missing information'	supports value 'CLAIM item 25'
+
+'model architecture'	supports value 'CLAIM item 01'
+'model architecture'	supports value 'CLAIM item 31'
+
+'model availability'	supports value 'CLAIM item 43'
+'model availability'	supports value accessibility
+
+'model input'	supports value 'CLAIM item 07'
+'model input'	supports value 'CLAIM item 25'
+
+'model output'	supports value 'CLAIM item 31'
+'model output'	supports value 'CLAIM item 39'
+
+'model property'	supports value 'CLAIM item 02'
+'model property'	supports value 'CLAIM item 04'
+'model property'	supports value 'CLAIM item 22'
+
+'model use'	supports value 'CLAIM item 41'
+
+'model user'	supports value 'CLAIM item 41'
+
+'partitioning scheme'	supports value 'CLAIM item 10'
+'partitioning scheme'	supports value 'CLAIM item 19'
+'partitioning scheme'	supports value 'CLAIM item 20'
+'partitioning scheme'	supports value 'CLAIM item 36'
+
+'patient descriptor'	supports value 'CLAIM item 07'
+'patient descriptor'	supports value 'CLAIM item 36'
+
+'Protected Health Information'	supports value 'CLAIM item 11'
+
+'regulatory information'	supports value 'CLAIM item 43'
+
+'relationships between instances'	supports value 'CLAIM item 19'
+'relationships between instances'	supports value 'CLAIM item 20'
+'relationships between instances'	supports value 'CLAIM item 36'
+
+'risk of re-identification'	supports value 'CLAIM item 11'
+'risk of re-identification'	supports value 'D2 - De-Identification Statement'
+
+'sensitive data'	supports value 'CLAIM item 11'
+'sensitive data'	supports value 'D2 - De-Identification Statement'
+
+'subset criterion'	supports value 'CLAIM item 10'
+
+'testing dataset'	supports value 'CLAIM item 17'
+
+annotator	supports value 'CLAIM item 03'
+annotator	supports value 'CLAIM item 14'
+annotator	supports value 'CLAIM item 16'
+annotator	supports value 'CLAIM item 17'
+annotator	supports value 'CLAIM item 18'
+
+confidentiality	supports value 'CLAIM item 11'
+confidentiality	supports value 'D2 - De-Identification Statement'
+
+count	supports value 'CLAIM item 21'
+count	supports value 'CLAIM item 35'
+count	supports value 'CLAIM item 36'
+
+data	supports value 'CLAIM item 07'
+
+dataset	supports value 'CLAIM item 07'
+
+funding	supports value 'CLAIM item 44'
+
+license	supports value 'CLAIM item 43'
+license	supports value 'D1 - Explicit Licensing'
+license	supports value accessibility
+
+limitations	supports value 'CLAIM item 39'
+limitations	supports value 'CLAIM item 40'
+
+link	supports value 'A1 - Trusted Repository'
+link	supports value 'A2 - Persistent Identifier'
+link	supports value accessibility
+
+metric	supports value 'CLAIM item 02'
+metric	supports value 'CLAIM item 28'
+metric	supports value 'CLAIM item 29'
+metric	supports value 'CLAIM item 30'
+metric	supports value 'CLAIM item 32'
+metric	supports value 'CLAIM item 33'
+metric	supports value 'CLAIM item 37'
+metric	supports value 'CLAIM item 38'
+
+motivation	supports value 'CLAIM item 06'
+
+noise	supports value 'CLAIM item 30'
+
+organization	supports value 'CLAIM item 44'
+organization	supports value 'D3 - Maintenance Policy'
+
+pre-processing	supports value 'B1 - Standardized Formats'
+pre-processing	supports value 'CLAIM item 09'
+
+recommendation	supports value 'CLAIM item 41'
+
+reference	supports value 'CLAIM item 42'
+reference	supports value 'CLAIM item 43'
+
+reproducibility	supports value 'CLAIM item 30'
+
+resolution	supports value 'B1 - Standardized Formats'
+
+sampling	supports value 'CLAIM item 07'
+sampling	supports value 'CLAIM item 08'
+sampling	supports value 'CLAIM item 10'
+sampling	supports value 'CLAIM item 21'
+sampling	supports value 'CLAIM item 35'
+
+summary	supports value 'CLAIM item 03'
+
+uncertainty	supports value 'CLAIM item 29'
+uncertainty	supports value 'CLAIM item 37'
+uncertainty	supports value 'CLAIM item 38'
+
+version	supports value 'A3 - Version Control'
