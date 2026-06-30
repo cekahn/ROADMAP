@@ -9893,7 +9893,7 @@ R1.3 : (Meta)data meet domain-relevant community standards."""@en ,
                                          <https://rsna.org/roadmap/ROADMAP_00198> <https://rsna.org/roadmap/ROADMAP_00171> ,
                                                                                   <https://rsna.org/roadmap/ROADMAP_00254> ;
                                          <https://rsna.org/roadmap/ROADMAP_04089> <https://rsna.org/roadmap/ROADMAP_00275> ;
-                                         rdfs:label "STARD-AI item 1"@en ;
+                                         rdfs:label "STARD-AI item 01"@en ;
                                          skos:definition "Identification as a study reporting AI-centered diagnostic accuracy and reporting at least one measure of accuracy within title or abstract."@en .
 
 
@@ -9903,7 +9903,7 @@ R1.3 : (Meta)data meet domain-relevant community standards."""@en ,
                                          <https://rsna.org/roadmap/ROADMAP_00198> <https://rsna.org/roadmap/ROADMAP_00171> ,
                                                                                   <https://rsna.org/roadmap/ROADMAP_00254> ;
                                          <https://rsna.org/roadmap/ROADMAP_04089> <https://rsna.org/roadmap/ROADMAP_00275> ;
-                                         rdfs:label "STARD-AI item 2"@en ;
+                                         rdfs:label "STARD-AI item 02"@en ;
                                          skos:definition "Structured summary of study design, methods, results and conclusions (for specific guidance, please see STARD for Abstracts)."@en .
 
 
@@ -9914,7 +9914,7 @@ R1.3 : (Meta)data meet domain-relevant community standards."""@en ,
                                                                                   <https://rsna.org/roadmap/ROADMAP_00255> ,
                                                                                   <https://rsna.org/roadmap/ROADMAP_00256> ;
                                          <https://rsna.org/roadmap/ROADMAP_04089> <https://rsna.org/roadmap/ROADMAP_00275> ;
-                                         rdfs:label "STARD-AI item 3"@en ;
+                                         rdfs:label "STARD-AI item 03"@en ;
                                          skos:definition "Scientific and clinical background, including the intended use of the index test, whether it is novel or an established index test, and its integration into an existing or new workflow, if applicable"@en .
 
 
@@ -9924,7 +9924,7 @@ R1.3 : (Meta)data meet domain-relevant community standards."""@en ,
                                          <https://rsna.org/roadmap/ROADMAP_00198> <https://rsna.org/roadmap/ROADMAP_00171> ,
                                                                                   <https://rsna.org/roadmap/ROADMAP_00254> ;
                                          <https://rsna.org/roadmap/ROADMAP_04089> <https://rsna.org/roadmap/ROADMAP_00275> ;
-                                         rdfs:label "STARD-AI item 4"@en ;
+                                         rdfs:label "STARD-AI item 04"@en ;
                                          skos:definition "Study objectives and hypotheses."@en .
 
 
@@ -9934,7 +9934,7 @@ R1.3 : (Meta)data meet domain-relevant community standards."""@en ,
                                          <https://rsna.org/roadmap/ROADMAP_00198> <https://rsna.org/roadmap/ROADMAP_00254> ,
                                                                                   <https://rsna.org/roadmap/ROADMAP_00257> ;
                                          <https://rsna.org/roadmap/ROADMAP_04089> <https://rsna.org/roadmap/ROADMAP_00275> ;
-                                         rdfs:label "STARD-AI item 5"@en ;
+                                         rdfs:label "STARD-AI item 05"@en ;
                                          skos:definition "Whether data collection was planned before the index test and reference standard were performed (prospective study) or after (retrospective study)."@en .
 
 
@@ -9944,7 +9944,7 @@ R1.3 : (Meta)data meet domain-relevant community standards."""@en ,
                                          <https://rsna.org/roadmap/ROADMAP_00198> <https://rsna.org/roadmap/ROADMAP_00254> ,
                                                                                   <https://rsna.org/roadmap/ROADMAP_00258> ;
                                          <https://rsna.org/roadmap/ROADMAP_04089> <https://rsna.org/roadmap/ROADMAP_00275> ;
-                                         rdfs:label "STARD-AI item 6"@en ;
+                                         rdfs:label "STARD-AI item 06"@en ;
                                          skos:definition "Formal approval from an ethics committee. If not required, justify why."@en .
 
 
@@ -9955,7 +9955,7 @@ R1.3 : (Meta)data meet domain-relevant community standards."""@en ,
                                                                                   <https://rsna.org/roadmap/ROADMAP_00257> ,
                                                                                   <https://rsna.org/roadmap/ROADMAP_00258> ;
                                          <https://rsna.org/roadmap/ROADMAP_04089> <https://rsna.org/roadmap/ROADMAP_00275> ;
-                                         rdfs:label "STARD-AI item 7"@en ;
+                                         rdfs:label "STARD-AI item 07"@en ;
                                          skos:definition "Eligibility criteria: listing separate inclusion and exclusion criteria in the order that they are applied at both participant level and data level."@en .
 
 
@@ -9965,7 +9965,7 @@ R1.3 : (Meta)data meet domain-relevant community standards."""@en ,
                                          <https://rsna.org/roadmap/ROADMAP_00198> <https://rsna.org/roadmap/ROADMAP_00173> ,
                                                                                   <https://rsna.org/roadmap/ROADMAP_00253> ;
                                          <https://rsna.org/roadmap/ROADMAP_04089> <https://rsna.org/roadmap/ROADMAP_00275> ;
-                                         rdfs:label "STARD-AI item 8"@en ;
+                                         rdfs:label "STARD-AI item 08"@en ;
                                          skos:definition "On what basis potentially eligible participants were identified (such as symptoms, results from previous tests, inclusion in registry)."@en .
 
 
@@ -9976,7 +9976,7 @@ R1.3 : (Meta)data meet domain-relevant community standards."""@en ,
                                                                                   <https://rsna.org/roadmap/ROADMAP_00173> ,
                                                                                   <https://rsna.org/roadmap/ROADMAP_00253> ;
                                          <https://rsna.org/roadmap/ROADMAP_04089> <https://rsna.org/roadmap/ROADMAP_00275> ;
-                                         rdfs:label "STARD-AI item 9"@en ;
+                                         rdfs:label "STARD-AI item 09"@en ;
                                          skos:definition "Where and when potentially eligible participants were identified (setting, location, and dates)."@en .
 
 
@@ -10467,7 +10467,7 @@ R1.3 : (Meta)data meet domain-relevant community standards."""@en ,
                                          <https://rsna.org/roadmap/ROADMAP_00198> <https://rsna.org/roadmap/ROADMAP_00171> ,
                                                                                   <https://rsna.org/roadmap/ROADMAP_00254> ;
                                          <https://rsna.org/roadmap/ROADMAP_04089> <https://rsna.org/roadmap/ROADMAP_00276> ;
-                                         rdfs:label "CONSORT-AI item 1a"@en ;
+                                         rdfs:label "CONSORT-AI item 01a"@en ;
                                          skos:definition "Identification as a randomized trial in the title. Indicate that the intervention involves artificial intelligence/machine learning in the title and/or abstract and specify the type of model. State the intended use of the AI intervention within the trial in the title and/or abstract."@en .
 
 
@@ -10551,7 +10551,7 @@ R1.3 : (Meta)data meet domain-relevant community standards."""@en ,
                                                                                   <https://rsna.org/roadmap/ROADMAP_00254> ,
                                                                                   <https://rsna.org/roadmap/ROADMAP_00255> ;
                                          <https://rsna.org/roadmap/ROADMAP_04089> <https://rsna.org/roadmap/ROADMAP_00276> ;
-                                         rdfs:label "CONSORT-AI item 5"@en ;
+                                         rdfs:label "CONSORT-AI item 05"@en ;
                                          skos:definition "The interventions for each group with sufficient details to allow replication, including how and when they were actually administered. State which version of the AI algorithm was used.Describe how the input data were acquired and selected for the AI intervention.Describe how poor quality or unavailable input data were assessed and handled.Specify whether there was human–AI interaction in the handling of the input data, and what level of expertise was required of users.Specify the output of the AI interventionExplain how the AI intervention’s outputs contributed to decision-making or other elements of clinical practice."@en .
 
 
@@ -11374,7 +11374,7 @@ R1.3 : (Meta)data meet domain-relevant community standards."""@en ,
                                          <https://rsna.org/roadmap/ROADMAP_00198> <https://rsna.org/roadmap/ROADMAP_00171> ,
                                                                                   <https://rsna.org/roadmap/ROADMAP_00254> ;
                                          <https://rsna.org/roadmap/ROADMAP_04089> <https://rsna.org/roadmap/ROADMAP_00277> ;
-                                         rdfs:label "TRIPOD+AI item 1"@en ;
+                                         rdfs:label "TRIPOD+AI item 01"@en ;
                                          skos:definition "Identify the study as developing or evaluating the performance of a multivariable prediction model, the target population, and the outcome to be predicted."@en .
 
 
@@ -11384,7 +11384,7 @@ R1.3 : (Meta)data meet domain-relevant community standards."""@en ,
                                          <https://rsna.org/roadmap/ROADMAP_00198> <https://rsna.org/roadmap/ROADMAP_00171> ,
                                                                                   <https://rsna.org/roadmap/ROADMAP_00254> ;
                                          <https://rsna.org/roadmap/ROADMAP_04089> <https://rsna.org/roadmap/ROADMAP_00277> ;
-                                         rdfs:label "TRIPOD+AI item 2"@en ;
+                                         rdfs:label "TRIPOD+AI item 02"@en ;
                                          skos:definition "See TRIPOD+AI for Abstracts checklist."@en .
 
 
@@ -11395,7 +11395,7 @@ R1.3 : (Meta)data meet domain-relevant community standards."""@en ,
                                                                                   <https://rsna.org/roadmap/ROADMAP_00255> ,
                                                                                   <https://rsna.org/roadmap/ROADMAP_00256> ;
                                          <https://rsna.org/roadmap/ROADMAP_04089> <https://rsna.org/roadmap/ROADMAP_00277> ;
-                                         rdfs:label "TRIPOD+AI item 3a"@en ;
+                                         rdfs:label "TRIPOD+AI item 03a"@en ;
                                          skos:definition "Explain the healthcare context (including whether diagnostic or prognostic) and rationale for developing or evaluating the prediction model, including references to existing models."@en .
 
 
@@ -11405,7 +11405,7 @@ R1.3 : (Meta)data meet domain-relevant community standards."""@en ,
                                          <https://rsna.org/roadmap/ROADMAP_00198> <https://rsna.org/roadmap/ROADMAP_00173> ,
                                                                                   <https://rsna.org/roadmap/ROADMAP_00256> ;
                                          <https://rsna.org/roadmap/ROADMAP_04089> <https://rsna.org/roadmap/ROADMAP_00277> ;
-                                         rdfs:label "TRIPOD+AI item 3b"@en ;
+                                         rdfs:label "TRIPOD+AI item 03b"@en ;
                                          skos:definition "Describe the target population and the intended purpose of the prediction model in the context of the care pathway, including its intended users (e.g., healthcare professionals, patients, public)."@en .
 
 
@@ -11415,7 +11415,7 @@ R1.3 : (Meta)data meet domain-relevant community standards."""@en ,
                                          <https://rsna.org/roadmap/ROADMAP_00198> <https://rsna.org/roadmap/ROADMAP_00253> ,
                                                                                   <https://rsna.org/roadmap/ROADMAP_00258> ;
                                          <https://rsna.org/roadmap/ROADMAP_04089> <https://rsna.org/roadmap/ROADMAP_00277> ;
-                                         rdfs:label "TRIPOD+AI item 3c"@en ;
+                                         rdfs:label "TRIPOD+AI item 03c"@en ;
                                          skos:definition "Describe any known health inequalities between sociodemographic groups."@en .
 
 
@@ -11425,7 +11425,7 @@ R1.3 : (Meta)data meet domain-relevant community standards."""@en ,
                                          <https://rsna.org/roadmap/ROADMAP_00198> <https://rsna.org/roadmap/ROADMAP_00171> ,
                                                                                   <https://rsna.org/roadmap/ROADMAP_00254> ;
                                          <https://rsna.org/roadmap/ROADMAP_04089> <https://rsna.org/roadmap/ROADMAP_00277> ;
-                                         rdfs:label "TRIPOD+AI item 4"@en ;
+                                         rdfs:label "TRIPOD+AI item 04"@en ;
                                          skos:definition "Specify the study objectives, including whether the study describes the development or validation of a prediction model (or both)."@en .
 
 
@@ -11437,7 +11437,7 @@ R1.3 : (Meta)data meet domain-relevant community standards."""@en ,
                                                                                   <https://rsna.org/roadmap/ROADMAP_00173> ,
                                                                                   <https://rsna.org/roadmap/ROADMAP_00254> ;
                                          <https://rsna.org/roadmap/ROADMAP_04089> <https://rsna.org/roadmap/ROADMAP_00277> ;
-                                         rdfs:label "TRIPOD+AI item 5a"@en ;
+                                         rdfs:label "TRIPOD+AI item 05a"@en ;
                                          skos:definition "Describe the sources of data separately for the development and evaluation datasets (e.g., randomised trial, cohort, routine care or registry data), the rationale for using these data, and representativeness of the data."@en .
 
 
@@ -11447,7 +11447,7 @@ R1.3 : (Meta)data meet domain-relevant community standards."""@en ,
                                          <https://rsna.org/roadmap/ROADMAP_00198> <https://rsna.org/roadmap/ROADMAP_00171> ,
                                                                                   <https://rsna.org/roadmap/ROADMAP_00254> ;
                                          <https://rsna.org/roadmap/ROADMAP_04089> <https://rsna.org/roadmap/ROADMAP_00277> ;
-                                         rdfs:label "TRIPOD+AI item 5b"@en ;
+                                         rdfs:label "TRIPOD+AI item 05b"@en ;
                                          skos:definition "Specify the dates of the collected participant data, including start and end of participant accrual; and, if applicable, end of follow-up."@en .
 
 
@@ -11457,7 +11457,7 @@ R1.3 : (Meta)data meet domain-relevant community standards."""@en ,
                                          <https://rsna.org/roadmap/ROADMAP_00198> <https://rsna.org/roadmap/ROADMAP_00253> ,
                                                                                   <https://rsna.org/roadmap/ROADMAP_00254> ;
                                          <https://rsna.org/roadmap/ROADMAP_04089> <https://rsna.org/roadmap/ROADMAP_00277> ;
-                                         rdfs:label "TRIPOD+AI item 6a"@en ;
+                                         rdfs:label "TRIPOD+AI item 06a"@en ;
                                          skos:definition "Specify key elements of the study setting (e.g., primary care, secondary care, general population) including the number and location of centres."@en .
 
 
@@ -11468,7 +11468,7 @@ R1.3 : (Meta)data meet domain-relevant community standards."""@en ,
                                                                                   <https://rsna.org/roadmap/ROADMAP_00257> ,
                                                                                   <https://rsna.org/roadmap/ROADMAP_00258> ;
                                          <https://rsna.org/roadmap/ROADMAP_04089> <https://rsna.org/roadmap/ROADMAP_00277> ;
-                                         rdfs:label "TRIPOD+AI item 6b"@en ;
+                                         rdfs:label "TRIPOD+AI item 06b"@en ;
                                          skos:definition "Describe the eligibility criteria for study participants."@en .
 
 
@@ -11478,7 +11478,7 @@ R1.3 : (Meta)data meet domain-relevant community standards."""@en ,
                                          <https://rsna.org/roadmap/ROADMAP_00198> <https://rsna.org/roadmap/ROADMAP_00173> ,
                                                                                   <https://rsna.org/roadmap/ROADMAP_00254> ;
                                          <https://rsna.org/roadmap/ROADMAP_04089> <https://rsna.org/roadmap/ROADMAP_00277> ;
-                                         rdfs:label "TRIPOD+AI item 6c"@en ;
+                                         rdfs:label "TRIPOD+AI item 06c"@en ;
                                          skos:definition "Give details of any treatments received, and how they were handled during model development or evaluation, if relevant."@en .
 
 
@@ -11490,7 +11490,7 @@ R1.3 : (Meta)data meet domain-relevant community standards."""@en ,
                                                                                   <https://rsna.org/roadmap/ROADMAP_00254> ,
                                                                                   <https://rsna.org/roadmap/ROADMAP_00257> ;
                                          <https://rsna.org/roadmap/ROADMAP_04089> <https://rsna.org/roadmap/ROADMAP_00277> ;
-                                         rdfs:label "TRIPOD+AI item 7"@en ;
+                                         rdfs:label "TRIPOD+AI item 07"@en ;
                                          skos:definition "Describe any data pre-processing and quality checking, including whether this was similar across relevant sociodemographic groups."@en .
 
 
@@ -11501,7 +11501,7 @@ R1.3 : (Meta)data meet domain-relevant community standards."""@en ,
                                                                                   <https://rsna.org/roadmap/ROADMAP_00255> ,
                                                                                   <https://rsna.org/roadmap/ROADMAP_00257> ;
                                          <https://rsna.org/roadmap/ROADMAP_04089> <https://rsna.org/roadmap/ROADMAP_00277> ;
-                                         rdfs:label "TRIPOD+AI item 8a"@en ;
+                                         rdfs:label "TRIPOD+AI item 08a"@en ;
                                          skos:definition "Clearly define the outcome that is being predicted and the time horizon, including how and when assessed, the rationale for choosing this outcome, and whether the method of outcome assessment is consistent across sociodemographic groups."@en .
 
 
@@ -11512,7 +11512,7 @@ R1.3 : (Meta)data meet domain-relevant community standards."""@en ,
                                                                                   <https://rsna.org/roadmap/ROADMAP_00254> ,
                                                                                   <https://rsna.org/roadmap/ROADMAP_00255> ;
                                          <https://rsna.org/roadmap/ROADMAP_04089> <https://rsna.org/roadmap/ROADMAP_00277> ;
-                                         rdfs:label "TRIPOD+AI item 8b"@en ;
+                                         rdfs:label "TRIPOD+AI item 08b"@en ;
                                          skos:definition "If outcome assessment requires subjective interpretation, describe the qualifications and demographic characteristics of the outcome assessors."@en .
 
 
@@ -11522,7 +11522,7 @@ R1.3 : (Meta)data meet domain-relevant community standards."""@en ,
                                          <https://rsna.org/roadmap/ROADMAP_00198> <https://rsna.org/roadmap/ROADMAP_00254> ,
                                                                                   <https://rsna.org/roadmap/ROADMAP_00257> ;
                                          <https://rsna.org/roadmap/ROADMAP_04089> <https://rsna.org/roadmap/ROADMAP_00277> ;
-                                         rdfs:label "TRIPOD+AI item 8c"@en ;
+                                         rdfs:label "TRIPOD+AI item 08c"@en ;
                                          skos:definition "Report any actions to blind assessment of the outcome to be predicted."@en .
 
 
@@ -11533,7 +11533,7 @@ R1.3 : (Meta)data meet domain-relevant community standards."""@en ,
                                                                                   <https://rsna.org/roadmap/ROADMAP_00254> ,
                                                                                   <https://rsna.org/roadmap/ROADMAP_00255> ;
                                          <https://rsna.org/roadmap/ROADMAP_04089> <https://rsna.org/roadmap/ROADMAP_00277> ;
-                                         rdfs:label "TRIPOD+AI item 9a"@en ;
+                                         rdfs:label "TRIPOD+AI item 09a"@en ;
                                          skos:definition "Describe the choice of initial predictors (e.g., literature, previous models, all available predictors) and any pre-selection of predictors before model building."@en .
 
 
@@ -11544,7 +11544,7 @@ R1.3 : (Meta)data meet domain-relevant community standards."""@en ,
                                                                                   <https://rsna.org/roadmap/ROADMAP_00173> ,
                                                                                   <https://rsna.org/roadmap/ROADMAP_00254> ;
                                          <https://rsna.org/roadmap/ROADMAP_04089> <https://rsna.org/roadmap/ROADMAP_00277> ;
-                                         rdfs:label "TRIPOD+AI item 9b"@en ;
+                                         rdfs:label "TRIPOD+AI item 09b"@en ;
                                          skos:definition "Clearly define all predictors, including how and when they were measured (and any actions to blind assessment of predictors for the outcome and other predictors)."@en .
 
 
@@ -11554,7 +11554,7 @@ R1.3 : (Meta)data meet domain-relevant community standards."""@en ,
                                          <https://rsna.org/roadmap/ROADMAP_00198> <https://rsna.org/roadmap/ROADMAP_00173> ,
                                                                                   <https://rsna.org/roadmap/ROADMAP_00254> ;
                                          <https://rsna.org/roadmap/ROADMAP_04089> <https://rsna.org/roadmap/ROADMAP_00277> ;
-                                         rdfs:label "TRIPOD+AI item 9c"@en ;
+                                         rdfs:label "TRIPOD+AI item 09c"@en ;
                                          skos:definition "If predictor measurement requires subjective interpretation, describe the qualifications and demographic characteristics of the predictor assessors."@en .
 
 
