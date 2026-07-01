@@ -158,6 +158,7 @@ owl:topObjectProperty rdf:type owl:ObjectProperty .
 
 ###  https://rsna.org/roadmap/ROADMAP_00114
 <https://rsna.org/roadmap/ROADMAP_00114> rdf:type owl:ObjectProperty ;
+                                         rdfs:subPropertyOf <https://rsna.org/roadmap/ROADMAP_00201> ;
                                          rdfs:domain <https://rsna.org/roadmap/ROADMAP_00010> ;
                                          rdfs:range <https://rsna.org/roadmap/ROADMAP_00002> ;
                                          rdfs:label "has model"@en ;
@@ -167,6 +168,7 @@ owl:topObjectProperty rdf:type owl:ObjectProperty .
 
 ###  https://rsna.org/roadmap/ROADMAP_00115
 <https://rsna.org/roadmap/ROADMAP_00115> rdf:type owl:ObjectProperty ;
+                                         rdfs:subPropertyOf <https://rsna.org/roadmap/ROADMAP_00201> ;
                                          rdfs:domain <https://rsna.org/roadmap/ROADMAP_00010> ;
                                          rdfs:range <https://rsna.org/roadmap/ROADMAP_00003> ;
                                          rdfs:label "has dataset"@en ;
@@ -233,16 +235,21 @@ owl:topObjectProperty rdf:type owl:ObjectProperty .
 <https://rsna.org/roadmap/ROADMAP_00201> rdf:type owl:ObjectProperty ;
                                          rdfs:subPropertyOf owl:topObjectProperty ;
                                          owl:inverseOf <https://rsna.org/roadmap/ROADMAP_04089> ;
-                                         rdfs:comment "This relation can be thought of as a \"has part\" relation."@en ;
+                                         rdfs:comment """Examples:
+ * project --has part-- model
+ * guideline --has part-- guideline item
+ * model input --has part-- data
+
+As a result, 'has dataset' and 'has model' have been deprecated."""@en ;
                                          rdfs:label "has part"@en ;
-                                         skos:altLabel "has item" ,
-                                                       "hasPart"@en ;
-                                         skos:definition "Links a guideline to a guideline item."@en .
+                                         skos:altLabel "hasPart"@en ;
+                                         skos:definition "Links a class to those classes that may comprise it."@en .
 
 
 ###  https://rsna.org/roadmap/ROADMAP_00222
 <https://rsna.org/roadmap/ROADMAP_00222> rdf:type owl:ObjectProperty ;
                                          rdfs:subPropertyOf owl:topObjectProperty ;
+                                         rdf:type owl:TransitiveProperty ;
                                          rdfs:label "is supported by"@en ;
                                          skos:definition "Inverse of \"supports\" relation."@en .
 
@@ -404,13 +411,28 @@ owl:topObjectProperty rdf:type owl:ObjectProperty .
                                          skos:definition "Inverse of \"measures\" relation."@en .
 
 
+###  https://rsna.org/roadmap/ROADMAP_03769
+<https://rsna.org/roadmap/ROADMAP_03769> rdf:type owl:ObjectProperty ;
+                                         owl:inverseOf <https://rsna.org/roadmap/ROADMAP_03770> ;
+                                         rdfs:domain <https://rsna.org/roadmap/ROADMAP_00003> ;
+                                         rdfs:range <https://rsna.org/roadmap/ROADMAP_03763> ;
+                                         rdfs:label "has role"@en ;
+                                         skos:definition "Identifies the role in development of an AI model."@en .
+
+
+###  https://rsna.org/roadmap/ROADMAP_03770
+<https://rsna.org/roadmap/ROADMAP_03770> rdf:type owl:ObjectProperty ;
+                                         rdfs:label "is role for"@en .
+
+
 ###  https://rsna.org/roadmap/ROADMAP_04089
 <https://rsna.org/roadmap/ROADMAP_04089> rdf:type owl:ObjectProperty ;
                                          rdfs:subPropertyOf owl:topObjectProperty ;
                                          rdfs:domain <https://rsna.org/roadmap/ROADMAP_00177> ;
                                          rdfs:range <https://rsna.org/roadmap/ROADMAP_00174> ;
                                          rdfs:label "belongs to"@en ;
-                                         skos:altLabel "belongsTo"@en ;
+                                         skos:altLabel "belongsTo"@en ,
+                                                       "is part of"@en ;
                                          skos:definition "Links a guideline item individual to the guideline it belongs to. Inverse of has part."@en .
 
 
@@ -694,6 +716,14 @@ owl:Thing rdf:type owl:Class .
 <https://rsna.org/roadmap/ROADMAP_00003> rdf:type owl:Class ;
                                          rdfs:subClassOf <https://rsna.org/roadmap/ROADMAP_00657> ,
                                                          [ rdf:type owl:Restriction ;
+                                                           owl:onProperty <https://rsna.org/roadmap/ROADMAP_00201> ;
+                                                           owl:someValuesFrom <https://rsna.org/roadmap/ROADMAP_00665>
+                                                         ] ,
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty <https://rsna.org/roadmap/ROADMAP_00201> ;
+                                                           owl:someValuesFrom <https://rsna.org/roadmap/ROADMAP_03472>
+                                                         ] ,
+                                                         [ rdf:type owl:Restriction ;
                                                            owl:onProperty <https://rsna.org/roadmap/ROADMAP_03382> ;
                                                            owl:someValuesFrom <https://rsna.org/roadmap/ROADMAP_03381>
                                                          ] ,
@@ -723,6 +753,10 @@ owl:Thing rdf:type owl:Class .
 
 ###  https://rsna.org/roadmap/ROADMAP_00005
 <https://rsna.org/roadmap/ROADMAP_00005> rdf:type owl:Class ;
+                                         owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                               owl:onProperty <https://rsna.org/roadmap/ROADMAP_03769> ;
+                                                               owl:someValuesFrom <https://rsna.org/roadmap/ROADMAP_03764>
+                                                             ] ;
                                          rdfs:subClassOf <https://rsna.org/roadmap/ROADMAP_00003> ;
                                          rdfs:label "conjunto de datos de entrenamiento"@es ,
                                                     "training dataset"@en ,
@@ -733,6 +767,10 @@ owl:Thing rdf:type owl:Class .
 
 ###  https://rsna.org/roadmap/ROADMAP_00006
 <https://rsna.org/roadmap/ROADMAP_00006> rdf:type owl:Class ;
+                                         owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                               owl:onProperty <https://rsna.org/roadmap/ROADMAP_03769> ;
+                                                               owl:someValuesFrom <https://rsna.org/roadmap/ROADMAP_03765>
+                                                             ] ;
                                          rdfs:subClassOf <https://rsna.org/roadmap/ROADMAP_00003> ;
                                          rdfs:label "conjunto de datos de optimización"@es ,
                                                     "optimization dataset"@en ,
@@ -747,6 +785,10 @@ owl:Thing rdf:type owl:Class .
 
 ###  https://rsna.org/roadmap/ROADMAP_00007
 <https://rsna.org/roadmap/ROADMAP_00007> rdf:type owl:Class ;
+                                         owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                               owl:onProperty <https://rsna.org/roadmap/ROADMAP_03769> ;
+                                                               owl:someValuesFrom <https://rsna.org/roadmap/ROADMAP_03766>
+                                                             ] ;
                                          rdfs:subClassOf <https://rsna.org/roadmap/ROADMAP_00003> ,
                                                          [ rdf:type owl:Restriction ;
                                                            owl:onProperty <https://rsna.org/roadmap/ROADMAP_00198> ;
@@ -761,6 +803,10 @@ owl:Thing rdf:type owl:Class .
 
 ###  https://rsna.org/roadmap/ROADMAP_00008
 <https://rsna.org/roadmap/ROADMAP_00008> rdf:type owl:Class ;
+                                         owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                               owl:onProperty <https://rsna.org/roadmap/ROADMAP_03769> ;
+                                                               owl:someValuesFrom <https://rsna.org/roadmap/ROADMAP_03767>
+                                                             ] ;
                                          rdfs:subClassOf <https://rsna.org/roadmap/ROADMAP_00007> ,
                                                          [ rdf:type owl:Restriction ;
                                                            owl:onProperty <https://rsna.org/roadmap/ROADMAP_00198> ;
@@ -777,6 +823,10 @@ owl:Thing rdf:type owl:Class .
 
 ###  https://rsna.org/roadmap/ROADMAP_00009
 <https://rsna.org/roadmap/ROADMAP_00009> rdf:type owl:Class ;
+                                         owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                               owl:onProperty <https://rsna.org/roadmap/ROADMAP_03769> ;
+                                                               owl:someValuesFrom <https://rsna.org/roadmap/ROADMAP_03768>
+                                                             ] ;
                                          rdfs:subClassOf <https://rsna.org/roadmap/ROADMAP_00007> ,
                                                          [ rdf:type owl:Restriction ;
                                                            owl:onProperty <https://rsna.org/roadmap/ROADMAP_00198> ;
@@ -861,12 +911,13 @@ owl:Thing rdf:type owl:Class .
 ###  https://rsna.org/roadmap/ROADMAP_00015
 <https://rsna.org/roadmap/ROADMAP_00015> rdf:type owl:Class ;
                                          rdfs:subClassOf <https://rsna.org/roadmap/ROADMAP_00664> ;
-                                         rdfs:label "AI use"@en ,
-                                                    "tipo de uso"@es ,
+                                         rdfs:label "use"@en ,
+                                                    "uso"@es ,
                                                     "使用类型"@zh ;
                                          skos:altLabel "AI task"@en ,
+                                                       "AI use"@en ,
                                                        "task"@en ,
-                                                       "use"@en ,
+                                                       "tipo de uso"@es ,
                                                        "use case"@en ,
                                                        "use type"@en ;
                                          skos:definition "The type of task to which the AI model is applied, such as image segmentation."@en .
@@ -3037,7 +3088,11 @@ D - Ethical, Legal, and Maintenance"""@en ;
 
 ###  https://rsna.org/roadmap/ROADMAP_00665
 <https://rsna.org/roadmap/ROADMAP_00665> rdf:type owl:Class ;
-                                         rdfs:subClassOf <https://rsna.org/roadmap/ROADMAP_00666> ;
+                                         rdfs:subClassOf <https://rsna.org/roadmap/ROADMAP_00666> ,
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty <https://rsna.org/roadmap/ROADMAP_00201> ;
+                                                           owl:someValuesFrom <https://rsna.org/roadmap/ROADMAP_03472>
+                                                         ] ;
                                          rdfs:label "partition"@en ;
                                          skos:definition "A subdivision of a dataset used for training, validation, testing, demographic characterization, or other analytic purposes."@en .
 
@@ -3309,6 +3364,8 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                                            owl:onProperty <https://rsna.org/roadmap/ROADMAP_00631> ;
                                                            owl:someValuesFrom <https://rsna.org/roadmap/ROADMAP_03616>
                                                          ] ;
+                                         owl:disjointWith <https://rsna.org/roadmap/ROADMAP_03640> ,
+                                                          <https://rsna.org/roadmap/ROADMAP_03641> ;
                                          dc:source <https://doi.org/10.1038/s41592-023-02151-z> ,
                                                    <https://doi.org/10.1038/s41598-024-56706-x> ,
                                                    <https://doi.org/10.1117/1.JMI.11.2.024504> ;
@@ -4313,6 +4370,9 @@ D - Ethical, Legal, and Maintenance"""@en ;
 ###  https://rsna.org/roadmap/ROADMAP_03390
 <https://rsna.org/roadmap/ROADMAP_03390> rdf:type owl:Class ;
                                          rdfs:subClassOf <https://rsna.org/roadmap/ROADMAP_03484> ;
+                                         owl:disjointWith <https://rsna.org/roadmap/ROADMAP_03485> ,
+                                                          <https://rsna.org/roadmap/ROADMAP_03486> ,
+                                                          <https://rsna.org/roadmap/ROADMAP_03500> ;
                                          rdfs:label "radiology report text"@en ,
                                                     "texto del informe de radiología"@es ,
                                                     "放射科报告文本"@zh ;
@@ -4323,6 +4383,9 @@ D - Ethical, Legal, and Maintenance"""@en ;
 ###  https://rsna.org/roadmap/ROADMAP_03391
 <https://rsna.org/roadmap/ROADMAP_03391> rdf:type owl:Class ;
                                          rdfs:subClassOf <https://rsna.org/roadmap/ROADMAP_03389> ;
+                                         owl:disjointWith <https://rsna.org/roadmap/ROADMAP_03392> ,
+                                                          <https://rsna.org/roadmap/ROADMAP_03394> ,
+                                                          <https://rsna.org/roadmap/ROADMAP_03484> ;
                                          rdfs:label "image"@en ,
                                                     "imagen"@es ,
                                                     "图像"@zh ;
@@ -4332,6 +4395,8 @@ D - Ethical, Legal, and Maintenance"""@en ;
 ###  https://rsna.org/roadmap/ROADMAP_03392
 <https://rsna.org/roadmap/ROADMAP_03392> rdf:type owl:Class ;
                                          rdfs:subClassOf <https://rsna.org/roadmap/ROADMAP_03389> ;
+                                         owl:disjointWith <https://rsna.org/roadmap/ROADMAP_03394> ,
+                                                          <https://rsna.org/roadmap/ROADMAP_03484> ;
                                          rdfs:label "datos de registros médicos no textuales"@es ,
                                                     "non-text medical record data"@en ,
                                                     "非文本病历数据"@zh ;
@@ -4341,6 +4406,10 @@ D - Ethical, Legal, and Maintenance"""@en ;
 ###  https://rsna.org/roadmap/ROADMAP_03393
 <https://rsna.org/roadmap/ROADMAP_03393> rdf:type owl:Class ;
                                          rdfs:subClassOf <https://rsna.org/roadmap/ROADMAP_03391> ;
+                                         owl:disjointWith <https://rsna.org/roadmap/ROADMAP_03496> ,
+                                                          <https://rsna.org/roadmap/ROADMAP_03497> ,
+                                                          <https://rsna.org/roadmap/ROADMAP_03498> ,
+                                                          <https://rsna.org/roadmap/ROADMAP_04005> ;
                                          rdfs:label "fotografía"@es ,
                                                     "photograph"@en ,
                                                     "照片"@zh ;
@@ -4352,6 +4421,7 @@ D - Ethical, Legal, and Maintenance"""@en ;
 ###  https://rsna.org/roadmap/ROADMAP_03394
 <https://rsna.org/roadmap/ROADMAP_03394> rdf:type owl:Class ;
                                          rdfs:subClassOf <https://rsna.org/roadmap/ROADMAP_03389> ;
+                                         owl:disjointWith <https://rsna.org/roadmap/ROADMAP_03484> ;
                                          rdfs:label "graph"@en ,
                                                     "gráfico"@es ,
                                                     "图表"@zh ;
@@ -5055,6 +5125,10 @@ D - Ethical, Legal, and Maintenance"""@en ;
 <https://rsna.org/roadmap/ROADMAP_03481> rdf:type owl:Class ;
                                          rdfs:subClassOf <https://rsna.org/roadmap/ROADMAP_03355> ,
                                                          [ rdf:type owl:Restriction ;
+                                                           owl:onProperty <https://rsna.org/roadmap/ROADMAP_00201> ;
+                                                           owl:someValuesFrom <https://rsna.org/roadmap/ROADMAP_03389>
+                                                         ] ,
+                                                         [ rdf:type owl:Restriction ;
                                                            owl:onProperty <https://rsna.org/roadmap/ROADMAP_00198> ;
                                                            owl:hasValue <https://rsna.org/roadmap/ROADMAP_00209>
                                                          ] ,
@@ -5071,6 +5145,10 @@ D - Ethical, Legal, and Maintenance"""@en ;
 ###  https://rsna.org/roadmap/ROADMAP_03482
 <https://rsna.org/roadmap/ROADMAP_03482> rdf:type owl:Class ;
                                          rdfs:subClassOf <https://rsna.org/roadmap/ROADMAP_03355> ,
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty <https://rsna.org/roadmap/ROADMAP_00201> ;
+                                                           owl:someValuesFrom <https://rsna.org/roadmap/ROADMAP_03389>
+                                                         ] ,
                                                          [ rdf:type owl:Restriction ;
                                                            owl:onProperty <https://rsna.org/roadmap/ROADMAP_00198> ;
                                                            owl:hasValue <https://rsna.org/roadmap/ROADMAP_00234>
@@ -5109,6 +5187,8 @@ D - Ethical, Legal, and Maintenance"""@en ;
 ###  https://rsna.org/roadmap/ROADMAP_03485
 <https://rsna.org/roadmap/ROADMAP_03485> rdf:type owl:Class ;
                                          rdfs:subClassOf <https://rsna.org/roadmap/ROADMAP_03484> ;
+                                         owl:disjointWith <https://rsna.org/roadmap/ROADMAP_03486> ,
+                                                          <https://rsna.org/roadmap/ROADMAP_03500> ;
                                          rdfs:label "pathology report text"@en ,
                                                     "texto del informe de patología"@es ,
                                                     "病理报告文本"@zh ;
@@ -5120,6 +5200,7 @@ D - Ethical, Legal, and Maintenance"""@en ;
 ###  https://rsna.org/roadmap/ROADMAP_03486
 <https://rsna.org/roadmap/ROADMAP_03486> rdf:type owl:Class ;
                                          rdfs:subClassOf <https://rsna.org/roadmap/ROADMAP_03484> ;
+                                         owl:disjointWith <https://rsna.org/roadmap/ROADMAP_03500> ;
                                          rdfs:comment "This definition excludes radiology and pathology reports."@en ;
                                          rdfs:label "electronic health record text"@en ,
                                                     "texto del historial clínico electrónico"@es ,
@@ -5226,6 +5307,9 @@ D - Ethical, Legal, and Maintenance"""@en ;
 ###  https://rsna.org/roadmap/ROADMAP_03496
 <https://rsna.org/roadmap/ROADMAP_03496> rdf:type owl:Class ;
                                          rdfs:subClassOf <https://rsna.org/roadmap/ROADMAP_03391> ;
+                                         owl:disjointWith <https://rsna.org/roadmap/ROADMAP_03497> ,
+                                                          <https://rsna.org/roadmap/ROADMAP_03498> ,
+                                                          <https://rsna.org/roadmap/ROADMAP_04005> ;
                                          rdfs:comment "Specific about the type of radiological images are indicated by the imaging modality and imaging procedure elements."@en ;
                                          rdfs:label "imagen de radiología"@es ,
                                                     "radiology image"@en ,
@@ -5236,6 +5320,8 @@ D - Ethical, Legal, and Maintenance"""@en ;
 ###  https://rsna.org/roadmap/ROADMAP_03497
 <https://rsna.org/roadmap/ROADMAP_03497> rdf:type owl:Class ;
                                          rdfs:subClassOf <https://rsna.org/roadmap/ROADMAP_03391> ;
+                                         owl:disjointWith <https://rsna.org/roadmap/ROADMAP_03498> ,
+                                                          <https://rsna.org/roadmap/ROADMAP_04005> ;
                                          rdfs:label "imagen de patología"@es ,
                                                     "pathology image"@en ,
                                                     "病理图像"@zh ;
@@ -5245,6 +5331,7 @@ D - Ethical, Legal, and Maintenance"""@en ;
 ###  https://rsna.org/roadmap/ROADMAP_03498
 <https://rsna.org/roadmap/ROADMAP_03498> rdf:type owl:Class ;
                                          rdfs:subClassOf <https://rsna.org/roadmap/ROADMAP_03391> ;
+                                         owl:disjointWith <https://rsna.org/roadmap/ROADMAP_04005> ;
                                          rdfs:label "other image"@en ,
                                                     "otra imagen"@es ,
                                                     "其他图像"@zh ;
@@ -6862,6 +6949,7 @@ D - Ethical, Legal, and Maintenance"""@en ;
 ###  https://rsna.org/roadmap/ROADMAP_03640
 <https://rsna.org/roadmap/ROADMAP_03640> rdf:type owl:Class ;
                                          rdfs:subClassOf <https://rsna.org/roadmap/ROADMAP_03760> ;
+                                         owl:disjointWith <https://rsna.org/roadmap/ROADMAP_03641> ;
                                          rdfs:label "matrix metric"@en ,
                                                     "métrica matricial del rendimiento del modelo"@es ,
                                                     "模型性能的矩阵度量"@zh ;
@@ -7689,6 +7777,125 @@ When the function is the square of the difference and the variables are binary (
                                          rdfs:label "mean calibration"@en ;
                                          skos:definition "A measure of calibration that is the average of a function of the difference between the expected values and the observed values."@en ;
                                          skos:exactMatch "http://purl.obolibrary.org/obo/STATO_0000686" .
+
+
+###  https://rsna.org/roadmap/ROADMAP_03763
+<https://rsna.org/roadmap/ROADMAP_03763> rdf:type owl:Class ;
+                                         rdfs:subClassOf <https://rsna.org/roadmap/ROADMAP_00664> ;
+                                         rdfs:label "development process"@en ;
+                                         skos:altLabel "development"@en ;
+                                         skos:definition "AI model development."@en .
+
+
+###  https://rsna.org/roadmap/ROADMAP_03764
+<https://rsna.org/roadmap/ROADMAP_03764> rdf:type owl:Class ;
+                                         rdfs:subClassOf <https://rsna.org/roadmap/ROADMAP_03763> ;
+                                         owl:disjointWith <https://rsna.org/roadmap/ROADMAP_03765> ,
+                                                          <https://rsna.org/roadmap/ROADMAP_03766> ;
+                                         rdfs:label "entrenamiento"@es ,
+                                                    "training"@en ;
+                                         skos:definition "The process by which one uses data to train an AI model."@en .
+
+
+###  https://rsna.org/roadmap/ROADMAP_03765
+<https://rsna.org/roadmap/ROADMAP_03765> rdf:type owl:Class ;
+                                         rdfs:subClassOf <https://rsna.org/roadmap/ROADMAP_03763> ;
+                                         owl:disjointWith <https://rsna.org/roadmap/ROADMAP_03766> ;
+                                         rdfs:comment "Deep learning systems often use the term \"validation,\" but in medical applications, it can be confused with clinical validation. Hence, \"optimization\" is preferred."@en ;
+                                         rdfs:label "optimización"@es ,
+                                                    "optimization"@en ,
+                                                    "优化"@zh ;
+                                         skos:altLabel "optimisation"@en ,
+                                                       "tuning"@en ,
+                                                       "validation"@en ;
+                                         skos:definition "The process by which one uses a dataset to \"tune\" or optimize the performance of an AI model."@en .
+
+
+###  https://rsna.org/roadmap/ROADMAP_03766
+<https://rsna.org/roadmap/ROADMAP_03766> rdf:type owl:Class ;
+                                         rdfs:subClassOf <https://rsna.org/roadmap/ROADMAP_03763> ;
+                                         rdfs:label "prueba"@es ,
+                                                    "testing"@en ,
+                                                    "测试"@zh ;
+                                         skos:altLabel "The process of assessing a model's performance. Testing can be \"internal\" (using a partition of the original dataset) or \"external\" (from another dataset or institution)."@en ,
+                                                       "test"@en .
+
+
+###  https://rsna.org/roadmap/ROADMAP_03767
+<https://rsna.org/roadmap/ROADMAP_03767> rdf:type owl:Class ;
+                                         rdfs:subClassOf <https://rsna.org/roadmap/ROADMAP_03766> ;
+                                         owl:disjointWith <https://rsna.org/roadmap/ROADMAP_03768> ;
+                                         rdfs:comment "Often, internal testing data are a partition of the original (internal) dataset used to train and optimize a model."@en ;
+                                         rdfs:label "internal testing"@en ,
+                                                    "pruebas internas"@es ,
+                                                    "内部测试"@zh ;
+                                         skos:altLabel "internal test"@en ;
+                                         skos:definition "Evaluation of an AI model's performance using data from the same institution and setting as the training and/or optimization datasets."@en .
+
+
+###  https://rsna.org/roadmap/ROADMAP_03768
+<https://rsna.org/roadmap/ROADMAP_03768> rdf:type owl:Class ;
+                                         rdfs:subClassOf <https://rsna.org/roadmap/ROADMAP_03766> ;
+                                         rdfs:comment "The term \"external testing\" is preferred over \"external validation,\" as the term \"validation\" can be ambiguous."@en ;
+                                         rdfs:label "external testing"@en ,
+                                                    "pruebas externas"@es ,
+                                                    "外部测试"@zh ;
+                                         skos:altLabel "external test"@en ,
+                                                       "external validation"@en ;
+                                         skos:definition "Assessment of an AI model's performance on data from another source, institution, or setting."@en .
+
+
+###  https://rsna.org/roadmap/ROADMAP_03771
+<https://rsna.org/roadmap/ROADMAP_03771> rdf:type owl:Class ;
+                                         owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                               owl:onProperty <https://rsna.org/roadmap/ROADMAP_03769> ;
+                                                               owl:someValuesFrom <https://rsna.org/roadmap/ROADMAP_03764>
+                                                             ] ;
+                                         rdfs:subClassOf <https://rsna.org/roadmap/ROADMAP_00665> ;
+                                         rdfs:label "training partition"@en .
+
+
+###  https://rsna.org/roadmap/ROADMAP_03772
+<https://rsna.org/roadmap/ROADMAP_03772> rdf:type owl:Class ;
+                                         owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                               owl:onProperty <https://rsna.org/roadmap/ROADMAP_03769> ;
+                                                               owl:someValuesFrom <https://rsna.org/roadmap/ROADMAP_03765>
+                                                             ] ;
+                                         rdfs:subClassOf <https://rsna.org/roadmap/ROADMAP_00665> ;
+                                         rdfs:label "optimization partition"@en .
+
+
+###  https://rsna.org/roadmap/ROADMAP_03773
+<https://rsna.org/roadmap/ROADMAP_03773> rdf:type owl:Class ;
+                                         owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                               owl:onProperty <https://rsna.org/roadmap/ROADMAP_03769> ;
+                                                               owl:someValuesFrom <https://rsna.org/roadmap/ROADMAP_03766>
+                                                             ] ;
+                                         rdfs:subClassOf <https://rsna.org/roadmap/ROADMAP_00665> ;
+                                         rdfs:label "testing partition"@en ;
+                                         skos:altLabel "test partition"@en .
+
+
+###  https://rsna.org/roadmap/ROADMAP_03774
+<https://rsna.org/roadmap/ROADMAP_03774> rdf:type owl:Class ;
+                                         owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                               owl:onProperty <https://rsna.org/roadmap/ROADMAP_03769> ;
+                                                               owl:someValuesFrom <https://rsna.org/roadmap/ROADMAP_03767>
+                                                             ] ;
+                                         rdfs:subClassOf <https://rsna.org/roadmap/ROADMAP_03773> ;
+                                         rdfs:label "internal testing partition"@en ;
+                                         skos:altLabel "internal test partition"@en .
+
+
+###  https://rsna.org/roadmap/ROADMAP_03775
+<https://rsna.org/roadmap/ROADMAP_03775> rdf:type owl:Class ;
+                                         owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                               owl:onProperty <https://rsna.org/roadmap/ROADMAP_03769> ;
+                                                               owl:someValuesFrom <https://rsna.org/roadmap/ROADMAP_03768>
+                                                             ] ;
+                                         rdfs:subClassOf <https://rsna.org/roadmap/ROADMAP_03773> ;
+                                         rdfs:label "external testing partition"@en ;
+                                         skos:altLabel "external test partition"@en .
 
 
 ###  https://rsna.org/roadmap/ROADMAP_04001
