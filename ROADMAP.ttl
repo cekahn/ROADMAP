@@ -37,6 +37,10 @@ dc:source rdf:type owl:AnnotationProperty .
                                                                    rdfs:label "has_obo_format_version" .
 
 
+###  http://www.geneontology.org/formats/oboInOwl#hasRelatedSynonym
+<http://www.geneontology.org/formats/oboInOwl#hasRelatedSynonym> rdf:type owl:AnnotationProperty .
+
+
 ###  http://www.w3.org/2000/01/rdf-schema#comment
 rdfs:comment rdf:type owl:AnnotationProperty .
 
@@ -323,19 +327,9 @@ owl:topObjectProperty rdf:type owl:ObjectProperty .
                                          rdf:type owl:AsymmetricProperty ,
                                                   owl:IrreflexiveProperty ;
                                          rdfs:domain <https://rsna.org/roadmap/ROADMAP_03302> ;
-                                         rdfs:range <https://rsna.org/roadmap/ROADMAP_03640> ,
-                                                    <https://rsna.org/roadmap/ROADMAP_03641> ;
+                                         rdfs:range <https://rsna.org/roadmap/ROADMAP_03778> ;
                                          rdfs:label "is scalar metric for"@en ;
                                          skos:definition "Inverse of \"has scalar metric\" relation: links a scalar metric to associated graphical metric(s) and/or matrix metric(s)."@en .
-
-
-###  https://rsna.org/roadmap/ROADMAP_03644
-<https://rsna.org/roadmap/ROADMAP_03644> rdf:type owl:ObjectProperty ;
-                                         rdfs:domain <https://rsna.org/roadmap/ROADMAP_00002> ;
-                                         rdfs:range <https://rsna.org/roadmap/ROADMAP_03642> ;
-                                         rdfs:label "has performance"@en ;
-                                         skos:altLabel "hasPerformance"@en ;
-                                         skos:definition "This property links a model to one or more model performance metrics."@en .
 
 
 ###  https://rsna.org/roadmap/ROADMAP_03645
@@ -343,8 +337,7 @@ owl:topObjectProperty rdf:type owl:ObjectProperty .
                                          rdfs:subPropertyOf owl:topObjectProperty ;
                                          rdf:type owl:AsymmetricProperty ,
                                                   owl:IrreflexiveProperty ;
-                                         rdfs:domain <https://rsna.org/roadmap/ROADMAP_03640> ,
-                                                     <https://rsna.org/roadmap/ROADMAP_03641> ;
+                                         rdfs:domain <https://rsna.org/roadmap/ROADMAP_03778> ;
                                          rdfs:range <https://rsna.org/roadmap/ROADMAP_03302> ;
                                          rdfs:label "has scalar metric"@en ;
                                          skos:altLabel "hasScalarMetric"@en ;
@@ -397,9 +390,12 @@ owl:topObjectProperty rdf:type owl:ObjectProperty .
                                                   owl:IrreflexiveProperty ;
                                          rdfs:domain <https://rsna.org/roadmap/ROADMAP_00002> ;
                                          rdfs:range <https://rsna.org/roadmap/ROADMAP_03642> ;
+                                         <http://www.geneontology.org/formats/oboInOwl#hasRelatedSynonym> "has performance"@en ;
                                          rdfs:label "has metric"@en ;
-                                         skos:altLabel "hasMetric"@en ;
-                                         skos:definition "Defines a relationship between a Model and the Model performance metrics that describe its performance."@en .
+                                         skos:altLabel "hasMetric"@en ,
+                                                       "hasPerformance"@en ;
+                                         skos:definition "Defines a relationship between a model and the metrics that describe its performance."@en ,
+                                                         "This property links a model to one or more model performance metrics."@en .
 
 
 ###  https://rsna.org/roadmap/ROADMAP_03719
@@ -514,7 +510,7 @@ owl:Thing rdf:type owl:Class .
                                                            owl:someValuesFrom <https://rsna.org/roadmap/ROADMAP_03355>
                                                          ] ,
                                                          [ rdf:type owl:Restriction ;
-                                                           owl:onProperty <https://rsna.org/roadmap/ROADMAP_03644> ;
+                                                           owl:onProperty <https://rsna.org/roadmap/ROADMAP_03709> ;
                                                            owl:someValuesFrom <https://rsna.org/roadmap/ROADMAP_03642>
                                                          ] ;
                                          owl:disjointWith <https://rsna.org/roadmap/ROADMAP_00003> ,
@@ -1978,7 +1974,6 @@ owl:Thing rdf:type owl:Class .
                                                            owl:onProperty <https://rsna.org/roadmap/ROADMAP_00198> ;
                                                            owl:hasValue <https://rsna.org/roadmap/ROADMAP_00215>
                                                          ] ;
-                                         dc:source "http://www.radlex.org/RID/RID10311"@en ;
                                          rdfs:label "imaging modality"@en ,
                                                     "modalidad de imagen"@es ,
                                                     "成像方式"@zh ;
@@ -2103,7 +2098,7 @@ owl:Thing rdf:type owl:Class .
 ###  https://rsna.org/roadmap/ROADMAP_00131
 <https://rsna.org/roadmap/ROADMAP_00131> rdf:type owl:Class ;
                                          rdfs:subClassOf <https://rsna.org/roadmap/ROADMAP_00059> ;
-                                         dc:source "https://www.mpeg.org/standards/"@en ;
+                                         dc:source <https://www.mpeg.org/standards/> ;
                                          rdfs:label "MPEG"@en ,
                                                     "MPEG"@es ,
                                                     "MPEG"@zh ;
@@ -2265,7 +2260,7 @@ owl:Thing rdf:type owl:Class .
 <https://rsna.org/roadmap/ROADMAP_00144> rdf:type owl:Class ;
                                          rdfs:subClassOf <https://rsna.org/roadmap/ROADMAP_01042> ,
                                                          <https://rsna.org/roadmap/ROADMAP_03302> ;
-                                         dc:source "https://doi.org/10.1109/TPAMI.1979.4766909"@en ;
+                                         dc:source <https://doi.org/10.1109/TPAMI.1979.4766909> ;
                                          rdfs:label "Davies-Bouldin index"@en ,
                                                     "Davies-Bouldin 指数"@zh ,
                                                     "índice de Davies-Bouldin"@es ;
@@ -3374,8 +3369,7 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                                            owl:onProperty <https://rsna.org/roadmap/ROADMAP_00631> ;
                                                            owl:someValuesFrom <https://rsna.org/roadmap/ROADMAP_03616>
                                                          ] ;
-                                         owl:disjointWith <https://rsna.org/roadmap/ROADMAP_03640> ,
-                                                          <https://rsna.org/roadmap/ROADMAP_03641> ;
+                                         owl:disjointWith <https://rsna.org/roadmap/ROADMAP_03778> ;
                                          dc:source <https://doi.org/10.1038/s41592-023-02151-z> ,
                                                    <https://doi.org/10.1038/s41598-024-56706-x> ,
                                                    <https://doi.org/10.1117/1.JMI.11.2.024504> ;
@@ -3402,7 +3396,7 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                          skos:definition """Accuracy quantifies the proportion of correct predictions made by a model across all classes. It is calculated as the number of true positives and true negatives divided by the total number of predictions. Accuracy is sensitive to class imbalance and may not reflect performance adequately in imbalanced datasets.
 
                                          Accuracy = (TP + TN) / (TP + TN + FP + FN)"""@en ;
-                                         skos:exactMatch "http://purl.obolibrary.org/obo/STATO_0000415" ;
+                                         skos:exactMatch <http://purl.obolibrary.org/obo/STATO_0000415> ;
                                          <https://rsna.org/roadmap/ROADMAP_00274> 1 ;
                                          <https://rsna.org/roadmap/ROADMAP_03651> 0 ;
                                          <https://rsna.org/roadmap/ROADMAP_03652> 1 .
@@ -3496,7 +3490,7 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                          skos:altLabel "F1"@en ,
                                                        "F1-score"@en ;
                                          skos:definition "F1 score is a specific case of the F(beta) score with β = 1, giving equal weight to precision and sensitivity. It is commonly used when both metrics are considered equally important for model evaluation. This score is widely adopted in tasks requiring balanced performance between completeness and correctness of predictions."@en ;
-                                         skos:exactMatch "http://purl.obolibrary.org/obo/STATO_0000628" ;
+                                         skos:exactMatch <http://purl.obolibrary.org/obo/STATO_0000628> ;
                                          <https://rsna.org/roadmap/ROADMAP_00274> 1 ;
                                          <https://rsna.org/roadmap/ROADMAP_03651> 0 ;
                                          <https://rsna.org/roadmap/ROADMAP_03652> 1 .
@@ -3520,7 +3514,7 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                                        "F_β"@en ,
                                                        "Fβ"@en ;
                                          skos:definition "F(beta) score calculates the weighted harmonic mean of precision and sensitivity, where the parameter β controls the relative weight given to sensitivity. It provides a single measure that balances the trade-off between detecting positive cases and avoiding false positives. Larger β values place more emphasis on sensitivity, while smaller values emphasize precision."@en ;
-                                         skos:exactMatch "http://purl.obolibrary.org/obo/STATO_0000663" ;
+                                         skos:exactMatch <http://purl.obolibrary.org/obo/STATO_0000663> ;
                                          <https://rsna.org/roadmap/ROADMAP_00274> 1 ;
                                          <https://rsna.org/roadmap/ROADMAP_03651> 0 ;
                                          <https://rsna.org/roadmap/ROADMAP_03652> 1 .
@@ -3560,7 +3554,7 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                                        "type I error rate"@en ,
                                                        "α"@en ;
                                          skos:definition "The false positive rate is the proportion of actual negative cases that are incorrectly classified as positive by a diagnostic test or predictive model. It is calculated as the number of false positives divided by the sum of false positives and true negatives, making it the complement of specificity. FPR indicates how often non-existent conditions are mistakenly detected and serves as the x-axis dimension in receiver operating characteristic (ROC) analysis."@en ;
-                                         skos:exactMatch "http://purl.obolibrary.org/obo/STATO_0000053" ;
+                                         skos:exactMatch <http://purl.obolibrary.org/obo/STATO_0000053> ;
                                          <https://rsna.org/roadmap/ROADMAP_00274> 0 ;
                                          <https://rsna.org/roadmap/ROADMAP_03651> 0 ;
                                          <https://rsna.org/roadmap/ROADMAP_03652> 1 .
@@ -3597,7 +3591,7 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                          skos:definition """Positive predictive value is the proportion of correctly identified positive cases among all cases predicted as positive by a model or test. It represents the probability that a positive prediction corresponds to a true positive outcome, and its value depends on the prevalence of the condition being tested as well as the model’s specificity and sensitivity.
 
                                          PPV = TP / (TP + FP)"""@en ;
-                                         skos:exactMatch "http://purl.obolibrary.org/obo/STATO_0000416" ;
+                                         skos:exactMatch <http://purl.obolibrary.org/obo/STATO_0000416> ;
                                          <https://rsna.org/roadmap/ROADMAP_00274> 1 ;
                                          <https://rsna.org/roadmap/ROADMAP_03651> 0 ;
                                          <https://rsna.org/roadmap/ROADMAP_03652> 1 .
@@ -3616,7 +3610,7 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                          skos:definition """Negative predictive value denotes the proportion of negative predictions that correspond to actual negative cases. It reflects the reliability of negative results and depends on both test performance and outcome prevalence. It is often reported alongside sensitivity and specificity.
 
                                          NPV = TN / (TN + FN)"""@en ;
-                                         skos:exactMatch "http://purl.obolibrary.org/obo/STATO_0000619" ;
+                                         skos:exactMatch <http://purl.obolibrary.org/obo/STATO_0000619> ;
                                          <https://rsna.org/roadmap/ROADMAP_00274> 1 ;
                                          <https://rsna.org/roadmap/ROADMAP_03651> 0 ;
                                          <https://rsna.org/roadmap/ROADMAP_03652> 1 .
@@ -3636,7 +3630,7 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                          skos:definition """Positive Likelihood Ratio expresses how much more likely a positive test result is in individuals with the condition compared to those without it. It is calculated as the ratio of sensitivity to one minus specificity. Higher values indicate stronger evidence for the presence of the condition.
 
                                          LR+ = sensitivity / (1-specificity)"""@en ;
-                                         skos:exactMatch "http://purl.obolibrary.org/obo/STATO_0000411" .
+                                         skos:exactMatch <http://purl.obolibrary.org/obo/STATO_0000411> .
 
 
 ###  https://rsna.org/roadmap/ROADMAP_03327
@@ -3877,7 +3871,7 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                          skos:definition """The true positive rate is the proportion of actual positive cases that a classifier or test correctly identifies as positive. It is calculated as the number of true positives divided by the sum of true positives and false negatives. This measure reflects how effectively a system detects the presence of the condition or class of interest.
 
                                          TPR = TP / (TP + FN)"""@en ;
-                                         skos:exactMatch "http://purl.obolibrary.org/obo/STATO_0000233" ;
+                                         skos:exactMatch <http://purl.obolibrary.org/obo/STATO_0000233> ;
                                          <https://rsna.org/roadmap/ROADMAP_00274> 1 ;
                                          <https://rsna.org/roadmap/ROADMAP_03651> 0 ;
                                          <https://rsna.org/roadmap/ROADMAP_03652> 1 .
@@ -3904,7 +3898,7 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                          skos:definition """The true negative rate is the proportion of actual negative cases that are correctly identified as negative by a test or classifier. It quantifies a system’s ability to avoid false alarms by distinguishing true negatives from false positives. This measure is independent of disease or class prevalence and complements the true positive rate by capturing classification accuracy for the negative class.
 
                                          TNR = TN / (TN + FP)"""@en ;
-                                         skos:exactMatch "http://purl.obolibrary.org/obo/STATO_0000134" ;
+                                         skos:exactMatch <http://purl.obolibrary.org/obo/STATO_0000134> ;
                                          <https://rsna.org/roadmap/ROADMAP_00274> 1 ;
                                          <https://rsna.org/roadmap/ROADMAP_03651> 0 ;
                                          <https://rsna.org/roadmap/ROADMAP_03652> 1 .
@@ -4110,7 +4104,7 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                          skos:definition """Negative Likelihood Ratio expresses how much less likely a negative test result is in individuals with the condition compared to those without it. It is calculated as the ratio of one minus sensitivity to specificity. Lower values indicate stronger evidence for the absence of the condition.
 
                                          LR- = (1-sensitivity) / specificity"""@en ;
-                                         skos:exactMatch "http://purl.obolibrary.org/obo/STATO_0000410" .
+                                         skos:exactMatch <http://purl.obolibrary.org/obo/STATO_0000410> .
 
 
 ###  https://rsna.org/roadmap/ROADMAP_03357
@@ -4123,7 +4117,7 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                                     "似然比"@zh ;
                                          skos:altLabel "LR"@en ;
                                          skos:definition "Likelihood ratio quantifies how much a diagnostic test result changes the odds of having a condition. It compares the probability of a given test result in individuals with the condition to the probability of the same result in those without it. This measure is independent of disease prevalence and can be computed for both positive and negative results."@en ;
-                                         skos:exactMatch "http://purl.obolibrary.org/obo/STATO_0000409" .
+                                         skos:exactMatch <http://purl.obolibrary.org/obo/STATO_0000409> .
 
 
 ###  https://rsna.org/roadmap/ROADMAP_03358
@@ -5417,7 +5411,7 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                                        "Kappa 系数"@zh ,
                                                        "κ"@en ;
                                          skos:definition "Cohen’s kappa measures the level of agreement between predicted and reference classifications while accounting for the agreement expected by chance. It provides a normalized score where 1 indicates perfect agreement, 0 indicates agreement equivalent to random chance, and negative values reflect agreement worse than chance. This metric is applicable to binary and multi-class classification and is more robust than simple accuracy in the presence of chance agreement."@en ;
-                                         skos:exactMatch "http://purl.obolibrary.org/obo/STATO_0000630" ;
+                                         skos:exactMatch <http://purl.obolibrary.org/obo/STATO_0000630> ;
                                          <https://rsna.org/roadmap/ROADMAP_00274> 1 ;
                                          <https://rsna.org/roadmap/ROADMAP_03651> -1 ;
                                          <https://rsna.org/roadmap/ROADMAP_03652> 1 .
@@ -5471,14 +5465,14 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                          dc:source <https://doi.org/10.1117/1.JMI.11.2.024504> ,
                                                    <https://doi.org/10.1177/0272989x8900900307> ;
                                          rdfs:label "ROC曲线下的部分面积"@zh ,
-                                                    "partial area under the receiver operator characteristic curve"@en ,
+                                                    "partial area under the receiver operating characteristic curve"@en ,
                                                     "área parcial bajo la curva ROC"@es ;
                                          skos:altLabel "pAUC"@en ,
                                                        "partial AUC"@en ,
                                                        "partial AUROC"@en ,
                                                        "partial area under the ROC curve"@en ;
                                          skos:definition "The partial area under the receiver operating characteristic curve measures model performance within a predefined region of the ROC curve, typically corresponding to clinically relevant ranges such as high sensitivity or high specificity. It provides an average measure of sensitivity over a range of specificities or vice versa, offering a focused assessment of discrimination in critical operating conditions rather than across all thresholds. This metric is particularly useful when performance in specific regions is more important than overall discrimination."@en ;
-                                         skos:exactMatch "http://purl.obolibrary.org/obo/STATO_0000689" ;
+                                         skos:exactMatch <http://purl.obolibrary.org/obo/STATO_0000689> ;
                                          <https://rsna.org/roadmap/ROADMAP_03651> 0 ;
                                          <https://rsna.org/roadmap/ROADMAP_03652> 1 .
 
@@ -5566,7 +5560,7 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                                        "τ"@en ,
                                                        "肯德尔 τ 系数"@zh ;
                                          skos:definition "Kendall’s tau coefficient is a non-parametric statistic that measures the ordinal association between two ranked variables. It is calculated from the difference between the number of concordant and discordant observation pairs, with adjustments for tied ranks in some variants, and yields a value between −1 and 1. A value of 1 indicates perfect agreement in rank order, −1 indicates perfect inverse ordering, and 0 indicates no association in the rankings."@en ;
-                                         skos:exactMatch "http://purl.obolibrary.org/obo/STATO_0000240" ;
+                                         skos:exactMatch <http://purl.obolibrary.org/obo/STATO_0000240> ;
                                          <https://rsna.org/roadmap/ROADMAP_03651> -1 ;
                                          <https://rsna.org/roadmap/ROADMAP_03652> 1 .
 
@@ -5604,7 +5598,7 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                                        "ro"@es ,
                                                        "ρ"@en ;
                                          skos:definition "Spearman’s rho (ρ) is a nonparametric statistic that quantifies the strength and direction of a monotonic relationship between two variables. It is computed from the ranked values of the data rather than the raw values, making it suitable for ordinal data or continuous data that do not meet assumptions of linearity or normality. The coefficient ranges from –1 to +1, with values near the extremes indicating strong increasing or decreasing monotonic associations and values near zero indicating little to no monotonic correlation."@en ;
-                                         skos:exactMatch "http://purl.obolibrary.org/obo/STATO_0000201" ;
+                                         skos:exactMatch <http://purl.obolibrary.org/obo/STATO_0000201> ;
                                          <https://rsna.org/roadmap/ROADMAP_00274> 1 ;
                                          <https://rsna.org/roadmap/ROADMAP_03651> -1 ;
                                          <https://rsna.org/roadmap/ROADMAP_03652> 1 .
@@ -5849,7 +5843,7 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                                     "índice de Rand"@es ;
                                          skos:altLabel "RI"@en ;
                                          skos:definition "Rand index quantifies the similarity between two data partitions by evaluating all possible pairs of elements and determining whether they are assigned consistently in both partitions. It considers agreements where pairs are placed in the same group or in different groups across both segmentations. Adjusted versions incorporate a correction for chance agreement, providing a normalized measure of clustering or segmentation consistency."@en ;
-                                         skos:exactMatch "http://purl.obolibrary.org/obo/STATO_0000592" ;
+                                         skos:exactMatch <http://purl.obolibrary.org/obo/STATO_0000592> ;
                                          <https://rsna.org/roadmap/ROADMAP_00274> 1 ;
                                          <https://rsna.org/roadmap/ROADMAP_03651> 0 ;
                                          <https://rsna.org/roadmap/ROADMAP_03652> 1 .
@@ -5889,7 +5883,7 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                                        "φ"@en ,
                                                        "φ coefficient"@en ;
                                          skos:definition "Matthews correlation coefficient evaluates the correlation between observed and predicted classifications, considering all four confusion matrix components. It provides a single summary score that reflects both correct and incorrect predictions across classes. It is regarded as a balanced metric even in the presence of class imbalance."@en ;
-                                         skos:exactMatch "http://purl.obolibrary.org/obo/STATO_0000524" ;
+                                         skos:exactMatch <http://purl.obolibrary.org/obo/STATO_0000524> ;
                                          <https://rsna.org/roadmap/ROADMAP_03651> -1 ;
                                          <https://rsna.org/roadmap/ROADMAP_03652> 1 .
 
@@ -6041,7 +6035,7 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                                        "R"@en ,
                                                        "r"@en ;
                                          skos:definition "The Pearson correlation coefficient is a dimensionless statistic that quantifies the strength and direction of a linear relationship between two continuous variables. It is computed by standardizing the covariance of the variables, producing a value between –1 and +1, where the sign indicates the direction of association and the magnitude reflects its strength. Statistical inference for this coefficient commonly assumes that the paired variables are jointly normally distributed, particularly when deriving p-values or confidence intervals."@en ;
-                                         skos:exactMatch "http://purl.obolibrary.org/obo/STATO_0000280" ;
+                                         skos:exactMatch <http://purl.obolibrary.org/obo/STATO_0000280> ;
                                          <https://rsna.org/roadmap/ROADMAP_03651> -1 ;
                                          <https://rsna.org/roadmap/ROADMAP_03652> 1 .
 
@@ -6107,7 +6101,7 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                                        "SNR"@en ,
                                                        "signal to noise ratio"@en ;
                                          skos:definition "Signal-to-noise ratio quantifies the relationship between the strength of a signal and the level of background noise in a measurement or image. It is calculated as the ratio of the mean signal intensity to the standard deviation of the noise, indicating how clearly the signal can be distinguished from noise. Higher signal-to-noise ratio values correspond to better image or data quality."@en ;
-                                         skos:exactMatch "http://purl.obolibrary.org/obo/STATO_0000050" ;
+                                         skos:exactMatch <http://purl.obolibrary.org/obo/STATO_0000050> ;
                                          <https://rsna.org/roadmap/ROADMAP_03651> 0 .
 
 
@@ -6243,7 +6237,7 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                                        "calibration analysis"@en ,
                                                        "calibration plot"@en ;
                                          skos:definition "Calibration in statistical modeling refers to the agreement between predicted probabilities and observed outcomes. A well-calibrated model will have predicted probabilities that match the empirical frequencies of events."@en ;
-                                         skos:exactMatch "http://purl.obolibrary.org/obo/STATO_0000655" .
+                                         skos:exactMatch <http://purl.obolibrary.org/obo/STATO_0000655> .
 
 
 ###  https://rsna.org/roadmap/ROADMAP_03571
@@ -6359,59 +6353,59 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                                        "RSD"@en ,
                                                        "relative standard deviation"@en ;
                                          skos:definition "The coefficient of variation is a standardized measure of relative variability, defined as the ratio of the standard deviation to the mean of a dataset. It is dimensionless, allowing direct comparison of variability across datasets with different units or scales. While widely used, it becomes unstable when the mean is near zero and is sensitive to outliers, limiting its interpretability in some contexts."@en ;
-                                         skos:exactMatch "http://purl.obolibrary.org/obo/STATO_0000236" .
+                                         skos:exactMatch <http://purl.obolibrary.org/obo/STATO_0000236> .
 
 
 ###  https://rsna.org/roadmap/ROADMAP_03584
 <https://rsna.org/roadmap/ROADMAP_03584> rdf:type owl:Class ;
                                          rdfs:subClassOf <https://rsna.org/roadmap/ROADMAP_03564> ;
+                                         rdfs:comment "SOHO:100100001" ;
                                          rdfs:label "acceso y calidad de la educación"@es ,
                                                     "education access and quality"@en ,
                                                     "教育机会和质量"@zh ;
-                                         skos:definition "Education also influences health and well-being. Education factors include early childhood education and development, graduating from high school, receiving higher education, and even English knowledge and literacy."@en ;
-                                         skos:exactMatch "SOHO:100100001" .
+                                         skos:definition "Education also influences health and well-being. Education factors include early childhood education and development, graduating from high school, receiving higher education, and even English knowledge and literacy."@en .
 
 
 ###  https://rsna.org/roadmap/ROADMAP_03585
 <https://rsna.org/roadmap/ROADMAP_03585> rdf:type owl:Class ;
                                          rdfs:subClassOf <https://rsna.org/roadmap/ROADMAP_03564> ;
+                                         rdfs:comment "SOHO:100400001" ;
                                          rdfs:label "entorno vecinal y urbano"@es ,
                                                     "neighborhood and built environment"@en ,
                                                     "社区和建筑环境"@zh ;
-                                         skos:definition "As a social determinant of health, the neighborhood and built environment affect health outcomes through quality of housing, access to transportation, access to healthy foods and clean water, air quality inside and outside, and the impact of crime and violence on people who live in the area."@en ;
-                                         skos:exactMatch "SOHO:100400001" .
+                                         skos:definition "As a social determinant of health, the neighborhood and built environment affect health outcomes through quality of housing, access to transportation, access to healthy foods and clean water, air quality inside and outside, and the impact of crime and violence on people who live in the area."@en .
 
 
 ###  https://rsna.org/roadmap/ROADMAP_03586
 <https://rsna.org/roadmap/ROADMAP_03586> rdf:type owl:Class ;
                                          rdfs:subClassOf <https://rsna.org/roadmap/ROADMAP_03564> ;
+                                         rdfs:comment "SOHO:10060001" ;
                                          rdfs:label "contexto social y comunitario"@es ,
                                                     "social and community context"@en ,
                                                     "社会和社区背景"@zh ;
-                                         skos:definition "Social and community context is a social determinant of health, covering the contexts in which people live, study, work, and relax. The sense of belonging to a community, workplace conditions, and discrimination or racism all impact people's health."@en ;
-                                         skos:exactMatch "SOHO:10060001" .
+                                         skos:definition "Social and community context is a social determinant of health, covering the contexts in which people live, study, work, and relax. The sense of belonging to a community, workplace conditions, and discrimination or racism all impact people's health."@en .
 
 
 ###  https://rsna.org/roadmap/ROADMAP_03587
 <https://rsna.org/roadmap/ROADMAP_03587> rdf:type owl:Class ;
                                          rdfs:subClassOf <https://rsna.org/roadmap/ROADMAP_03564> ;
-                                         rdfs:comment "Healthcare cannot be left out of social determinants of health, of course. Access to healthcare is not equal, and people's financial and physical access to healthcare, as well as their understanding of health services and their health, is a major social determinant of health. This includes access to primary care, access to specialty care, health insurance coverage, and health literacy. Health literacy is especially salient as a non-medical social factor, for example, whether people know how to prevent painful kidney stones that can be risky to remove surgically by proper diet and staying hydrated—things people know they “should” do. Yet, it’s difficult to attach importance to it without knowing why."@en ;
+                                         rdfs:comment "Healthcare cannot be left out of social determinants of health, of course. Access to healthcare is not equal, and people's financial and physical access to healthcare, as well as their understanding of health services and their health, is a major social determinant of health. This includes access to primary care, access to specialty care, health insurance coverage, and health literacy. Health literacy is especially salient as a non-medical social factor, for example, whether people know how to prevent painful kidney stones that can be risky to remove surgically by proper diet and staying hydrated—things people know they “should” do. Yet, it’s difficult to attach importance to it without knowing why."@en ,
+                                                      "SOHO:100500001" ;
                                          rdfs:label "acceso y calidad de la atención médica"@es ,
                                                     "health care access and quality"@en ,
                                                     "医疗保健的可及性和质量"@zh ;
-                                         skos:definition "Healthcare access is a social determinant of health. Disparities in healthcare access contribute to inequities in health outcomes among different populations."@en ;
-                                         skos:exactMatch "SOHO:100500001" .
+                                         skos:definition "Healthcare access is a social determinant of health. Disparities in healthcare access contribute to inequities in health outcomes among different populations."@en .
 
 
 ###  https://rsna.org/roadmap/ROADMAP_03588
 <https://rsna.org/roadmap/ROADMAP_03588> rdf:type owl:Class ;
                                          rdfs:subClassOf <https://rsna.org/roadmap/ROADMAP_03564> ;
+                                         rdfs:comment "SOHO:10090001" ;
                                          rdfs:label "economic stability"@en ,
                                                     "estabilidad económica"@es ,
                                                     "经济稳定"@zh ;
                                          rdfs:seeAlso "https://odphp.health.gov/healthypeople/objectives-and-data/browse-objectives/economic-stability"@en ;
-                                         skos:definition "Economic stability refers to people's income, socioeconomic status, and cost of living, with factors such as poverty, unemployment or underemployment, food insecurity, and housing instability negatively impacting health."@en ;
-                                         skos:exactMatch "SOHO:10090001" .
+                                         skos:definition "Economic stability refers to people's income, socioeconomic status, and cost of living, with factors such as poverty, unemployment or underemployment, food insecurity, and housing instability negatively impacting health."@en .
 
 
 ###  https://rsna.org/roadmap/ROADMAP_03589
@@ -6583,7 +6577,7 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                                            owl:onProperty <https://rsna.org/roadmap/ROADMAP_00198> ;
                                                            owl:hasValue <https://rsna.org/roadmap/ROADMAP_00246>
                                                          ] ;
-                                         dc:source "https://www.fda.gov/media/184856/download"@en ;
+                                         dc:source <https://www.fda.gov/media/184856/download> ;
                                          rdfs:label "información reglamentaria"@es ,
                                                     "regulatory information"@en ,
                                                     "监管信息"@zh ;
@@ -6716,7 +6710,7 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                          skos:altLabel "model performance value"@en ,
                                                        "scalar value specification"@en ;
                                          skos:definition "Model performance information (e.g., sensitivity) and its 95% two-sided confidence intervals)."@en ;
-                                         skos:exactMatch "http://purl.obolibrary.org/obo/OBI_0001931" .
+                                         skos:exactMatch <http://purl.obolibrary.org/obo/OBI_0001931> .
 
 
 ###  https://rsna.org/roadmap/ROADMAP_03617
@@ -6778,7 +6772,7 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                                            owl:onProperty <https://rsna.org/roadmap/ROADMAP_00198> ;
                                                            owl:hasValue <https://rsna.org/roadmap/ROADMAP_00243>
                                                          ] ;
-                                         dc:source "https://www.fda.gov/media/184856/download"@en ;
+                                         dc:source <https://www.fda.gov/media/184856/download> ;
                                          rdfs:label "limitaciones"@es ,
                                                     "limitations"@en ,
                                                     "局限性"@zh ;
@@ -6826,7 +6820,7 @@ D - Ethical, Legal, and Maintenance"""@en ;
 ###  https://rsna.org/roadmap/ROADMAP_03629
 <https://rsna.org/roadmap/ROADMAP_03629> rdf:type owl:Class ;
                                          rdfs:subClassOf <https://rsna.org/roadmap/ROADMAP_03621> ;
-                                         dc:source "https://www.fda.gov/media/184856/download"@en ;
+                                         dc:source <https://www.fda.gov/media/184856/download> ;
                                          rdfs:label "known bias or failure mode"@en ,
                                                     "sesgo o modo de fallo conocido"@es ,
                                                     "已知偏差或故障模式"@zh ;
@@ -6844,7 +6838,7 @@ D - Ethical, Legal, and Maintenance"""@en ;
 ###  https://rsna.org/roadmap/ROADMAP_03630
 <https://rsna.org/roadmap/ROADMAP_03630> rdf:type owl:Class ;
                                          rdfs:subClassOf <https://rsna.org/roadmap/ROADMAP_03621> ;
-                                         dc:source "https://www.fda.gov/media/184856/download"@en ;
+                                         dc:source <https://www.fda.gov/media/184856/download> ;
                                          rdfs:label "brecha conocida en la caracterización de los datos"@es ,
                                                     "known data-characterization gap"@en ,
                                                     "已知数据特征描述差距"@zh ;
@@ -6958,7 +6952,7 @@ D - Ethical, Legal, and Maintenance"""@en ;
 
 ###  https://rsna.org/roadmap/ROADMAP_03640
 <https://rsna.org/roadmap/ROADMAP_03640> rdf:type owl:Class ;
-                                         rdfs:subClassOf <https://rsna.org/roadmap/ROADMAP_03760> ;
+                                         rdfs:subClassOf <https://rsna.org/roadmap/ROADMAP_03778> ;
                                          owl:disjointWith <https://rsna.org/roadmap/ROADMAP_03641> ;
                                          rdfs:label "matrix metric"@en ,
                                                     "métrica matricial del rendimiento del modelo"@es ,
@@ -6972,7 +6966,7 @@ D - Ethical, Legal, and Maintenance"""@en ;
 
 ###  https://rsna.org/roadmap/ROADMAP_03641
 <https://rsna.org/roadmap/ROADMAP_03641> rdf:type owl:Class ;
-                                         rdfs:subClassOf <https://rsna.org/roadmap/ROADMAP_03760> ;
+                                         rdfs:subClassOf <https://rsna.org/roadmap/ROADMAP_03778> ;
                                          rdfs:label "graphical metric"@en ,
                                                     "métrica gráfica del rendimiento del modelo"@es ,
                                                     "模型性能的图形度量"@zh ;
@@ -6986,7 +6980,7 @@ D - Ethical, Legal, and Maintenance"""@en ;
 ###  https://rsna.org/roadmap/ROADMAP_03642
 <https://rsna.org/roadmap/ROADMAP_03642> rdf:type owl:Class ;
                                          rdfs:subClassOf <https://rsna.org/roadmap/ROADMAP_00659> ;
-                                         dc:source "https://doi.org/10.1117/1.JMI.11.2.024504"@en ;
+                                         dc:source <https://doi.org/10.1117/1.JMI.11.2.024504> ;
                                          rdfs:label "metric"@en ,
                                                     "métrica de rendimiento del modelo"@es ,
                                                     "模型性能指标"@zh ;
@@ -7025,7 +7019,7 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                                        "precision recall curve"@en ,
                                                        "precision-recall analysis"@en ;
                                          skos:definition "The precision–recall curve (PRC) plots precision on the y-axis against recall on the x-axis at varying thresholds."@en ;
-                                         skos:exactMatch "http://purl.obolibrary.org/obo/STATO_0000695" .
+                                         skos:exactMatch <http://purl.obolibrary.org/obo/STATO_0000695> .
 
 
 ###  https://rsna.org/roadmap/ROADMAP_03653
@@ -7038,7 +7032,7 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                                     "pendiente de calibración"@es ,
                                                     "校准斜率"@zh ;
                                          skos:definition "The calibration slope assesses the spread of predicted probabilities by evaluating whether predictions are too extreme or too moderate. It is calculated as the slope in a logistic regression of observed outcomes on predicted log-odds, regardless of the method used to generate the predictions. A value of 1 indicates perfect calibration; values less than 1 suggest overconfident predictions, while values greater than 1 indicate underconfident predictions."@en ;
-                                         skos:exactMatch "http://purl.obolibrary.org/obo/STATO_0000687" .
+                                         skos:exactMatch <http://purl.obolibrary.org/obo/STATO_0000687> .
 
 
 ###  https://rsna.org/roadmap/ROADMAP_03654
@@ -7051,7 +7045,7 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                                     "ordenada en el origen de la calibración"@es ,
                                                     "校准截距"@zh ;
                                          skos:definition "The calibration intercept is obtained from a logistic regression of observed outcomes on predicted log-odds and measures systematic bias in predicted probabilities, regardless of the method used to generate the predictions. An intercept of zero indicates perfect agreement; negative values indicate overestimation of risk, while positive values indicate underestimation."@en ;
-                                         skos:exactMatch "http://purl.obolibrary.org/obo/STATO_0000688" .
+                                         skos:exactMatch <http://purl.obolibrary.org/obo/STATO_0000688> .
 
 
 ###  https://rsna.org/roadmap/ROADMAP_03655
@@ -7177,9 +7171,7 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                          rdfs:label "point inside mask/box/approximation"@en ,
                                                     "punto dentro de la máscara/caja/aproximación"@es ,
                                                     "掩码/框/近似区域内的点"@zh ;
-                                         skos:definition "Point inside mask/box/approximation verifies whether a predicted point falls within the spatial bounds of a reference region, bounding box, or geometric approximation. It provides a binary outcome and does not account for proximity to boundaries or the degree of inclusion. This metric is primarily employed for coarse localization validation in detection systems."@en ;
-                                         <https://rsna.org/roadmap/ROADMAP_03651> "false"^^xsd:boolean ;
-                                         <https://rsna.org/roadmap/ROADMAP_03652> "true"^^xsd:boolean .
+                                         skos:definition "Point inside mask/box/approximation verifies whether a predicted point falls within the spatial bounds of a reference region, bounding box, or geometric approximation. It provides a binary outcome and does not account for proximity to boundaries or the degree of inclusion. This metric is primarily employed for coarse localization validation in detection systems."@en .
 
 
 ###  https://rsna.org/roadmap/ROADMAP_03668
@@ -7429,13 +7421,12 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                                     "风险比"@zh ;
                                          skos:altLabel "HR"@en ;
                                          skos:definition "The hazard ratio is a measure of relative risk that compares the hazard, or instantaneous event rate, between two groups in time-to-event analysis. It expresses the ratio of the likelihood that an event will occur at a given time point in one group relative to another, typically estimated using the Cox proportional hazards model. A hazard ratio greater than one indicates a higher event rate in the treatment group, less than one indicates a lower rate, and equal to one indicates no difference, under the assumption that the ratio remains constant over time."@en ;
-                                         skos:exactMatch "http://purl.obolibrary.org/obo/STATO_0000677" .
+                                         skos:exactMatch <http://purl.obolibrary.org/obo/STATO_0000677> .
 
 
 ###  https://rsna.org/roadmap/ROADMAP_03688
 <https://rsna.org/roadmap/ROADMAP_03688> rdf:type owl:Class ;
                                          rdfs:subClassOf <https://rsna.org/roadmap/ROADMAP_01055> ,
-                                                         <https://rsna.org/roadmap/ROADMAP_03704> ,
                                                          [ rdf:type owl:Restriction ;
                                                            owl:onProperty <https://rsna.org/roadmap/ROADMAP_03645> ;
                                                            owl:someValuesFrom <https://rsna.org/roadmap/ROADMAP_03223>
@@ -7666,7 +7657,7 @@ D - Ethical, Legal, and Maintenance"""@en ;
 <https://rsna.org/roadmap/ROADMAP_03707> rdf:type owl:Class ;
                                          rdfs:subClassOf <https://rsna.org/roadmap/ROADMAP_01039> ,
                                                          <https://rsna.org/roadmap/ROADMAP_03302> ;
-                                         dc:source "https://doi.org/10.1016/j.aci.2018.08.003"@en ;
+                                         dc:source <https://doi.org/10.1016/j.aci.2018.08.003> ;
                                          rdfs:label "marcabilidad"@es ,
                                                     "markedness"@en ,
                                                     "标记度 "@zh ;
@@ -7687,7 +7678,7 @@ D - Ethical, Legal, and Maintenance"""@en ;
 <https://rsna.org/roadmap/ROADMAP_03708> rdf:type owl:Class ;
                                          rdfs:subClassOf <https://rsna.org/roadmap/ROADMAP_01039> ,
                                                          <https://rsna.org/roadmap/ROADMAP_03302> ;
-                                         dc:source "https://doi.org/10.1016/j.aci.2018.08.003"@en ;
+                                         dc:source <https://doi.org/10.1016/j.aci.2018.08.003> ;
                                          rdfs:label "balanced error rate"@en ,
                                                     "tasa de error equilibrada"@es ,
                                                     "平衡错误率"@zh ;
@@ -7755,13 +7746,15 @@ D - Ethical, Legal, and Maintenance"""@en ;
 ###  https://rsna.org/roadmap/ROADMAP_03759
 <https://rsna.org/roadmap/ROADMAP_03759> rdf:type owl:Class ;
                                          rdfs:subClassOf <https://rsna.org/roadmap/ROADMAP_03642> ;
-                                         rdfs:label "metric (grouped by task)"@en .
+                                         rdfs:label "metric (grouped by criterion)"@en ;
+                                         skos:definition "Metrics groups by performance criterion: e.g., \"calibration metric.\""@en .
 
 
 ###  https://rsna.org/roadmap/ROADMAP_03760
 <https://rsna.org/roadmap/ROADMAP_03760> rdf:type owl:Class ;
                                          rdfs:subClassOf <https://rsna.org/roadmap/ROADMAP_03642> ;
-                                         rdfs:label "metric (grouped by presentation)"@en .
+                                         rdfs:label "metric (grouped by form)"@en ;
+                                         skos:definition "Metrics groups by \"form\": i.e., graph, matrix, scalar."@en .
 
 
 ###  https://rsna.org/roadmap/ROADMAP_03761
@@ -7775,7 +7768,7 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                                        "type II error rate"@en ,
                                                        "β"@en ;
                                          skos:definition "The false negative rate measures how often actual positives are missed."@en ;
-                                         skos:exactMatch "http://purl.obolibrary.org/obo/STATO_0000220" .
+                                         skos:exactMatch <http://purl.obolibrary.org/obo/STATO_0000220> .
 
 
 ###  https://rsna.org/roadmap/ROADMAP_03762
@@ -7786,7 +7779,7 @@ D - Ethical, Legal, and Maintenance"""@en ;
 When the function is the square of the difference and the variables are binary (0 or 1), the measure is called the Brier score."""@en ;
                                          rdfs:label "mean calibration"@en ;
                                          skos:definition "A measure of calibration that is the average of a function of the difference between the expected values and the observed values."@en ;
-                                         skos:exactMatch "http://purl.obolibrary.org/obo/STATO_0000686" .
+                                         skos:exactMatch <http://purl.obolibrary.org/obo/STATO_0000686> .
 
 
 ###  https://rsna.org/roadmap/ROADMAP_03763
@@ -7906,6 +7899,13 @@ When the function is the square of the difference and the variables are binary (
                                          rdfs:subClassOf <https://rsna.org/roadmap/ROADMAP_03773> ;
                                          rdfs:label "external testing partition"@en ;
                                          skos:altLabel "external test partition"@en .
+
+
+###  https://rsna.org/roadmap/ROADMAP_03778
+<https://rsna.org/roadmap/ROADMAP_03778> rdf:type owl:Class ;
+                                         rdfs:subClassOf <https://rsna.org/roadmap/ROADMAP_03760> ;
+                                         rdfs:label "non-scalar metric"@en ;
+                                         skos:definition "A graphical or matrix metric."@en .
 
 
 ###  https://rsna.org/roadmap/ROADMAP_04001
@@ -12146,7 +12146,7 @@ R1.3 : (Meta)data meet domain-relevant community standards."""@en ,
 ###  https://rsna.org/roadmap/ROADMAP_00474
 <https://rsna.org/roadmap/ROADMAP_00474> rdf:type owl:NamedIndividual ,
                                                   <https://rsna.org/roadmap/ROADMAP_00463> ;
-                                         dc:source "https://oecd.ai/en/dashboards/ai-principles/P5" ;
+                                         dc:source <https://oecd.ai/en/dashboards/ai-principles/P5> ;
                                          rdfs:comment "Benefit people and planet."@en ,
                                                       """This Principle highlights the potential for trustworthy AI to contribute to overall growth and prosperity for all – individuals, society, and planet – and advance global development objectives.
 
@@ -12158,7 +12158,7 @@ Stakeholders should proactively engage in responsible stewardship of trustworthy
 ###  https://rsna.org/roadmap/ROADMAP_00475
 <https://rsna.org/roadmap/ROADMAP_00475> rdf:type owl:NamedIndividual ,
                                                   <https://rsna.org/roadmap/ROADMAP_00463> ;
-                                         dc:source "https://oecd.ai/en/dashboards/ai-principles/P6" ;
+                                         dc:source <https://oecd.ai/en/dashboards/ai-principles/P6> ;
                                          rdfs:comment """AI systems should be designed in a way that respects the rule of law, human rights, democratic values and diversity, and should include appropriate safeguards to ensure a fair and just society.
 
 AI actors should respect the rule of law, human rights, democratic and human-centred values throughout the AI system lifecycle. These include non-discrimination and equality, freedom, dignity, autonomy of individuals, privacy and data protection, diversity, fairness, social justice, and internationally recognised labour rights. This also includes addressing misinformation and disinformation amplified by AI, while respecting freedom of expression and other rights and freedoms protected by applicable international law.
@@ -12171,7 +12171,7 @@ To this end, AI actors should implement mechanisms and safeguards, such as capac
 ###  https://rsna.org/roadmap/ROADMAP_00476
 <https://rsna.org/roadmap/ROADMAP_00476> rdf:type owl:NamedIndividual ,
                                                   <https://rsna.org/roadmap/ROADMAP_00463> ;
-                                         dc:source "https://oecd.ai/en/dashboards/ai-principles/P7" ;
+                                         dc:source <https://oecd.ai/en/dashboards/ai-principles/P7> ;
                                          rdfs:comment """This principle is about transparency and responsible disclosure around AI systems to ensure that people understand when they are engaging with them and can challenge outcomes.
 
 AI Actors should commit to transparency and responsible disclosure regarding AI systems. To this end, they should provide meaningful information, appropriate to the context, and consistent with the state of art:
@@ -12187,7 +12187,7 @@ AI Actors should commit to transparency and responsible disclosure regarding AI 
 ###  https://rsna.org/roadmap/ROADMAP_00477
 <https://rsna.org/roadmap/ROADMAP_00477> rdf:type owl:NamedIndividual ,
                                                   <https://rsna.org/roadmap/ROADMAP_00463> ;
-                                         dc:source "https://oecd.ai/en/dashboards/ai-principles/P8" ;
+                                         dc:source <https://oecd.ai/en/dashboards/ai-principles/P8> ;
                                          rdfs:comment """AI systems must function in a robust, secure and safe way throughout their lifetimes, and potential risks should be continually assessed and managed.
 
 AI systems should be robust, secure and safe throughout their entire lifecycle so that, in conditions of normal use, foreseeable use or misuse, or other adverse conditions, they function appropriately and do not pose unreasonable safety and/or security risks.
@@ -12202,7 +12202,7 @@ Mechanisms should also, where technically feasible, be in place to bolster infor
 ###  https://rsna.org/roadmap/ROADMAP_00478
 <https://rsna.org/roadmap/ROADMAP_00478> rdf:type owl:NamedIndividual ,
                                                   <https://rsna.org/roadmap/ROADMAP_00463> ;
-                                         dc:source "https://oecd.ai/en/dashboards/ai-principles/P9" ;
+                                         dc:source <https://oecd.ai/en/dashboards/ai-principles/P9> ;
                                          rdfs:comment """Organisations and individuals developing, deploying or operating AI systems should be held accountable for their proper functioning in line with the OECD’s values-based principles for AI.
 
 AI actors should be accountable for the proper functioning of AI systems and for the respect of the above principles, based on their roles, the context, and consistent with the state of the art.
@@ -12276,7 +12276,8 @@ AI actors, should, based on their roles, the context, and their ability to act, 
                                                                                   <https://rsna.org/roadmap/ROADMAP_00607> ,
                                                                                   <https://rsna.org/roadmap/ROADMAP_00608> ,
                                                                                   <https://rsna.org/roadmap/ROADMAP_00609> ,
-                                                                                  <https://rsna.org/roadmap/ROADMAP_00610> ;
+                                                                                  <https://rsna.org/roadmap/ROADMAP_00610> ,
+                                                                                  <https://rsna.org/roadmap/ROADMAP_00611> ;
                                          dc:source <https://doi.org/10.1038/s41591-020-1041-y> ;
                                          rdfs:label "MI-CLAIM"@en ;
                                          rdfs:seeAlso <https://www.equator-network.org/reporting-guidelines/minimum-information-about-clinical-artificial-intelligence-modeling-the-mi-claim-checklist/> ;
