@@ -6221,7 +6221,7 @@ D - Ethical, Legal, and Maintenance"""@en ;
                           "social determinant of health"@en ,
                           "健康社会决定因素"@zh ;
                rdfs:seeAlso <https://en.wikipedia.org/wiki/Social_determinants_of_health> ,
-                            "https://odphp.health.gov/healthypeople/priority-areas/social-determinants-health"@en ;
+                            <https://odphp.health.gov/healthypeople/priority-areas/social-determinants-health> ;
                skos:altLabel "SDOH"@en ;
                skos:definition "A non-medical factor that influences health outcomes, including social conditions in which people are born, live, learn, work, play, worship, and age."@en .
 
@@ -7910,7 +7910,8 @@ When the function is the square of the difference and the variables are binary (
                                      owl:someValuesFrom :ROADMAP_03764
                                    ] ;
                rdfs:subClassOf :ROADMAP_00665 ;
-               rdfs:label "training partition"@en .
+               rdfs:label "training partition"@en ;
+               skos:definition "A dataset partition on which an AI model is trained."@en .
 
 
 ###  https://rsna.org/roadmap/ROADMAP_03772
@@ -7920,7 +7921,9 @@ When the function is the square of the difference and the variables are binary (
                                      owl:someValuesFrom :ROADMAP_03765
                                    ] ;
                rdfs:subClassOf :ROADMAP_00665 ;
-               rdfs:label "optimization partition"@en .
+               rdfs:comment "Deep learning systems often use the term \"validation,\" but in medical applications, it can be confused with clinical validation. Hence, \"optimization\" is preferred."@en ;
+               rdfs:label "optimization partition"@en ;
+               skos:definition "A dataset partition used to \"tune\" or optimize the performance of an AI model."@en .
 
 
 ###  https://rsna.org/roadmap/ROADMAP_03773
@@ -7931,7 +7934,8 @@ When the function is the square of the difference and the variables are binary (
                                    ] ;
                rdfs:subClassOf :ROADMAP_00665 ;
                rdfs:label "testing partition"@en ;
-               skos:altLabel "test partition"@en .
+               skos:altLabel "test partition"@en ;
+               skos:definition "A dataset partition on which a model's performance is assessed. Can be \"internal\" (a partition of the original dataset) or \"external\" (from another dataset or institution)."@en .
 
 
 ###  https://rsna.org/roadmap/ROADMAP_03774
@@ -7942,7 +7946,8 @@ When the function is the square of the difference and the variables are binary (
                                    ] ;
                rdfs:subClassOf :ROADMAP_03773 ;
                rdfs:label "internal testing partition"@en ;
-               skos:altLabel "internal test partition"@en .
+               skos:altLabel "internal test partition"@en ;
+               skos:definition "A dataset partition on which a model's performance is assessed that is a partition of the original dataset."@en .
 
 
 ###  https://rsna.org/roadmap/ROADMAP_03775
@@ -7953,7 +7958,8 @@ When the function is the square of the difference and the variables are binary (
                                    ] ;
                rdfs:subClassOf :ROADMAP_03773 ;
                rdfs:label "external testing partition"@en ;
-               skos:altLabel "external test partition"@en .
+               skos:altLabel "external test partition"@en ;
+               skos:definition "A dataset partition on which a model's performance is assessed.that is from another dataset or institution."@en .
 
 
 ###  https://rsna.org/roadmap/ROADMAP_03778
