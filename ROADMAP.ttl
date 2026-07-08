@@ -236,10 +236,12 @@ owl:topObjectProperty rdf:type owl:ObjectProperty .
 :ROADMAP_00198 rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf owl:topObjectProperty ;
                owl:inverseOf :ROADMAP_00222 ;
-               rdf:type owl:TransitiveProperty ;
+               rdf:type owl:AsymmetricProperty ,
+                        owl:TransitiveProperty ,
+                        owl:IrreflexiveProperty ;
                rdfs:comment "Example: 'TRAM-AI item A1 - Trusted Repository' supports findability"@en ;
                rdfs:label "supports"@en ;
-               skos:definition "Relates a metadata descriptor, guideline item, or ethical principle to another guideline item or principle that it helps satisfy, operationalize, or support."@en .
+               skos:definition "Relates a metadata entity to a guideline item or a guideline item to an ethical principle that it helps satisfy, operationalize, or support."@en .
 
 
 ###  https://rsna.org/roadmap/ROADMAP_00201
@@ -446,17 +448,23 @@ owl:topObjectProperty rdf:type owl:ObjectProperty .
 ###  https://rsna.org/roadmap/ROADMAP_03780
 :ROADMAP_03780 rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf :ROADMAP_00198 ;
+               rdf:type owl:AsymmetricProperty ,
+                        owl:IrreflexiveProperty ;
+               rdfs:domain :ROADMAP_03788 ;
                rdfs:range :ROADMAP_00177 ;
                rdfs:label "supports guideline item"@en ;
-               skos:definition "Relates a metadata descriptor to a guideline item that it helps satisfy, operationalize, or support."@en .
+               skos:definition "Relates an AI resource metadata entity to a guideline item that it helps satisfy, operationalize, or support."@en .
 
 
 ###  https://rsna.org/roadmap/ROADMAP_03781
 :ROADMAP_03781 rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf :ROADMAP_00198 ;
+               rdf:type owl:AsymmetricProperty ,
+                        owl:IrreflexiveProperty ;
+               rdfs:domain :ROADMAP_00177 ;
                rdfs:range :ROADMAP_00248 ;
                rdfs:label "supports ethical principle"@en ;
-               skos:definition "Relates a metadata descriptor or guideline item to an ethical principle that it helps satisfy, operationalize, or support."@en .
+               skos:definition "Relates a guideline item to an ethical principle that it helps satisfy, operationalize, or support."@en .
 
 
 ###  https://rsna.org/roadmap/ROADMAP_04089
@@ -518,14 +526,6 @@ owl:Thing rdf:type owl:Class .
 :ROADMAP_00002 rdf:type owl:Class ;
                rdfs:subClassOf :ROADMAP_00657 ,
                                [ rdf:type owl:Restriction ;
-                                 owl:onProperty :ROADMAP_00629 ;
-                                 owl:someValuesFrom :ROADMAP_00011
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty :ROADMAP_00630 ;
-                                 owl:someValuesFrom :ROADMAP_00036
-                               ] ,
-                               [ rdf:type owl:Restriction ;
                                  owl:onProperty :ROADMAP_03300 ;
                                  owl:someValuesFrom :ROADMAP_03598
                                ] ,
@@ -549,16 +549,16 @@ owl:Thing rdf:type owl:Class .
 :ROADMAP_00003 rdf:type owl:Class ;
                rdfs:subClassOf :ROADMAP_00657 ,
                                [ rdf:type owl:Restriction ;
-                                 owl:onProperty :ROADMAP_00198 ;
-                                 owl:someValuesFrom :ROADMAP_00015
-                               ] ,
-                               [ rdf:type owl:Restriction ;
                                  owl:onProperty :ROADMAP_00201 ;
                                  owl:someValuesFrom :ROADMAP_00665
                                ] ,
                                [ rdf:type owl:Restriction ;
                                  owl:onProperty :ROADMAP_00201 ;
                                  owl:someValuesFrom :ROADMAP_03472
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :ROADMAP_00631 ;
+                                 owl:someValuesFrom :ROADMAP_03365
                                ] ,
                                [ rdf:type owl:Restriction ;
                                  owl:onProperty :ROADMAP_03382 ;
@@ -572,20 +572,22 @@ owl:Thing rdf:type owl:Class .
                rdfs:label "conjunto de datos"@es ,
                           "dataset"@en ,
                           "数据集"@zh ;
+               skos:closeMatch <http://purl.obolibrary.org/obo/IAO_0001000> ;
                skos:definition "A collection of data used to train and/or test an AI model."@en .
 
 
 ###  https://rsna.org/roadmap/ROADMAP_00004
 :ROADMAP_00004 rdf:type owl:Class ;
-               rdfs:subClassOf :ROADMAP_00658 ;
-               rdfs:label "descriptor"@en ,
-                          "descriptor"@es ,
+               rdfs:subClassOf :ROADMAP_03788 ;
+               rdfs:label "descriptor"@es ,
+                          "generic metadata"@en ,
                           "描述符"@zh ;
-               skos:altLabel "detail"@en ,
+               skos:altLabel "descriptor"@en ,
+                             "detail"@en ,
                              "details"@en ,
                              "detalles"@es ,
                              "resource descriptor"@en ;
-               skos:definition "A characteristic of a project, model, or dataset.  Whenever possible, values should link to other ontologies or controlled vocabularies."@en .
+               skos:definition "Metadata that can be used to describe any AI resource (project, model, or dataset)."@en .
 
 
 ###  https://rsna.org/roadmap/ROADMAP_00005
@@ -701,7 +703,7 @@ owl:Thing rdf:type owl:Class .
 :ROADMAP_00011 rdf:type owl:Class ;
                rdfs:subClassOf :ROADMAP_03355 ,
                                [ rdf:type owl:Restriction ;
-                                 owl:onProperty :ROADMAP_00631 ;
+                                 owl:onProperty :ROADMAP_00629 ;
                                  owl:someValuesFrom :ROADMAP_00015
                                ] ,
                                [ rdf:type owl:Restriction ;
@@ -960,7 +962,7 @@ owl:Thing rdf:type owl:Class .
 :ROADMAP_00036 rdf:type owl:Class ;
                rdfs:subClassOf :ROADMAP_03355 ,
                                [ rdf:type owl:Restriction ;
-                                 owl:onProperty :ROADMAP_00631 ;
+                                 owl:onProperty :ROADMAP_00630 ;
                                  owl:someValuesFrom :ROADMAP_00040
                                ] ,
                                [ rdf:type owl:Restriction ;
@@ -1109,6 +1111,7 @@ owl:Thing rdf:type owl:Class .
 ###  https://rsna.org/roadmap/ROADMAP_00050
 :ROADMAP_00050 rdf:type owl:Class ;
                rdfs:subClassOf :ROADMAP_00040 ;
+               owl:disjointWith :ROADMAP_03609 ;
                rdfs:label "investigador"@es ,
                           "researcher"@en ,
                           "研究人员"@zh ;
@@ -1117,21 +1120,21 @@ owl:Thing rdf:type owl:Class .
 
 ###  https://rsna.org/roadmap/ROADMAP_00051
 :ROADMAP_00051 rdf:type owl:Class ;
-               rdfs:subClassOf :ROADMAP_00658 ,
+               rdfs:subClassOf :ROADMAP_03381 ,
                                [ rdf:type owl:Restriction ;
-                                 owl:onProperty :ROADMAP_00198 ;
+                                 owl:onProperty :ROADMAP_03780 ;
                                  owl:hasValue :ROADMAP_00205
                                ] ,
                                [ rdf:type owl:Restriction ;
-                                 owl:onProperty :ROADMAP_00198 ;
+                                 owl:onProperty :ROADMAP_03780 ;
                                  owl:hasValue :ROADMAP_00216
                                ] ,
                                [ rdf:type owl:Restriction ;
-                                 owl:onProperty :ROADMAP_00198 ;
+                                 owl:onProperty :ROADMAP_03780 ;
                                  owl:hasValue :ROADMAP_00218
                                ] ,
                                [ rdf:type owl:Restriction ;
-                                 owl:onProperty :ROADMAP_00198 ;
+                                 owl:onProperty :ROADMAP_03780 ;
                                  owl:hasValue :ROADMAP_00219
                                ] ;
                rdfs:label "annotation level"@en ,
@@ -1342,7 +1345,7 @@ owl:Thing rdf:type owl:Class .
                rdfs:label "version"@en ,
                           "versión"@es ,
                           "版本"@zh ;
-               skos:definition "The number or date of the version described."@en .
+               skos:definition "The number or date of the version of the AI resource."@en .
 
 
 ###  https://rsna.org/roadmap/ROADMAP_00067
@@ -1419,8 +1422,7 @@ owl:Thing rdf:type owl:Class .
 
 ###  https://rsna.org/roadmap/ROADMAP_00071
 :ROADMAP_00071 rdf:type owl:Class ;
-               rdfs:subClassOf :ROADMAP_00004 ,
-                               :ROADMAP_00661 ;
+               rdfs:subClassOf :ROADMAP_00661 ;
                rdfs:label "person"@en ,
                           "persona"@es ,
                           "人员"@zh ;
@@ -1429,8 +1431,7 @@ owl:Thing rdf:type owl:Class .
 
 ###  https://rsna.org/roadmap/ROADMAP_00072
 :ROADMAP_00072 rdf:type owl:Class ;
-               rdfs:subClassOf :ROADMAP_00004 ,
-                               :ROADMAP_00661 ,
+               rdfs:subClassOf :ROADMAP_00661 ,
                                [ rdf:type owl:Restriction ;
                                  owl:onProperty :ROADMAP_00198 ;
                                  owl:hasValue :ROADMAP_00197
@@ -1453,8 +1454,8 @@ owl:Thing rdf:type owl:Class .
                rdfs:label "content code"@en ,
                           "código de contenido"@es ,
                           "内容代码"@zh ;
-               skos:definition "An RSNA subspecialty content code, each of which has a 2-letter abbreviation, such as CT or GI."@en ;
-               skos:exactMatch <http://www.radlex.org/RID/RID50607> .
+               skos:closeMatch <http://www.radlex.org/RID/RID50607> ;
+               skos:definition "An RSNA subspecialty content code, each of which has a 2-letter abbreviation, such as CT or GI."@en .
 
 
 ###  https://rsna.org/roadmap/ROADMAP_00074
@@ -1527,86 +1528,6 @@ owl:Thing rdf:type owl:Class .
                skos:definition "The healthcare provider who refers the patient for a procedure."@en .
 
 
-###  https://rsna.org/roadmap/ROADMAP_00081
-:ROADMAP_00081 rdf:type owl:Class ;
-               rdfs:subClassOf :ROADMAP_00073 ;
-               rdfs:label "AI Artificial Intelligence"@en ,
-                          "IA Inteligencia Artificial"@es ,
-                          "人工智能"@zh ;
-               skos:altLabel "AI"@en ,
-                             "Artificial Intelligence"@en ,
-                             "IA"@es ,
-                             "Inteligencia Artificial"@es ;
-               skos:definition "Content code for Artificial Intelligence."@en .
-
-
-###  https://rsna.org/roadmap/ROADMAP_00082
-:ROADMAP_00082 rdf:type owl:Class ;
-               rdfs:subClassOf :ROADMAP_00073 ;
-               rdfs:label "BR Breast Imaging and Intervention"@en ,
-                          "BR 乳腺成像和介入"@zh ,
-                          "Imagenología e Intervención Mamaria"@es ;
-               skos:altLabel "BR"@en ,
-                             "Breast Imaging and Intervention"@en ,
-                             "DM Digital Mammography"@en ,
-                             "Digital Mammography"@en ;
-               skos:definition "Content code for Breast Imaging and Intervention."@en ;
-               skos:exactMatch <http://www.radlex.org/RID/RID50609> .
-
-
-###  https://rsna.org/roadmap/ROADMAP_00083
-:ROADMAP_00083 rdf:type owl:Class ;
-               rdfs:subClassOf :ROADMAP_00073 ;
-               rdfs:label "BQ Biomarkers / Quantitative Imaging"@en ,
-                          "Biomarcadores / Imagenología Cuantitativa"@es ,
-                          "生物标志物/定量成像"@zh ;
-               skos:altLabel "BQ"@en ,
-                             "Biomarcadores"@es ,
-                             "Biomarkers"@en ,
-                             "Biomarkers / Quantitative Imaging"@en ,
-                             "Imagenología Cuantitativa"@es ,
-                             "Quantitative Imaging"@en ;
-               skos:definition "Content code for Biomarkers and Quantitative Imaging."@en .
-
-
-###  https://rsna.org/roadmap/ROADMAP_00084
-:ROADMAP_00084 rdf:type owl:Class ;
-               rdfs:subClassOf :ROADMAP_00073 ;
-               rdfs:label "CA Cardiac Radiology"@en ,
-                          "Radiología Cardíaca"@es ,
-                          "心脏放射学"@zh ;
-               skos:altLabel "CA"@en ,
-                             "Cardiac Radiology"@en ;
-               skos:definition "Content code for Cardiac Radiology."@en ;
-               skos:exactMatch <http://www.radlex.org/RID/RID50610> .
-
-
-###  https://rsna.org/roadmap/ROADMAP_00085
-:ROADMAP_00085 rdf:type owl:Class ;
-               rdfs:subClassOf :ROADMAP_00073 ;
-               rdfs:label "CH Chest Radiology"@en ,
-                          "Radiología Torácica"@es ,
-                          "胸部放射学"@zh ;
-               skos:altLabel "CH"@en ,
-                             "Chest Radiology"@en ;
-               skos:definition "Content code for Chest Radiology."@en ;
-               skos:exactMatch <http://www.radlex.org/RID/RID50611> .
-
-
-###  https://rsna.org/roadmap/ROADMAP_00086
-:ROADMAP_00086 rdf:type owl:Class ;
-               rdfs:subClassOf :ROADMAP_00073 ;
-               rdfs:label "CT Computed Tomography"@en ,
-                          "CT 计算机断层扫描"@zh ,
-                          "TC Tomografía Computarizada"@es ;
-               skos:altLabel "CT"@en ,
-                             "Computed Tomography"@en ,
-                             "TC"@es ,
-                             "Tomografía Computarizada"@es ;
-               skos:definition "Content code for Computed Tomography."@en ;
-               skos:exactMatch <http://www.radlex.org/RID/RID10321> .
-
-
 ###  https://rsna.org/roadmap/ROADMAP_00087
 :ROADMAP_00087 rdf:type owl:Class ;
                rdfs:subClassOf :ROADMAP_01039 ,
@@ -1621,322 +1542,6 @@ owl:Thing rdf:type owl:Class .
                :ROADMAP_00274 0 ;
                :ROADMAP_03651 0 ;
                :ROADMAP_03652 1 .
-
-
-###  https://rsna.org/roadmap/ROADMAP_00088
-:ROADMAP_00088 rdf:type owl:Class ;
-               rdfs:subClassOf :ROADMAP_00073 ;
-               rdfs:label "ED Education"@en ,
-                          "Educación"@es ,
-                          "教育"@zh ;
-               skos:altLabel "ED"@en ,
-                             "Education"@en ;
-               skos:definition "Content code for Education"@en .
-
-
-###  https://rsna.org/roadmap/ROADMAP_00089
-:ROADMAP_00089 rdf:type owl:Class ;
-               rdfs:subClassOf :ROADMAP_00073 ;
-               rdfs:label "ER Emergency Radiology"@en ,
-                          "Radiología de Emergencia"@es ,
-                          "急诊放射科"@zh ;
-               skos:altLabel "ER"@en ,
-                             "Emergency Radiology"@en ;
-               skos:definition "Content code for Emergency Radiology"@en ;
-               skos:exactMatch <http://www.radlex.org/RID/RID50612> .
-
-
-###  https://rsna.org/roadmap/ROADMAP_00090
-:ROADMAP_00090 rdf:type owl:Class ;
-               rdfs:subClassOf :ROADMAP_00073 ;
-               rdfs:label "GI Gastrointestinal Radiology"@en ,
-                          "Radiología Gastrointestinal"@es ,
-                          "胃肠放射学"@zh ;
-               skos:altLabel "GI"@en ,
-                             "Gastrointestinal Radiology"@en ;
-               skos:definition "Content code for Gastrointestinal Radiology."@en ;
-               skos:exactMatch <http://www.radlex.org/RID/RID50613> .
-
-
-###  https://rsna.org/roadmap/ROADMAP_00091
-:ROADMAP_00091 rdf:type owl:Class ;
-               rdfs:subClassOf :ROADMAP_00073 ;
-               rdfs:label "GU Genitourinary Radiology"@en ,
-                          "Radiología Genitourinaria"@es ,
-                          "泌尿生殖系统放射学"@zh ;
-               skos:altLabel "GU"@en ,
-                             "Genitourinary Radiology"@en ;
-               skos:definition "Content code for Genitourinary Radiology."@en ;
-               skos:exactMatch <http://www.radlex.org/RID/RID50614> .
-
-
-###  https://rsna.org/roadmap/ROADMAP_00092
-:ROADMAP_00092 rdf:type owl:Class ;
-               rdfs:subClassOf :ROADMAP_00073 ;
-               rdfs:label "HN Head and Neck Radiology"@en ,
-                          "Radiología de Cabeza y Cuello"@es ,
-                          "头颈部放射学"@zh ;
-               skos:altLabel "HN"@en ,
-                             "Head and Neck Radiology"@en ;
-               skos:definition "Content code for Head and Neck Radiology."@en ;
-               skos:exactMatch <http://www.radlex.org/RID/RID50615> .
-
-
-###  https://rsna.org/roadmap/ROADMAP_00093
-:ROADMAP_00093 rdf:type owl:Class ;
-               rdfs:subClassOf :ROADMAP_00073 ;
-               rdfs:label "HP Health Policy"@en ,
-                          "Política Sanitaria"@es ,
-                          "卫生政策"@zh ;
-               skos:altLabel "HP"@en ,
-                             "Health Policy"@en ;
-               skos:definition "Content code for Health Policy."@en .
-
-
-###  https://rsna.org/roadmap/ROADMAP_00094
-:ROADMAP_00094 rdf:type owl:Class ;
-               rdfs:subClassOf :ROADMAP_00073 ;
-               rdfs:label "IN Informatics"@en ,
-                          "Informática"@es ,
-                          "信息学"@zh ;
-               skos:altLabel "IN"@en ,
-                             "Informatics"@en ;
-               skos:definition "Content code for Informatics."@en .
-
-
-###  https://rsna.org/roadmap/ROADMAP_00095
-:ROADMAP_00095 rdf:type owl:Class ;
-               rdfs:subClassOf :ROADMAP_00073 ;
-               rdfs:label "IR Interventional Radiology"@en ,
-                          "Radiología Intervencionista"@es ,
-                          "介入放射学"@zh ;
-               skos:altLabel "IR"@en ,
-                             "Interventional Radiology"@en ;
-               skos:definition "Content code for Interventional Radiology."@en ;
-               skos:exactMatch <http://www.radlex.org/RID/RID50616> .
-
-
-###  https://rsna.org/roadmap/ROADMAP_00096
-:ROADMAP_00096 rdf:type owl:Class ;
-               rdfs:subClassOf :ROADMAP_00073 ;
-               rdfs:label "LM Leadership & Management"@en ,
-                          "Liderazgo y Gestión"@es ,
-                          "领导力与管理"@zh ;
-               skos:altLabel "LM"@en ,
-                             "Leadership"@en ,
-                             "Leadership & Management"@en ,
-                             "Management"@en ;
-               skos:definition "Content code for Leadership and Management."@en .
-
-
-###  https://rsna.org/roadmap/ROADMAP_00097
-:ROADMAP_00097 rdf:type owl:Class ;
-               rdfs:subClassOf :ROADMAP_00073 ;
-               rdfs:label "Imagenología Molecular"@es ,
-                          "MI Molecular Imaging"@en ,
-                          "分子成像"@zh ;
-               skos:altLabel "MI"@en ,
-                             "Molecular Imaging"@en ;
-               skos:definition "Content code for Molecular Imaging."@en ;
-               skos:exactMatch <http://www.radlex.org/RID/RID50617> .
-
-
-###  https://rsna.org/roadmap/ROADMAP_00098
-:ROADMAP_00098 rdf:type owl:Class ;
-               rdfs:subClassOf :ROADMAP_00073 ;
-               rdfs:label "MK Musculoskeletal Radiology"@en ,
-                          "Radiología Musculoesquelética"@es ,
-                          "肌肉骨骼放射学"@zh ;
-               skos:altLabel "MK"@en ,
-                             "Musculoskeletal Radiology"@en ;
-               skos:definition "Content code for Musculoskeletal Radiology."@en ;
-               skos:exactMatch <http://www.radlex.org/RID/RID50618> .
-
-
-###  https://rsna.org/roadmap/ROADMAP_00099
-:ROADMAP_00099 rdf:type owl:Class ;
-               rdfs:subClassOf :ROADMAP_00073 ;
-               rdfs:label "MR Magnetic Resonance Imaging"@en ,
-                          "RM Resonancia Magnética"@es ,
-                          "磁共振成像"@zh ;
-               skos:altLabel "MR"@en ,
-                             "Magnetic Resonance Imaging"@en ,
-                             "RM"@es ,
-                             "Resonancia Magnética"@es ;
-               skos:definition "Content code for Magnetic Resonance Imaging."@en ;
-               skos:exactMatch <http://www.radlex.org/RID/RID10312> .
-
-
-###  https://rsna.org/roadmap/ROADMAP_00100
-:ROADMAP_00100 rdf:type owl:Class ;
-               rdfs:subClassOf :ROADMAP_00073 ;
-               rdfs:label "MN Medicina Nuclear"@es ,
-                          "Medicina Nuclear"@es ,
-                          "NM Nuclear Medicine"@en ,
-                          "核医学"@zh ;
-               skos:altLabel "MN"@es ,
-                             "NM"@en ,
-                             "Nuclear Medicine"@en ;
-               skos:definition "Content code for Nuclear Medicine."@en ;
-               skos:exactMatch <http://www.radlex.org/RID/RID10330> .
-
-
-###  https://rsna.org/roadmap/ROADMAP_00101
-:ROADMAP_00101 rdf:type owl:Class ;
-               rdfs:subClassOf :ROADMAP_00073 ;
-               rdfs:label "NR Neuroradiology"@en ,
-                          "Neurorradiología"@es ,
-                          "神经放射学"@zh ;
-               skos:altLabel "NR"@en ,
-                             "Neuroradiology"@en ;
-               skos:definition "Content code for Neuroradiology."@en ;
-               skos:exactMatch <http://www.radlex.org/RID/RID50619> .
-
-
-###  https://rsna.org/roadmap/ROADMAP_00102
-:ROADMAP_00102 rdf:type owl:Class ;
-               rdfs:subClassOf :ROADMAP_00073 ;
-               rdfs:label "OB Obstetric/Gynecologic Radiology"@en ,
-                          "Radiología Obstétrica/Ginecológica"@es ,
-                          "产科/妇科放射学"@zh ;
-               skos:altLabel "OB"@en ,
-                             "OB radiology"@en ,
-                             "OB/GYN radiology"@en ,
-                             "Obstetric/Gynecologic Radiology"@en ,
-                             "gynecological radiology"@en ;
-               skos:definition "Content code for Obstetric/Gynecologic Radiology."@en ;
-               skos:exactMatch <http://www.radlex.org/RID/RID50620> .
-
-
-###  https://rsna.org/roadmap/ROADMAP_00103
-:ROADMAP_00103 rdf:type owl:Class ;
-               rdfs:subClassOf :ROADMAP_00073 ;
-               rdfs:label "Imagenología Oncológica"@es ,
-                          "OI Oncologic Imaging"@en ,
-                          "肿瘤影像学"@zh ;
-               skos:altLabel "OI"@en ,
-                             "Oncologic Imaging"@en ;
-               skos:definition "Content code for Oncologic Imaging."@en ;
-               skos:exactMatch <http://www.radlex.org/RID/RID50621> .
-
-
-###  https://rsna.org/roadmap/ROADMAP_00104
-:ROADMAP_00104 rdf:type owl:Class ;
-               rdfs:subClassOf :ROADMAP_00073 ;
-               rdfs:label "OT Other"@en ,
-                          "Otros"@es ,
-                          "其他"@zh ;
-               skos:altLabel "OT"@en ,
-                             "Other"@en ,
-                             "other imaging subspecialty"@en ;
-               skos:definition "Content code for other imaging subspecialty."@en ;
-               skos:exactMatch <http://www.radlex.org/RID/RID50622> .
-
-
-###  https://rsna.org/roadmap/ROADMAP_00105
-:ROADMAP_00105 rdf:type owl:Class ;
-               rdfs:subClassOf :ROADMAP_00073 ;
-               rdfs:label "PD Pediatric Radiology"@en ,
-                          "Radiología Pediátrica"@es ,
-                          "儿科放射学"@zh ;
-               skos:altLabel "PD"@en ,
-                             "Pediatric Radiology"@en ;
-               skos:definition "Content code for Pediatric Radiology."@en ;
-               skos:exactMatch <http://www.radlex.org/RID/RID50623> .
-
-
-###  https://rsna.org/roadmap/ROADMAP_00106
-:ROADMAP_00106 rdf:type owl:Class ;
-               rdfs:subClassOf :ROADMAP_00073 ;
-               rdfs:label "Física y Ciencias Básicas"@es ,
-                          "PH Physics and Basic Science"@en ,
-                          "物理学和基础科学"@zh ;
-               skos:altLabel "PH"@en ,
-                             "Physics and Basic Science"@en ;
-               skos:definition "Content code for Physics and Basic Science."@en .
-
-
-###  https://rsna.org/roadmap/ROADMAP_00107
-:ROADMAP_00107 rdf:type owl:Class ;
-               rdfs:subClassOf :ROADMAP_00073 ;
-               rdfs:label "PR Professionalism (including Ethics)"@en ,
-                          "Profesionalismo (incluida la Ética)"@es ,
-                          "专业精神（包括伦理）"@zh ;
-               skos:altLabel "Ethics"@en ,
-                             "PR"@en ,
-                             "Professionalism"@en ,
-                             "Professionalism (including Ethics)"@en ;
-               skos:definition "Content code for Professionalism, including Ethics."@en .
-
-
-###  https://rsna.org/roadmap/ROADMAP_00108
-:ROADMAP_00108 rdf:type owl:Class ;
-               rdfs:subClassOf :ROADMAP_00073 ;
-               rdfs:label "SQ Safety and Quality"@en ,
-                          "Seguridad y Calidad"@es ,
-                          "安全与质量"@zh ;
-               skos:altLabel "QA"@en ,
-                             "QI"@en ,
-                             "Quality Assurance"@en ,
-                             "Quality Improvement"@en ,
-                             "Radiation safety"@en ,
-                             "SQ"@en ,
-                             "Safety"@en ,
-                             "calidad"@es ,
-                             "imaging quality improvement"@en ,
-                             "quality improvement"@en ,
-                             "seguridad"@es ;
-               skos:definition "Content code for Safety and Quality."@en ;
-               skos:exactMatch <http://www.radlex.org/RID/RID50624> .
-
-
-###  https://rsna.org/roadmap/ROADMAP_00109
-:ROADMAP_00109 rdf:type owl:Class ;
-               rdfs:subClassOf :ROADMAP_00073 ;
-               rdfs:label "RO Radiation Oncology"@en ,
-                          "Radioterapia Oncológica"@es ,
-                          "放射肿瘤学"@zh ;
-               skos:altLabel "RO"@en ,
-                             "Radiation Oncology"@en ;
-               skos:definition "Content code for Radiation Oncology."@en .
-
-
-###  https://rsna.org/roadmap/ROADMAP_00110
-:ROADMAP_00110 rdf:type owl:Class ;
-               rdfs:subClassOf :ROADMAP_00073 ;
-               rdfs:label "Investigación y Métodos Estadísticos"@es ,
-                          "RS Research and Statistical Methods"@en ,
-                          "研究和统计方法"@zh ;
-               skos:altLabel "RS"@en ,
-                             "Research and Statistical Methods"@en ,
-                             "imaging research"@en ;
-               skos:definition "Content code for Research and Statistical Methods."@en ;
-               skos:exactMatch <http://www.radlex.org/RID/RID50625> .
-
-
-###  https://rsna.org/roadmap/ROADMAP_00111
-:ROADMAP_00111 rdf:type owl:Class ;
-               rdfs:subClassOf :ROADMAP_00073 ;
-               rdfs:label "US Ultrasound"@en ,
-                          "Ultrasonido"@es ,
-                          "美国超声"@zh ;
-               skos:altLabel "US"@en ,
-                             "US"@es ,
-                             "Ultrasound"@en ;
-               skos:definition "Content code for Ultrasound."@en ;
-               skos:exactMatch <http://www.radlex.org/RID/RID10326> .
-
-
-###  https://rsna.org/roadmap/ROADMAP_00112
-:ROADMAP_00112 rdf:type owl:Class ;
-               rdfs:subClassOf :ROADMAP_00073 ;
-               rdfs:label "Imagenología Vascular"@es ,
-                          "VA Vascular Imaging"@en ,
-                          "血管成像"@zh ;
-               skos:altLabel "VA"@en ,
-                             "Vascular Imaging"@en ;
-               skos:definition "Content code for Vascular Imaging."@en ;
-               skos:exactMatch <http://www.radlex.org/RID/RID50626> .
 
 
 ###  https://rsna.org/roadmap/ROADMAP_00113
@@ -2815,6 +2420,7 @@ D - Ethical, Legal, and Maintenance"""@en ;
 ###  https://rsna.org/roadmap/ROADMAP_00633
 :ROADMAP_00633 rdf:type owl:Class ;
                rdfs:subClassOf :ROADMAP_00040 ;
+               owl:disjointWith :ROADMAP_03609 ;
                rdfs:label "administrador"@es ,
                           "administrator"@en ,
                           "管理员"@zh ;
@@ -2851,7 +2457,19 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                ] ,
                                [ rdf:type owl:Restriction ;
                                  owl:onProperty :ROADMAP_00631 ;
+                                 owl:someValuesFrom :ROADMAP_00064
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :ROADMAP_00631 ;
+                                 owl:someValuesFrom :ROADMAP_00072
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :ROADMAP_00631 ;
                                  owl:someValuesFrom :ROADMAP_00074
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :ROADMAP_00631 ;
+                                 owl:someValuesFrom :ROADMAP_03471
                                ] ;
                owl:disjointWith :ROADMAP_00659 ;
                rdfs:label "AI resource"@en ;
@@ -2896,7 +2514,11 @@ D - Ethical, Legal, and Maintenance"""@en ;
 ###  https://rsna.org/roadmap/ROADMAP_00661
 :ROADMAP_00661 rdf:type owl:Class ;
                rdfs:subClassOf :ROADMAP_00001 ;
-               rdfs:comment "Mapped to BFO Material entity."@en ;
+               rdfs:comment "Mapped to BFO Material entity."@en ,
+                            """Note the 'has value' relations:
+- AI resource: author, contributor, and organization
+- dataset: annotator
+- model / model metadata / model user: user"""@en ;
                rdfs:label "agent"@en ;
                skos:definition "A person, organization, or group that participates in developing, evaluating, deploying, using, or governing an AI resource."@en ;
                skos:exactMatch <http://purl.obolibrary.org/obo/BFO_0000040> .
@@ -2930,6 +2552,10 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                [ rdf:type owl:Restriction ;
                                  owl:onProperty :ROADMAP_00201 ;
                                  owl:someValuesFrom :ROADMAP_03472
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :ROADMAP_00631 ;
+                                 owl:someValuesFrom :ROADMAP_00055
                                ] ;
                rdfs:label "partition"@en ;
                skos:definition "A subdivision of a dataset used for training, validation, testing, demographic characterization, or other analytic purposes."@en .
@@ -4122,7 +3748,7 @@ D - Ethical, Legal, and Maintenance"""@en ;
 
 ###  https://rsna.org/roadmap/ROADMAP_03355
 :ROADMAP_03355 rdf:type owl:Class ;
-               rdfs:subClassOf :ROADMAP_00658 ,
+               rdfs:subClassOf :ROADMAP_03788 ,
                                [ rdf:type owl:Restriction ;
                                  owl:onProperty :ROADMAP_00198 ;
                                  owl:hasValue :ROADMAP_00204
@@ -4138,6 +3764,7 @@ D - Ethical, Legal, and Maintenance"""@en ;
                rdfs:label "model property"@en ,
                           "propiedad del modelo"@es ,
                           "模型属性"@zh ;
+               skos:altLabel "model metadata"@en ;
                skos:definition "Specifies the characteristics of an AI model."@en .
 
 
@@ -4188,6 +3815,7 @@ D - Ethical, Legal, and Maintenance"""@en ;
 ###  https://rsna.org/roadmap/ROADMAP_03359
 :ROADMAP_03359 rdf:type owl:Class ;
                rdfs:subClassOf :ROADMAP_00040 ;
+               owl:disjointWith :ROADMAP_03609 ;
                rdfs:label "layperson"@en ,
                           "personal común"@es ,
                           "非专业人士"@zh ;
@@ -4371,7 +3999,7 @@ D - Ethical, Legal, and Maintenance"""@en ;
 
 ###  https://rsna.org/roadmap/ROADMAP_03381
 :ROADMAP_03381 rdf:type owl:Class ;
-               rdfs:subClassOf :ROADMAP_00658 ;
+               rdfs:subClassOf :ROADMAP_03788 ;
                rdfs:label "dataset property"@en ,
                           "descripción del conjunto de datos"@es ,
                           "数据集属性"@zh ;
@@ -4383,7 +4011,7 @@ D - Ethical, Legal, and Maintenance"""@en ;
 :ROADMAP_03383 rdf:type owl:Class ;
                rdfs:subClassOf :ROADMAP_03381 ,
                                [ rdf:type owl:Restriction ;
-                                 owl:onProperty :ROADMAP_00198 ;
+                                 owl:onProperty :ROADMAP_03780 ;
                                  owl:hasValue :ROADMAP_00208
                                ] ;
                rdfs:comment "May include information about funding sources."@en ;
@@ -4487,23 +4115,23 @@ D - Ethical, Legal, and Maintenance"""@en ;
 :ROADMAP_03396 rdf:type owl:Class ;
                rdfs:subClassOf :ROADMAP_03381 ,
                                [ rdf:type owl:Restriction ;
-                                 owl:onProperty :ROADMAP_00198 ;
+                                 owl:onProperty :ROADMAP_03780 ;
                                  owl:hasValue :ROADMAP_00209
                                ] ,
                                [ rdf:type owl:Restriction ;
-                                 owl:onProperty :ROADMAP_00198 ;
+                                 owl:onProperty :ROADMAP_03780 ;
                                  owl:hasValue :ROADMAP_00210
                                ] ,
                                [ rdf:type owl:Restriction ;
-                                 owl:onProperty :ROADMAP_00198 ;
+                                 owl:onProperty :ROADMAP_03780 ;
                                  owl:hasValue :ROADMAP_00212
                                ] ,
                                [ rdf:type owl:Restriction ;
-                                 owl:onProperty :ROADMAP_00198 ;
+                                 owl:onProperty :ROADMAP_03780 ;
                                  owl:hasValue :ROADMAP_00224
                                ] ,
                                [ rdf:type owl:Restriction ;
-                                 owl:onProperty :ROADMAP_00198 ;
+                                 owl:onProperty :ROADMAP_03780 ;
                                  owl:hasValue :ROADMAP_00238
                                ] ;
                rdfs:comment """(1) Describes whether the data cover a complete population or sample. If a sample, describes the set from which the data were drawn.
@@ -4560,11 +4188,11 @@ D - Ethical, Legal, and Maintenance"""@en ;
 :ROADMAP_03408 rdf:type owl:Class ;
                rdfs:subClassOf :ROADMAP_03381 ,
                                [ rdf:type owl:Restriction ;
-                                 owl:onProperty :ROADMAP_00198 ;
+                                 owl:onProperty :ROADMAP_03780 ;
                                  owl:hasValue :ROADMAP_00214
                                ] ,
                                [ rdf:type owl:Restriction ;
-                                 owl:onProperty :ROADMAP_00198 ;
+                                 owl:onProperty :ROADMAP_03780 ;
                                  owl:hasValue :ROADMAP_00228
                                ] ;
                rdfs:comment "Does not include intentionally removed information, but might include, for example, redacted text."@en ;
@@ -4578,15 +4206,15 @@ D - Ethical, Legal, and Maintenance"""@en ;
 :ROADMAP_03409 rdf:type owl:Class ;
                rdfs:subClassOf :ROADMAP_03381 ,
                                [ rdf:type owl:Restriction ;
-                                 owl:onProperty :ROADMAP_00198 ;
+                                 owl:onProperty :ROADMAP_03780 ;
                                  owl:hasValue :ROADMAP_00220
                                ] ,
                                [ rdf:type owl:Restriction ;
-                                 owl:onProperty :ROADMAP_00198 ;
+                                 owl:onProperty :ROADMAP_03780 ;
                                  owl:hasValue :ROADMAP_00223
                                ] ,
                                [ rdf:type owl:Restriction ;
-                                 owl:onProperty :ROADMAP_00198 ;
+                                 owl:onProperty :ROADMAP_03780 ;
                                  owl:hasValue :ROADMAP_00239
                                ] ;
                rdfs:label "relaciones entre instancias"@es ,
@@ -4599,19 +4227,19 @@ D - Ethical, Legal, and Maintenance"""@en ;
 :ROADMAP_03410 rdf:type owl:Class ;
                rdfs:subClassOf :ROADMAP_03381 ,
                                [ rdf:type owl:Restriction ;
-                                 owl:onProperty :ROADMAP_00198 ;
+                                 owl:onProperty :ROADMAP_03780 ;
                                  owl:hasValue :ROADMAP_00212
                                ] ,
                                [ rdf:type owl:Restriction ;
-                                 owl:onProperty :ROADMAP_00198 ;
+                                 owl:onProperty :ROADMAP_03780 ;
                                  owl:hasValue :ROADMAP_00220
                                ] ,
                                [ rdf:type owl:Restriction ;
-                                 owl:onProperty :ROADMAP_00198 ;
+                                 owl:onProperty :ROADMAP_03780 ;
                                  owl:hasValue :ROADMAP_00223
                                ] ,
                                [ rdf:type owl:Restriction ;
-                                 owl:onProperty :ROADMAP_00198 ;
+                                 owl:onProperty :ROADMAP_03780 ;
                                  owl:hasValue :ROADMAP_00239
                                ] ;
                rdfs:label "esquema de particionamiento"@es ,
@@ -4624,7 +4252,7 @@ D - Ethical, Legal, and Maintenance"""@en ;
 :ROADMAP_03411 rdf:type owl:Class ;
                rdfs:subClassOf :ROADMAP_03381 ,
                                [ rdf:type owl:Restriction ;
-                                 owl:onProperty :ROADMAP_00198 ;
+                                 owl:onProperty :ROADMAP_03780 ;
                                  owl:hasValue :ROADMAP_00233
                                ] ;
                rdfs:label "noise"@en ,
@@ -4637,7 +4265,7 @@ D - Ethical, Legal, and Maintenance"""@en ;
 :ROADMAP_03412 rdf:type owl:Class ;
                rdfs:subClassOf :ROADMAP_03381 ,
                                [ rdf:type owl:Restriction ;
-                                 owl:onProperty :ROADMAP_00198 ;
+                                 owl:onProperty :ROADMAP_03780 ;
                                  owl:hasValue :ROADMAP_00236
                                ] ;
                rdfs:label "datos externos"@es ,
@@ -4650,16 +4278,18 @@ D - Ethical, Legal, and Maintenance"""@en ;
 :ROADMAP_03413 rdf:type owl:Class ;
                rdfs:subClassOf :ROADMAP_03381 ,
                                [ rdf:type owl:Restriction ;
-                                 owl:onProperty :ROADMAP_00198 ;
+                                 owl:onProperty :ROADMAP_03780 ;
                                  owl:hasValue :ROADMAP_00196
                                ] ,
                                [ rdf:type owl:Restriction ;
-                                 owl:onProperty :ROADMAP_00198 ;
+                                 owl:onProperty :ROADMAP_03780 ;
                                  owl:hasValue :ROADMAP_00213
                                ] ;
                rdfs:label "confidencialidad"@es ,
                           "confidentiality"@en ,
                           "保密性"@zh ;
+               skos:closeMatch <http://purl.bioontology.org/ontology/MESH/D003219> ,
+                               <http://purl.bioontology.org/ontology/SNOMEDCT/372920002> ;
                skos:definition "Describes any data that might be confidential, such as those protected by law or doctor-patient confidentiality."@en .
 
 
@@ -4667,11 +4297,11 @@ D - Ethical, Legal, and Maintenance"""@en ;
 :ROADMAP_03415 rdf:type owl:Class ;
                rdfs:subClassOf :ROADMAP_03381 ,
                                [ rdf:type owl:Restriction ;
-                                 owl:onProperty :ROADMAP_00198 ;
+                                 owl:onProperty :ROADMAP_03780 ;
                                  owl:hasValue :ROADMAP_00196
                                ] ,
                                [ rdf:type owl:Restriction ;
-                                 owl:onProperty :ROADMAP_00198 ;
+                                 owl:onProperty :ROADMAP_03780 ;
                                  owl:hasValue :ROADMAP_00213
                                ] ;
                rdfs:label "riesgo de reidentificación"@es ,
@@ -4691,11 +4321,11 @@ D - Ethical, Legal, and Maintenance"""@en ;
 :ROADMAP_03416 rdf:type owl:Class ;
                rdfs:subClassOf :ROADMAP_03381 ,
                                [ rdf:type owl:Restriction ;
-                                 owl:onProperty :ROADMAP_00198 ;
+                                 owl:onProperty :ROADMAP_03780 ;
                                  owl:hasValue :ROADMAP_00196
                                ] ,
                                [ rdf:type owl:Restriction ;
-                                 owl:onProperty :ROADMAP_00198 ;
+                                 owl:onProperty :ROADMAP_03780 ;
                                  owl:hasValue :ROADMAP_00213
                                ] ;
                rdfs:comment """Sensitive data might include:
@@ -4725,7 +4355,8 @@ D - Ethical, Legal, and Maintenance"""@en ;
                           "fecha de creación"@es ,
                           "创建日期"@zh ;
                skos:altLabel "date created"@en ;
-               skos:definition "The date on which an AI resource was created."@en .
+               skos:definition "The date on which an AI resource was created."@en ;
+               skos:exactMatch <http://vocab.fairdatacollective.org/gdmt/Created> .
 
 
 ###  https://rsna.org/roadmap/ROADMAP_03420
@@ -4735,7 +4366,8 @@ D - Ethical, Legal, and Maintenance"""@en ;
                           "publication date"@en ,
                           "出版日期"@zh ;
                skos:altLabel "date of publication"@en ;
-               skos:definition "The date on which the AI resource has been published."@en .
+               skos:definition "The date on which the AI resource has been published."@en ;
+               skos:exactMatch <http://vocab.fairdatacollective.org/gdmt/Published> .
 
 
 ###  https://rsna.org/roadmap/ROADMAP_03421
@@ -4786,7 +4418,8 @@ D - Ethical, Legal, and Maintenance"""@en ;
                           "sexo"@es ,
                           "性别"@zh ;
                skos:altLabel "patient sex"@en ;
-               skos:definition "The biological classification of an individual as male or female; may specify the sex assigned at birth, recorded sex, or sex parameter for clinical use."@en .
+               skos:definition "The biological classification of an individual as male or female; may specify the sex assigned at birth, recorded sex, or sex parameter for clinical use."@en ;
+               skos:exactMatch <http://purl.bioontology.org/ontology/SNOMEDCT/184100006> .
 
 
 ###  https://rsna.org/roadmap/ROADMAP_03425
@@ -4808,6 +4441,7 @@ D - Ethical, Legal, and Maintenance"""@en ;
                              "SAAB"@en ,
                              "birth sex"@en ,
                              "sex at birth"@en ;
+               skos:closeMatch <http://purl.bioontology.org/ontology/SNOMEDCT/621591000124103> ;
                skos:definition "The patient's sex, recorded based on visual inspection of genitalia at birth, as coded in accordance with HL7 Version 3 (V3) Standard."@en .
 
 
@@ -4821,6 +4455,7 @@ D - Ethical, Legal, and Maintenance"""@en ;
                skos:altLabel "RSG"@en ,
                              "RSoG"@en ,
                              "recorded sex"@en ;
+               skos:closeMatch <http://purl.bioontology.org/ontology/SNOMEDCT/831191000124103> ;
                skos:definition "From HL7/FHIR: Recorded sex or gender (RSG) information includes the various sex and gender concepts that are often used in existing systems but are known NOT to represent a gender identity, sex parameter for clinical use, or attributes related to sexuality, such as sexual orientation, sexual activity, or sexual attraction. Examples of recorded sex or gender concepts include administrative gender, administrative sex, and sex assigned at birth."@en .
 
 
@@ -4856,7 +4491,8 @@ D - Ethical, Legal, and Maintenance"""@en ;
                           "男性"@zh ;
                skos:altLabel "male"@en ;
                skos:definition "Male."@en ;
-               skos:exactMatch <http://purl.bioontology.org/ontology/SNOMEDCT/248153007> ,
+               skos:exactMatch <http://purl.bioontology.org/ontology/LNC/LA2-8> ,
+                               <http://purl.bioontology.org/ontology/SNOMEDCT/248153007> ,
                                <http://www.radlex.org/RID/RID5653> .
 
 
@@ -4868,7 +4504,8 @@ D - Ethical, Legal, and Maintenance"""@en ;
                           "女性"@zh ;
                skos:altLabel "female"@en ;
                skos:definition "Female."@en ;
-               skos:exactMatch <http://purl.bioontology.org/ontology/SNOMEDCT/248152002> ,
+               skos:exactMatch <http://purl.bioontology.org/ontology/LNC/LA3-6> ,
+                               <http://purl.bioontology.org/ontology/SNOMEDCT/248152002> ,
                                <http://www.radlex.org/RID/RID5654> .
 
 
@@ -6536,6 +6173,7 @@ D - Ethical, Legal, and Maintenance"""@en ;
                skos:altLabel "date of last update"@en ,
                              "last update"@en ,
                              "last updated"@en ;
+               skos:closeMatch <http://vocab.fairdatacollective.org/gdmt/Updated> ;
                skos:definition "The date the resource was last updated."@en .
 
 
@@ -6571,6 +6209,7 @@ D - Ethical, Legal, and Maintenance"""@en ;
 ###  https://rsna.org/roadmap/ROADMAP_03599
 :ROADMAP_03599 rdf:type owl:Class ;
                rdfs:subClassOf :ROADMAP_00040 ;
+               owl:disjointWith :ROADMAP_03609 ;
                rdfs:label "healthcare professional"@en ,
                           "profesional sanitario"@es ,
                           "医疗保健专业人员"@zh ;
@@ -7775,6 +7414,10 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                [ rdf:type owl:Restriction ;
                                  owl:onProperty :ROADMAP_00198 ;
                                  owl:hasValue :ROADMAP_00181
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty owl:topDataProperty ;
+                                 owl:someValuesFrom xsd:anyURI
                                ] ;
                rdfs:label "enlace"@es ,
                           "link"@en ,
@@ -7783,7 +7426,7 @@ D - Ethical, Legal, and Maintenance"""@en ;
                              "repository link"@en ,
                              "repository site"@en ,
                              "web link"@en ;
-               skos:definition "URL of the site where the resource (model, dataset, or project) can be obtained."@en .
+               skos:definition "Uniform Resource Identifier (URI) of the site where the resource (model, dataset, or project) can be obtained."@en .
 
 
 ###  https://rsna.org/roadmap/ROADMAP_03758
@@ -7969,16 +7612,42 @@ When the function is the square of the difference and the variables are binary (
                skos:definition "A graphical or matrix metric."@en .
 
 
-###  https://rsna.org/roadmap/ROADMAP_04001
-:ROADMAP_04001 rdf:type owl:Class ;
-               rdfs:subClassOf :ROADMAP_00073 ;
-               rdfs:label "AB Abdominal Radiology"@en ,
-                          "Radiología Abdominal"@es ,
-                          "腹部放射学"@zh ;
-               skos:altLabel "AB"@en ,
-                             "Abdominal Radiology"@en ;
-               skos:definition "Content code for Abdominal Radiology."@en ;
-               skos:exactMatch <http://www.radlex.org/RID/RID50608> .
+###  https://rsna.org/roadmap/ROADMAP_03784
+:ROADMAP_03784 rdf:type owl:Class ;
+               rdfs:subClassOf :ROADMAP_03787 ;
+               rdfs:label "male-to-female transsexual"@en ;
+               skos:altLabel "male to female transsexual"@en ,
+                             "trans female"@en ,
+                             "transsexual female"@en ;
+               skos:exactMatch <http://purl.bioontology.org/ontology/LNC/LA22881-9> ,
+                               <http://purl.bioontology.org/ontology/SNOMEDCT/407376001> .
+
+
+###  https://rsna.org/roadmap/ROADMAP_03786
+:ROADMAP_03786 rdf:type owl:Class ;
+               rdfs:subClassOf :ROADMAP_03787 ;
+               rdfs:label "female-to-male transsexual"@en ;
+               skos:altLabel "female to male transsexual"@en ,
+                             "trans male"@en ;
+               skos:exactMatch <http://purl.bioontology.org/ontology/LNC/LA22880-1> ,
+                               <http://purl.bioontology.org/ontology/SNOMEDCT/407377005> .
+
+
+###  https://rsna.org/roadmap/ROADMAP_03787
+:ROADMAP_03787 rdf:type owl:Class ;
+               rdfs:subClassOf :ROADMAP_03428 ;
+               rdfs:label "transsexual"@en ;
+               skos:definition "Transsexual."@en ;
+               skos:exactMatch <http://purl.bioontology.org/ontology/SNOMEDCT/407374003> .
+
+
+###  https://rsna.org/roadmap/ROADMAP_03788
+:ROADMAP_03788 rdf:type owl:Class ;
+               rdfs:subClassOf :ROADMAP_00658 ;
+               rdfs:comment "Excludes evaluation entities (metrics, performance values) and governance entities (guidelines, ethical principles), which describe assessment and compliance rather than the resource itself."@en ;
+               rdfs:label "AI resource metadata"@en ;
+               rdfs:seeAlso <https://www.w3.org/TR/vocab-dcat-3/> ;
+               skos:definition "Information that describes or characterises an AI resource (project, model, or dataset), including generic descriptors applicable to any resource and properties specific to models or datasets. AI resource metadata support the discovery, identification, and appropriate reuse of the resource it describes."@en .
 
 
 ###  https://rsna.org/roadmap/ROADMAP_04003
@@ -7990,6 +7659,7 @@ When the function is the square of the difference and the variables are binary (
                           "数字对象标识符"@zh ;
                skos:altLabel "DOI"@en ;
                skos:definition "A digital identifier of a physical, digital, or abstract object. For example, \"10.1148/ryai.240200\"."@en ;
+               skos:exactMatch <http://vocab.fairdatacollective.org/gdmt/DOI> ;
                :ROADMAP_00155 "[0-9]+\\.[0-9]+(\\.[0-9]+)?\\/.*" ;
                :ROADMAP_03626 <https://doi.org/$> .
 
@@ -8133,7 +7803,11 @@ When the function is the square of the difference and the variables are binary (
 
 ###  https://rsna.org/roadmap/ROADMAP_04014
 :ROADMAP_04014 rdf:type owl:Class ;
-               rdfs:subClassOf :ROADMAP_03624 ;
+               rdfs:subClassOf :ROADMAP_03624 ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty owl:topDataProperty ;
+                                 owl:someValuesFrom xsd:anyURI
+                               ] ;
                rdfs:label "localizador uniforme de recursos"@es ,
                           "uniform resource locator"@en ,
                           "统一资源定位符"@zh ;
@@ -9042,6 +8716,402 @@ When the function is the square of the difference and the variables are binary (
 #################################################################
 #    Individuals
 #################################################################
+
+###  https://rsna.org/roadmap/ROADMAP_00081
+:ROADMAP_00081 rdf:type owl:NamedIndividual ,
+                        :ROADMAP_00073 ;
+               rdfs:label "AI Artificial Intelligence"@en ,
+                          "IA Inteligencia Artificial"@es ,
+                          "人工智能"@zh ;
+               skos:altLabel "AI"@en ,
+                             "Artificial Intelligence"@en ,
+                             "IA"@es ,
+                             "Inteligencia Artificial"@es ;
+               skos:definition "Content code for Artificial Intelligence."@en .
+
+
+###  https://rsna.org/roadmap/ROADMAP_00082
+:ROADMAP_00082 rdf:type owl:NamedIndividual ,
+                        :ROADMAP_00073 ;
+               rdfs:label "BR Breast Imaging and Intervention"@en ,
+                          "BR 乳腺成像和介入"@zh ,
+                          "Imagenología e Intervención Mamaria"@es ;
+               skos:altLabel "BR"@en ,
+                             "Breast Imaging and Intervention"@en ,
+                             "DM Digital Mammography"@en ,
+                             "Digital Mammography"@en ;
+               skos:definition "Content code for Breast Imaging and Intervention."@en ;
+               skos:exactMatch <http://www.radlex.org/RID/RID50609> .
+
+
+###  https://rsna.org/roadmap/ROADMAP_00083
+:ROADMAP_00083 rdf:type owl:NamedIndividual ,
+                        :ROADMAP_00073 ;
+               rdfs:label "BQ Biomarkers / Quantitative Imaging"@en ,
+                          "Biomarcadores / Imagenología Cuantitativa"@es ,
+                          "生物标志物/定量成像"@zh ;
+               skos:altLabel "BQ"@en ,
+                             "Biomarcadores"@es ,
+                             "Biomarkers"@en ,
+                             "Biomarkers / Quantitative Imaging"@en ,
+                             "Imagenología Cuantitativa"@es ,
+                             "Quantitative Imaging"@en ;
+               skos:definition "Content code for Biomarkers and Quantitative Imaging."@en .
+
+
+###  https://rsna.org/roadmap/ROADMAP_00084
+:ROADMAP_00084 rdf:type owl:NamedIndividual ,
+                        :ROADMAP_00073 ;
+               rdfs:label "CA Cardiac Radiology"@en ,
+                          "Radiología Cardíaca"@es ,
+                          "心脏放射学"@zh ;
+               skos:altLabel "CA"@en ,
+                             "Cardiac Radiology"@en ;
+               skos:definition "Content code for Cardiac Radiology."@en ;
+               skos:exactMatch <http://www.radlex.org/RID/RID50610> .
+
+
+###  https://rsna.org/roadmap/ROADMAP_00085
+:ROADMAP_00085 rdf:type owl:NamedIndividual ,
+                        :ROADMAP_00073 ;
+               rdfs:label "CH Chest Radiology"@en ,
+                          "Radiología Torácica"@es ,
+                          "胸部放射学"@zh ;
+               skos:altLabel "CH"@en ,
+                             "Chest Radiology"@en ;
+               skos:definition "Content code for Chest Radiology."@en ;
+               skos:exactMatch <http://www.radlex.org/RID/RID50611> .
+
+
+###  https://rsna.org/roadmap/ROADMAP_00086
+:ROADMAP_00086 rdf:type owl:NamedIndividual ,
+                        :ROADMAP_00073 ;
+               rdfs:label "CT Computed Tomography"@en ,
+                          "CT 计算机断层扫描"@zh ,
+                          "TC Tomografía Computarizada"@es ;
+               skos:altLabel "CT"@en ,
+                             "Computed Tomography"@en ,
+                             "TC"@es ,
+                             "Tomografía Computarizada"@es ;
+               skos:definition "Content code for Computed Tomography."@en ;
+               skos:exactMatch <http://www.radlex.org/RID/RID10321> .
+
+
+###  https://rsna.org/roadmap/ROADMAP_00088
+:ROADMAP_00088 rdf:type owl:NamedIndividual ,
+                        :ROADMAP_00073 ;
+               rdfs:label "ED Education"@en ,
+                          "Educación"@es ,
+                          "教育"@zh ;
+               skos:altLabel "ED"@en ,
+                             "Education"@en ;
+               skos:definition "Content code for Education"@en .
+
+
+###  https://rsna.org/roadmap/ROADMAP_00089
+:ROADMAP_00089 rdf:type owl:NamedIndividual ,
+                        :ROADMAP_00073 ;
+               rdfs:label "ER Emergency Radiology"@en ,
+                          "Radiología de Emergencia"@es ,
+                          "急诊放射科"@zh ;
+               skos:altLabel "ER"@en ,
+                             "Emergency Radiology"@en ;
+               skos:definition "Content code for Emergency Radiology"@en ;
+               skos:exactMatch <http://www.radlex.org/RID/RID50612> .
+
+
+###  https://rsna.org/roadmap/ROADMAP_00090
+:ROADMAP_00090 rdf:type owl:NamedIndividual ,
+                        :ROADMAP_00073 ;
+               rdfs:label "GI Gastrointestinal Radiology"@en ,
+                          "Radiología Gastrointestinal"@es ,
+                          "胃肠放射学"@zh ;
+               skos:altLabel "GI"@en ,
+                             "Gastrointestinal Radiology"@en ;
+               skos:definition "Content code for Gastrointestinal Radiology."@en ;
+               skos:exactMatch <http://www.radlex.org/RID/RID50613> .
+
+
+###  https://rsna.org/roadmap/ROADMAP_00091
+:ROADMAP_00091 rdf:type owl:NamedIndividual ,
+                        :ROADMAP_00073 ;
+               rdfs:label "GU Genitourinary Radiology"@en ,
+                          "Radiología Genitourinaria"@es ,
+                          "泌尿生殖系统放射学"@zh ;
+               skos:altLabel "GU"@en ,
+                             "Genitourinary Radiology"@en ;
+               skos:definition "Content code for Genitourinary Radiology."@en ;
+               skos:exactMatch <http://www.radlex.org/RID/RID50614> .
+
+
+###  https://rsna.org/roadmap/ROADMAP_00092
+:ROADMAP_00092 rdf:type owl:NamedIndividual ,
+                        :ROADMAP_00073 ;
+               rdfs:label "HN Head and Neck Radiology"@en ,
+                          "Radiología de Cabeza y Cuello"@es ,
+                          "头颈部放射学"@zh ;
+               skos:altLabel "HN"@en ,
+                             "Head and Neck Radiology"@en ;
+               skos:definition "Content code for Head and Neck Radiology."@en ;
+               skos:exactMatch <http://www.radlex.org/RID/RID50615> .
+
+
+###  https://rsna.org/roadmap/ROADMAP_00093
+:ROADMAP_00093 rdf:type owl:NamedIndividual ,
+                        :ROADMAP_00073 ;
+               rdfs:label "HP Health Policy"@en ,
+                          "Política Sanitaria"@es ,
+                          "卫生政策"@zh ;
+               skos:altLabel "HP"@en ,
+                             "Health Policy"@en ;
+               skos:definition "Content code for Health Policy."@en .
+
+
+###  https://rsna.org/roadmap/ROADMAP_00094
+:ROADMAP_00094 rdf:type owl:NamedIndividual ,
+                        :ROADMAP_00073 ;
+               rdfs:label "IN Informatics"@en ,
+                          "Informática"@es ,
+                          "信息学"@zh ;
+               skos:altLabel "IN"@en ,
+                             "Informatics"@en ;
+               skos:definition "Content code for Informatics."@en .
+
+
+###  https://rsna.org/roadmap/ROADMAP_00095
+:ROADMAP_00095 rdf:type owl:NamedIndividual ,
+                        :ROADMAP_00073 ;
+               rdfs:label "IR Interventional Radiology"@en ,
+                          "Radiología Intervencionista"@es ,
+                          "介入放射学"@zh ;
+               skos:altLabel "IR"@en ,
+                             "Interventional Radiology"@en ;
+               skos:definition "Content code for Interventional Radiology."@en ;
+               skos:exactMatch <http://www.radlex.org/RID/RID50616> .
+
+
+###  https://rsna.org/roadmap/ROADMAP_00096
+:ROADMAP_00096 rdf:type owl:NamedIndividual ,
+                        :ROADMAP_00073 ;
+               rdfs:label "LM Leadership & Management"@en ,
+                          "Liderazgo y Gestión"@es ,
+                          "领导力与管理"@zh ;
+               skos:altLabel "LM"@en ,
+                             "Leadership"@en ,
+                             "Leadership & Management"@en ,
+                             "Management"@en ;
+               skos:definition "Content code for Leadership and Management."@en .
+
+
+###  https://rsna.org/roadmap/ROADMAP_00097
+:ROADMAP_00097 rdf:type owl:NamedIndividual ,
+                        :ROADMAP_00073 ;
+               rdfs:label "Imagenología Molecular"@es ,
+                          "MI Molecular Imaging"@en ,
+                          "分子成像"@zh ;
+               skos:altLabel "MI"@en ,
+                             "Molecular Imaging"@en ;
+               skos:definition "Content code for Molecular Imaging."@en ;
+               skos:exactMatch <http://www.radlex.org/RID/RID50617> .
+
+
+###  https://rsna.org/roadmap/ROADMAP_00098
+:ROADMAP_00098 rdf:type owl:NamedIndividual ,
+                        :ROADMAP_00073 ;
+               rdfs:label "MK Musculoskeletal Radiology"@en ,
+                          "Radiología Musculoesquelética"@es ,
+                          "肌肉骨骼放射学"@zh ;
+               skos:altLabel "MK"@en ,
+                             "Musculoskeletal Radiology"@en ;
+               skos:definition "Content code for Musculoskeletal Radiology."@en ;
+               skos:exactMatch <http://www.radlex.org/RID/RID50618> .
+
+
+###  https://rsna.org/roadmap/ROADMAP_00099
+:ROADMAP_00099 rdf:type owl:NamedIndividual ,
+                        :ROADMAP_00073 ;
+               rdfs:label "MR Magnetic Resonance Imaging"@en ,
+                          "RM Resonancia Magnética"@es ,
+                          "磁共振成像"@zh ;
+               skos:altLabel "MR"@en ,
+                             "Magnetic Resonance Imaging"@en ,
+                             "RM"@es ,
+                             "Resonancia Magnética"@es ;
+               skos:definition "Content code for Magnetic Resonance Imaging."@en ;
+               skos:exactMatch <http://www.radlex.org/RID/RID10312> .
+
+
+###  https://rsna.org/roadmap/ROADMAP_00100
+:ROADMAP_00100 rdf:type owl:NamedIndividual ,
+                        :ROADMAP_00073 ;
+               rdfs:label "MN Medicina Nuclear"@es ,
+                          "Medicina Nuclear"@es ,
+                          "NM Nuclear Medicine"@en ,
+                          "核医学"@zh ;
+               skos:altLabel "MN"@es ,
+                             "NM"@en ,
+                             "Nuclear Medicine"@en ;
+               skos:definition "Content code for Nuclear Medicine."@en ;
+               skos:exactMatch <http://www.radlex.org/RID/RID10330> .
+
+
+###  https://rsna.org/roadmap/ROADMAP_00101
+:ROADMAP_00101 rdf:type owl:NamedIndividual ,
+                        :ROADMAP_00073 ;
+               rdfs:label "NR Neuroradiology"@en ,
+                          "Neurorradiología"@es ,
+                          "神经放射学"@zh ;
+               skos:altLabel "NR"@en ,
+                             "Neuroradiology"@en ;
+               skos:definition "Content code for Neuroradiology."@en ;
+               skos:exactMatch <http://www.radlex.org/RID/RID50619> .
+
+
+###  https://rsna.org/roadmap/ROADMAP_00102
+:ROADMAP_00102 rdf:type owl:NamedIndividual ,
+                        :ROADMAP_00073 ;
+               rdfs:label "OB Obstetric/Gynecologic Radiology"@en ,
+                          "Radiología Obstétrica/Ginecológica"@es ,
+                          "产科/妇科放射学"@zh ;
+               skos:altLabel "OB"@en ,
+                             "OB radiology"@en ,
+                             "OB/GYN radiology"@en ,
+                             "Obstetric/Gynecologic Radiology"@en ,
+                             "gynecological radiology"@en ;
+               skos:definition "Content code for Obstetric/Gynecologic Radiology."@en ;
+               skos:exactMatch <http://www.radlex.org/RID/RID50620> .
+
+
+###  https://rsna.org/roadmap/ROADMAP_00103
+:ROADMAP_00103 rdf:type owl:NamedIndividual ,
+                        :ROADMAP_00073 ;
+               rdfs:label "Imagenología Oncológica"@es ,
+                          "OI Oncologic Imaging"@en ,
+                          "肿瘤影像学"@zh ;
+               skos:altLabel "OI"@en ,
+                             "Oncologic Imaging"@en ;
+               skos:definition "Content code for Oncologic Imaging."@en ;
+               skos:exactMatch <http://www.radlex.org/RID/RID50621> .
+
+
+###  https://rsna.org/roadmap/ROADMAP_00104
+:ROADMAP_00104 rdf:type owl:NamedIndividual ,
+                        :ROADMAP_00073 ;
+               rdfs:label "OT Other"@en ,
+                          "Otros"@es ,
+                          "其他"@zh ;
+               skos:altLabel "OT"@en ,
+                             "Other"@en ,
+                             "other imaging subspecialty"@en ;
+               skos:definition "Content code for other imaging subspecialty."@en ;
+               skos:exactMatch <http://www.radlex.org/RID/RID50622> .
+
+
+###  https://rsna.org/roadmap/ROADMAP_00105
+:ROADMAP_00105 rdf:type owl:NamedIndividual ,
+                        :ROADMAP_00073 ;
+               rdfs:label "PD Pediatric Radiology"@en ,
+                          "Radiología Pediátrica"@es ,
+                          "儿科放射学"@zh ;
+               skos:altLabel "PD"@en ,
+                             "Pediatric Radiology"@en ;
+               skos:definition "Content code for Pediatric Radiology."@en ;
+               skos:exactMatch <http://www.radlex.org/RID/RID50623> .
+
+
+###  https://rsna.org/roadmap/ROADMAP_00106
+:ROADMAP_00106 rdf:type owl:NamedIndividual ,
+                        :ROADMAP_00073 ;
+               rdfs:label "Física y Ciencias Básicas"@es ,
+                          "PH Physics and Basic Science"@en ,
+                          "物理学和基础科学"@zh ;
+               skos:altLabel "PH"@en ,
+                             "Physics and Basic Science"@en ;
+               skos:definition "Content code for Physics and Basic Science."@en .
+
+
+###  https://rsna.org/roadmap/ROADMAP_00107
+:ROADMAP_00107 rdf:type owl:NamedIndividual ,
+                        :ROADMAP_00073 ;
+               rdfs:label "PR Professionalism (including Ethics)"@en ,
+                          "Profesionalismo (incluida la Ética)"@es ,
+                          "专业精神（包括伦理）"@zh ;
+               skos:altLabel "Ethics"@en ,
+                             "PR"@en ,
+                             "Professionalism"@en ,
+                             "Professionalism (including Ethics)"@en ;
+               skos:definition "Content code for Professionalism, including Ethics."@en .
+
+
+###  https://rsna.org/roadmap/ROADMAP_00108
+:ROADMAP_00108 rdf:type owl:NamedIndividual ,
+                        :ROADMAP_00073 ;
+               rdfs:label "SQ Safety and Quality"@en ,
+                          "Seguridad y Calidad"@es ,
+                          "安全与质量"@zh ;
+               skos:altLabel "QA"@en ,
+                             "QI"@en ,
+                             "Quality Assurance"@en ,
+                             "Quality Improvement"@en ,
+                             "Radiation safety"@en ,
+                             "SQ"@en ,
+                             "Safety"@en ,
+                             "calidad"@es ,
+                             "imaging quality improvement"@en ,
+                             "quality improvement"@en ,
+                             "seguridad"@es ;
+               skos:definition "Content code for Safety and Quality."@en ;
+               skos:exactMatch <http://www.radlex.org/RID/RID50624> .
+
+
+###  https://rsna.org/roadmap/ROADMAP_00109
+:ROADMAP_00109 rdf:type owl:NamedIndividual ,
+                        :ROADMAP_00073 ;
+               rdfs:label "RO Radiation Oncology"@en ,
+                          "Radioterapia Oncológica"@es ,
+                          "放射肿瘤学"@zh ;
+               skos:altLabel "RO"@en ,
+                             "Radiation Oncology"@en ;
+               skos:definition "Content code for Radiation Oncology."@en .
+
+
+###  https://rsna.org/roadmap/ROADMAP_00110
+:ROADMAP_00110 rdf:type owl:NamedIndividual ,
+                        :ROADMAP_00073 ;
+               rdfs:label "Investigación y Métodos Estadísticos"@es ,
+                          "RS Research and Statistical Methods"@en ,
+                          "研究和统计方法"@zh ;
+               skos:altLabel "RS"@en ,
+                             "Research and Statistical Methods"@en ,
+                             "imaging research"@en ;
+               skos:definition "Content code for Research and Statistical Methods."@en ;
+               skos:exactMatch <http://www.radlex.org/RID/RID50625> .
+
+
+###  https://rsna.org/roadmap/ROADMAP_00111
+:ROADMAP_00111 rdf:type owl:NamedIndividual ,
+                        :ROADMAP_00073 ;
+               rdfs:label "US Ultrasound"@en ,
+                          "Ultrasonido"@es ,
+                          "美国超声"@zh ;
+               skos:altLabel "US"@en ,
+                             "US"@es ,
+                             "Ultrasound"@en ;
+               skos:definition "Content code for Ultrasound."@en ;
+               skos:exactMatch <http://www.radlex.org/RID/RID10326> .
+
+
+###  https://rsna.org/roadmap/ROADMAP_00112
+:ROADMAP_00112 rdf:type owl:NamedIndividual ,
+                        :ROADMAP_00073 ;
+               rdfs:label "Imagenología Vascular"@es ,
+                          "VA Vascular Imaging"@en ,
+                          "血管成像"@zh ;
+               skos:altLabel "VA"@en ,
+                             "Vascular Imaging"@en ;
+               skos:definition "Content code for Vascular Imaging."@en ;
+               skos:exactMatch <http://www.radlex.org/RID/RID50626> .
+
 
 ###  https://rsna.org/roadmap/ROADMAP_00170
 :ROADMAP_00170 rdf:type owl:NamedIndividual ,
@@ -14132,6 +14202,18 @@ Tier 4: no sharing"""@en ;
                           "妊娠天数"@zh ;
                skos:definition "Unit for Gestational age, as measured in days from the onset of the mother's last menstrual period. To simplify comparison, gestational age should be converted from the weeks / days format."@en ;
                skos:exactMatch <http://mimi.case.edu/ontologies/2009/1/UnitsOntology#day> .
+
+
+###  https://rsna.org/roadmap/ROADMAP_04001
+:ROADMAP_04001 rdf:type owl:NamedIndividual ,
+                        :ROADMAP_00073 ;
+               rdfs:label "AB Abdominal Radiology"@en ,
+                          "Radiología Abdominal"@es ,
+                          "腹部放射学"@zh ;
+               skos:altLabel "AB"@en ,
+                             "Abdominal Radiology"@en ;
+               skos:definition "Content code for Abdominal Radiology."@en ;
+               skos:exactMatch <http://www.radlex.org/RID/RID50608> .
 
 
 ###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi
