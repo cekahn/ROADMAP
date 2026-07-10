@@ -197,6 +197,7 @@ owl:topObjectProperty rdf:type owl:ObjectProperty .
 
 ###  https://rsna.org/roadmap/ROADMAP_00130
 :ROADMAP_00130 rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf owl:topObjectProperty ;
                rdfs:range :ROADMAP_00055 ;
                rdfs:label "has count"@en ;
                skos:altLabel "hasCount"@en ;
@@ -283,7 +284,15 @@ owl:topObjectProperty rdf:type owl:ObjectProperty .
 
 
 ###  https://rsna.org/roadmap/ROADMAP_00631
-:ROADMAP_00631 rdf:type owl:ObjectProperty ;
+:ROADMAP_00631 rdf:type owl:ObjectProperty ,
+                        owl:FunctionalProperty ,
+                        owl:AsymmetricProperty ,
+                        owl:IrreflexiveProperty ;
+               rdfs:range [ rdf:type owl:Restriction ;
+                            owl:onProperty owl:topDataProperty ;
+                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:decimal
+                          ] ;
                rdfs:label "has value"@en ;
                skos:altLabel "hasValue"@en .
 
@@ -359,10 +368,10 @@ owl:topObjectProperty rdf:type owl:ObjectProperty .
                rdf:type owl:FunctionalProperty ,
                         owl:AsymmetricProperty ,
                         owl:IrreflexiveProperty ;
-               rdfs:domain :ROADMAP_00671 ;
                rdfs:range [ rdf:type owl:Restriction ;
                             owl:onProperty owl:topDataProperty ;
-                            owl:someValuesFrom xsd:float
+                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:decimal
                           ] ;
                rdfs:label "has lower bound"@en ;
                skos:altLabel "hasLowerBound"@en ;
@@ -375,10 +384,10 @@ owl:topObjectProperty rdf:type owl:ObjectProperty .
                rdf:type owl:FunctionalProperty ,
                         owl:AsymmetricProperty ,
                         owl:IrreflexiveProperty ;
-               rdfs:domain :ROADMAP_00671 ;
                rdfs:range [ rdf:type owl:Restriction ;
                             owl:onProperty owl:topDataProperty ;
-                            owl:someValuesFrom xsd:float
+                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:decimal
                           ] ;
                rdfs:label "has upper bound"@en ;
                skos:altLabel "hasUpperBound"@en ;
@@ -504,6 +513,34 @@ owl:topDataProperty rdf:type owl:DatatypeProperty .
                rdfs:range xsd:decimal ;
                rdfs:label "confidence level"@en ;
                skos:definition "The probability that the confidence interval contains the true parameter value, expressed as a proportion (e.g. 0.95)."@en .
+
+
+###  https://rsna.org/roadmap/ROADMAP_03795
+:ROADMAP_03795 rdf:type owl:DatatypeProperty ,
+                        owl:FunctionalProperty ;
+               rdfs:domain :ROADMAP_03616 ;
+               rdfs:range xsd:decimal ;
+               rdfs:label "has observed value"@en ;
+               skos:definition "The value obtained by the AI model on a specific performance metric."@en .
+
+
+###  https://rsna.org/roadmap/ROADMAP_03796
+:ROADMAP_03796 rdf:type owl:DatatypeProperty ,
+                        owl:FunctionalProperty ;
+               rdfs:domain :ROADMAP_00672 ;
+               rdfs:range xsd:decimal ;
+               rdfs:label "has lower confidence limit"@en ;
+               skos:definition "The lower confidence limit is a data item which is a lowest value bounding a confidence interval."@en ;
+               skos:exactMatch <http://purl.obolibrary.org/obo/STATO_0000315> .
+
+
+###  https://rsna.org/roadmap/ROADMAP_03797
+:ROADMAP_03797 rdf:type owl:DatatypeProperty ;
+               rdfs:domain :ROADMAP_00672 ;
+               rdfs:range xsd:decimal ;
+               rdfs:label "has upper confidence limit"@en ;
+               skos:definition "The upper confidence limit is the largest value bounding a confidence interval"@en ;
+               skos:exactMatch <http://purl.obolibrary.org/obo/STATO_0000314> .
 
 
 #################################################################
@@ -2587,12 +2624,13 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                                         ) ;
                                      rdf:type owl:Class
                                    ] ;
-               rdfs:comment "Confidence interval at 5% of type I error rate."@en ;
+               rdfs:comment "CI-95"@en ,
+                            "Confidence interval at 5% of type I error rate.  If the number of observations made is large enough, the sampling distribution can be assumed to be normal, which entails that 95% of the sampling distributions falls within roughly 2 (1.96) standard deviations from the mean."@en ;
                rdfs:label "95% confidence interval"@en ;
                skos:altLabel "95% CI"@en ,
                              "CI 95"@en ,
                              "CI95"@en ;
-               skos:definition "A confidence interval which covers 95% of the sampling distribution, meaning that there is a 5% risk of false positive (type I error). If the number of observations made is large enough, the sampling distribution can be assumed to be normal, which entails that 95% of the sampling distributions falls within roughly 2 (1.96) standard deviations from the mean."@en ;
+               skos:definition "A confidence interval which covers 95% of the sampling distribution, meaning that there is a 5% risk of false positive (type I error)."@en ;
                skos:exactMatch <http://purl.obolibrary.org/obo/STATO_0000231> .
 
 
@@ -2605,12 +2643,22 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                  owl:onDataRange xsd:decimal
                                ] ;
                rdfs:label "point value"@en ;
-               skos:definition "A single numerical value, typically expressed as an integer, decimal value, or floating-point (\"float\") value."@en .
+               skos:definition "A single numerical value expressed as a decimal value"@en .
 
 
 ###  https://rsna.org/roadmap/ROADMAP_00671
 :ROADMAP_00671 rdf:type owl:Class ;
-               rdfs:subClassOf :ROADMAP_00666 ;
+               rdfs:subClassOf :ROADMAP_00666 ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :ROADMAP_00201 ;
+                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass :ROADMAP_00673
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :ROADMAP_00201 ;
+                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass :ROADMAP_00674
+                               ] ;
                rdfs:label "value interval"@en ;
                skos:altLabel "range of values"@en ,
                              "value range"@en ;
@@ -2619,16 +2667,9 @@ D - Ethical, Legal, and Maintenance"""@en ;
 
 ###  https://rsna.org/roadmap/ROADMAP_00672
 :ROADMAP_00672 rdf:type owl:Class ;
-               rdfs:subClassOf :ROADMAP_00671 ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty :ROADMAP_03649 ;
-                                 owl:someValuesFrom :ROADMAP_03792
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty :ROADMAP_03650 ;
-                                 owl:someValuesFrom :ROADMAP_03793
-                               ] ;
+               rdfs:subClassOf :ROADMAP_00666 ;
                rdfs:label "confidence interval"@en ;
+               skos:altLabel "CI"@en ;
                skos:definition "A range of values bounded by lower and upper confidence limits at a specified confidence level."@en ;
                skos:exactMatch <http://purl.obolibrary.org/obo/STATO_0000196> .
 
@@ -6411,10 +6452,12 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                  owl:someValuesFrom :ROADMAP_00672
                                ] ,
                                [ rdf:type owl:Restriction ;
-                                 owl:onProperty :ROADMAP_00631 ;
-                                 owl:someValuesFrom :ROADMAP_03617
+                                 owl:onProperty :ROADMAP_03795 ;
+                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:decimal
                                ] ;
-               owl:disjointWith :ROADMAP_03642 ;
+               owl:disjointWith :ROADMAP_03642 ,
+                                :ROADMAP_04043 ;
                rdfs:label "metric value"@en ,
                           "valor de rendimiento del modelo"@es ,
                           "模型性能值"@zh ;
@@ -7661,41 +7704,23 @@ When the function is the square of the difference and the variables are binary (
                skos:definition "Information that describes or characterises an AI resource (project, model, or dataset), including generic descriptors applicable to any resource and properties specific to models or datasets. AI resource metadata support the discovery, identification, and appropriate reuse of the resource it describes."@en .
 
 
-###  https://rsna.org/roadmap/ROADMAP_03792
-:ROADMAP_03792 rdf:type owl:Class ;
-               rdfs:subClassOf :ROADMAP_00673 ;
-               owl:disjointWith :ROADMAP_03793 ;
-               rdfs:label "lower confidence limit"@en ;
-               skos:definition "The lower confidence limit is a data item which is a lowest value bounding a confidence interval."@en ;
-               skos:exactMatch <http://purl.obolibrary.org/obo/STATO_0000315> .
-
-
-###  https://rsna.org/roadmap/ROADMAP_03793
-:ROADMAP_03793 rdf:type owl:Class ;
-               rdfs:subClassOf :ROADMAP_00674 ;
-               rdfs:label "upper confidence limit"@en ;
-               skos:definition "The upper confidence limit is a data item which is a largest value bounding a confidence interval"@en ;
-               skos:exactMatch <http://purl.obolibrary.org/obo/STATO_0000314> .
-
-
-###  https://rsna.org/roadmap/ROADMAP_03794
-:ROADMAP_03794 rdf:type owl:Class ;
-               rdfs:subClassOf :ROADMAP_00671 ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty :ROADMAP_03649 ;
-                                 owl:someValuesFrom :ROADMAP_00673
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty :ROADMAP_03650 ;
-                                 owl:someValuesFrom :ROADMAP_00674
-                               ] ;
-               rdfs:comment """The canonical lower and upper bounds of a metric are defined using the 'minimum' and 'maximum' annotations for that class. 
-
-For example, accuracy has annotations:
-  minimum = 0
-  maximum = 1"""@en ;
-               rdfs:label "observed value range"@en ;
-               skos:definition "The observed range of values for a metric; specifies lower and upper bounds."@en .
+###  https://rsna.org/roadmap/ROADMAP_03798
+:ROADMAP_03798 rdf:type owl:Class ;
+               owl:equivalentClass [ owl:intersectionOf ( :ROADMAP_00672
+                                                          [ rdf:type owl:Restriction ;
+                                                            owl:onProperty :ROADMAP_01500 ;
+                                                            owl:hasValue 0.99
+                                                          ]
+                                                        ) ;
+                                     rdf:type owl:Class
+                                   ] ;
+               rdfs:label "99% confidence interval"@en ;
+               skos:altLabel "99% CI"@en ,
+                             "CI 99"@en ,
+                             "CI-99"@en ,
+                             "CI99"@en ;
+               skos:definition "A confidence interval which covers 99% of the sampling distribution."@en ;
+               skos:exactMatch <http://purl.obolibrary.org/obo/STATO_0000127> .
 
 
 ###  https://rsna.org/roadmap/ROADMAP_04003
