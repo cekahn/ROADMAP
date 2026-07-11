@@ -10,18 +10,22 @@
 @base <https://rsna.org/roadmap/> .
 
 <https://rsna.org/roadmap/> rdf:type owl:Ontology ;
-                             dc:creator "Radiological Society of North America"@en ;
+                             dc:author <https://orcid.org/0000-0002-6654-7434> ;
+                             dc:creator <https://rsna.org/> ,
+                                        "Radiological Society of North America"@en ;
                              dc:date "2026-08-01T00:00:00Z"^^xsd:dateTime ;
                              dc:rights <https://creativecommons.org/licenses/by-nc-nd/4.0/> ;
                              dc:source <doi:10.1148/ryai.260069> ;
                              dc:title "ROADMAP Ontology of AI Datasets, Models and Projects" ;
-                             <http://www.geneontology.org/formats/oboInOwl#created_by> <https://orcid.org/0000-0002-6654-7434> ,
-                                                                                       <https://rsna.org/> ;
                              owl:versionInfo "2026-08" .
 
 #################################################################
 #    Annotation properties
 #################################################################
+
+###  http://purl.org/dc/elements/1.1/author
+dc:author rdf:type owl:AnnotationProperty .
+
 
 ###  http://purl.org/dc/elements/1.1/creator
 dc:creator rdf:type owl:AnnotationProperty .
@@ -266,9 +270,10 @@ Range:  'guideline item' or 'specific ethical principle'"""@en ,
 
 
 ###  https://rsna.org/roadmap/00629
-<https://rsna.org/roadmap/00629> rdf:type owl:ObjectProperty ;
-                                 rdfs:domain <https://rsna.org/roadmap/00002> ;
-                                 rdfs:range <https://rsna.org/roadmap/00011> ;
+<https://rsna.org/roadmap/00629> rdf:type owl:ObjectProperty ,
+                                          owl:AsymmetricProperty ,
+                                          owl:IrreflexiveProperty ;
+                                 rdfs:range <https://rsna.org/roadmap/00015> ;
                                  rdfs:label "has use"@en ;
                                  skos:altLabel "hasUse"@en ;
                                  skos:definition "Specifies a model's types of intended, out-of-scope, and/or excluded uses."@en .
@@ -276,8 +281,7 @@ Range:  'guideline item' or 'specific ethical principle'"""@en ,
 
 ###  https://rsna.org/roadmap/00630
 <https://rsna.org/roadmap/00630> rdf:type owl:ObjectProperty ;
-                                 rdfs:domain <https://rsna.org/roadmap/00002> ;
-                                 rdfs:range <https://rsna.org/roadmap/00036> ;
+                                 rdfs:range <https://rsna.org/roadmap/00040> ;
                                  rdfs:label "has user"@en ;
                                  skos:altLabel "hasUser"@en ;
                                  skos:definition "Specifies a model's types of intended, out-of-scope, and/or excluded users."@en .
@@ -1803,6 +1807,10 @@ owl:Thing rdf:type owl:Class .
                                                    owl:onProperty :supports ;
                                                    owl:hasValue <https://rsna.org/roadmap/00213>
                                                  ] ;
+                                 owl:disjointUnionOf ( <https://rsna.org/roadmap/03369>
+                                                       <https://rsna.org/roadmap/03370>
+                                                       <https://rsna.org/roadmap/03371>
+                                                     ) ;
                                  rdfs:label "Protected Health Information"@en ,
                                             "información sanitaria protegida"@es ,
                                             "受保护的健康信息"@zh ;
@@ -2312,6 +2320,7 @@ owl:Thing rdf:type owl:Class .
 ###  https://rsna.org/roadmap/00169
 <https://rsna.org/roadmap/00169> rdf:type owl:Class ;
                                  rdfs:subClassOf <https://rsna.org/roadmap/03805> ;
+                                 owl:disjointWith <https://rsna.org/roadmap/00249> ;
                                  dc:rights <https://creativecommons.org/licenses/by/4.0/> ;
                                  dc:source <https://doi.org/10.1038/sdata.2016.18> ;
                                  rdfs:comment "FAIR principles are incorporated under the Creative Commons CC BY 4.0 license."@en ;
@@ -2394,6 +2403,9 @@ D - Ethical, Legal, and Maintenance"""@en ;
 ###  https://rsna.org/roadmap/00248
 <https://rsna.org/roadmap/00248> rdf:type owl:Class ;
                                  rdfs:subClassOf <https://rsna.org/roadmap/00660> ;
+                                 owl:disjointUnionOf ( <https://rsna.org/roadmap/03805>
+                                                       <https://rsna.org/roadmap/03806>
+                                                     ) ;
                                  rdfs:comment "Examples include the FAIR principles and the FUTURE-AI principles."@en ,
                                               "The OECD and WHO principles are general and are to be considered as a whole. The FAIR and FUTURE-AI principles are specific; the 'supports' relation indicates those metadata entities and guideline items that support them."@en ;
                                  rdfs:label "ethical principle"@en ;
@@ -2488,6 +2500,7 @@ D - Ethical, Legal, and Maintenance"""@en ;
 ###  https://rsna.org/roadmap/00463
 <https://rsna.org/roadmap/00463> rdf:type owl:Class ;
                                  rdfs:subClassOf <https://rsna.org/roadmap/03806> ;
+                                 owl:disjointWith <https://rsna.org/roadmap/00473> ;
                                  dc:source <https://www.oecd.org/en/topics/sub-issues/ai-principles.html> ;
                                  rdfs:comment "The OECD AI Principles are the first intergovernmental standard on AI. They promote innovative, trustworthy AI that respects human rights and democratic values. Adopted in 2019 and updated in 2024, they are composed of five values-based principles and five recommendations that provide practical and flexible guidance for policymakers and AI actors [from OECD web site]."@en ,
                                               "The OECD AI Principles identify five complementary values-based principles for the responsible stewardship of trustworthy AI."@en ;
@@ -2633,14 +2646,6 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                                    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
                                                    owl:onClass <https://rsna.org/roadmap/03471>
                                                  ] ;
-                                 owl:disjointWith <https://rsna.org/roadmap/00658> ,
-                                                  <https://rsna.org/roadmap/00659> ,
-                                                  <https://rsna.org/roadmap/00660> ,
-                                                  <https://rsna.org/roadmap/00661> ,
-                                                  <https://rsna.org/roadmap/00662> ,
-                                                  <https://rsna.org/roadmap/00663> ,
-                                                  <https://rsna.org/roadmap/00664> ,
-                                                  <https://rsna.org/roadmap/00666> ;
                                  rdfs:label "AI resource"@en ;
                                  skos:altLabel "AI artefact"@en ,
                                                "AI artifact"@en ,
@@ -2664,9 +2669,6 @@ D - Ethical, Legal, and Maintenance"""@en ;
 ###  https://rsna.org/roadmap/00659
 <https://rsna.org/roadmap/00659> rdf:type owl:Class ;
                                  rdfs:subClassOf <https://rsna.org/roadmap/00001> ;
-                                 owl:disjointWith <https://rsna.org/roadmap/00660> ,
-                                                  <https://rsna.org/roadmap/00661> ,
-                                                  <https://rsna.org/roadmap/00664> ;
                                  rdfs:label "evaluation entity"@en ;
                                  skos:definition "A ROADMAP entity used to describe assessment, measurement, validation, or performance of an AI resource."@en ;
                                  skos:exactMatch <http://purl.obolibrary.org/obo/IAO_0000030> .
@@ -15378,6 +15380,48 @@ Tier 4: no sharing"""@en ;
                                                "Abdominal Radiology"@en ;
                                  skos:definition "Content code for Abdominal Radiology."@en ;
                                  skos:exactMatch <http://www.radlex.org/RID/RID50608> .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( <https://rsna.org/roadmap/00174>
+                <https://rsna.org/roadmap/00177>
+                <https://rsna.org/roadmap/00248>
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( <https://rsna.org/roadmap/00178>
+                <https://rsna.org/roadmap/00202>
+                <https://rsna.org/roadmap/00278>
+                <https://rsna.org/roadmap/00329>
+                <https://rsna.org/roadmap/00330>
+                <https://rsna.org/roadmap/00331>
+                <https://rsna.org/roadmap/00490>
+                <https://rsna.org/roadmap/00491>
+                <https://rsna.org/roadmap/00492>
+                <https://rsna.org/roadmap/00493>
+                <https://rsna.org/roadmap/00496>
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( <https://rsna.org/roadmap/00657>
+                <https://rsna.org/roadmap/00658>
+                <https://rsna.org/roadmap/00659>
+                <https://rsna.org/roadmap/00660>
+                <https://rsna.org/roadmap/00661>
+                <https://rsna.org/roadmap/00662>
+                <https://rsna.org/roadmap/00663>
+                <https://rsna.org/roadmap/00664>
+                <https://rsna.org/roadmap/00666>
+              )
+] .
 
 
 ###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi
