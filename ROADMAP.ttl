@@ -155,7 +155,6 @@ owl:topObjectProperty rdf:type owl:ObjectProperty .
 ###  https://rsna.org/roadmap/supports
 :supports rdf:type owl:ObjectProperty ;
           owl:inverseOf <https://rsna.org/roadmap/00222> ;
-          rdf:type owl:TransitiveProperty ;
           rdfs:domain [ rdf:type owl:Class ;
                         owl:unionOf ( <https://rsna.org/roadmap/00177>
                                       <https://rsna.org/roadmap/03788>
@@ -253,8 +252,7 @@ Range:  'guideline item' or 'specific ethical principle'"""@en ,
 
 
 ###  https://rsna.org/roadmap/00222
-<https://rsna.org/roadmap/00222> rdf:type owl:ObjectProperty ,
-                                          owl:TransitiveProperty ;
+<https://rsna.org/roadmap/00222> rdf:type owl:ObjectProperty ;
                                  rdfs:domain [ rdf:type owl:Class ;
                                                owl:unionOf ( <https://rsna.org/roadmap/00177>
                                                              <https://rsna.org/roadmap/03805>
@@ -776,6 +774,10 @@ owl:Thing rdf:type owl:Class .
                                                  [ rdf:type owl:Restriction ;
                                                    owl:onProperty :supports ;
                                                    owl:hasValue <https://rsna.org/roadmap/00244>
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :supports ;
+                                                   owl:hasValue <https://rsna.org/roadmap/00256>
                                                  ] ;
                                  rdfs:label "model use"@en ,
                                             "uso del modelo"@es ,
@@ -1040,6 +1042,10 @@ owl:Thing rdf:type owl:Class .
                                                  [ rdf:type owl:Restriction ;
                                                    owl:onProperty :supports ;
                                                    owl:hasValue <https://rsna.org/roadmap/00244>
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :supports ;
+                                                   owl:hasValue <https://rsna.org/roadmap/00256>
                                                  ] ;
                                  rdfs:label "model user"@en ,
                                             "usuario del modelo"@es ,
@@ -1204,6 +1210,10 @@ owl:Thing rdf:type owl:Class .
                                                  [ rdf:type owl:Restriction ;
                                                    owl:onProperty :supports ;
                                                    owl:hasValue <https://rsna.org/roadmap/00219>
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :supports ;
+                                                   owl:hasValue <https://rsna.org/roadmap/00257>
                                                  ] ;
                                  rdfs:label "annotation level"@en ,
                                             "nivel de anotación"@es ,
@@ -1408,7 +1418,19 @@ owl:Thing rdf:type owl:Class .
                                  rdfs:subClassOf <https://rsna.org/roadmap/00004> ,
                                                  [ rdf:type owl:Restriction ;
                                                    owl:onProperty :supports ;
+                                                   owl:hasValue <https://rsna.org/roadmap/00171>
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :supports ;
+                                                   owl:hasValue <https://rsna.org/roadmap/00173>
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :supports ;
                                                    owl:hasValue <https://rsna.org/roadmap/00182>
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :supports ;
+                                                   owl:hasValue <https://rsna.org/roadmap/00257>
                                                  ] ;
                                  rdfs:label "version"@en ,
                                             "versión"@es ,
@@ -1419,6 +1441,14 @@ owl:Thing rdf:type owl:Class .
 ###  https://rsna.org/roadmap/00067
 <https://rsna.org/roadmap/00067> rdf:type owl:Class ;
                                  rdfs:subClassOf <https://rsna.org/roadmap/00004> ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :supports ;
+                                                   owl:hasValue <https://rsna.org/roadmap/00171>
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :supports ;
+                                                   owl:hasValue <https://rsna.org/roadmap/00173>
+                                                 ] ,
                                                  [ rdf:type owl:Restriction ;
                                                    owl:onProperty :supports ;
                                                    owl:hasValue <https://rsna.org/roadmap/00245>
@@ -1445,11 +1475,19 @@ owl:Thing rdf:type owl:Class .
                                                  ] ,
                                                  [ rdf:type owl:Restriction ;
                                                    owl:onProperty :supports ;
+                                                   owl:hasValue <https://rsna.org/roadmap/00173>
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :supports ;
                                                    owl:hasValue <https://rsna.org/roadmap/00195>
                                                  ] ,
                                                  [ rdf:type owl:Restriction ;
                                                    owl:onProperty :supports ;
                                                    owl:hasValue <https://rsna.org/roadmap/00246>
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :supports ;
+                                                   owl:hasValue <https://rsna.org/roadmap/00256>
                                                  ] ;
                                  rdfs:comment "It is preferred to specify the URL of the selected license."@en ;
                                  rdfs:label "licencia"@es ,
@@ -1469,7 +1507,15 @@ owl:Thing rdf:type owl:Class .
                                                  ] ,
                                                  [ rdf:type owl:Restriction ;
                                                    owl:onProperty :supports ;
+                                                   owl:hasValue <https://rsna.org/roadmap/00173>
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :supports ;
                                                    owl:hasValue <https://rsna.org/roadmap/00197>
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :supports ;
+                                                   owl:hasValue <https://rsna.org/roadmap/00256>
                                                  ] ;
                                  rdfs:label "contact information"@en ,
                                             "información de contacto"@es ,
@@ -2300,7 +2346,23 @@ owl:Thing rdf:type owl:Class .
                                  rdfs:subClassOf <https://rsna.org/roadmap/00004> ,
                                                  [ rdf:type owl:Restriction ;
                                                    owl:onProperty :supports ;
+                                                   owl:hasValue <https://rsna.org/roadmap/00171>
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :supports ;
+                                                   owl:hasValue <https://rsna.org/roadmap/00173>
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :supports ;
                                                    owl:hasValue <https://rsna.org/roadmap/00205>
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :supports ;
+                                                   owl:hasValue <https://rsna.org/roadmap/00255>
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :supports ;
+                                                   owl:hasValue <https://rsna.org/roadmap/00256>
                                                  ] ;
                                  rdfs:label "resumen"@es ,
                                             "summary"@en ;
@@ -4148,6 +4210,14 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                                  [ rdf:type owl:Restriction ;
                                                    owl:onProperty :supports ;
                                                    owl:hasValue <https://rsna.org/roadmap/00244>
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :supports ;
+                                                   owl:hasValue <https://rsna.org/roadmap/00255>
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :supports ;
+                                                   owl:hasValue <https://rsna.org/roadmap/00257>
                                                  ] ;
                                  rdfs:label "decision threshold"@en ,
                                             "umbral de decisión"@es ,
@@ -4374,7 +4444,15 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                                  ] ,
                                                  [ rdf:type owl:Restriction ;
                                                    owl:onProperty :supports ;
+                                                   owl:hasValue <https://rsna.org/roadmap/00173>
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :supports ;
                                                    owl:hasValue <https://rsna.org/roadmap/00246>
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :supports ;
+                                                   owl:hasValue <https://rsna.org/roadmap/00256>
                                                  ] ;
                                  rdfs:label "disponibilidad del modelo"@es ,
                                             "model availability"@en ,
@@ -4568,6 +4646,10 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                                  [ rdf:type owl:Restriction ;
                                                    owl:onProperty :supports ;
                                                    owl:hasValue <https://rsna.org/roadmap/00238>
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :supports ;
+                                                   owl:hasValue <https://rsna.org/roadmap/00253>
                                                  ] ;
                                  rdfs:comment """(1) Describes whether the data cover a complete population or sample. If a sample, describes the set from which the data were drawn.
 
@@ -4691,6 +4773,10 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                                  [ rdf:type owl:Restriction ;
                                                    owl:onProperty :supports ;
                                                    owl:hasValue <https://rsna.org/roadmap/00233>
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :supports ;
+                                                   owl:hasValue <https://rsna.org/roadmap/00257>
                                                  ] ;
                                  rdfs:label "noise"@en ,
                                             "ruido"@es ,
@@ -4778,7 +4864,11 @@ D - Ethical, Legal, and Maintenance"""@en ;
 
 ###  https://rsna.org/roadmap/03418
 <https://rsna.org/roadmap/03418> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/00004> ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/00004> ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :supports ;
+                                                   owl:hasValue <https://rsna.org/roadmap/00258>
+                                                 ] ;
                                  rdfs:label "ethical review"@en ,
                                             "evaluación ética"@es ,
                                             "伦理审查"@zh ;
@@ -5264,6 +5354,10 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                                  ] ,
                                                  [ rdf:type owl:Restriction ;
                                                    owl:onProperty :supports ;
+                                                   owl:hasValue <https://rsna.org/roadmap/00172>
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :supports ;
                                                    owl:hasValue <https://rsna.org/roadmap/00209>
                                                  ] ,
                                                  [ rdf:type owl:Restriction ;
@@ -5282,6 +5376,10 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                                  [ rdf:type owl:Restriction ;
                                                    owl:onProperty <https://rsna.org/roadmap/00201> ;
                                                    owl:someValuesFrom <https://rsna.org/roadmap/03389>
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :supports ;
+                                                   owl:hasValue <https://rsna.org/roadmap/00172>
                                                  ] ,
                                                  [ rdf:type owl:Restriction ;
                                                    owl:onProperty :supports ;
@@ -6938,7 +7036,11 @@ D - Ethical, Legal, and Maintenance"""@en ;
 
 ###  https://rsna.org/roadmap/03597
 <https://rsna.org/roadmap/03597> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/00004> ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/00004> ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :supports ;
+                                                   owl:hasValue <https://rsna.org/roadmap/00171>
+                                                 ] ;
                                  rdfs:label "name"@en ,
                                             "nombre"@es ,
                                             "名称"@zh ;
@@ -6948,6 +7050,14 @@ D - Ethical, Legal, and Maintenance"""@en ;
 ###  https://rsna.org/roadmap/03598
 <https://rsna.org/roadmap/03598> rdf:type owl:Class ;
                                  rdfs:subClassOf <https://rsna.org/roadmap/03355> ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :supports ;
+                                                   owl:hasValue <https://rsna.org/roadmap/00172>
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :supports ;
+                                                   owl:hasValue <https://rsna.org/roadmap/00173>
+                                                 ] ,
                                                  [ rdf:type owl:Restriction ;
                                                    owl:onProperty :supports ;
                                                    owl:hasValue <https://rsna.org/roadmap/00203>
@@ -7025,6 +7135,10 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                                  [ rdf:type owl:Restriction ;
                                                    owl:onProperty :supports ;
                                                    owl:hasValue <https://rsna.org/roadmap/00246>
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :supports ;
+                                                   owl:hasValue <https://rsna.org/roadmap/00257>
                                                  ] ;
                                  dc:source <https://www.fda.gov/media/184856/download> ;
                                  rdfs:label "información reglamentaria"@es ,
@@ -8631,7 +8745,11 @@ When the function is the square of the difference and the variables are binary (
 
 ###  https://rsna.org/roadmap/03788
 <https://rsna.org/roadmap/03788> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/00658> ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/00658> ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :supports ;
+                                                   owl:hasValue <https://rsna.org/roadmap/00254>
+                                                 ] ;
                                  rdfs:comment "Excludes evaluation entities (metrics, performance values) and governance entities (guidelines, ethical principles), which describe assessment and compliance rather than the resource itself."@en ;
                                  rdfs:label "AI resource metadata"@en ;
                                  rdfs:seeAlso <https://www.w3.org/TR/vocab-dcat-3/> ;
