@@ -1,0 +1,361 @@
+@prefix : <https://rsna.org/roadmap/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+# PROPOSED :supports mappings for the new class 'model performance' (62 axioms).
+# NOTE: 0XXXX is a placeholder — substitute the ID actually assigned to model performance.
+# 'model performance' is a 'model property' (03355) and therefore already inherits
+#   :supports :00254 (traceability) from AI resource metadata (03788).
+
+
+<https://rsna.org/roadmap/0XXXX> rdfs:subClassOf
+    # CLAIM: CLAIM item 18 — Measures of inter- and intra-rater variability of features described by the anno
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00221>
+    ] ,
+    # CLAIM: CLAIM item 28 — Metrics of model performance.
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00231>
+    ] ,
+    # CLAIM: CLAIM item 29 — Statistical measures of significance and uncertainty.
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00232>
+    ] ,
+    # CLAIM: CLAIM item 30 — Robustness or sensitivity analysis.
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00233>
+    ] ,
+    # CLAIM: CLAIM item 32 — Evaluation on internal data.
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00235>
+    ] ,
+    # CLAIM: CLAIM item 33 — Testing on external data.
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00236>
+    ] ,
+    # CLAIM: CLAIM item 37 — Performance metrics and measures of statistical uncertainty.
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00240>
+    ] ,
+    # CLAIM: CLAIM item 38 — Estimates of diagnostic performance and their precision.
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00241>
+    ] ,
+    # CLAIM: CLAIM item 39 — Failure analysis of incorrect results.
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00242>
+    ] ,
+    # STARD-AI: STARD-AI item 01 — Identification as a study reporting AI-centered diagnostic accuracy and reportin
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00279>
+    ] ,
+    # STARD-AI: STARD-AI item 18 — Methods for estimating or comparing measures of diagnostic accuracy.
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00302>
+    ] ,
+    # STARD-AI: STARD-AI item 21 — Any analyses of variability in diagnostic accuracy, distinguishing pre-specified
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00305>
+    ] ,
+    # STARD-AI: STARD-AI item 23 — Details of any performance error analysis, and algorithmic bias and fairness ass
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00307>
+    ] ,
+    # STARD-AI: STARD-AI item 30 — Cross tabulation of the index test results (or their distribution) by the result
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00315>
+    ] ,
+    # STARD-AI: STARD-AI item 31 — Estimates of diagnostic accuracy and their precision (such as 95% confidence int
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00316>
+    ] ,
+    # CONSORT-AI: CONSORT-AI item 17a — For each primary and secondary outcome, results for each group, and the estimate
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00360>
+    ] ,
+    # CONSORT-AI: CONSORT-AI item 17b — For binary outcomes, presentation of both absolute and relative effect sizes is 
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00361>
+    ] ,
+    # CONSORT-AI: CONSORT-AI item 18 — Results of any other analyses performed, including subgroup analyses and adjuste
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00362>
+    ] ,
+    # CONSORT-AI: CONSORT-AI item 19 — All important harms or unintended effects in each group (for specific guidance s
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00363>
+    ] ,
+    # SPIRIT-AI: SPIRIT-AI item 20a — Analysis of outcomes.
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00400>
+    ] ,
+    # SPIRIT-AI: SPIRIT-AI item 20b — Additional analyses.
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00401>
+    ] ,
+    # SPIRIT-AI: SPIRIT-AI item 22 — Adverse events handling. AI performance errors analysis.
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00405>
+    ] ,
+    # TRIPOD+AI: TRIPOD+AI item 12d — Describe if and how any heterogeneity in estimates of model parameter values and
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00443>
+    ] ,
+    # TRIPOD+AI: TRIPOD+AI item 12e — Specify all measures and plots used (and their rationale) to evaluate model perf
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00444>
+    ] ,
+    # TRIPOD+AI: TRIPOD+AI item 12f — Describe any model updating (e.g., recalibration) arising from the model evaluat
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00445>
+    ] ,
+    # TRIPOD+AI: TRIPOD+AI item 14 — Describe any approaches that were used to address model fairness and their ratio
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00448>
+    ] ,
+    # TRIPOD+AI: TRIPOD+AI item 23a — Report model performance estimates with confidence intervals, including for any 
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00464>
+    ] ,
+    # TRIPOD+AI: TRIPOD+AI item 23b — If examined, report results of any heterogeneity in model performance across clu
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00465>
+    ] ,
+    # TRIPOD+AI: TRIPOD+AI item 24 — Report the results from any model updating, including the updated model and subs
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00466>
+    ] ,
+    # TRIPOD+AI: TRIPOD+AI item 25 — Give an overall interpretation of the main results, including issues of fairness
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00467>
+    ] ,
+    # DECIDE-AI: DECIDE-AI item 4 - Al system — a) Briefly describe the AI system, specifying its version and type of underlying
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00572>
+    ] ,
+    # DECIDE-AI: DECIDE-AI item VII - Main results — Report on the prespecified outcomes, including outcomes for any comparison group
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00582>
+    ] ,
+    # DECIDE-AI: DECIDE-AI item VIII - Subgroups analysis — Report on the differences in the main outcomes according to the prespecified sub
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00583>
+    ] ,
+    # DECIDE-AI: DECIDE-AI item 13 - Safety and errors — a) List any significant errors/malfunctions related to: AI system recommendation
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00586>
+    ] ,
+    # MINIMAR: MINIMAR item 4.2 - Internal model validation — Study internal validation.
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00563>
+    ] ,
+    # MINIMAR: MINIMAR item 4.3 - External model validation — External validation using data from another setting.
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00564>
+    ] ,
+    # MI-CLAIM: MI-CLAIM item 05 — The state-of-the-art solution used as a baseline for comparison has been identif
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00597>
+    ] ,
+    # MI-CLAIM: MI-CLAIM item 11 — The primary metric selected to evaluate algorithm performance (e.g., AUC, F-scor
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00603>
+    ] ,
+    # MI-CLAIM: MI-CLAIM item 12 — The primary metric selected to evaluate the clinical utility of the model (e.g.,
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00604>
+    ] ,
+    # MI-CLAIM: MI-CLAIM item 13 — The performance comparison between baseline and proposed model is presented with
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00605>
+    ] ,
+    # MI-CLAIM: MI-CLAIM item 16 — A discussion of the relevance of the examination results with respect to model/a
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00608>
+    ] ,
+    # MI-CLAIM: MI-CLAIM item 18 — A discussion of the reliability and robustness of the model as the underlying da
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00610>
+    ] ,
+    # PROBAST+AI dev: PROBAST+AI model development item 4.4 — If methods to address class imbalance were used, was the model or the model pred
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00628>
+    ] ,
+    # PROBAST+AI dev: PROBAST+AI model development item 4.5 — Were methods used to address potential model overfitting?
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00635>
+    ] ,
+    # PROBAST+AI eval: PROBAST+AI model evaluation item 4.1 — Was model evaluation based on only apparent performance avoided?
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00647>
+    ] ,
+    # PROBAST+AI eval: PROBAST+AI model evaluation item 4.4 — If methods to address class imbalance were used, was the evaluation done in a da
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00650>
+    ] ,
+    # PROBAST+AI eval: PROBAST+AI model evaluation item 4.6 — If resampling methods were used to evaluate model performance, were all model de
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00652>
+    ] ,
+    # PROBAST+AI eval: PROBAST+AI model evaluation item 4.7 — Was the predictive performance of the model evaluated appropriately, e.g., calib
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00653>
+    ] ,
+    # REFINE: REFINE item 5.1 — Output evaluation method and performance metrics.
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00524>
+    ] ,
+    # REFINE: REFINE item 5.2 — Human evaluator characteristics and reliability analysis.
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00525>
+    ] ,
+    # REFINE: REFINE item 5.3 — Statistical analysis of evaluation results.
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00526>
+    ] ,
+    # REFINE: REFINE item 5.4 — Subgroup performance and output bias assessment.
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00527>
+    ] ,
+    # REFINE: REFINE item 5.5 — Failure analysis and error metrics.
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00528>
+    ] ,
+    # REFINE: REFINE item 5.6 — Output stochasticity and reproducibility constraints.
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00529>
+    ] ,
+    # REFINE: REFINE item 5.7 — Performance effects of different prompt strategies and revisions.
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00530>
+    ] ,
+    # REFINE: REFINE item 5.8 — Model version comparisons and temporal performance variation.
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00531>
+    ] ,
+    # REFINE: REFINE item 5.10 — Comparison with clinically relevant benchmarks.
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00533>
+    ] ,
+    # REFINE: REFINE item 6.3 — Measured clinical utility or added value.
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00536>
+    ] ,
+    # FUTURE-AI principles: universality — The U in FUTURE-AI: AI solutions should be developed and validated on diverse, r
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00253>
+    ] ,
+    # FUTURE-AI principles: explainability — The E in FUTURE-AI: AI solutions should provide explanations that are clinically
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00255>
+    ] ,
+    # FUTURE-AI principles: robustness — The R in FUTURE-AI: AI solutions should perform reliably and safely across diver
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00257>
+    ] ,
+    # FUTURE-AI principles: fairness — The F in FUTURE-AI: AI solutions should perform equitably across demographic sub
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00258>
+    ]
+    .
+
+
+#################################################################
+#  OPTIONAL: finer-grained mappings via defined subclasses
+#
+#  'model performance' joins a performance criterion (04043), a metric (03642) and a
+#  metric value (03616) with 'has part' (00201). That structure lets several guideline
+#  items be reached precisely rather than through the generic class. Two patterns:
+#
+#  (a) by performance criterion
+#
+#  :fairnessPerformanceReport rdf:type owl:Class ;
+#      owl:equivalentClass [ owl:intersectionOf ( <0XXXX>
+#                                                 [ rdf:type owl:Restriction ;
+#                                                   owl:onProperty :00201 ;    # has part
+#                                                   owl:someValuesFrom <https://rsna.org/roadmap/04064>  # fairness performance
+#                                                 ] ) ] ;
+#      rdfs:subClassOf [ owl:onProperty :supports ; owl:hasValue <https://rsna.org/roadmap/00307> ] ,  # STARD-AI 23
+#                      [ owl:onProperty :supports ; owl:hasValue <https://rsna.org/roadmap/00464> ] ,  # TRIPOD+AI 23a
+#                      [ owl:onProperty :supports ; owl:hasValue <https://rsna.org/roadmap/00527> ] ,  # REFINE 5.4
+#                      [ owl:onProperty :supports ; owl:hasValue <https://rsna.org/roadmap/00583> ] ,  # DECIDE-AI VIII
+#                      [ owl:onProperty :supports ; owl:hasValue <https://rsna.org/roadmap/00258> ] .  # fairness
+#
+#   Similarly:  calibration performance (04062)  -> TRIPOD+AI 12e (00444), PROBAST+AI eval 4.7 (00653)
+#               model drift (00118)              -> MI-CLAIM 18 (00610), REFINE 5.8 (00531)
+#               utility (04065)                  -> MI-CLAIM 12 (00604), REFINE 6.3 (00536), TRIPOD+AI 12e (00444)
+#               user agreement performance (04067) -> CLAIM 18 (00221), REFINE 5.2 (00525), DECIDE-AI 12 (00585)
+#
+#  (b) by evaluation partition (03771-03775)
+#
+#   performance on internal testing partition (03774) -> CLAIM 32 (00235), MINIMAR 4.2 (00563),
+#                                                        PROBAST+AI eval 4.1 (00647)
+#   performance on external testing partition (03775) -> CLAIM 33 (00236), STARD-AI 29 (00314),
+#                                                        MINIMAR 4.3 (00564), TRIPOD+AI 16 (00450)
+#
+#  If this pattern is adopted, the generic 'model performance' mappings above can be trimmed
+#  to those items that ask for performance reporting in general (e.g. CLAIM 28/37, REFINE 5.1).
+#################################################################
