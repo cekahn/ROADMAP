@@ -2410,7 +2410,7 @@ owl:Thing rdf:type owl:Class .
                                                "reporting checklist"@en ,
                                                "reporting guideline"@en ,
                                                "reporting standard"@en ;
-                                 skos:definition "An AI reporting guideline is a structured, consensus-driven framework—typically formatted as a standardized checklist—designed to ensure transparency and reproducibility in scientific research. These guidelines dictate the minimum baseline information authors must disclose."@en .
+                                 skos:definition "An AI reporting guideline is a structured, consensus-driven framework—typically formatted as a standardized checklist—designed to ensure transparency and reproducibility in scientific research. These guidelines dictate the baseline information authors must disclose; they assure that authors provide information to help scientific reviewers and journal editors judge the work."@en .
 
 
 ###  https://rsna.org/roadmap/00177
@@ -2421,7 +2421,7 @@ owl:Thing rdf:type owl:Class .
                                                    owl:hasValue <https://rsna.org/roadmap/00254>
                                                  ] ;
                                  rdfs:label "guideline item"@en ;
-                                 skos:definition "An item of an AI reporting guideline, such as CLAIM or TRAM-AI."@en .
+                                 skos:definition "An item of an AI reporting guideline, such as CLAIM or TRAM-AI. Note that these guideline items generally apply to scientific manuscripts (journal articles), rather than the descriptions of the AI models or datasets themselves."@en .
 
 
 ###  https://rsna.org/roadmap/00178
@@ -2481,7 +2481,7 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                  rdfs:label "ethical principle"@en ;
                                  skos:altLabel "guiding principle"@en ,
                                                "principle"@en ;
-                                 skos:definition "An ethical principle is a statement of a duty or a responsibility in the context of the development, deployment and continuing assessment of AI technologies for health."@en .
+                                 skos:definition "An ethical principle is a statement of a duty or a responsibility in the context of the development, deployment and continuing assessment of AI technologies for health. They apply directly to AI models and datasets, and apply indirectly to scientific reporting of AI resources."@en .
 
 
 ###  https://rsna.org/roadmap/00249
@@ -8816,6 +8816,30 @@ When the function is the square of the difference and the variables are binary (
                                  rdfs:subClassOf <https://rsna.org/roadmap/00248> ;
                                  rdfs:label "general ethical principle"@en ;
                                  skos:definition "The OECD and WHO principles are general and are meant to be taken as a whole."@en .
+
+
+###  https://rsna.org/roadmap/03808
+<https://rsna.org/roadmap/03808> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03355> ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty <https://rsna.org/roadmap/00201> ;
+                                                   owl:someValuesFrom <https://rsna.org/roadmap/03616>
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty <https://rsna.org/roadmap/00201> ;
+                                                   owl:someValuesFrom <https://rsna.org/roadmap/03642>
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty <https://rsna.org/roadmap/00201> ;
+                                                   owl:someValuesFrom <https://rsna.org/roadmap/04043>
+                                                 ] ;
+                                 rdfs:comment """A 3-tuple of the \"evaluation entity\" classes to describe the model's performance:
+
++ \"performance criterion\": the thing being measured, such as \"classification performance\"
++ \"metric\": the measurement used, such as \"Dice similarity coefficient\"
++ \"metric value\": the value achieved"""@en ;
+                                 rdfs:label "model performance"@en ;
+                                 skos:definition "An entity that specifies the performance of an AI model; it joins the performance criterion, metric, and metric value."@en .
 
 
 ###  https://rsna.org/roadmap/04003

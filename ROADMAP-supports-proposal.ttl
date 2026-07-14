@@ -1,0 +1,1782 @@
+@prefix : <https://rsna.org/roadmap/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+# PROPOSED :supports mappings (313 axioms) from AI resource metadata (03788) to guideline
+# items OTHER THAN CLAIM (00202) and TRAM-AI (00178).
+# Pattern matches the existing CLAIM/TRAM-AI mappings, e.g. :00051 supports :00205.
+# These are proposals for expert review, not asserted facts.
+
+###  name  (03597)
+<https://rsna.org/roadmap/03597> rdfs:subClassOf
+    # REFINE item 1.1
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00497>
+    ]
+    .
+
+###  date  (00065)
+<https://rsna.org/roadmap/00065> rdfs:subClassOf
+    # REFINE item 1.1
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00497>
+    ] ,
+    # SPIRIT-AI item 3
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00372>
+    ]
+    .
+
+###  publication date  (03420)
+<https://rsna.org/roadmap/03420> rdfs:subClassOf
+    # REFINE item 4.4
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00517>
+    ]
+    .
+
+###  update date  (03421)
+<https://rsna.org/roadmap/03421> rdfs:subClassOf
+    # DECIDE-AI item 11 - Modifications
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00584>
+    ] ,
+    # REFINE item 5.8
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00531>
+    ]
+    .
+
+###  version  (00066)
+<https://rsna.org/roadmap/00066> rdfs:subClassOf
+    # REFINE item 1.1
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00497>
+    ] ,
+    # CONSORT-AI item 05
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00340>
+    ] ,
+    # SPIRIT-AI item 11a
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00384>
+    ] ,
+    # DECIDE-AI item 4 - Al system
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00572>
+    ] ,
+    # REFINE item 5.8
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00531>
+    ] ,
+    # SPIRIT-AI item 3
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00372>
+    ]
+    .
+
+###  reference  (00067)
+<https://rsna.org/roadmap/00067> rdfs:subClassOf
+    # STARD-AI item 37
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00322>
+    ] ,
+    # CONSORT-AI item 24
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00368>
+    ] ,
+    # TRIPOD+AI item 18c
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00453>
+    ] ,
+    # DECIDE-AI item III - Research governance
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00570>
+    ]
+    .
+
+###  clinical trial number  (03623)
+<https://rsna.org/roadmap/03623> rdfs:subClassOf
+    # STARD-AI item 36
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00321>
+    ] ,
+    # CONSORT-AI item 23
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00367>
+    ] ,
+    # SPIRIT-AI item 2a
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00370>
+    ] ,
+    # TRIPOD+AI item 18d
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00454>
+    ] ,
+    # DECIDE-AI item III - Research governance
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00570>
+    ]
+    .
+
+###  published results identifier  (03624)
+<https://rsna.org/roadmap/03624> rdfs:subClassOf
+    # REFINE item 4.1
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00514>
+    ] ,
+    # DECIDE-AI item 4 - Al system
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00572>
+    ]
+    .
+
+###  license  (00068)
+<https://rsna.org/roadmap/00068> rdfs:subClassOf
+    # REFINE item 4.1
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00514>
+    ] ,
+    # TRIPOD+AI item 22
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00461>
+    ] ,
+    # CONSORT-AI item 25
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00369>
+    ] ,
+    # SPIRIT-AI item 29
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00413>
+    ] ,
+    # MINIMAR item 4.4 - Transparency
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00565>
+    ] ,
+    # REFINE item 1.7
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00503>
+    ] ,
+    # MI-CLAIM item 19
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00611>
+    ] ,
+    # DECIDE-AI item 17 - Data availability
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00591>
+    ]
+    .
+
+###  contact information  (00069)
+<https://rsna.org/roadmap/00069> rdfs:subClassOf
+    # SPIRIT-AI item 5a
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00374>
+    ] ,
+    # SPIRIT-AI item 5b
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00375>
+    ]
+    .
+
+###  summary  (00167)
+<https://rsna.org/roadmap/00167> rdfs:subClassOf
+    # STARD-AI item 02
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00280>
+    ] ,
+    # CONSORT-AI item 1b
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00333>
+    ] ,
+    # TRIPOD+AI item 02
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00421>
+    ] ,
+    # DECIDE-AI item I - Abstract
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00567>
+    ]
+    .
+
+###  funding  (03385)
+<https://rsna.org/roadmap/03385> rdfs:subClassOf
+    # STARD-AI item 39
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00324>
+    ] ,
+    # CONSORT-AI item 25
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00369>
+    ] ,
+    # SPIRIT-AI item 4
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00373>
+    ] ,
+    # SPIRIT-AI item 5c
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00376>
+    ] ,
+    # TRIPOD+AI item 18a
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00462>
+    ] ,
+    # TRIPOD+AI item 18b
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00452>
+    ] ,
+    # DECIDE-AI item X - Conflicts of interest
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00592>
+    ]
+    .
+
+###  ethical review  (03418)
+<https://rsna.org/roadmap/03418> rdfs:subClassOf
+    # STARD-AI item 06
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00284>
+    ] ,
+    # SPIRIT-AI item 24
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00407>
+    ] ,
+    # SPIRIT-AI item 26a
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00409>
+    ] ,
+    # TRIPOD+AI item 17
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00451>
+    ] ,
+    # DECIDE-AI item III - Research governance
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00570>
+    ] ,
+    # REFINE item 4.3
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00516>
+    ]
+    .
+
+###  link  (03723)
+<https://rsna.org/roadmap/03723> rdfs:subClassOf
+    # TRIPOD+AI item 18e
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00455>
+    ] ,
+    # TRIPOD+AI item 18f
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00456>
+    ] ,
+    # TRIPOD+AI item 22
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00461>
+    ] ,
+    # CONSORT-AI item 25
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00369>
+    ] ,
+    # SPIRIT-AI item 29
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00413>
+    ] ,
+    # MINIMAR item 4.4 - Transparency
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00565>
+    ] ,
+    # DECIDE-AI item 17 - Data availability
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00591>
+    ] ,
+    # REFINE item 1.6
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00502>
+    ] ,
+    # REFINE item 1.7
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00503>
+    ]
+    .
+
+###  model use  (00011)
+<https://rsna.org/roadmap/00011> rdfs:subClassOf
+    # STARD-AI item 03
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00281>
+    ] ,
+    # STARD-AI item 34
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00319>
+    ] ,
+    # CONSORT-AI item 01a
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00332>
+    ] ,
+    # CONSORT-AI item 2a
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00334>
+    ] ,
+    # SPIRIT-AI item 1
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00345>
+    ] ,
+    # SPIRIT-AI item 6a
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00378>
+    ] ,
+    # TRIPOD+AI item 03b
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00423>
+    ] ,
+    # DECIDE-AI item 2 - Intended use
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00568>
+    ] ,
+    # DECIDE-AI item 15 - Support for intended use
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00588>
+    ] ,
+    # MI-CLAIM item 01
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00593>
+    ] ,
+    # REFINE item 6.1
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00534>
+    ]
+    .
+
+###  out-of-scope model use  (00013)
+<https://rsna.org/roadmap/00013> rdfs:subClassOf
+    # REFINE item 6.4
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00537>
+    ]
+    .
+
+###  excluded model use  (00014)
+<https://rsna.org/roadmap/00014> rdfs:subClassOf
+    # REFINE item 6.4
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00537>
+    ]
+    .
+
+###  model user  (00036)
+<https://rsna.org/roadmap/00036> rdfs:subClassOf
+    # STARD-AI item 15d
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00296>
+    ] ,
+    # CONSORT-AI item 2a
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00334>
+    ] ,
+    # CONSORT-AI item 05
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00340>
+    ] ,
+    # SPIRIT-AI item 11a
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00384>
+    ] ,
+    # TRIPOD+AI item 27b
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00470>
+    ] ,
+    # DECIDE-AI item 2 - Intended use
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00568>
+    ] ,
+    # MINIMAR item 3.2 - Target user
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00554>
+    ]
+    .
+
+###  decision threshold  (03351)
+<https://rsna.org/roadmap/03351> rdfs:subClassOf
+    # STARD-AI item 15c
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00295>
+    ] ,
+    # TRIPOD+AI item 15
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00449>
+    ] ,
+    # REFINE item 3.1
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00511>
+    ]
+    .
+
+###  ethical consideration  (03352)
+<https://rsna.org/roadmap/03352> rdfs:subClassOf
+    # STARD-AI item 35
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00320>
+    ] ,
+    # TRIPOD+AI item 14
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00448>
+    ] ,
+    # DECIDE-AI item 8 - Ethics
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00578>
+    ] ,
+    # REFINE item 4.3
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00516>
+    ] ,
+    # REFINE item 6.7
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00540>
+    ]
+    .
+
+###  recommendation  (03354)
+<https://rsna.org/roadmap/03354> rdfs:subClassOf
+    # STARD-AI item 34
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00319>
+    ] ,
+    # DECIDE-AI item 15 - Support for intended use
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00588>
+    ] ,
+    # REFINE item 6.1
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00534>
+    ]
+    .
+
+###  model availability  (03373)
+<https://rsna.org/roadmap/03373> rdfs:subClassOf
+    # CONSORT-AI item 25
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00369>
+    ] ,
+    # SPIRIT-AI item 29
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00413>
+    ] ,
+    # TRIPOD+AI item 22
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00461>
+    ] ,
+    # TRIPOD+AI item 18f
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00456>
+    ] ,
+    # MINIMAR item 4.4 - Transparency
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00565>
+    ] ,
+    # MI-CLAIM item 19
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00611>
+    ] ,
+    # DECIDE-AI item 17 - Data availability
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00591>
+    ] ,
+    # REFINE item 1.6
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00502>
+    ] ,
+    # REFINE item 1.7
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00503>
+    ]
+    .
+
+###  sustainability  (03376)
+<https://rsna.org/roadmap/03376> rdfs:subClassOf
+    # REFINE item 1.8
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00504>
+    ]
+    .
+
+###  time to train model  (03377)
+<https://rsna.org/roadmap/03377> rdfs:subClassOf
+    # REFINE item 1.8
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00504>
+    ]
+    .
+
+###  time to evaluate single input  (03378)
+<https://rsna.org/roadmap/03378> rdfs:subClassOf
+    # REFINE item 1.8
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00504>
+    ]
+    .
+
+###  required processors  (03379)
+<https://rsna.org/roadmap/03379> rdfs:subClassOf
+    # REFINE item 1.8
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00504>
+    ]
+    .
+
+###  model input  (03481)
+<https://rsna.org/roadmap/03481> rdfs:subClassOf
+    # STARD-AI item 15a
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00293>
+    ] ,
+    # CONSORT-AI item 4a
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00338>
+    ] ,
+    # CONSORT-AI item 05
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00340>
+    ] ,
+    # SPIRIT-AI item 10
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00383>
+    ] ,
+    # SPIRIT-AI item 11a
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00384>
+    ] ,
+    # TRIPOD+AI item 09b
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00436>
+    ] ,
+    # TRIPOD+AI item 27a
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00469>
+    ] ,
+    # MINIMAR item 3.7 - Features
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00559>
+    ] ,
+    # MI-CLAIM item 10
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00602>
+    ] ,
+    # REFINE item 1.4
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00500>
+    ] ,
+    # REFINE item 2.3
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00507>
+    ] ,
+    # PROBAST+AI model development item 2.1
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00617>
+    ] ,
+    # PROBAST+AI model development item 2.4
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00620>
+    ] ,
+    # PROBAST+AI model evaluation item 2.1
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00639>
+    ] ,
+    # PROBAST+AI model evaluation item 2.4
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00642>
+    ] ,
+    # PROBAST+AI model development item 4.2
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00626>
+    ]
+    .
+
+###  model output  (03482)
+<https://rsna.org/roadmap/03482> rdfs:subClassOf
+    # CONSORT-AI item 05
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00340>
+    ] ,
+    # SPIRIT-AI item 11a
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00384>
+    ] ,
+    # TRIPOD+AI item 15
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00449>
+    ] ,
+    # MINIMAR item 3.1 - Model output
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00553>
+    ] ,
+    # MINIMAR item 3.5 - Model task
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00557>
+    ] ,
+    # REFINE item 1.4
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00500>
+    ] ,
+    # REFINE item 2.6
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00510>
+    ]
+    .
+
+###  model architecture  (03598)
+<https://rsna.org/roadmap/03598> rdfs:subClassOf
+    # CONSORT-AI item 01a
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00332>
+    ] ,
+    # SPIRIT-AI item 1
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00345>
+    ] ,
+    # TRIPOD+AI item 12c
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00442>
+    ] ,
+    # MINIMAR item 3.6 - Model architecture
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00558>
+    ] ,
+    # MI-CLAIM item 09
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00601>
+    ] ,
+    # DECIDE-AI item 4 - Al system
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00572>
+    ] ,
+    # REFINE item 1.2
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00498>
+    ] ,
+    # REFINE item 1.3
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00499>
+    ]
+    .
+
+###  indication for use  (03600)
+<https://rsna.org/roadmap/03600> rdfs:subClassOf
+    # STARD-AI item 03
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00281>
+    ] ,
+    # TRIPOD+AI item 03a
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00422>
+    ] ,
+    # DECIDE-AI item 2 - Intended use
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00568>
+    ] ,
+    # MI-CLAIM item 01
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00593>
+    ] ,
+    # REFINE item 6.1
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00534>
+    ]
+    .
+
+###  instructions for use  (03601)
+<https://rsna.org/roadmap/03601> rdfs:subClassOf
+    # CONSORT-AI item 05
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00340>
+    ] ,
+    # SPIRIT-AI item 11a
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00384>
+    ] ,
+    # TRIPOD+AI item 27a
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00469>
+    ] ,
+    # TRIPOD+AI item 27b
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00470>
+    ] ,
+    # DECIDE-AI item 10 - Implementation
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00581>
+    ] ,
+    # REFINE item 2.1
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00505>
+    ] ,
+    # REFINE item 2.2
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00506>
+    ] ,
+    # REFINE item 2.5
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00509>
+    ] ,
+    # REFINE item 6.2
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00535>
+    ]
+    .
+
+###  regulatory information  (03602)
+<https://rsna.org/roadmap/03602> rdfs:subClassOf
+    # REFINE item 6.7
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00540>
+    ]
+    .
+
+###  clinical benefit  (03612)
+<https://rsna.org/roadmap/03612> rdfs:subClassOf
+    # STARD-AI item 34
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00319>
+    ] ,
+    # CONSORT-AI item 22
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00366>
+    ] ,
+    # DECIDE-AI item 2 - Intended use
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00568>
+    ] ,
+    # DECIDE-AI item 15 - Support for intended use
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00588>
+    ] ,
+    # MI-CLAIM item 12
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00604>
+    ] ,
+    # REFINE item 6.3
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00536>
+    ]
+    .
+
+###  clinical workflow phase  (03613)
+<https://rsna.org/roadmap/03613> rdfs:subClassOf
+    # STARD-AI item 03
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00281>
+    ] ,
+    # CONSORT-AI item 4b
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00339>
+    ] ,
+    # SPIRIT-AI item 9
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00382>
+    ] ,
+    # TRIPOD+AI item 03b
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00423>
+    ] ,
+    # DECIDE-AI item 2 - Intended use
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00568>
+    ] ,
+    # DECIDE-AI item 5 - Implementation
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00573>
+    ] ,
+    # REFINE item 6.2
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00535>
+    ]
+    .
+
+###  degree of automation  (03614)
+<https://rsna.org/roadmap/03614> rdfs:subClassOf
+    # CONSORT-AI item 05
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00340>
+    ] ,
+    # SPIRIT-AI item 11a
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00384>
+    ] ,
+    # TRIPOD+AI item 27b
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00470>
+    ] ,
+    # DECIDE-AI item 12 - Human-computer agreement
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00585>
+    ] ,
+    # REFINE item 6.2
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00535>
+    ]
+    .
+
+###  reproducibility  (03620)
+<https://rsna.org/roadmap/03620> rdfs:subClassOf
+    # MI-CLAIM item 19
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00611>
+    ] ,
+    # REFINE item 5.6
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00529>
+    ] ,
+    # REFINE item 3.1
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00511>
+    ] ,
+    # MINIMAR item 4.4 - Transparency
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00565>
+    ] ,
+    # TRIPOD+AI item 18f
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00456>
+    ] ,
+    # MI-CLAIM item 09
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00601>
+    ]
+    .
+
+###  limitations  (03621)
+<https://rsna.org/roadmap/03621> rdfs:subClassOf
+    # STARD-AI item 33
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00318>
+    ] ,
+    # CONSORT-AI item 20
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00364>
+    ] ,
+    # CONSORT-AI item 21
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00365>
+    ] ,
+    # TRIPOD+AI item 26
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00468>
+    ] ,
+    # DECIDE-AI item IX - Strengths and limitations
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00590>
+    ] ,
+    # REFINE item 6.4
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00537>
+    ] ,
+    # REFINE item 1.4
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00500>
+    ] ,
+    # MI-CLAIM item 18
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00610>
+    ]
+    .
+
+###  known bias or failure mode  (03629)
+<https://rsna.org/roadmap/03629> rdfs:subClassOf
+    # STARD-AI item 23
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00307>
+    ] ,
+    # CONSORT-AI item 19
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00363>
+    ] ,
+    # SPIRIT-AI item 22
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00405>
+    ] ,
+    # DECIDE-AI item 6 - Safety and errors
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00575>
+    ] ,
+    # DECIDE-AI item 13 - Safety and errors
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00586>
+    ] ,
+    # DECIDE-AI item 16 - Safety and errors
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00589>
+    ] ,
+    # REFINE item 5.4
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00527>
+    ] ,
+    # REFINE item 5.5
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00528>
+    ] ,
+    # REFINE item 6.5
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00538>
+    ] ,
+    # MI-CLAIM item 18
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00610>
+    ]
+    .
+
+###  known data-characterization gap  (03630)
+<https://rsna.org/roadmap/03630> rdfs:subClassOf
+    # STARD-AI item 28
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00313>
+    ] ,
+    # STARD-AI item 29
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00314>
+    ] ,
+    # TRIPOD+AI item 03c
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00424>
+    ] ,
+    # TRIPOD+AI item 20c
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00459>
+    ] ,
+    # MI-CLAIM item 04
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00596>
+    ] ,
+    # REFINE item 4.6
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00519>
+    ] ,
+    # MINIMAR item 1.1 - Population
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00542>
+    ] ,
+    # PROBAST+AI model development item 1.3
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00616>
+    ] ,
+    # PROBAST+AI model evaluation item 1.3
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00638>
+    ]
+    .
+
+###  annotation level  (00051)
+<https://rsna.org/roadmap/00051> rdfs:subClassOf
+    # STARD-AI item 12
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00290>
+    ] ,
+    # STARD-AI item 16a
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00297>
+    ] ,
+    # TRIPOD+AI item 08a
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00432>
+    ] ,
+    # MINIMAR item 3.4 - Gold standard
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00556>
+    ] ,
+    # REFINE item 4.7
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00520>
+    ] ,
+    # PROBAST+AI model development item 3.1
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00621>
+    ] ,
+    # PROBAST+AI model development item 3.2
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00622>
+    ] ,
+    # PROBAST+AI model evaluation item 3.1
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00643>
+    ] ,
+    # PROBAST+AI model evaluation item 3.2
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00644>
+    ]
+    .
+
+###  motivation  (03383)
+<https://rsna.org/roadmap/03383> rdfs:subClassOf
+    # STARD-AI item 03
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00281>
+    ] ,
+    # STARD-AI item 04
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00282>
+    ] ,
+    # CONSORT-AI item 2b
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00335>
+    ] ,
+    # SPIRIT-AI item 6a
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00378>
+    ] ,
+    # SPIRIT-AI item 7
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00380>
+    ] ,
+    # TRIPOD+AI item 03a
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00422>
+    ] ,
+    # TRIPOD+AI item 04
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00425>
+    ] ,
+    # DECIDE-AI item II - Objectives
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00569>
+    ] ,
+    # MI-CLAIM item 02
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00594>
+    ]
+    .
+
+###  sampling  (03396)
+<https://rsna.org/roadmap/03396> rdfs:subClassOf
+    # STARD-AI item 07
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00285>
+    ] ,
+    # STARD-AI item 08
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00286>
+    ] ,
+    # STARD-AI item 09
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00287>
+    ] ,
+    # STARD-AI item 11
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00289>
+    ] ,
+    # STARD-AI item 22
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00306>
+    ] ,
+    # CONSORT-AI item 4a
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00338>
+    ] ,
+    # SPIRIT-AI item 10
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00383>
+    ] ,
+    # TRIPOD+AI item 05a
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00426>
+    ] ,
+    # TRIPOD+AI item 06b
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00429>
+    ] ,
+    # TRIPOD+AI item 10
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00438>
+    ] ,
+    # MINIMAR item 1.3 - Data source
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00544>
+    ] ,
+    # MINIMAR item 1.4 - Cohort selection
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00545>
+    ] ,
+    # DECIDE-AI item 3 - Participants
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00571>
+    ] ,
+    # MI-CLAIM item 03
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00595>
+    ] ,
+    # REFINE item 4.5
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00518>
+    ] ,
+    # REFINE item 4.2
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00515>
+    ] ,
+    # PROBAST+AI model development item 1.3
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00616>
+    ] ,
+    # PROBAST+AI model development item 4.1
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00625>
+    ] ,
+    # PROBAST+AI model evaluation item 1.3
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00638>
+    ] ,
+    # PROBAST+AI model evaluation item 4.2
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00648>
+    ] ,
+    # PROBAST+AI model development item 1.1
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00614>
+    ] ,
+    # PROBAST+AI model evaluation item 1.1
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00636>
+    ]
+    .
+
+###  sampling strategy  (03397)
+<https://rsna.org/roadmap/03397> rdfs:subClassOf
+    # STARD-AI item 10
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00288>
+    ] ,
+    # TRIPOD+AI item 05a
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00426>
+    ] ,
+    # PROBAST+AI model development item 1.2
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00615>
+    ] ,
+    # PROBAST+AI model evaluation item 1.2
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00637>
+    ]
+    .
+
+###  population  (03401)
+<https://rsna.org/roadmap/03401> rdfs:subClassOf
+    # MINIMAR item 1.1 - Population
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00542>
+    ] ,
+    # MINIMAR item 1.2 - Study setting
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00543>
+    ] ,
+    # MINIMAR item 2.1 - Age
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00547>
+    ] ,
+    # MINIMAR item 2.2 - Sex
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00548>
+    ] ,
+    # MINIMAR item 2.3 - Race
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00549>
+    ] ,
+    # MINIMAR item 2.4 - Ethnicity
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00550>
+    ] ,
+    # MINIMAR item 2.5 - Socioeconomic status
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00551>
+    ] ,
+    # STARD-AI item 25
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00309>
+    ] ,
+    # STARD-AI item 28
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00313>
+    ] ,
+    # TRIPOD+AI item 20b
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00458>
+    ] ,
+    # DECIDE-AI item 9 - Participants
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00580>
+    ] ,
+    # MI-CLAIM item 03
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00595>
+    ] ,
+    # MI-CLAIM item 04
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00596>
+    ] ,
+    # REFINE item 4.6
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00519>
+    ]
+    .
+
+###  missing information  (03408)
+<https://rsna.org/roadmap/03408> rdfs:subClassOf
+    # STARD-AI item 19
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00303>
+    ] ,
+    # STARD-AI item 20
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00304>
+    ] ,
+    # CONSORT-AI item 05
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00340>
+    ] ,
+    # SPIRIT-AI item 20c
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00402>
+    ] ,
+    # TRIPOD+AI item 11
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00439>
+    ] ,
+    # TRIPOD+AI item 27a
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00469>
+    ] ,
+    # MINIMAR item 3.8 - Missingness
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00560>
+    ] ,
+    # DECIDE-AI item 9 - Participants
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00580>
+    ] ,
+    # REFINE item 4.9
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00522>
+    ] ,
+    # PROBAST+AI model development item 4.3
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00627>
+    ] ,
+    # PROBAST+AI model evaluation item 4.3
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00649>
+    ]
+    .
+
+###  relationships between instances  (03409)
+<https://rsna.org/roadmap/03409> rdfs:subClassOf
+    # TRIPOD+AI item 12a
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00440>
+    ] ,
+    # TRIPOD+AI item 12d
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00443>
+    ] ,
+    # MI-CLAIM item 08
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00600>
+    ] ,
+    # REFINE item 4.10
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00523>
+    ] ,
+    # REFINE item 4.8
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00521>
+    ] ,
+    # PROBAST+AI model evaluation item 4.5
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00651>
+    ]
+    .
+
+###  partitioning scheme  (03410)
+<https://rsna.org/roadmap/03410> rdfs:subClassOf
+    # STARD-AI item 15b
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00294>
+    ] ,
+    # STARD-AI item 25
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00309>
+    ] ,
+    # TRIPOD+AI item 12a
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00440>
+    ] ,
+    # TRIPOD+AI item 12c
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00442>
+    ] ,
+    # MINIMAR item 3.3 - Data splitting
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00555>
+    ] ,
+    # MINIMAR item 4.2 - Internal model validation
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00563>
+    ] ,
+    # MINIMAR item 4.3 - External model validation
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00564>
+    ] ,
+    # MI-CLAIM item 08
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00600>
+    ] ,
+    # REFINE item 4.10
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00523>
+    ] ,
+    # PROBAST+AI model evaluation item 4.1
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00647>
+    ] ,
+    # PROBAST+AI model evaluation item 4.5
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00651>
+    ] ,
+    # PROBAST+AI model evaluation item 4.6
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00652>
+    ] ,
+    # PROBAST+AI model development item 4.5
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00635>
+    ]
+    .
+
+###  noise  (03411)
+<https://rsna.org/roadmap/03411> rdfs:subClassOf
+    # STARD-AI item 33
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00318>
+    ] ,
+    # TRIPOD+AI item 07
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00431>
+    ] ,
+    # REFINE item 4.8
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00521>
+    ] ,
+    # PROBAST+AI model development item 2.2
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00618>
+    ] ,
+    # PROBAST+AI model evaluation item 2.2
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00640>
+    ]
+    .
+
+###  external data  (03412)
+<https://rsna.org/roadmap/03412> rdfs:subClassOf
+    # STARD-AI item 11
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00289>
+    ] ,
+    # STARD-AI item 29
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00314>
+    ] ,
+    # TRIPOD+AI item 16
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00450>
+    ] ,
+    # MINIMAR item 1.3 - Data source
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00544>
+    ] ,
+    # MINIMAR item 4.3 - External model validation
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00564>
+    ] ,
+    # REFINE item 4.2
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00515>
+    ] ,
+    # REFINE item 4.4
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00517>
+    ] ,
+    # MI-CLAIM item 06
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00598>
+    ] ,
+    # PROBAST+AI model development item 1.1
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00614>
+    ] ,
+    # PROBAST+AI model evaluation item 1.1
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00636>
+    ]
+    .
+
+###  confidentiality  (03413)
+<https://rsna.org/roadmap/03413> rdfs:subClassOf
+    # SPIRIT-AI item 19
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00399>
+    ] ,
+    # SPIRIT-AI item 27
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00411>
+    ] ,
+    # REFINE item 4.3
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00516>
+    ] ,
+    # REFINE item 6.6
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00539>
+    ]
+    .
+
+###  risk of re-identification  (03415)
+<https://rsna.org/roadmap/03415> rdfs:subClassOf
+    # SPIRIT-AI item 27
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00411>
+    ] ,
+    # REFINE item 4.3
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00516>
+    ] ,
+    # REFINE item 6.6
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00539>
+    ]
+    .
+
+###  sensitive data  (03416)
+<https://rsna.org/roadmap/03416> rdfs:subClassOf
+    # SPIRIT-AI item 27
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00411>
+    ] ,
+    # REFINE item 4.3
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00516>
+    ] ,
+    # REFINE item 6.6
+    [ rdf:type owl:Restriction ;
+      owl:onProperty :supports ;
+      owl:hasValue <https://rsna.org/roadmap/00539>
+    ]
+    .
