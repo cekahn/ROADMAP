@@ -3131,7 +3131,8 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                                        owl:someValuesFrom <https://rsna.org/roadmap/04055>
                                                      ] ;
                                  rdfs:subClassOf <https://rsna.org/roadmap/01039> ;
-                                 rdfs:label "macro-averaged classification metric"@en .
+                                 rdfs:label "macro-averaged classification metric"@en ;
+                                 skos:definition "A metric that measures macro-averaged classification performance."@en .
 
 
 ###  https://rsna.org/roadmap/01041
@@ -3141,7 +3142,8 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                                        owl:someValuesFrom <https://rsna.org/roadmap/04054>
                                                      ] ;
                                  rdfs:subClassOf <https://rsna.org/roadmap/01039> ;
-                                 rdfs:label "micro-averaged classification metric"@en .
+                                 rdfs:label "micro-averaged classification metric"@en ;
+                                 skos:definition "A metric that measures micro-averaged classification performance."@en .
 
 
 ###  https://rsna.org/roadmap/01042
