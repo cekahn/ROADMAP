@@ -2605,16 +2605,18 @@ owl:Thing rdf:type owl:Class .
 
 ###  https://rsna.org/roadmap/00169
 <https://rsna.org/roadmap/00169> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/03805> ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03805> ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty <https://rsna.org/roadmap/04089> ;
+                                                   owl:hasValue <https://rsna.org/roadmap/03815>
+                                                 ] ;
                                  owl:disjointWith <https://rsna.org/roadmap/00249> ;
                                  dc:rights <https://creativecommons.org/licenses/by/4.0/> ;
                                  dc:source <https://doi.org/10.1038/sdata.2016.18> ;
                                  rdfs:comment "FAIR principles are incorporated under the Creative Commons CC BY 4.0 license."@en ;
                                  rdfs:label "FAIR principle"@en ;
                                  rdfs:seeAlso <https://www.go-fair.org/fair-principles/> ;
-                                 skos:altLabel "FAIR"@en ,
-                                               "FAIR Guiding Principles"@en ,
-                                               "FAIR principles"@en ;
+                                 skos:altLabel "FAIR Guiding Principles"@en ;
                                  skos:definition "Principles that stress the findability, accessibility, interoperability, and reusability of scientific data."@en .
 
 
@@ -2706,11 +2708,14 @@ D - Ethical, Legal, and Maintenance"""@en ;
 
 ###  https://rsna.org/roadmap/00249
 <https://rsna.org/roadmap/00249> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/03805> ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03805> ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty <https://rsna.org/roadmap/04089> ;
+                                                   owl:hasValue <https://rsna.org/roadmap/03816>
+                                                 ] ;
                                  dc:source <https://doi.org/10.1136/bmj-2024-081554> ;
                                  rdfs:label "FUTURE-AI principle"@en ;
                                  rdfs:seeAlso <https://future-ai.eu/> ;
-                                 skos:altLabel "FUTURE-AI"@en ;
                                  skos:definition "FUTURE-AI is an international, multi-stakeholder initiative for defining and maintaining concrete guidelines that will facilitate the design, development, validation and deployment of trustworthy AI solutions in medicine and healthcare based on six guiding principles: Fairness, Universality, Traceability, Usability, Robustness and Explainability."@en .
 
 
@@ -2789,18 +2794,25 @@ D - Ethical, Legal, and Maintenance"""@en ;
 
 ###  https://rsna.org/roadmap/00463
 <https://rsna.org/roadmap/00463> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/03806> ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03806> ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty <https://rsna.org/roadmap/04089> ;
+                                                   owl:hasValue <https://rsna.org/roadmap/03813>
+                                                 ] ;
                                  owl:disjointWith <https://rsna.org/roadmap/00473> ;
                                  dc:source <https://www.oecd.org/en/topics/sub-issues/ai-principles.html> ;
-                                 rdfs:comment "The OECD AI Principles are the first intergovernmental standard on AI. They promote innovative, trustworthy AI that respects human rights and democratic values. Adopted in 2019 and updated in 2024, they are composed of five values-based principles and five recommendations that provide practical and flexible guidance for policymakers and AI actors [from OECD web site]."@en ,
-                                              "The OECD AI Principles identify five complementary values-based principles for the responsible stewardship of trustworthy AI."@en ;
+                                 rdfs:comment "The OECD AI Principles identify five complementary values-based principles for the responsible stewardship of trustworthy AI."@en ;
                                  rdfs:label "OECD AI principle"@en ;
                                  skos:definition "The OECD AI Principles are a framework adopted in 2019 by the Organisation for Economic Co-operation and Development to promote trustworthy and human-centered artificial intelligence. They guide governments and organizations in developing, deploying, and managing AI systems that are fair, transparent, and accountable."@en .
 
 
 ###  https://rsna.org/roadmap/00473
 <https://rsna.org/roadmap/00473> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/03806> ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03806> ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty <https://rsna.org/roadmap/04089> ;
+                                                   owl:hasValue <https://rsna.org/roadmap/03814>
+                                                 ] ;
                                  dc:source <https://www.who.int/publications/i/item/9789240029200> ;
                                  rdfs:label "WHO AI principle"@en ;
                                  skos:altLabel "WHO principle"@en ,
@@ -10164,6 +10176,12 @@ When the function is the square of the difference and the variables are binary (
                                  skos:definition "An entity that specifies the performance of an AI model; it joins the performance criterion, metric, and metric value."@en .
 
 
+###  https://rsna.org/roadmap/03809
+<https://rsna.org/roadmap/03809> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/00660> ;
+                                 rdfs:label "ethical framework"@en .
+
+
 ###  https://rsna.org/roadmap/04003
 <https://rsna.org/roadmap/04003> rdf:type owl:Class ;
                                  rdfs:subClassOf <https://rsna.org/roadmap/03624> ;
@@ -11778,10 +11796,10 @@ A1.1 : The protocol is open, free, and universally implementable.
 A1.2 : The protocol allows for an authentication and authorization procedure, where necessary.
 A2 : Metadata are accessible, even when the data are no longer available."""@en ,
                                               "The A in FAIR: data and metadata are retrievable by their identifier using standardised protocols."@en ;
-                                 rdfs:label "accessibility"@en ;
+                                 rdfs:label "accessible"@en ;
                                  skos:altLabel "FAIR-A"@en ,
-                                               "accessibility principle"@en ,
-                                               "accessible"@en ;
+                                               "accessibility"@en ,
+                                               "accessibility principle"@en ;
                                  skos:definition "Accessible: Once users finds the required data, they need to know how the data can be accessed, possibly including authentication and authorisation."@en .
 
 
@@ -11793,11 +11811,11 @@ F2 : Data are described with rich metadata (defined by R1).
 F3 : Metadata clearly and explicitly include the identifier of the data they describe.
 F4 : (Meta)data are registered or indexed in a searchable resource."""@en ,
                                               "The F in FAIR: data and metadata are assigned globally unique and persistent identifiers."@en ;
-                                 rdfs:label "findability"@en ;
+                                 rdfs:label "findable"@en ;
                                  skos:altLabel "F"@en ,
                                                "FAIR-F"@en ,
-                                               "findability principle"@en ,
-                                               "findable"@en ;
+                                               "findability"@en ,
+                                               "findability principle"@en ;
                                  skos:definition "Findable: The first step in (re)using data is to find them. Metadata and data should be easy to find for both humans and computers. Machine-readable metadata are essential for automatic discovery of datasets and services."@en .
 
 
@@ -11808,11 +11826,11 @@ F4 : (Meta)data are registered or indexed in a searchable resource."""@en ,
 I2 : (Meta)data use vocabularies that follow FAIR principles.
 I3 : (Meta)data include qualified references to other (meta)data."""@en ,
                                               "The I in FAIR: data and metadata use a formal, accessible, shared, and broadly applicable language for knowledge representation."@en ;
-                                 rdfs:label "interoperability"@en ;
+                                 rdfs:label "interoperable"@en ;
                                  skos:altLabel "FAIR-I"@en ,
                                                "I"@en ,
-                                               "interoperability principle"@en ,
-                                               "interoperable"@en ;
+                                               "interoperability"@en ,
+                                               "interoperability principle"@en ;
                                  skos:definition "Interoperable: Data should be able to integrate and work alongside other data systems. This means using shared, standard languages (like JSON or XML) and formal vocabularies so systems can exchange information seamlessly."@en .
 
 
@@ -11824,11 +11842,11 @@ R1.1 : (Meta)data are released with a clear and accessible data usage license.
 R1.2 : (Meta)data are associated with detailed provenance.
 R1.3 : (Meta)data meet domain-relevant community standards."""@en ,
                                               "The R in FAIR: data and metadata are richly described with a plurality of accurate and relevant attributes."@en ;
-                                 rdfs:label "reusability"@en ;
+                                 rdfs:label "reusable"@en ;
                                  skos:altLabel "FAIR-R"@en ,
                                                "R"@en ,
+                                               "reusability"@en ,
                                                "reusability principle"@en ,
-                                               "reusable"@en ,
                                                "reuse"@en ;
                                  skos:definition "Reusable: The ultimate goal of FAIR. To optimize data for future use and replication, datasets must include clear usage licenses, detailed provenance (origin history), and adhere to domain-specific community standards."@en .
 
@@ -12598,6 +12616,7 @@ R1.3 : (Meta)data meet domain-relevant community standards."""@en ,
                                           <https://rsna.org/roadmap/00249> ;
                                  rdfs:label "universality"@en ;
                                  skos:altLabel "U"@en ,
+                                               "UN"@en ,
                                                "universal"@en ,
                                                "universality principle"@en ;
                                  skos:definition "The U in FUTURE-AI: AI solutions should be developed and validated on diverse, representative populations to ensure broad applicability."@en ,
@@ -12620,6 +12639,7 @@ R1.3 : (Meta)data meet domain-relevant community standards."""@en ,
                                           <https://rsna.org/roadmap/00249> ;
                                  rdfs:label "explainability"@en ;
                                  skos:altLabel "E"@en ,
+                                               "EX"@en ,
                                                "explainability principle"@en ,
                                                "explainable"@en ;
                                  skos:definition "The E in FUTURE-AI: AI solutions should provide explanations that are clinically meaningful and understandable to end users."@en ,
@@ -16483,6 +16503,79 @@ Tier 4: no sharing"""@en ;
                                             "妊娠天数"@zh ;
                                  skos:definition "Unit for Gestational age, as measured in days from the onset of the mother's last menstrual period. To simplify comparison, gestational age should be converted from the weeks / days format."@en ;
                                  skos:exactMatch <http://mimi.case.edu/ontologies/2009/1/UnitsOntology#day> .
+
+
+###  https://rsna.org/roadmap/03811
+<https://rsna.org/roadmap/03811> rdf:type owl:NamedIndividual ;
+                                 rdfs:label "OECD AI principles"@en .
+
+
+###  https://rsna.org/roadmap/03812
+<https://rsna.org/roadmap/03812> rdf:type owl:NamedIndividual ;
+                                 rdfs:label "WHO AI principles"@en .
+
+
+###  https://rsna.org/roadmap/03813
+<https://rsna.org/roadmap/03813> rdf:type owl:NamedIndividual ,
+                                          <https://rsna.org/roadmap/03809> ;
+                                 <https://rsna.org/roadmap/03776> <https://rsna.org/roadmap/00474> ,
+                                                                  <https://rsna.org/roadmap/00475> ,
+                                                                  <https://rsna.org/roadmap/00476> ,
+                                                                  <https://rsna.org/roadmap/00477> ,
+                                                                  <https://rsna.org/roadmap/00478> ;
+                                 dc:author <https://www.oecd.org/> ,
+                                           "Organisation for Economic Co-operation and Development"@en ;
+                                 dc:source <https://www.oecd.org/en/topics/sub-issues/ai-principles.html> ;
+                                 rdfs:comment "The OECD AI Principles are the first intergovernmental standard on AI. They promote innovative, trustworthy AI that respects human rights and democratic values. Adopted in 2019 and updated in 2024, they are composed of five values-based principles and five recommendations that provide practical and flexible guidance for policymakers and AI actors [from OECD web site]."@en ;
+                                 rdfs:label "OECD AI Principles"@en ;
+                                 skos:definition "The OECD AI Principles are a framework adopted in 2019 by the Organisation for Economic Co-operation and Development to promote trustworthy and human-centered artificial intelligence. They guide governments and organizations in developing, deploying, and managing AI systems that are fair, transparent, and accountable."@en .
+
+
+###  https://rsna.org/roadmap/03814
+<https://rsna.org/roadmap/03814> rdf:type owl:NamedIndividual ,
+                                          <https://rsna.org/roadmap/03809> ;
+                                 <https://rsna.org/roadmap/03776> <https://rsna.org/roadmap/00479> ,
+                                                                  <https://rsna.org/roadmap/00480> ,
+                                                                  <https://rsna.org/roadmap/00481> ,
+                                                                  <https://rsna.org/roadmap/00482> ,
+                                                                  <https://rsna.org/roadmap/00483> ,
+                                                                  <https://rsna.org/roadmap/00484> ;
+                                 dc:author <https://www.who.int/> ,
+                                           "World Health Organization"@en ;
+                                 dc:source <https://www.who.int/publications/i/item/9789240029200> ;
+                                 rdfs:label "World Health Organization Guidance on Ethics and Governance of AI for Health"@en ;
+                                 skos:altLabel "WHO AI printicples"@en ,
+                                               "WHO framework"@en ;
+                                 skos:definition "The key ethical principles for use of artificial intelligence for health, as defined by the World Health Organization."@en .
+
+
+###  https://rsna.org/roadmap/03815
+<https://rsna.org/roadmap/03815> rdf:type owl:NamedIndividual ,
+                                          <https://rsna.org/roadmap/03809> ;
+                                 <https://rsna.org/roadmap/03776> <https://rsna.org/roadmap/00170> ,
+                                                                  <https://rsna.org/roadmap/00171> ,
+                                                                  <https://rsna.org/roadmap/00172> ,
+                                                                  <https://rsna.org/roadmap/00173> ;
+                                 dc:source <https://doi.org/10.1038/sdata.2016.18> ;
+                                 rdfs:label "FAIR Guiding Principles"@en ;
+                                 rdfs:seeAlso <https://www.go-fair.org/fair-principles/> ;
+                                 skos:altLabel "FAIR"@en ,
+                                               "FAIR principles"@en .
+
+
+###  https://rsna.org/roadmap/03816
+<https://rsna.org/roadmap/03816> rdf:type owl:NamedIndividual ,
+                                          <https://rsna.org/roadmap/03809> ;
+                                 <https://rsna.org/roadmap/03776> <https://rsna.org/roadmap/00253> ,
+                                                                  <https://rsna.org/roadmap/00254> ,
+                                                                  <https://rsna.org/roadmap/00255> ,
+                                                                  <https://rsna.org/roadmap/00256> ,
+                                                                  <https://rsna.org/roadmap/00257> ,
+                                                                  <https://rsna.org/roadmap/00258> ;
+                                 dc:source <https://doi.org/10.1136/bmj-2024-081554> ;
+                                 rdfs:label "FUTURE-AI"@en ;
+                                 rdfs:seeAlso <https://future-ai.eu/> ;
+                                 skos:definition "FUTURE-AI is an international, multi-stakeholder initiative for defining and maintaining concrete guidelines that will facilitate the design, development, validation and deployment of trustworthy AI solutions in medicine and healthcare based on six guiding principles: Fairness, Universality, Traceability, Usability, Robustness and Explainability."@en .
 
 
 ###  https://rsna.org/roadmap/04001
