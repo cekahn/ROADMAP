@@ -2650,7 +2650,11 @@ owl:Thing rdf:type owl:Class .
 
 ###  https://rsna.org/roadmap/00178
 <https://rsna.org/roadmap/00178> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/00177> ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/00177> ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty <https://rsna.org/roadmap/04089> ;
+                                                   owl:hasValue <https://rsna.org/roadmap/00176>
+                                                 ] ;
                                  rdfs:comment """A - Access and Persistence
 B - Technical Interoperability
 C - Metadata and Reproducibility
@@ -2689,7 +2693,11 @@ D - Ethical, Legal, and Maintenance"""@en ;
 
 ###  https://rsna.org/roadmap/00202
 <https://rsna.org/roadmap/00202> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/00177> ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/00177> ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty <https://rsna.org/roadmap/04089> ;
+                                                   owl:hasValue <https://rsna.org/roadmap/00175>
+                                                 ] ;
                                  rdfs:label "CLAIM item"@en ;
                                  skos:definition "An item from the CLAIM (Checklist for Artificial Intelligence in Medicine Imaging) guideline."@en .
 
@@ -2758,7 +2766,11 @@ D - Ethical, Legal, and Maintenance"""@en ;
 
 ###  https://rsna.org/roadmap/00278
 <https://rsna.org/roadmap/00278> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/00177> ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/00177> ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty <https://rsna.org/roadmap/04089> ;
+                                                   owl:hasValue <https://rsna.org/roadmap/00275>
+                                                 ] ;
                                  rdfs:label "STARD-AI item"@en ;
                                  skos:definition "An item of the STARD-AI reporting guideline."@en .
 
@@ -2774,21 +2786,33 @@ D - Ethical, Legal, and Maintenance"""@en ;
 
 ###  https://rsna.org/roadmap/00329
 <https://rsna.org/roadmap/00329> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/00177> ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/00177> ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty <https://rsna.org/roadmap/04089> ;
+                                                   owl:hasValue <https://rsna.org/roadmap/00276>
+                                                 ] ;
                                  rdfs:label "CONSORT-AI item"@en ;
                                  skos:definition "An item of the CONSORT-AI guideline."@en .
 
 
 ###  https://rsna.org/roadmap/00330
 <https://rsna.org/roadmap/00330> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/00177> ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/00177> ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty <https://rsna.org/roadmap/04089> ;
+                                                   owl:hasValue <https://rsna.org/roadmap/00328>
+                                                 ] ;
                                  rdfs:label "SPIRIT-AI item"@en ;
                                  skos:definition "An item from the SPIRIT-AI guideline."@en .
 
 
 ###  https://rsna.org/roadmap/00331
 <https://rsna.org/roadmap/00331> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/00177> ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/00177> ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty <https://rsna.org/roadmap/04089> ;
+                                                   owl:hasValue <https://rsna.org/roadmap/00277>
+                                                 ] ;
                                  rdfs:label "TRIPOD+AI item"@en ;
                                  skos:altLabel "TRIPOD-AI item"@en ;
                                  skos:definition "An item of the TRIPOD+AI reporting guideline."@en .
@@ -2824,28 +2848,44 @@ D - Ethical, Legal, and Maintenance"""@en ;
 
 ###  https://rsna.org/roadmap/00490
 <https://rsna.org/roadmap/00490> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/00177> ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/00177> ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty <https://rsna.org/roadmap/04089> ;
+                                                   owl:hasValue <https://rsna.org/roadmap/00486>
+                                                 ] ;
                                  rdfs:label "DECIDE-AI item"@en ;
                                  skos:definition "An item from the DECIDE-AI guideline."@en .
 
 
 ###  https://rsna.org/roadmap/00491
 <https://rsna.org/roadmap/00491> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/00177> ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/00177> ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty <https://rsna.org/roadmap/04089> ;
+                                                   owl:hasValue <https://rsna.org/roadmap/00487>
+                                                 ] ;
                                  rdfs:label "MINIMAR item"@en ;
                                  skos:definition "An item from the MINIMAR guideline."@en .
 
 
 ###  https://rsna.org/roadmap/00492
 <https://rsna.org/roadmap/00492> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/00177> ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/00177> ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty <https://rsna.org/roadmap/04089> ;
+                                                   owl:hasValue <https://rsna.org/roadmap/00485>
+                                                 ] ;
                                  rdfs:label "MI-CLAIM item"@en ;
                                  skos:definition "An item from the MI-CLAIM guideline."@en .
 
 
 ###  https://rsna.org/roadmap/00493
 <https://rsna.org/roadmap/00493> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/00177> ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/00177> ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty <https://rsna.org/roadmap/04089> ;
+                                                   owl:hasValue <https://rsna.org/roadmap/00488>
+                                                 ] ;
                                  rdfs:label "PROBAST+AI item"@en ;
                                  skos:altLabel "PROBAST-AI item"@en ;
                                  skos:definition "An item from the PROBAST+AI guideline."@en .
@@ -2853,7 +2893,11 @@ D - Ethical, Legal, and Maintenance"""@en ;
 
 ###  https://rsna.org/roadmap/00496
 <https://rsna.org/roadmap/00496> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/00177> ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/00177> ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty <https://rsna.org/roadmap/04089> ;
+                                                   owl:hasValue <https://rsna.org/roadmap/00495>
+                                                 ] ;
                                  rdfs:label "REFINE item"@en ;
                                  skos:definition "An item from the REFINE guideline."@en .
 
