@@ -472,7 +472,11 @@ owl:topDataProperty rdf:type owl:DatatypeProperty .
 :maximum rdf:type owl:DatatypeProperty ,
                   owl:FunctionalProperty ;
          rdfs:domain <https://rsna.org/roadmap/03302> ;
-         rdfs:range xsd:float ;
+         rdfs:range [ rdf:type rdfs:Datatype ;
+                      owl:unionOf ( xsd:decimal
+                                    xsd:float
+                                  )
+                    ] ;
          rdfs:label "maximum"@en ;
          skos:altLabel "maximal value"@en ,
                        "upper bound"@en ,
@@ -485,7 +489,11 @@ owl:topDataProperty rdf:type owl:DatatypeProperty .
 :minimum rdf:type owl:DatatypeProperty ,
                   owl:FunctionalProperty ;
          rdfs:domain <https://rsna.org/roadmap/03302> ;
-         rdfs:range xsd:float ;
+         rdfs:range [ rdf:type rdfs:Datatype ;
+                      owl:unionOf ( xsd:decimal
+                                    xsd:float
+                                  )
+                    ] ;
          rdfs:label "minimum"@en ;
          skos:altLabel "lower bound"@en ,
                        "lowerBound"@en ,
@@ -498,7 +506,11 @@ owl:topDataProperty rdf:type owl:DatatypeProperty .
 :optimum rdf:type owl:DatatypeProperty ,
                   owl:FunctionalProperty ;
          rdfs:domain <https://rsna.org/roadmap/03302> ;
-         rdfs:range xsd:float ;
+         rdfs:range [ rdf:type rdfs:Datatype ;
+                      owl:unionOf ( xsd:decimal
+                                    xsd:float
+                                  )
+                    ] ;
          rdfs:comment "This annotation allow one to compare two values to determine which is better."@en ;
          rdfs:label "optimum"@en ;
          skos:altLabel "optimal value"@en ,
@@ -10765,7 +10777,7 @@ When the function is the square of the difference and the variables are binary (
 
 ###  https://rsna.org/roadmap/04041
 <https://rsna.org/roadmap/04041> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/04034> ,
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03302> ,
                                                  [ rdf:type owl:Restriction ;
                                                    owl:onProperty :maximum ;
                                                    owl:hasValue 1
@@ -12319,8 +12331,7 @@ R1.3 : (Meta)data meet domain-relevant community standards."""@en ,
                                  :supports <https://rsna.org/roadmap/00172> ,
                                            <https://rsna.org/roadmap/00173> ,
                                            <https://rsna.org/roadmap/00255> ,
-                                           <https://rsna.org/roadmap/00257> ,
-                                           <https://rsna.org/roadmap/00258> ;
+                                           <https://rsna.org/roadmap/00257> ;
                                  <https://rsna.org/roadmap/04089> <https://rsna.org/roadmap/00175> ;
                                  rdfs:label "CLAIM item 14"@en ;
                                  skos:definition "Definition of method(s) used to obtain reference standard."@en .
@@ -12551,8 +12562,7 @@ R1.3 : (Meta)data meet domain-relevant community standards."""@en ,
                                           <https://rsna.org/roadmap/00202> ;
                                  :supports <https://rsna.org/roadmap/00172> ,
                                            <https://rsna.org/roadmap/00173> ,
-                                           <https://rsna.org/roadmap/00253> ,
-                                           <https://rsna.org/roadmap/00258> ;
+                                           <https://rsna.org/roadmap/00253> ;
                                  <https://rsna.org/roadmap/04089> <https://rsna.org/roadmap/00175> ;
                                  rdfs:label "CLAIM item 36"@en ;
                                  skos:definition "Demographic and clinical characteristics of cases in each partition."@en .
