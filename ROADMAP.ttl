@@ -353,12 +353,11 @@ owl:topObjectProperty rdf:type owl:ObjectProperty .
 <https://rsna.org/roadmap/03709> rdf:type owl:ObjectProperty ,
                                           owl:AsymmetricProperty ,
                                           owl:IrreflexiveProperty ;
+                                 rdfs:domain <https://rsna.org/roadmap/03808> ;
                                  rdfs:range <https://rsna.org/roadmap/03642> ;
                                  <http://www.geneontology.org/formats/oboInOwl#hasRelatedSynonym> "has performance"@en ;
                                  rdfs:comment "This property links a model to one or more model performance metrics."@en ;
                                  rdfs:label "has metric"@en ;
-                                 skos:altLabel "hasMetric"@en ,
-                                               "hasPerformance"@en ;
                                  skos:definition "Defines a relationship between a model and the metrics that describe its performance."@en .
 
 
@@ -450,27 +449,18 @@ owl:topObjectProperty rdf:type owl:ObjectProperty .
                                  skos:definition "Links an ethical framework (e.g., FUTURE-AI) to its principles."@en .
 
 
-###  https://rsna.org/roadmap/03842
-<https://rsna.org/roadmap/03842> rdf:type owl:ObjectProperty ;
-                                 rdfs:domain <https://rsna.org/roadmap/03808> ;
-                                 rdfs:range [ rdf:type owl:Restriction ;
-                                              owl:onProperty <https://rsna.org/roadmap/03822> ;
-                                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                              owl:onDataRange xsd:decimal
-                                            ] ;
-                                 rdfs:label "has metric value"@en ;
-                                 skos:definition "Links a model performance 3-tuple (metric, metric value, evaluation dataset) to its metric value."@en .
-
-
 ###  https://rsna.org/roadmap/03848
 <https://rsna.org/roadmap/03848> rdf:type owl:ObjectProperty ,
                                           owl:FunctionalProperty ;
+                                 rdfs:domain <https://rsna.org/roadmap/03423> ;
                                  rdfs:range <https://rsna.org/roadmap/03467> ;
-                                 rdfs:label "has age unit"@en .
+                                 rdfs:label "has age unit"@en ;
+                                 skos:definition "Specifies the units for a stated age."@en .
 
 
 ###  https://rsna.org/roadmap/03849
-<https://rsna.org/roadmap/03849> rdf:type owl:ObjectProperty ;
+<https://rsna.org/roadmap/03849> rdf:type owl:ObjectProperty ,
+                                          owl:FunctionalProperty ;
                                  rdfs:domain <https://rsna.org/roadmap/03808> ;
                                  rdfs:range <https://rsna.org/roadmap/00672> ;
                                  rdfs:label "has confidence interval"@en .
@@ -647,13 +637,16 @@ owl:topDataProperty rdf:type owl:DatatypeProperty .
 ###  https://rsna.org/roadmap/03843
 <https://rsna.org/roadmap/03843> rdf:type owl:DatatypeProperty ;
                                  rdfs:domain <https://rsna.org/roadmap/03808> ;
-                                 rdfs:range xsd:decimal ;
-                                 rdfs:label "has observed metric value"@en .
+                                 rdfs:label "metric observed value"@en ;
+                                 skos:definition "Specifies the observed value of a metric for a model on a specified dataset."@en .
 
 
 ###  https://rsna.org/roadmap/03844
 <https://rsna.org/roadmap/03844> rdf:type owl:DatatypeProperty ;
-                                 rdfs:label "age range values"@en .
+                                 rdfs:domain <https://rsna.org/roadmap/03462> ;
+                                 rdfs:range xsd:decimal ;
+                                 rdfs:label "age range values"@en ;
+                                 skos:definition "An age range's lower and upper bounds."@en .
 
 
 ###  https://rsna.org/roadmap/03845
@@ -662,7 +655,8 @@ owl:topDataProperty rdf:type owl:DatatypeProperty .
                                  rdf:type owl:FunctionalProperty ;
                                  rdfs:domain <https://rsna.org/roadmap/03462> ;
                                  rdfs:range xsd:decimal ;
-                                 rdfs:label "lower age value"@en .
+                                 rdfs:label "lower age value"@en ;
+                                 skos:definition "The lower bound of age range."@en .
 
 
 ###  https://rsna.org/roadmap/03846
@@ -671,7 +665,26 @@ owl:topDataProperty rdf:type owl:DatatypeProperty .
                                  rdf:type owl:FunctionalProperty ;
                                  rdfs:domain <https://rsna.org/roadmap/03462> ;
                                  rdfs:range xsd:decimal ;
-                                 rdfs:label "upper age value"@en .
+                                 rdfs:label "upper age value"@en ;
+                                 skos:definition "The upper bound of an age range."@en .
+
+
+###  https://rsna.org/roadmap/03868
+<https://rsna.org/roadmap/03868> rdf:type owl:DatatypeProperty ;
+                                 rdfs:subPropertyOf <https://rsna.org/roadmap/03843> ;
+                                 rdfs:domain <https://rsna.org/roadmap/03871> ;
+                                 rdfs:range xsd:anyURI ;
+                                 rdfs:label "non-scalar metric observed value"@en ;
+                                 skos:definition "Specifies the observed value of a non-scalar metric (a graph or matrix) for a model on a specified dataset; that value is a URI that can point to an image, table, or other resource."@en .
+
+
+###  https://rsna.org/roadmap/03869
+<https://rsna.org/roadmap/03869> rdf:type owl:DatatypeProperty ;
+                                 rdfs:subPropertyOf <https://rsna.org/roadmap/03843> ;
+                                 rdfs:domain <https://rsna.org/roadmap/03870> ;
+                                 rdfs:range xsd:decimal ;
+                                 rdfs:label "scalar metric observed value"@en ;
+                                 skos:definition "Specifies the observed value (xsd:decimal) of a scalar metric for a model on a specified dataset."@en .
 
 
 #################################################################
@@ -834,11 +847,19 @@ owl:Thing rdf:type owl:Class .
 
 ###  https://rsna.org/roadmap/00010
 <https://rsna.org/roadmap/00010> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/00657> ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/00657> ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty <https://rsna.org/roadmap/00114> ;
+                                                   owl:someValuesFrom <https://rsna.org/roadmap/00002>
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty <https://rsna.org/roadmap/00115> ;
+                                                   owl:someValuesFrom <https://rsna.org/roadmap/00003>
+                                                 ] ;
                                  rdfs:label "project"@en ,
                                             "proyecto"@es ,
                                             "项目"@zh ;
-                                 skos:definition "A project allows one to aggregate models and datasets: it comprises zero of more models and zero or more datasets."@en .
+                                 skos:definition "A project allows one to aggregate models and datasets: it comprises one or more models and one or more datasets."@en .
 
 
 ###  https://rsna.org/roadmap/00011
@@ -3058,10 +3079,25 @@ D - Ethical, Legal, and Maintenance"""@en ;
 
 ###  https://rsna.org/roadmap/00672
 <https://rsna.org/roadmap/00672> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/00666> ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/00666> ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty <https://rsna.org/roadmap/03796> ;
+                                                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                   owl:onDataRange xsd:decimal
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty <https://rsna.org/roadmap/03797> ;
+                                                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                   owl:onDataRange xsd:decimal
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty <https://rsna.org/roadmap/01500> ;
+                                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                   owl:onDataRange xsd:decimal
+                                                 ] ;
                                  rdfs:label "confidence interval"@en ;
                                  skos:altLabel "CI"@en ;
-                                 skos:definition "A range of values bounded by lower and upper confidence limits at a specified confidence level."@en ;
+                                 skos:definition "A range of values bounded by lower and upper confidence limits at a specified confidence level. If confidence level is not specified, it typically is 95%."@en ;
                                  skos:exactMatch <http://purl.obolibrary.org/obo/STATO_0000196> .
 
 
@@ -5857,9 +5893,9 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                  rdfs:subClassOf <https://rsna.org/roadmap/03449> ;
                                  rdfs:comment "MeSH definition: A person having attained full growth or maturity. Adults are of 19 through 44 years of age. For a person between 19 and 24 years of age, YOUNG ADULT is available."@en ,
                                               "MeSH descriptor: Adult (D000328), 19 to 44 years"@en ;
-                                 rdfs:label "adult"@en ,
-                                            "adulto"@es ,
-                                            "成人"@zh ;
+                                 rdfs:label "19-44岁成人"@zh ,
+                                            "adult 19 - 44 years"@en ,
+                                            "adulto de 19 a 44 años"@es ;
                                  skos:definition "An individual of age 19 to 44 years."@en ;
                                  skos:exactMatch <http://id.nlm.nih.gov/mesh/M0000504> .
 
@@ -5990,12 +6026,12 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                                                           ) ;
                                                        rdf:type owl:Class
                                                      ] ;
-                                 rdfs:comment "Coded as: [29,730) days or [1,24) months or [0.8333,2) years"@en ;
+                                 rdfs:comment "Coded as: [29,730) days or [1,24) months or [0.08333,2) years"@en ,
+                                              "MeSH description: Infant (D007223), 1 to 23 months"@en ;
                                  rdfs:label "infant"@en ,
                                             "lactante"@es ,
                                             "婴儿"@zh ;
-                                 skos:altLabel "MeSH description: Infant (D007223), 1 to 23 months"@en ;
-                                 skos:definition "An individual of 1 to 23 months of age."@en ;
+                                 skos:definition "A child between 1 and 23 months of age [MeSH]."@en ;
                                  skos:exactMatch <http://id.nlm.nih.gov/mesh/M0011265> .
 
 
@@ -6061,7 +6097,7 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                                                                                                      owl:onProperty <https://rsna.org/roadmap/03845> ;
                                                                                                                      owl:someValuesFrom [ rdf:type rdfs:Datatype ;
                                                                                                                                           owl:onDatatype xsd:decimal ;
-                                                                                                                                          owl:withRestrictions ( [ xsd:minExclusive 0
+                                                                                                                                          owl:withRestrictions ( [ xsd:minInclusive 0
                                                                                                                                                                  ]
                                                                                                                                                                )
                                                                                                                                         ]
@@ -6070,7 +6106,7 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                                                                                                      owl:onProperty <https://rsna.org/roadmap/03846> ;
                                                                                                                      owl:someValuesFrom [ rdf:type rdfs:Datatype ;
                                                                                                                                           owl:onDatatype xsd:decimal ;
-                                                                                                                                          owl:withRestrictions ( [ xsd:maxInclusive 0.0833
+                                                                                                                                          owl:withRestrictions ( [ xsd:maxExclusive 0.0833
                                                                                                                                                                  ]
                                                                                                                                                                )
                                                                                                                                         ]
@@ -6083,40 +6119,72 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                                                           ) ;
                                                        rdf:type owl:Class
                                                      ] ;
-                                 rdfs:comment "Coded as: [0,29) days or [0,1) months or [0,0.833) years"@en ;
+                                 rdfs:comment "By MeSH definitions, neonate, infant, and child are all disjoint. Note that MeSH defines an infant as \"a child between 1 and 23 months of age.\""@en ,
+                                              "Coded as: [0,29) days or [0,1) months or [0,0.0833) years"@en ;
                                  rdfs:label "neonate"@en ,
                                             "neonato"@es ,
                                             "新生儿"@zh ;
                                  skos:altLabel "newborn"@en ,
                                                "newborn infant"@en ;
-                                 skos:definition "An infant during the first 28 days after birth."@en ;
+                                 skos:definition "An infant during the first 28 days after birth [MeSH]."@en ;
                                  skos:exactMatch <http://id.nlm.nih.gov/mesh/M0011285> .
 
 
 ###  https://rsna.org/roadmap/03454
 <https://rsna.org/roadmap/03454> rdf:type owl:Class ;
                                  owl:equivalentClass [ owl:intersectionOf ( <https://rsna.org/roadmap/03449>
-                                                                            [ rdf:type owl:Restriction ;
-                                                                              owl:onProperty <https://rsna.org/roadmap/03848> ;
-                                                                              owl:hasValue <https://rsna.org/roadmap/03470>
-                                                                            ]
-                                                                            [ rdf:type owl:Restriction ;
-                                                                              owl:onProperty <https://rsna.org/roadmap/03845> ;
-                                                                              owl:someValuesFrom [ rdf:type rdfs:Datatype ;
-                                                                                                   owl:onDatatype xsd:decimal ;
-                                                                                                   owl:withRestrictions ( [ xsd:minInclusive 2
-                                                                                                                          ]
-                                                                                                                        )
-                                                                                                 ]
-                                                                            ]
-                                                                            [ rdf:type owl:Restriction ;
-                                                                              owl:onProperty <https://rsna.org/roadmap/03846> ;
-                                                                              owl:someValuesFrom [ rdf:type rdfs:Datatype ;
-                                                                                                   owl:onDatatype xsd:decimal ;
-                                                                                                   owl:withRestrictions ( [ xsd:maxExclusive 6
-                                                                                                                          ]
-                                                                                                                        )
-                                                                                                 ]
+                                                                            [ rdf:type owl:Class ;
+                                                                              owl:unionOf ( [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                                                                     owl:onProperty <https://rsna.org/roadmap/03848> ;
+                                                                                                                     owl:hasValue <https://rsna.org/roadmap/03469>
+                                                                                                                   ]
+                                                                                                                   [ rdf:type owl:Restriction ;
+                                                                                                                     owl:onProperty <https://rsna.org/roadmap/03845> ;
+                                                                                                                     owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                                                                                                          owl:onDatatype xsd:decimal ;
+                                                                                                                                          owl:withRestrictions ( [ xsd:minInclusive 24
+                                                                                                                                                                 ]
+                                                                                                                                                               )
+                                                                                                                                        ]
+                                                                                                                   ]
+                                                                                                                   [ rdf:type owl:Restriction ;
+                                                                                                                     owl:onProperty <https://rsna.org/roadmap/03846> ;
+                                                                                                                     owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                                                                                                          owl:onDatatype xsd:decimal ;
+                                                                                                                                          owl:withRestrictions ( [ xsd:maxExclusive 72
+                                                                                                                                                                 ]
+                                                                                                                                                               )
+                                                                                                                                        ]
+                                                                                                                   ]
+                                                                                                                 ) ;
+                                                                                              rdf:type owl:Class
+                                                                                            ]
+                                                                                            [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                                                                     owl:onProperty <https://rsna.org/roadmap/03848> ;
+                                                                                                                     owl:hasValue <https://rsna.org/roadmap/03470>
+                                                                                                                   ]
+                                                                                                                   [ rdf:type owl:Restriction ;
+                                                                                                                     owl:onProperty <https://rsna.org/roadmap/03845> ;
+                                                                                                                     owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                                                                                                          owl:onDatatype xsd:decimal ;
+                                                                                                                                          owl:withRestrictions ( [ xsd:minInclusive 2
+                                                                                                                                                                 ]
+                                                                                                                                                               )
+                                                                                                                                        ]
+                                                                                                                   ]
+                                                                                                                   [ rdf:type owl:Restriction ;
+                                                                                                                     owl:onProperty <https://rsna.org/roadmap/03846> ;
+                                                                                                                     owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                                                                                                          owl:onDatatype xsd:decimal ;
+                                                                                                                                          owl:withRestrictions ( [ xsd:maxExclusive 6
+                                                                                                                                                                 ]
+                                                                                                                                                               )
+                                                                                                                                        ]
+                                                                                                                   ]
+                                                                                                                 ) ;
+                                                                                              rdf:type owl:Class
+                                                                                            ]
+                                                                                          )
                                                                             ]
                                                                           ) ;
                                                        rdf:type owl:Class
@@ -6165,7 +6233,7 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                             "青少年"@zh ;
                                  skos:altLabel "teen"@en ,
                                                "teenager"@en ;
-                                 skos:definition "A person 13 to 18 years of age."@en ;
+                                 skos:definition "A person 13 to 18 years of age [MeSH]."@en ;
                                  skos:exactMatch <http://id.nlm.nih.gov/mesh/M0000462> .
 
 
@@ -6271,7 +6339,7 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                  skos:altLabel "aged"@en ,
                                                "senior"@en ;
                                  skos:definition "A person 65 years of age or older."@en ;
-                                 skos:exactMatch <http://id.nlm.nih.gov/mesh/M0000462> .
+                                 skos:exactMatch <http://id.nlm.nih.gov/mesh/M0000563> .
 
 
 ###  https://rsna.org/roadmap/03459
@@ -6304,41 +6372,6 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                                "成年人"@zh ;
                                  skos:definition "An individual of age 80 years or more."@en ;
                                  skos:exactMatch <http://id.nlm.nih.gov/mesh/M0000564> .
-
-
-###  https://rsna.org/roadmap/03461
-<https://rsna.org/roadmap/03461> rdf:type owl:Class ;
-                                 owl:equivalentClass [ owl:intersectionOf ( <https://rsna.org/roadmap/03449>
-                                                                            [ rdf:type owl:Restriction ;
-                                                                              owl:onProperty <https://rsna.org/roadmap/03848> ;
-                                                                              owl:hasValue <https://rsna.org/roadmap/03470>
-                                                                            ]
-                                                                            [ rdf:type owl:Restriction ;
-                                                                              owl:onProperty <https://rsna.org/roadmap/03845> ;
-                                                                              owl:someValuesFrom [ rdf:type rdfs:Datatype ;
-                                                                                                   owl:onDatatype xsd:decimal ;
-                                                                                                   owl:withRestrictions ( [ xsd:minInclusive 0
-                                                                                                                          ]
-                                                                                                                        )
-                                                                                                 ]
-                                                                            ]
-                                                                            [ rdf:type owl:Restriction ;
-                                                                              owl:onProperty <https://rsna.org/roadmap/03846> ;
-                                                                              owl:someValuesFrom [ rdf:type rdfs:Datatype ;
-                                                                                                   owl:onDatatype xsd:decimal ;
-                                                                                                   owl:withRestrictions ( [ xsd:maxExclusive 18
-                                                                                                                          ]
-                                                                                                                        )
-                                                                                                 ]
-                                                                            ]
-                                                                          ) ;
-                                                       rdf:type owl:Class
-                                                     ] ;
-                                 owl:disjointWith <https://rsna.org/roadmap/03853> ;
-                                 rdfs:label "menor de edad"@es ,
-                                            "minor"@en ,
-                                            "未成年人"@zh ;
-                                 skos:definition "A person under the age of adulthood; typically less than 18 years of age."@en .
 
 
 ###  https://rsna.org/roadmap/03462
@@ -6376,7 +6409,7 @@ D - Ethical, Legal, and Maintenance"""@en ;
 
 ###  https://rsna.org/roadmap/03467
 <https://rsna.org/roadmap/03467> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/03422> ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03872> ;
                                  rdfs:label "age unit"@en ,
                                             "unidad de edad"@es ,
                                             "年龄单位"@zh ;
@@ -8501,8 +8534,8 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                  rdfs:subClassOf <https://rsna.org/roadmap/00040> ;
                                  rdfs:label "other user"@en ,
                                             "otro usuario"@es ,
-                                            "otro/a usuario/a"@es ,
                                             "其他用户"@zh ;
+                                 skos:altLabel "otra usuaria"@es ;
                                  skos:definition "Indicates a user type other than a predefined subclass of User type; should be recorded as text."@en .
 
 
@@ -10373,27 +10406,13 @@ When the function is the square of the difference and the variables are binary (
                                                    owl:hasValue <https://rsna.org/roadmap/00653>
                                                  ] ,
                                                  [ rdf:type owl:Restriction ;
-                                                   owl:onProperty <https://rsna.org/roadmap/03709> ;
-                                                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                   owl:onClass <https://rsna.org/roadmap/03642>
-                                                 ] ,
-                                                 [ rdf:type owl:Restriction ;
                                                    owl:onProperty <https://rsna.org/roadmap/03833> ;
                                                    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                                    owl:onClass <https://rsna.org/roadmap/03832>
-                                                 ] ,
-                                                 [ rdf:type owl:Restriction ;
-                                                   owl:onProperty <https://rsna.org/roadmap/03843> ;
-                                                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                   owl:onDataRange xsd:decimal
                                                  ] ;
-                                 rdfs:comment """A 3-tuple of entities to describe the model's performance:
-
-+ metric: the measurement used, such as Dice similarity coefficient
-+ metric value: the value observed
-+ evaluation dataset: the specific data on which performance was measured"""@en ;
+                                 rdfs:comment "For a scalar metric, the subclass links to that metric, its observed decimal value, and an optional confidence interval. For a non-scalar metric (a graph or matrix), the corresponding subclass links to a URI that points to an image, table, or other resource."@en ;
                                  rdfs:label "model performance"@en ;
-                                 skos:definition "Specifies the performance of an AI model on a particular set of data."@en .
+                                 skos:definition "A tuple of entities that specifies the performance of an AI model on a particular set of data. The evaluation dataset identifies the specific data on which performance was measured, and is part of the tuple for scalar and/or non-scalar measurements."@en .
 
 
 ###  https://rsna.org/roadmap/03809
@@ -10525,8 +10544,8 @@ When the function is the square of the difference and the variables are binary (
                                  skos:exactMatch <http://id.nlm.nih.gov/mesh/M0000565> .
 
 
-###  https://rsna.org/roadmap/03853
-<https://rsna.org/roadmap/03853> rdf:type owl:Class ;
+###  https://rsna.org/roadmap/03867
+<https://rsna.org/roadmap/03867> rdf:type owl:Class ;
                                  owl:equivalentClass [ owl:intersectionOf ( <https://rsna.org/roadmap/03449>
                                                                             [ rdf:type owl:Restriction ;
                                                                               owl:onProperty <https://rsna.org/roadmap/03848> ;
@@ -10536,7 +10555,7 @@ When the function is the square of the difference and the variables are binary (
                                                                               owl:onProperty <https://rsna.org/roadmap/03845> ;
                                                                               owl:someValuesFrom [ rdf:type rdfs:Datatype ;
                                                                                                    owl:onDatatype xsd:decimal ;
-                                                                                                   owl:withRestrictions ( [ xsd:minInclusive 18
+                                                                                                   owl:withRestrictions ( [ xsd:minInclusive 19
                                                                                                                           ]
                                                                                                                         )
                                                                                                  ]
@@ -10544,8 +10563,137 @@ When the function is the square of the difference and the variables are binary (
                                                                           ) ;
                                                        rdf:type owl:Class
                                                      ] ;
-                                 rdfs:label "major"@en ;
-                                 skos:definition "A person of the age of majority (adulthood); taken as 18 years of age or greater."@en .
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03449> ;
+                                 rdfs:label "adult"@en ,
+                                            "adulto"@es ,
+                                            "成人"@zh ;
+                                 skos:definition "An individual of age 19 years or more; it aggregates the relevant MeSH categories."@en .
+
+
+###  https://rsna.org/roadmap/03870
+<https://rsna.org/roadmap/03870> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03808> ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty <https://rsna.org/roadmap/03709> ;
+                                                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                   owl:onClass <https://rsna.org/roadmap/03302>
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty <https://rsna.org/roadmap/03849> ;
+                                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                   owl:onClass <https://rsna.org/roadmap/00672>
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty <https://rsna.org/roadmap/03869> ;
+                                                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                   owl:onDataRange xsd:decimal
+                                                 ] ;
+                                 owl:disjointWith <https://rsna.org/roadmap/03871> ;
+                                 rdfs:label "model performance by scalar metric"@en ;
+                                 skos:definition """A tuple of entities to describe the model's performance on a specific dataset. 
+
+* evaluation dataset:  the specific data on which performance was measured (specified in \"model performance\" parent class)
+* scalar metric: the measurement used, such as Dice similarity coefficient
+* metric value: the observed scalar value
+* (optional) confidence interval: a 3-tuple of lower & upper confidence limits with the confidence level (e.g., 0.95)"""@en .
+
+
+###  https://rsna.org/roadmap/03871
+<https://rsna.org/roadmap/03871> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03808> ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty <https://rsna.org/roadmap/03709> ;
+                                                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                   owl:onClass <https://rsna.org/roadmap/03778>
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty <https://rsna.org/roadmap/03868> ;
+                                                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                   owl:onDataRange xsd:anyURI
+                                                 ] ;
+                                 rdfs:label "model performance by non-scalar metric"@en ;
+                                 skos:definition """A tuple of entities to describe the model's performance on a specific dataset. 
+
+* evaluation dataset:  the specific data on which performance was measured (specified in \"model performance\" parent class)
+* non-scalar metric: a graph or matrix
+* metric value: a URI of an image, table, or other resource"""@en .
+
+
+###  https://rsna.org/roadmap/03872
+<https://rsna.org/roadmap/03872> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/00001> ;
+                                 rdfs:label "unidad"@es ,
+                                            "unit"@en ,
+                                            "单位"@zh ;
+                                 skos:definition "A unit of measurement."@en .
+
+
+###  https://rsna.org/roadmap/03873
+<https://rsna.org/roadmap/03873> rdf:type owl:Class ;
+                                 owl:equivalentClass [ owl:intersectionOf ( <https://rsna.org/roadmap/03449>
+                                                                            [ rdf:type owl:Class ;
+                                                                              owl:unionOf ( [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                                                                     owl:onProperty <https://rsna.org/roadmap/03848> ;
+                                                                                                                     owl:hasValue <https://rsna.org/roadmap/03469>
+                                                                                                                   ]
+                                                                                                                   [ rdf:type owl:Restriction ;
+                                                                                                                     owl:onProperty <https://rsna.org/roadmap/03845> ;
+                                                                                                                     owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                                                                                                          owl:onDatatype xsd:decimal ;
+                                                                                                                                          owl:withRestrictions ( [ xsd:minInclusive 24
+                                                                                                                                                                 ]
+                                                                                                                                                               )
+                                                                                                                                        ]
+                                                                                                                   ]
+                                                                                                                   [ rdf:type owl:Restriction ;
+                                                                                                                     owl:onProperty <https://rsna.org/roadmap/03846> ;
+                                                                                                                     owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                                                                                                          owl:onDatatype xsd:decimal ;
+                                                                                                                                          owl:withRestrictions ( [ xsd:maxExclusive 228
+                                                                                                                                                                 ]
+                                                                                                                                                               )
+                                                                                                                                        ]
+                                                                                                                   ]
+                                                                                                                 ) ;
+                                                                                              rdf:type owl:Class
+                                                                                            ]
+                                                                                            [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                                                                                     owl:onProperty <https://rsna.org/roadmap/03848> ;
+                                                                                                                     owl:hasValue <https://rsna.org/roadmap/03470>
+                                                                                                                   ]
+                                                                                                                   [ rdf:type owl:Restriction ;
+                                                                                                                     owl:onProperty <https://rsna.org/roadmap/03845> ;
+                                                                                                                     owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                                                                                                          owl:onDatatype xsd:decimal ;
+                                                                                                                                          owl:withRestrictions ( [ xsd:minInclusive 2
+                                                                                                                                                                 ]
+                                                                                                                                                               )
+                                                                                                                                        ]
+                                                                                                                   ]
+                                                                                                                   [ rdf:type owl:Restriction ;
+                                                                                                                     owl:onProperty <https://rsna.org/roadmap/03846> ;
+                                                                                                                     owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                                                                                                          owl:onDatatype xsd:decimal ;
+                                                                                                                                          owl:withRestrictions ( [ xsd:maxExclusive 19
+                                                                                                                                                                 ]
+                                                                                                                                                               )
+                                                                                                                                        ]
+                                                                                                                   ]
+                                                                                                                 ) ;
+                                                                                              rdf:type owl:Class
+                                                                                            ]
+                                                                                          )
+                                                                            ]
+                                                                          ) ;
+                                                       rdf:type owl:Class
+                                                     ] ;
+                                 rdfs:label "child"@en ;
+                                 skos:altLabel "child 2 - 18 years"@en ,
+                                               "menor de edad"@es ,
+                                               "minor"@en ,
+                                               "未成年人"@zh ;
+                                 skos:definition "A person less than 19 years of age; aggregates the relevant MeSH categories."@en ,
+                                                 "An individual of age 2 to 18 years. Aggregates MeSH terms preschool child, \"child\" (really school-age child), and adolescent."@en .
 
 
 ###  https://rsna.org/roadmap/04003
@@ -11466,7 +11614,6 @@ When the function is the square of the difference and the variables are binary (
 <https://rsna.org/roadmap/04069> rdf:type owl:Class ;
                                  rdfs:subClassOf <https://rsna.org/roadmap/03548> ;
                                  rdfs:label "binary confusion matrix"@en ,
-                                            "matriz de confusión binari"@es ,
                                             "matriz de confusión binaria"@es ,
                                             "二元混淆矩阵"@zh ;
                                  skos:altLabel "2x2 contingency table"@en ;
@@ -11968,10 +12115,10 @@ rEDR = (number of positive cases not detected by human alone) / (number of posit
 <https://rsna.org/roadmap/00100> rdf:type owl:NamedIndividual ,
                                           <https://rsna.org/roadmap/00073> ;
                                  rdfs:label "MN Medicina Nuclear"@es ,
-                                            "Medicina Nuclear"@es ,
                                             "NM Nuclear Medicine"@en ,
                                             "核医学"@zh ;
                                  skos:altLabel "MN"@es ,
+                                               "Medicina Nuclear"@es ,
                                                "NM"@en ,
                                                "Nuclear Medicine"@en ;
                                  skos:definition "Content code for Nuclear Medicine."@en ;
@@ -16508,34 +16655,46 @@ Tier 4: no sharing"""@en ;
 
 
 ###  https://rsna.org/roadmap/03856
-<https://rsna.org/roadmap/03856> rdf:type owl:NamedIndividual ;
+<https://rsna.org/roadmap/03856> rdf:type owl:NamedIndividual ,
+                                          <https://rsna.org/roadmap/03441> ;
                                  rdfs:label "Asian"@en .
 
 
 ###  https://rsna.org/roadmap/03857
-<https://rsna.org/roadmap/03857> rdf:type owl:NamedIndividual ;
+<https://rsna.org/roadmap/03857> rdf:type owl:NamedIndividual ,
+                                          <https://rsna.org/roadmap/03441> ;
                                  rdfs:label "Black or African American"@en .
 
 
 ###  https://rsna.org/roadmap/03858
-<https://rsna.org/roadmap/03858> rdf:type owl:NamedIndividual ;
+<https://rsna.org/roadmap/03858> rdf:type owl:NamedIndividual ,
+                                          <https://rsna.org/roadmap/03441> ;
                                  rdfs:label "Hispanic or Latino"@en .
 
 
 ###  https://rsna.org/roadmap/03859
-<https://rsna.org/roadmap/03859> rdf:type owl:NamedIndividual ;
+<https://rsna.org/roadmap/03859> rdf:type owl:NamedIndividual ,
+                                          <https://rsna.org/roadmap/03441> ;
                                  rdfs:label "Middle Eastern or North African"@en .
 
 
 ###  https://rsna.org/roadmap/03860
-<https://rsna.org/roadmap/03860> rdf:type owl:NamedIndividual ;
+<https://rsna.org/roadmap/03860> rdf:type owl:NamedIndividual ,
+                                          <https://rsna.org/roadmap/03441> ;
                                  rdfs:label "Native Hawaiian or Pacific Islander"@en .
 
 
 ###  https://rsna.org/roadmap/03861
-<https://rsna.org/roadmap/03861> rdf:type owl:NamedIndividual ;
+<https://rsna.org/roadmap/03861> rdf:type owl:NamedIndividual ,
+                                          <https://rsna.org/roadmap/03441> ;
                                  rdfs:label "White"@en ;
                                  skos:altLabel "Caucasian"@en .
+
+
+###  https://rsna.org/roadmap/03866
+<https://rsna.org/roadmap/03866> rdf:type owl:NamedIndividual ,
+                                          <https://rsna.org/roadmap/03441> ;
+                                 rdfs:label "American Indian or Alaska Native"@en .
 
 
 ###  https://rsna.org/roadmap/04001
