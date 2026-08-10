@@ -859,7 +859,7 @@ owl:Thing rdf:type owl:Class .
                                  rdfs:label "project"@en ,
                                             "proyecto"@es ,
                                             "项目"@zh ;
-                                 skos:definition "A project allows one to aggregate models and datasets: it comprises one or more models and one or more datasets."@en .
+                                 skos:definition "A project allows one to aggregate one or more models and one or more datasets."@en .
 
 
 ###  https://rsna.org/roadmap/00011
@@ -2261,36 +2261,6 @@ owl:Thing rdf:type owl:Class .
                                             "perceptual path length"@en ;
                                  skos:altLabel "PPL"@en ;
                                  skos:definition "Perceptual Path Length (PPL) evaluates the smoothness and consistency of image interpolations."@en .
-
-
-###  https://rsna.org/roadmap/00140
-<https://rsna.org/roadmap/00140> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/03603> ;
-                                 rdfs:comment "May have a boolean value (true/false) or the date on which FDA clearance was obtained."@en ;
-                                 rdfs:label "FDA cleared"@en ,
-                                            "FDA cleared"@zh ,
-                                            "autorización FDA"@es ;
-                                 skos:altLabel "FDA clearance"@en ,
-                                               "FDA-cleared"@en ,
-                                               "US FDA clearance"@en ,
-                                               "US FDA cleared"@en ,
-                                               "autorización de la FDA"@es ;
-                                 skos:definition "Indicates whether a model has received U.S. Food and Drug Administration clearance."@en .
-
-
-###  https://rsna.org/roadmap/00141
-<https://rsna.org/roadmap/00141> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/03603> ;
-                                 rdfs:comment "May have a boolean value (true/false) or the date on which CE mark was applied."@en ;
-                                 rdfs:label "CE marked"@en ,
-                                            "marcado CE"@es ,
-                                            "歐洲合格認證"@zh ;
-                                 skos:altLabel "CE"@en ,
-                                               "CE mark"@en ,
-                                               "CE marking"@en ,
-                                               "Conformidad Europea"@es ,
-                                               "Conformité Européenne"@fr ;
-                                 skos:definition "The CE mark (\"Conformité Européenne\") is a mandatory, self-declared compliance marking that indicates that a product meets essential EU health, safety, and environmental regulations, allowing it to be sold throughout the European Economic Area (EEA)."@en .
 
 
 ###  https://rsna.org/roadmap/00142
@@ -5928,6 +5898,7 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                                                           ) ;
                                                        rdf:type owl:Class
                                                      ] ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03449> ;
                                  rdfs:comment "MeSH definition: A person 6 to 12 years of age. An individual 2 to 5 years old is CHILD, PRESCHOOL."@en ,
                                               "MeSH descriptor: Child (D002648), 6 to 12 years"@en ;
                                  rdfs:label "6-12 岁儿童"@zh ,
@@ -6026,6 +5997,7 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                                                           ) ;
                                                        rdf:type owl:Class
                                                      ] ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03449> ;
                                  rdfs:comment "Coded as: [29,730) days or [1,24) months or [0.08333,2) years"@en ,
                                               "MeSH description: Infant (D007223), 1 to 23 months"@en ;
                                  rdfs:label "infant"@en ,
@@ -6119,6 +6091,7 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                                                           ) ;
                                                        rdf:type owl:Class
                                                      ] ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03449> ;
                                  rdfs:comment "By MeSH definitions, neonate, infant, and child are all disjoint. Note that MeSH defines an infant as \"a child between 1 and 23 months of age.\""@en ,
                                               "Coded as: [0,29) days or [0,1) months or [0,0.0833) years"@en ;
                                  rdfs:label "neonate"@en ,
@@ -6189,6 +6162,7 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                                                           ) ;
                                                        rdf:type owl:Class
                                                      ] ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03449> ;
                                  rdfs:comment "An individual 2 to 5 years old is CHILD, PRESCHOOL."@en ,
                                               "MeSH descriptor: Child, Preschool (D002675), between 2 and 5"@en ;
                                  rdfs:label "2-5 岁儿童"@zh ,
@@ -6227,6 +6201,7 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                                                           ) ;
                                                        rdf:type owl:Class
                                                      ] ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03449> ;
                                  rdfs:comment "MeSH descriptor: Adolescent (D000293), 13 to 18 years"@en ;
                                  rdfs:label "adolescent"@en ,
                                             "adolescente"@es ,
@@ -6265,6 +6240,7 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                                                           ) ;
                                                        rdf:type owl:Class
                                                      ] ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03449> ;
                                  rdfs:comment "MeSH descriptor: Young Adult (D055815), 19 to 24 years"@en ;
                                  rdfs:label "19-24岁成人"@zh ,
                                             "adult 19 - 24 years"@en ,
@@ -6302,6 +6278,7 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                                                           ) ;
                                                        rdf:type owl:Class
                                                      ] ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03449> ;
                                  rdfs:comment "MeSH descriptor: Middle Aged (D008875), 45 to 64 years"@en ;
                                  rdfs:label "adult 45 - 64 years"@en ,
                                             "adulto de 45 a 64 años"@es ,
@@ -6331,6 +6308,7 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                                                           ) ;
                                                        rdf:type owl:Class
                                                      ] ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03449> ;
                                  rdfs:comment "For a person older than 79 years, AGED, 80 AND OVER is available."@en ,
                                               "MeSH descriptor: Aged (D000368), 65 years or older"@en ;
                                  rdfs:label "adult 65 years and over"@en ,
@@ -6361,6 +6339,7 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                                                           ) ;
                                                        rdf:type owl:Class
                                                      ] ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03449> ;
                                  rdfs:comment "MeSH descriptor: Aged, 80 and over (D000369), 80 years and older"@en ;
                                  rdfs:label "adult 80 years and over"@en ,
                                             "adulto de 80 años o más"@es ,
@@ -10687,13 +10666,147 @@ When the function is the square of the difference and the variables are binary (
                                                                           ) ;
                                                        rdf:type owl:Class
                                                      ] ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03449> ;
                                  rdfs:label "child"@en ;
                                  skos:altLabel "child 2 - 18 years"@en ,
-                                               "menor de edad"@es ,
-                                               "minor"@en ,
-                                               "未成年人"@zh ;
-                                 skos:definition "A person less than 19 years of age; aggregates the relevant MeSH categories."@en ,
-                                                 "An individual of age 2 to 18 years. Aggregates MeSH terms preschool child, \"child\" (really school-age child), and adolescent."@en .
+                                               "niño"@es ,
+                                               "儿童"@zh ;
+                                 skos:definition "An individual of age 2 to 18 years. Aggregates MeSH terms preschool child, \"child\" (really school-age child), and adolescent. Note that this definition excludes neonates and infants."@en .
+
+
+###  https://rsna.org/roadmap/03874
+<https://rsna.org/roadmap/03874> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03603> ;
+                                 dcterms:source <https://www.fda.gov/regulatory-information/search-fda-guidance-documents/artificial-intelligence-enabled-device-software-functions-lifecycle-management-and-marketing> ;
+                                 rdfs:label "Unitied States authorization"@en ;
+                                 skos:altLabel "FDA authorization"@en ,
+                                               "US authorization"@en ,
+                                               "USA authorization"@en .
+
+
+###  https://rsna.org/roadmap/03875
+<https://rsna.org/roadmap/03875> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03874> ;
+                                 rdfs:comment "510(k) clearance"@en ,
+                                              "FDA clearance"@en ,
+                                              "Identifier Format: K followed by 6 digits (e.g., K234567)."@en ,
+                                              "May have a boolean value (true/false) or the date on which FDA clearance was obtained."@en ;
+                                 rdfs:label "510(k) Premarket Notification"@en ;
+                                 rdfs:seeAlso <https://doi.org/10.3390/electronics13030498> ;
+                                 skos:altLabel "FDA cleared"@en ,
+                                               "FDA-cleared"@en ,
+                                               "US FDA clearance"@en ,
+                                               "US FDA cleared"@en ,
+                                               "autorización FDA"@es ,
+                                               "autorización de la FDA"@es ;
+                                 skos:definition "Indicates whether a model has received U.S. Food and Drug Administration clearance. The most common pathway for medical AI, accounting for roughly 95% of clearances. It requires demonstrating \"substantial equivalence\" to an existing legal predicate."@en .
+
+
+###  https://rsna.org/roadmap/03876
+<https://rsna.org/roadmap/03876> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03874> ;
+                                 rdfs:comment "Identifier Format: DEN followed by 6 digits (e.g., DEN220034)"@en ;
+                                 rdfs:label "De Novo Authorization"@en ;
+                                 rdfs:seeAlso <https://pmc.ncbi.nlm.nih.gov/articles/PMC11410966/> ;
+                                 skos:definition "A pathway for novel, low-to-moderate-risk AI software that lacks an established market predicate. This authorization establishes new \"Special Controls\" and product codes for future 510(k) entries."@en ,
+                                                 "de novo device approval"@en ,
+                                                 "de-novo authorization"@en ,
+                                                 "de-novo clearance"@en .
+
+
+###  https://rsna.org/roadmap/03877
+<https://rsna.org/roadmap/03877> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03874> ;
+                                 rdfs:comment "Identifier Format: P followed by 6 digits (e.g., P210012)."@en ;
+                                 rdfs:label "Premarket Approval"@en ;
+                                 skos:altLabel "PMA"@en ;
+                                 skos:definition "Premarket Approval (PMA) is reserved for the highest-risk, life-sustaining, or autonomous diagnostic AI systems. It requires independent, rigorous clinical trial evidence."@en .
+
+
+###  https://rsna.org/roadmap/03878
+<https://rsna.org/roadmap/03878> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03874> ;
+                                 rdfs:label "Predetermined Change Control Plan (PCCP)"@en .
+
+
+###  https://rsna.org/roadmap/03879
+<https://rsna.org/roadmap/03879> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03603> ;
+                                 dcterms:source <https://doi.org/10.1258/jrsm.2012.120036> ;
+                                 rdfs:label "European Union authorization"@en ;
+                                 skos:altLabel "EU approval"@en ,
+                                               "EU authorization"@en .
+
+
+###  https://rsna.org/roadmap/03880
+<https://rsna.org/roadmap/03880> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03879> ;
+                                 rdfs:comment "May have a boolean value (true/false) or the date on which CE mark was applied."@en ;
+                                 rdfs:label "CE Mark"@en ;
+                                 skos:altLabel "CE"@en ,
+                                               "CE marked"@en ,
+                                               "CE marking"@en ,
+                                               "Conformidad Europea"@es ,
+                                               "Conformité Européenne"@fr ,
+                                               "marcado CE"@es ,
+                                               "歐洲合格認證"@zh ;
+                                 skos:definition "The CE mark (\"Conformité Européenne\") is a mandatory, self-declared compliance marking that indicates that a product meets essential EU health, safety, and environmental regulations, allowing it to be sold throughout the European Economic Area (EEA)."@en .
+
+
+###  https://rsna.org/roadmap/03882
+<https://rsna.org/roadmap/03882> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03603> ;
+                                 rdfs:label "United Kingdom authorization"@en ;
+                                 skos:altLabel "UK authorization"@en .
+
+
+###  https://rsna.org/roadmap/03883
+<https://rsna.org/roadmap/03883> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03882> ;
+                                 rdfs:label "UK Conformity Assessed Mark"@en ;
+                                 skos:altLabel "UKCA"@en ,
+                                               "UKCA mark"@en ,
+                                               "UKCA marked"@en ,
+                                               "UKCA marking"@en .
+
+
+###  https://rsna.org/roadmap/03884
+<https://rsna.org/roadmap/03884> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03603> ;
+                                 dcterms:source <https://doi.org/10.1038/s41746-024-01254-x> ;
+                                 rdfs:label "China authorization"@en ;
+                                 skos:altLabel "NMPA authorization"@en ,
+                                               "National Medical Products Administration authorization"@en .
+
+
+###  https://rsna.org/roadmap/03885
+<https://rsna.org/roadmap/03885> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03602> ;
+                                 rdfs:label "regulatory jurisdiction"@en .
+
+
+###  https://rsna.org/roadmap/03886
+<https://rsna.org/roadmap/03886> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03602> ;
+                                 rdfs:label "regulatory pathway"@en .
+
+
+###  https://rsna.org/roadmap/03887
+<https://rsna.org/roadmap/03887> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03602> ;
+                                 rdfs:label "regulatory status"@en .
+
+
+###  https://rsna.org/roadmap/03888
+<https://rsna.org/roadmap/03888> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03602> ;
+                                 rdfs:label "regulatory identifier"@en .
+
+
+###  https://rsna.org/roadmap/03889
+<https://rsna.org/roadmap/03889> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03602> ;
+                                 rdfs:label "regulatory date"@en .
 
 
 ###  https://rsna.org/roadmap/04003
@@ -16793,6 +16906,15 @@ Tier 4: no sharing"""@en ;
                 <https://rsna.org/roadmap/03430>
                 <https://rsna.org/roadmap/03431>
                 <https://rsna.org/roadmap/03440>
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( <https://rsna.org/roadmap/03875>
+                <https://rsna.org/roadmap/03876>
+                <https://rsna.org/roadmap/03877>
+                <https://rsna.org/roadmap/03878>
               )
 ] .
 
