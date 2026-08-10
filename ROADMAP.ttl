@@ -8459,6 +8459,19 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                  rdfs:label "estado de la autorización reglamentaria"@es ,
                                             "regulatory authorization status"@en ,
                                             "监管授权状态"@zh ;
+                                 skos:altLabel """Possible value set:
+
++ Authorized
++ Submitted / under review
++ Not submitted
++ Research use only
++ Withdrawn
++ Suspended
++ Expired
++ Not available
+
+'Not submitted' and 'Research use only' are positive assertions and should be used in preference to omitting the record. 'Not available' mirrors the ONC convention at 45 CFR 170.315(b)(11)(v)(A)(2)."""@en ,
+                                               "status"@en ;
                                  skos:definition "Describes the regulatory status of the AI model, such as Cleared, Application submitted, etc."@en .
 
 
@@ -8466,9 +8479,10 @@ D - Ethical, Legal, and Maintenance"""@en ;
 <https://rsna.org/roadmap/03604> rdf:type owl:Class ;
                                  rdfs:subClassOf <https://rsna.org/roadmap/03602> ;
                                  rdfs:label "número de expediente reglamentario"@es ,
-                                            "regulatory file number"@en ,
+                                            "regulatory identifer"@en ,
                                             "监管文件编号"@zh ;
-                                 skos:definition "Identifies the AI model's application number related to its regulatory clearance."@en .
+                                 skos:altLabel "regulatory file number"@en ;
+                                 skos:definition "Identifies the AI model's application number related to its regulatory authorization."@en .
 
 
 ###  https://rsna.org/roadmap/03605
@@ -10674,26 +10688,16 @@ When the function is the square of the difference and the variables are binary (
                                  skos:definition "An individual of age 2 to 18 years. Aggregates MeSH terms preschool child, \"child\" (really school-age child), and adolescent. Note that this definition excludes neonates and infants."@en .
 
 
-###  https://rsna.org/roadmap/03874
-<https://rsna.org/roadmap/03874> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/03603> ;
-                                 dcterms:source <https://www.fda.gov/regulatory-information/search-fda-guidance-documents/artificial-intelligence-enabled-device-software-functions-lifecycle-management-and-marketing> ;
-                                 rdfs:label "Unitied States authorization"@en ;
-                                 skos:altLabel "FDA authorization"@en ,
-                                               "US authorization"@en ,
-                                               "USA authorization"@en .
-
-
 ###  https://rsna.org/roadmap/03875
 <https://rsna.org/roadmap/03875> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/03874> ;
-                                 rdfs:comment "510(k) clearance"@en ,
-                                              "FDA clearance"@en ,
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03886> ;
+                                 rdfs:comment "FDA clearance"@en ,
                                               "Identifier Format: K followed by 6 digits (e.g., K234567)."@en ,
                                               "May have a boolean value (true/false) or the date on which FDA clearance was obtained."@en ;
-                                 rdfs:label "510(k) Premarket Notification"@en ;
+                                 rdfs:label "510(k) clearance"@en ;
                                  rdfs:seeAlso <https://doi.org/10.3390/electronics13030498> ;
-                                 skos:altLabel "FDA cleared"@en ,
+                                 skos:altLabel "510(k) Premarket Notification"@en ,
+                                               "FDA cleared"@en ,
                                                "FDA-cleared"@en ,
                                                "US FDA clearance"@en ,
                                                "US FDA cleared"@en ,
@@ -10704,45 +10708,31 @@ When the function is the square of the difference and the variables are binary (
 
 ###  https://rsna.org/roadmap/03876
 <https://rsna.org/roadmap/03876> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/03874> ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03886> ;
                                  rdfs:comment "Identifier Format: DEN followed by 6 digits (e.g., DEN220034)"@en ;
-                                 rdfs:label "De Novo Authorization"@en ;
+                                 rdfs:label "de novo"@en ;
                                  rdfs:seeAlso <https://pmc.ncbi.nlm.nih.gov/articles/PMC11410966/> ;
-                                 skos:definition "A pathway for novel, low-to-moderate-risk AI software that lacks an established market predicate. This authorization establishes new \"Special Controls\" and product codes for future 510(k) entries."@en ,
-                                                 "de novo device approval"@en ,
-                                                 "de-novo authorization"@en ,
-                                                 "de-novo clearance"@en .
+                                 skos:definition "A US FDA pathway for novel, low-to-moderate-risk AI software that lacks an established market predicate. This authorization establishes new \"Special Controls\" and product codes for future 510(k) entries."@en ,
+                                                 "de novo authorization"@en ,
+                                                 "de novo clearance"@en ,
+                                                 "de novo device approval"@en .
 
 
 ###  https://rsna.org/roadmap/03877
 <https://rsna.org/roadmap/03877> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/03874> ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03886> ;
                                  rdfs:comment "Identifier Format: P followed by 6 digits (e.g., P210012)."@en ;
-                                 rdfs:label "Premarket Approval"@en ;
-                                 skos:altLabel "PMA"@en ;
-                                 skos:definition "Premarket Approval (PMA) is reserved for the highest-risk, life-sustaining, or autonomous diagnostic AI systems. It requires independent, rigorous clinical trial evidence."@en .
-
-
-###  https://rsna.org/roadmap/03878
-<https://rsna.org/roadmap/03878> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/03874> ;
-                                 rdfs:label "Predetermined Change Control Plan (PCCP)"@en .
-
-
-###  https://rsna.org/roadmap/03879
-<https://rsna.org/roadmap/03879> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/03603> ;
-                                 dcterms:source <https://doi.org/10.1258/jrsm.2012.120036> ;
-                                 rdfs:label "European Union authorization"@en ;
-                                 skos:altLabel "EU approval"@en ,
-                                               "EU authorization"@en .
+                                 rdfs:label "PMA"@en ;
+                                 skos:altLabel "Premarket Approval"@en ;
+                                 skos:definition "US FDA Premarket Approval (PMA) is reserved for the highest-risk, life-sustaining, or autonomous diagnostic AI systems. It requires independent, rigorous clinical trial evidence."@en .
 
 
 ###  https://rsna.org/roadmap/03880
 <https://rsna.org/roadmap/03880> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/03879> ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03886> ;
+                                 dcterms:source <https://doi.org/10.1258/jrsm.2012.120036> ;
                                  rdfs:comment "May have a boolean value (true/false) or the date on which CE mark was applied."@en ;
-                                 rdfs:label "CE Mark"@en ;
+                                 rdfs:label "CE mark"@en ;
                                  skos:altLabel "CE"@en ,
                                                "CE marked"@en ,
                                                "CE marking"@en ,
@@ -10753,60 +10743,126 @@ When the function is the square of the difference and the variables are binary (
                                  skos:definition "The CE mark (\"Conformité Européenne\") is a mandatory, self-declared compliance marking that indicates that a product meets essential EU health, safety, and environmental regulations, allowing it to be sold throughout the European Economic Area (EEA)."@en .
 
 
-###  https://rsna.org/roadmap/03882
-<https://rsna.org/roadmap/03882> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/03603> ;
-                                 rdfs:label "United Kingdom authorization"@en ;
-                                 skos:altLabel "UK authorization"@en .
-
-
 ###  https://rsna.org/roadmap/03883
 <https://rsna.org/roadmap/03883> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/03882> ;
-                                 rdfs:label "UK Conformity Assessed Mark"@en ;
-                                 skos:altLabel "UKCA"@en ,
-                                               "UKCA mark"@en ,
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03886> ;
+                                 rdfs:label "UKCA mark"@en ;
+                                 skos:altLabel "UK Conformity Assessed Mark"@en ,
+                                               "UKCA"@en ,
                                                "UKCA marked"@en ,
                                                "UKCA marking"@en .
 
 
 ###  https://rsna.org/roadmap/03884
 <https://rsna.org/roadmap/03884> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/03603> ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03886> ;
                                  dcterms:source <https://doi.org/10.1038/s41746-024-01254-x> ;
-                                 rdfs:label "China authorization"@en ;
-                                 skos:altLabel "NMPA authorization"@en ,
-                                               "National Medical Products Administration authorization"@en .
-
-
-###  https://rsna.org/roadmap/03885
-<https://rsna.org/roadmap/03885> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/03602> ;
-                                 rdfs:label "regulatory jurisdiction"@en .
+                                 rdfs:label "NMDA"@en ;
+                                 skos:altLabel "China / NMPA authorization"@en ,
+                                               "China / National Medical Products Administration authorization"@en ,
+                                               "NMPA authorization"@en .
 
 
 ###  https://rsna.org/roadmap/03886
 <https://rsna.org/roadmap/03886> rdf:type owl:Class ;
                                  rdfs:subClassOf <https://rsna.org/roadmap/03602> ;
+                                 rdfs:comment "Examples: 510(k), De Novo, PMA, PMA supplement, HDE, Breakthrough Device designation, CE / MDR, CE / IVDR, CE / MDD (legacy), UKCA, International Reliance, Medical Device Licence, MDEL, ARTG inclusion, Shonin, Ninsho, Sakigake designation, NMPA registration, MFDS approval, ANVISA registration, CDSCO licence, AMAR registration, HSA registration, Other, Not applicable"@en ,
+                                              "Note that the subclasses specified here are not an exhaustive list."@en ;
                                  rdfs:label "regulatory pathway"@en .
-
-
-###  https://rsna.org/roadmap/03887
-<https://rsna.org/roadmap/03887> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/03602> ;
-                                 rdfs:label "regulatory status"@en .
-
-
-###  https://rsna.org/roadmap/03888
-<https://rsna.org/roadmap/03888> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/03602> ;
-                                 rdfs:label "regulatory identifier"@en .
 
 
 ###  https://rsna.org/roadmap/03889
 <https://rsna.org/roadmap/03889> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03602> ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty <https://rsna.org/roadmap/03821> ;
+                                                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                   owl:onDataRange xsd:dateTime
+                                                 ] ;
+                                 rdfs:label "regulatory date"@en ;
+                                 skos:definition "The date on which the regulatory body granted the authorization or upon which it became effective."@en .
+
+
+###  https://rsna.org/roadmap/03890
+<https://rsna.org/roadmap/03890> rdf:type owl:Class ;
                                  rdfs:subClassOf <https://rsna.org/roadmap/03602> ;
-                                 rdfs:label "regulatory date"@en .
+                                 dcterms:source <https://www.iso.org/iso-3166-country-codes.html> ;
+                                 rdfs:label "jurisdiction"@en ;
+                                 skos:altLabel "regulatory jurisdiction"@en ;
+                                 skos:definition "A national or multinational government that regulates AI systems. Uses the 2-character ISO 3166-1 alpha-2 country code, except EU (European Union, an economic area) and UK-NI (Northern Ireland, which follows EU MDR under the Windsor Framework)."@en .
+
+
+###  https://rsna.org/roadmap/03902
+<https://rsna.org/roadmap/03902> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03602> ;
+                                 rdfs:comment "Examples include: \"FDA\", \"Notified Body\", \"MHRA\", \"Approved Body\", \"Swissmedic\", \"Health Canada\", \"TGA\", \"Medsafe\", \"PMDA\", \"MHLW\", \"NMPA\", \"MFDS\", \"CDSCO\", \"ANVISA\", \"AMAR\", \"HSA\", \"SFDA\", \"SAHPRA\", \"Other\""@en ;
+                                 rdfs:label "authority"@en ;
+                                 skos:altLabel "regulatory authority"@en ;
+                                 skos:definition "The government agency or designated organization that evaluates the AI system. In the US, the authority is the Food and Drug Administration (FDA). In the EU, a Notified Body grants the CE Mark."@en .
+
+
+###  https://rsna.org/roadmap/03903
+<https://rsna.org/roadmap/03903> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03602> ;
+                                 rdfs:label "authority identifer"@en ;
+                                 skos:definition "Four-digit Notified Body or Approved Body number where applicable, e.g. '0123'."@en .
+
+
+###  https://rsna.org/roadmap/03904
+<https://rsna.org/roadmap/03904> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03602> ;
+                                 rdfs:label "registry URL"@en ;
+                                 skos:definition "Deep link to the public registry entry, where one exists."@en .
+
+
+###  https://rsna.org/roadmap/03905
+<https://rsna.org/roadmap/03905> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03602> ;
+                                 rdfs:label "risk class"@en ;
+                                 skos:definition "Jurisdiction-specific risk category; not comparable across jurisdictions. US: I, II, III. EU MDR: I, IIa, IIb, III. Canada: I-IV. China/Korea: I, II, III. Interpret only together with Jurisdiction."@en .
+
+
+###  https://rsna.org/roadmap/03906
+<https://rsna.org/roadmap/03906> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03889> ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty <https://rsna.org/roadmap/03821> ;
+                                                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                   owl:onDataRange xsd:dateTime
+                                                 ] ;
+                                 rdfs:label "submission date"@en ;
+                                 skos:definition "Date on which the regulatory application was submitted."@en .
+
+
+###  https://rsna.org/roadmap/03907
+<https://rsna.org/roadmap/03907> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03889> ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty <https://rsna.org/roadmap/03821> ;
+                                                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                   owl:onDataRange xsd:dateTime
+                                                 ] ;
+                                 rdfs:label "decision date"@en ;
+                                 skos:definition "Effective date of regulatory decision."@en .
+
+
+###  https://rsna.org/roadmap/03908
+<https://rsna.org/roadmap/03908> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03889> ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty <https://rsna.org/roadmap/03821> ;
+                                                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                   owl:onDataRange xsd:dateTime
+                                                 ] ;
+                                 rdfs:label "expiration date"@en ;
+                                 skos:definition "Date on which the regulatory approval expires."@en .
+
+
+###  https://rsna.org/roadmap/03909
+<https://rsna.org/roadmap/03909> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03602> ;
+                                 rdfs:label "change control"@en ;
+                                 skos:definition "Predetermined change control. Cross-jurisdiction: FDA PCCP, MHRA PCCP, EU AI Act Annex IV point 2(f)."@en .
 
 
 ###  https://rsna.org/roadmap/04003
@@ -16906,15 +16962,6 @@ Tier 4: no sharing"""@en ;
                 <https://rsna.org/roadmap/03430>
                 <https://rsna.org/roadmap/03431>
                 <https://rsna.org/roadmap/03440>
-              )
-] .
-
-
-[ rdf:type owl:AllDisjointClasses ;
-  owl:members ( <https://rsna.org/roadmap/03875>
-                <https://rsna.org/roadmap/03876>
-                <https://rsna.org/roadmap/03877>
-                <https://rsna.org/roadmap/03878>
               )
 ] .
 
