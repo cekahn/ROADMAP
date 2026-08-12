@@ -234,7 +234,15 @@ owl:topObjectProperty rdf:type owl:ObjectProperty .
                                               owl:unionOf ( <https://rsna.org/roadmap/00177>
                                                             <https://rsna.org/roadmap/00248>
                                                           )
-                                            ] .
+                                            ] ;
+                                 rdfs:comment """Examples: 
+- 'TRAM-AI item A1' supports findability
+- 'annotation level' supports 'CLAIM item 03'"""@en ,
+                                              """The \"supports\" relation is expressed two different ways: as ABox triples on guideline-item individuals (item → principle) and as TBox hasValue restrictions on metadata classes (metadata class → item or principle).
+
+Note that this property is *not* transitive: some guideline items are disjunctions (\"A or B\"). For example, AI resource metadata M may support A while B supports ethical principle P, so it would be incorrect to infer that M supports P."""@en ;
+                                 rdfs:label "supports"@en ;
+                                 skos:definition "Relates a metadata entity or guideline item to a guideline item or ethical principle that it helps satisfy, operationalize, or support."@en .
 
 
 ###  https://rsna.org/roadmap/00201
@@ -495,9 +503,9 @@ owl:topObjectProperty rdf:type owl:ObjectProperty .
                                  rdfs:subPropertyOf <https://rsna.org/roadmap/00198> ;
                                  rdfs:domain <https://rsna.org/roadmap/03788> ;
                                  rdfs:range <https://rsna.org/roadmap/00177> ;
-                                 rdfs:comment "The two realms are different, so this edge is a correspondence, not a subsumption — which is exactly why the non-transitivity decision is right. The manuscript item may be satisfiable by other evidence (the disjunction problem), so the correspondence doesn't compose."@en ;
+                                 rdfs:comment "Not currently used."@en ;
                                  rdfs:label "supports guideline item"@en ;
-                                 skos:definition "Links metadata entity (an AI resource attribute) to a guideline item: \"Recording this artifact attribute supplies the evidence a manuscript needs to satisfy this reporting item.\""@en .
+                                 skos:definition "A sub-property of \"supports\" that links a metadata entity (an AI resource attribute) to a guideline item: \"Recording this artifact attribute supplies the evidence a manuscript needs to satisfy this reporting item.\""@en .
 
 
 ###  https://rsna.org/roadmap/03919
@@ -509,6 +517,7 @@ owl:topObjectProperty rdf:type owl:ObjectProperty .
                                                            )
                                              ] ;
                                  rdfs:range <https://rsna.org/roadmap/00248> ;
+                                 rdfs:comment "Not currently used."@en ;
                                  rdfs:label "supports principle"@en .
 
 
@@ -517,8 +526,9 @@ owl:topObjectProperty rdf:type owl:ObjectProperty .
                                  rdfs:subPropertyOf <https://rsna.org/roadmap/03919> ;
                                  rdfs:domain <https://rsna.org/roadmap/00177> ;
                                  rdfs:range <https://rsna.org/roadmap/00248> ;
+                                 rdfs:comment "Not currently used."@en ;
                                  rdfs:label "guideline item supports principle"@en ;
-                                 skos:definition "Links a guideline item to an ethical principle: \"A manuscript satisfying this item advances this principle.\""@en .
+                                 skos:definition "A sub-property of \"supports\" that links a guideline item to an ethical principle: \"A manuscript satisfying this item advances this principle.\""@en .
 
 
 ###  https://rsna.org/roadmap/03921
@@ -526,8 +536,9 @@ owl:topObjectProperty rdf:type owl:ObjectProperty .
                                  rdfs:subPropertyOf <https://rsna.org/roadmap/03919> ;
                                  rdfs:domain <https://rsna.org/roadmap/03788> ;
                                  rdfs:range <https://rsna.org/roadmap/00248> ;
+                                 rdfs:comment "Not currently used."@en ;
                                  rdfs:label "metadata supports principle"@en ;
-                                 skos:definition "Links metadata directly to an ethical principle: \"Recording this attribute advances the principle regardless of any manuscript.\""@en .
+                                 skos:definition "A sub-property of \"supports: that links metadata directly to an ethical principle: \"Recording this attribute advances the principle regardless of any manuscript.\""@en .
 
 
 ###  https://rsna.org/roadmap/04089
@@ -2238,8 +2249,8 @@ owl:Thing rdf:type owl:Class .
                                                        <https://rsna.org/roadmap/03370>
                                                        <https://rsna.org/roadmap/03371>
                                                      ) ;
-                                 rdfs:label "Protected Health Information"@en ,
-                                            "información sanitaria protegida"@es ,
+                                 rdfs:label "información sanitaria protegida"@es ,
+                                            "protected health information"@en ,
                                             "受保护的健康信息"@zh ;
                                  skos:altLabel "PHI"@en ;
                                  skos:definition "According to the Health Insurance Portability and Accountability Act (HIPAA), protected health information (PHI) is any health information that can identify an individual that relates to a patient's past, present, or future health."@en .
@@ -12827,28 +12838,28 @@ R1.3 : (Meta)data meet domain-relevant community standards."""@en ,
 <https://rsna.org/roadmap/00180> rdf:type owl:NamedIndividual ,
                                           <https://rsna.org/roadmap/00178> ;
                                  <https://rsna.org/roadmap/00198> <https://rsna.org/roadmap/00170> ,
-                                                                  <https://rsna.org/roadmap/00171> ;
+                                                                  <https://rsna.org/roadmap/00171> ,
+                                                                  <https://rsna.org/roadmap/00254> ;
                                  rdfs:comment "Prevents \"link rot\" and data decay."@en ;
                                  rdfs:label "TRAM-AI item A1"@en ;
                                  skos:altLabel "A1"@en ,
                                                "A1 - Trusted Repository"@en ,
                                                "Trusted Repository"@en ;
-                                 skos:definition "Dataset is hosted on a recognized, third-party repository (e.g., Zenodo, TCIA, PhysioNet), not personal websites."@en ;
-                                 <https://rsna.org/roadmap/00198> <https://rsna.org/roadmap/00254> .
+                                 skos:definition "Dataset is hosted on a recognized, third-party repository (e.g., Zenodo, TCIA, PhysioNet), not personal websites."@en .
 
 
 ###  https://rsna.org/roadmap/00181
 <https://rsna.org/roadmap/00181> rdf:type owl:NamedIndividual ,
                                           <https://rsna.org/roadmap/00178> ;
                                  <https://rsna.org/roadmap/00198> <https://rsna.org/roadmap/00170> ,
-                                                                  <https://rsna.org/roadmap/00171> ;
+                                                                  <https://rsna.org/roadmap/00171> ,
+                                                                  <https://rsna.org/roadmap/00254> ;
                                  rdfs:comment "Ensures findability and citability."@en ;
                                  rdfs:label "TRAM-AI item A2"@en ;
                                  skos:altLabel "A2"@en ,
                                                "A2 - Persistent Identifier"@en ,
                                                "Persistent Identifier"@en ;
-                                 skos:definition "Dataset is assigned a DOI or stable accession number."@en ;
-                                 <https://rsna.org/roadmap/00198> <https://rsna.org/roadmap/00254> .
+                                 skos:definition "Dataset is assigned a DOI or stable accession number."@en .
 
 
 ###  https://rsna.org/roadmap/00182
@@ -12856,14 +12867,14 @@ R1.3 : (Meta)data meet domain-relevant community standards."""@en ,
                                           <https://rsna.org/roadmap/00178> ;
                                  <https://rsna.org/roadmap/00198> <https://rsna.org/roadmap/00170> ,
                                                                   <https://rsna.org/roadmap/00171> ,
-                                                                  <https://rsna.org/roadmap/00173> ;
+                                                                  <https://rsna.org/roadmap/00173> ,
+                                                                  <https://rsna.org/roadmap/00254> ;
                                  rdfs:comment "Ensures reproducibility if dataset updated."@en ;
                                  rdfs:label "TRAM-AI item A3"@en ;
                                  skos:altLabel "A3"@en ,
                                                "A3 - Version Control"@en ,
                                                "Version Control"@en ;
-                                 skos:definition "Repository supports explicit versioning; specific version cited in manuscript."@en ;
-                                 <https://rsna.org/roadmap/00198> <https://rsna.org/roadmap/00254> .
+                                 skos:definition "Repository supports explicit versioning; specific version cited in manuscript."@en .
 
 
 ###  https://rsna.org/roadmap/00184
@@ -13438,9 +13449,9 @@ R1.3 : (Meta)data meet domain-relevant community standards."""@en ,
 ###  https://rsna.org/roadmap/00247
 <https://rsna.org/roadmap/00247> rdf:type owl:NamedIndividual ,
                                           <https://rsna.org/roadmap/00202> ;
+                                 <https://rsna.org/roadmap/00198> <https://rsna.org/roadmap/00254> ;
                                  rdfs:label "CLAIM item 44"@en ;
-                                 skos:definition "Sources of funding and other support; role of funders."@en ;
-                                 <https://rsna.org/roadmap/00198> <https://rsna.org/roadmap/00254> .
+                                 skos:definition "Sources of funding and other support; role of funders."@en .
 
 
 ###  https://rsna.org/roadmap/00253
@@ -13718,9 +13729,9 @@ R1.3 : (Meta)data meet domain-relevant community standards."""@en ,
 ###  https://rsna.org/roadmap/00284
 <https://rsna.org/roadmap/00284> rdf:type owl:NamedIndividual ,
                                           <https://rsna.org/roadmap/00278> ;
+                                 <https://rsna.org/roadmap/00198> <https://rsna.org/roadmap/00254> ;
                                  rdfs:label "STARD-AI item 06"@en ;
-                                 skos:definition "Formal approval from an ethics committee. If not required, justify why."@en ;
-                                 <https://rsna.org/roadmap/00198> <https://rsna.org/roadmap/00254> .
+                                 skos:definition "Formal approval from an ethics committee. If not required, justify why."@en .
 
 
 ###  https://rsna.org/roadmap/00285
@@ -13784,10 +13795,10 @@ R1.3 : (Meta)data meet domain-relevant community standards."""@en ,
 <https://rsna.org/roadmap/00291> rdf:type owl:NamedIndividual ,
                                           <https://rsna.org/roadmap/00278> ;
                                  <https://rsna.org/roadmap/00198> <https://rsna.org/roadmap/00172> ,
+                                                                  <https://rsna.org/roadmap/00254> ,
                                                                   <https://rsna.org/roadmap/00257> ;
                                  rdfs:label "STARD-AI item 13"@en ;
-                                 skos:definition "Devices (manufacturer, model) that were used to capture data; software (with version number) used to engineer the index test, highlighting the intended use."@en ;
-                                 <https://rsna.org/roadmap/00198> <https://rsna.org/roadmap/00254> .
+                                 skos:definition "Devices (manufacturer, model) that were used to capture data; software (with version number) used to engineer the index test, highlighting the intended use."@en .
 
 
 ###  https://rsna.org/roadmap/00292
@@ -14073,9 +14084,9 @@ R1.3 : (Meta)data meet domain-relevant community standards."""@en ,
 ###  https://rsna.org/roadmap/00324
 <https://rsna.org/roadmap/00324> rdf:type owl:NamedIndividual ,
                                           <https://rsna.org/roadmap/00278> ;
+                                 <https://rsna.org/roadmap/00198> <https://rsna.org/roadmap/00254> ;
                                  rdfs:label "STARD-AI item 39"@en ;
-                                 skos:definition "Commercial interests, if applicable."@en ;
-                                 <https://rsna.org/roadmap/00198> <https://rsna.org/roadmap/00254> .
+                                 skos:definition "Commercial interests, if applicable."@en .
 
 
 ###  https://rsna.org/roadmap/00325
@@ -14232,10 +14243,10 @@ R1.3 : (Meta)data meet domain-relevant community standards."""@en ,
                                           <https://rsna.org/roadmap/00329> ;
                                  <https://rsna.org/roadmap/00198> <https://rsna.org/roadmap/00172> ,
                                                                   <https://rsna.org/roadmap/00173> ,
+                                                                  <https://rsna.org/roadmap/00254> ,
                                                                   <https://rsna.org/roadmap/00255> ;
                                  rdfs:label "CONSORT-AI item 05"@en ;
-                                 skos:definition "The interventions for each group with sufficient details to allow replication, including how and when they were actually administered. State which version of the AI algorithm was used.Describe how the input data were acquired and selected for the AI intervention.Describe how poor quality or unavailable input data were assessed and handled.Specify whether there was human–AI interaction in the handling of the input data, and what level of expertise was required of users.Specify the output of the AI interventionExplain how the AI intervention’s outputs contributed to decision-making or other elements of clinical practice."@en ;
-                                 <https://rsna.org/roadmap/00198> <https://rsna.org/roadmap/00254> .
+                                 skos:definition "The interventions for each group with sufficient details to allow replication, including how and when they were actually administered. State which version of the AI algorithm was used.Describe how the input data were acquired and selected for the AI intervention.Describe how poor quality or unavailable input data were assessed and handled.Specify whether there was human–AI interaction in the handling of the input data, and what level of expertise was required of users.Specify the output of the AI interventionExplain how the AI intervention’s outputs contributed to decision-making or other elements of clinical practice."@en .
 
 
 ###  https://rsna.org/roadmap/00341
@@ -14478,60 +14489,60 @@ R1.3 : (Meta)data meet domain-relevant community standards."""@en ,
 ###  https://rsna.org/roadmap/00370
 <https://rsna.org/roadmap/00370> rdf:type owl:NamedIndividual ,
                                           <https://rsna.org/roadmap/00330> ;
-                                 <https://rsna.org/roadmap/00198> <https://rsna.org/roadmap/00171> ;
+                                 <https://rsna.org/roadmap/00198> <https://rsna.org/roadmap/00171> ,
+                                                                  <https://rsna.org/roadmap/00254> ;
                                  rdfs:label "SPIRIT-AI item 02a"@en ;
-                                 skos:definition "Trial identifier and registry name."@en ;
-                                 <https://rsna.org/roadmap/00198> <https://rsna.org/roadmap/00254> .
+                                 skos:definition "Trial identifier and registry name."@en .
 
 
 ###  https://rsna.org/roadmap/00371
 <https://rsna.org/roadmap/00371> rdf:type owl:NamedIndividual ,
                                           <https://rsna.org/roadmap/00330> ;
-                                 <https://rsna.org/roadmap/00198> <https://rsna.org/roadmap/00171> ;
+                                 <https://rsna.org/roadmap/00198> <https://rsna.org/roadmap/00171> ,
+                                                                  <https://rsna.org/roadmap/00254> ;
                                  rdfs:label "SPIRIT-AI item 02b"@en ;
-                                 skos:definition "WHO Trial Registration Dataset items."@en ;
-                                 <https://rsna.org/roadmap/00198> <https://rsna.org/roadmap/00254> .
+                                 skos:definition "WHO Trial Registration Dataset items."@en .
 
 
 ###  https://rsna.org/roadmap/00372
 <https://rsna.org/roadmap/00372> rdf:type owl:NamedIndividual ,
                                           <https://rsna.org/roadmap/00330> ;
-                                 <https://rsna.org/roadmap/00198> <https://rsna.org/roadmap/00171> ;
+                                 <https://rsna.org/roadmap/00198> <https://rsna.org/roadmap/00171> ,
+                                                                  <https://rsna.org/roadmap/00254> ;
                                  rdfs:label "SPIRIT-AI item 03"@en ;
-                                 skos:definition "Date and version identifier."@en ;
-                                 <https://rsna.org/roadmap/00198> <https://rsna.org/roadmap/00254> .
+                                 skos:definition "Date and version identifier."@en .
 
 
 ###  https://rsna.org/roadmap/00373
 <https://rsna.org/roadmap/00373> rdf:type owl:NamedIndividual ,
                                           <https://rsna.org/roadmap/00330> ;
+                                 <https://rsna.org/roadmap/00198> <https://rsna.org/roadmap/00254> ;
                                  rdfs:label "SPIRIT-AI item 04"@en ;
-                                 skos:definition "Sources and types of support."@en ;
-                                 <https://rsna.org/roadmap/00198> <https://rsna.org/roadmap/00254> .
+                                 skos:definition "Sources and types of support."@en .
 
 
 ###  https://rsna.org/roadmap/00374
 <https://rsna.org/roadmap/00374> rdf:type owl:NamedIndividual ,
                                           <https://rsna.org/roadmap/00330> ;
+                                 <https://rsna.org/roadmap/00198> <https://rsna.org/roadmap/00254> ;
                                  rdfs:label "SPIRIT-AI item 05a"@en ;
-                                 skos:definition "Names, affiliations, roles of contributors."@en ;
-                                 <https://rsna.org/roadmap/00198> <https://rsna.org/roadmap/00254> .
+                                 skos:definition "Names, affiliations, roles of contributors."@en .
 
 
 ###  https://rsna.org/roadmap/00375
 <https://rsna.org/roadmap/00375> rdf:type owl:NamedIndividual ,
                                           <https://rsna.org/roadmap/00330> ;
+                                 <https://rsna.org/roadmap/00198> <https://rsna.org/roadmap/00254> ;
                                  rdfs:label "SPIRIT-AI item 05b"@en ;
-                                 skos:definition "Trial sponsor contact info."@en ;
-                                 <https://rsna.org/roadmap/00198> <https://rsna.org/roadmap/00254> .
+                                 skos:definition "Trial sponsor contact info."@en .
 
 
 ###  https://rsna.org/roadmap/00376
 <https://rsna.org/roadmap/00376> rdf:type owl:NamedIndividual ,
                                           <https://rsna.org/roadmap/00330> ;
+                                 <https://rsna.org/roadmap/00198> <https://rsna.org/roadmap/00254> ;
                                  rdfs:label "SPIRIT-AI item 05c"@en ;
-                                 skos:definition "Role of sponsor and funders."@en ;
-                                 <https://rsna.org/roadmap/00198> <https://rsna.org/roadmap/00254> .
+                                 skos:definition "Role of sponsor and funders."@en .
 
 
 ###  https://rsna.org/roadmap/00377
@@ -14597,10 +14608,10 @@ R1.3 : (Meta)data meet domain-relevant community standards."""@en ,
                                           <https://rsna.org/roadmap/00330> ;
                                  <https://rsna.org/roadmap/00198> <https://rsna.org/roadmap/00172> ,
                                                                   <https://rsna.org/roadmap/00173> ,
+                                                                  <https://rsna.org/roadmap/00254> ,
                                                                   <https://rsna.org/roadmap/00255> ;
                                  rdfs:label "SPIRIT-AI item 11a"@en ;
-                                 skos:definition "Intervention details. AI algorithm version. Input data acquisition. Handling poor-quality data. Human-AI interaction. Specify AI output. Use of AI output in decisions."@en ;
-                                 <https://rsna.org/roadmap/00198> <https://rsna.org/roadmap/00254> .
+                                 skos:definition "Intervention details. AI algorithm version. Input data acquisition. Handling poor-quality data. Human-AI interaction. Specify AI output. Use of AI output in decisions."@en .
 
 
 ###  https://rsna.org/roadmap/00385
@@ -14786,9 +14797,9 @@ R1.3 : (Meta)data meet domain-relevant community standards."""@en ,
 ###  https://rsna.org/roadmap/00407
 <https://rsna.org/roadmap/00407> rdf:type owl:NamedIndividual ,
                                           <https://rsna.org/roadmap/00330> ;
+                                 <https://rsna.org/roadmap/00198> <https://rsna.org/roadmap/00254> ;
                                  rdfs:label "SPIRIT-AI item 24"@en ;
-                                 skos:definition "IRB approval plans."@en ;
-                                 <https://rsna.org/roadmap/00198> <https://rsna.org/roadmap/00254> .
+                                 skos:definition "IRB approval plans."@en .
 
 
 ###  https://rsna.org/roadmap/00408
@@ -15160,17 +15171,17 @@ R1.3 : (Meta)data meet domain-relevant community standards."""@en ,
 ###  https://rsna.org/roadmap/00451
 <https://rsna.org/roadmap/00451> rdf:type owl:NamedIndividual ,
                                           <https://rsna.org/roadmap/00331> ;
+                                 <https://rsna.org/roadmap/00198> <https://rsna.org/roadmap/00254> ;
                                  rdfs:label "TRIPOD+AI item 17"@en ;
-                                 skos:definition "Name the institutional research board or ethics committee that approved the study and describe the participant-informed consent or the ethics committee waiver of informed consent."@en ;
-                                 <https://rsna.org/roadmap/00198> <https://rsna.org/roadmap/00254> .
+                                 skos:definition "Name the institutional research board or ethics committee that approved the study and describe the participant-informed consent or the ethics committee waiver of informed consent."@en .
 
 
 ###  https://rsna.org/roadmap/00452
 <https://rsna.org/roadmap/00452> rdf:type owl:NamedIndividual ,
                                           <https://rsna.org/roadmap/00331> ;
+                                 <https://rsna.org/roadmap/00198> <https://rsna.org/roadmap/00254> ;
                                  rdfs:label "TRIPOD+AI item 18b"@en ;
-                                 skos:definition "Declare any conflicts of interest and financial disclosures for all authors."@en ;
-                                 <https://rsna.org/roadmap/00198> <https://rsna.org/roadmap/00254> .
+                                 skos:definition "Declare any conflicts of interest and financial disclosures for all authors."@en .
 
 
 ###  https://rsna.org/roadmap/00453
@@ -15261,9 +15272,9 @@ R1.3 : (Meta)data meet domain-relevant community standards."""@en ,
 ###  https://rsna.org/roadmap/00462
 <https://rsna.org/roadmap/00462> rdf:type owl:NamedIndividual ,
                                           <https://rsna.org/roadmap/00331> ;
+                                 <https://rsna.org/roadmap/00198> <https://rsna.org/roadmap/00254> ;
                                  rdfs:label "TRIPOD+AI item 18a"@en ;
-                                 skos:definition "Give the source of funding and the role of the funders for the present study."@en ;
-                                 <https://rsna.org/roadmap/00198> <https://rsna.org/roadmap/00254> .
+                                 skos:definition "Give the source of funding and the role of the funders for the present study."@en .
 
 
 ###  https://rsna.org/roadmap/00464
@@ -15288,10 +15299,10 @@ R1.3 : (Meta)data meet domain-relevant community standards."""@en ,
 ###  https://rsna.org/roadmap/00466
 <https://rsna.org/roadmap/00466> rdf:type owl:NamedIndividual ,
                                           <https://rsna.org/roadmap/00331> ;
-                                 <https://rsna.org/roadmap/00198> <https://rsna.org/roadmap/00255> ;
+                                 <https://rsna.org/roadmap/00198> <https://rsna.org/roadmap/00254> ,
+                                                                  <https://rsna.org/roadmap/00255> ;
                                  rdfs:label "TRIPOD+AI item 24"@en ;
-                                 skos:definition "Report the results from any model updating, including the updated model and subsequent performance."@en ;
-                                 <https://rsna.org/roadmap/00198> <https://rsna.org/roadmap/00254> .
+                                 skos:definition "Report the results from any model updating, including the updated model and subsequent performance."@en .
 
 
 ###  https://rsna.org/roadmap/00467
@@ -15672,10 +15683,10 @@ AI actors, should, based on their roles, the context, and their ability to act, 
 ###  https://rsna.org/roadmap/00497
 <https://rsna.org/roadmap/00497> rdf:type owl:NamedIndividual ,
                                           <https://rsna.org/roadmap/00496> ;
-                                 <https://rsna.org/roadmap/00198> <https://rsna.org/roadmap/00171> ;
+                                 <https://rsna.org/roadmap/00198> <https://rsna.org/roadmap/00171> ,
+                                                                  <https://rsna.org/roadmap/00254> ;
                                  rdfs:label "REFINE item 1.1"@en ;
-                                 skos:definition "Model name, vendor/developer, version/identifier, release date, and training/knowledge cutoff date."@en ;
-                                 <https://rsna.org/roadmap/00198> <https://rsna.org/roadmap/00254> .
+                                 skos:definition "Model name, vendor/developer, version/identifier, release date, and training/knowledge cutoff date."@en .
 
 
 ###  https://rsna.org/roadmap/00498
@@ -15745,10 +15756,10 @@ AI actors, should, based on their roles, the context, and their ability to act, 
 ###  https://rsna.org/roadmap/00505
 <https://rsna.org/roadmap/00505> rdf:type owl:NamedIndividual ,
                                           <https://rsna.org/roadmap/00496> ;
-                                 <https://rsna.org/roadmap/00198> <https://rsna.org/roadmap/00257> ;
+                                 <https://rsna.org/roadmap/00198> <https://rsna.org/roadmap/00254> ,
+                                                                  <https://rsna.org/roadmap/00257> ;
                                  rdfs:label "REFINE item 2.1"@en ;
-                                 skos:definition "Prompt engineering protocol with versioning."@en ;
-                                 <https://rsna.org/roadmap/00198> <https://rsna.org/roadmap/00254> .
+                                 skos:definition "Prompt engineering protocol with versioning."@en .
 
 
 ###  https://rsna.org/roadmap/00506
@@ -15825,10 +15836,10 @@ AI actors, should, based on their roles, the context, and their ability to act, 
                                           <https://rsna.org/roadmap/00496> ;
                                  <https://rsna.org/roadmap/00198> <https://rsna.org/roadmap/00170> ,
                                                                   <https://rsna.org/roadmap/00171> ,
-                                                                  <https://rsna.org/roadmap/00173> ;
+                                                                  <https://rsna.org/roadmap/00173> ,
+                                                                  <https://rsna.org/roadmap/00254> ;
                                  rdfs:label "REFINE item 4.1"@en ;
-                                 skos:definition "Dataset name, version, access type, source citation, license, and compliance statement."@en ;
-                                 <https://rsna.org/roadmap/00198> <https://rsna.org/roadmap/00254> .
+                                 skos:definition "Dataset name, version, access type, source citation, license, and compliance statement."@en .
 
 
 ###  https://rsna.org/roadmap/00515
@@ -15844,9 +15855,9 @@ AI actors, should, based on their roles, the context, and their ability to act, 
 ###  https://rsna.org/roadmap/00516
 <https://rsna.org/roadmap/00516> rdf:type owl:NamedIndividual ,
                                           <https://rsna.org/roadmap/00496> ;
+                                 <https://rsna.org/roadmap/00198> <https://rsna.org/roadmap/00254> ;
                                  rdfs:label "REFINE item 4.3"@en ;
-                                 skos:definition "Ethics and consent statements."@en ;
-                                 <https://rsna.org/roadmap/00198> <https://rsna.org/roadmap/00254> .
+                                 skos:definition "Ethics and consent statements."@en .
 
 
 ###  https://rsna.org/roadmap/00517
@@ -15980,10 +15991,10 @@ AI actors, should, based on their roles, the context, and their ability to act, 
 ###  https://rsna.org/roadmap/00531
 <https://rsna.org/roadmap/00531> rdf:type owl:NamedIndividual ,
                                           <https://rsna.org/roadmap/00496> ;
-                                 <https://rsna.org/roadmap/00198> <https://rsna.org/roadmap/00257> ;
+                                 <https://rsna.org/roadmap/00198> <https://rsna.org/roadmap/00254> ,
+                                                                  <https://rsna.org/roadmap/00257> ;
                                  rdfs:label "REFINE item 5.8"@en ;
-                                 skos:definition "Model version comparisons and temporal performance variation."@en ;
-                                 <https://rsna.org/roadmap/00198> <https://rsna.org/roadmap/00254> .
+                                 skos:definition "Model version comparisons and temporal performance variation."@en .
 
 
 ###  https://rsna.org/roadmap/00532
@@ -16042,11 +16053,11 @@ AI actors, should, based on their roles, the context, and their ability to act, 
 ###  https://rsna.org/roadmap/00538
 <https://rsna.org/roadmap/00538> rdf:type owl:NamedIndividual ,
                                           <https://rsna.org/roadmap/00496> ;
-                                 <https://rsna.org/roadmap/00198> <https://rsna.org/roadmap/00257> ,
+                                 <https://rsna.org/roadmap/00198> <https://rsna.org/roadmap/00254> ,
+                                                                  <https://rsna.org/roadmap/00257> ,
                                                                   <https://rsna.org/roadmap/00258> ;
                                  rdfs:label "REFINE item 6.5"@en ;
-                                 skos:definition "Safety testing and monitoring protocols."@en ;
-                                 <https://rsna.org/roadmap/00198> <https://rsna.org/roadmap/00254> .
+                                 skos:definition "Safety testing and monitoring protocols."@en .
 
 
 ###  https://rsna.org/roadmap/00539
@@ -16293,9 +16304,9 @@ AI actors, should, based on their roles, the context, and their ability to act, 
 ###  https://rsna.org/roadmap/00570
 <https://rsna.org/roadmap/00570> rdf:type owl:NamedIndividual ,
                                           <https://rsna.org/roadmap/00490> ;
+                                 <https://rsna.org/roadmap/00198> <https://rsna.org/roadmap/00254> ;
                                  rdfs:label "DECIDE-AI item III - Research governance"@en ;
-                                 skos:definition "Provide a reference to any study protocol, study registration number, and ethics approval."@en ;
-                                 <https://rsna.org/roadmap/00198> <https://rsna.org/roadmap/00254> .
+                                 skos:definition "Provide a reference to any study protocol, study registration number, and ethics approval."@en .
 
 
 ###  https://rsna.org/roadmap/00571
@@ -16313,10 +16324,10 @@ AI actors, should, based on their roles, the context, and their ability to act, 
                                           <https://rsna.org/roadmap/00490> ;
                                  <https://rsna.org/roadmap/00198> <https://rsna.org/roadmap/00172> ,
                                                                   <https://rsna.org/roadmap/00173> ,
+                                                                  <https://rsna.org/roadmap/00254> ,
                                                                   <https://rsna.org/roadmap/00255> ;
                                  rdfs:label "DECIDE-AI item 4 - AI system"@en ;
-                                 skos:definition "a) Briefly describe the AI system, specifying its version and type of underlying algorithm used. Describe, or provide a direct reference to, the characteristics of the patient population on which the algorithm was trained and its performance in preclinical development/validation studies."@en ;
-                                 <https://rsna.org/roadmap/00198> <https://rsna.org/roadmap/00254> .
+                                 skos:definition "a) Briefly describe the AI system, specifying its version and type of underlying algorithm used. Describe, or provide a direct reference to, the characteristics of the patient population on which the algorithm was trained and its performance in preclinical development/validation studies."@en .
 
 
 ###  https://rsna.org/roadmap/00573
@@ -16492,9 +16503,9 @@ AI actors, should, based on their roles, the context, and their ability to act, 
 ###  https://rsna.org/roadmap/00592
 <https://rsna.org/roadmap/00592> rdf:type owl:NamedIndividual ,
                                           <https://rsna.org/roadmap/00490> ;
+                                 <https://rsna.org/roadmap/00198> <https://rsna.org/roadmap/00254> ;
                                  rdfs:label "DECIDE-AI item X - Conflicts of interest"@en ;
-                                 skos:definition "Disclose any relevant conflicts of interest, including the source of funding for the study, the role of funders, any other roles played by commercial companies, and personal conflicts of interest for each author."@en ;
-                                 <https://rsna.org/roadmap/00198> <https://rsna.org/roadmap/00254> .
+                                 skos:definition "Disclose any relevant conflicts of interest, including the source of funding for the study, the role of funders, any other roles played by commercial companies, and personal conflicts of interest for each author."@en .
 
 
 ###  https://rsna.org/roadmap/00593
@@ -17192,18 +17203,6 @@ Tier 4: no sharing"""@en ;
                                                "Abdominal Radiology"@en ;
                                  skos:definition "Content code for Abdominal Radiology."@en ;
                                  skos:exactMatch <http://www.radlex.org/RID/RID50608> .
-
-
-#################################################################
-#    Annotations
-#################################################################
-
-<https://rsna.org/roadmap/00198> rdfs:comment """Examples: 
-- 'TRAM-AI item A1' supports findability
-- 'annotation level' supports 'CLAIM item 03'"""@en ,
-                                              "The \"supports\" relation is expressed two different ways: as ABox triples on guideline-item individuals (item → principle) and as TBox hasValue restrictions on metadata classes (metadata class → item or principle)."@en ;
-                                 rdfs:label "supports"@en ;
-                                 skos:definition "Relates a metadata entity or guideline item to a guideline item or ethical principle that it helps satisfy, operationalize, or support."@en .
 
 
 #################################################################
