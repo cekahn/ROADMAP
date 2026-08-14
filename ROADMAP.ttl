@@ -1555,7 +1555,8 @@ owl:Thing rdf:type owl:Class .
                                                "number of items"@en ,
                                                "número de artículos"@es ;
                                  skos:definition "The number of items in a dataset, partition, or subset. Subclasses include counts for exams, images, patients, series, and sites."@en ;
-                                 skos:exactMatch <http://purl.obolibrary.org/obo/APOLLO_SV_00000032> .
+                                 skos:exactMatch <http://purl.obolibrary.org/obo/APOLLO_SV_00000032> ,
+                                                 <http://purl.obolibrary.org/obo/STATO_0000047> .
 
 
 ###  https://rsna.org/roadmap/00056
@@ -12050,7 +12051,8 @@ When the function is the square of the difference and the variables are binary (
                                  skos:altLabel "DOR"@en ;
                                  skos:definition """The diagnostic odds ratio is a single summary measure of diagnostic test accuracy, defined as the ratio of the odds of a positive test result in diseased individuals to the odds of a positive result in non-diseased individuals. It combines sensitivity and specificity into one statistic, making it mathematically equivalent to the ratio of positive to negative likelihood ratios. A value of 1 indicates no discriminatory ability, values greater than 1 reflect increasing diagnostic accuracy, and values less than 1 suggest systematic misclassification, while remaining independent of disease prevalence.
 
-                                         DOR = ⁠LR+ / LR−"""@en .
+                                         DOR = ⁠LR+ / LR−"""@en ;
+                                 skos:exactMatch <http://purl.obolibrary.org/obo/STATO_0000679> .
 
 
 ###  https://rsna.org/roadmap/04074
