@@ -232,7 +232,7 @@ owl:topObjectProperty rdf:type owl:ObjectProperty .
                                              ] ;
                                  rdfs:range [ rdf:type owl:Class ;
                                               owl:unionOf ( <https://rsna.org/roadmap/00177>
-                                                            <https://rsna.org/roadmap/00248>
+                                                            <https://rsna.org/roadmap/03805>
                                                           )
                                             ] ;
                                  rdfs:comment """Examples: 
@@ -516,7 +516,7 @@ Note that this property is *not* transitive: some guideline items are disjunctio
                                                              <https://rsna.org/roadmap/03788>
                                                            )
                                              ] ;
-                                 rdfs:range <https://rsna.org/roadmap/00248> ;
+                                 rdfs:range <https://rsna.org/roadmap/03805> ;
                                  rdfs:comment "Not currently used."@en ;
                                  rdfs:label "supports principle"@en .
 
@@ -525,7 +525,7 @@ Note that this property is *not* transitive: some guideline items are disjunctio
 <https://rsna.org/roadmap/03920> rdf:type owl:ObjectProperty ;
                                  rdfs:subPropertyOf <https://rsna.org/roadmap/03919> ;
                                  rdfs:domain <https://rsna.org/roadmap/00177> ;
-                                 rdfs:range <https://rsna.org/roadmap/00248> ;
+                                 rdfs:range <https://rsna.org/roadmap/03805> ;
                                  rdfs:comment "Not currently used."@en ;
                                  rdfs:label "guideline item supports principle"@en ;
                                  skos:definition "A sub-property of \"supports\" that links a guideline item to an ethical principle: \"A manuscript satisfying this item advances this principle.\""@en .
@@ -535,7 +535,7 @@ Note that this property is *not* transitive: some guideline items are disjunctio
 <https://rsna.org/roadmap/03921> rdf:type owl:ObjectProperty ;
                                  rdfs:subPropertyOf <https://rsna.org/roadmap/03919> ;
                                  rdfs:domain <https://rsna.org/roadmap/03788> ;
-                                 rdfs:range <https://rsna.org/roadmap/00248> ;
+                                 rdfs:range <https://rsna.org/roadmap/03805> ;
                                  rdfs:comment "Not currently used."@en ;
                                  rdfs:label "metadata supports principle"@en ;
                                  skos:definition "A sub-property of \"supports: that links metadata directly to an ethical principle: \"Recording this attribute advances the principle regardless of any manuscript.\""@en .
