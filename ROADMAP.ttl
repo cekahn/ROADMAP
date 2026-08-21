@@ -10982,7 +10982,8 @@ When the function is the square of the difference and the variables are binary (
                                  skos:altLabel "UK Conformity Assessed Mark"@en ,
                                                "UKCA"@en ,
                                                "UKCA marked"@en ,
-                                               "UKCA marking"@en .
+                                               "UKCA marking"@en ;
+                                 skos:definition "A mark that indicates conformity with United Kingdom's medical device regulations."@en .
 
 
 ###  https://rsna.org/roadmap/03884
@@ -10992,7 +10993,8 @@ When the function is the square of the difference and the variables are binary (
                                  rdfs:label "NMDA"@en ;
                                  skos:altLabel "China / NMPA authorization"@en ,
                                                "China / National Medical Products Administration authorization"@en ,
-                                               "NMPA authorization"@en .
+                                               "NMPA authorization"@en ;
+                                 skos:definition "China's authority for medical device regulation."@en .
 
 
 ###  https://rsna.org/roadmap/03886
@@ -11000,7 +11002,8 @@ When the function is the square of the difference and the variables are binary (
                                  rdfs:subClassOf <https://rsna.org/roadmap/03602> ;
                                  rdfs:comment "Examples: 510(k), De Novo, PMA, PMA supplement, HDE, Breakthrough Device designation, CE / MDR, CE / IVDR, CE / MDD (legacy), UKCA, International Reliance, Medical Device Licence, MDEL, ARTG inclusion, Shonin, Ninsho, Sakigake designation, NMPA registration, MFDS approval, ANVISA registration, CDSCO licence, AMAR registration, HSA registration, Other, Not applicable"@en ,
                                               "Note that the subclasses specified here are not an exhaustive list."@en ;
-                                 rdfs:label "regulatory pathway"@en .
+                                 rdfs:label "regulatory pathway"@en ;
+                                 skos:definition "A pathway under which a jurisdiction grants regulatory approval of a medical device."@en .
 
 
 ###  https://rsna.org/roadmap/03889
@@ -12298,103 +12301,6 @@ rEDR = (number of positive cases not detected by human alone) / (number of posit
 #################################################################
 #    Individuals
 #################################################################
-
-###  https://rsna.org/radlex/nucleon#03926
-<https://rsna.org/radlex/nucleon#03926> rdf:type owl:NamedIndividual ,
-                                                 <https://rsna.org/roadmap/00174> ;
-                                        dcterms:source <https://doi.org/10.1186/s12916-025-04274-w> ;
-                                        rdfs:comment "Placeholder entry. Items not yet specified in ROADMAP."@en ;
-                                        rdfs:label "CHART"@en ;
-                                        rdfs:seeAlso <https://www.equator-network.org/reporting-guidelines/reporting-guideline-for-chatbot-health-advice-studies-the-chart-statement/> ;
-                                        skos:altLabel "Chatbot Assessment Reporting Tool"@en ;
-                                        skos:definition "Chatbot Health Advice reporting gudeline"@en .
-
-
-###  https://rsna.org/radlex/nucleon#03927
-<https://rsna.org/radlex/nucleon#03927> rdf:type owl:NamedIndividual ,
-                                                 <https://rsna.org/roadmap/00174> ;
-                                        dcterms:source <https://doi.org/10.1136/bmjebm-2025-113825> ;
-                                        rdfs:comment "Placeholder entry. Items not specified in ROADMAP."@en ;
-                                        rdfs:label "GAMER"@en ;
-                                        rdfs:seeAlso <https://www.equator-network.org/reporting-guidelines/reporting-guideline-for-chatbot-health-advice-studies-the-chart-statement/> ;
-                                        skos:altLabel "Generative Artificial intelligence tools in MEdical Research"@en ;
-                                        skos:definition "Reporting guideline for generative AI tools in medical research."@en .
-
-
-###  https://rsna.org/radlex/nucleon#03928
-<https://rsna.org/radlex/nucleon#03928> rdf:type owl:NamedIndividual ,
-                                                 <https://rsna.org/roadmap/00174> ;
-                                        dcterms:source <https://doi.org/10.1038/s41591-024-03425-5> ;
-                                        rdfs:comment "Placeholder entry. Items not specified in ROADMAP."@en ;
-                                        rdfs:label "TRIPOD-LLM"@en ;
-                                        rdfs:seeAlso <https://www.equator-network.org/reporting-guidelines/the-tripod-llm-reporting-guideline-for-studies-using-large-language-models/> ;
-                                        skos:altLabel "Transparent Reporting of a multivariable model for Individual Prognosis Or Diagnosis — Large Language Models"@en ;
-                                        skos:definition "Reporting guideline for large language models (LLMs)."@en .
-
-
-###  https://rsna.org/radlex/nucleon#03929
-<https://rsna.org/radlex/nucleon#03929> rdf:type owl:NamedIndividual ,
-                                                 <https://rsna.org/roadmap/00174> ;
-                                        dcterms:source <https://doi.org/10.1038/s41746-025-01764-2> ;
-                                        rdfs:comment "Placeholder entry. Items not specified in ROADMAP."@en ;
-                                        rdfs:label "CLIX-M"@en ;
-                                        rdfs:seeAlso <https://www.equator-network.org/reporting-guidelines/clinician-informed-explainable-artificial-intelligence-evaluation-checklist-with-metrics-clix-m-for-ai-powered-clinical-decision-support-systems/> ;
-                                        skos:altLabel "Clinician-informed explainable AI evaluation checklist with metrics"@en ;
-                                        skos:definition "Reporting guideline for studies reporting the development and evaluation phases of explainable artificial intelligence (AI) component in AI-powered CDSS development."@en .
-
-
-###  https://rsna.org/radlex/nucleon#03930
-<https://rsna.org/radlex/nucleon#03930> rdf:type owl:NamedIndividual ,
-                                                 <https://rsna.org/roadmap/00174> ;
-                                        dcterms:source <https://doi.org/10.1007/s11096-025-01905-3> ;
-                                        rdfs:comment "Placeholder entry. Items not specified in ROADMAP."@en ;
-                                        rdfs:label "MedinAI"@en ;
-                                        rdfs:seeAlso <https://www.equator-network.org/reporting-guidelines/guidelines-for-reporting-artificial-intelligence-studies-in-medicines-pharmacotherapy-and-pharmaceutical-services-medinai-development-validation-and-statement/> ;
-                                        skos:definition "Guideline for reporting AI studies in medicines, pharmacotherapy, and pharmaceutical services."@en .
-
-
-###  https://rsna.org/radlex/nucleon#03931
-<https://rsna.org/radlex/nucleon#03931> rdf:type owl:NamedIndividual ,
-                                                 <https://rsna.org/roadmap/00174> ;
-                                        dcterms:source <https://doi.org/10.1186/s13244-023-01415-8> ;
-                                        rdfs:comment "Placeholder entry. Items not specified in ROADMAP."@en ;
-                                        rdfs:label "CLEAR"@en ;
-                                        rdfs:seeAlso <https://www.equator-network.org/reporting-guidelines/checklist-for-evaluation-of-radiomics-research-clear-a-step-by-step-reporting-guideline-for-authors-and-reviewers-endorsed-by-esr-and-eusomii/> ;
-                                        skos:altLabel "CheckList for EvaluAtion of Radiomics research"@en ;
-                                        skos:definition "Reporting guildeline for evaluation of radiomics research."@en .
-
-
-###  https://rsna.org/radlex/nucleon#03932
-<https://rsna.org/radlex/nucleon#03932> rdf:type owl:NamedIndividual ,
-                                                 <https://rsna.org/roadmap/00174> ;
-                                        dcterms:source <https://doi.org/10.1016/j.jcmg.2020.07.015> ;
-                                        rdfs:comment "Placeholder entry. Items not specified in ROADMAP."@en ;
-                                        rdfs:label "PRIME"@en ;
-                                        rdfs:seeAlso <https://www.equator-network.org/reporting-guidelines/proposed-requirements-for-cardiovascular-imaging-related-machine-learning-evaluation-prime-a-checklist-reviewed-by-the-american-college-of-cardiology-healthcare-innovation-council/> ,
-                                                     "Proposed Requirements for Cardiovascular Imaging-Related Machine Learning Evaluation"@en ;
-                                        skos:definition "Reporting guideline for cardiovascular imaging AI studies."@en .
-
-
-###  https://rsna.org/radlex/nucleon#03933
-<https://rsna.org/radlex/nucleon#03933> rdf:type owl:NamedIndividual ,
-                                                 <https://rsna.org/roadmap/00174> ;
-                                        dcterms:source <https://doi.org/10.1016/j.jval.2024.05.006> ;
-                                        rdfs:comment "Placeholder entry. Items not specified in ROADMAP."@en ;
-                                        rdfs:label "CHEERS-AI"@en ;
-                                        rdfs:seeAlso <https://www.equator-network.org/reporting-guidelines/consolidated-health-economic-evaluation-reporting-standards-for-interventions-that-use-artificial-intelligence-cheers-ai/> ;
-                                        skos:altLabel "Consolidated Health Economic Evaluation Reporting Standards for AI interventions"@en ;
-                                        skos:definition "Reporting guildeline for health economic evaluation for AI interventions."@en .
-
-
-###  https://rsna.org/radlex/nucleon#03934
-<https://rsna.org/radlex/nucleon#03934> rdf:type owl:NamedIndividual ,
-                                                 <https://rsna.org/roadmap/00174> ;
-                                        dcterms:source <https://doi.org/10.1126/sciadv.adk3452> ;
-                                        rdfs:comment "Placeholder entry. Items not specified in ROADMAP."@en ;
-                                        rdfs:label "REFORMS"@en ;
-                                        rdfs:seeAlso <https://www.equator-network.org/reporting-guidelines/reforms-consensus-based-recommendations-for-machine-learning-based-science/> ;
-                                        skos:altLabel "Consensus-based Recommendations for Machine-learning-based Science"@en .
-
 
 ###  https://rsna.org/roadmap/00081
 <https://rsna.org/roadmap/00081> rdf:type owl:NamedIndividual ,
@@ -17292,6 +17198,104 @@ Tier 4: no sharing"""@en ;
                                           <https://rsna.org/roadmap/03603> ;
                                  rdfs:label "not available"@en ;
                                  skos:definition "Information about authorization status is not available."@en .
+
+
+###  https://rsna.org/roadmap/03926
+<https://rsna.org/roadmap/03926> rdf:type owl:NamedIndividual ,
+                                          <https://rsna.org/roadmap/00174> ;
+                                 dcterms:source <https://doi.org/10.1186/s12916-025-04274-w> ;
+                                 rdfs:comment "Placeholder entry. Items not yet specified in ROADMAP."@en ;
+                                 rdfs:label "CHART"@en ;
+                                 rdfs:seeAlso <https://www.equator-network.org/reporting-guidelines/reporting-guideline-for-chatbot-health-advice-studies-the-chart-statement/> ;
+                                 skos:altLabel "Chatbot Assessment Reporting Tool"@en ;
+                                 skos:definition "Chatbot Health Advice reporting gudeline"@en .
+
+
+###  https://rsna.org/roadmap/03927
+<https://rsna.org/roadmap/03927> rdf:type owl:NamedIndividual ,
+                                          <https://rsna.org/roadmap/00174> ;
+                                 dcterms:source <https://doi.org/10.1136/bmjebm-2025-113825> ;
+                                 rdfs:comment "Placeholder entry. Items not specified in ROADMAP."@en ;
+                                 rdfs:label "GAMER"@en ;
+                                 rdfs:seeAlso <https://www.equator-network.org/reporting-guidelines/reporting-guideline-for-chatbot-health-advice-studies-the-chart-statement/> ;
+                                 skos:altLabel "Generative Artificial intelligence tools in MEdical Research"@en ;
+                                 skos:definition "Reporting guideline for generative AI tools in medical research."@en .
+
+
+###  https://rsna.org/roadmap/03928
+<https://rsna.org/roadmap/03928> rdf:type owl:NamedIndividual ,
+                                          <https://rsna.org/roadmap/00174> ;
+                                 dcterms:source <https://doi.org/10.1038/s41591-024-03425-5> ;
+                                 rdfs:comment "Placeholder entry. Items not specified in ROADMAP."@en ;
+                                 rdfs:label "TRIPOD-LLM"@en ;
+                                 rdfs:seeAlso <https://www.equator-network.org/reporting-guidelines/the-tripod-llm-reporting-guideline-for-studies-using-large-language-models/> ;
+                                 skos:altLabel "Transparent Reporting of a multivariable model for Individual Prognosis Or Diagnosis — Large Language Models"@en ;
+                                 skos:definition "Reporting guideline for large language models (LLMs)."@en .
+
+
+###  https://rsna.org/roadmap/03929
+<https://rsna.org/roadmap/03929> rdf:type owl:NamedIndividual ,
+                                          <https://rsna.org/roadmap/00174> ;
+                                 dcterms:source <https://doi.org/10.1038/s41746-025-01764-2> ;
+                                 rdfs:comment "Placeholder entry. Items not specified in ROADMAP."@en ;
+                                 rdfs:label "CLIX-M"@en ;
+                                 rdfs:seeAlso <https://www.equator-network.org/reporting-guidelines/clinician-informed-explainable-artificial-intelligence-evaluation-checklist-with-metrics-clix-m-for-ai-powered-clinical-decision-support-systems/> ;
+                                 skos:altLabel "Clinician-informed explainable AI evaluation checklist with metrics"@en ;
+                                 skos:definition "Reporting guideline for studies reporting the development and evaluation phases of explainable artificial intelligence (AI) component in AI-powered CDSS development."@en .
+
+
+###  https://rsna.org/roadmap/03930
+<https://rsna.org/roadmap/03930> rdf:type owl:NamedIndividual ,
+                                          <https://rsna.org/roadmap/00174> ;
+                                 dcterms:source <https://doi.org/10.1007/s11096-025-01905-3> ;
+                                 rdfs:comment "Placeholder entry. Items not specified in ROADMAP."@en ;
+                                 rdfs:label "MedinAI"@en ;
+                                 rdfs:seeAlso <https://www.equator-network.org/reporting-guidelines/guidelines-for-reporting-artificial-intelligence-studies-in-medicines-pharmacotherapy-and-pharmaceutical-services-medinai-development-validation-and-statement/> ;
+                                 skos:definition "Guideline for reporting AI studies in medicines, pharmacotherapy, and pharmaceutical services."@en .
+
+
+###  https://rsna.org/roadmap/03931
+<https://rsna.org/roadmap/03931> rdf:type owl:NamedIndividual ,
+                                          <https://rsna.org/roadmap/00174> ;
+                                 dcterms:source <https://doi.org/10.1186/s13244-023-01415-8> ;
+                                 rdfs:comment "Placeholder entry. Items not specified in ROADMAP."@en ;
+                                 rdfs:label "CLEAR"@en ;
+                                 rdfs:seeAlso <https://www.equator-network.org/reporting-guidelines/checklist-for-evaluation-of-radiomics-research-clear-a-step-by-step-reporting-guideline-for-authors-and-reviewers-endorsed-by-esr-and-eusomii/> ;
+                                 skos:altLabel "CheckList for EvaluAtion of Radiomics research"@en ;
+                                 skos:definition "Reporting guildeline for evaluation of radiomics research."@en .
+
+
+###  https://rsna.org/roadmap/03932
+<https://rsna.org/roadmap/03932> rdf:type owl:NamedIndividual ,
+                                          <https://rsna.org/roadmap/00174> ;
+                                 dcterms:source <https://doi.org/10.1016/j.jcmg.2020.07.015> ;
+                                 rdfs:comment "Placeholder entry. Items not specified in ROADMAP."@en ;
+                                 rdfs:label "PRIME"@en ;
+                                 rdfs:seeAlso <https://www.equator-network.org/reporting-guidelines/proposed-requirements-for-cardiovascular-imaging-related-machine-learning-evaluation-prime-a-checklist-reviewed-by-the-american-college-of-cardiology-healthcare-innovation-council/> ,
+                                              "Proposed Requirements for Cardiovascular Imaging-Related Machine Learning Evaluation"@en ;
+                                 skos:definition "Reporting guideline for cardiovascular imaging AI studies."@en .
+
+
+###  https://rsna.org/roadmap/03933
+<https://rsna.org/roadmap/03933> rdf:type owl:NamedIndividual ,
+                                          <https://rsna.org/roadmap/00174> ;
+                                 dcterms:source <https://doi.org/10.1016/j.jval.2024.05.006> ;
+                                 rdfs:comment "Placeholder entry. Items not specified in ROADMAP."@en ;
+                                 rdfs:label "CHEERS-AI"@en ;
+                                 rdfs:seeAlso <https://www.equator-network.org/reporting-guidelines/consolidated-health-economic-evaluation-reporting-standards-for-interventions-that-use-artificial-intelligence-cheers-ai/> ;
+                                 skos:altLabel "Consolidated Health Economic Evaluation Reporting Standards for AI interventions"@en ;
+                                 skos:definition "Reporting guildeline for health economic evaluation for AI interventions."@en .
+
+
+###  https://rsna.org/roadmap/03934
+<https://rsna.org/roadmap/03934> rdf:type owl:NamedIndividual ,
+                                          <https://rsna.org/roadmap/00174> ;
+                                 dcterms:source <https://doi.org/10.1126/sciadv.adk3452> ;
+                                 rdfs:comment "Placeholder entry. Items not specified in ROADMAP."@en ;
+                                 rdfs:label "REFORMS"@en ;
+                                 rdfs:seeAlso <https://www.equator-network.org/reporting-guidelines/reforms-consensus-based-recommendations-for-machine-learning-based-science/> ;
+                                 skos:altLabel "Consensus-based Recommendations for Machine-learning-based Science"@en ;
+                                 skos:definition "A set of consensus-based recommendations for machine-learning-based science."@en .
 
 
 ###  https://rsna.org/roadmap/04001
