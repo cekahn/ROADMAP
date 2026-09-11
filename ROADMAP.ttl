@@ -16,7 +16,6 @@
                                                "Radiological Society of North America"@en ;
                              dcterms:source <https://doi.org/10.1148/ryai.260069> ;
                              dcterms:title "ROADMAP Ontology of AI Datasets, Models and Projects" ;
-                             rdfs:comment "Additions to :00198 supports. Merge into ROADMAP after applying supports-deletions.ru (or the three manual deletions). Generated 2026-08-12." ;
                              owl:versionInfo "2026-09" .
 
 #################################################################
@@ -96,6 +95,18 @@ skos:exactMatch rdf:type owl:AnnotationProperty .
                                  rdfs:comment "Note that no delimiters are used."@en ;
                                  rdfs:label "regex"@en ;
                                  skos:definition "Defines a regular expression (\"regex\") to validate an entity's value. For example, RadLex code's regex \"RID[0-9]+\" validates values such as \"RID123\"."@en .
+
+
+###  https://rsna.org/roadmap/01002
+<https://rsna.org/roadmap/01002> rdf:type owl:AnnotationProperty ;
+                                 rdfs:label "symbol"@en ;
+                                 skos:definition "Symbol for a metric, used to specify in a :formula."@en .
+
+
+###  https://rsna.org/roadmap/01003
+<https://rsna.org/roadmap/01003> rdf:type owl:AnnotationProperty ;
+                                 rdfs:label "formula"@en ;
+                                 skos:definition "Mathematical formula by which a metric is derived."@en .
 
 
 ###  https://rsna.org/roadmap/03626
@@ -2493,7 +2504,9 @@ owl:Thing rdf:type owl:Class .
                                                "P4"@en ,
                                                "P4-metric"@en ,
                                                "symmetric F"@en ;
-                                 skos:definition "The P4 metric, also known as FS or Symmetric F, enables performance evaluation of a binary classifier: it is calculated from precision, recall, specificity, and negative predictive value."@en .
+                                 skos:definition "The P4 metric, also known as FS or Symmetric F, enables performance evaluation of a binary classifier: it is calculated from precision, recall, specificity, and negative predictive value."@en ;
+                                 <https://rsna.org/roadmap/01002> "P4" ;
+                                 <https://rsna.org/roadmap/01003> "4 / (1/PPV + 1/TPR + 1/TNR + 1/NPV)" .
 
 
 ###  https://rsna.org/roadmap/00149
@@ -3869,6 +3882,7 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                                  ] ;
                                  dcterms:source <https://doi.org/10.1016/j.aci.2018.08.003> ,
                                                 <https://doi.org/10.1038/s41592-023-02151-z> ;
+                                 rdfs:comment "PPV = TP / (TP + FP)"@en ;
                                  rdfs:label "positive predictive value"@en ,
                                             "valor predictivo positivo"@es ,
                                             "阳性预测值"@zh ;
@@ -3876,10 +3890,10 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                                "precision"@en ,
                                                "precisión"@es ,
                                                "精确率"@zh ;
-                                 skos:definition """Positive predictive value is the proportion of correctly identified positive cases among all cases predicted as positive by a model or test. It represents the probability that a positive prediction corresponds to a true positive outcome, and its value depends on the prevalence of the condition being tested as well as the model’s specificity and sensitivity.
-
-                                         PPV = TP / (TP + FP)"""@en ;
-                                 skos:exactMatch <http://purl.obolibrary.org/obo/STATO_0000416> .
+                                 skos:definition "Positive predictive value is the proportion of correctly identified positive cases among all cases predicted as positive by a model or test. It represents the probability that a positive prediction corresponds to a true positive outcome, and its value depends on the prevalence of the condition being tested as well as the model’s specificity and sensitivity."@en ;
+                                 skos:exactMatch <http://purl.obolibrary.org/obo/STATO_0000416> ;
+                                 <https://rsna.org/roadmap/01002> "PPV" ;
+                                 <https://rsna.org/roadmap/01003> "TP / (TP + FP)" .
 
 
 ###  https://rsna.org/roadmap/03325
@@ -3900,14 +3914,15 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                                  ] ;
                                  dcterms:source <https://doi.org/10.1016/j.aci.2018.08.003> ,
                                                 <https://doi.org/10.1038/s41592-023-02151-z> ;
+                                 rdfs:comment "NPV = TN / (TN + FN)"@en ;
                                  rdfs:label "negative predictive value"@en ,
                                             "valor predictivo negativo"@es ,
                                             "阴性预测值"@zh ;
                                  skos:altLabel "NPV"@en ;
-                                 skos:definition """Negative predictive value denotes the proportion of negative predictions that correspond to actual negative cases. It reflects the reliability of negative results and depends on both test performance and outcome prevalence. It is often reported alongside sensitivity and specificity.
-
-                                         NPV = TN / (TN + FN)"""@en ;
-                                 skos:exactMatch <http://purl.obolibrary.org/obo/STATO_0000619> .
+                                 skos:definition "Negative predictive value denotes the proportion of negative predictions that correspond to actual negative cases. It reflects the reliability of negative results and depends on both test performance and outcome prevalence. It is often reported alongside sensitivity and specificity."@en ;
+                                 skos:exactMatch <http://purl.obolibrary.org/obo/STATO_0000619> ;
+                                 <https://rsna.org/roadmap/01002> "NPV" ;
+                                 <https://rsna.org/roadmap/01003> "TN / (TN + FN)" .
 
 
 ###  https://rsna.org/roadmap/03326
@@ -4107,8 +4122,11 @@ D - Ethical, Legal, and Maintenance"""@en ;
 
 ###  https://rsna.org/roadmap/03334
 <https://rsna.org/roadmap/03334> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/01049> ,
-                                                 <https://rsna.org/roadmap/03302> ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03302> ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty <https://rsna.org/roadmap/03648> ;
+                                                   owl:someValuesFrom <https://rsna.org/roadmap/04061>
+                                                 ] ;
                                  dcterms:source <https://doi.org/10.1007/978-1-4612-1524-0> ,
                                                 <https://doi.org/10.1038/s41592-023-02151-z> ;
                                  rdfs:label "logaritmo de verosimilitud negativo"@es ,
@@ -4272,10 +4290,10 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                                "true positive fraction"@en ,
                                                "召回率"@zh ,
                                                "灵敏度"@zh ;
-                                 skos:definition """The true positive rate is the proportion of actual positive cases that a classifier or test correctly identifies as positive. It is calculated as the number of true positives divided by the sum of true positives and false negatives. This measure reflects how effectively a system detects the presence of the condition or class of interest.
-
-                                         TPR = TP / (TP + FN)"""@en ;
-                                 skos:exactMatch <http://purl.obolibrary.org/obo/STATO_0000233> .
+                                 skos:definition "The true positive rate is the proportion of actual positive cases that a classifier or test correctly identifies as positive. It is calculated as the number of true positives divided by the sum of true positives and false negatives. This measure reflects how effectively a system detects the presence of the condition or class of interest."@en ;
+                                 skos:exactMatch <http://purl.obolibrary.org/obo/STATO_0000233> ;
+                                 <https://rsna.org/roadmap/01002> "TPR" ;
+                                 <https://rsna.org/roadmap/01003> "TP / (TP + FN)" .
 
 
 ###  https://rsna.org/roadmap/03340
@@ -4296,6 +4314,7 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                                  ] ;
                                  dcterms:source <https://doi.org/10.1016/j.aci.2018.08.003> ,
                                                 <https://doi.org/10.1038/s41592-023-02151-z> ;
+                                 rdfs:comment "TNR = TN / (TN + FP)"@en ;
                                  rdfs:label "tasa de verdaderos negativos"@es ,
                                             "true negative rate"@en ,
                                             "真阴性率"@zh ;
@@ -4308,10 +4327,10 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                                "specificity"@en ,
                                                "true negative fraction"@en ,
                                                "特异性"@zh ;
-                                 skos:definition """The true negative rate is the proportion of actual negative cases that are correctly identified as negative by a test or classifier. It quantifies a system’s ability to avoid false alarms by distinguishing true negatives from false positives. This measure is independent of disease or class prevalence and complements the true positive rate by capturing classification accuracy for the negative class.
-
-                                         TNR = TN / (TN + FP)"""@en ;
-                                 skos:exactMatch <http://purl.obolibrary.org/obo/STATO_0000134> .
+                                 skos:definition "The true negative rate is the proportion of actual negative cases that are correctly identified as negative by a test or classifier. It quantifies a system’s ability to avoid false alarms by distinguishing true negatives from false positives. This measure is independent of disease or class prevalence and complements the true positive rate by capturing classification accuracy for the negative class."@en ;
+                                 skos:exactMatch <http://purl.obolibrary.org/obo/STATO_0000134> ;
+                                 <https://rsna.org/roadmap/01002> "TNR" ;
+                                 <https://rsna.org/roadmap/01003> "TN / (TN + FP)" .
 
 
 ###  https://rsna.org/roadmap/03341
@@ -8956,7 +8975,7 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                  rdfs:label "clinical trial number"@en ,
                                             "número de ensayo clínico"@es ,
                                             "临床试验编号"@zh ;
-                                 skos:definition "A clinical trial identifier, such as issues by ClinicalTrials.gov."@en .
+                                 skos:definition "A clinical trial identifier or URI, such as issued by ClinicalTrials.gov."@en .
 
 
 ###  https://rsna.org/roadmap/03624
@@ -12026,7 +12045,23 @@ When the function is the square of the difference and the variables are binary (
 
 ###  https://rsna.org/roadmap/04069
 <https://rsna.org/roadmap/04069> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/03548> ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03548> ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty <https://rsna.org/roadmap/03645> ;
+                                                   owl:someValuesFrom <https://rsna.org/roadmap/04091>
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty <https://rsna.org/roadmap/03645> ;
+                                                   owl:someValuesFrom <https://rsna.org/roadmap/04092>
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty <https://rsna.org/roadmap/03645> ;
+                                                   owl:someValuesFrom <https://rsna.org/roadmap/04093>
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty <https://rsna.org/roadmap/03645> ;
+                                                   owl:someValuesFrom <https://rsna.org/roadmap/04094>
+                                                 ] ;
                                  rdfs:label "binary confusion matrix"@en ,
                                             "matriz de confusión binaria"@es ,
                                             "二元混淆矩阵"@zh ;
@@ -12296,6 +12331,534 @@ rEDR = (number of positive cases not detected by human alone) / (number of posit
                                  skos:altLabel "CHF"@en ,
                                                "cumulative hazard function"@en ;
                                  skos:definition "The cumulative hazard is a time-dependent function in survival analysis that represents the total risk of an event occurring up to a given time point. It accumulates the instantaneous hazard over time and serves as the mathematical basis for deriving survival probabilities. Many survival models, including proportional hazards models and random survival forests, estimate cumulative hazard as a primary output, which can then be used directly for risk assessment or transformed into survival probabilities and summary measures for model evaluation."@en .
+
+
+###  https://rsna.org/roadmap/04090
+<https://rsna.org/roadmap/04090> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03302> ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty <https://rsna.org/roadmap/03820> ;
+                                                   owl:someValuesFrom xsd:nonNegativeInteger
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :minimum ;
+                                                   owl:hasValue 0
+                                                 ] ;
+                                 dcterms:source <https://doi.org/10.1145/3514094.3534137> ;
+                                 rdfs:label "número de resultados"@es ,
+                                            "outcome count"@en ,
+                                            "结果计数"@zh ;
+                                 skos:definition "A statistical metric derived from the confusion matrix that counts the outcomes of a given type produced by a classification model on an evaluation dataset. Unlike rates, outcome counts are unnormalised and therefore scale with dataset size; they are the primitives from which classification rates such as sensitivity, specificity, and predictive value are computed."@en ;
+                                 skos:exactMatch <https://purl.org/twc/fmo#outcome_count> .
+
+
+###  https://rsna.org/roadmap/04091
+<https://rsna.org/roadmap/04091> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/04090> ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :minimum ;
+                                                   owl:hasValue 0
+                                                 ] ;
+                                 dcterms:source <https://doi.org/10.1145/3514094.3534137> ;
+                                 rdfs:label "número de verdaderos positivos"@es ,
+                                            "true positive count"@en ,
+                                            "真阳性计数"@zh ;
+                                 skos:altLabel "TP"@en ,
+                                               "hits"@en ,
+                                               "number of true positives"@en ;
+                                 skos:definition "The number of cases that are positive according to the reference standard and are predicted positive by the model. True positives are the correctly detected cases, and together with false negatives they partition the condition positive cases."@en ;
+                                 skos:exactMatch <https://purl.org/twc/fmo#true_positive_count> ;
+                                 <https://rsna.org/roadmap/01002> "TP" .
+
+
+###  https://rsna.org/roadmap/04092
+<https://rsna.org/roadmap/04092> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/04090> ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :minimum ;
+                                                   owl:hasValue 0
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :optimum ;
+                                                   owl:hasValue 0
+                                                 ] ;
+                                 dcterms:source <https://doi.org/10.1145/3514094.3534137> ;
+                                 rdfs:label "false positive count"@en ,
+                                            "número de falsos positivos"@es ,
+                                            "假阳性计数"@zh ;
+                                 skos:altLabel "FP"@en ,
+                                               "false alarms"@en ,
+                                               "number of false positives"@en ,
+                                               "type I errors"@en ;
+                                 skos:definition "The number of cases that are negative according to the reference standard but are predicted positive by the model. Also called type I errors or false alarms. In screening applications the false positive count determines the downstream burden of unnecessary confirmatory workup."@en ;
+                                 skos:exactMatch <https://purl.org/twc/fmo#false_positive_count> ;
+                                 <https://rsna.org/roadmap/01002> "FP" .
+
+
+###  https://rsna.org/roadmap/04093
+<https://rsna.org/roadmap/04093> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/04090> ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :minimum ;
+                                                   owl:hasValue 0
+                                                 ] ;
+                                 dcterms:source <https://doi.org/10.1145/3514094.3534137> ;
+                                 rdfs:label "número de verdaderos negativos"@es ,
+                                            "true negative count"@en ,
+                                            "真阴性计数"@zh ;
+                                 skos:altLabel "TN"@en ,
+                                               "correct rejections"@en ,
+                                               "number of true negatives"@en ;
+                                 skos:definition "The number of cases that are negative according to the reference standard and are predicted negative by the model. Also called correct rejections."@en ;
+                                 skos:exactMatch <https://purl.org/twc/fmo#true_negative_count> ;
+                                 <https://rsna.org/roadmap/01002> "TN" .
+
+
+###  https://rsna.org/roadmap/04094
+<https://rsna.org/roadmap/04094> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/04090> ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :minimum ;
+                                                   owl:hasValue 0
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :optimum ;
+                                                   owl:hasValue 0
+                                                 ] ;
+                                 dcterms:source <https://doi.org/10.1145/3514094.3534137> ;
+                                 rdfs:label "false negative count"@en ,
+                                            "número de falsos negativos"@es ,
+                                            "假阴性计数"@zh ;
+                                 skos:altLabel "FN"@en ,
+                                               "misses"@en ,
+                                               "number of false negatives"@en ,
+                                               "type II errors"@en ;
+                                 skos:definition "The number of cases that are positive according to the reference standard but are predicted negative by the model. Also called type II errors or misses. In diagnostic applications false negatives correspond to missed disease and typically carry the greatest clinical cost."@en ;
+                                 skos:exactMatch <https://purl.org/twc/fmo#false_negative_count> ;
+                                 <https://rsna.org/roadmap/01002> "FN" .
+
+
+###  https://rsna.org/roadmap/04095
+<https://rsna.org/roadmap/04095> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/04090> ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :minimum ;
+                                                   owl:hasValue 0
+                                                 ] ;
+                                 dcterms:source <https://doi.org/10.1145/3514094.3534137> ;
+                                 rdfs:label "condición positiva"@es ,
+                                            "condition positive"@en ,
+                                            "实际阳性数"@zh ;
+                                 skos:altLabel "P"@en ,
+                                               "actual positives"@en ,
+                                               "reference standard positive count"@en ;
+                                 skos:definition """The number of cases in an evaluation dataset that are positive according to the reference standard, irrespective of what the model predicted. Condition positive is a property of the evaluation dataset rather than of the model.
+
+P = TP + FN"""@en ;
+                                 skos:exactMatch <https://purl.org/twc/fmo#condition_positive> ;
+                                 <https://rsna.org/roadmap/01002> "P" ;
+                                 <https://rsna.org/roadmap/01003> "TP + FN" .
+
+
+###  https://rsna.org/roadmap/04096
+<https://rsna.org/roadmap/04096> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/04090> ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :minimum ;
+                                                   owl:hasValue 0
+                                                 ] ;
+                                 dcterms:source <https://doi.org/10.1145/3514094.3534137> ;
+                                 rdfs:label "condición negativa"@es ,
+                                            "condition negative"@en ,
+                                            "实际阴性数"@zh ;
+                                 skos:altLabel "N"@en ,
+                                               "actual negatives"@en ,
+                                               "reference standard negative count"@en ;
+                                 skos:definition """The number of cases in an evaluation dataset that are negative according to the reference standard, irrespective of what the model predicted. Condition negative is a property of the evaluation dataset rather than of the model.
+
+N = TN + FP"""@en ;
+                                 skos:exactMatch <https://purl.org/twc/fmo#condition_negative> ;
+                                 <https://rsna.org/roadmap/01002> "N" ;
+                                 <https://rsna.org/roadmap/01003> "TN + FP" .
+
+
+###  https://rsna.org/roadmap/04097
+<https://rsna.org/roadmap/04097> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/04090> ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :minimum ;
+                                                   owl:hasValue 0
+                                                 ] ;
+                                 dcterms:source <https://doi.org/10.1145/3514094.3534137> ;
+                                 rdfs:label "predicción positiva"@es ,
+                                            "prediction positive"@en ,
+                                            "预测阳性数"@zh ;
+                                 skos:altLabel "PP"@en ,
+                                               "predicted positive count"@en ;
+                                 skos:definition """The number of cases a model predicts as positive, irrespective of the reference standard. Prediction positive is the denominator of positive predictive value and of the false discovery rate.
+
+PP = TP + FP"""@en ;
+                                 skos:exactMatch <https://purl.org/twc/fmo#prediction_positive> ;
+                                 <https://rsna.org/roadmap/01002> "PP" ;
+                                 <https://rsna.org/roadmap/01003> "TP + FP" .
+
+
+###  https://rsna.org/roadmap/04098
+<https://rsna.org/roadmap/04098> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/04090> ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :minimum ;
+                                                   owl:hasValue 0
+                                                 ] ;
+                                 dcterms:source <https://doi.org/10.1145/3514094.3534137> ;
+                                 rdfs:label "predicción negativa"@es ,
+                                            "prediction negative"@en ,
+                                            "预测阴性数"@zh ;
+                                 skos:altLabel "PN"@en ,
+                                               "predicted negative count"@en ;
+                                 skos:definition """The number of cases a model predicts as negative, irrespective of the reference standard. Prediction negative is the denominator of negative predictive value and of the false omission rate.
+
+PN = TN + FN"""@en ;
+                                 skos:exactMatch <https://purl.org/twc/fmo#prediction_negative> ;
+                                 <https://rsna.org/roadmap/01002> "PN" ;
+                                 <https://rsna.org/roadmap/01003> "TN + FN" .
+
+
+###  https://rsna.org/roadmap/04099
+<https://rsna.org/roadmap/04099> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/04090> ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :minimum ;
+                                                   owl:hasValue 0
+                                                 ] ;
+                                 dcterms:source <https://doi.org/10.1145/3514094.3534137> ;
+                                 rdfs:label "número total de resultados"@es ,
+                                            "total outcome count"@en ,
+                                            "结果总数"@zh ;
+                                 skos:altLabel "evaluation sample size"@en ,
+                                               "n"@en ,
+                                               "total number of outcomes"@en ;
+                                 skos:definition """The total number of cases evaluated, counting outcomes of every type. It is the denominator of accuracy, prevalence, and the prediction rates, and it is the quantity that determines the precision of every other metric reported for the evaluation.
+
+n = TP + FP + TN + FN = P + N = PP + PN"""@en ;
+                                 skos:exactMatch <https://purl.org/twc/fmo#total_outcome_count> ;
+                                 <https://rsna.org/roadmap/01002> "n" ;
+                                 <https://rsna.org/roadmap/01003> "P + N" ,
+                                                                  "PP + PN" ,
+                                                                  "TP + FP + TN + FN" .
+
+
+###  https://rsna.org/roadmap/04100
+<https://rsna.org/roadmap/04100> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/01039> ,
+                                                 <https://rsna.org/roadmap/03302> ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :maximum ;
+                                                   owl:hasValue 1
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :minimum ;
+                                                   owl:hasValue 0
+                                                 ] ;
+                                 dcterms:source <https://doi.org/10.1145/3514094.3534137> ;
+                                 rdfs:comment "Metrics reported without the prevalence of the evaluation set cannot be re-derived for a population with a different case mix."@en ;
+                                 rdfs:label "prevalence"@en ,
+                                            "prevalencia"@es ,
+                                            "患病率"@zh ;
+                                 skos:altLabel "PREV"@en ,
+                                               "base rate"@en ,
+                                               "prior probability of disease"@en ,
+                                               "tasa base"@es ;
+                                 skos:definition """Prevalence is the proportion of evaluated cases that are positive according to the reference standard. It is a property of the evaluation dataset rather than of the model, and it governs the behaviour of the prevalence-sensitive metrics: positive predictive value and false discovery rate deteriorate as prevalence falls, while negative predictive value and false omission rate deteriorate as prevalence rises. Reporting prevalence alongside predictive values is therefore necessary for a performance claim to transfer to a new setting.
+
+PREV = P / n"""@en ;
+                                 skos:exactMatch <http://purl.obolibrary.org/obo/STATO_0000412> ;
+                                 <https://rsna.org/roadmap/01002> "PREV" ;
+                                 <https://rsna.org/roadmap/01003> "P / n" .
+
+
+###  https://rsna.org/roadmap/04101
+<https://rsna.org/roadmap/04101> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/01039> ,
+                                                 <https://rsna.org/roadmap/03302> ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :maximum ;
+                                                   owl:hasValue 1
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :minimum ;
+                                                   owl:hasValue 0
+                                                 ] ;
+                                 dcterms:source <https://doi.org/10.1145/3514094.3534137> ;
+                                 rdfs:comment "FMO uses the symbol PR, which is unavailable in ROADMAP: PR is an altLabel of :00107 (Professionalism). PPR is used here instead."@en ,
+                                              "PPR = PP / n = (TP + FP) / n"@en ;
+                                 rdfs:label "positive prediction rate"@en ,
+                                            "tasa de predicción positiva"@es ,
+                                            "阳性预测率"@zh ;
+                                 skos:altLabel "PPR"@en ,
+                                               "predicted positive rate"@en ,
+                                               "selection rate"@en ,
+                                               "tasa de selección"@es ;
+                                 skos:definition "The positive prediction rate is the proportion of evaluated cases that a model predicts as positive, whether or not those predictions are correct. Because it depends only on the model's outputs and not on the reference standard, it can be computed where ground truth is unavailable. It is the quantity compared across protected groups by demographic parity and by disparate impact."@en ;
+                                 skos:exactMatch <https://purl.org/twc/fmo#positive_prediction_rate> ;
+                                 <https://rsna.org/roadmap/01002> "PPR" ;
+                                 <https://rsna.org/roadmap/01003> "(TP + FP) / n" ,
+                                                                  "PP / n" .
+
+
+###  https://rsna.org/roadmap/04102
+<https://rsna.org/roadmap/04102> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03302> ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty <https://rsna.org/roadmap/03648> ;
+                                                   owl:someValuesFrom <https://rsna.org/roadmap/04058>
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :maximum ;
+                                                   owl:hasValue 1
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :minimum ;
+                                                   owl:hasValue 0
+                                                 ] ;
+                                 dcterms:source <https://doi.org/10.1145/3514094.3534137> ;
+                                 rdfs:comment "FMO uses the symbol NR, which is unavailable in ROADMAP: NR is an altLabel of :00101 (Neuroradiology). NPR is used here instead."@en ,
+                                              "NPR = PN / n = (TN + FN) / n = 1 - PPR"@en ;
+                                 rdfs:label "negative prediction rate"@en ,
+                                            "tasa de predicción negativa"@es ,
+                                            "阴性预测率"@zh ;
+                                 skos:altLabel "NPR"@en ,
+                                               "predicted negative rate"@en ;
+                                 skos:definition "The negative prediction rate is the proportion of evaluated cases that a model predicts as negative, whether or not those predictions are correct. Like the positive prediction rate it is computable without a reference standard."@en ;
+                                 skos:exactMatch <https://purl.org/twc/fmo#negative_prediction_rate> ;
+                                 <https://rsna.org/roadmap/01002> "NPR" ;
+                                 <https://rsna.org/roadmap/01003> "(TN + FN) / n" ,
+                                                                  "1 - PPR" ,
+                                                                  "PN / n" .
+
+
+###  https://rsna.org/roadmap/04103
+<https://rsna.org/roadmap/04103> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/01039> ,
+                                                 <https://rsna.org/roadmap/03302> ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :minimum ;
+                                                   owl:hasValue 0
+                                                 ] ;
+                                 dcterms:source <https://doi.org/10.1097/EDE.0b013e31821b506e> ;
+                                 rdfs:comment "FP:FN = FP / FN"@en ;
+                                 rdfs:label "error type ratio"@en ,
+                                            "razón de tipos de error"@es ,
+                                            "错误类型比"@zh ;
+                                 skos:altLabel "FP:FN"@en ,
+                                               "false positive to false negative ratio"@en ;
+                                 skos:definition "The error type ratio is the number of false positive outcomes divided by the number of false negative outcomes. It characterises how a model distributes its errors between the two error types, independently of the total error magnitude, and so distinguishes models with equal accuracy but different failure profiles. Equalizing this ratio across protected groups is the fairness notion known as treatment equality."@en ;
+                                 skos:exactMatch <https://purl.org/twc/fmo#error_type_ratio> ;
+                                 <https://rsna.org/roadmap/01002> "FP:FN" ;
+                                 <https://rsna.org/roadmap/01003> "FP / FN" .
+
+
+###  https://rsna.org/roadmap/04104
+<https://rsna.org/roadmap/04104> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/01052> ,
+                                                 <https://rsna.org/roadmap/03302> ;
+                                 dcterms:source <https://doi.org/10.1007/978-3-031-47745-4_18> ;
+                                 rdfs:label "expected value"@en ,
+                                            "valor esperado"@es ,
+                                            "期望值"@zh ;
+                                 skos:altLabel "EV"@en ,
+                                               "esperanza matemática"@es ,
+                                               "mean of a distribution"@en ;
+                                 skos:definition "The expected value is the probability-weighted mean of a random variable over its distribution. Applied to a regression model it denotes the mean predicted output, and comparing this quantity between protected groups yields statistical parity for regression and the group mean difference."@en ;
+                                 skos:exactMatch <https://purl.org/twc/fmo#expected_value> .
+
+
+###  https://rsna.org/roadmap/04105
+<https://rsna.org/roadmap/04105> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/01058> ,
+                                                 <https://rsna.org/roadmap/03302> ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :minimum ;
+                                                   owl:hasValue 0
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :optimum ;
+                                                   owl:hasValue 0
+                                                 ] ;
+                                 dcterms:source <https://doi.org/10.1007/978-3-031-47745-4_18> ;
+                                 rdfs:comment "Proposed as a parent class for :03309 expected cost, :04037 cross-entropy, and :04032 Wasserstein loss. Reparenting those three is a separate edit, not included here."@en ;
+                                 rdfs:label "loss"@en ,
+                                            "pérdida"@es ,
+                                            "损失"@zh ;
+                                 skos:altLabel "cost function"@en ,
+                                               "función de pérdida"@es ,
+                                               "loss function"@en ;
+                                 skos:definition "A loss is a function mapping a model's predicted value and the corresponding reference value onto a real number representing the cost of the discrepancy between them. Model fitting proceeds by minimizing the loss over the training data, and the expectation of the loss over a distribution is the risk. Bounding the per-group loss is the fairness notion known as bounded group loss."@en ;
+                                 skos:exactMatch <https://purl.org/twc/fmo#loss> .
+
+
+###  https://rsna.org/roadmap/04106
+<https://rsna.org/roadmap/04106> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/01048> ,
+                                                 <https://rsna.org/roadmap/01052> ,
+                                                 <https://rsna.org/roadmap/03302> ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :maximum ;
+                                                   owl:hasValue 1
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :minimum ;
+                                                   owl:hasValue 0
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :optimum ;
+                                                   owl:hasValue 0
+                                                 ] ;
+                                 dcterms:source <https://doi.org/10.1007/978-3-031-47745-4_18> ;
+                                 rdfs:comment "Can be used to measure model drift: the two-sample form of this statistic is a standard test for distributional drift."@en ;
+                                 rdfs:label "Kolmogorov–Smirnov distance"@en ,
+                                            "distancia de Kolmogórov-Smirnov"@es ,
+                                            "柯尔莫哥洛夫-斯米尔诺夫距离"@zh ;
+                                 skos:altLabel "KS distance"@en ,
+                                               "KS statistic"@en ,
+                                               "Kolmogorov-Smirnov distance"@en ;
+                                 skos:definition "The Kolmogorov–Smirnov distance is the supremum of the absolute difference between two cumulative distribution functions, most often the empirical distribution function of a sample and the cumulative distribution function of a reference distribution. It is the test statistic of the Kolmogorov–Smirnov test, and applied to the score distributions of two protected groups it yields the fairness metric KS statistical parity."@en ;
+                                 skos:exactMatch <https://purl.org/twc/fmo#KS_distance> .
+
+
+###  https://rsna.org/roadmap/04107
+<https://rsna.org/roadmap/04107> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/01052> ,
+                                                 <https://rsna.org/roadmap/03302> ;
+                                 dcterms:source <https://doi.org/10.1007/978-3-031-47745-4_18> ;
+                                 rdfs:label "diferencia por pares"@es ,
+                                            "pairwise difference"@en ,
+                                            "成对差异"@zh ;
+                                 skos:definition "The pairwise difference is the mean of the differences between paired samples drawn from two groups. It is the base quantity for the pairwise fairness metrics used in regression and ranking, where fairness is assessed over pairs of subjects rather than over group-level aggregates."@en ;
+                                 skos:exactMatch <https://purl.org/twc/fmo#pairwise_difference> .
+
+
+###  https://rsna.org/roadmap/04108
+<https://rsna.org/roadmap/04108> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03302> ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :maximum ;
+                                                   owl:hasValue 1
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :minimum ;
+                                                   owl:hasValue 0
+                                                 ] ;
+                                 dcterms:source <https://doi.org/10.1145/2090236.2090255> ;
+                                 rdfs:label "difference metric"@en ,
+                                            "métrica de diferencia"@es ,
+                                            "差异度量"@zh ;
+                                 skos:altLabel "dissimilarity metric"@en ,
+                                               "Δ"@en ;
+                                 skos:definition "A difference metric is a function computing the dissimilarity between two values on a normalised scale, where identical values give 0 and maximally dissimilar values give 1. Difference metrics are the primitives of individual fairness, which is stated as a Lipschitz condition relating the difference between two model outputs to the difference between the two corresponding inputs."@en ;
+                                 skos:exactMatch <https://purl.org/twc/fmo#difference_metric> .
+
+
+###  https://rsna.org/roadmap/04109
+<https://rsna.org/roadmap/04109> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/04108> ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :maximum ;
+                                                   owl:hasValue 1
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :minimum ;
+                                                   owl:hasValue 0
+                                                 ] ;
+                                 dcterms:source <https://doi.org/10.1145/2090236.2090255> ;
+                                 rdfs:label "input difference metric"@en ,
+                                            "métrica de diferencia de entrada"@es ,
+                                            "输入差异度量"@zh ;
+                                 skos:altLabel "task-specific similarity metric"@en ,
+                                               "Δˣ"@en ;
+                                 skos:definition "An input difference metric computes the dissimilarity between two individuals in the input space, quantifying how alike two subjects are with respect to the task at hand. The choice of input difference metric is the central modelling commitment of individual fairness, since the requirement that similar individuals be treated similarly is well defined only relative to a stated notion of similarity."@en ;
+                                 skos:exactMatch <https://purl.org/twc/fmo#input_difference_metric> .
+
+
+###  https://rsna.org/roadmap/04110
+<https://rsna.org/roadmap/04110> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/04108> ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :maximum ;
+                                                   owl:hasValue 1
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :minimum ;
+                                                   owl:hasValue 0
+                                                 ] ;
+                                 dcterms:source <https://doi.org/10.1145/2090236.2090255> ;
+                                 rdfs:label "métrica de diferencia de salida"@es ,
+                                            "output difference metric"@en ,
+                                            "输出差异度量"@zh ;
+                                 skos:altLabel "Δʸ"@en ;
+                                 skos:definition "An output difference metric computes the dissimilarity between two model outputs, quantifying how differently a model treated two subjects. Individual fairness holds when the output difference between any two subjects does not exceed their input difference."@en ;
+                                 skos:exactMatch <https://purl.org/twc/fmo#output_difference_metric> .
+
+
+###  https://rsna.org/roadmap/04112
+<https://rsna.org/roadmap/04112> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/04113> ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :minimum ;
+                                                   owl:hasValue 0
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :optimum ;
+                                                   owl:hasValue 0
+                                                 ] ;
+                                 dcterms:source <https://doi.org/10.1007/978-3-031-47745-4_18> ;
+                                 rdfs:label "average distance from the center"@en ,
+                                            "distancia media al centroide"@es ,
+                                            "到聚类中心的平均距离"@zh ;
+                                 skos:altLabel "average within-cluster distance"@en ;
+                                 skos:definition "The mean, taken over all points in a clustering, of each point's distance from the centroid of its assigned cluster. It summarises cluster compactness and serves as the objective minimised by centroid-based clustering algorithms."@en ;
+                                 skos:exactMatch <https://purl.org/twc/fmo#average_distance_from_the_center> .
+
+
+###  https://rsna.org/roadmap/04113
+<https://rsna.org/roadmap/04113> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/01042> ,
+                                                 <https://rsna.org/roadmap/03302> ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :minimum ;
+                                                   owl:hasValue 0
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :optimum ;
+                                                   owl:hasValue 0
+                                                 ] ;
+                                 dcterms:source <https://doi.org/10.48550/arXiv.1802.05733> ;
+                                 rdfs:label "clustering objective cost"@en ,
+                                            "coste objetivo de agrupamiento"@es ,
+                                            "聚类目标代价"@zh ;
+                                 skos:altLabel "clustering cost"@en ,
+                                               "cost of a clustering"@en ;
+                                 skos:definition "The value of the objective function that a clustering algorithm minimises, computed according to whichever clustering objective is in force, such as k-means, k-median, or k-center. Because the objective differs between algorithms, costs are comparable only between clusterings produced under the same objective."@en ;
+                                 skos:exactMatch <https://purl.org/twc/fmo#cluster_objective_cost> .
+
+
+###  https://rsna.org/roadmap/04114
+<https://rsna.org/roadmap/04114> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/04113> ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :minimum ;
+                                                   owl:hasValue 0
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :optimum ;
+                                                   owl:hasValue 0
+                                                 ] ;
+                                 dcterms:source <https://doi.org/10.1007/978-3-031-47745-4_18> ;
+                                 rdfs:label "average cohort clustering objective cost"@en ,
+                                            "coste objetivo de agrupamiento medio por cohorte"@es ,
+                                            "队列平均聚类目标代价"@zh ;
+                                 skos:definition "The mean clustering objective cost taken over the points belonging to one cohort of a dataset. Comparing this quantity across cohorts is what the social fairness cost and the egalitarian and utilitarian clustering objectives measure: a clustering can be good on average while serving one cohort substantially worse than another."@en ;
+                                 skos:exactMatch <https://purl.org/twc/fmo#average_cohort_clustering_objective_cost> .
 
 
 #################################################################
