@@ -1,0 +1,2827 @@
+@prefix : <https://gamuts.net/fairness-metrics/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix roadmap: <https://rsna.org/roadmap/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+dcterms:source a owl:AnnotationProperty .
+
+skos:altLabel a owl:AnnotationProperty .
+
+skos:definition a owl:AnnotationProperty .
+
+: a owl:Ontology .
+
+:Age a owl:Class ;
+    rdfs:label "age"@en ;
+    dcterms:source <https://doi.org/10.1016/j.landig.2026.101001> ;
+    rdfs:comment "No enumerated value set: age is continuous and may be discretised into bands for subgroup analysis."@en ;
+    rdfs:subClassOf :SensitiveAttribute ;
+    skos:definition "Age of the individual; typically continuous and often analysed in bands."@en ;
+    skos:exactMatch <http://snomed.info/id/397669002> ;
+    :uscdiDataElement "Date of Birth (USCDI Patient Demographics)"^^xsd:string .
+
+:IntersectionalExample_ElderlyBlackWoman a owl:NamedIndividual,
+        :IntersectionalSensitiveAttribute ;
+    rdfs:label "elderly Black woman (illustrative)"@en ;
+    dcterms:source <https://doi.org/10.1016/j.landig.2026.101001> ;
+    rdfs:comment "Also characterised by advanced age (~80 years); age is continuous and has no enumerated value to reference."@en ;
+    skos:definition "Illustrative intersectional subgroup used in the review (an 80-year-old Black woman) to show disadvantage not captured by separate age, race, or gender assessments."@en ;
+    :combinesAttribute :Gender_Female,
+        :Race_BlackOrAfricanAmerican .
+
+:SocioeconomicStatus a owl:Class ;
+    rdfs:label "socioeconomic status"@en ;
+    dcterms:source <https://doi.org/10.1016/j.landig.2026.101001> ;
+    rdfs:comment "No single standard value set: represent via the relevant SDOH data elements (e.g. educational attainment, employment status, income, housing status), which may be coded in SNOMED CT or LOINC."@en ;
+    rdfs:seeAlso <https://www.healthit.gov/isp/uscdi> ;
+    rdfs:subClassOf :SensitiveAttribute ;
+    skos:definition "Socioeconomic status of the individual: a multidimensional construct spanning education, income, employment, and housing, typically captured through social-determinants-of-health (SDOH) data rather than a single coded value set."@en ;
+    :uscdiDataElement "Social Determinants of Health (USCDI v3 SDOH data class)"^^xsd:string .
+
+:code a owl:DatatypeProperty ;
+    rdfs:label "code"@en ;
+    rdfs:comment "The code for a value within its code system (see inCodeSystem)."@en ;
+    rdfs:range xsd:string .
+
+:codesystem_HL7AdministrativeGender a owl:NamedIndividual,
+        :CodeSystem ;
+    rdfs:label "HL7 Administrative Gender"@en ;
+    rdfs:seeAlso <https://hl7.org/fhir/valueset-administrative-gender.html> ;
+    :systemURI "http://hl7.org/fhir/administrative-gender"^^xsd:anyURI .
+
+:codesystem_LOINC a owl:NamedIndividual,
+        :CodeSystem ;
+    rdfs:label "LOINC"@en ;
+    rdfs:seeAlso <https://loinc.org> ;
+    :systemURI "http://loinc.org"^^xsd:anyURI .
+
+:combinesAttribute a owl:ObjectProperty ;
+    rdfs:label "combines attribute"@en ;
+    rdfs:comment "Links an intersectional sensitive attribute to each base sensitive-attribute value it combines (e.g. a 'Black women' subgroup combines the race value 'Black or African American' and the gender value 'identifies as female gender'). Values are individuals of the axis subclasses and hence of SensitiveAttribute."@en ;
+    rdfs:domain :IntersectionalSensitiveAttribute ;
+    rdfs:range :SensitiveAttribute .
+
+:conditioning_metric a owl:Class ;
+    rdfs:label "conditioning metric"@en ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( :Metric [ a owl:Restriction ;
+                        owl:onProperty :requiresInput ;
+                        owl:someValuesFrom :Input_LegitimateFeatures ] ) ] ;
+    skos:definition "A metric that conditions on a set of legitimate features; derived from requiresInput some legitimate features."@en .
+
+:dependsOnPrevalence a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "depends on prevalence"@en ;
+    rdfs:comment "Whether the metric's value depends on the base outcome prevalence within each sensitive-attribute group."@en ;
+    rdfs:domain :00023 ;
+    rdfs:range xsd:boolean .
+
+:functionName a owl:DatatypeProperty ;
+    rdfs:label "function name"@en ;
+    rdfs:domain :MetricImplementation ;
+    rdfs:range xsd:string .
+
+:group_fairness_metric a owl:Class ;
+    rdfs:label "group fairness metric"@en ;
+    rdfs:subClassOf :00023 ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( :00023 [ a owl:Restriction ;
+                        owl:hasValue :GroupFairness ;
+                        owl:onProperty :hasFairnessLevel ] ) ] ;
+    skos:definition "Condition in which groups of individuals defined by sensitive attributes receive similar care."@en .
+
+:hasAggregationOperator a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "has aggregation operator"@en ;
+    dcterms:source <https://doi.org/10.17605/OSF.IO/Z83ND> ;
+    rdfs:comment "The primary operator the fairness metric applies to its base metric across groups. Left unset for metrics that are novel cross-group constructions (e.g. xAUROC, sAUROC, pairwise ranking fairness, equity-scaled metrics) or that combine two sub-metrics via a reported design choice of max/mean (e.g. equalised odds, conditional use accuracy equality), and for subgroup net benefit, which is reported per subgroup rather than reduced by a fixed operator."@en ;
+    rdfs:domain :00023 ;
+    rdfs:range :AggregationOperator .
+
+:hasBiasPreservationProperty a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "has bias preservation property"@en ;
+    dcterms:source <https://doi.org/10.2139/ssrn.3792772> ;
+    rdfs:comment "Whether the metric is bias-preserving or bias-transforming, per Wachter, Mittelstadt & Russell (2021) as applied in the source catalogue."@en ;
+    rdfs:domain :00023 ;
+    rdfs:range :BiasPreservationProperty .
+
+:hasFairnessDirection a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "has fairness direction"@en ;
+    dcterms:source <https://doi.org/10.17605/OSF.IO/Z83ND> ;
+    rdfs:comment "The direction the metric value takes as fairness improves toward its target."@en ;
+    rdfs:domain :00023 ;
+    rdfs:range :FairnessDirection .
+
+:hasGuidanceLevel a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "has guidance level"@en ;
+    rdfs:domain :00023 ;
+    rdfs:range :GuidanceLevel .
+
+:hasGuidanceRationale a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "has guidance rationale"@en ;
+    rdfs:domain :00023 ;
+    rdfs:range rdf:langString .
+
+:hasImplementation a owl:ObjectProperty ;
+    rdfs:label "has implementation"@en ;
+    rdfs:comment "Links a metric to a concrete function/method in a fairness toolkit. Function names for AIF360 (ClassificationMetric) and Fairlearn (fairlearn.metrics) were verified against current documentation; note that a toolkit function may compute the complement of the named metric (e.g. false-omission-rate difference for NPV difference, since NPV = 1 - FOR). This layer is a starting scaffold and should be pinned to specific toolkit versions and extended (e.g. Aequitas, fairmodels) as needed."@en ;
+    rdfs:domain :Metric ;
+    rdfs:range :MetricImplementation .
+
+:hasMatchingMetric a owl:ObjectProperty ;
+    rdfs:label "has matching metric"@en ;
+    rdfs:comment "Links a fairness metric to a ROADMAP (https://rsna.org/roadmap/) scalar metric it is identical to (e.g., 'statistical parity' hasMatchingMetric roadmap:demographic parity). Used in place of skos:exactMatch to avoid an individual-to-class mapping, since fairness metrics in this ontology are individuals while their ROADMAP counterparts are classes. For fairness-aware adaptations of a base performance metric rather than an identical concept, :hasRelatedMetric is used instead."@en ;
+    rdfs:domain :Metric .
+
+:hasMetricSubtype a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "has metric subtype"@en ;
+    rdfs:comment "Only applicable to metrics for which hasPerformanceDependence = performance-dependent (00086); performance-independent metrics do not have a metric subtype in this taxonomy."@en ;
+    rdfs:domain :Metric ;
+    rdfs:range :MetricSubtype .
+
+:hasParentMetric a owl:ObjectProperty ;
+    rdfs:label "has parent metric"@en ;
+    rdfs:domain :00023 ;
+    rdfs:range :00023 .
+
+:hasRelatedMetric a owl:ObjectProperty ;
+    rdfs:label "has related metric"@en ;
+    rdfs:comment "Links a fairness metric to the base metric it operationalises, extends, or is computed from. Points to an internal :StandardMetric individual where one exists (which in turn carries a :hasMatchingMetric link to ROADMAP); otherwise points directly to the corresponding ROADMAP (https://rsna.org/roadmap/) concept when no internal standard metric is defined. For a fairness metric identical to a ROADMAP concept, :hasMatchingMetric is used instead."@en ;
+    rdfs:domain :Metric .
+
+:hasScoringPropriety a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "has scoring propriety"@en ;
+    dcterms:source <https://doi.org/10.1016/j.landig.2026.101001> ;
+    rdfs:comment "The scoring-rule propriety of a (base) performance metric. Asserted on the standard metrics; fairness metrics inherit it via hasRelatedMetric. Proper and semi-proper are stated explicitly in the review for Brier score, expected calibration error, AUROC, and AUPRC; the threshold-dependent classification metrics are improper as scoring rules per the cited guidance (Van Calster et al. 2025)."@en ;
+    rdfs:domain :Metric ;
+    rdfs:range :ScoringPropriety .
+
+:hasSupportedSensitiveAttributeType a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "has supported sensitive attribute type"@en ;
+    dcterms:source <https://doi.org/10.17605/OSF.IO/Z83ND> ;
+    rdfs:comment "The cardinality of sensitive attribute the metric supports, as reported in the source catalogue. Values are broadly nested (continuous > multi-group > binary), but only the level stated in the catalogue is asserted here."@en ;
+    rdfs:domain :00023 ;
+    rdfs:range :SensitiveAttributeType .
+
+:hasTargetValue a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "has target value"@en ;
+    rdfs:comment "The value representing perfect fairness for the metric, as reported in the source catalogue. Recorded as a string because targets are heterogeneous (e.g. 0, 1, 0.5, a range, or a reference to another quantity such as the overall AUROC or (1 - prevalence))."@en ;
+    rdfs:domain :00023 ;
+    rdfs:range xsd:string .
+
+:inCodeSystem a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "in code system"@en ;
+    rdfs:range :CodeSystem .
+
+:incompatibleWith a owl:ObjectProperty,
+        owl:SymmetricProperty ;
+    rdfs:label "incompatible with"@en ;
+    dcterms:source <https://doi.org/10.1016/j.landig.2026.101001> ;
+    rdfs:comment "Indicates that the two fairness metrics cannot in general be satisfied simultaneously (mutual-satisfiability / impossibility results). These incompatibilities are typically CONDITIONAL: they hold when outcome prevalence (base rate) differs across the groups defined by the sensitive attribute and the model is not perfectly accurate. Symmetric. Sources: Kleinberg et al. 2016; Chouldechova 2017, as cited in the review."@en ;
+    rdfs:domain :00023 ;
+    rdfs:range :00023 .
+
+:individual_fairness_metric a owl:Class ;
+    rdfs:label "individual fairness metric"@en ;
+    rdfs:subClassOf :00023 ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( :00023 [ a owl:Restriction ;
+                        owl:hasValue :IndividualFairness ;
+                        owl:onProperty :hasFairnessLevel ] ) ] ;
+    skos:definition "Condition in which similar individuals receive similar care. The concept of similarity is defined by a metric or distance that can be adjusted and agreed upon by relevant stakeholders (eg, patients, health-care professionals, and policy makers)."@en .
+
+:label_requiring_metric a owl:Class ;
+    rdfs:label "label-requiring metric"@en ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( :Metric [ a owl:Restriction ;
+                        owl:onProperty :requiresInput ;
+                        owl:someValuesFrom :Input_OutcomeLabel ] ) ] ;
+    skos:definition "A metric that cannot be computed without ground-truth outcome labels; derived from requiresInput some outcome label."@en .
+
+:loincQuestionCode a owl:DatatypeProperty ;
+    rdfs:label "LOINC question code"@en ;
+    rdfs:comment "The LOINC code for the observation/question that captures this attribute (the coded answer values come from CDCREC/SNOMED, not LOINC)."@en ;
+    rdfs:domain :SensitiveAttribute ;
+    rdfs:range xsd:string .
+
+:performance-dependent_fairness_metric a owl:Class ;
+    rdfs:label "performance-dependent fairness metric"@en ;
+    rdfs:subClassOf :00023 ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( :00023 [ a owl:Restriction ;
+                        owl:hasValue :00086 ;
+                        owl:onProperty :hasPerformanceDependence ] ) ] ;
+    skos:definition "A fairness metric that compares model performance across individuals or groups of individuals (eg, AUROC parity). See the definition of bias-preserving fairness metrics for implications."@en .
+
+:performance-independent_fairness_metric a owl:Class ;
+    rdfs:label "performance-independent fairness metric"@en ;
+    rdfs:subClassOf :00023 ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( :00023 [ a owl:Restriction ;
+                        owl:hasValue :00087 ;
+                        owl:onProperty :hasPerformanceDependence ] ) ] ;
+    skos:definition "A fairness metric that compares model behaviour (eg, by assessing parity in positivity rates) instead of comparing performance (eg, statistical parity) across individuals or groups of individuals. See bias-transforming fairness metrics entry for implications."@en .
+
+:probability-based_base_metric a owl:Class ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( :StandardMetric [ a owl:Restriction ;
+                        owl:hasValue :00088 ;
+                        owl:onProperty :hasEvaluationLevel ] ) ] ;
+    skos:definition "A fairness metric in which estimated probabilities are used as input (eg, AUROC parity)."@en .
+
+:probability-based_fairness_metric a owl:Class ;
+    rdfs:label "probability-based fairness metric"@en ;
+    dcterms:source <https://doi.org/10.1016/j.landig.2025.100916> ;
+    rdfs:subClassOf :00023 ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( :00023 [ a owl:Restriction ;
+                        owl:hasValue :00088 ;
+                        owl:onProperty :hasEvaluationLevel ] ) ] ;
+    skos:definition "A fairness metric in which estimated probabilities are used as input (eg, AUROC parity)."@en .
+
+:proposedForHealthcare a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "proposed for healthcare"@en ;
+    rdfs:domain :00023 ;
+    rdfs:range xsd:boolean .
+
+:providedByToolkit a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "provided by toolkit"@en ;
+    rdfs:domain :MetricImplementation ;
+    rdfs:range :SoftwareToolkit .
+
+:shouldBePairedWith a owl:ObjectProperty,
+        owl:SymmetricProperty ;
+    rdfs:label "should be paired with"@en ;
+    dcterms:source <https://doi.org/10.1016/j.landig.2026.101001> ;
+    rdfs:comment "Indicates that the two fairness metrics should be reported together to be interpretable, per the review's critical appraisal (e.g. a discrimination metric paired with a calibration metric; true-positive-rate and false-positive-rate parity reported together). Symmetric."@en ;
+    rdfs:domain :00023 ;
+    rdfs:range :00023 .
+
+:supportsIntersectionalAnalysis a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "supports intersectional analysis"@en ;
+    rdfs:comment "True for metrics explicitly designed to assess fairness across intersectional or subgroup combinations of sensitive attributes."@en ;
+    rdfs:domain :00023 ;
+    rdfs:range xsd:boolean .
+
+:systemURI a owl:DatatypeProperty ;
+    rdfs:label "system URI"@en ;
+    rdfs:domain :CodeSystem ;
+    rdfs:range xsd:anyURI .
+
+:threshold-dependent_base_metric a owl:Class ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( :StandardMetric [ a owl:Restriction ;
+                        owl:hasValue :00089 ;
+                        owl:onProperty :hasEvaluationLevel ] ) ] ;
+    skos:definition "A fairness metric in which predicted classes (a result of converting estimated probabilities using a decision threshold) are used as inputs (eg, equality of opportunity difference)."@en .
+
+:threshold-dependent_fairness_metric a owl:Class ;
+    rdfs:label "threshold-dependent fairness metric"@en ;
+    dcterms:source <https://doi.org/10.1016/j.landig.2025.100916> ;
+    rdfs:subClassOf :00023 ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( :00023 [ a owl:Restriction ;
+                        owl:hasValue :00089 ;
+                        owl:onProperty :hasEvaluationLevel ] ) ] ;
+    skos:definition "A fairness metric in which predicted classes (a result of converting estimated probabilities using a decision threshold) are used as inputs (eg, equality of opportunity difference)."@en .
+
+:threshold_requiring_metric a owl:Class ;
+    rdfs:label "threshold-requiring metric"@en ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( :Metric [ a owl:Restriction ;
+                        owl:onProperty :requiresInput ;
+                        owl:someValuesFrom :Input_DecisionThreshold ] ) ] ;
+    skos:definition "A metric that cannot be computed without a chosen decision threshold; derived from requiresInput some decision threshold."@en .
+
+:uscdiDataElement a owl:DatatypeProperty ;
+    rdfs:label "USCDI data element"@en ;
+    rdfs:comment "The corresponding data element in the United States Core Data for Interoperability (USCDI), the version adopted by the ONC HTI-1 final rule."@en ;
+    rdfs:domain :SensitiveAttribute ;
+    rdfs:range xsd:string .
+
+:00025 a owl:NamedIndividual,
+        :00023 ;
+    rdfs:label "AUPRC parity"@en ;
+    dcterms:source <https://doi.org/10.1145/3306618.3314278> ;
+    skos:definition "Measures the difference in area under the precision-recall curve (AUPRC) between subgroups defined by the sensitive attribute."@en ;
+    :dependsOnPrevalence false ;
+    :hasAggregationOperator :AggOp_AbsoluteDifference ;
+    :hasBiasPreservationProperty :BiasPreservationProperty_Preserving ;
+    :hasEvaluationLevel :00088 ;
+    :hasFairnessDirection :FairnessDirection_Lower ;
+    :hasFairnessLevel :GroupFairness ;
+    :hasGuidanceLevel :Inadvisable ;
+    :hasGuidanceRationale "AUPRC is semi-proper and can be an explicitly discriminatory metric favouring higher-prevalence subgroups."@en ;
+    :hasMetricSubtype :Discrimination ;
+    :hasPerformanceDependence :00086 ;
+    :hasRelatedMetric :AUPRC ;
+    :hasSupportedSensitiveAttributeType :SensitiveAttributeType_Binary ;
+    :hasTargetValue "0" ;
+    :proposedForHealthcare false ;
+    :requiresInput :Input_EstimatedProbability,
+        :Input_OutcomeLabel,
+        :Input_SensitiveAttribute .
+
+:00026 a owl:NamedIndividual,
+        :00023 ;
+    rdfs:label "AUROC parity"@en ;
+    dcterms:source <https://doi.org/10.1145/3442188.3445879> ;
+    skos:definition "Measures the difference in AUROC (discrimination) between subgroups defined by the sensitive attribute; a value of 0 indicates no difference in discrimination across groups."@en ;
+    :dependsOnPrevalence false ;
+    :hasAggregationOperator :AggOp_AbsoluteDifference ;
+    :hasBiasPreservationProperty :BiasPreservationProperty_Preserving ;
+    :hasEvaluationLevel :00088 ;
+    :hasFairnessDirection :FairnessDirection_Lower ;
+    :hasFairnessLevel :GroupFairness ;
+    :hasGuidanceLevel :Recommended ;
+    :hasGuidanceRationale "Recommended if paired with a calibration-related parity metric; AUROC alone only reflects discrimination."@en ;
+    :hasMetricSubtype :Discrimination ;
+    :hasPerformanceDependence :00086 ;
+    :hasRelatedMetric :AUROC ;
+    :hasSupportedSensitiveAttributeType :SensitiveAttributeType_Binary ;
+    :hasTargetValue "0" ;
+    :proposedForHealthcare true ;
+    :requiresInput :Input_EstimatedProbability,
+        :Input_OutcomeLabel,
+        :Input_SensitiveAttribute ;
+    :shouldBePairedWith :00024,
+        :00033,
+        :00044,
+        :00051,
+        :00080 .
+
+:00027 a owl:NamedIndividual,
+        :00023 ;
+    rdfs:label "average disparity in equalised odds"@en ;
+    dcterms:source <https://proceedings.mlr.press/v252/wang24a.html> ;
+    skos:definition "Measures the average deviation from equalised odds by aggregating pairwise true-positive-rate and false-positive-rate differences across all subgroups defined by the sensitive attribute."@en ;
+    :dependsOnPrevalence false ;
+    :hasAggregationOperator :AggOp_Mean ;
+    :hasBiasPreservationProperty :BiasPreservationProperty_Preserving ;
+    :hasEvaluationLevel :00089 ;
+    :hasFairnessDirection :FairnessDirection_Lower ;
+    :hasFairnessLevel :GroupFairness ;
+    :hasGuidanceLevel :Inadvisable ;
+    :hasGuidanceRationale "Unclear how quantities should be combined; incompatible with other metrics under differing prevalence."@en ;
+    :hasMetricSubtype :Partial ;
+    :hasPerformanceDependence :00086 ;
+    :hasRelatedMetric roadmap:03229 ;
+    :hasSupportedSensitiveAttributeType :SensitiveAttributeType_MultiGroup ;
+    :hasTargetValue "0" ;
+    :proposedForHealthcare false ;
+    :requiresInput :Input_DecisionThreshold,
+        :Input_EstimatedProbability,
+        :Input_OutcomeLabel,
+        :Input_SensitiveAttribute .
+
+:00028 a owl:NamedIndividual,
+        :00023 ;
+    rdfs:label "average odds difference"@en ;
+    dcterms:source <https://doi.org/10.1145/3448891.3448943> ;
+    skos:definition "Computes the average of the false-positive-rate and true-positive-rate differences across protected groups, combining the equalised-odds components into a single measure."@en ;
+    :dependsOnPrevalence false ;
+    :hasAggregationOperator :AggOp_Mean ;
+    :hasBiasPreservationProperty :BiasPreservationProperty_Preserving ;
+    :hasEvaluationLevel :00089 ;
+    :hasFairnessDirection :FairnessDirection_Lower ;
+    :hasFairnessLevel :GroupFairness ;
+    :hasGuidanceLevel :Inadvisable ;
+    :hasGuidanceRationale "Unclear aggregation; naming (\"odds\") can be misleading."@en ;
+    :hasImplementation :impl_AIF360_average_odds_difference ;
+    :hasMetricSubtype :Partial ;
+    :hasPerformanceDependence :00086 ;
+    :hasRelatedMetric roadmap:03229 ;
+    :hasSupportedSensitiveAttributeType :SensitiveAttributeType_Binary ;
+    :hasTargetValue "0" ;
+    :proposedForHealthcare false ;
+    :requiresInput :Input_DecisionThreshold,
+        :Input_EstimatedProbability,
+        :Input_OutcomeLabel,
+        :Input_SensitiveAttribute .
+
+:00029 a owl:NamedIndividual,
+        :00023 ;
+    rdfs:label "balance for negative class"@en ;
+    dcterms:source <https://doi.org/10.48550/arXiv.1609.05807> ;
+    skos:definition "Requires that subjects in the negative class from both groups receive equal average estimated probabilities."@en ;
+    :dependsOnPrevalence false ;
+    :hasAggregationOperator :AggOp_Difference ;
+    :hasBiasPreservationProperty :BiasPreservationProperty_Preserving ;
+    :hasEvaluationLevel :00088 ;
+    :hasFairnessDirection :FairnessDirection_Lower ;
+    :hasFairnessLevel :GroupFairness ;
+    :hasGuidanceLevel :UseWithCaution ;
+    :hasGuidanceRationale "Not studied for use in clinical prediction models."@en ;
+    :hasMetricSubtype :Overall ;
+    :hasPerformanceDependence :00086 ;
+    :hasRelatedMetric roadmap:03762 ;
+    :hasSupportedSensitiveAttributeType :SensitiveAttributeType_Binary ;
+    :hasTargetValue "0" ;
+    :proposedForHealthcare false ;
+    :requiresInput :Input_EstimatedProbability,
+        :Input_OutcomeLabel,
+        :Input_SensitiveAttribute .
+
+:00030 a owl:NamedIndividual,
+        :00023 ;
+    rdfs:label "balance for positive class"@en ;
+    dcterms:source <https://doi.org/10.48550/arXiv.1609.05807> ;
+    skos:definition "Requires that subjects in the positive class from both groups receive equal average estimated probabilities."@en ;
+    :dependsOnPrevalence false ;
+    :hasAggregationOperator :AggOp_Difference ;
+    :hasBiasPreservationProperty :BiasPreservationProperty_Preserving ;
+    :hasEvaluationLevel :00088 ;
+    :hasFairnessDirection :FairnessDirection_Lower ;
+    :hasFairnessLevel :GroupFairness ;
+    :hasGuidanceLevel :UseWithCaution ;
+    :hasGuidanceRationale "Not studied for use in clinical prediction models."@en ;
+    :hasMetricSubtype :Overall ;
+    :hasPerformanceDependence :00086 ;
+    :hasRelatedMetric roadmap:03762 ;
+    :hasSupportedSensitiveAttributeType :SensitiveAttributeType_Binary ;
+    :hasTargetValue "0" ;
+    :proposedForHealthcare false ;
+    :requiresInput :Input_EstimatedProbability,
+        :Input_OutcomeLabel,
+        :Input_SensitiveAttribute .
+
+:00031 a owl:NamedIndividual,
+        :00023 ;
+    rdfs:label "balanced accuracy difference"@en ;
+    dcterms:source <https://doi.org/10.1145/3630106.3658902> ;
+    skos:definition "Evaluates the disparity in balanced accuracy between a protected and an unprotected group."@en ;
+    :dependsOnPrevalence false ;
+    :hasAggregationOperator :AggOp_Difference ;
+    :hasBiasPreservationProperty :BiasPreservationProperty_Preserving ;
+    :hasEvaluationLevel :00089 ;
+    :hasFairnessDirection :FairnessDirection_Lower ;
+    :hasFairnessLevel :GroupFairness ;
+    :hasGuidanceLevel :Inadvisable ;
+    :hasGuidanceRationale "Flawed models can yield higher values than robust ones; treats all errors alike; limited to one decision threshold."@en ;
+    :hasMetricSubtype :Summary ;
+    :hasPerformanceDependence :00086 ;
+    :hasRelatedMetric :BalancedAccuracy ;
+    :hasSupportedSensitiveAttributeType :SensitiveAttributeType_Binary ;
+    :hasTargetValue "0" ;
+    :proposedForHealthcare false ;
+    :requiresInput :Input_DecisionThreshold,
+        :Input_EstimatedProbability,
+        :Input_OutcomeLabel,
+        :Input_SensitiveAttribute .
+
+:00032 a owl:NamedIndividual,
+        :00023 ;
+    rdfs:label "Brier score parity"@en ;
+    dcterms:source <https://doi.org/10.1145/3306618.3314278> ;
+    skos:definition "Measures the difference in Brier score between subgroups, reflecting the consistency of combined calibration and accuracy of probabilistic predictions across groups."@en ;
+    :dependsOnPrevalence true ;
+    :hasAggregationOperator :AggOp_AbsoluteDifference ;
+    :hasBiasPreservationProperty :BiasPreservationProperty_Preserving ;
+    :hasEvaluationLevel :00088 ;
+    :hasFairnessDirection :FairnessDirection_Lower ;
+    :hasFairnessLevel :GroupFairness ;
+    :hasGuidanceLevel :UseWithCaution ;
+    :hasGuidanceRationale "Proper metric but hard to interpret; mixes discrimination and calibration."@en ;
+    :hasMetricSubtype :Overall ;
+    :hasPerformanceDependence :00086 ;
+    :hasRelatedMetric :BrierScore ;
+    :hasSupportedSensitiveAttributeType :SensitiveAttributeType_Binary ;
+    :hasTargetValue "0" ;
+    :proposedForHealthcare false ;
+    :requiresInput :Input_EstimatedProbability,
+        :Input_OutcomeLabel,
+        :Input_SensitiveAttribute .
+
+:00034 a owl:NamedIndividual,
+        :00023 ;
+    rdfs:label "censoring-based group fairness"@en ;
+    dcterms:source <https://doi.org/10.1145/3534678.3539259> ;
+    skos:definition "Extends group fairness by incorporating censoring information, comparing survival-probability estimates between censored and uncensored individuals with similar features within groups."@en ;
+    :dependsOnPrevalence true ;
+    :hasAggregationOperator :AggOp_Mean ;
+    :hasBiasPreservationProperty :BiasPreservationProperty_Transforming ;
+    :hasEvaluationLevel :00088 ;
+    :hasFairnessDirection :FairnessDirection_Lower ;
+    :hasFairnessLevel :GroupFairness ;
+    :hasGuidanceLevel :Inadvisable ;
+    :hasGuidanceRationale "Extends fairness to censored survival data; insufficient empirical evaluation."@en ;
+    :hasPerformanceDependence :00087 ;
+    :hasRelatedMetric roadmap:03225 ;
+    :hasSupportedSensitiveAttributeType :SensitiveAttributeType_MultiGroup ;
+    :hasTargetValue "0" ;
+    :proposedForHealthcare true ;
+    :requiresInput :Input_CensoringIndicator,
+        :Input_Covariates,
+        :Input_EstimatedProbability,
+        :Input_SensitiveAttribute,
+        :Input_TimeToEvent .
+
+:00035 a owl:NamedIndividual,
+        :00023 ;
+    rdfs:label "censoring-based individual fairness"@en ;
+    dcterms:source <https://doi.org/10.1145/3534678.3539259> ;
+    skos:definition "Builds on survival individual fairness by incorporating censoring, aiming for patients with similar features and outcomes to receive similar predictions even when some are censored."@en ;
+    :dependsOnPrevalence true ;
+    :hasAggregationOperator :AggOp_Mean ;
+    :hasBiasPreservationProperty :BiasPreservationProperty_Transforming ;
+    :hasEvaluationLevel :00088 ;
+    :hasFairnessDirection :FairnessDirection_Lower ;
+    :hasFairnessLevel :IndividualFairness ;
+    :hasGuidanceLevel :Inadvisable ;
+    :hasGuidanceRationale "One of only 2 individual-fairness metrics identified in the review; insufficient empirical evaluation."@en ;
+    :hasPerformanceDependence :00087 ;
+    :hasRelatedMetric roadmap:03226 ;
+    :hasSupportedSensitiveAttributeType :SensitiveAttributeType_MultiGroup ;
+    :hasTargetValue "0" ;
+    :proposedForHealthcare false ;
+    :requiresInput :Input_CensoringIndicator,
+        :Input_Covariates,
+        :Input_EstimatedProbability,
+        :Input_SensitiveAttribute,
+        :Input_TimeToEvent .
+
+:00036 a owl:NamedIndividual,
+        :00023 ;
+    rdfs:label "children metrics"@en ;
+    dcterms:source <https://doi.org/10.1109/ICDE48307.2020.00203>,
+        <https://openreview.net/forum?id=YigKlMJwjye> ;
+    skos:definition "A family of metrics extending statistical/demographic parity beyond the binary case: multi-group demographic parity generalises it to categorical sensitive attributes, generalised demographic parity (GDP) extends it to continuous sensitive attributes, and statistical parity subgroup fairness weights the positive-prediction-rate disparity by subgroup representation."@en ;
+    :dependsOnPrevalence true ;
+    :hasAggregationOperator :AggOp_Summation ;
+    :hasBiasPreservationProperty :BiasPreservationProperty_Transforming ;
+    :hasEvaluationLevel :00089 ;
+    :hasFairnessDirection :FairnessDirection_Lower ;
+    :hasFairnessLevel :GroupFairness ;
+    :hasGuidanceLevel :UseWithCaution ;
+    :hasGuidanceRationale "Family of statistical-parity-derived metrics (intersectional/generalised demographic parity variants)."@en ;
+    :hasImplementation :impl_AIF360_statistical_parity_difference,
+        :impl_Fairlearn_demographic_parity_difference ;
+    :hasParentMetric :00073 ;
+    :hasPerformanceDependence :00087 ;
+    :hasRelatedMetric roadmap:03228 ;
+    :hasSupportedSensitiveAttributeType :SensitiveAttributeType_Continuous ;
+    :hasTargetValue "0" ;
+    :proposedForHealthcare false ;
+    :requiresInput :Input_DecisionThreshold,
+        :Input_EstimatedProbability,
+        :Input_SensitiveAttribute ;
+    :supportsIntersectionalAnalysis true .
+
+:00037 a owl:NamedIndividual,
+        :00023 ;
+    rdfs:label "concordance imparity"@en ;
+    dcterms:source <https://doi.org/10.1609/aaai.v36i11.21484> ;
+    skos:definition "Quantifies disparities in a model's discriminative ability across groups in the presence of censoring, as the maximum deviation between weighted subgroup concordance fractions."@en ;
+    :dependsOnPrevalence false ;
+    :hasAggregationOperator :AggOp_Maximum ;
+    :hasBiasPreservationProperty :BiasPreservationProperty_Preserving ;
+    :hasEvaluationLevel :00088 ;
+    :hasFairnessDirection :FairnessDirection_Lower ;
+    :hasFairnessLevel :GroupFairness ;
+    :hasGuidanceLevel :Inadvisable ;
+    :hasGuidanceRationale "Insufficient knowledge/support; seldom used in healthcare."@en ;
+    :hasMetricSubtype :Discrimination ;
+    :hasPerformanceDependence :00086 ;
+    :hasRelatedMetric roadmap:03572 ;
+    :hasSupportedSensitiveAttributeType :SensitiveAttributeType_MultiGroup ;
+    :hasTargetValue "0" ;
+    :proposedForHealthcare false ;
+    :requiresInput :Input_CensoringIndicator,
+        :Input_Covariates,
+        :Input_EstimatedProbability,
+        :Input_OutcomeLabel,
+        :Input_SensitiveAttribute,
+        :Input_TimeToEvent .
+
+:00038 a owl:NamedIndividual,
+        :00023 ;
+    rdfs:label "conditional equality of opportunity gap"@en ;
+    dcterms:source <https://doi.org/10.1145/3306618.3314234> ;
+    skos:definition "Quantifies disparities in opportunity gaps across subgroups, conditioned on legitimate covariates that modify risk and weighted by a probability for each sensitive-attribute value."@en ;
+    :dependsOnPrevalence false ;
+    :hasAggregationOperator :AggOp_Summation ;
+    :hasBiasPreservationProperty :BiasPreservationProperty_Preserving ;
+    :hasEvaluationLevel :00089 ;
+    :hasFairnessDirection :FairnessDirection_Lower ;
+    :hasFairnessLevel :GroupFairness ;
+    :hasGuidanceLevel :Inadvisable ;
+    :hasGuidanceRationale "Unclear aggregation of quantities."@en ;
+    :hasMetricSubtype :Partial ;
+    :hasPerformanceDependence :00086 ;
+    :hasRelatedMetric roadmap:03227 ;
+    :hasSupportedSensitiveAttributeType :SensitiveAttributeType_Binary ;
+    :hasTargetValue "0" ;
+    :proposedForHealthcare false ;
+    :requiresInput :Input_DecisionThreshold,
+        :Input_EstimatedProbability,
+        :Input_LegitimateFeatures,
+        :Input_OutcomeLabel,
+        :Input_SensitiveAttribute .
+
+:00039 a owl:NamedIndividual,
+        :00023 ;
+    rdfs:label "conditional statistical parity"@en ;
+    dcterms:source <https://jmlr.org/papers/v24/22-1511.html> ;
+    skos:definition "An extension of statistical parity that controls for a limited set of legitimate features (independent of the protected attribute), requiring an equal proportion of individuals to be selected from each group within strata defined by those features."@en ;
+    :dependsOnPrevalence true ;
+    :hasAggregationOperator :AggOp_AbsoluteDifference ;
+    :hasBiasPreservationProperty :BiasPreservationProperty_Transforming ;
+    :hasEvaluationLevel :00089 ;
+    :hasFairnessDirection :FairnessDirection_Lower ;
+    :hasFairnessLevel :GroupFairness ;
+    :hasGuidanceLevel :Recommended ;
+    :hasGuidanceRationale "Relevant when legitimate factors (e.g., comorbidities) justify group-specific risk estimates; aligns with EU non-discrimination law."@en ;
+    :hasPerformanceDependence :00087 ;
+    :hasRelatedMetric roadmap:03228 ;
+    :hasSupportedSensitiveAttributeType :SensitiveAttributeType_Binary ;
+    :hasTargetValue "0" ;
+    :proposedForHealthcare false ;
+    :requiresInput :Input_DecisionThreshold,
+        :Input_EstimatedProbability,
+        :Input_LegitimateFeatures,
+        :Input_SensitiveAttribute .
+
+:00040 a owl:NamedIndividual,
+        :00023 ;
+    rdfs:label "conditional use accuracy equality"@en ;
+    dcterms:source <https://doi.org/10.1145/3306618.3314278> ;
+    skos:altLabel "positive and negative predictive parity"@en ;
+    skos:definition "Similar to equalised odds but for predictive values; requires equal positive and negative predictive values across groups."@en ;
+    :dependsOnPrevalence false ;
+    :hasBiasPreservationProperty :BiasPreservationProperty_Preserving ;
+    :hasEvaluationLevel :00089 ;
+    :hasFairnessDirection :FairnessDirection_Lower ;
+    :hasFairnessLevel :GroupFairness ;
+    :hasGuidanceLevel :Inadvisable ;
+    :hasGuidanceRationale "Unclear aggregation of quantities."@en ;
+    :hasMetricSubtype :Partial ;
+    :hasPerformanceDependence :00086 ;
+    :hasRelatedMetric :NPV,
+        :PPV ;
+    :hasSupportedSensitiveAttributeType :SensitiveAttributeType_Binary ;
+    :hasTargetValue "0" ;
+    :proposedForHealthcare false ;
+    :requiresInput :Input_DecisionThreshold,
+        :Input_EstimatedProbability,
+        :Input_LegitimateFeatures,
+        :Input_OutcomeLabel,
+        :Input_SensitiveAttribute .
+
+:00041 a owl:NamedIndividual,
+        :00023 ;
+    rdfs:label "differential fairness"@en ;
+    dcterms:source <https://doi.org/10.1109/ICDE48307.2020.00203> ;
+    skos:definition "A hybrid intersectional measure of the similarity of model classification across combinations of sensitive attributes; the criterion holds when the likelihood of a prediction outcome is bounded within a specified range for all pairs of sensitive-attribute tuples."@en ;
+    :dependsOnPrevalence true ;
+    :hasAggregationOperator :AggOp_LogRatio ;
+    :hasBiasPreservationProperty :BiasPreservationProperty_Transforming ;
+    :hasEvaluationLevel :00089 ;
+    :hasFairnessDirection :FairnessDirection_Bidirectional ;
+    :hasFairnessLevel :GroupFairness ;
+    :hasGuidanceLevel :Inadvisable ;
+    :hasGuidanceRationale "No empirical evaluation or considerable validation in healthcare."@en ;
+    :hasPerformanceDependence :00087 ;
+    :hasRelatedMetric roadmap:03225 ;
+    :hasSupportedSensitiveAttributeType :SensitiveAttributeType_MultiGroup ;
+    :hasTargetValue "range (e^−ϵ, e^ϵ)" ;
+    :proposedForHealthcare false ;
+    :requiresInput :Input_DecisionThreshold,
+        :Input_EstimatedProbability,
+        :Input_SensitiveAttribute ;
+    :supportsIntersectionalAnalysis true .
+
+:00042 a owl:NamedIndividual,
+        :00023 ;
+    rdfs:label "disparate impact"@en ;
+    dcterms:source <https://doi.org/10.1145/2783258.2783311> ;
+    skos:definition "Quantifies the legal concept of disparate impact as the ratio of positive-prediction rates across groups, associated with the 80% (four-fifths) rule; considers only prediction-rate similarity and not the ground truth."@en ;
+    :dependsOnPrevalence true ;
+    :hasAggregationOperator :AggOp_Ratio ;
+    :hasBiasPreservationProperty :BiasPreservationProperty_Transforming ;
+    :hasEvaluationLevel :00089 ;
+    :hasFairnessDirection :FairnessDirection_Lower ;
+    :hasFairnessLevel :GroupFairness ;
+    :hasGuidanceLevel :UseWithCaution ;
+    :hasGuidanceRationale "Connected to US disparate impact law; the associated four-fifths rule is neither necessary nor sufficient for the legal standard."@en ;
+    :hasImplementation :impl_AIF360_disparate_impact,
+        :impl_Fairlearn_demographic_parity_ratio ;
+    :hasPerformanceDependence :00087 ;
+    :hasRelatedMetric roadmap:03228 ;
+    :hasSupportedSensitiveAttributeType :SensitiveAttributeType_Binary ;
+    :hasTargetValue "0 (< 0.2)" ;
+    :proposedForHealthcare false ;
+    :requiresInput :Input_DecisionThreshold,
+        :Input_EstimatedProbability,
+        :Input_SensitiveAttribute .
+
+:00043 a owl:NamedIndividual,
+        :00023 ;
+    rdfs:label "earth mover’s distance for equivalent separation"@en ;
+    dcterms:source <https://doi.org/10.1145/3306618.3314278> ;
+    skos:definition "Uses the first Wasserstein (earth mover's) distance to quantify how far apart the distributions of estimated probabilities are between sensitive groups within each outcome stratum, enforcing a separation criterion across all thresholds."@en ;
+    :dependsOnPrevalence true ;
+    :hasAggregationOperator :AggOp_WassersteinDistance ;
+    :hasBiasPreservationProperty :BiasPreservationProperty_Preserving ;
+    :hasEvaluationLevel :00088 ;
+    :hasFairnessDirection :FairnessDirection_Lower ;
+    :hasFairnessLevel :GroupFairness ;
+    :hasGuidanceLevel :UseWithCaution ;
+    :hasGuidanceRationale "Conceptually informative (satisfies separation criterion strongly), but not empirically evaluated."@en ;
+    :hasMetricSubtype :Overall ;
+    :hasPerformanceDependence :00086 ;
+    :hasRelatedMetric roadmap:04033 ;
+    :hasSupportedSensitiveAttributeType :SensitiveAttributeType_MultiGroup ;
+    :hasTargetValue "0" ;
+    :proposedForHealthcare false ;
+    :requiresInput :Input_EstimatedProbability,
+        :Input_OutcomeLabel,
+        :Input_SensitiveAttribute .
+
+:00045 a owl:NamedIndividual,
+        :00023 ;
+    rdfs:label "equal opportunity difference"@en ;
+    dcterms:source <https://proceedings.neurips.cc/paper/2016/hash/9d2682367c3935defcb1f9e247a97c0d-Abstract.html> ;
+    skos:altLabel "false negative error rate balance"@en,
+        "recall parity"@en ;
+    skos:definition "Also known as recall parity or false-negative-error-rate balance; requires that true positive rates are similar across groups, so individuals with a positive outcome are equally likely to receive a positive prediction."@en ;
+    :dependsOnPrevalence false ;
+    :hasAggregationOperator :AggOp_AbsoluteDifference ;
+    :hasBiasPreservationProperty :BiasPreservationProperty_Preserving ;
+    :hasEvaluationLevel :00089 ;
+    :hasFairnessDirection :FairnessDirection_Lower ;
+    :hasFairnessLevel :GroupFairness ;
+    :hasGuidanceLevel :UseWithCaution ;
+    :hasGuidanceRationale "Aims for TPR parity; easily interpreted, but reliance on a possibly arbitrary threshold restricts standalone use."@en ;
+    :hasImplementation :impl_AIF360_equal_opportunity_difference ;
+    :hasMatchingMetric roadmap:03227 ;
+    :hasMetricSubtype :Partial ;
+    :hasPerformanceDependence :00086 ;
+    :hasSupportedSensitiveAttributeType :SensitiveAttributeType_Binary ;
+    :hasTargetValue "0" ;
+    :proposedForHealthcare true ;
+    :requiresInput :Input_DecisionThreshold,
+        :Input_EstimatedProbability,
+        :Input_OutcomeLabel,
+        :Input_SensitiveAttribute ;
+    :shouldBePairedWith :00063,
+        :00068 .
+
+:00046 a owl:NamedIndividual,
+        :00023 ;
+    rdfs:label "equalised odds"@en ;
+    dcterms:source <https://proceedings.neurips.cc/paper/2016/hash/9d2682367c3935defcb1f9e247a97c0d-Abstract.html> ;
+    skos:altLabel "conditional procedure accuracy equality"@en,
+        "disparate mistreatment"@en ;
+    skos:definition "Combines equal opportunity (true positive rates) and predictive equality (false positive rates), requiring both to be similar across groups."@en ;
+    :dependsOnPrevalence false ;
+    :hasBiasPreservationProperty :BiasPreservationProperty_Preserving ;
+    :hasEvaluationLevel :00089 ;
+    :hasFairnessDirection :FairnessDirection_Lower ;
+    :hasFairnessLevel :GroupFairness ;
+    :hasGuidanceLevel :Inadvisable ;
+    :hasGuidanceRationale "Combining TPR and FPR makes the metric lose focus, hampering interpretation."@en ;
+    :hasImplementation :impl_AIF360_average_abs_odds_difference,
+        :impl_Fairlearn_equalized_odds_difference ;
+    :hasMatchingMetric roadmap:03229 ;
+    :hasMetricSubtype :Partial ;
+    :hasPerformanceDependence :00086 ;
+    :hasSupportedSensitiveAttributeType :SensitiveAttributeType_Binary ;
+    :hasTargetValue "0" ;
+    :incompatibleWith :00044,
+        :00064,
+        :00080 ;
+    :proposedForHealthcare false ;
+    :requiresInput :Input_DecisionThreshold,
+        :Input_EstimatedProbability,
+        :Input_OutcomeLabel,
+        :Input_SensitiveAttribute .
+
+:00047 a owl:NamedIndividual,
+        :00023 ;
+    rdfs:label "equalising disincentives"@en ;
+    dcterms:source <https://doi.org/10.1145/3391403.3399473> ;
+    skos:definition "Compares the difference between true positive rate and false positive rate across protected groups."@en ;
+    :dependsOnPrevalence false ;
+    :hasAggregationOperator :AggOp_Difference ;
+    :hasBiasPreservationProperty :BiasPreservationProperty_Preserving ;
+    :hasEvaluationLevel :00089 ;
+    :hasFairnessDirection :FairnessDirection_Lower ;
+    :hasFairnessLevel :GroupFairness ;
+    :hasGuidanceLevel :Inadvisable ;
+    :hasGuidanceRationale "Unclear how quantities should be combined; incompatible with other metrics under differing prevalence."@en ;
+    :hasMetricSubtype :Partial ;
+    :hasPerformanceDependence :00086 ;
+    :hasRelatedMetric roadmap:03229 ;
+    :hasSupportedSensitiveAttributeType :SensitiveAttributeType_Binary ;
+    :hasTargetValue "0" ;
+    :proposedForHealthcare false ;
+    :requiresInput :Input_DecisionThreshold,
+        :Input_EstimatedProbability,
+        :Input_OutcomeLabel,
+        :Input_SensitiveAttribute .
+
+:00048 a owl:NamedIndividual,
+        :00023 ;
+    rdfs:label "equity-scaled AUROC"@en ;
+    dcterms:source <https://doi.org/10.1109/TMI.2024.3377552> ;
+    skos:definition "One of the equity-scaled family of metrics, which combine a performance metric with an equity term by adjusting the overall metric (such as AUROC or recall) downward in proportion to performance disparities across identity groups."@en ;
+    :dependsOnPrevalence false ;
+    :hasBiasPreservationProperty :BiasPreservationProperty_Preserving ;
+    :hasEvaluationLevel :00088 ;
+    :hasFairnessDirection :FairnessDirection_Higher ;
+    :hasFairnessLevel :GroupFairness ;
+    :hasGuidanceLevel :Inadvisable ;
+    :hasGuidanceRationale "Introduced with minimal justification per the review's discussion."@en ;
+    :hasMetricSubtype :Discrimination ;
+    :hasPerformanceDependence :00086 ;
+    :hasRelatedMetric :AUROC ;
+    :hasSupportedSensitiveAttributeType :SensitiveAttributeType_MultiGroup ;
+    :hasTargetValue "AUROC" ;
+    :proposedForHealthcare false ;
+    :requiresInput :Input_EstimatedProbability,
+        :Input_OutcomeLabel,
+        :Input_SensitiveAttribute .
+
+:00049 a owl:NamedIndividual,
+        :00023 ;
+    rdfs:label "error distribution disparity index"@en ;
+    dcterms:source <https://proceedings.mlr.press/v252/wang24a.html> ;
+    skos:definition "Measures the deviation of subgroup error rates relative to the overall error rate, designed for settings with substantial data variability and diverse subgroup sizes."@en ;
+    :dependsOnPrevalence true ;
+    :hasAggregationOperator :AggOp_Mean ;
+    :hasBiasPreservationProperty :BiasPreservationProperty_Preserving ;
+    :hasEvaluationLevel :00089 ;
+    :hasFairnessDirection :FairnessDirection_Lower ;
+    :hasFairnessLevel :GroupFairness ;
+    :hasGuidanceLevel :Inadvisable ;
+    :hasGuidanceRationale "Flawed models can yield higher values than robust ones; treats all errors alike; limited to one decision threshold."@en ;
+    :hasMetricSubtype :Summary ;
+    :hasPerformanceDependence :00086 ;
+    :hasRelatedMetric roadmap:03330 ;
+    :hasSupportedSensitiveAttributeType :SensitiveAttributeType_MultiGroup ;
+    :hasTargetValue "0" ;
+    :proposedForHealthcare false ;
+    :requiresInput :Input_DecisionThreshold,
+        :Input_EstimatedProbability,
+        :Input_OutcomeLabel,
+        :Input_SensitiveAttribute .
+
+:00050 a owl:NamedIndividual,
+        :00023 ;
+    rdfs:label "error rate ratio"@en ;
+    dcterms:source <https://doi.org/10.1001/amajethics.2019.167> ;
+    skos:altLabel "accuracy ratio"@en,
+        "zero-one loss ratio"@en ;
+    skos:definition "The ratio of error rates between the unprivileged and privileged groups; equivalent to the overall accuracy ratio."@en ;
+    :dependsOnPrevalence true ;
+    :hasAggregationOperator :AggOp_Ratio ;
+    :hasBiasPreservationProperty :BiasPreservationProperty_Preserving ;
+    :hasEvaluationLevel :00089 ;
+    :hasFairnessDirection :FairnessDirection_Higher ;
+    :hasFairnessLevel :GroupFairness ;
+    :hasGuidanceLevel :Inadvisable ;
+    :hasGuidanceRationale "Flawed models can yield higher values than robust ones; treats all errors alike; limited to one decision threshold."@en ;
+    :hasImplementation :impl_AIF360_error_rate_ratio ;
+    :hasMetricSubtype :Summary ;
+    :hasPerformanceDependence :00086 ;
+    :hasRelatedMetric roadmap:03330 ;
+    :hasSupportedSensitiveAttributeType :SensitiveAttributeType_Binary ;
+    :hasTargetValue "1" ;
+    :proposedForHealthcare false ;
+    :requiresInput :Input_DecisionThreshold,
+        :Input_EstimatedProbability,
+        :Input_OutcomeLabel,
+        :Input_SensitiveAttribute .
+
+:00052 a owl:NamedIndividual,
+        :00023 ;
+    rdfs:label "F1 parity"@en ;
+    dcterms:source <https://doi.org/10.1109/BigData50022.2020.9378043> ;
+    skos:altLabel "discrimination index"@en ;
+    skos:definition "Quantifies the difference in F1 score between groups defined by the sensitive attribute (originally termed the discrimination index)."@en ;
+    :dependsOnPrevalence true ;
+    :hasAggregationOperator :AggOp_Difference ;
+    :hasBiasPreservationProperty :BiasPreservationProperty_Preserving ;
+    :hasEvaluationLevel :00089 ;
+    :hasFairnessDirection :FairnessDirection_Lower ;
+    :hasFairnessLevel :GroupFairness ;
+    :hasGuidanceLevel :Inadvisable ;
+    :hasGuidanceRationale "Improper scoring behaviour."@en ;
+    :hasMetricSubtype :Summary ;
+    :hasPerformanceDependence :00086 ;
+    :hasRelatedMetric :F1Score ;
+    :hasSupportedSensitiveAttributeType :SensitiveAttributeType_Binary ;
+    :hasTargetValue "0" ;
+    :proposedForHealthcare false ;
+    :requiresInput :Input_DecisionThreshold,
+        :Input_EstimatedProbability,
+        :Input_OutcomeLabel,
+        :Input_SensitiveAttribute .
+
+:00053 a owl:NamedIndividual,
+        :00023 ;
+    rdfs:label "log-loss parity"@en ;
+    dcterms:source <https://doi.org/10.1145/3531146.3533166> ;
+    skos:definition "Measures the difference in logarithmic loss (binary cross-entropy) between subgroups, reflecting disparities in probabilistic prediction error."@en ;
+    :dependsOnPrevalence true ;
+    :hasAggregationOperator :AggOp_AbsoluteDifference ;
+    :hasBiasPreservationProperty :BiasPreservationProperty_Preserving ;
+    :hasEvaluationLevel :00088 ;
+    :hasFairnessDirection :FairnessDirection_Lower ;
+    :hasFairnessLevel :GroupFairness ;
+    :hasGuidanceLevel :UseWithCaution ;
+    :hasGuidanceRationale "Proper metric but hard to interpret; mixes discrimination and calibration."@en ;
+    :hasMetricSubtype :Overall ;
+    :hasPerformanceDependence :00086 ;
+    :hasRelatedMetric roadmap:03334 ;
+    :hasSupportedSensitiveAttributeType :SensitiveAttributeType_Binary ;
+    :hasTargetValue "0" ;
+    :proposedForHealthcare false ;
+    :requiresInput :Input_EstimatedProbability,
+        :Input_OutcomeLabel,
+        :Input_SensitiveAttribute .
+
+:00054 a owl:NamedIndividual,
+        :00023 ;
+    rdfs:label "Matthew’s correlation coefficient parity"@en ;
+    dcterms:source <https://doi.org/10.1186/s12864-019-6413-7> ;
+    skos:definition "Evaluates whether the Matthews correlation coefficient is equal across groups."@en ;
+    :dependsOnPrevalence true ;
+    :hasAggregationOperator :AggOp_Difference ;
+    :hasBiasPreservationProperty :BiasPreservationProperty_Preserving ;
+    :hasEvaluationLevel :00089 ;
+    :hasFairnessDirection :FairnessDirection_Lower ;
+    :hasFairnessLevel :GroupFairness ;
+    :hasGuidanceLevel :Inadvisable ;
+    :hasGuidanceRationale "Highly complex formulation hampering interpretability."@en ;
+    :hasMetricSubtype :Summary ;
+    :hasPerformanceDependence :00086 ;
+    :hasRelatedMetric :MCC ;
+    :hasSupportedSensitiveAttributeType :SensitiveAttributeType_Binary ;
+    :hasTargetValue "0" ;
+    :proposedForHealthcare false ;
+    :requiresInput :Input_DecisionThreshold,
+        :Input_EstimatedProbability,
+        :Input_OutcomeLabel,
+        :Input_SensitiveAttribute .
+
+:00055 a owl:NamedIndividual,
+        :00023 ;
+    rdfs:label "max-performance-scaled disparity AUROC"@en ;
+    dcterms:source <https://doi.org/10.48550/arXiv.2310.02492> ;
+    skos:definition "Evaluates the maximum disparity in AUROC between subgroups (largest minus smallest subgroup AUROC), scaled by the overall AUROC."@en ;
+    :dependsOnPrevalence false ;
+    :hasAggregationOperator :AggOp_Maximum ;
+    :hasBiasPreservationProperty :BiasPreservationProperty_Preserving ;
+    :hasEvaluationLevel :00088 ;
+    :hasFairnessDirection :FairnessDirection_Lower ;
+    :hasFairnessLevel :GroupFairness ;
+    :hasGuidanceLevel :Inadvisable ;
+    :hasGuidanceRationale "Reported in a preprint; insufficient validation."@en ;
+    :hasMetricSubtype :Discrimination ;
+    :hasPerformanceDependence :00086 ;
+    :hasRelatedMetric :AUROC ;
+    :hasSupportedSensitiveAttributeType :SensitiveAttributeType_MultiGroup ;
+    :hasTargetValue "0" ;
+    :proposedForHealthcare false ;
+    :requiresInput :Input_EstimatedProbability,
+        :Input_OutcomeLabel,
+        :Input_SensitiveAttribute .
+
+:00056 a owl:NamedIndividual,
+        :00023 ;
+    rdfs:label "maximum difference recall"@en ;
+    dcterms:source <https://doi.org/10.1145/3593013.3593982> ;
+    skos:definition "Measures the largest absolute difference between any group's recall and the overall recall, identifying the group with the largest deviation."@en ;
+    :dependsOnPrevalence false ;
+    :hasAggregationOperator :AggOp_Maximum ;
+    :hasBiasPreservationProperty :BiasPreservationProperty_Preserving ;
+    :hasEvaluationLevel :00089 ;
+    :hasFairnessDirection :FairnessDirection_Lower ;
+    :hasFairnessLevel :GroupFairness ;
+    :hasGuidanceLevel :UseWithCaution ;
+    :hasGuidanceRationale "Linked to Rawls' Theory of Justice (maximise minimum benefit); sensitive to outlier subgroups."@en ;
+    :hasMetricSubtype :Partial ;
+    :hasPerformanceDependence :00086 ;
+    :hasRelatedMetric :TPR ;
+    :hasSupportedSensitiveAttributeType :SensitiveAttributeType_MultiGroup ;
+    :hasTargetValue "0" ;
+    :proposedForHealthcare true ;
+    :requiresInput :Input_DecisionThreshold,
+        :Input_EstimatedProbability,
+        :Input_OutcomeLabel,
+        :Input_SensitiveAttribute .
+
+:00057 a owl:NamedIndividual,
+        :00023 ;
+    rdfs:label "mean score parity"@en ;
+    dcterms:source <https://doi.org/10.1145/3306618.3314236> ;
+    skos:altLabel "average score parity"@en ;
+    skos:definition "Assesses whether the average estimated probability (score) is equal across protected groups; satisfied when the expected estimated probability is consistent across all groups."@en ;
+    :dependsOnPrevalence true ;
+    :hasAggregationOperator :AggOp_Difference ;
+    :hasBiasPreservationProperty :BiasPreservationProperty_Transforming ;
+    :hasEvaluationLevel :00088 ;
+    :hasFairnessDirection :FairnessDirection_Lower ;
+    :hasFairnessLevel :GroupFairness ;
+    :hasGuidanceLevel :UseWithCaution ;
+    :hasGuidanceRationale "Can quickly summarise how a model behaves when comparing subgroups; restricted as only a mean value is reported."@en ;
+    :hasPerformanceDependence :00087 ;
+    :hasRelatedMetric roadmap:03228 ;
+    :hasSupportedSensitiveAttributeType :SensitiveAttributeType_Binary ;
+    :hasTargetValue "0" ;
+    :proposedForHealthcare false ;
+    :requiresInput :Input_EstimatedProbability,
+        :Input_SensitiveAttribute .
+
+:00058 a owl:NamedIndividual,
+        :00023 ;
+    rdfs:label "mean-performance-scaled disparity AUROC"@en ;
+    dcterms:source <https://doi.org/10.48550/arXiv.2310.02492> ;
+    skos:definition "Quantifies the disparity in AUROC across subgroups as the standard deviation of subgroup AUROCs normalised by the overall AUROC."@en ;
+    :dependsOnPrevalence false ;
+    :hasAggregationOperator :AggOp_StandardDeviation ;
+    :hasBiasPreservationProperty :BiasPreservationProperty_Preserving ;
+    :hasEvaluationLevel :00088 ;
+    :hasFairnessDirection :FairnessDirection_Lower ;
+    :hasFairnessLevel :GroupFairness ;
+    :hasGuidanceLevel :Inadvisable ;
+    :hasGuidanceRationale "Reported in a preprint; insufficient validation."@en ;
+    :hasMetricSubtype :Discrimination ;
+    :hasPerformanceDependence :00086 ;
+    :hasRelatedMetric :AUROC ;
+    :hasSupportedSensitiveAttributeType :SensitiveAttributeType_MultiGroup ;
+    :hasTargetValue "0" ;
+    :proposedForHealthcare false ;
+    :requiresInput :Input_EstimatedProbability,
+        :Input_OutcomeLabel,
+        :Input_SensitiveAttribute .
+
+:00060 a owl:NamedIndividual,
+        :00023 ;
+    rdfs:label "overall accuracy gap"@en ;
+    dcterms:source <https://doi.org/10.1177/0049124118782533> ;
+    skos:altLabel "error disparity"@en ;
+    skos:definition "Requires that overall accuracy is similar across groups; mathematically equivalent to an error (zero-one loss) disparity."@en ;
+    :dependsOnPrevalence true ;
+    :hasAggregationOperator :AggOp_AbsoluteDifference ;
+    :hasBiasPreservationProperty :BiasPreservationProperty_Preserving ;
+    :hasEvaluationLevel :00089 ;
+    :hasFairnessDirection :FairnessDirection_Lower ;
+    :hasFairnessLevel :GroupFairness ;
+    :hasGuidanceLevel :Inadvisable ;
+    :hasGuidanceRationale "Flawed models can yield higher values than robust ones; treats all errors alike; limited to one decision threshold."@en ;
+    :hasImplementation :impl_AIF360_error_rate_difference ;
+    :hasMetricSubtype :Summary ;
+    :hasPerformanceDependence :00086 ;
+    :hasRelatedMetric :Accuracy ;
+    :hasSupportedSensitiveAttributeType :SensitiveAttributeType_Binary ;
+    :hasTargetValue "0" ;
+    :proposedForHealthcare false ;
+    :requiresInput :Input_DecisionThreshold,
+        :Input_EstimatedProbability,
+        :Input_OutcomeLabel,
+        :Input_SensitiveAttribute .
+
+:00061 a owl:NamedIndividual,
+        :00023 ;
+    rdfs:label "pairwise ranking fairness"@en ;
+    dcterms:source <https://doi.org/10.1109/TPAMI.2023.3290949> ;
+    skos:definition "Quantifies the probability that a randomly selected positive instance from a group is ranked higher than a randomly selected negative instance from any group."@en ;
+    :dependsOnPrevalence false ;
+    :hasBiasPreservationProperty :BiasPreservationProperty_Preserving ;
+    :hasEvaluationLevel :00088 ;
+    :hasFairnessDirection :FairnessDirection_Higher ;
+    :hasFairnessLevel :GroupFairness ;
+    :hasGuidanceLevel :Inadvisable ;
+    :hasGuidanceRationale "Insufficient knowledge/support; seldom used in healthcare."@en ;
+    :hasMetricSubtype :Discrimination ;
+    :hasPerformanceDependence :00086 ;
+    :hasRelatedMetric :AUROC ;
+    :hasSupportedSensitiveAttributeType :SensitiveAttributeType_Binary ;
+    :hasTargetValue "1" ;
+    :proposedForHealthcare false ;
+    :requiresInput :Input_EstimatedProbability,
+        :Input_OutcomeLabel,
+        :Input_SensitiveAttribute .
+
+:00062 a owl:NamedIndividual,
+        :00023 ;
+    rdfs:label "pairwise ranking fairness disparity"@en ;
+    dcterms:source <https://doi.org/10.1109/TPAMI.2023.3290949> ;
+    skos:definition "Measures the absolute difference in pairwise ranking fairness between two groups, capturing disparities in ranking probabilities."@en ;
+    :dependsOnPrevalence false ;
+    :hasAggregationOperator :AggOp_AbsoluteDifference ;
+    :hasBiasPreservationProperty :BiasPreservationProperty_Preserving ;
+    :hasEvaluationLevel :00088 ;
+    :hasFairnessDirection :FairnessDirection_Lower ;
+    :hasFairnessLevel :GroupFairness ;
+    :hasGuidanceLevel :Inadvisable ;
+    :hasGuidanceRationale "Insufficient knowledge/support; seldom used in healthcare."@en ;
+    :hasMetricSubtype :Discrimination ;
+    :hasPerformanceDependence :00086 ;
+    :hasRelatedMetric :AUROC ;
+    :hasSupportedSensitiveAttributeType :SensitiveAttributeType_Binary ;
+    :hasTargetValue "0" ;
+    :proposedForHealthcare false ;
+    :requiresInput :Input_EstimatedProbability,
+        :Input_OutcomeLabel,
+        :Input_SensitiveAttribute .
+
+:00065 a owl:NamedIndividual,
+        :00023 ;
+    rdfs:label "recall between-group generalised entropy index"@en ;
+    dcterms:source <https://doi.org/10.1145/3219819.3220046> ;
+    skos:definition "Applies the generalised entropy index (an inequality measure) to subgroup-average benefits to quantify between-group inequality, using a benefit function that encodes equal opportunity in the recall case."@en ;
+    :dependsOnPrevalence false ;
+    :hasAggregationOperator :AggOp_GeneralisedEntropyIndex ;
+    :hasBiasPreservationProperty :BiasPreservationProperty_Preserving ;
+    :hasEvaluationLevel :00089 ;
+    :hasFairnessDirection :FairnessDirection_Lower ;
+    :hasFairnessLevel :GroupFairness ;
+    :hasGuidanceLevel :Inadvisable ;
+    :hasGuidanceRationale "Scenarios for justified use are unclear; hard to interpret."@en ;
+    :hasImplementation :impl_AIF360_between_group_generalized_entropy_index ;
+    :hasMetricSubtype :Partial ;
+    :hasPerformanceDependence :00086 ;
+    :hasRelatedMetric :TPR ;
+    :hasSupportedSensitiveAttributeType :SensitiveAttributeType_MultiGroup ;
+    :hasTargetValue "0" ;
+    :proposedForHealthcare false ;
+    :requiresInput :Input_DecisionThreshold,
+        :Input_EstimatedProbability,
+        :Input_OutcomeLabel,
+        :Input_SensitiveAttribute .
+
+:00066 a owl:NamedIndividual,
+        :00023 ;
+    rdfs:label "recall coefficient of variation"@en ;
+    dcterms:source <https://doi.org/10.1145/3306618.3314278> ;
+    skos:definition "Measures the relative variability of recall across groups as the ratio of its standard deviation to its mean, giving a scale-independent measure of disparity."@en ;
+    :dependsOnPrevalence false ;
+    :hasAggregationOperator :AggOp_CoefficientOfVariation ;
+    :hasBiasPreservationProperty :BiasPreservationProperty_Preserving ;
+    :hasEvaluationLevel :00089 ;
+    :hasFairnessDirection :FairnessDirection_Lower ;
+    :hasFairnessLevel :GroupFairness ;
+    :hasGuidanceLevel :Inadvisable ;
+    :hasGuidanceRationale "Scenarios for justified use are unclear; hard to interpret."@en ;
+    :hasImplementation :impl_AIF360_between_group_coefficient_of_variation ;
+    :hasMetricSubtype :Partial ;
+    :hasPerformanceDependence :00086 ;
+    :hasRelatedMetric :TPR,
+        roadmap:03580 ;
+    :hasSupportedSensitiveAttributeType :SensitiveAttributeType_MultiGroup ;
+    :hasTargetValue "0" ;
+    :proposedForHealthcare false ;
+    :requiresInput :Input_DecisionThreshold,
+        :Input_EstimatedProbability,
+        :Input_OutcomeLabel,
+        :Input_SensitiveAttribute .
+
+:00067 a owl:NamedIndividual,
+        :00023 ;
+    rdfs:label "recall disparity ratio"@en ;
+    dcterms:source <https://doi.org/10.2196/58572> ;
+    skos:definition "Measures the ratio of recall between the lowest-recall and highest-recall groups, quantifying the relative performance gap between best- and worst-performing groups."@en ;
+    :dependsOnPrevalence false ;
+    :hasAggregationOperator :AggOp_Ratio ;
+    :hasBiasPreservationProperty :BiasPreservationProperty_Preserving ;
+    :hasEvaluationLevel :00089 ;
+    :hasFairnessDirection :FairnessDirection_Higher ;
+    :hasFairnessLevel :GroupFairness ;
+    :hasGuidanceLevel :Inadvisable ;
+    :hasGuidanceRationale "Scenarios for justified use are unclear; hard to interpret."@en ;
+    :hasMetricSubtype :Partial ;
+    :hasPerformanceDependence :00086 ;
+    :hasRelatedMetric :TPR ;
+    :hasSupportedSensitiveAttributeType :SensitiveAttributeType_MultiGroup ;
+    :hasTargetValue "1" ;
+    :proposedForHealthcare true ;
+    :requiresInput :Input_DecisionThreshold,
+        :Input_EstimatedProbability,
+        :Input_OutcomeLabel,
+        :Input_SensitiveAttribute .
+
+:00069 a owl:NamedIndividual,
+        :00023 ;
+    rdfs:label "recall intergroup standard deviation"@en ;
+    dcterms:source <https://doi.org/10.1145/3593013.3594102> ;
+    skos:definition "Measures the variability (standard deviation) of recall across groups; part of the intergroup-standard-deviation family applicable to any performance metric."@en ;
+    :dependsOnPrevalence false ;
+    :hasAggregationOperator :AggOp_StandardDeviation ;
+    :hasBiasPreservationProperty :BiasPreservationProperty_Preserving ;
+    :hasEvaluationLevel :00089 ;
+    :hasFairnessDirection :FairnessDirection_Lower ;
+    :hasFairnessLevel :GroupFairness ;
+    :hasGuidanceLevel :Inadvisable ;
+    :hasGuidanceRationale "Scenarios for justified use are unclear; hard to interpret."@en ;
+    :hasMetricSubtype :Partial ;
+    :hasPerformanceDependence :00086 ;
+    :hasRelatedMetric :TPR ;
+    :hasSupportedSensitiveAttributeType :SensitiveAttributeType_MultiGroup ;
+    :hasTargetValue "0" ;
+    :proposedForHealthcare true ;
+    :requiresInput :Input_DecisionThreshold,
+        :Input_EstimatedProbability,
+        :Input_OutcomeLabel,
+        :Input_SensitiveAttribute .
+
+:00070 a owl:NamedIndividual,
+        :00023 ;
+    rdfs:label "recall-HEAL"@en ;
+    dcterms:source <https://doi.org/10.1016/j.eclinm.2024.102479> ;
+    skos:definition "The Health Equity Assessment of machine Learning performance (HEAL) metric evaluates the anticorrelation between pre-existing health outcomes and AI performance across subpopulations, rewarding higher performance for historically disadvantaged groups (reparative fairness)."@en ;
+    :dependsOnPrevalence false ;
+    :hasAggregationOperator :AggOp_Correlation ;
+    :hasBiasPreservationProperty :BiasPreservationProperty_Transforming ;
+    :hasEvaluationLevel :00089 ;
+    :hasFairnessDirection :FairnessDirection_Higher ;
+    :hasFairnessLevel :GroupFairness ;
+    :hasGuidanceLevel :UseWithCaution ;
+    :hasGuidanceRationale "Introduces reparative fairness via anticorrelation with historical disease burden; complex tradeoffs and ethical debates; use of external data can be arbitrary."@en ;
+    :hasMetricSubtype :Partial ;
+    :hasPerformanceDependence :00086 ;
+    :hasRelatedMetric :TPR ;
+    :hasSupportedSensitiveAttributeType :SensitiveAttributeType_MultiGroup ;
+    :hasTargetValue "1" ;
+    :proposedForHealthcare true ;
+    :requiresInput :Input_DecisionThreshold,
+        :Input_EstimatedProbability,
+        :Input_HistoricalOutcomeData,
+        :Input_OutcomeLabel,
+        :Input_SensitiveAttribute .
+
+:00071 a owl:NamedIndividual,
+        :00023 ;
+    rdfs:label "regression demographic parity"@en ;
+    dcterms:source <https://doi.org/10.48550/arXiv.2310.03146> ;
+    skos:definition "An extension of average (mean) score parity to sensitive attributes with more than two categories, evaluating whether average predicted outcomes differ across subpopulations."@en ;
+    :dependsOnPrevalence true ;
+    :hasAggregationOperator :AggOp_Mean ;
+    :hasBiasPreservationProperty :BiasPreservationProperty_Transforming ;
+    :hasEvaluationLevel :00088 ;
+    :hasFairnessDirection :FairnessDirection_Lower ;
+    :hasFairnessLevel :GroupFairness ;
+    :hasGuidanceLevel :UseWithCaution ;
+    :hasGuidanceRationale "Reported in a preprint; same limitations as mean score parity."@en ;
+    :hasPerformanceDependence :00087 ;
+    :hasRelatedMetric roadmap:03228 ;
+    :hasSupportedSensitiveAttributeType :SensitiveAttributeType_MultiGroup ;
+    :hasTargetValue "0" ;
+    :proposedForHealthcare false ;
+    :requiresInput :Input_EstimatedProbability,
+        :Input_SensitiveAttribute .
+
+:00072 a owl:NamedIndividual,
+        :00023 ;
+    rdfs:label "sAUROC"@en ;
+    dcterms:source <https://doi.org/10.1016/j.ebiom.2024.105002> ;
+    skos:definition "Evaluates subgroup-specific false positive rates while computing the true positive rate over the whole population, capturing performance differences between subgroups."@en ;
+    :dependsOnPrevalence false ;
+    :hasBiasPreservationProperty :BiasPreservationProperty_Preserving ;
+    :hasEvaluationLevel :00088 ;
+    :hasFairnessDirection :FairnessDirection_Bidirectional ;
+    :hasFairnessLevel :GroupFairness ;
+    :hasGuidanceLevel :Inadvisable ;
+    :hasGuidanceRationale "Insufficient knowledge/support; seldom used in healthcare."@en ;
+    :hasMetricSubtype :Discrimination ;
+    :hasPerformanceDependence :00086 ;
+    :hasRelatedMetric :AUROC ;
+    :hasSupportedSensitiveAttributeType :SensitiveAttributeType_Binary ;
+    :hasTargetValue "0.5" ;
+    :proposedForHealthcare false ;
+    :requiresInput :Input_EstimatedProbability,
+        :Input_OutcomeLabel,
+        :Input_SensitiveAttribute .
+
+:00074 a owl:NamedIndividual,
+        :00023 ;
+    rdfs:label "subgroup net benefit"@en ;
+    dcterms:source <https://doi.org/10.1097/EDE.0000000000001949> ;
+    skos:definition "Evaluates the expected clinical benefit of applying a model to a subgroup, incorporating outcome prevalence, the proportions of true and false positives at a decision threshold, and a weighting factor reflecting treatment effectiveness."@en ;
+    :dependsOnPrevalence false ;
+    :hasBiasPreservationProperty :BiasPreservationProperty_Preserving ;
+    :hasEvaluationLevel :00089 ;
+    :hasFairnessDirection :FairnessDirection_Higher ;
+    :hasFairnessLevel :GroupFairness ;
+    :hasGuidanceLevel :Recommended ;
+    :hasGuidanceRationale "Combines discrimination and calibration; only clinical-utility metric identified; assumes different prevalence per subgroup."@en ;
+    :hasMetricSubtype :ClinicalUtility ;
+    :hasPerformanceDependence :00086 ;
+    :hasRelatedMetric roadmap:03662 ;
+    :hasSupportedSensitiveAttributeType :SensitiveAttributeType_MultiGroup ;
+    :hasTargetValue "1 - prevalence" ;
+    :proposedForHealthcare true ;
+    :requiresInput :Input_DecisionThreshold,
+        :Input_EstimatedProbability,
+        :Input_OutcomeLabel,
+        :Input_SensitiveAttribute,
+        :Input_UtilityWeight .
+
+:00075 a owl:NamedIndividual,
+        :00023 ;
+    rdfs:label "survival group fairness"@en ;
+    dcterms:source <https://doi.org/10.48550/arXiv.2010.06820> ;
+    skos:definition "Measures the worst-case deviation of the per-group expected hazard function from the population-average hazard across protected groups, in survival analysis."@en ;
+    :dependsOnPrevalence true ;
+    :hasAggregationOperator :AggOp_Maximum ;
+    :hasBiasPreservationProperty :BiasPreservationProperty_Transforming ;
+    :hasEvaluationLevel :00088 ;
+    :hasFairnessDirection :FairnessDirection_Lower ;
+    :hasFairnessLevel :GroupFairness ;
+    :hasGuidanceLevel :Inadvisable ;
+    :hasGuidanceRationale "Extends fairness to survival/time-to-event settings; insufficient empirical evaluation."@en ;
+    :hasPerformanceDependence :00087 ;
+    :hasRelatedMetric roadmap:03225 ;
+    :hasSupportedSensitiveAttributeType :SensitiveAttributeType_MultiGroup ;
+    :hasTargetValue "0" ;
+    :proposedForHealthcare true ;
+    :requiresInput :Input_Covariates,
+        :Input_EstimatedProbability,
+        :Input_SensitiveAttribute,
+        :Input_TimeToEvent .
+
+:00076 a owl:NamedIndividual,
+        :00023 ;
+    rdfs:label "survival individual fairness"@en ;
+    dcterms:source <https://doi.org/10.48550/arXiv.2010.06820> ;
+    skos:definition "Measures whether a survival model produces similar estimated hazard scores for individuals deemed similar under a predefined distance metric, penalising differences that exceed the feature-space distance."@en ;
+    :dependsOnPrevalence true ;
+    :hasAggregationOperator :AggOp_Summation ;
+    :hasBiasPreservationProperty :BiasPreservationProperty_Transforming ;
+    :hasEvaluationLevel :00088 ;
+    :hasFairnessDirection :FairnessDirection_Lower ;
+    :hasFairnessLevel :IndividualFairness ;
+    :hasGuidanceLevel :Inadvisable ;
+    :hasGuidanceRationale "One of only 2 individual-fairness metrics identified in the review."@en ;
+    :hasPerformanceDependence :00087 ;
+    :hasRelatedMetric roadmap:03226 ;
+    :hasSupportedSensitiveAttributeType :SensitiveAttributeType_MultiGroup ;
+    :hasTargetValue "0" ;
+    :proposedForHealthcare true ;
+    :requiresInput :Input_Covariates,
+        :Input_EstimatedProbability,
+        :Input_SensitiveAttribute,
+        :Input_TimeToEvent .
+
+:00077 a owl:NamedIndividual,
+        :00023 ;
+    rdfs:label "survival intersectional fairness"@en ;
+    dcterms:source <https://doi.org/10.48550/arXiv.2010.06820> ;
+    skos:definition "Evaluates disparities in the log-ratios of per-group hazard functions between intersectional subgroups, addressing vulnerabilities that arise at these intersections."@en ;
+    :dependsOnPrevalence true ;
+    :hasAggregationOperator :AggOp_Maximum ;
+    :hasBiasPreservationProperty :BiasPreservationProperty_Preserving ;
+    :hasEvaluationLevel :00088 ;
+    :hasFairnessDirection :FairnessDirection_Lower ;
+    :hasFairnessLevel :GroupFairness ;
+    :hasGuidanceLevel :Inadvisable ;
+    :hasGuidanceRationale "Insufficient empirical evaluation."@en ;
+    :hasPerformanceDependence :00087 ;
+    :hasRelatedMetric roadmap:03225 ;
+    :hasSupportedSensitiveAttributeType :SensitiveAttributeType_MultiGroup ;
+    :hasTargetValue "0" ;
+    :proposedForHealthcare true ;
+    :requiresInput :Input_Covariates,
+        :Input_EstimatedProbability,
+        :Input_SensitiveAttribute,
+        :Input_TimeToEvent ;
+    :supportsIntersectionalAnalysis true .
+
+:00078 a owl:NamedIndividual,
+        :00023 ;
+    rdfs:label "treatment equality"@en ;
+    dcterms:source <https://doi.org/10.1177/0049124118782533> ;
+    skos:altLabel "error rate balance"@en ;
+    skos:definition "Also known as error-rate balance; focuses on the ratio of false positives to false negatives across groups, requiring an equal proportion of error types."@en ;
+    :dependsOnPrevalence false ;
+    :hasAggregationOperator :AggOp_Difference ;
+    :hasBiasPreservationProperty :BiasPreservationProperty_Preserving ;
+    :hasEvaluationLevel :00089 ;
+    :hasFairnessDirection :FairnessDirection_Lower ;
+    :hasFairnessLevel :GroupFairness ;
+    :hasGuidanceLevel :Inadvisable ;
+    :hasGuidanceRationale "Appears utility-inspired but not explicitly defined as such; rationale and implications unclear."@en ;
+    :hasMetricSubtype :Summary ;
+    :hasPerformanceDependence :00086 ;
+    :hasRelatedMetric :FNR,
+        :FPR ;
+    :hasSupportedSensitiveAttributeType :SensitiveAttributeType_Binary ;
+    :hasTargetValue "0" ;
+    :proposedForHealthcare false ;
+    :requiresInput :Input_DecisionThreshold,
+        :Input_EstimatedProbability,
+        :Input_OutcomeLabel,
+        :Input_SensitiveAttribute .
+
+:00079 a owl:NamedIndividual,
+        :00023 ;
+    rdfs:label "unsupervised ranking fairness"@en ;
+    dcterms:source <https://doi.org/10.1109/TPAMI.2023.3290949> ;
+    skos:definition "Measures the disparity in ranking probabilities between two protected groups, acting as a concordance statistic for whether each group is equally likely to rank higher than the other, independent of performance."@en ;
+    :dependsOnPrevalence false ;
+    :hasAggregationOperator :AggOp_AbsoluteDifference ;
+    :hasBiasPreservationProperty :BiasPreservationProperty_Transforming ;
+    :hasEvaluationLevel :00088 ;
+    :hasFairnessDirection :FairnessDirection_Lower ;
+    :hasFairnessLevel :GroupFairness ;
+    :hasGuidanceLevel :Inadvisable ;
+    :hasGuidanceRationale "May be of value if unsupervised discrimination analysis is deemed necessary; not sufficiently validated in healthcare."@en ;
+    :hasPerformanceDependence :00087 ;
+    :hasRelatedMetric roadmap:03572 ;
+    :hasSupportedSensitiveAttributeType :SensitiveAttributeType_Binary ;
+    :hasTargetValue "0" ;
+    :proposedForHealthcare false ;
+    :requiresInput :Input_EstimatedProbability,
+        :Input_SensitiveAttribute .
+
+:00081 a owl:NamedIndividual,
+        :00023 ;
+    rdfs:label "worst-group recall"@en ;
+    dcterms:source <https://doi.org/10.1145/3461702.3462523> ;
+    skos:altLabel "worst-group outcome"@en ;
+    skos:definition "Focuses on the minimum recall across all groups, prioritising improvement for the most disadvantaged group in line with minimax (Rawlsian) fairness."@en ;
+    :dependsOnPrevalence false ;
+    :hasAggregationOperator :AggOp_Minimum ;
+    :hasBiasPreservationProperty :BiasPreservationProperty_Preserving ;
+    :hasEvaluationLevel :00089 ;
+    :hasFairnessDirection :FairnessDirection_Higher ;
+    :hasFairnessLevel :GroupFairness ;
+    :hasGuidanceLevel :UseWithCaution ;
+    :hasGuidanceRationale "Linked to Rawls' Theory of Justice (maximise minimum benefit); sensitive to outlier subgroups."@en ;
+    :hasMetricSubtype :Partial ;
+    :hasPerformanceDependence :00086 ;
+    :hasRelatedMetric :TPR ;
+    :hasSupportedSensitiveAttributeType :SensitiveAttributeType_MultiGroup ;
+    :hasTargetValue "Max Recall" ;
+    :proposedForHealthcare false ;
+    :requiresInput :Input_DecisionThreshold,
+        :Input_EstimatedProbability,
+        :Input_OutcomeLabel,
+        :Input_SensitiveAttribute .
+
+:00082 a owl:NamedIndividual,
+        :00023 ;
+    rdfs:label "xAUROC"@en ;
+    dcterms:source <https://papers.nips.cc/paper_files/paper/2019/hash/73e0f7487b8e5297182c5a711d20bf26-Abstract.html> ;
+    skos:altLabel "cross-AUC"@en ;
+    skos:definition "The cross-area under the ROC curve captures group-level misranking disparities, measuring the probability that a randomly chosen positive instance from one group is ranked higher than a randomly chosen negative instance from another group."@en ;
+    :dependsOnPrevalence false ;
+    :hasBiasPreservationProperty :BiasPreservationProperty_Preserving ;
+    :hasEvaluationLevel :00088 ;
+    :hasFairnessDirection :FairnessDirection_Bidirectional ;
+    :hasFairnessLevel :GroupFairness ;
+    :hasGuidanceLevel :Inadvisable ;
+    :hasGuidanceRationale "Insufficient knowledge/support; seldom used in healthcare."@en ;
+    :hasMetricSubtype :Discrimination ;
+    :hasPerformanceDependence :00086 ;
+    :hasRelatedMetric :AUROC ;
+    :hasSupportedSensitiveAttributeType :SensitiveAttributeType_Binary ;
+    :hasTargetValue "0.5" ;
+    :proposedForHealthcare false ;
+    :requiresInput :Input_EstimatedProbability,
+        :Input_OutcomeLabel,
+        :Input_SensitiveAttribute .
+
+:00083 a owl:NamedIndividual,
+        :00023 ;
+    rdfs:label "xAUROC disparity"@en ;
+    dcterms:source <https://papers.nips.cc/paper_files/paper/2019/hash/73e0f7487b8e5297182c5a711d20bf26-Abstract.html> ;
+    skos:definition "Measures the difference in xAUROC values between two sensitive groups; antisymmetric, capturing the magnitude and direction of cross-group ranking disparities."@en ;
+    :dependsOnPrevalence false ;
+    :hasAggregationOperator :AggOp_AbsoluteDifference ;
+    :hasBiasPreservationProperty :BiasPreservationProperty_Preserving ;
+    :hasEvaluationLevel :00088 ;
+    :hasFairnessDirection :FairnessDirection_Lower ;
+    :hasFairnessLevel :GroupFairness ;
+    :hasGuidanceLevel :Inadvisable ;
+    :hasGuidanceRationale "Insufficient knowledge/support; seldom used in healthcare."@en ;
+    :hasMetricSubtype :Discrimination ;
+    :hasPerformanceDependence :00086 ;
+    :hasRelatedMetric :AUROC ;
+    :hasSupportedSensitiveAttributeType :SensitiveAttributeType_Binary ;
+    :hasTargetValue "0" ;
+    :proposedForHealthcare false ;
+    :requiresInput :Input_EstimatedProbability,
+        :Input_OutcomeLabel,
+        :Input_SensitiveAttribute .
+
+:Aequitas a owl:NamedIndividual,
+        :SoftwareToolkit ;
+    rdfs:label "Aequitas"@en ;
+    rdfs:seeAlso <http://aequitas.dssg.io> .
+
+:Combined_AmericanIndianOrAlaskaNative a owl:NamedIndividual,
+        :CombinedRaceEthnicity ;
+    rdfs:label "American Indian or Alaska Native"@en ;
+    skos:exactMatch :Race_AmericanIndianOrAlaskaNative .
+
+:Combined_Asian a owl:NamedIndividual,
+        :CombinedRaceEthnicity ;
+    rdfs:label "Asian"@en ;
+    skos:exactMatch :Race_Asian .
+
+:Combined_BlackOrAfricanAmerican a owl:NamedIndividual,
+        :CombinedRaceEthnicity ;
+    rdfs:label "Black or African American"@en ;
+    skos:exactMatch :Race_BlackOrAfricanAmerican .
+
+:Combined_HispanicOrLatino a owl:NamedIndividual,
+        :CombinedRaceEthnicity ;
+    rdfs:label "Hispanic or Latino"@en ;
+    rdfs:comment "Crosswalk to OMB 1997 'Hispanic or Latino' is approximate: in 1997 this was an ethnicity captured in a separate question; in 2024 it is a co-equal category in the single combined question."@en ;
+    skos:closeMatch <http://snomed.info/id/414408004>,
+        :Ethnicity_HispanicOrLatino .
+
+:Combined_MiddleEasternOrNorthAfrican a owl:NamedIndividual,
+        :CombinedRaceEthnicity ;
+    rdfs:label "Middle Eastern or North African"@en ;
+    rdfs:comment "No established OMB-minimum-category interoperability code as of this modelling (CDCREC/US Core have not yet added a 2024 MENA category code)."@en ;
+    skos:definition "New OMB 2024 minimum category, separate and distinct from White; individuals in this group were previously classified as White under the 1997 standard."@en ;
+    skos:relatedMatch :Race_White .
+
+:Combined_NativeHawaiianOrPacificIslander a owl:NamedIndividual,
+        :CombinedRaceEthnicity ;
+    rdfs:label "Native Hawaiian or Pacific Islander"@en ;
+    skos:closeMatch :Race_NativeHawaiianOrOtherPacificIslander .
+
+:Combined_White a owl:NamedIndividual,
+        :CombinedRaceEthnicity ;
+    rdfs:label "White"@en ;
+    rdfs:comment "Crosswalk to OMB 1997 White is approximate: the 1997 White category included Middle Eastern or North African, which the 2024 standard separates out."@en ;
+    skos:closeMatch <http://snomed.info/id/413773004>,
+        :Race_White ;
+    skos:definition "Under the OMB 2024 standard, White excludes Middle Eastern or North African, which is now its own category."@en .
+
+:Ethnicity_NotHispanicOrLatino a owl:NamedIndividual,
+        :Ethnicity ;
+    rdfs:label "Not Hispanic or Latino"@en ;
+    rdfs:comment "Has no counterpart among the OMB 2024 combined minimum categories, which record Hispanic or Latino as a co-equal category and treat its absence as 'not Hispanic or Latino' rather than as a distinct category."@en ;
+    :code "2186-5"^^xsd:string ;
+    :inCodeSystem :codesystem_CDCREC .
+
+:FDR a owl:NamedIndividual,
+        :StandardMetric ;
+    rdfs:label "false discovery rate"@en ;
+    dcterms:source <https://doi.org/10.17605/OSF.IO/Z83ND> ;
+    skos:definition "The proportion of instances predicted positive that actually have a negative outcome; the complement of the positive predictive value."@en ;
+    :hasEvaluationLevel :00089 ;
+    :hasMatchingMetric roadmap:04080 ;
+    :hasScoringPropriety :Propriety_Improper ;
+    :requiresInput :Input_DecisionThreshold,
+        :Input_EstimatedProbability,
+        :Input_OutcomeLabel .
+
+:FOR a owl:NamedIndividual,
+        :StandardMetric ;
+    rdfs:label "false omission rate"@en ;
+    dcterms:source <https://doi.org/10.17605/OSF.IO/Z83ND> ;
+    skos:definition "The proportion of instances predicted negative that actually have a positive outcome; the complement of the negative predictive value."@en ;
+    :hasEvaluationLevel :00089 ;
+    :hasMatchingMetric roadmap:04081 ;
+    :hasScoringPropriety :Propriety_Improper ;
+    :requiresInput :Input_DecisionThreshold,
+        :Input_EstimatedProbability,
+        :Input_OutcomeLabel .
+
+:Gender_Male a owl:NamedIndividual,
+        :Gender ;
+    rdfs:label "identifies as male gender"@en ;
+    skos:exactMatch <http://snomed.info/id/446151000124109> ;
+    :code "446151000124109"^^xsd:string ;
+    :inCodeSystem :codesystem_SNOMEDCT .
+
+:Gender_NonBinary a owl:NamedIndividual,
+        :Gender ;
+    rdfs:label "identifies as non-binary gender"@en ;
+    skos:exactMatch <http://snomed.info/id/33791000087105> ;
+    :code "33791000087105"^^xsd:string ;
+    :inCodeSystem :codesystem_SNOMEDCT .
+
+:Gender_NonConforming a owl:NamedIndividual,
+        :Gender ;
+    rdfs:label "identifies as gender non-conforming (genderqueer)"@en ;
+    skos:exactMatch <http://snomed.info/id/446131000124102> ;
+    :code "446131000124102"^^xsd:string ;
+    :inCodeSystem :codesystem_SNOMEDCT .
+
+:Gender_TransgenderFemale a owl:NamedIndividual,
+        :Gender ;
+    rdfs:label "transgender female (male-to-female)"@en ;
+    skos:exactMatch <http://snomed.info/id/407376001> ;
+    :code "407376001"^^xsd:string ;
+    :inCodeSystem :codesystem_SNOMEDCT .
+
+:Gender_TransgenderMale a owl:NamedIndividual,
+        :Gender ;
+    rdfs:label "transgender male (female-to-male)"@en ;
+    skos:exactMatch <http://snomed.info/id/407377005> ;
+    :code "407377005"^^xsd:string ;
+    :inCodeSystem :codesystem_SNOMEDCT .
+
+:Sex_Female a owl:NamedIndividual,
+        :Sex ;
+    rdfs:label "female"@en ;
+    skos:exactMatch <http://snomed.info/id/248152002> ;
+    :code "248152002"^^xsd:string ;
+    :inCodeSystem :codesystem_SNOMEDCT .
+
+:Sex_Intersex a owl:NamedIndividual,
+        :Sex ;
+    rdfs:label "intersex"@en ;
+    skos:exactMatch <http://snomed.info/id/32570691000036108> ;
+    :code "32570691000036108"^^xsd:string ;
+    :inCodeSystem :codesystem_SNOMEDCT .
+
+:Sex_Male a owl:NamedIndividual,
+        :Sex ;
+    rdfs:label "male"@en ;
+    skos:exactMatch <http://snomed.info/id/248153007> ;
+    :code "248153007"^^xsd:string ;
+    :inCodeSystem :codesystem_SNOMEDCT .
+
+:TNR a owl:NamedIndividual,
+        :StandardMetric ;
+    rdfs:label "true negative rate"@en ;
+    dcterms:source <https://doi.org/10.17605/OSF.IO/Z83ND> ;
+    skos:altLabel "specificity"@en ;
+    skos:definition "The proportion of instances with a negative outcome that are correctly predicted negative; the complement of the false positive rate."@en ;
+    :hasEvaluationLevel :00089 ;
+    :hasImplementation :impl_Fairlearn_true_negative_rate ;
+    :hasMatchingMetric roadmap:03340 ;
+    :hasScoringPropriety :Propriety_Improper ;
+    :requiresInput :Input_DecisionThreshold,
+        :Input_EstimatedProbability,
+        :Input_OutcomeLabel .
+
+:fairmodels a owl:NamedIndividual,
+        :SoftwareToolkit ;
+    rdfs:label "fairmodels (R)"@en ;
+    rdfs:seeAlso <https://fairmodels.drwhy.ai> .
+
+roadmap:03307 a owl:NamedIndividual .
+
+roadmap:03308 a owl:NamedIndividual .
+
+roadmap:03314 a owl:NamedIndividual .
+
+roadmap:03319 a owl:NamedIndividual .
+
+roadmap:03322 a owl:NamedIndividual .
+
+roadmap:03324 a owl:NamedIndividual .
+
+roadmap:03325 a owl:NamedIndividual .
+
+roadmap:03329 a owl:NamedIndividual .
+
+roadmap:03332 a owl:NamedIndividual .
+
+roadmap:03334 a owl:NamedIndividual .
+
+roadmap:03339 a owl:NamedIndividual .
+
+roadmap:03340 a owl:NamedIndividual .
+
+roadmap:03508 a owl:NamedIndividual .
+
+roadmap:03547 a owl:NamedIndividual .
+
+roadmap:03580 a owl:NamedIndividual .
+
+roadmap:03662 a owl:NamedIndividual .
+
+roadmap:03761 a owl:NamedIndividual .
+
+roadmap:04033 a owl:NamedIndividual .
+
+roadmap:04080 a owl:NamedIndividual .
+
+roadmap:04081 a owl:NamedIndividual .
+
+:00024 a owl:NamedIndividual,
+        :00023 ;
+    rdfs:label "absolute calibration error parity"@en ;
+    dcterms:source <https://doi.org/10.1145/3531146.3533166> ;
+    skos:definition "Measures the difference in absolute calibration error between subgroups, quantifying disparities in overall calibration by assessing deviations from perfect calibration."@en ;
+    :dependsOnPrevalence true ;
+    :hasAggregationOperator :AggOp_AbsoluteDifference ;
+    :hasBiasPreservationProperty :BiasPreservationProperty_Preserving ;
+    :hasEvaluationLevel :00088 ;
+    :hasFairnessDirection :FairnessDirection_Lower ;
+    :hasFairnessLevel :GroupFairness ;
+    :hasGuidanceLevel :UseWithCaution ;
+    :hasGuidanceRationale "Should be paired with a per-group calibration plot and a discrimination metric; criticised for sensitivity to calibration binning and for treating over-/under-estimation equally."@en ;
+    :hasMetricSubtype :Calibration ;
+    :hasPerformanceDependence :00086 ;
+    :hasRelatedMetric :ECE ;
+    :hasSupportedSensitiveAttributeType :SensitiveAttributeType_Binary ;
+    :hasTargetValue "0" ;
+    :proposedForHealthcare true ;
+    :requiresInput :Input_EstimatedProbability,
+        :Input_OutcomeLabel,
+        :Input_SensitiveAttribute .
+
+:00033 a owl:NamedIndividual,
+        :00023 ;
+    rdfs:label "calibration-in-the-large parity"@en ;
+    dcterms:source <https://doi.org/10.1038/s41597-021-01110-7> ;
+    skos:definition "Measures the difference in calibration-in-the-large between subgroups, quantifying whether systematic overestimation or underestimation of risk varies across groups."@en ;
+    :dependsOnPrevalence true ;
+    :hasAggregationOperator :AggOp_AbsoluteDifference ;
+    :hasBiasPreservationProperty :BiasPreservationProperty_Preserving ;
+    :hasEvaluationLevel :00088 ;
+    :hasFairnessDirection :FairnessDirection_Lower ;
+    :hasFairnessLevel :GroupFairness ;
+    :hasGuidanceLevel :UseWithCaution ;
+    :hasGuidanceRationale "Can be informative but should always accompany a calibration plot and discrimination metric."@en ;
+    :hasMetricSubtype :Calibration ;
+    :hasPerformanceDependence :00086 ;
+    :hasRelatedMetric roadmap:03655 ;
+    :hasSupportedSensitiveAttributeType :SensitiveAttributeType_Binary ;
+    :hasTargetValue "0" ;
+    :proposedForHealthcare true ;
+    :requiresInput :Input_EstimatedProbability,
+        :Input_OutcomeLabel,
+        :Input_SensitiveAttribute .
+
+:00051 a owl:NamedIndividual,
+        :00023 ;
+    rdfs:label "expected calibration error parity"@en ;
+    dcterms:source <https://doi.org/10.1101/2023.09.18.23295660> ;
+    skos:definition "Quantifies the difference in expected calibration error between groups defined by the sensitive attribute; 0 when the model is equally calibrated across groups."@en ;
+    :dependsOnPrevalence true ;
+    :hasAggregationOperator :AggOp_AbsoluteDifference ;
+    :hasBiasPreservationProperty :BiasPreservationProperty_Preserving ;
+    :hasEvaluationLevel :00088 ;
+    :hasFairnessDirection :FairnessDirection_Lower ;
+    :hasFairnessLevel :GroupFairness ;
+    :hasGuidanceLevel :UseWithCaution ;
+    :hasGuidanceRationale "Proper metric, but criticised for sensitivity to calibration binning and for treating over-/under-estimation equally."@en ;
+    :hasMetricSubtype :Calibration ;
+    :hasPerformanceDependence :00086 ;
+    :hasRelatedMetric :ECE ;
+    :hasSupportedSensitiveAttributeType :SensitiveAttributeType_Binary ;
+    :hasTargetValue "0" ;
+    :proposedForHealthcare true ;
+    :requiresInput :Input_EstimatedProbability,
+        :Input_OutcomeLabel,
+        :Input_SensitiveAttribute .
+
+:00059 a owl:NamedIndividual,
+        :00023 ;
+    rdfs:label "negative predictive value difference"@en ;
+    dcterms:source <https://doi.org/10.1145/3630106.3658902> ;
+    skos:definition "Computes the difference in negative predictive value across protected groups, measuring disparities in the accuracy of negative predictions."@en ;
+    :dependsOnPrevalence false ;
+    :hasAggregationOperator :AggOp_AbsoluteDifference ;
+    :hasBiasPreservationProperty :BiasPreservationProperty_Preserving ;
+    :hasEvaluationLevel :00089 ;
+    :hasFairnessDirection :FairnessDirection_Lower ;
+    :hasFairnessLevel :GroupFairness ;
+    :hasGuidanceLevel :UseWithCaution ;
+    :hasGuidanceRationale "Same considerations as predictive parity."@en ;
+    :hasImplementation :impl_AIF360_false_omission_rate_difference ;
+    :hasMetricSubtype :Partial ;
+    :hasPerformanceDependence :00086 ;
+    :hasRelatedMetric :NPV ;
+    :hasSupportedSensitiveAttributeType :SensitiveAttributeType_Binary ;
+    :hasTargetValue "0" ;
+    :proposedForHealthcare false ;
+    :requiresInput :Input_DecisionThreshold,
+        :Input_EstimatedProbability,
+        :Input_OutcomeLabel,
+        :Input_SensitiveAttribute .
+
+:00063 a owl:NamedIndividual,
+        :00023 ;
+    rdfs:label "predictive equality"@en ;
+    dcterms:source <https://doi.org/10.1145/3097983.3098095> ;
+    skos:altLabel "false positive error rate balance"@en,
+        "specificity parity"@en ;
+    skos:definition "Also known as false-positive-error-rate balance or specificity parity; requires that false positive rates are similar across groups."@en ;
+    :dependsOnPrevalence false ;
+    :hasAggregationOperator :AggOp_AbsoluteDifference ;
+    :hasBiasPreservationProperty :BiasPreservationProperty_Preserving ;
+    :hasEvaluationLevel :00089 ;
+    :hasFairnessDirection :FairnessDirection_Lower ;
+    :hasFairnessLevel :GroupFairness ;
+    :hasGuidanceLevel :UseWithCaution ;
+    :hasGuidanceRationale "Same considerations as equal opportunity difference."@en ;
+    :hasImplementation :impl_AIF360_false_positive_rate_difference ;
+    :hasMetricSubtype :Partial ;
+    :hasPerformanceDependence :00086 ;
+    :hasRelatedMetric :FPR ;
+    :hasSupportedSensitiveAttributeType :SensitiveAttributeType_Binary ;
+    :hasTargetValue "0" ;
+    :proposedForHealthcare false ;
+    :requiresInput :Input_DecisionThreshold,
+        :Input_EstimatedProbability,
+        :Input_OutcomeLabel,
+        :Input_SensitiveAttribute ;
+    :shouldBePairedWith :00068 .
+
+:00064 a owl:NamedIndividual,
+        :00023 ;
+    rdfs:label "predictive parity"@en ;
+    dcterms:source <https://doi.org/10.1145/3593013.3594117> ;
+    skos:altLabel "outcome test"@en ;
+    skos:definition "Also known as the outcome test; requires that positive predictive values (precision) are similar across groups."@en ;
+    :dependsOnPrevalence false ;
+    :hasAggregationOperator :AggOp_AbsoluteDifference ;
+    :hasBiasPreservationProperty :BiasPreservationProperty_Preserving ;
+    :hasEvaluationLevel :00089 ;
+    :hasFairnessDirection :FairnessDirection_Lower ;
+    :hasFairnessLevel :GroupFairness ;
+    :hasGuidanceLevel :UseWithCaution ;
+    :hasGuidanceRationale "Easily interpreted; base metric improper alone."@en ;
+    :hasImplementation :impl_AIF360_false_discovery_rate_difference ;
+    :hasMetricSubtype :Partial ;
+    :hasPerformanceDependence :00086 ;
+    :hasRelatedMetric :PPV ;
+    :hasSupportedSensitiveAttributeType :SensitiveAttributeType_Binary ;
+    :hasTargetValue "0" ;
+    :proposedForHealthcare false ;
+    :requiresInput :Input_DecisionThreshold,
+        :Input_EstimatedProbability,
+        :Input_OutcomeLabel,
+        :Input_SensitiveAttribute ;
+    :shouldBePairedWith :00059 .
+
+:00073 a owl:NamedIndividual,
+        :00023 ;
+    rdfs:label "statistical parity"@en ;
+    dcterms:source <https://proceedings.mlr.press/v28/zemel13.html> ;
+    skos:altLabel "demographic parity"@en,
+        "statistical parity difference"@en,
+        "thresholded score parity"@en ;
+    skos:definition "Also known as demographic parity; the threshold-dependent counterpart of mean score parity, assessing the extent to which the rate of positive predictions differs between groups. Does not use the ground-truth outcome."@en ;
+    :dependsOnPrevalence true ;
+    :hasAggregationOperator :AggOp_AbsoluteDifference ;
+    :hasBiasPreservationProperty :BiasPreservationProperty_Transforming ;
+    :hasEvaluationLevel :00089 ;
+    :hasFairnessDirection :FairnessDirection_Lower ;
+    :hasFairnessLevel :GroupFairness ;
+    :hasGuidanceLevel :UseWithCaution ;
+    :hasGuidanceRationale "Useful only if positivity rate matters in context; relevance depends on chosen threshold."@en ;
+    :hasImplementation :impl_AIF360_statistical_parity_difference,
+        :impl_Fairlearn_demographic_parity_difference ;
+    :hasMatchingMetric roadmap:03228 ;
+    :hasPerformanceDependence :00087 ;
+    :hasSupportedSensitiveAttributeType :SensitiveAttributeType_Binary ;
+    :hasTargetValue "0" ;
+    :proposedForHealthcare false ;
+    :requiresInput :Input_DecisionThreshold,
+        :Input_EstimatedProbability,
+        :Input_SensitiveAttribute .
+
+:AUPRC a owl:NamedIndividual,
+        :StandardMetric ;
+    rdfs:label "area under the precision-recall curve"@en ;
+    dcterms:source <https://doi.org/10.17605/OSF.IO/Z83ND> ;
+    skos:altLabel "AUC-PR"@en,
+        "AUPRC"@en ;
+    skos:definition "The area under the curve plotting precision (positive predictive value) against recall (true positive rate) across decision thresholds; a threshold-independent summary of performance that is sensitive to outcome prevalence."@en ;
+    :hasEvaluationLevel :00088 ;
+    :hasMatchingMetric roadmap:03508 ;
+    :hasScoringPropriety :Propriety_SemiProper ;
+    :requiresInput :Input_EstimatedProbability,
+        :Input_OutcomeLabel .
+
+:Accuracy a owl:NamedIndividual,
+        :StandardMetric ;
+    rdfs:label "accuracy"@en ;
+    dcterms:source <https://doi.org/10.17605/OSF.IO/Z83ND> ;
+    skos:definition "The proportion of all predictions that are correct."@en ;
+    :hasEvaluationLevel :00089 ;
+    :hasImplementation :impl_AIF360_accuracy ;
+    :hasMatchingMetric roadmap:03307 ;
+    :hasScoringPropriety :Propriety_Improper ;
+    :requiresInput :Input_DecisionThreshold,
+        :Input_EstimatedProbability,
+        :Input_OutcomeLabel .
+
+:AggOp_CoefficientOfVariation a owl:NamedIndividual,
+        :AggregationOperator ;
+    rdfs:label "coefficient of variation"@en ;
+    skos:definition "The standard deviation of a base metric across groups divided by its mean."@en .
+
+:AggOp_Correlation a owl:NamedIndividual,
+        :AggregationOperator ;
+    rdfs:label "correlation"@en ;
+    skos:definition "A (rank) correlation between group performance and another per-group quantity."@en .
+
+:AggOp_GeneralisedEntropyIndex a owl:NamedIndividual,
+        :AggregationOperator ;
+    rdfs:label "generalised entropy index"@en ;
+    skos:definition "An inequality index applied to per-group benefits."@en .
+
+:AggOp_LogRatio a owl:NamedIndividual,
+        :AggregationOperator ;
+    rdfs:label "log ratio"@en ;
+    skos:definition "The logarithm of the ratio of group values."@en .
+
+:AggOp_Minimum a owl:NamedIndividual,
+        :AggregationOperator ;
+    rdfs:label "minimum"@en ;
+    skos:definition "The minimum of a base metric across groups (worst-group value)."@en .
+
+:AggOp_WassersteinDistance a owl:NamedIndividual,
+        :AggregationOperator ;
+    rdfs:label "Wasserstein distance"@en ;
+    skos:definition "The first Wasserstein (earth mover's) distance between per-group distributions."@en .
+
+:BalancedAccuracy a owl:NamedIndividual,
+        :StandardMetric ;
+    rdfs:label "balanced accuracy"@en ;
+    dcterms:source <https://doi.org/10.17605/OSF.IO/Z83ND> ;
+    skos:definition "The mean of recall (true positive rate) and specificity (true negative rate)."@en ;
+    :hasEvaluationLevel :00089 ;
+    :hasMatchingMetric roadmap:03308 ;
+    :hasScoringPropriety :Propriety_Improper ;
+    :requiresInput :Input_DecisionThreshold,
+        :Input_EstimatedProbability,
+        :Input_OutcomeLabel .
+
+:BrierScore a owl:NamedIndividual,
+        :StandardMetric ;
+    rdfs:label "Brier score"@en ;
+    dcterms:source <https://doi.org/10.17605/OSF.IO/Z83ND> ;
+    skos:altLabel "BS"@en ;
+    skos:definition "The mean squared difference between estimated probabilities and observed binary outcomes, ranging from 0 to 1, with lower values indicating better calibration and discrimination."@en ;
+    :hasEvaluationLevel :00088 ;
+    :hasMatchingMetric roadmap:03329 ;
+    :hasScoringPropriety :Propriety_Proper ;
+    :requiresInput :Input_EstimatedProbability,
+        :Input_OutcomeLabel .
+
+:ClinicalUtility a owl:NamedIndividual,
+        :MetricSubtype ;
+    rdfs:label "clinical utility"@en ;
+    skos:definition "Metrics and plots that evaluate the potential benefit of model-guided decisions by assessing whether such decisions might result in better outcomes or fewer harms than those observed for the results from alternative strategies (eg, standard care, treat-all, treat-none, or another model)."@en .
+
+:Ethnicity a owl:Class ;
+    rdfs:label "ethnicity"@en ;
+    dcterms:source <https://doi.org/10.1016/j.landig.2026.101001> ;
+    rdfs:comment "Coded values follow the OMB Statistical Policy Directive 15 (1997) categories as encoded by CDCREC and used by FHIR US Core. Note: OMB revised SPD 15 in March 2024 to collect race and ethnicity via a single combined question and to add 'Middle Eastern or North African' as a minimum category; those revisions are still being adopted in FHIR."@en ;
+    rdfs:seeAlso <http://hl7.org/fhir/us/core/ValueSet/omb-ethnicity-category> ;
+    rdfs:subClassOf :SensitiveAttribute ;
+    skos:definition "Ethnicity of the individual, as distinct from race."@en ;
+    :uscdiDataElement "Ethnicity (USCDI v3)"^^xsd:string .
+
+:Ethnicity_HispanicOrLatino a owl:NamedIndividual,
+        :Ethnicity ;
+    rdfs:label "Hispanic or Latino"@en ;
+    skos:closeMatch <http://snomed.info/id/414408004> ;
+    :code "2135-2"^^xsd:string ;
+    :inCodeSystem :codesystem_CDCREC .
+
+:F1Score a owl:NamedIndividual,
+        :StandardMetric ;
+    rdfs:label "F1 score"@en ;
+    dcterms:source <https://doi.org/10.17605/OSF.IO/Z83ND> ;
+    skos:definition "The harmonic mean of precision (positive predictive value) and recall (true positive rate)."@en ;
+    :hasEvaluationLevel :00089 ;
+    :hasMatchingMetric roadmap:03319 ;
+    :hasScoringPropriety :Propriety_Improper ;
+    :requiresInput :Input_DecisionThreshold,
+        :Input_EstimatedProbability,
+        :Input_OutcomeLabel .
+
+:FNR a owl:NamedIndividual,
+        :StandardMetric ;
+    rdfs:label "false negative rate"@en ;
+    dcterms:source <https://doi.org/10.17605/OSF.IO/Z83ND> ;
+    skos:definition "The proportion of instances with a positive outcome that are incorrectly predicted negative; the complement of the true positive rate."@en ;
+    :hasEvaluationLevel :00089 ;
+    :hasImplementation :impl_Fairlearn_false_negative_rate ;
+    :hasMatchingMetric roadmap:03761 ;
+    :hasScoringPropriety :Propriety_Improper ;
+    :requiresInput :Input_DecisionThreshold,
+        :Input_EstimatedProbability,
+        :Input_OutcomeLabel .
+
+:Gender_Female a owl:NamedIndividual,
+        :Gender ;
+    rdfs:label "identifies as female gender"@en ;
+    skos:exactMatch <http://snomed.info/id/446141000124107> ;
+    :code "446141000124107"^^xsd:string ;
+    :inCodeSystem :codesystem_SNOMEDCT .
+
+:Input_HistoricalOutcomeData a owl:NamedIndividual,
+        :MetricInput ;
+    rdfs:label "historical outcome data"@en ;
+    skos:definition "External measures of pre-existing health outcomes across subpopulations (e.g. required by reparative metrics such as HEAL)."@en .
+
+:Input_UtilityWeight a owl:NamedIndividual,
+        :MetricInput ;
+    rdfs:label "utility weight"@en ;
+    skos:definition "A treatment utility / relative-weight parameter (e.g. lambda in net benefit)."@en .
+
+:IntersectionalSensitiveAttribute a owl:Class ;
+    rdfs:label "intersectional sensitive attribute"@en ;
+    dcterms:source <https://doi.org/10.1016/j.landig.2026.101001> ;
+    rdfs:subClassOf :SensitiveAttribute ;
+    skos:definition "A sensitive attribute formed by the intersection of two or more base sensitive attributes (e.g. age x race x sex), capturing overlapping systems of advantage or disadvantage that single-axis assessment misses."@en .
+
+:MCC a owl:NamedIndividual,
+        :StandardMetric ;
+    rdfs:label "Matthew's correlation coefficient"@en ;
+    dcterms:source <https://doi.org/10.17605/OSF.IO/Z83ND> ;
+    skos:definition "A balanced measure of classification performance accounting for true and false positives and negatives, ranging from -1 (completely incorrect) through 0 (random) to +1 (perfect)."@en ;
+    :hasEvaluationLevel :00089 ;
+    :hasMatchingMetric roadmap:03547 ;
+    :hasScoringPropriety :Propriety_Improper ;
+    :requiresInput :Input_DecisionThreshold,
+        :Input_EstimatedProbability,
+        :Input_OutcomeLabel .
+
+:Race_AmericanIndianOrAlaskaNative a owl:NamedIndividual,
+        :Race ;
+    rdfs:label "American Indian or Alaska Native"@en ;
+    :code "1002-5"^^xsd:string ;
+    :inCodeSystem :codesystem_CDCREC .
+
+:Race_Asian a owl:NamedIndividual,
+        :Race ;
+    rdfs:label "Asian"@en ;
+    :code "2028-9"^^xsd:string ;
+    :inCodeSystem :codesystem_CDCREC .
+
+:Race_NativeHawaiianOrOtherPacificIslander a owl:NamedIndividual,
+        :Race ;
+    rdfs:label "Native Hawaiian or Other Pacific Islander"@en ;
+    :code "2076-8"^^xsd:string ;
+    :inCodeSystem :codesystem_CDCREC .
+
+:SensitiveAttributeType_Continuous a owl:NamedIndividual,
+        :SensitiveAttributeType ;
+    rdfs:label "continuous"@en ;
+    skos:definition "Supports a continuous sensitive attribute."@en .
+
+:hasFairnessLevel a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "has fairness level"@en ;
+    rdfs:domain :00023 ;
+    rdfs:range :FairnessLevel .
+
+:hasPerformanceDependence a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "has performance dependence"@en ;
+    rdfs:domain :00023 ;
+    rdfs:range :00085 .
+
+:impl_AIF360_accuracy a owl:NamedIndividual,
+        :MetricImplementation ;
+    rdfs:label "AIF360: accuracy()"@en ;
+    :functionName "accuracy"^^xsd:string ;
+    :providedByToolkit :AIF360 .
+
+:impl_AIF360_average_abs_odds_difference a owl:NamedIndividual,
+        :MetricImplementation ;
+    rdfs:label "AIF360: average_abs_odds_difference()"@en ;
+    :functionName "average_abs_odds_difference"^^xsd:string ;
+    :providedByToolkit :AIF360 .
+
+:impl_AIF360_average_odds_difference a owl:NamedIndividual,
+        :MetricImplementation ;
+    rdfs:label "AIF360: average_odds_difference()"@en ;
+    :functionName "average_odds_difference"^^xsd:string ;
+    :providedByToolkit :AIF360 .
+
+:impl_AIF360_between_group_coefficient_of_variation a owl:NamedIndividual,
+        :MetricImplementation ;
+    rdfs:label "AIF360: between_group_coefficient_of_variation()"@en ;
+    :functionName "between_group_coefficient_of_variation"^^xsd:string ;
+    :providedByToolkit :AIF360 .
+
+:impl_AIF360_between_group_generalized_entropy_index a owl:NamedIndividual,
+        :MetricImplementation ;
+    rdfs:label "AIF360: between_group_generalized_entropy_index()"@en ;
+    :functionName "between_group_generalized_entropy_index"^^xsd:string ;
+    :providedByToolkit :AIF360 .
+
+:impl_AIF360_disparate_impact a owl:NamedIndividual,
+        :MetricImplementation ;
+    rdfs:label "AIF360: disparate_impact()"@en ;
+    :functionName "disparate_impact"^^xsd:string ;
+    :providedByToolkit :AIF360 .
+
+:impl_AIF360_equal_opportunity_difference a owl:NamedIndividual,
+        :MetricImplementation ;
+    rdfs:label "AIF360: equal_opportunity_difference()"@en ;
+    :functionName "equal_opportunity_difference"^^xsd:string ;
+    :providedByToolkit :AIF360 .
+
+:impl_AIF360_error_rate_difference a owl:NamedIndividual,
+        :MetricImplementation ;
+    rdfs:label "AIF360: error_rate_difference()"@en ;
+    skos:definition "overall accuracy gap equals error-rate difference"@en ;
+    :functionName "error_rate_difference"^^xsd:string ;
+    :providedByToolkit :AIF360 .
+
+:impl_AIF360_error_rate_ratio a owl:NamedIndividual,
+        :MetricImplementation ;
+    rdfs:label "AIF360: error_rate_ratio()"@en ;
+    :functionName "error_rate_ratio"^^xsd:string ;
+    :providedByToolkit :AIF360 .
+
+:impl_AIF360_false_discovery_rate_difference a owl:NamedIndividual,
+        :MetricImplementation ;
+    rdfs:label "AIF360: false_discovery_rate_difference()"@en ;
+    skos:definition "predictive parity relates to FDR difference (PPV = 1 - FDR)"@en ;
+    :functionName "false_discovery_rate_difference"^^xsd:string ;
+    :providedByToolkit :AIF360 .
+
+:impl_AIF360_false_omission_rate_difference a owl:NamedIndividual,
+        :MetricImplementation ;
+    rdfs:label "AIF360: false_omission_rate_difference()"@en ;
+    skos:definition "NPV difference equals FOR difference (NPV = 1 - FOR)"@en ;
+    :functionName "false_omission_rate_difference"^^xsd:string ;
+    :providedByToolkit :AIF360 .
+
+:impl_AIF360_false_positive_rate_difference a owl:NamedIndividual,
+        :MetricImplementation ;
+    rdfs:label "AIF360: false_positive_rate_difference()"@en ;
+    :functionName "false_positive_rate_difference"^^xsd:string ;
+    :providedByToolkit :AIF360 .
+
+:impl_Fairlearn_demographic_parity_ratio a owl:NamedIndividual,
+        :MetricImplementation ;
+    rdfs:label "Fairlearn: demographic_parity_ratio()"@en ;
+    :functionName "demographic_parity_ratio"^^xsd:string ;
+    :providedByToolkit :Fairlearn .
+
+:impl_Fairlearn_equalized_odds_difference a owl:NamedIndividual,
+        :MetricImplementation ;
+    rdfs:label "Fairlearn: equalized_odds_difference()"@en ;
+    :functionName "equalized_odds_difference"^^xsd:string ;
+    :providedByToolkit :Fairlearn .
+
+:impl_Fairlearn_false_negative_rate a owl:NamedIndividual,
+        :MetricImplementation ;
+    rdfs:label "Fairlearn: false_negative_rate()"@en ;
+    :functionName "false_negative_rate"^^xsd:string ;
+    :providedByToolkit :Fairlearn .
+
+:impl_Fairlearn_false_positive_rate a owl:NamedIndividual,
+        :MetricImplementation ;
+    rdfs:label "Fairlearn: false_positive_rate()"@en ;
+    :functionName "false_positive_rate"^^xsd:string ;
+    :providedByToolkit :Fairlearn .
+
+:impl_Fairlearn_positive_predictive_value a owl:NamedIndividual,
+        :MetricImplementation ;
+    rdfs:label "Fairlearn: positive_predictive_value()"@en ;
+    :functionName "positive_predictive_value"^^xsd:string ;
+    :providedByToolkit :Fairlearn .
+
+:impl_Fairlearn_true_negative_rate a owl:NamedIndividual,
+        :MetricImplementation ;
+    rdfs:label "Fairlearn: true_negative_rate()"@en ;
+    :functionName "true_negative_rate"^^xsd:string ;
+    :providedByToolkit :Fairlearn .
+
+:impl_Fairlearn_true_positive_rate a owl:NamedIndividual,
+        :MetricImplementation ;
+    rdfs:label "Fairlearn: true_positive_rate()"@en ;
+    :functionName "true_positive_rate"^^xsd:string ;
+    :providedByToolkit :Fairlearn .
+
+roadmap:03226 a owl:NamedIndividual .
+
+roadmap:03330 a owl:NamedIndividual .
+
+roadmap:03572 a owl:NamedIndividual .
+
+roadmap:03762 a owl:NamedIndividual .
+
+:00044 a owl:NamedIndividual,
+        :00023 ;
+    rdfs:label "equal calibration"@en ;
+    dcterms:source <https://doi.org/10.48550/arXiv.1609.05807> ;
+    skos:altLabel "matching conditional frequencies"@en,
+        "test-fairness"@en ;
+    skos:definition "Also known as test-fairness or matching conditional frequencies; requires that, for any estimated probability value, groups have similar positivity rates in the ground truth."@en ;
+    :dependsOnPrevalence false ;
+    :hasAggregationOperator :AggOp_AbsoluteDifference ;
+    :hasBiasPreservationProperty :BiasPreservationProperty_Preserving ;
+    :hasEvaluationLevel :00088 ;
+    :hasFairnessDirection :FairnessDirection_Lower ;
+    :hasFairnessLevel :GroupFairness ;
+    :hasGuidanceLevel :UseWithCaution ;
+    :hasGuidanceRationale "Unclear how to operationalise across thresholds; satisfying equal calibration is in principle desirable."@en ;
+    :hasMetricSubtype :Calibration ;
+    :hasPerformanceDependence :00086 ;
+    :hasRelatedMetric roadmap:03655 ;
+    :hasSupportedSensitiveAttributeType :SensitiveAttributeType_Binary ;
+    :hasTargetValue "0" ;
+    :proposedForHealthcare false ;
+    :requiresInput :Input_EstimatedProbability,
+        :Input_OutcomeLabel,
+        :Input_SensitiveAttribute .
+
+:00068 a owl:NamedIndividual,
+        :00023 ;
+    rdfs:label "recall equality difference"@en ;
+    dcterms:source <https://doi.org/10.1145/3593013.3593982> ;
+    skos:definition "Measures the average absolute difference in recall (true positive rate) between each group and the overall recall; a multi-group extension of the equal opportunity difference."@en ;
+    :dependsOnPrevalence false ;
+    :hasAggregationOperator :AggOp_Mean ;
+    :hasBiasPreservationProperty :BiasPreservationProperty_Preserving ;
+    :hasEvaluationLevel :00089 ;
+    :hasFairnessDirection :FairnessDirection_Lower ;
+    :hasFairnessLevel :GroupFairness ;
+    :hasGuidanceLevel :UseWithCaution ;
+    :hasGuidanceRationale "Same considerations as equal opportunity difference."@en ;
+    :hasMatchingMetric roadmap:03227 ;
+    :hasMetricSubtype :Partial ;
+    :hasPerformanceDependence :00086 ;
+    :hasSupportedSensitiveAttributeType :SensitiveAttributeType_MultiGroup ;
+    :hasTargetValue "0" ;
+    :proposedForHealthcare true ;
+    :requiresInput :Input_DecisionThreshold,
+        :Input_EstimatedProbability,
+        :Input_OutcomeLabel,
+        :Input_SensitiveAttribute .
+
+:00080 a owl:NamedIndividual,
+        :00023 ;
+    rdfs:label "well calibration"@en ;
+    dcterms:source <https://doi.org/10.1145/3616865> ;
+    skos:definition "An extension of equal calibration requiring that the actual probability of being in the positive class match not only the estimated probability across all groups but also a target probability."@en ;
+    :dependsOnPrevalence true ;
+    :hasAggregationOperator :AggOp_Difference ;
+    :hasBiasPreservationProperty :BiasPreservationProperty_Preserving ;
+    :hasEvaluationLevel :00088 ;
+    :hasFairnessDirection :FairnessDirection_Lower ;
+    :hasFairnessLevel :GroupFairness ;
+    :hasGuidanceLevel :UseWithCaution ;
+    :hasGuidanceRationale "Vaguely defined in the literature."@en ;
+    :hasMetricSubtype :Calibration ;
+    :hasPerformanceDependence :00086 ;
+    :hasRelatedMetric roadmap:03655 ;
+    :hasSupportedSensitiveAttributeType :SensitiveAttributeType_Binary ;
+    :hasTargetValue "0" ;
+    :proposedForHealthcare false ;
+    :requiresInput :Input_EstimatedProbability,
+        :Input_OutcomeLabel,
+        :Input_SensitiveAttribute .
+
+:AggOp_StandardDeviation a owl:NamedIndividual,
+        :AggregationOperator ;
+    rdfs:label "standard deviation"@en ;
+    skos:definition "The standard deviation of a base metric across groups."@en .
+
+:BiasPreservationProperty a owl:Class ;
+    rdfs:label "bias preservation property"@en ;
+    dcterms:source <https://doi.org/10.2139/ssrn.3792772> ;
+    rdfs:subClassOf :00084 ;
+    skos:definition "Whether a fairness metric is bias-preserving (accepts the status quo / historical outcome labels as a valid reference) or bias-transforming (aims for substantive equality and challenges potentially biased historical labels)."@en .
+
+:ECE a owl:NamedIndividual,
+        :StandardMetric ;
+    rdfs:label "expected calibration error"@en ;
+    dcterms:source <https://doi.org/10.17605/OSF.IO/Z83ND> ;
+    skos:altLabel "ECE"@en ;
+    skos:definition "The weighted average, across probability bins, of the absolute difference between the observed accuracy and the mean estimated probability within each bin; a value of 0 denotes perfect calibration."@en ;
+    :hasEvaluationLevel :00088 ;
+    :hasMatchingMetric roadmap:03332 ;
+    :hasScoringPropriety :Propriety_Proper ;
+    :requiresInput :Input_EstimatedProbability,
+        :Input_OutcomeLabel .
+
+:FPR a owl:NamedIndividual,
+        :StandardMetric ;
+    rdfs:label "false positive rate"@en ;
+    dcterms:source <https://doi.org/10.17605/OSF.IO/Z83ND> ;
+    skos:definition "The proportion of instances with a negative outcome that are incorrectly predicted positive."@en ;
+    :hasEvaluationLevel :00089 ;
+    :hasImplementation :impl_Fairlearn_false_positive_rate ;
+    :hasMatchingMetric roadmap:03322 ;
+    :hasScoringPropriety :Propriety_Improper ;
+    :requiresInput :Input_DecisionThreshold,
+        :Input_EstimatedProbability,
+        :Input_OutcomeLabel .
+
+:NPV a owl:NamedIndividual,
+        :StandardMetric ;
+    rdfs:label "negative predictive value"@en ;
+    dcterms:source <https://doi.org/10.17605/OSF.IO/Z83ND> ;
+    skos:definition "The proportion of instances predicted negative that actually have a negative outcome."@en ;
+    :hasEvaluationLevel :00089 ;
+    :hasMatchingMetric roadmap:03325 ;
+    :hasScoringPropriety :Propriety_Improper ;
+    :requiresInput :Input_DecisionThreshold,
+        :Input_EstimatedProbability,
+        :Input_OutcomeLabel .
+
+:PPV a owl:NamedIndividual,
+        :StandardMetric ;
+    rdfs:label "positive predictive value"@en ;
+    dcterms:source <https://doi.org/10.17605/OSF.IO/Z83ND> ;
+    skos:altLabel "precision"@en ;
+    skos:definition "The proportion of instances predicted positive that actually have a positive outcome."@en ;
+    :hasEvaluationLevel :00089 ;
+    :hasImplementation :impl_Fairlearn_positive_predictive_value ;
+    :hasMatchingMetric roadmap:03324 ;
+    :hasScoringPropriety :Propriety_Improper ;
+    :requiresInput :Input_DecisionThreshold,
+        :Input_EstimatedProbability,
+        :Input_OutcomeLabel .
+
+:Propriety_Proper a owl:NamedIndividual,
+        :ScoringPropriety ;
+    rdfs:label "proper"@en ;
+    skos:definition "A metric whose expected value is optimised only by the correct model."@en .
+
+:Propriety_SemiProper a owl:NamedIndividual,
+        :ScoringPropriety ;
+    rdfs:label "semi-proper"@en ;
+    skos:definition "A metric whose expected value is optimised by the correct model and by some incorrect models."@en .
+
+:Race_BlackOrAfricanAmerican a owl:NamedIndividual,
+        :Race ;
+    rdfs:label "Black or African American"@en ;
+    :code "2054-5"^^xsd:string ;
+    :inCodeSystem :codesystem_CDCREC .
+
+:Race_White a owl:NamedIndividual,
+        :Race ;
+    rdfs:label "White"@en ;
+    skos:closeMatch <http://snomed.info/id/413773004> ;
+    :code "2106-3"^^xsd:string ;
+    :inCodeSystem :codesystem_CDCREC .
+
+:Sex a owl:Class ;
+    rdfs:label "sex"@en ;
+    dcterms:source <https://doi.org/10.1016/j.landig.2026.101001> ;
+    rdfs:comment "Male and female are also representable with HL7 administrative-gender codes 'male'/'female' (system http://hl7.org/fhir/administrative-gender), which additionally defines 'other' and 'unknown'."@en ;
+    rdfs:subClassOf :SensitiveAttribute ;
+    skos:definition "Sex of the individual (e.g. sex assigned at birth / administrative sex), as distinct from gender identity."@en ;
+    :uscdiDataElement "Sex (USCDI v3; formerly Birth Sex)"^^xsd:string .
+
+:impl_AIF360_statistical_parity_difference a owl:NamedIndividual,
+        :MetricImplementation ;
+    rdfs:label "AIF360: statistical_parity_difference()"@en ;
+    :functionName "statistical_parity_difference"^^xsd:string ;
+    :providedByToolkit :AIF360 .
+
+:impl_Fairlearn_demographic_parity_difference a owl:NamedIndividual,
+        :MetricImplementation ;
+    rdfs:label "Fairlearn: demographic_parity_difference()"@en ;
+    :functionName "demographic_parity_difference"^^xsd:string ;
+    :providedByToolkit :Fairlearn .
+
+:requiresInput a owl:ObjectProperty ;
+    rdfs:label "requires input"@en ;
+    dcterms:source <https://doi.org/10.1016/j.landig.2026.101001> ;
+    rdfs:comment "The quantities/parameters a metric needs to be computed. Non-functional: most metrics require several inputs. Base inputs follow from the metric's performance-dependence and evaluation level (per the review's decision diagram); additional inputs (legitimate features, time-to-event, censoring, utility weight, historical outcome data) are asserted per metric."@en ;
+    rdfs:domain :Metric ;
+    rdfs:range :MetricInput .
+
+roadmap:03227 a owl:NamedIndividual .
+
+roadmap:03655 a owl:NamedIndividual .
+
+:00085 a owl:Class ;
+    rdfs:label "performance-dependence"@en ;
+    rdfs:subClassOf :00084 ;
+    skos:definition "Whether fairness should be evaluated with respect to model performance or not."@en .
+
+:AggOp_Ratio a owl:NamedIndividual,
+        :AggregationOperator ;
+    rdfs:label "ratio"@en ;
+    skos:definition "The ratio of two groups' values (ideal 1)."@en .
+
+:AggOp_Summation a owl:NamedIndividual,
+        :AggregationOperator ;
+    rdfs:label "summation"@en ;
+    skos:definition "A sum of per-group or pairwise deviations."@en .
+
+:EvaluationLevel a owl:Class ;
+    rdfs:label "evaluation level"@en ;
+    rdfs:subClassOf :00084 ;
+    skos:definition "Whether fairness should be assessed at the level of estimated probability (P̂) or the predicted class (Ŷ)."@en .
+
+:FairnessDirection a owl:Class ;
+    rdfs:label "fairness direction"@en ;
+    dcterms:source <https://doi.org/10.17605/OSF.IO/Z83ND> ;
+    rdfs:subClassOf :00084 ;
+    skos:definition "The direction a metric's value moves as fairness improves toward its target value: lower, higher, or bidirectional."@en .
+
+:FairnessDirection_Bidirectional a owl:NamedIndividual,
+        :FairnessDirection ;
+    rdfs:label "bidirectional"@en ;
+    skos:definition "Fairness improves as the metric value approaches the target from either side."@en .
+
+:FairnessLevel a owl:Class ;
+    rdfs:label "fairness level"@en ;
+    rdfs:subClassOf :00084 .
+
+:IndividualFairness a owl:NamedIndividual,
+        :FairnessLevel ;
+    rdfs:label "individual fairness"@en ;
+    dcterms:source <https://doi.org/10.1145/2090236.2090255> ;
+    skos:definition "Condition in which similar individuals receive similar care. The concept of similarity is defined by a metric or distance that can be adjusted and agreed upon by relevant stakeholders (eg, patients, health-care professionals, and policy makers)."@en .
+
+:Input_CensoringIndicator a owl:NamedIndividual,
+        :MetricInput ;
+    rdfs:label "censoring indicator"@en ;
+    skos:definition "The censoring indicator distinguishing censored from uncensored observations."@en .
+
+:Recommended a owl:NamedIndividual,
+        :GuidanceLevel ;
+    rdfs:label "recommended"@en .
+
+:ScoringPropriety a owl:Class ;
+    rdfs:label "scoring propriety"@en ;
+    dcterms:source <https://doi.org/10.1016/j.landig.2026.101001> ;
+    rdfs:subClassOf :00084 ;
+    skos:definition "Whether a performance metric is a proper, semi-proper, or improper scoring rule for probabilistic predictions (Van Calster et al. 2025)."@en .
+
+:SensitiveAttributeType a owl:Class ;
+    rdfs:label "sensitive attribute type"@en ;
+    dcterms:source <https://doi.org/10.17605/OSF.IO/Z83ND> ;
+    rdfs:subClassOf :00084 ;
+    skos:definition "The cardinality of sensitive (protected) attribute that a fairness metric supports as input: binary, multi-group (categorical with more than two groups), or continuous."@en .
+
+:hasEvaluationLevel a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "has evaluation level"@en ;
+    rdfs:domain :Metric ;
+    rdfs:range :EvaluationLevel .
+
+roadmap:03225 a owl:NamedIndividual .
+
+roadmap:03229 a owl:NamedIndividual .
+
+:GuidanceLevel a owl:Class ;
+    rdfs:label "guidance level"@en ;
+    rdfs:subClassOf :00084 .
+
+:Input_LegitimateFeatures a owl:NamedIndividual,
+        :MetricInput ;
+    rdfs:label "legitimate features"@en ;
+    skos:definition "The subset of features L deemed legitimate risk modifiers, used for conditioning."@en .
+
+:Race a owl:Class ;
+    rdfs:label "race"@en ;
+    dcterms:source <https://doi.org/10.1016/j.landig.2026.101001> ;
+    rdfs:comment "Coded values follow the OMB Statistical Policy Directive 15 (1997) categories as encoded by CDCREC and used by FHIR US Core. Note: OMB revised SPD 15 in March 2024 to collect race and ethnicity via a single combined question and to add 'Middle Eastern or North African' as a minimum category; those revisions are still being adopted in FHIR."@en,
+        "SNOMED CT provides a 'Racial group' hierarchy (root 415229000) for detailed coding, but it does not map one-to-one to the OMB minimum categories, so the OMB-category values here are coded with CDCREC rather than SNOMED."@en ;
+    rdfs:seeAlso <http://hl7.org/fhir/us/core/ValueSet/omb-race-category>,
+        <http://snomed.info/id/415229000>,
+        <https://loinc.org/32624-9> ;
+    rdfs:subClassOf :SensitiveAttribute ;
+    skos:definition "Race of the individual, as distinct from ethnicity."@en ;
+    :loincQuestionCode "32624-9"^^xsd:string ;
+    :uscdiDataElement "Race (USCDI v3)"^^xsd:string .
+
+:SoftwareToolkit a owl:Class ;
+    rdfs:label "software toolkit"@en ;
+    skos:definition "A software library that implements fairness or performance metrics."@en .
+
+:AggOp_Maximum a owl:NamedIndividual,
+        :AggregationOperator ;
+    rdfs:label "maximum"@en ;
+    skos:definition "The maximum deviation across groups or group pairs (worst-case)."@en .
+
+:Calibration a owl:NamedIndividual,
+        :MetricSubtype ;
+    rdfs:label "calibration"@en .
+
+:CodeSystem a owl:Class ;
+    rdfs:label "code system"@en ;
+    skos:definition "A controlled terminology or code system from which coded values are drawn."@en .
+
+:Gender a owl:Class ;
+    rdfs:label "gender"@en ;
+    dcterms:source <https://doi.org/10.1016/j.landig.2026.101001> ;
+    rdfs:comment "Coded with the SNOMED CT gender-identity value set used by US Core / the HL7 Gender Harmony project; the associated LOINC question code is 76691-5."@en ;
+    rdfs:seeAlso <https://loinc.org/76691-5>,
+        <https://www.healthit.gov/isp/uscdi-data/gender-identity> ;
+    rdfs:subClassOf :SensitiveAttribute ;
+    skos:definition "Gender identity of the individual, as distinct from sex."@en ;
+    :loincQuestionCode "76691-5"^^xsd:string ;
+    :uscdiDataElement "Gender Identity (USCDI v3)"^^xsd:string .
+
+:Overall a owl:NamedIndividual,
+        :MetricSubtype ;
+    rdfs:label "overall"@en .
+
+roadmap:03228 a owl:NamedIndividual .
+
+:CombinedRaceEthnicity a owl:Class ;
+    rdfs:label "race and ethnicity (OMB 2024 combined)"@en ;
+    dcterms:source <https://www.federalregister.gov/documents/2024/03/29/2024-06469/revisions-to-ombs-statistical-policy-directive-no-15-standards-for-maintaining-collecting-and> ;
+    rdfs:comment "As of this modelling no standard interoperability code system (CDCREC, SNOMED US edition, USCDI) yet encodes these seven categories as OMB minimum categories; values are therefore crosswalked to the coded OMB 1997 values rather than carrying their own codes."@en ;
+    rdfs:seeAlso <https://loinc.org/46463-6> ;
+    rdfs:subClassOf :SensitiveAttribute ;
+    skos:definition "Race and ethnicity as a single combined attribute per the OMB 2024 revision of Statistical Policy Directive 15, which collects race and ethnicity in one question with seven co-equal minimum categories and adds 'Middle Eastern or North African' as a new category."@en ;
+    :loincQuestionCode "46463-6"^^xsd:string ;
+    :uscdiDataElement "Not yet in USCDI: USCDI (through current versions) and FHIR US Core still reference OMB 1997; alignment with the 2024 standard is recommended but pending (federal compliance deadline 28 March 2029)."^^xsd:string .
+
+:Input_Covariates a owl:NamedIndividual,
+        :MetricInput ;
+    rdfs:label "covariates"@en ;
+    skos:definition "The feature vector X (e.g. for computing individual similarity/distance or conditional strata)."@en .
+
+:Input_TimeToEvent a owl:NamedIndividual,
+        :MetricInput ;
+    rdfs:label "time to event"@en ;
+    skos:definition "The observed time-to-event used in survival/time-to-event analyses."@en .
+
+:codesystem_CDCREC a owl:NamedIndividual,
+        :CodeSystem ;
+    rdfs:label "CDC Race and Ethnicity Code Set (CDCREC)"@en ;
+    rdfs:seeAlso <https://terminology.hl7.org/CodeSystem-CDCREC.html> ;
+    :systemURI "urn:oid:2.16.840.1.113883.6.238"^^xsd:anyURI .
+
+:AggOp_Mean a owl:NamedIndividual,
+        :AggregationOperator ;
+    rdfs:label "mean"@en ;
+    skos:definition "The mean of pairwise or per-group deviations."@en .
+
+:FairnessDirection_Higher a owl:NamedIndividual,
+        :FairnessDirection ;
+    rdfs:label "higher"@en ;
+    skos:definition "Fairness improves as the metric value increases toward the target."@en .
+
+:MetricSubtype a owl:Class ;
+    rdfs:label "metric subtype"@en ;
+    rdfs:subClassOf :00084 .
+
+:Summary a owl:NamedIndividual,
+        :MetricSubtype ;
+    rdfs:label "summary"@en .
+
+:TPR a owl:NamedIndividual,
+        :StandardMetric ;
+    rdfs:label "true positive rate"@en ;
+    dcterms:source <https://doi.org/10.17605/OSF.IO/Z83ND> ;
+    skos:altLabel "recall"@en,
+        "sensitivity"@en ;
+    skos:definition "The proportion of instances with a positive outcome that are correctly predicted positive."@en ;
+    :hasEvaluationLevel :00089 ;
+    :hasImplementation :impl_Fairlearn_true_positive_rate ;
+    :hasMatchingMetric roadmap:03339 ;
+    :hasScoringPropriety :Propriety_Improper ;
+    :requiresInput :Input_DecisionThreshold,
+        :Input_EstimatedProbability,
+        :Input_OutcomeLabel .
+
+:Fairlearn a owl:NamedIndividual,
+        :SoftwareToolkit ;
+    rdfs:label "Fairlearn"@en ;
+    rdfs:seeAlso <https://fairlearn.org> .
+
+:codesystem_SNOMEDCT a owl:NamedIndividual,
+        :CodeSystem ;
+    rdfs:label "SNOMED CT"@en ;
+    rdfs:seeAlso <https://www.snomed.org> ;
+    :systemURI "http://snomed.info/sct"^^xsd:anyURI .
+
+:AUROC a owl:NamedIndividual,
+        :StandardMetric ;
+    rdfs:label "area under the receiver operating characteristic curve"@en ;
+    dcterms:source <https://doi.org/10.17605/OSF.IO/Z83ND> ;
+    skos:altLabel "AUC"@en,
+        "AUC-ROC"@en,
+        "AUROC"@en ;
+    skos:definition "The area under the curve plotting the true positive rate against the false positive rate across decision thresholds; equivalently, the probability that a randomly chosen positive instance is ranked higher than a randomly chosen negative instance. A threshold-independent measure of discrimination."@en ;
+    :hasEvaluationLevel :00088 ;
+    :hasMatchingMetric roadmap:03314 ;
+    :hasScoringPropriety :Propriety_SemiProper ;
+    :requiresInput :Input_EstimatedProbability,
+        :Input_OutcomeLabel .
+
+:AggOp_Difference a owl:NamedIndividual,
+        :AggregationOperator ;
+    rdfs:label "difference"@en ;
+    skos:definition "The signed difference between two groups' values (ideal 0)."@en .
+
+:MetricInput a owl:Class ;
+    rdfs:label "metric input"@en ;
+    dcterms:source <https://doi.org/10.1016/j.landig.2026.101001> ;
+    rdfs:subClassOf :00084 ;
+    skos:definition "A quantity or parameter that a metric requires as input in order to be computed, following the conditioning notation of the review's decision diagram, e.g. M(A, p-hat, tau, Y)."@en .
+
+:00084 a owl:Class ;
+    rdfs:label "metric property"@en .
+
+:Discrimination a owl:NamedIndividual,
+        :MetricSubtype ;
+    rdfs:label "discrimination"@en .
+
+:Metric a owl:Class ;
+    rdfs:label "metric"@en ;
+    skos:definition "Any quantitative measure of model behaviour or fairness. Superclass of fairness metrics and standard (base) performance metrics."@en .
+
+:SensitiveAttribute a owl:Class ;
+    rdfs:label "sensitive attribute"@en ;
+    dcterms:source <https://doi.org/10.1016/j.landig.2026.101001> ;
+    skos:definition "A characteristic or axis along which fairness can be evaluated. Its subclasses are specific sensitive attributes (age, sex, gender, race, ethnicity, socioeconomic status); their individuals are the coded categories/values of each attribute. Distinct from sensitive-attribute type, which is the cardinality (binary/multi-group/continuous) a metric supports."@en .
+
+:Propriety_Improper a owl:NamedIndividual,
+        :ScoringPropriety ;
+    rdfs:label "improper"@en ;
+    skos:definition "A metric that can be optimised by an incorrect model; not a proper scoring rule (e.g. threshold-dependent classification metrics considered alone)."@en .
+
+:AIF360 a owl:NamedIndividual,
+        :SoftwareToolkit ;
+    rdfs:label "AI Fairness 360 (AIF360)"@en ;
+    rdfs:seeAlso <https://aif360.res.ibm.com> .
+
+:AggregationOperator a owl:Class ;
+    rdfs:label "aggregation operator"@en ;
+    dcterms:source <https://doi.org/10.17605/OSF.IO/Z83ND> ;
+    rdfs:subClassOf :00084 ;
+    skos:definition "The operator a fairness metric applies to a base quantity to summarise disparity across the groups defined by the sensitive attribute."@en .
+
+:BiasPreservationProperty_Transforming a owl:NamedIndividual,
+        :BiasPreservationProperty ;
+    rdfs:label "bias-transforming"@en ;
+    skos:definition "Does not assume clinical or societal biases in the data should be preserved; aims for parity in predicted positivity rates to actively modify the influence of underlying data biases."@en .
+
+:00087 a owl:NamedIndividual,
+        :00085 ;
+    rdfs:label "performance-independent"@en ;
+    rdfs:comment """Bias-transforming fairness metrics:
+Fairness metrics that do not assume that clinical or societal biases (eg, disparities in disease prevalence, access to care, or historical disease patterns) should be preserved during model development. Although the performance of these metrics is typically independent of model performance, the metrics aim to ensure parity in predicted positivity rates. Their goal is to actively modify the influence of underlying data biases to promote greater fairness in outcomes."""@en ;
+    skos:definition "A fairness metric that compares model behaviour (eg, by assessing parity in positivity rates) instead of comparing performance (eg, statistical parity) across individuals or groups of individuals. See bias-transforming fairness metrics entry for implications."@en .
+
+:StandardMetric a owl:Class ;
+    rdfs:label "base metric"@en ;
+    rdfs:subClassOf :Metric ;
+    owl:disjointWith :00023 ;
+    skos:altLabel "standard metric"@en ;
+    skos:definition "A standard model performance evaluation metric (for example, one derived from the confusion matrix) that assesses a model's output against a ground-truth label and can serve as a base metric from which performance-dependent fairness metrics are computed."@en .
+
+:AggOp_AbsoluteDifference a owl:NamedIndividual,
+        :AggregationOperator ;
+    rdfs:label "absolute difference"@en ;
+    skos:definition "The absolute difference between two groups' values (ideal 0)."@en .
+
+:Partial a owl:NamedIndividual,
+        :MetricSubtype ;
+    rdfs:label "partial"@en .
+
+:MetricImplementation a owl:Class ;
+    rdfs:label "metric implementation"@en ;
+    skos:definition "A concrete implementation of a metric as a named function/method in a software toolkit."@en .
+
+:SensitiveAttributeType_MultiGroup a owl:NamedIndividual,
+        :SensitiveAttributeType ;
+    rdfs:label "multi-group"@en ;
+    skos:definition "Supports a categorical sensitive attribute with more than two groups."@en .
+
+:UseWithCaution a owl:NamedIndividual,
+        :GuidanceLevel ;
+    rdfs:label "use with caution"@en .
+
+:00088 a owl:NamedIndividual,
+        :EvaluationLevel ;
+    rdfs:label "probability-based"@en ;
+    owl:differentFrom :00089 ;
+    skos:definition "A fairness metric in which estimated probabilities are used as input (eg, AUROC parity)."@en .
+
+:Inadvisable a owl:NamedIndividual,
+        :GuidanceLevel ;
+    rdfs:label "inadvisable"@en .
+
+:SensitiveAttributeType_Binary a owl:NamedIndividual,
+        :SensitiveAttributeType ;
+    rdfs:label "binary"@en ;
+    skos:definition "Supports a sensitive attribute with exactly two groups."@en .
+
+:Input_DecisionThreshold a owl:NamedIndividual,
+        :MetricInput ;
+    rdfs:label "decision threshold"@en ;
+    skos:definition "A decision threshold tau used to convert estimated probabilities into a predicted class."@en .
+
+:00089 a owl:NamedIndividual,
+        :EvaluationLevel ;
+    rdfs:label "threshold-dependent"@en ;
+    skos:definition "Threshold-dependent metrics (eg, statistical parit) evaluate fairness at the predicted class level; the application of threshold-dependent metrics thus depends on applying a threshold to convert the estimated probability into class prediction."@en .
+
+:BiasPreservationProperty_Preserving a owl:NamedIndividual,
+        :BiasPreservationProperty ;
+    rdfs:label "bias-preserving"@en ;
+    owl:differentFrom :BiasPreservationProperty_Transforming ;
+    skos:definition "Maintains the patterns observed in the development data; performance is typically compared against existing outcome labels, preserving the status quo."@en .
+
+:00086 a owl:NamedIndividual,
+        :00085 ;
+    rdfs:label "performance-dependent"@en ;
+    rdfs:comment """Bias-preserving fairness metrics:
+Fairness metrics that aim to maintain the patterns observed in the data used for model development, such as specialist follow-up referral rates. These metrics assume that the distributions and outcomes present in the data reflect acceptable baselines. Consequently, the metrics prioritise consistency in model performance across groups rather than adjusting for underlying biases to effectively preserve the status quo in health-care delivery."""@en ;
+    owl:differentFrom :00087 ;
+    skos:altLabel "supervised fairness evaluation"@en ;
+    skos:definition "A fairness metric that compares model performance across individuals or groups of individuals (eg, AUROC parity). See the definition of bias-preserving fairness metrics for implications."@en .
+
+:FairnessDirection_Lower a owl:NamedIndividual,
+        :FairnessDirection ;
+    rdfs:label "lower"@en ;
+    skos:definition "Fairness improves as the metric value decreases toward the target."@en .
+
+:GroupFairness a owl:NamedIndividual,
+        :FairnessLevel ;
+    rdfs:label "group fairness"@en ;
+    dcterms:source """Barocas, S ∙ Hardt, M ∙ Narayanan, A
+Fairness and machine learning: limitations and opportunities
+MIT Press, 2023""" ;
+    owl:differentFrom :IndividualFairness ;
+    skos:definition "Condition in which groups of individuals defined by sensitive attributes receive similar care."@en .
+
+:Input_SensitiveAttribute a owl:NamedIndividual,
+        :MetricInput ;
+    rdfs:label "sensitive attribute"@en ;
+    rdfs:seeAlso :SensitiveAttribute ;
+    skos:definition "The sensitive or protected attribute A along which fairness is evaluated."@en .
+
+:Input_OutcomeLabel a owl:NamedIndividual,
+        :MetricInput ;
+    rdfs:label "outcome label"@en ;
+    skos:definition "The ground-truth outcome label Y (required to assess performance)."@en .
+
+:Input_EstimatedProbability a owl:NamedIndividual,
+        :MetricInput ;
+    rdfs:label "estimated probability"@en ;
+    skos:definition "The model's estimated probability (risk score) p-hat."@en .
+
+:00023 a owl:Class ;
+    rdfs:label "fairness metric"@en ;
+    dcterms:source <https://doi.org/10.1016/j.landig.2026.101001> ;
+    rdfs:subClassOf :Metric ;
+    owl:disjointWith :00084 ;
+    skos:definition "A metric that quantifies the extent to which a model’s output does not discriminate (in the societal sense, based on a given notion of fairness) against individuals or groups defined by a sensitive attribute."@en .
+
+[] a owl:AllDifferent ;
+    owl:distinctMembers ( :Combined_AmericanIndianOrAlaskaNative :Combined_Asian :Combined_BlackOrAfricanAmerican :Combined_HispanicOrLatino :Combined_MiddleEasternOrNorthAfrican :Combined_NativeHawaiianOrPacificIslander :Combined_White ) .
+
+[] a owl:AllDifferent ;
+    owl:distinctMembers ( :Calibration :ClinicalUtility :Discrimination :Overall :Partial :Summary ) .
+
+[] a owl:AllDifferent ;
+    owl:distinctMembers ( :Fairlearn :AIF360 :Aequitas :fairmodels ) .
+
+[] a owl:AllDifferent ;
+    owl:distinctMembers ( :Propriety_Proper :Propriety_SemiProper :Propriety_Improper ) .
+
+[] a owl:AllDifferent ;
+    owl:distinctMembers ( :impl_AIF360_statistical_parity_difference :impl_AIF360_disparate_impact :impl_AIF360_equal_opportunity_difference :impl_AIF360_average_abs_odds_difference :impl_AIF360_average_odds_difference :impl_AIF360_false_positive_rate_difference :impl_AIF360_false_omission_rate_difference :impl_AIF360_false_discovery_rate_difference :impl_AIF360_error_rate_ratio :impl_AIF360_error_rate_difference :impl_AIF360_between_group_generalized_entropy_index :impl_AIF360_between_group_coefficient_of_variation :impl_Fairlearn_demographic_parity_difference :impl_Fairlearn_demographic_parity_ratio :impl_Fairlearn_equalized_odds_difference :impl_Fairlearn_true_positive_rate :impl_Fairlearn_false_positive_rate :impl_Fairlearn_false_negative_rate :impl_Fairlearn_true_negative_rate :impl_Fairlearn_positive_predictive_value :impl_AIF360_accuracy ) .
+
+[] a owl:AllDifferent ;
+    owl:distinctMembers ( :FairnessDirection_Bidirectional :FairnessDirection_Higher :FairnessDirection_Lower ) .
+
+[] a owl:AllDifferent ;
+    owl:distinctMembers ( :Inadvisable :Recommended :UseWithCaution ) .
+
+[] a owl:AllDifferent ;
+    owl:distinctMembers ( :SensitiveAttributeType_Binary :SensitiveAttributeType_Continuous :SensitiveAttributeType_MultiGroup ) .
+
+[] a owl:AllDifferent ;
+    owl:distinctMembers ( :00024 :00025 :00026 :00027 :00028 :00029 :00030 :00031 :00032 :00033 :00034 :00035 :00036 :00037 :00038 :00039 :00040 :00041 :00042 :00043 :00044 :00045 :00046 :00047 :00048 :00049 :00050 :00051 :00052 :00053 :00054 :00055 :00056 :00057 :00058 :00059 :00060 :00061 :00062 :00063 :00064 :00065 :00066 :00067 :00068 :00069 :00070 :00071 :00072 :00073 :00074 :00075 :00076 :00077 :00078 :00079 :00080 :00081 :00082 :00083 ) .
+
+[] a owl:AllDifferent ;
+    owl:distinctMembers ( :Race_AmericanIndianOrAlaskaNative :Race_Asian :Race_BlackOrAfricanAmerican :Race_NativeHawaiianOrOtherPacificIslander :Race_White ) .
+
+[] a owl:AllDifferent ;
+    owl:distinctMembers ( :Gender_Male :Gender_Female :Gender_NonBinary :Gender_TransgenderMale :Gender_TransgenderFemale :Gender_NonConforming ) .
+
+[] a owl:AllDifferent ;
+    owl:distinctMembers ( :Ethnicity_HispanicOrLatino :Ethnicity_NotHispanicOrLatino ) .
+
+[] a owl:AllDifferent ;
+    owl:distinctMembers ( :Sex_Male :Sex_Female :Sex_Intersex ) .
+
+[] a owl:AllDifferent ;
+    owl:distinctMembers ( :Input_SensitiveAttribute :Input_EstimatedProbability :Input_DecisionThreshold :Input_OutcomeLabel :Input_Covariates :Input_LegitimateFeatures :Input_TimeToEvent :Input_CensoringIndicator :Input_UtilityWeight :Input_HistoricalOutcomeData ) .
+
+[] a owl:AllDifferent ;
+    owl:distinctMembers ( :AggOp_AbsoluteDifference :AggOp_Difference :AggOp_Ratio :AggOp_Maximum :AggOp_Minimum :AggOp_Mean :AggOp_Summation :AggOp_StandardDeviation :AggOp_CoefficientOfVariation :AggOp_GeneralisedEntropyIndex :AggOp_Correlation :AggOp_LogRatio :AggOp_WassersteinDistance ) .
+
+[] a owl:AllDisjointClasses ;
+    owl:members ( :EvaluationLevel :FairnessLevel :GuidanceLevel :MetricSubtype :00085 ) .
+
+[] a owl:AllDifferent ;
+    owl:distinctMembers ( :AUPRC :AUROC :Accuracy :BalancedAccuracy :BrierScore :ECE :F1Score :FDR :FNR :FOR :FPR :MCC :NPV :PPV :TNR :TPR ) .
+
