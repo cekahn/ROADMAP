@@ -3175,6 +3175,79 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                  skos:exactMatch <http://purl.obolibrary.org/obo/STATO_0000196> .
 
 
+###  https://rsna.org/roadmap/01005
+<https://rsna.org/roadmap/01005> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/01021> ;
+                                 rdfs:comment "Nationality is an international legal bond between an individual and a sovereign state. It dictates which country offers you diplomatic protection on the global stage and which country is legally required to accept your entry onto its territory. It is usually determined by birth, lineage, or naturalization. [1] (https://www.amacad.org/sites/default/files/academy/multimedia/pdfs/What-is-the-difference-between-nationality-and-citizenship_The-Economist-explains.pdf), [2] (https://www.greencardlink.com/citizenship-vs-nationality-differences/), [3] (https://ec.europa.eu/assets/home/emn-glossary/glossary.html?letters=c&detail=citizenship), [4] (https://www.moneygram.com/blog/nationality-vs-citizenship-whats-the-difference)Citizenship is a narrower domestic political status. It dictates your explicit internal rights and obligations within that country. A citizen is a national who has been granted the full spectrum of local political franchise—such as the right to vote in federal elections, run for public office, or join restricted state civil services. [1] (https://www.henleyglobal.com/newsroom/industry-insights/citizen-vs-permanent-resident), [2] (https://www.amacad.org/sites/default/files/academy/multimedia/pdfs/What-is-the-difference-between-nationality-and-citizenship_The-Economist-explains.pdf), [3] (https://www.moneygram.com/blog/nationality-vs-citizenship-whats-the-difference), [4] (https://bcalawfirm.com/permanent-residence-vs-citizenship-explained/), [5] (https://www.youtube.com/watch?v=dRGmzY59-Wg)Note on Overlap: In most western countries (like France or Germany), everyone who holds nationality is automatically a citizen. However, exceptions exist. For example, individuals born in American Samoa hold US nationality (allowing them to carry a US passport and travel freely) but are not US citizens unless they naturalize, meaning they cannot vote in federal elections."@en ;
+                                 rdfs:label "nationality"@en ;
+                                 skos:definition "Nationality is an international legal bond between an individual and a sovereign state. It dictates which country offers you diplomatic protection on the global stage and which country is legally required to accept your entry onto its territory. It is usually determined by birth, lineage, or naturalization."@en .
+
+
+###  https://rsna.org/roadmap/01006
+<https://rsna.org/roadmap/01006> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/01021> ;
+                                 rdfs:comment "Nationality is an international legal bond between an individual and a sovereign state. It dictates which country offers you diplomatic protection on the global stage and which country is legally required to accept your entry onto its territory. It is usually determined by birth, lineage, or naturalization. [1] (https://www.amacad.org/sites/default/files/academy/multimedia/pdfs/What-is-the-difference-between-nationality-and-citizenship_The-Economist-explains.pdf), [2] (https://www.greencardlink.com/citizenship-vs-nationality-differences/), [3] (https://ec.europa.eu/assets/home/emn-glossary/glossary.html?letters=c&detail=citizenship), [4] (https://www.moneygram.com/blog/nationality-vs-citizenship-whats-the-difference)Citizenship is a narrower domestic political status. It dictates your explicit internal rights and obligations within that country. A citizen is a national who has been granted the full spectrum of local political franchise—such as the right to vote in federal elections, run for public office, or join restricted state civil services. [1] (https://www.henleyglobal.com/newsroom/industry-insights/citizen-vs-permanent-resident), [2] (https://www.amacad.org/sites/default/files/academy/multimedia/pdfs/What-is-the-difference-between-nationality-and-citizenship_The-Economist-explains.pdf), [3] (https://www.moneygram.com/blog/nationality-vs-citizenship-whats-the-difference), [4] (https://bcalawfirm.com/permanent-residence-vs-citizenship-explained/), [5] (https://www.youtube.com/watch?v=dRGmzY59-Wg)Note on Overlap: In most western countries (like France or Germany), everyone who holds nationality is automatically a citizen. However, exceptions exist. For example, individuals born in American Samoa hold US nationality (allowing them to carry a US passport and travel freely) but are not US citizens unless they naturalize, meaning they cannot vote in federal elections."@en ;
+                                 rdfs:label "citizenship"@en ;
+                                 skos:definition "Citizenship is a narrower domestic political status. It dictates your explicit internal rights and obligations within that country. A citizen is a national who has been granted the full spectrum of local political franchise—such as the right to vote in federal elections, run for public office, or join restricted state civil services."@en .
+
+
+###  https://rsna.org/roadmap/01007
+<https://rsna.org/roadmap/01007> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/01021> ;
+                                 rdfs:label "country of birth"@en ;
+                                 skos:definition "Country of origin or birth tracks where an individual or their parents were born. This is the most common demographic proxy used across continental Europe to measure migration backgrounds and health disparities without asking for racial identity."@en ;
+                                 skos:exactMatch <http://purl.bioontology.org/ontology/SNOMEDCT/315354004> .
+
+
+###  https://rsna.org/roadmap/01010
+<https://rsna.org/roadmap/01010> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/01021> ;
+                                 rdfs:label "country of origin"@en ;
+                                 skos:definition "Country of origin or birth tracks where an individual or their parents were born. This is the most common demographic proxy used across continental Europe to measure migration backgrounds and health disparities without asking for racial identity."@en ;
+                                 skos:exactMatch <http://purl.bioontology.org/ontology/SNOMEDCT/276205001> .
+
+
+###  https://rsna.org/roadmap/01011
+<https://rsna.org/roadmap/01011> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03565> ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty <https://rsna.org/roadmap/00198> ;
+                                                   owl:hasValue <https://rsna.org/roadmap/00424>
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty <https://rsna.org/roadmap/00198> ;
+                                                   owl:hasValue <https://rsna.org/roadmap/00549>
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty <https://rsna.org/roadmap/00198> ;
+                                                   owl:hasValue <https://rsna.org/roadmap/00550>
+                                                 ] ;
+                                 rdfs:label "race and ethnicity information"@en .
+
+
+###  https://rsna.org/roadmap/01013
+<https://rsna.org/roadmap/01013> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/01011> ;
+                                 dcterms:source <https://www.federalregister.gov/d/97-28653> ;
+                                 rdfs:comment "Retained alongside :03441 because the two-question format remains in force in USCDI and in essentially all retrospective clinical data. Aggregating 1997 race and ethnicity into the 2024 combined categories is lossy and is not asserted here."@en ;
+                                 rdfs:label "race"@en ;
+                                 skos:definition "Race of the individual as collected separately from ethnicity, per the 1997 OMB Statistical Policy Directive 15. Values are the five CDCREC race categories."@en .
+
+
+###  https://rsna.org/roadmap/01014
+<https://rsna.org/roadmap/01014> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/01011> ;
+                                 dcterms:source <https://www.federalregister.gov/d/97-28653> ;
+                                 rdfs:label "ethnicity"@en ;
+                                 skos:definition "Ethnicity of the individual as collected separately from race, per the 1997 OMB Statistical Policy Directive 15. Values are the two CDCREC ethnicity categories."@en .
+
+
+###  https://rsna.org/roadmap/01021
+<https://rsna.org/roadmap/01021> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03565> ;
+                                 rdfs:label "nation-related information"@en .
+
+
 ###  https://rsna.org/roadmap/01039
 <https://rsna.org/roadmap/01039> rdf:type owl:Class ;
                                  owl:equivalentClass [ rdf:type owl:Restriction ;
@@ -5863,53 +5936,21 @@ D - Ethical, Legal, and Maintenance"""@en ;
 ###  https://rsna.org/roadmap/03428
 <https://rsna.org/roadmap/03428> rdf:type owl:Class ;
                                  rdfs:subClassOf <https://rsna.org/roadmap/03422> ;
+                                 rdfs:comment "Matched to SNOMED CT concepts of \"Finding related to biological sex.\""@en ;
                                  rdfs:label "sex value"@en ,
                                             "valor de sexo"@es ,
                                             "性别值"@zh ;
-                                 skos:definition "A patient's sex, which may be female, male, unknown, or not listed."@en ;
-                                 skos:exactMatch <http://www.radlex.org/RID/RID5652> .
-
-
-###  https://rsna.org/roadmap/03429
-<https://rsna.org/roadmap/03429> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/03428> ;
-                                 rdfs:label "male sex"@en ,
-                                            "sexo masculino"@es ,
-                                            "男性"@zh ;
-                                 skos:altLabel "male"@en ;
-                                 skos:definition "Male."@en ;
-                                 skos:exactMatch <http://purl.bioontology.org/ontology/LNC/LA2-8> ,
-                                                 <http://purl.bioontology.org/ontology/SNOMEDCT/248153007> ,
-                                                 <http://www.radlex.org/RID/RID5653> .
-
-
-###  https://rsna.org/roadmap/03430
-<https://rsna.org/roadmap/03430> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/03428> ;
-                                 rdfs:label "female sex"@en ,
-                                            "sexo femenino"@es ,
-                                            "女性"@zh ;
-                                 skos:altLabel "female"@en ;
-                                 skos:definition "Female."@en ;
-                                 skos:exactMatch <http://purl.bioontology.org/ontology/LNC/LA3-6> ,
-                                                 <http://purl.bioontology.org/ontology/SNOMEDCT/248152002> ,
-                                                 <http://www.radlex.org/RID/RID5654> .
-
-
-###  https://rsna.org/roadmap/03431
-<https://rsna.org/roadmap/03431> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/03428> ;
-                                 rdfs:label "sexo desconocido"@es ,
-                                            "unknown sex"@en ,
-                                            "性别未知"@zh ;
-                                 skos:altLabel "unknown"@en ;
-                                 skos:definition "The value for sex is unknown."@en .
+                                 skos:definition "A patient's biological sex.."@en ;
+                                 skos:exactMatch <http://purl.bioontology.org/ontology/SNOMEDCT/429019009> ,
+                                                 <http://www.radlex.org/RID/RID5652> .
 
 
 ###  https://rsna.org/roadmap/03432
 <https://rsna.org/roadmap/03432> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/03564> ;
-                                 rdfs:comment "Values for gender identity should include male, female, nonbinary, exploring or questioning, another not listed (specify), choose not to disclose, and unknown. CSTE recommends that the terms transgender, female to male and transgender male to female be deprecated."@en ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03564> ,
+                                                 <https://rsna.org/roadmap/03565> ;
+                                 rdfs:comment "A value set -- male, female, nonbinary, exploring or questioning, another not listed, choose not to disclose, unknown -- is the USCDI value set, which differs from the SNOMED CT value set carried below: USCDI has 'exploring or questioning' and 'choose not to disclose' but no transgender or gender non-conforming values, while the SNOMED set has the reverse. Reconciling the two is an open issue; a fairness evaluation stratified by gender identity will give different subgroups depending on which is used."@en ,
+                                              "Values for gender identity should include male, female, nonbinary, exploring or questioning, another not listed (specify), choose not to disclose, and unknown. CSTE recommends that the terms transgender, female to male and transgender male to female be deprecated."@en ;
                                  rdfs:label "gender identity"@en ,
                                             "identidad de género"@es ,
                                             "性别认同"@zh ;
@@ -5919,32 +5960,16 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                  skos:exactMatch <http://purl.bioontology.org/ontology/SNOMEDCT/33821000087103> .
 
 
-###  https://rsna.org/roadmap/03440
-<https://rsna.org/roadmap/03440> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/03428> ;
-                                 rdfs:label "sex not listed"@en ,
-                                            "sexo no registrado"@es ,
-                                            "未列出的性别"@zh ;
-                                 skos:definition "The value for sex is not listed."@en .
-
-
 ###  https://rsna.org/roadmap/03441
 <https://rsna.org/roadmap/03441> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/03565> ,
-                                                 [ rdf:type owl:Restriction ;
-                                                   owl:onProperty <https://rsna.org/roadmap/00198> ;
-                                                   owl:hasValue <https://rsna.org/roadmap/00424>
-                                                 ] ,
-                                                 [ rdf:type owl:Restriction ;
-                                                   owl:onProperty <https://rsna.org/roadmap/00198> ;
-                                                   owl:hasValue <https://rsna.org/roadmap/00549>
-                                                 ] ,
-                                                 [ rdf:type owl:Restriction ;
-                                                   owl:onProperty <https://rsna.org/roadmap/00198> ;
-                                                   owl:hasValue <https://rsna.org/roadmap/00550>
-                                                 ] ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/01011> ;
                                  rdfs:comment """Standard values for U.S.: 
-                                         Asian, Black or African American, Hispanic or Latino, Middle Eastern or North African, Native Hawaiian or Pacific Islander, White"""@en ;
++ Asian
++ Black or African American
++ Hispanic or Latino
++ Middle Eastern or North African
++ Native Hawaiian or Pacific Islander
++ White"""@en ;
                                  rdfs:label "race / ethnicity"@en ,
                                             "raza / etnicidad"@es ,
                                             "种族/民族"@zh ;
@@ -17552,6 +17577,192 @@ Tier 4: no sharing"""@en ;
                                  skos:definition "Was the predictive performance of the model evaluated appropriately, e.g., calibration, discrimination, and net benefit?"@en .
 
 
+###  https://rsna.org/roadmap/01008
+<https://rsna.org/roadmap/01008> rdf:type owl:NamedIndividual ,
+                                          <https://rsna.org/roadmap/03432> ;
+                                 rdfs:label "intersex"@en ;
+                                 skos:altLabel "disorder of sex development"@en ;
+                                 skos:definition "A sex value for an individual born with physical or genetic characteristics that are not exclusively male or female."@en ;
+                                 skos:exactMatch <http://purl.bioontology.org/ontology/SNOMEDCT/32570691000036108> ,
+                                                 <http://snomed.info/id/32570691000036108> .
+
+
+###  https://rsna.org/roadmap/01009
+<https://rsna.org/roadmap/01009> rdf:type owl:NamedIndividual ,
+                                          <https://rsna.org/roadmap/03428> ;
+                                 rdfs:label "indeterminate sex"@en ;
+                                 skos:definition "Outer genital organs are not visually male or female."@en ;
+                                 skos:exactMatch <http://purl.bioontology.org/ontology/SNOMEDCT/32570681000036106> .
+
+
+###  https://rsna.org/roadmap/01015
+<https://rsna.org/roadmap/01015> rdf:type owl:NamedIndividual ,
+                                          <https://rsna.org/roadmap/01014> ;
+                                 rdfs:comment "CDC Race and Ethnicity Code Set (CDCREC) 2186-5"@en ,
+                                              "Note that this value differs from the OMB 2024 \"Hispanic or Latino\" race/ethnicity category."@en ;
+                                 rdfs:label "Not Hispanic or Latino - ethnicity"@en .
+
+
+###  https://rsna.org/roadmap/01016
+<https://rsna.org/roadmap/01016> rdf:type owl:NamedIndividual ,
+                                          <https://rsna.org/roadmap/03441> ;
+                                 rdfs:comment "Note that this value is part of the OMB 2024 combined race/ethnicity classification, and may encode different individuals from the \"Ethnicity Hispanic or Latino\" value from the OMB 1997 two-question classification."@en ;
+                                 rdfs:label "Hispanic or Latino"@en .
+
+
+###  https://rsna.org/roadmap/01017
+<https://rsna.org/roadmap/01017> rdf:type owl:NamedIndividual ,
+                                          <https://rsna.org/roadmap/03441> ;
+                                 rdfs:label "American Indian or Alaska Native"@en ;
+                                 skos:definition "A combined race/ethnicity category defined by OMB 2024."@en .
+
+
+###  https://rsna.org/roadmap/01018
+<https://rsna.org/roadmap/01018> rdf:type owl:NamedIndividual ,
+                                          <https://rsna.org/roadmap/03441> ;
+                                 rdfs:label "Asian"@en ;
+                                 skos:definition "A combined race/ethnicity category defined by OMB 2024."@en .
+
+
+###  https://rsna.org/roadmap/01019
+<https://rsna.org/roadmap/01019> rdf:type owl:NamedIndividual ,
+                                          <https://rsna.org/roadmap/03441> ;
+                                 rdfs:label "Black or African American"@en ;
+                                 skos:definition "A combined race/ethnicity category defined by OMB 2024."@en .
+
+
+###  https://rsna.org/roadmap/01020
+<https://rsna.org/roadmap/01020> rdf:type owl:NamedIndividual ,
+                                          <https://rsna.org/roadmap/03441> ;
+                                 rdfs:label "White"@en ;
+                                 skos:definition "A combined race/ethnicity category defined by OMB 2024."@en .
+
+
+###  https://rsna.org/roadmap/01022
+<https://rsna.org/roadmap/01022> rdf:type owl:NamedIndividual ,
+                                          <https://rsna.org/roadmap/03432> ;
+                                 rdfs:label "female gender"@en ;
+                                 skos:definition "Identifies as female gender."@en ;
+                                 skos:exactMatch <http://purl.bioontology.org/ontology/SNOMEDCT/446141000124107> ,
+                                                 <http://snomed.info/id/446141000124107> .
+
+
+###  https://rsna.org/roadmap/01023
+<https://rsna.org/roadmap/01023> rdf:type owl:NamedIndividual ,
+                                          <https://rsna.org/roadmap/03432> ;
+                                 rdfs:label "male gender"@en ;
+                                 skos:definition "Identifies as male gender."@en ;
+                                 skos:exactMatch <http://purl.bioontology.org/ontology/SNOMEDCT/446151000124109> ,
+                                                 <http://snomed.info/id/446151000124109> .
+
+
+###  https://rsna.org/roadmap/01024
+<https://rsna.org/roadmap/01024> rdf:type owl:NamedIndividual ,
+                                          <https://rsna.org/roadmap/03432> ;
+                                 rdfs:label "non-binary gender"@en ;
+                                 skos:altLabel "gender non-binary"@en ;
+                                 skos:definition "Identifies as non-binary gender."@en ;
+                                 skos:exactMatch <http://purl.bioontology.org/ontology/SNOMEDCT/33791000087105> ,
+                                                 <http://snomed.info/id/33791000087105> .
+
+
+###  https://rsna.org/roadmap/01025
+<https://rsna.org/roadmap/01025> rdf:type owl:NamedIndividual ,
+                                          <https://rsna.org/roadmap/03432> ;
+                                 rdfs:label "gender non-conforming"@en ;
+                                 skos:altLabel "gender queer"@en ,
+                                               "genderqueer"@en ,
+                                               "queer"@en ;
+                                 skos:exactMatch <http://purl.bioontology.org/ontology/SNOMEDCT/446131000124102> ,
+                                                 <http://snomed.info/id/446131000124102> .
+
+
+###  https://rsna.org/roadmap/01026
+<https://rsna.org/roadmap/01026> rdf:type owl:NamedIndividual ,
+                                          <https://rsna.org/roadmap/03432> ;
+                                 rdfs:label "transgender female"@en ;
+                                 skos:altLabel "MTF transgender"@en ,
+                                               "male-to-female transgender"@en ,
+                                               "trans female"@en ,
+                                               "trans woman"@en ;
+                                 skos:definition "Transgender female (male-to-female)."@en ;
+                                 skos:exactMatch <http://purl.bioontology.org/ontology/SNOMEDCT/407376001> ,
+                                                 <http://snomed.info/id/407376001> .
+
+
+###  https://rsna.org/roadmap/01027
+<https://rsna.org/roadmap/01027> rdf:type owl:NamedIndividual ,
+                                          <https://rsna.org/roadmap/03432> ;
+                                 rdfs:label "transgender male"@en ;
+                                 skos:altLabel "FTM transgender"@en ,
+                                               "Transgender male (female-to-male)."@en ,
+                                               "female-to-male transgender"@en ,
+                                               "trans male"@en ,
+                                               "trans man"@en ;
+                                 skos:exactMatch <http://purl.bioontology.org/ontology/SNOMEDCT/407377005> ,
+                                                 <http://snomed.info/id/407377005> .
+
+
+###  https://rsna.org/roadmap/01028
+<https://rsna.org/roadmap/01028> rdf:type owl:NamedIndividual ,
+                                          <https://rsna.org/roadmap/03432> ;
+                                 rdfs:label "additional gender category or other"@en ;
+                                 skos:altLabel "Value = HL7 Null Flavor OTH."@en .
+
+
+###  https://rsna.org/roadmap/01029
+<https://rsna.org/roadmap/01029> rdf:type owl:NamedIndividual ,
+                                          <https://rsna.org/roadmap/03432> ;
+                                 rdfs:comment "Value = HL7 Null Flavor ASKU (asked but unknown)"@en ;
+                                 rdfs:label "choose not to disclose"@en ;
+                                 rdfs:seeAlso <https://isp.healthit.gov/uscdi-data/gender-identity> .
+
+
+###  https://rsna.org/roadmap/03429
+<https://rsna.org/roadmap/03429> rdf:type owl:NamedIndividual ,
+                                          <https://rsna.org/roadmap/03428> ;
+                                 rdfs:label "male sex"@en ,
+                                            "sexo masculino"@es ,
+                                            "男性"@zh ;
+                                 skos:altLabel "male"@en ;
+                                 skos:definition "Male."@en ;
+                                 skos:exactMatch <http://purl.bioontology.org/ontology/LNC/LA2-8> ,
+                                                 <http://purl.bioontology.org/ontology/SNOMEDCT/248153007> ,
+                                                 <http://www.radlex.org/RID/RID5653> .
+
+
+###  https://rsna.org/roadmap/03430
+<https://rsna.org/roadmap/03430> rdf:type owl:NamedIndividual ,
+                                          <https://rsna.org/roadmap/03428> ;
+                                 rdfs:label "female sex"@en ,
+                                            "sexo femenino"@es ,
+                                            "女性"@zh ;
+                                 skos:altLabel "female"@en ;
+                                 skos:definition "Female."@en ;
+                                 skos:exactMatch <http://purl.bioontology.org/ontology/LNC/LA3-6> ,
+                                                 <http://purl.bioontology.org/ontology/SNOMEDCT/248152002> ,
+                                                 <http://www.radlex.org/RID/RID5654> .
+
+
+###  https://rsna.org/roadmap/03431
+<https://rsna.org/roadmap/03431> rdf:type owl:NamedIndividual ,
+                                          <https://rsna.org/roadmap/03428> ;
+                                 rdfs:label "sexo desconocido"@es ,
+                                            "unknown sex"@en ,
+                                            "性别未知"@zh ;
+                                 skos:altLabel "unknown"@en ;
+                                 skos:definition "The value for sex is unknown."@en .
+
+
+###  https://rsna.org/roadmap/03440
+<https://rsna.org/roadmap/03440> rdf:type owl:NamedIndividual ,
+                                          <https://rsna.org/roadmap/03428> ;
+                                 rdfs:label "sex not listed"@en ,
+                                            "sexo no registrado"@es ,
+                                            "未列出的性别"@zh ;
+                                 skos:definition "The value for sex is not listed."@en .
+
+
 ###  https://rsna.org/roadmap/03468
 <https://rsna.org/roadmap/03468> rdf:type owl:NamedIndividual ,
                                           <https://rsna.org/roadmap/03467> ;
@@ -17666,45 +17877,51 @@ Tier 4: no sharing"""@en ;
 
 ###  https://rsna.org/roadmap/03856
 <https://rsna.org/roadmap/03856> rdf:type owl:NamedIndividual ,
-                                          <https://rsna.org/roadmap/03441> ;
-                                 rdfs:label "Asian"@en .
+                                          <https://rsna.org/roadmap/01013> ;
+                                 rdfs:comment "Note that in the two-question OMB 1997 scheme, a person could be classified as this \"race\" category and as Hispanic or Latino. In the OMB 2024 scheme, they are separate race/ethnicity categories."@en ;
+                                 rdfs:label "Asian - race"@en .
 
 
 ###  https://rsna.org/roadmap/03857
 <https://rsna.org/roadmap/03857> rdf:type owl:NamedIndividual ,
-                                          <https://rsna.org/roadmap/03441> ;
-                                 rdfs:label "Black or African American"@en .
+                                          <https://rsna.org/roadmap/01013> ;
+                                 rdfs:comment "Note that in the two-question OMB 1997 scheme, a person could be classified as this \"race\" category and as Hispanic or Latino. In the OMB 2024 scheme, they are separate race/ethnicity categories."@en ;
+                                 rdfs:label "Black or African American - race"@en .
 
 
 ###  https://rsna.org/roadmap/03858
 <https://rsna.org/roadmap/03858> rdf:type owl:NamedIndividual ,
-                                          <https://rsna.org/roadmap/03441> ;
-                                 rdfs:label "Hispanic or Latino"@en .
+                                          <https://rsna.org/roadmap/01014> ;
+                                 rdfs:comment "CDC Race and Ethnicity Code Set (CDCREC) 2135-2"@en ,
+                                              "Note that this value differs from the OMB 2024 \"Hispanic or Latino\" race/ethnicity category."@en ;
+                                 rdfs:label "Hispanic or Latino - ethnicity"@en .
 
 
 ###  https://rsna.org/roadmap/03859
 <https://rsna.org/roadmap/03859> rdf:type owl:NamedIndividual ,
                                           <https://rsna.org/roadmap/03441> ;
-                                 rdfs:label "Middle Eastern or North African"@en .
+                                 rdfs:label "Middle Eastern or North African"@en ;
+                                 skos:definition "A combined race/ethnicity category defined by OMB 2024."@en .
 
 
 ###  https://rsna.org/roadmap/03860
 <https://rsna.org/roadmap/03860> rdf:type owl:NamedIndividual ,
-                                          <https://rsna.org/roadmap/03441> ;
-                                 rdfs:label "Native Hawaiian or Pacific Islander"@en .
+                                          <https://rsna.org/roadmap/01013> ;
+                                 rdfs:label "Native Hawaiian or Pacific Islander - race"@en .
 
 
 ###  https://rsna.org/roadmap/03861
 <https://rsna.org/roadmap/03861> rdf:type owl:NamedIndividual ,
-                                          <https://rsna.org/roadmap/03441> ;
-                                 rdfs:label "White"@en ;
+                                          <https://rsna.org/roadmap/01013> ;
+                                 rdfs:comment "Note that in the two-question OMB 1997 scheme, a person could be classified as this \"race\" category and as Hispanic or Latino. In the OMB 2024 scheme, they are separate race/ethnicity categories."@en ;
+                                 rdfs:label "White - race"@en ;
                                  skos:altLabel "Caucasian"@en .
 
 
 ###  https://rsna.org/roadmap/03866
 <https://rsna.org/roadmap/03866> rdf:type owl:NamedIndividual ,
-                                          <https://rsna.org/roadmap/03441> ;
-                                 rdfs:label "American Indian or Alaska Native"@en .
+                                          <https://rsna.org/roadmap/01013> ;
+                                 rdfs:label "American Indian or Alaska Native - race"@en .
 
 
 ###  https://rsna.org/roadmap/03910
@@ -17948,15 +18165,6 @@ Tier 4: no sharing"""@en ;
                 <https://rsna.org/roadmap/00661>
                 <https://rsna.org/roadmap/00664>
                 <https://rsna.org/roadmap/00666>
-              )
-] .
-
-
-[ rdf:type owl:AllDisjointClasses ;
-  owl:members ( <https://rsna.org/roadmap/03429>
-                <https://rsna.org/roadmap/03430>
-                <https://rsna.org/roadmap/03431>
-                <https://rsna.org/roadmap/03440>
               )
 ] .
 
