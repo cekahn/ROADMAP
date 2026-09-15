@@ -1001,7 +1001,7 @@ roadmap:03432 rdfs:seeAlso :GenderIdentityValue .
     rdfs:label "intersectional sensitive attribute"@en ;
     dcterms:source <https://doi.org/10.1016/j.landig.2026.101001> ;
     skos:definition "A sensitive attribute formed by the intersection of two or more base sensitive attribute values (e.g. age x race x sex), capturing overlapping disadvantage that is invisible when each axis is examined separately."@en ;
-    rdfs:comment "ROADMAP has no construct for combining patient descriptors, so this is supplied here and proposed for upstreaming. Only 3 of the 60 fairness metrics in this extension support intersectional analysis."@en ;
+    rdfs:comment "ROADMAP has no construct for combining patient descriptors, so this is supplied here and proposed for upstreaming. Only 3 of the 59 fairness metrics in this extension support intersectional analysis."@en ;
     rdfs:subClassOf roadmap:03422 .
 
 :IntersectionalExample_ElderlyBlackWoman a owl:NamedIndividual ,
@@ -1797,38 +1797,6 @@ roadmap:03339 rdfs:subClassOf :StandardMetric ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_EstimatedProbability ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_SensitiveAttribute ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_TimeToEvent ] .
-
-### :00036  children metrics
-:00036 a owl:Class ;
-    rdfs:label "children metrics"@en ;
-    skos:definition "A family of metrics extending statistical/demographic parity beyond the binary case: multi-group demographic parity generalises it to categorical sensitive attributes, generalised demographic parity (GDP) extends it to continuous sensitive attributes, and statistical parity subgroup fairness weights the positive-prediction-rate disparity by subgroup representation."@en ;
-    dcterms:source <https://doi.org/10.1109/ICDE48307.2020.00203> ;
-    dcterms:source <https://openreview.net/forum?id=YigKlMJwjye> ;
-    :hasTargetValue "0" ;
-    :hasGuidanceRationale "Family of statistical-parity-derived metrics (intersectional/generalised demographic parity variants)."@en ;
-    # demographic parity
-    :hasRelatedMetric roadmap:03228 ;
-    # statistical parity
-    :hasParentMetric :00073 ;
-    rdfs:subClassOf :00023 ,
-        roadmap:03302 ,
-        [ a owl:Restriction ; owl:onProperty :hasFairnessLevel ; owl:hasValue :GroupFairness ] ,
-        [ a owl:Restriction ; owl:onProperty :hasEvaluationLevel ; owl:hasValue :00089 ] ,
-        [ a owl:Restriction ; owl:onProperty :hasPerformanceDependence ; owl:hasValue :00087 ] ,
-        [ a owl:Restriction ; owl:onProperty :hasBiasPreservationProperty ; owl:hasValue :BiasPreservationProperty_Transforming ] ,
-        [ a owl:Restriction ; owl:onProperty :hasAggregationOperator ; owl:hasValue :AggOp_Summation ] ,
-        [ a owl:Restriction ; owl:onProperty :hasFairnessDirection ; owl:hasValue :FairnessDirection_Lower ] ,
-        [ a owl:Restriction ; owl:onProperty :hasSupportedSensitiveAttributeType ; owl:hasValue :SensitiveAttributeType_Continuous ] ,
-        [ a owl:Restriction ; owl:onProperty :hasGuidanceLevel ; owl:hasValue :UseWithCaution ] ,
-        [ a owl:Restriction ; owl:onProperty :dependsOnPrevalence ; owl:hasValue "true"^^xsd:boolean ] ,
-        [ a owl:Restriction ; owl:onProperty :proposedForHealthcare ; owl:hasValue "false"^^xsd:boolean ] ,
-        [ a owl:Restriction ; owl:onProperty :supportsIntersectionalAnalysis ; owl:hasValue "true"^^xsd:boolean ] ,
-        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:decimal ] ,
-        [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_DecisionThreshold ] ,
-        [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_EstimatedProbability ] ,
-        [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_SensitiveAttribute ] ,
-        [ a owl:Restriction ; owl:onProperty :hasImplementation ; owl:hasValue :impl_AIF360_statistical_parity_difference ] ,
-        [ a owl:Restriction ; owl:onProperty :hasImplementation ; owl:hasValue :impl_Fairlearn_demographic_parity_difference ] .
 
 ### :00037  concordance imparity
 :00037 a owl:Class ;
@@ -3232,9 +3200,18 @@ roadmap:03339 rdfs:subClassOf :StandardMetric ,
 ###    imperfect model), sourced to Kleinberg et al. 2016/2017 and Chouldechova 2017.
 ###    :incompatibleWith itself is kept as a lightweight, unconditional shortcut between the two
 ###    metric classes.
-###  - :supportsIntersectionalAnalysis is now asserted on all 60 metrics (true on 3, false on the
-###    other 57), matching how :dependsOnPrevalence and :proposedForHealthcare are handled: absence
+###  - :supportsIntersectionalAnalysis is now asserted on all 59 metrics (true on 3, false on the
+###    other 56), matching how :dependsOnPrevalence and :proposedForHealthcare are handled: absence
 ###    no longer needs to be read differently across the three boolean properties.
+###  - :00036 ("children metrics") is deleted. It bundled three distinct, unrelated metrics
+###    (multi-group demographic parity, generalised demographic parity, statistical parity
+###    subgroup fairness) under one class and one shared set of restrictions that did not hold for
+###    all three (e.g. hasSupportedSensitiveAttributeType = Continuous is wrong for multi-group
+###    demographic parity), carried :hasImplementation values that compute plain binary statistical
+###    parity rather than any of the three, and cited 10.1109/ICDE48307.2020.00203 - which is
+###    Foulds et al.'s Differential Fairness paper, a distinct metric not mentioned in the
+###    definition at all - for a claim the paper does not make. It had no incoming references. The
+###    catalogue is 59 metrics as a result; every "of the 60" figure below has been corrected to 59.
 ###  - roadmap:optimum's 55 numeric-target assertions were typed inconsistently (53 as
 ###    xsd:integer, 2 as xsd:decimal) against the property's own xsd:decimal range; all 55 are now
 ###    xsd:decimal.
@@ -3245,7 +3222,7 @@ roadmap:03339 rdfs:subClassOf :StandardMetric ,
 ###    opportunity difference, negative predictive value difference, overall accuracy gap,
 ###    predictive equality, predictive parity); several are ratio-valued where the ontology's own
 ###    metric is difference-valued; and both toolkits are noted on the implementation individual.
-###    Coverage is still 13 of 60 metrics: the other 47 (e.g. xAUROC, HEAL, pairwise ranking
+###    Coverage is still 13 of 59 metrics: the other 46 (e.g. xAUROC, HEAL, pairwise ranking
 ###    fairness) have no known off-the-shelf toolkit implementation to record, in any toolkit.
 ###  - CDCREC codes for ROADMAP's seven OMB 2024 combined race/ethnicity values were checked
 ###    against CDC/NCHS's Race and Ethnicity Code System Version 1.3 background paper (October
@@ -3269,7 +3246,7 @@ roadmap:03339 rdfs:subClassOf :StandardMetric ,
 ###  1. Guidance levels are editorial judgements from a single appraisal. They are asserted here
 ###     as class restrictions and therefore cannot be versioned or attributed independently of the
 ###     ontology. They should move to a separate, dated recommendation resource.
-###  2. Five of the 60 target values are not plain numbers ("range (e^-eps, e^eps)", "0 (< 0.2)",
+###  2. Five of the 59 target values are not plain numbers ("range (e^-eps, e^eps)", "0 (< 0.2)",
 ###     "AUROC", "1 - prevalence", "Max Recall") and so have no roadmap:optimum restriction. This
 ###     is a limit of the source catalogue's own targets, not a gap expected to close.
 ###  3. Local identifiers mix numeric (:00023), CamelCase (:GroupFairness) and delimited lowercase
