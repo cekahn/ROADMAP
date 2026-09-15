@@ -21,7 +21,7 @@
                    <https://doi.org/10.17605/OSF.IO/Z83ND> ,
                    <https://doi.org/10.1148/ryai.260069> ,
                    <https://doi.org/10.1148/ryai.260070> ;
-    dcterms:modified "2026-09-14T00:00:00Z" ;
+    dcterms:modified "2026-09-15T00:00:00Z" ;
     rdfs:seeAlso <https://bioportal.bioontology.org/ontologies/ROADMAP> ;
     owl:versionInfo "2026-09" ;
     rdfs:comment """Namespace note: this ontology was previously published under the base IRI https://gamuts.net/fairness-metrics/. Local identifiers are unchanged; only the namespace has moved. Consumers of the earlier release should rewrite that prefix to https://rsna.org/roadmap/fairness/."""@en .
@@ -73,7 +73,7 @@ skos:relatedMatch rdf:type owl:AnnotationProperty .
 :incompatibleWith rdf:type owl:AnnotationProperty ;
     rdfs:label "incompatible with"@en ;
     dcterms:source <https://doi.org/10.1016/j.landig.2026.101001> ;
-    rdfs:comment "Indicates that two fairness metrics cannot in general be satisfied simultaneously (mutual-satisfiability / impossibility results). These incompatibilities are CONDITIONAL: they hold when outcome prevalence differs across the groups defined by the sensitive attribute and the model is not perfectly accurate. The conditions are not yet representable; see the open-issues note. Sources: Kleinberg et al. 2016; Chouldechova 2017."@en .
+    rdfs:comment "Indicates that two fairness metrics cannot in general be satisfied simultaneously (mutual-satisfiability / impossibility results). These incompatibilities are CONDITIONAL: they hold when outcome prevalence differs across the groups defined by the sensitive attribute and the model is not perfectly accurate. Retained as a lightweight, symmetric shortcut between the two metric classes; the conditions themselves are represented on the corresponding :MetricIncompatibility individual (see the Metric incompatibilities section), which every asserted pair here also has. Sources: Kleinberg et al. 2016; Chouldechova 2017."@en .
 
 :shouldBePairedWith rdf:type owl:AnnotationProperty ;
     rdfs:label "should be paired with"@en ;
@@ -100,6 +100,13 @@ skos:relatedMatch rdf:type owl:AnnotationProperty .
     rdfs:label "combines attribute"@en ;
     rdfs:comment "Links an intersectional sensitive attribute to each base sensitive-attribute value it combines (e.g. a 'Black women' subgroup combines the race value 'Black or African American' and the gender value 'identifies as female gender'). Values are individuals of the axis subclasses and hence of SensitiveAttribute."@en ;
     rdfs:domain :IntersectionalSensitiveAttribute ;
+    rdfs:range :SensitiveAttribute .
+
+:forSensitiveAttributeValue rdf:type owl:ObjectProperty ;
+    rdfs:label "for sensitive attribute value"@en ;
+    dcterms:source <https://doi.org/10.1016/j.landig.2026.101001> ;
+    rdfs:comment "Links a ROADMAP model performance instance (roadmap:03808) to the sensitive attribute value defining the subgroup it was measured on, so that a fairness metric's per-group results can be recorded as instances rather than only characterised at the class level (see the open-issues note). Non-functional, so an intersectional result can name each combined value directly instead of only via an :IntersectionalSensitiveAttribute individual."@en ;
+    rdfs:domain roadmap:03808 ;
     rdfs:range :SensitiveAttribute .
 
 :hasAggregationOperator rdf:type owl:ObjectProperty , owl:FunctionalProperty ;
@@ -185,6 +192,23 @@ skos:relatedMatch rdf:type owl:AnnotationProperty .
     rdfs:domain roadmap:03642 ;
     rdfs:range :MetricInput .
 
+###  n-ary relation pattern for :incompatibleWith (see the Metric incompatibilities section). A
+###  :MetricIncompatibility individual reifies one impossibility result so its triggering
+###  conditions can be stated; the bare :incompatibleWith annotation above is kept in parallel as
+###  an unconditional, queryable shortcut between the same two metric classes.
+
+:incompatibleMetric rdf:type owl:ObjectProperty ;
+    rdfs:label "incompatible metric"@en ;
+    rdfs:comment "Links a :MetricIncompatibility individual to one of the two fairness metric classes it relates. Non-functional and symmetric in effect: asserted exactly twice per individual, once for each metric in the pair."@en ;
+    rdfs:domain :MetricIncompatibility ;
+    rdfs:range :00023 .
+
+:requiresCondition rdf:type owl:ObjectProperty ;
+    rdfs:label "requires condition"@en ;
+    rdfs:comment "Links a :MetricIncompatibility individual to a condition that must hold for the impossibility result to apply. Non-functional: some results require more than one condition to hold jointly."@en ;
+    rdfs:domain :MetricIncompatibility ;
+    rdfs:range :IncompatibilityCondition .
+
 ##############################################################################
 #    Data properties
 ##############################################################################
@@ -227,6 +251,12 @@ skos:relatedMatch rdf:type owl:AnnotationProperty .
     rdfs:domain :CodeSystem ;
     rdfs:range xsd:anyURI .
 
+:toolkitVersion rdf:type owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:label "toolkit version"@en ;
+    rdfs:comment "The toolkit release that :functionName and :hasImplementation assertions for this toolkit were verified against. Function names and signatures can change between releases, so this pins the verification, not a requirement to run that exact version."@en ;
+    rdfs:domain :SoftwareToolkit ;
+    rdfs:range xsd:string .
+
 :uscdiDataElement rdf:type owl:DatatypeProperty ;
     rdfs:label "USCDI data element"@en ;
     rdfs:comment "The corresponding data element in the United States Core Data for Interoperability (USCDI), the version adopted by the ONC HTI-1 final rule."@en ;
@@ -260,6 +290,15 @@ skos:relatedMatch rdf:type owl:AnnotationProperty .
 :CodeSystem a owl:Class ;
     rdfs:label "code system"@en ;
     skos:definition "A controlled terminology or code system from which coded values are drawn."@en .
+
+:MetricIncompatibility a owl:Class ;
+    rdfs:label "metric incompatibility"@en ;
+    dcterms:source <https://doi.org/10.1016/j.landig.2026.101001> ;
+    skos:definition "A reified impossibility result: a pair of fairness metrics that cannot in general be jointly satisfied, together with the conditions under which that holds. An n-ary relation, since the plain :incompatibleWith annotation between the two metric classes cannot itself carry the conditions."@en .
+
+:IncompatibilityCondition a owl:Class ;
+    rdfs:label "incompatibility condition"@en ;
+    skos:definition "A condition whose presence is required for an asserted :MetricIncompatibility to hold."@en .
 
 :MetricImplementation a owl:Class ;
     rdfs:label "metric implementation"@en ;
@@ -782,6 +821,7 @@ roadmap:03591 rdfs:subClassOf :SensitiveAttribute .   # geographic descriptor
     skos:definition "Race of the individual as collected separately from ethnicity, per the 1997 OMB Statistical Policy Directive 15. Values are the five CDCREC race categories."@en ;
     rdfs:comment "Retained alongside roadmap:03441 because the two-question format remains in force in USCDI and in essentially all retrospective clinical data. Aggregating 1997 race and ethnicity into the 2024 combined categories is lossy and is not asserted here."@en ;
     :uscdiDataElement "Race" ;
+    :loincQuestionCode "72826-1" ;
     rdfs:subClassOf roadmap:03441 .
 
 :Ethnicity a owl:Class ;
@@ -789,6 +829,7 @@ roadmap:03591 rdfs:subClassOf :SensitiveAttribute .   # geographic descriptor
     dcterms:source <https://www.federalregister.gov/d/97-28653> ;
     skos:definition "Ethnicity of the individual as collected separately from race, per the 1997 OMB Statistical Policy Directive 15. Values are the two CDCREC ethnicity categories."@en ;
     :uscdiDataElement "Ethnicity" ;
+    :loincQuestionCode "69490-1" ;
     rdfs:subClassOf roadmap:03441 .
 
 :Race_AmericanIndianOrAlaskaNative a owl:NamedIndividual ,
@@ -849,8 +890,12 @@ roadmap:03591 rdfs:subClassOf :SensitiveAttribute .   # geographic descriptor
 ###  ROADMAP's seven roadmap:03441 individuals carry a label and nothing else. CDCREC codes for
 ###  the 2024 combined value set are not asserted here because the ones above belong to the 1997
 ###  value set and are not valid for the combined categories; "Middle Eastern or North African"
-###  has no 1997 code at all. Supplying these requires a current CDCREC / SPD-15 release and is
-###  listed as an open issue.
+###  has no 1997 code at all. Checked against CDC/NCHS's own account of the code system
+###  (Race and Ethnicity Code System Version 1.3 background paper, October 2024): CDCREC 1.3 is
+###  explicitly NOT yet aligned to the March 2024 SPD-15 revision, and CDC/NCHS describe that
+###  alignment as future work. No current, verifiable CDCREC code therefore exists for any of the
+###  seven combined categories; supplying these remains an open issue pending that release, to be
+###  re-checked against the CDCREC version current at the time.
 
 ###  Sex.
 ###
@@ -859,6 +904,25 @@ roadmap:03591 rdfs:subClassOf :SensitiveAttribute .   # geographic descriptor
 ###  two. The previous release of this extension duplicated male and female as individuals with
 ###  the same SNOMED codes (248153007, 248152002); those duplicates are removed. Only intersex,
 ###  which ROADMAP lacks, is added.
+###
+###  Codes for the remaining two roadmap:03428 values (unknown sex, sex not listed), using the
+###  HL7 AdministrativeGender code system declared above but previously unused. AdministrativeGender
+###  has exactly 4 values (male, female, other, unknown), so male/female need no new mapping here.
+
+roadmap:03431 :code "unknown" ;
+    :inCodeSystem :codesystem_HL7AdministrativeGender .
+
+roadmap:03440 :code "other" ;
+    :inCodeSystem :codesystem_HL7AdministrativeGender ;
+    rdfs:comment "Close, not exact: HL7 AdministrativeGender's 'other' denotes a gender that could not be classified as male or female (e.g. indeterminate), which is narrower than ROADMAP's 'value is not listed'."@en .
+
+###  LOINC question codes for the sex and gender identity axes (issue: :loincQuestionCode was
+###  declared but unpopulated). Verified against current LOINC content: 76689-9 is the "Sex
+###  assigned at birth" question and 76691-5 the "Gender identity" question.
+
+roadmap:03425 :loincQuestionCode "76689-9" .   # sex assigned at birth
+
+roadmap:03432 :loincQuestionCode "76691-5" .   # gender identity
 
 :Sex_IntersexValue a owl:Class ;
     rdfs:label "intersex"@en ;
@@ -948,6 +1012,66 @@ roadmap:03432 rdfs:seeAlso :GenderIdentityValue .
                        :Race_BlackOrAfricanAmerican ;
     rdfs:comment "The age component of this example cannot be asserted. ROADMAP represents age bands as CLASSES under age group (roadmap:03449), so 'adult 65 years and over' (roadmap:03458) cannot be the object of :combinesAttribute, whose range is a value individual. This is the clearest consequence of ROADMAP's inconsistent treatment of values and is recorded as an open issue."@en .
 
+:Example_EqualisedOddsResult_BlackPatients a owl:NamedIndividual ,
+                                             roadmap:03808 ;
+    rdfs:label "equalised odds difference, Black or African American patients (illustrative)"@en ;
+    skos:definition "An illustrative roadmap:03808 model performance instance showing how a fairness metric's per-subgroup result is recorded using :forSensitiveAttributeValue: the metric (via roadmap:03709), its observed value (via roadmap:03843), and the sensitive attribute value defining the subgroup it was measured on."@en ;
+    roadmap:03709 :00046 ;
+    roadmap:03843 "0.04"^^xsd:decimal ;
+    :forSensitiveAttributeValue :Race_BlackOrAfricanAmerican .
+
+
+##############################################################################
+#    Metric incompatibilities
+#
+#    Reifies the 3 :incompatibleWith pairs asserted on equalised odds (:00046) so that the
+#    conditions under which each impossibility result holds can be stated. Per Kleinberg et al.
+#    2016/2017 and Chouldechova 2017, all 3 require BOTH conditions below to hold jointly.
+##############################################################################
+
+:Condition_UnequalPrevalence a owl:NamedIndividual ,
+                               :IncompatibilityCondition ;
+    rdfs:label "unequal outcome prevalence across groups"@en ;
+    skos:definition "The base outcome prevalence differs across the groups defined by the sensitive attribute."@en .
+
+:Condition_ImperfectModel a owl:NamedIndividual ,
+                            :IncompatibilityCondition ;
+    rdfs:label "imperfect model"@en ;
+    skos:definition "The model is not a perfect predictor, i.e. it does not achieve error-free classification for every group."@en .
+
+:Incompatibility_EqualisedOdds_EqualCalibration a owl:NamedIndividual ,
+                                                  :MetricIncompatibility ;
+    rdfs:label "equalised odds / equal calibration incompatibility"@en ;
+    skos:definition "Equalised odds and equal calibration cannot both hold when outcome prevalence differs across groups and the model is not a perfect predictor."@en ;
+    dcterms:source <https://doi.org/10.4230/LIPIcs.ITCS.2017.43> ,
+                   <https://doi.org/10.1089/big.2016.0047> ;
+    :incompatibleMetric :00046 ,
+                        :00044 ;
+    :requiresCondition :Condition_UnequalPrevalence ,
+                       :Condition_ImperfectModel .
+
+:Incompatibility_EqualisedOdds_PredictiveParity a owl:NamedIndividual ,
+                                                  :MetricIncompatibility ;
+    rdfs:label "equalised odds / predictive parity incompatibility"@en ;
+    skos:definition "Equalised odds and predictive parity cannot both hold when outcome prevalence differs across groups and the model is not a perfect predictor."@en ;
+    dcterms:source <https://doi.org/10.4230/LIPIcs.ITCS.2017.43> ,
+                   <https://doi.org/10.1089/big.2016.0047> ;
+    :incompatibleMetric :00046 ,
+                        :00064 ;
+    :requiresCondition :Condition_UnequalPrevalence ,
+                       :Condition_ImperfectModel .
+
+:Incompatibility_EqualisedOdds_WellCalibration a owl:NamedIndividual ,
+                                                 :MetricIncompatibility ;
+    rdfs:label "equalised odds / well calibration incompatibility"@en ;
+    skos:definition "Equalised odds and well calibration cannot both hold when outcome prevalence differs across groups and the model is not a perfect predictor."@en ;
+    dcterms:source <https://doi.org/10.4230/LIPIcs.ITCS.2017.43> ,
+                   <https://doi.org/10.1089/big.2016.0047> ;
+    :incompatibleMetric :00046 ,
+                        :00080 ;
+    :requiresCondition :Condition_UnequalPrevalence ,
+                       :Condition_ImperfectModel .
+
 
 ##############################################################################
 #    Software toolkits and metric implementations
@@ -956,22 +1080,26 @@ roadmap:03432 rdfs:seeAlso :GenderIdentityValue .
 :AIF360 a owl:NamedIndividual ,
           :SoftwareToolkit ;
     rdfs:label "AI Fairness 360 (AIF360)"@en ;
-    rdfs:seeAlso <https://aif360.res.ibm.com> .
+    rdfs:seeAlso <https://aif360.res.ibm.com> ;
+    :toolkitVersion "0.6.1" .
 
 :Aequitas a owl:NamedIndividual ,
             :SoftwareToolkit ;
     rdfs:label "Aequitas"@en ;
-    rdfs:seeAlso <http://aequitas.dssg.io> .
+    rdfs:seeAlso <http://aequitas.dssg.io> ;
+    :toolkitVersion "1.1.0" .
 
 :Fairlearn a owl:NamedIndividual ,
              :SoftwareToolkit ;
     rdfs:label "Fairlearn"@en ;
-    rdfs:seeAlso <https://fairlearn.org> .
+    rdfs:seeAlso <https://fairlearn.org> ;
+    :toolkitVersion "0.12.0" .
 
 :fairmodels a owl:NamedIndividual ,
               :SoftwareToolkit ;
     rdfs:label "fairmodels (R)"@en ;
-    rdfs:seeAlso <https://fairmodels.drwhy.ai> .
+    rdfs:seeAlso <https://fairmodels.drwhy.ai> ;
+    :toolkitVersion "1.2.2" .
 
 :impl_AIF360_accuracy a owl:NamedIndividual ,
                         :MetricImplementation ;
@@ -1101,6 +1229,76 @@ roadmap:03432 rdfs:seeAlso :GenderIdentityValue .
     rdfs:label "Fairlearn: true_positive_rate()"@en ;
     :functionName "true_positive_rate" ;
     :providedByToolkit :Fairlearn .
+
+:impl_Aequitas_pprev_disparity a owl:NamedIndividual ,
+                                 :MetricImplementation ;
+    rdfs:label "Aequitas: Bias().get_disparity_*() pprev_disparity"@en ;
+    skos:definition "Ratio of predicted prevalence (predicted-positive rate within each group) between a group and the reference group; matches disparate impact's own ratio framing directly."@en ;
+    :functionName "pprev_disparity" ;
+    :providedByToolkit :Aequitas .
+
+:impl_Aequitas_fdr_disparity a owl:NamedIndividual ,
+                               :MetricImplementation ;
+    rdfs:label "Aequitas: Bias().get_disparity_*() fdr_disparity"@en ;
+    skos:definition "Ratio of false discovery rate between a group and the reference group (target 1), reported alongside predictive parity here, which is defined as an absolute DIFFERENCE in positive predictive value (target 0); FDR = 1 - PPV, and a ratio is not a difference, so the two are related but not numerically interchangeable."@en ;
+    :functionName "fdr_disparity" ;
+    :providedByToolkit :Aequitas .
+
+:impl_Aequitas_for_disparity a owl:NamedIndividual ,
+                               :MetricImplementation ;
+    rdfs:label "Aequitas: Bias().get_disparity_*() for_disparity"@en ;
+    skos:definition "Ratio of false omission rate between a group and the reference group (target 1), reported alongside negative predictive value difference here, which is defined as an absolute DIFFERENCE (target 0); NPV = 1 - FOR, and a ratio is not a difference, so the two are related but not numerically interchangeable."@en ;
+    :functionName "for_disparity" ;
+    :providedByToolkit :Aequitas .
+
+:impl_Aequitas_fpr_disparity a owl:NamedIndividual ,
+                               :MetricImplementation ;
+    rdfs:label "Aequitas: Bias().get_disparity_*() fpr_disparity"@en ;
+    skos:definition "Ratio of false positive rate between a group and the reference group (target 1), reported alongside predictive equality here, which is defined as an absolute DIFFERENCE (target 0); related but not numerically interchangeable."@en ;
+    :functionName "fpr_disparity" ;
+    :providedByToolkit :Aequitas .
+
+:impl_Aequitas_fnr_disparity a owl:NamedIndividual ,
+                               :MetricImplementation ;
+    rdfs:label "Aequitas: Bias().get_disparity_*() fnr_disparity"@en ;
+    skos:definition "Ratio of false negative rate between a group and the reference group (target 1), reported alongside equal opportunity difference here, which is defined as an absolute DIFFERENCE in true positive rate (target 0); FNR = 1 - TPR, and a ratio is not a difference, so the two are related but not numerically interchangeable."@en ;
+    :functionName "fnr_disparity" ;
+    :providedByToolkit :Aequitas .
+
+:impl_fairmodels_STP a owl:NamedIndividual ,
+                       :MetricImplementation ;
+    rdfs:label "fairmodels: fairness_check() [STP]"@en ;
+    skos:definition "Statistical Parity ratio (predicted-positive rate, unprivileged/privileged) from the fairness_object produced by fairness_check(); matches disparate impact's own ratio framing directly."@en ;
+    :functionName "fairness_check" ;
+    :providedByToolkit :fairmodels .
+
+:impl_fairmodels_TPR a owl:NamedIndividual ,
+                       :MetricImplementation ;
+    rdfs:label "fairmodels: fairness_check() [TPR]"@en ;
+    skos:definition "Equal Opportunity ratio (true positive rate, unprivileged/privileged, target 1) from fairness_check(); reported alongside equal opportunity difference here, which is defined as an absolute DIFFERENCE (target 0), so the two are related but not numerically interchangeable."@en ;
+    :functionName "fairness_check" ;
+    :providedByToolkit :fairmodels .
+
+:impl_fairmodels_PPV a owl:NamedIndividual ,
+                       :MetricImplementation ;
+    rdfs:label "fairmodels: fairness_check() [PPV]"@en ;
+    skos:definition "Predictive Parity ratio (positive predictive value, unprivileged/privileged, target 1) from fairness_check(); reported alongside predictive parity here, which is defined as an absolute DIFFERENCE (target 0), so the two are related but not numerically interchangeable."@en ;
+    :functionName "fairness_check" ;
+    :providedByToolkit :fairmodels .
+
+:impl_fairmodels_FPR a owl:NamedIndividual ,
+                       :MetricImplementation ;
+    rdfs:label "fairmodels: fairness_check() [FPR]"@en ;
+    skos:definition "Predictive Equality ratio (false positive rate, unprivileged/privileged, target 1) from fairness_check(); reported alongside predictive equality here, which is defined as an absolute DIFFERENCE (target 0), so the two are related but not numerically interchangeable."@en ;
+    :functionName "fairness_check" ;
+    :providedByToolkit :fairmodels .
+
+:impl_fairmodels_ACC a owl:NamedIndividual ,
+                       :MetricImplementation ;
+    rdfs:label "fairmodels: fairness_check() [ACC]"@en ;
+    skos:definition "Overall Accuracy Equality ratio (accuracy, unprivileged/privileged, target 1) from fairness_check(); reported alongside overall accuracy gap here, which is defined as an absolute DIFFERENCE (target 0), so the two are related but not numerically interchangeable."@en ;
+    :functionName "fairness_check" ;
+    :providedByToolkit :fairmodels .
 
 ##############################################################################
 #    Extension axioms on ROADMAP base metrics
@@ -1270,7 +1468,8 @@ roadmap:03339 rdfs:subClassOf :StandardMetric ,
         [ a owl:Restriction ; owl:onProperty :hasGuidanceLevel ; owl:hasValue :UseWithCaution ] ,
         [ a owl:Restriction ; owl:onProperty :dependsOnPrevalence ; owl:hasValue "true"^^xsd:boolean ] ,
         [ a owl:Restriction ; owl:onProperty :proposedForHealthcare ; owl:hasValue "true"^^xsd:boolean ] ,
-        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:integer ] ,
+        [ a owl:Restriction ; owl:onProperty :supportsIntersectionalAnalysis ; owl:hasValue "false"^^xsd:boolean ] ,
+        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:decimal ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_EstimatedProbability ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_OutcomeLabel ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_SensitiveAttribute ] .
@@ -1297,7 +1496,8 @@ roadmap:03339 rdfs:subClassOf :StandardMetric ,
         [ a owl:Restriction ; owl:onProperty :hasGuidanceLevel ; owl:hasValue :Inadvisable ] ,
         [ a owl:Restriction ; owl:onProperty :dependsOnPrevalence ; owl:hasValue "false"^^xsd:boolean ] ,
         [ a owl:Restriction ; owl:onProperty :proposedForHealthcare ; owl:hasValue "false"^^xsd:boolean ] ,
-        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:integer ] ,
+        [ a owl:Restriction ; owl:onProperty :supportsIntersectionalAnalysis ; owl:hasValue "false"^^xsd:boolean ] ,
+        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:decimal ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_EstimatedProbability ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_OutcomeLabel ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_SensitiveAttribute ] .
@@ -1334,7 +1534,8 @@ roadmap:03339 rdfs:subClassOf :StandardMetric ,
         [ a owl:Restriction ; owl:onProperty :hasGuidanceLevel ; owl:hasValue :Recommended ] ,
         [ a owl:Restriction ; owl:onProperty :dependsOnPrevalence ; owl:hasValue "false"^^xsd:boolean ] ,
         [ a owl:Restriction ; owl:onProperty :proposedForHealthcare ; owl:hasValue "true"^^xsd:boolean ] ,
-        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:integer ] ,
+        [ a owl:Restriction ; owl:onProperty :supportsIntersectionalAnalysis ; owl:hasValue "false"^^xsd:boolean ] ,
+        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:decimal ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_EstimatedProbability ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_OutcomeLabel ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_SensitiveAttribute ] .
@@ -1361,7 +1562,8 @@ roadmap:03339 rdfs:subClassOf :StandardMetric ,
         [ a owl:Restriction ; owl:onProperty :hasGuidanceLevel ; owl:hasValue :Inadvisable ] ,
         [ a owl:Restriction ; owl:onProperty :dependsOnPrevalence ; owl:hasValue "false"^^xsd:boolean ] ,
         [ a owl:Restriction ; owl:onProperty :proposedForHealthcare ; owl:hasValue "false"^^xsd:boolean ] ,
-        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:integer ] ,
+        [ a owl:Restriction ; owl:onProperty :supportsIntersectionalAnalysis ; owl:hasValue "false"^^xsd:boolean ] ,
+        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:decimal ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_DecisionThreshold ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_EstimatedProbability ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_OutcomeLabel ] ,
@@ -1389,7 +1591,8 @@ roadmap:03339 rdfs:subClassOf :StandardMetric ,
         [ a owl:Restriction ; owl:onProperty :hasGuidanceLevel ; owl:hasValue :Inadvisable ] ,
         [ a owl:Restriction ; owl:onProperty :dependsOnPrevalence ; owl:hasValue "false"^^xsd:boolean ] ,
         [ a owl:Restriction ; owl:onProperty :proposedForHealthcare ; owl:hasValue "false"^^xsd:boolean ] ,
-        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:integer ] ,
+        [ a owl:Restriction ; owl:onProperty :supportsIntersectionalAnalysis ; owl:hasValue "false"^^xsd:boolean ] ,
+        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:decimal ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_DecisionThreshold ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_EstimatedProbability ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_OutcomeLabel ] ,
@@ -1418,7 +1621,8 @@ roadmap:03339 rdfs:subClassOf :StandardMetric ,
         [ a owl:Restriction ; owl:onProperty :hasGuidanceLevel ; owl:hasValue :UseWithCaution ] ,
         [ a owl:Restriction ; owl:onProperty :dependsOnPrevalence ; owl:hasValue "false"^^xsd:boolean ] ,
         [ a owl:Restriction ; owl:onProperty :proposedForHealthcare ; owl:hasValue "false"^^xsd:boolean ] ,
-        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:integer ] ,
+        [ a owl:Restriction ; owl:onProperty :supportsIntersectionalAnalysis ; owl:hasValue "false"^^xsd:boolean ] ,
+        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:decimal ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_EstimatedProbability ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_OutcomeLabel ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_SensitiveAttribute ] .
@@ -1445,7 +1649,8 @@ roadmap:03339 rdfs:subClassOf :StandardMetric ,
         [ a owl:Restriction ; owl:onProperty :hasGuidanceLevel ; owl:hasValue :UseWithCaution ] ,
         [ a owl:Restriction ; owl:onProperty :dependsOnPrevalence ; owl:hasValue "false"^^xsd:boolean ] ,
         [ a owl:Restriction ; owl:onProperty :proposedForHealthcare ; owl:hasValue "false"^^xsd:boolean ] ,
-        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:integer ] ,
+        [ a owl:Restriction ; owl:onProperty :supportsIntersectionalAnalysis ; owl:hasValue "false"^^xsd:boolean ] ,
+        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:decimal ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_EstimatedProbability ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_OutcomeLabel ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_SensitiveAttribute ] .
@@ -1472,7 +1677,8 @@ roadmap:03339 rdfs:subClassOf :StandardMetric ,
         [ a owl:Restriction ; owl:onProperty :hasGuidanceLevel ; owl:hasValue :Inadvisable ] ,
         [ a owl:Restriction ; owl:onProperty :dependsOnPrevalence ; owl:hasValue "false"^^xsd:boolean ] ,
         [ a owl:Restriction ; owl:onProperty :proposedForHealthcare ; owl:hasValue "false"^^xsd:boolean ] ,
-        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:integer ] ,
+        [ a owl:Restriction ; owl:onProperty :supportsIntersectionalAnalysis ; owl:hasValue "false"^^xsd:boolean ] ,
+        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:decimal ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_DecisionThreshold ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_EstimatedProbability ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_OutcomeLabel ] ,
@@ -1500,7 +1706,8 @@ roadmap:03339 rdfs:subClassOf :StandardMetric ,
         [ a owl:Restriction ; owl:onProperty :hasGuidanceLevel ; owl:hasValue :UseWithCaution ] ,
         [ a owl:Restriction ; owl:onProperty :dependsOnPrevalence ; owl:hasValue "true"^^xsd:boolean ] ,
         [ a owl:Restriction ; owl:onProperty :proposedForHealthcare ; owl:hasValue "false"^^xsd:boolean ] ,
-        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:integer ] ,
+        [ a owl:Restriction ; owl:onProperty :supportsIntersectionalAnalysis ; owl:hasValue "false"^^xsd:boolean ] ,
+        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:decimal ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_EstimatedProbability ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_OutcomeLabel ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_SensitiveAttribute ] .
@@ -1527,7 +1734,8 @@ roadmap:03339 rdfs:subClassOf :StandardMetric ,
         [ a owl:Restriction ; owl:onProperty :hasGuidanceLevel ; owl:hasValue :UseWithCaution ] ,
         [ a owl:Restriction ; owl:onProperty :dependsOnPrevalence ; owl:hasValue "true"^^xsd:boolean ] ,
         [ a owl:Restriction ; owl:onProperty :proposedForHealthcare ; owl:hasValue "true"^^xsd:boolean ] ,
-        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:integer ] ,
+        [ a owl:Restriction ; owl:onProperty :supportsIntersectionalAnalysis ; owl:hasValue "false"^^xsd:boolean ] ,
+        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:decimal ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_EstimatedProbability ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_OutcomeLabel ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_SensitiveAttribute ] .
@@ -1553,7 +1761,8 @@ roadmap:03339 rdfs:subClassOf :StandardMetric ,
         [ a owl:Restriction ; owl:onProperty :hasGuidanceLevel ; owl:hasValue :Inadvisable ] ,
         [ a owl:Restriction ; owl:onProperty :dependsOnPrevalence ; owl:hasValue "true"^^xsd:boolean ] ,
         [ a owl:Restriction ; owl:onProperty :proposedForHealthcare ; owl:hasValue "true"^^xsd:boolean ] ,
-        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:integer ] ,
+        [ a owl:Restriction ; owl:onProperty :supportsIntersectionalAnalysis ; owl:hasValue "false"^^xsd:boolean ] ,
+        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:decimal ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_CensoringIndicator ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_Covariates ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_EstimatedProbability ] ,
@@ -1581,7 +1790,8 @@ roadmap:03339 rdfs:subClassOf :StandardMetric ,
         [ a owl:Restriction ; owl:onProperty :hasGuidanceLevel ; owl:hasValue :Inadvisable ] ,
         [ a owl:Restriction ; owl:onProperty :dependsOnPrevalence ; owl:hasValue "true"^^xsd:boolean ] ,
         [ a owl:Restriction ; owl:onProperty :proposedForHealthcare ; owl:hasValue "false"^^xsd:boolean ] ,
-        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:integer ] ,
+        [ a owl:Restriction ; owl:onProperty :supportsIntersectionalAnalysis ; owl:hasValue "false"^^xsd:boolean ] ,
+        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:decimal ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_CensoringIndicator ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_Covariates ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_EstimatedProbability ] ,
@@ -1613,7 +1823,7 @@ roadmap:03339 rdfs:subClassOf :StandardMetric ,
         [ a owl:Restriction ; owl:onProperty :dependsOnPrevalence ; owl:hasValue "true"^^xsd:boolean ] ,
         [ a owl:Restriction ; owl:onProperty :proposedForHealthcare ; owl:hasValue "false"^^xsd:boolean ] ,
         [ a owl:Restriction ; owl:onProperty :supportsIntersectionalAnalysis ; owl:hasValue "true"^^xsd:boolean ] ,
-        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:integer ] ,
+        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:decimal ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_DecisionThreshold ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_EstimatedProbability ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_SensitiveAttribute ] ,
@@ -1642,7 +1852,8 @@ roadmap:03339 rdfs:subClassOf :StandardMetric ,
         [ a owl:Restriction ; owl:onProperty :hasGuidanceLevel ; owl:hasValue :Inadvisable ] ,
         [ a owl:Restriction ; owl:onProperty :dependsOnPrevalence ; owl:hasValue "false"^^xsd:boolean ] ,
         [ a owl:Restriction ; owl:onProperty :proposedForHealthcare ; owl:hasValue "false"^^xsd:boolean ] ,
-        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:integer ] ,
+        [ a owl:Restriction ; owl:onProperty :supportsIntersectionalAnalysis ; owl:hasValue "false"^^xsd:boolean ] ,
+        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:decimal ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_CensoringIndicator ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_Covariates ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_EstimatedProbability ] ,
@@ -1672,7 +1883,8 @@ roadmap:03339 rdfs:subClassOf :StandardMetric ,
         [ a owl:Restriction ; owl:onProperty :hasGuidanceLevel ; owl:hasValue :Inadvisable ] ,
         [ a owl:Restriction ; owl:onProperty :dependsOnPrevalence ; owl:hasValue "false"^^xsd:boolean ] ,
         [ a owl:Restriction ; owl:onProperty :proposedForHealthcare ; owl:hasValue "false"^^xsd:boolean ] ,
-        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:integer ] ,
+        [ a owl:Restriction ; owl:onProperty :supportsIntersectionalAnalysis ; owl:hasValue "false"^^xsd:boolean ] ,
+        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:decimal ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_DecisionThreshold ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_EstimatedProbability ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_LegitimateFeatures ] ,
@@ -1700,7 +1912,8 @@ roadmap:03339 rdfs:subClassOf :StandardMetric ,
         [ a owl:Restriction ; owl:onProperty :hasGuidanceLevel ; owl:hasValue :Recommended ] ,
         [ a owl:Restriction ; owl:onProperty :dependsOnPrevalence ; owl:hasValue "true"^^xsd:boolean ] ,
         [ a owl:Restriction ; owl:onProperty :proposedForHealthcare ; owl:hasValue "false"^^xsd:boolean ] ,
-        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:integer ] ,
+        [ a owl:Restriction ; owl:onProperty :supportsIntersectionalAnalysis ; owl:hasValue "false"^^xsd:boolean ] ,
+        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:decimal ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_DecisionThreshold ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_EstimatedProbability ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_LegitimateFeatures ] ,
@@ -1728,7 +1941,8 @@ roadmap:03339 rdfs:subClassOf :StandardMetric ,
         [ a owl:Restriction ; owl:onProperty :hasGuidanceLevel ; owl:hasValue :Inadvisable ] ,
         [ a owl:Restriction ; owl:onProperty :dependsOnPrevalence ; owl:hasValue "false"^^xsd:boolean ] ,
         [ a owl:Restriction ; owl:onProperty :proposedForHealthcare ; owl:hasValue "false"^^xsd:boolean ] ,
-        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:integer ] ,
+        [ a owl:Restriction ; owl:onProperty :supportsIntersectionalAnalysis ; owl:hasValue "false"^^xsd:boolean ] ,
+        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:decimal ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_DecisionThreshold ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_EstimatedProbability ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_LegitimateFeatures ] ,
@@ -1782,11 +1996,14 @@ roadmap:03339 rdfs:subClassOf :StandardMetric ,
         [ a owl:Restriction ; owl:onProperty :hasGuidanceLevel ; owl:hasValue :UseWithCaution ] ,
         [ a owl:Restriction ; owl:onProperty :dependsOnPrevalence ; owl:hasValue "true"^^xsd:boolean ] ,
         [ a owl:Restriction ; owl:onProperty :proposedForHealthcare ; owl:hasValue "false"^^xsd:boolean ] ,
+        [ a owl:Restriction ; owl:onProperty :supportsIntersectionalAnalysis ; owl:hasValue "false"^^xsd:boolean ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_DecisionThreshold ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_EstimatedProbability ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_SensitiveAttribute ] ,
         [ a owl:Restriction ; owl:onProperty :hasImplementation ; owl:hasValue :impl_AIF360_disparate_impact ] ,
-        [ a owl:Restriction ; owl:onProperty :hasImplementation ; owl:hasValue :impl_Fairlearn_demographic_parity_ratio ] .
+        [ a owl:Restriction ; owl:onProperty :hasImplementation ; owl:hasValue :impl_Fairlearn_demographic_parity_ratio ] ,
+        [ a owl:Restriction ; owl:onProperty :hasImplementation ; owl:hasValue :impl_Aequitas_pprev_disparity ] ,
+        [ a owl:Restriction ; owl:onProperty :hasImplementation ; owl:hasValue :impl_fairmodels_STP ] .
 
 ### :00043  earth mover’s distance for equivalent separation
 :00043 a owl:Class ;
@@ -1810,7 +2027,8 @@ roadmap:03339 rdfs:subClassOf :StandardMetric ,
         [ a owl:Restriction ; owl:onProperty :hasGuidanceLevel ; owl:hasValue :UseWithCaution ] ,
         [ a owl:Restriction ; owl:onProperty :dependsOnPrevalence ; owl:hasValue "true"^^xsd:boolean ] ,
         [ a owl:Restriction ; owl:onProperty :proposedForHealthcare ; owl:hasValue "false"^^xsd:boolean ] ,
-        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:integer ] ,
+        [ a owl:Restriction ; owl:onProperty :supportsIntersectionalAnalysis ; owl:hasValue "false"^^xsd:boolean ] ,
+        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:decimal ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_EstimatedProbability ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_OutcomeLabel ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_SensitiveAttribute ] .
@@ -1839,7 +2057,8 @@ roadmap:03339 rdfs:subClassOf :StandardMetric ,
         [ a owl:Restriction ; owl:onProperty :hasGuidanceLevel ; owl:hasValue :UseWithCaution ] ,
         [ a owl:Restriction ; owl:onProperty :dependsOnPrevalence ; owl:hasValue "false"^^xsd:boolean ] ,
         [ a owl:Restriction ; owl:onProperty :proposedForHealthcare ; owl:hasValue "false"^^xsd:boolean ] ,
-        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:integer ] ,
+        [ a owl:Restriction ; owl:onProperty :supportsIntersectionalAnalysis ; owl:hasValue "false"^^xsd:boolean ] ,
+        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:decimal ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_EstimatedProbability ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_OutcomeLabel ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_SensitiveAttribute ] .
@@ -1873,12 +2092,15 @@ roadmap:03339 rdfs:subClassOf :StandardMetric ,
         [ a owl:Restriction ; owl:onProperty :hasGuidanceLevel ; owl:hasValue :UseWithCaution ] ,
         [ a owl:Restriction ; owl:onProperty :dependsOnPrevalence ; owl:hasValue "false"^^xsd:boolean ] ,
         [ a owl:Restriction ; owl:onProperty :proposedForHealthcare ; owl:hasValue "true"^^xsd:boolean ] ,
-        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:integer ] ,
+        [ a owl:Restriction ; owl:onProperty :supportsIntersectionalAnalysis ; owl:hasValue "false"^^xsd:boolean ] ,
+        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:decimal ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_DecisionThreshold ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_EstimatedProbability ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_OutcomeLabel ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_SensitiveAttribute ] ,
-        [ a owl:Restriction ; owl:onProperty :hasImplementation ; owl:hasValue :impl_AIF360_equal_opportunity_difference ] .
+        [ a owl:Restriction ; owl:onProperty :hasImplementation ; owl:hasValue :impl_AIF360_equal_opportunity_difference ] ,
+        [ a owl:Restriction ; owl:onProperty :hasImplementation ; owl:hasValue :impl_Aequitas_fnr_disparity ] ,
+        [ a owl:Restriction ; owl:onProperty :hasImplementation ; owl:hasValue :impl_fairmodels_TPR ] .
 
 ### :00046  equalised odds
 :00046 a owl:Class ;
@@ -1910,7 +2132,8 @@ roadmap:03339 rdfs:subClassOf :StandardMetric ,
         [ a owl:Restriction ; owl:onProperty :hasGuidanceLevel ; owl:hasValue :Inadvisable ] ,
         [ a owl:Restriction ; owl:onProperty :dependsOnPrevalence ; owl:hasValue "false"^^xsd:boolean ] ,
         [ a owl:Restriction ; owl:onProperty :proposedForHealthcare ; owl:hasValue "false"^^xsd:boolean ] ,
-        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:integer ] ,
+        [ a owl:Restriction ; owl:onProperty :supportsIntersectionalAnalysis ; owl:hasValue "false"^^xsd:boolean ] ,
+        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:decimal ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_DecisionThreshold ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_EstimatedProbability ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_OutcomeLabel ] ,
@@ -1940,7 +2163,8 @@ roadmap:03339 rdfs:subClassOf :StandardMetric ,
         [ a owl:Restriction ; owl:onProperty :hasGuidanceLevel ; owl:hasValue :Inadvisable ] ,
         [ a owl:Restriction ; owl:onProperty :dependsOnPrevalence ; owl:hasValue "false"^^xsd:boolean ] ,
         [ a owl:Restriction ; owl:onProperty :proposedForHealthcare ; owl:hasValue "false"^^xsd:boolean ] ,
-        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:integer ] ,
+        [ a owl:Restriction ; owl:onProperty :supportsIntersectionalAnalysis ; owl:hasValue "false"^^xsd:boolean ] ,
+        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:decimal ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_DecisionThreshold ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_EstimatedProbability ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_OutcomeLabel ] ,
@@ -1967,6 +2191,7 @@ roadmap:03339 rdfs:subClassOf :StandardMetric ,
         [ a owl:Restriction ; owl:onProperty :hasGuidanceLevel ; owl:hasValue :Inadvisable ] ,
         [ a owl:Restriction ; owl:onProperty :dependsOnPrevalence ; owl:hasValue "false"^^xsd:boolean ] ,
         [ a owl:Restriction ; owl:onProperty :proposedForHealthcare ; owl:hasValue "false"^^xsd:boolean ] ,
+        [ a owl:Restriction ; owl:onProperty :supportsIntersectionalAnalysis ; owl:hasValue "false"^^xsd:boolean ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_EstimatedProbability ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_OutcomeLabel ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_SensitiveAttribute ] .
@@ -1993,7 +2218,8 @@ roadmap:03339 rdfs:subClassOf :StandardMetric ,
         [ a owl:Restriction ; owl:onProperty :hasGuidanceLevel ; owl:hasValue :Inadvisable ] ,
         [ a owl:Restriction ; owl:onProperty :dependsOnPrevalence ; owl:hasValue "true"^^xsd:boolean ] ,
         [ a owl:Restriction ; owl:onProperty :proposedForHealthcare ; owl:hasValue "false"^^xsd:boolean ] ,
-        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:integer ] ,
+        [ a owl:Restriction ; owl:onProperty :supportsIntersectionalAnalysis ; owl:hasValue "false"^^xsd:boolean ] ,
+        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:decimal ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_DecisionThreshold ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_EstimatedProbability ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_OutcomeLabel ] ,
@@ -2023,7 +2249,8 @@ roadmap:03339 rdfs:subClassOf :StandardMetric ,
         [ a owl:Restriction ; owl:onProperty :hasGuidanceLevel ; owl:hasValue :Inadvisable ] ,
         [ a owl:Restriction ; owl:onProperty :dependsOnPrevalence ; owl:hasValue "true"^^xsd:boolean ] ,
         [ a owl:Restriction ; owl:onProperty :proposedForHealthcare ; owl:hasValue "false"^^xsd:boolean ] ,
-        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "1"^^xsd:integer ] ,
+        [ a owl:Restriction ; owl:onProperty :supportsIntersectionalAnalysis ; owl:hasValue "false"^^xsd:boolean ] ,
+        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "1"^^xsd:decimal ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_DecisionThreshold ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_EstimatedProbability ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_OutcomeLabel ] ,
@@ -2052,7 +2279,8 @@ roadmap:03339 rdfs:subClassOf :StandardMetric ,
         [ a owl:Restriction ; owl:onProperty :hasGuidanceLevel ; owl:hasValue :UseWithCaution ] ,
         [ a owl:Restriction ; owl:onProperty :dependsOnPrevalence ; owl:hasValue "true"^^xsd:boolean ] ,
         [ a owl:Restriction ; owl:onProperty :proposedForHealthcare ; owl:hasValue "true"^^xsd:boolean ] ,
-        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:integer ] ,
+        [ a owl:Restriction ; owl:onProperty :supportsIntersectionalAnalysis ; owl:hasValue "false"^^xsd:boolean ] ,
+        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:decimal ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_EstimatedProbability ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_OutcomeLabel ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_SensitiveAttribute ] .
@@ -2080,7 +2308,8 @@ roadmap:03339 rdfs:subClassOf :StandardMetric ,
         [ a owl:Restriction ; owl:onProperty :hasGuidanceLevel ; owl:hasValue :Inadvisable ] ,
         [ a owl:Restriction ; owl:onProperty :dependsOnPrevalence ; owl:hasValue "true"^^xsd:boolean ] ,
         [ a owl:Restriction ; owl:onProperty :proposedForHealthcare ; owl:hasValue "false"^^xsd:boolean ] ,
-        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:integer ] ,
+        [ a owl:Restriction ; owl:onProperty :supportsIntersectionalAnalysis ; owl:hasValue "false"^^xsd:boolean ] ,
+        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:decimal ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_DecisionThreshold ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_EstimatedProbability ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_OutcomeLabel ] ,
@@ -2108,7 +2337,8 @@ roadmap:03339 rdfs:subClassOf :StandardMetric ,
         [ a owl:Restriction ; owl:onProperty :hasGuidanceLevel ; owl:hasValue :UseWithCaution ] ,
         [ a owl:Restriction ; owl:onProperty :dependsOnPrevalence ; owl:hasValue "true"^^xsd:boolean ] ,
         [ a owl:Restriction ; owl:onProperty :proposedForHealthcare ; owl:hasValue "false"^^xsd:boolean ] ,
-        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:integer ] ,
+        [ a owl:Restriction ; owl:onProperty :supportsIntersectionalAnalysis ; owl:hasValue "false"^^xsd:boolean ] ,
+        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:decimal ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_EstimatedProbability ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_OutcomeLabel ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_SensitiveAttribute ] .
@@ -2135,7 +2365,8 @@ roadmap:03339 rdfs:subClassOf :StandardMetric ,
         [ a owl:Restriction ; owl:onProperty :hasGuidanceLevel ; owl:hasValue :Inadvisable ] ,
         [ a owl:Restriction ; owl:onProperty :dependsOnPrevalence ; owl:hasValue "true"^^xsd:boolean ] ,
         [ a owl:Restriction ; owl:onProperty :proposedForHealthcare ; owl:hasValue "false"^^xsd:boolean ] ,
-        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:integer ] ,
+        [ a owl:Restriction ; owl:onProperty :supportsIntersectionalAnalysis ; owl:hasValue "false"^^xsd:boolean ] ,
+        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:decimal ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_DecisionThreshold ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_EstimatedProbability ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_OutcomeLabel ] ,
@@ -2163,7 +2394,8 @@ roadmap:03339 rdfs:subClassOf :StandardMetric ,
         [ a owl:Restriction ; owl:onProperty :hasGuidanceLevel ; owl:hasValue :Inadvisable ] ,
         [ a owl:Restriction ; owl:onProperty :dependsOnPrevalence ; owl:hasValue "false"^^xsd:boolean ] ,
         [ a owl:Restriction ; owl:onProperty :proposedForHealthcare ; owl:hasValue "false"^^xsd:boolean ] ,
-        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:integer ] ,
+        [ a owl:Restriction ; owl:onProperty :supportsIntersectionalAnalysis ; owl:hasValue "false"^^xsd:boolean ] ,
+        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:decimal ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_EstimatedProbability ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_OutcomeLabel ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_SensitiveAttribute ] .
@@ -2190,7 +2422,8 @@ roadmap:03339 rdfs:subClassOf :StandardMetric ,
         [ a owl:Restriction ; owl:onProperty :hasGuidanceLevel ; owl:hasValue :UseWithCaution ] ,
         [ a owl:Restriction ; owl:onProperty :dependsOnPrevalence ; owl:hasValue "false"^^xsd:boolean ] ,
         [ a owl:Restriction ; owl:onProperty :proposedForHealthcare ; owl:hasValue "true"^^xsd:boolean ] ,
-        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:integer ] ,
+        [ a owl:Restriction ; owl:onProperty :supportsIntersectionalAnalysis ; owl:hasValue "false"^^xsd:boolean ] ,
+        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:decimal ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_DecisionThreshold ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_EstimatedProbability ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_OutcomeLabel ] ,
@@ -2218,7 +2451,8 @@ roadmap:03339 rdfs:subClassOf :StandardMetric ,
         [ a owl:Restriction ; owl:onProperty :hasGuidanceLevel ; owl:hasValue :UseWithCaution ] ,
         [ a owl:Restriction ; owl:onProperty :dependsOnPrevalence ; owl:hasValue "true"^^xsd:boolean ] ,
         [ a owl:Restriction ; owl:onProperty :proposedForHealthcare ; owl:hasValue "false"^^xsd:boolean ] ,
-        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:integer ] ,
+        [ a owl:Restriction ; owl:onProperty :supportsIntersectionalAnalysis ; owl:hasValue "false"^^xsd:boolean ] ,
+        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:decimal ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_EstimatedProbability ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_SensitiveAttribute ] .
 
@@ -2244,7 +2478,8 @@ roadmap:03339 rdfs:subClassOf :StandardMetric ,
         [ a owl:Restriction ; owl:onProperty :hasGuidanceLevel ; owl:hasValue :Inadvisable ] ,
         [ a owl:Restriction ; owl:onProperty :dependsOnPrevalence ; owl:hasValue "false"^^xsd:boolean ] ,
         [ a owl:Restriction ; owl:onProperty :proposedForHealthcare ; owl:hasValue "false"^^xsd:boolean ] ,
-        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:integer ] ,
+        [ a owl:Restriction ; owl:onProperty :supportsIntersectionalAnalysis ; owl:hasValue "false"^^xsd:boolean ] ,
+        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:decimal ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_EstimatedProbability ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_OutcomeLabel ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_SensitiveAttribute ] .
@@ -2271,12 +2506,14 @@ roadmap:03339 rdfs:subClassOf :StandardMetric ,
         [ a owl:Restriction ; owl:onProperty :hasGuidanceLevel ; owl:hasValue :UseWithCaution ] ,
         [ a owl:Restriction ; owl:onProperty :dependsOnPrevalence ; owl:hasValue "false"^^xsd:boolean ] ,
         [ a owl:Restriction ; owl:onProperty :proposedForHealthcare ; owl:hasValue "false"^^xsd:boolean ] ,
-        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:integer ] ,
+        [ a owl:Restriction ; owl:onProperty :supportsIntersectionalAnalysis ; owl:hasValue "false"^^xsd:boolean ] ,
+        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:decimal ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_DecisionThreshold ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_EstimatedProbability ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_OutcomeLabel ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_SensitiveAttribute ] ,
-        [ a owl:Restriction ; owl:onProperty :hasImplementation ; owl:hasValue :impl_AIF360_false_omission_rate_difference ] .
+        [ a owl:Restriction ; owl:onProperty :hasImplementation ; owl:hasValue :impl_AIF360_false_omission_rate_difference ] ,
+        [ a owl:Restriction ; owl:onProperty :hasImplementation ; owl:hasValue :impl_Aequitas_for_disparity ] .
 
 ### :00060  overall accuracy gap
 :00060 a owl:Class ;
@@ -2301,12 +2538,14 @@ roadmap:03339 rdfs:subClassOf :StandardMetric ,
         [ a owl:Restriction ; owl:onProperty :hasGuidanceLevel ; owl:hasValue :Inadvisable ] ,
         [ a owl:Restriction ; owl:onProperty :dependsOnPrevalence ; owl:hasValue "true"^^xsd:boolean ] ,
         [ a owl:Restriction ; owl:onProperty :proposedForHealthcare ; owl:hasValue "false"^^xsd:boolean ] ,
-        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:integer ] ,
+        [ a owl:Restriction ; owl:onProperty :supportsIntersectionalAnalysis ; owl:hasValue "false"^^xsd:boolean ] ,
+        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:decimal ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_DecisionThreshold ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_EstimatedProbability ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_OutcomeLabel ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_SensitiveAttribute ] ,
-        [ a owl:Restriction ; owl:onProperty :hasImplementation ; owl:hasValue :impl_AIF360_error_rate_difference ] .
+        [ a owl:Restriction ; owl:onProperty :hasImplementation ; owl:hasValue :impl_AIF360_error_rate_difference ] ,
+        [ a owl:Restriction ; owl:onProperty :hasImplementation ; owl:hasValue :impl_fairmodels_ACC ] .
 
 ### :00061  pairwise ranking fairness
 :00061 a owl:Class ;
@@ -2329,7 +2568,8 @@ roadmap:03339 rdfs:subClassOf :StandardMetric ,
         [ a owl:Restriction ; owl:onProperty :hasGuidanceLevel ; owl:hasValue :Inadvisable ] ,
         [ a owl:Restriction ; owl:onProperty :dependsOnPrevalence ; owl:hasValue "false"^^xsd:boolean ] ,
         [ a owl:Restriction ; owl:onProperty :proposedForHealthcare ; owl:hasValue "false"^^xsd:boolean ] ,
-        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "1"^^xsd:integer ] ,
+        [ a owl:Restriction ; owl:onProperty :supportsIntersectionalAnalysis ; owl:hasValue "false"^^xsd:boolean ] ,
+        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "1"^^xsd:decimal ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_EstimatedProbability ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_OutcomeLabel ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_SensitiveAttribute ] .
@@ -2356,7 +2596,8 @@ roadmap:03339 rdfs:subClassOf :StandardMetric ,
         [ a owl:Restriction ; owl:onProperty :hasGuidanceLevel ; owl:hasValue :Inadvisable ] ,
         [ a owl:Restriction ; owl:onProperty :dependsOnPrevalence ; owl:hasValue "false"^^xsd:boolean ] ,
         [ a owl:Restriction ; owl:onProperty :proposedForHealthcare ; owl:hasValue "false"^^xsd:boolean ] ,
-        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:integer ] ,
+        [ a owl:Restriction ; owl:onProperty :supportsIntersectionalAnalysis ; owl:hasValue "false"^^xsd:boolean ] ,
+        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:decimal ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_EstimatedProbability ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_OutcomeLabel ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_SensitiveAttribute ] .
@@ -2387,12 +2628,15 @@ roadmap:03339 rdfs:subClassOf :StandardMetric ,
         [ a owl:Restriction ; owl:onProperty :hasGuidanceLevel ; owl:hasValue :UseWithCaution ] ,
         [ a owl:Restriction ; owl:onProperty :dependsOnPrevalence ; owl:hasValue "false"^^xsd:boolean ] ,
         [ a owl:Restriction ; owl:onProperty :proposedForHealthcare ; owl:hasValue "false"^^xsd:boolean ] ,
-        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:integer ] ,
+        [ a owl:Restriction ; owl:onProperty :supportsIntersectionalAnalysis ; owl:hasValue "false"^^xsd:boolean ] ,
+        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:decimal ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_DecisionThreshold ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_EstimatedProbability ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_OutcomeLabel ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_SensitiveAttribute ] ,
-        [ a owl:Restriction ; owl:onProperty :hasImplementation ; owl:hasValue :impl_AIF360_false_positive_rate_difference ] .
+        [ a owl:Restriction ; owl:onProperty :hasImplementation ; owl:hasValue :impl_AIF360_false_positive_rate_difference ] ,
+        [ a owl:Restriction ; owl:onProperty :hasImplementation ; owl:hasValue :impl_Aequitas_fpr_disparity ] ,
+        [ a owl:Restriction ; owl:onProperty :hasImplementation ; owl:hasValue :impl_fairmodels_FPR ] .
 
 ### :00064  predictive parity
 :00064 a owl:Class ;
@@ -2419,12 +2663,15 @@ roadmap:03339 rdfs:subClassOf :StandardMetric ,
         [ a owl:Restriction ; owl:onProperty :hasGuidanceLevel ; owl:hasValue :UseWithCaution ] ,
         [ a owl:Restriction ; owl:onProperty :dependsOnPrevalence ; owl:hasValue "false"^^xsd:boolean ] ,
         [ a owl:Restriction ; owl:onProperty :proposedForHealthcare ; owl:hasValue "false"^^xsd:boolean ] ,
-        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:integer ] ,
+        [ a owl:Restriction ; owl:onProperty :supportsIntersectionalAnalysis ; owl:hasValue "false"^^xsd:boolean ] ,
+        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:decimal ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_DecisionThreshold ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_EstimatedProbability ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_OutcomeLabel ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_SensitiveAttribute ] ,
-        [ a owl:Restriction ; owl:onProperty :hasImplementation ; owl:hasValue :impl_AIF360_false_discovery_rate_difference ] .
+        [ a owl:Restriction ; owl:onProperty :hasImplementation ; owl:hasValue :impl_AIF360_false_discovery_rate_difference ] ,
+        [ a owl:Restriction ; owl:onProperty :hasImplementation ; owl:hasValue :impl_Aequitas_fdr_disparity ] ,
+        [ a owl:Restriction ; owl:onProperty :hasImplementation ; owl:hasValue :impl_fairmodels_PPV ] .
 
 ### :00065  recall between-group generalised entropy index
 :00065 a owl:Class ;
@@ -2448,7 +2695,8 @@ roadmap:03339 rdfs:subClassOf :StandardMetric ,
         [ a owl:Restriction ; owl:onProperty :hasGuidanceLevel ; owl:hasValue :Inadvisable ] ,
         [ a owl:Restriction ; owl:onProperty :dependsOnPrevalence ; owl:hasValue "false"^^xsd:boolean ] ,
         [ a owl:Restriction ; owl:onProperty :proposedForHealthcare ; owl:hasValue "false"^^xsd:boolean ] ,
-        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:integer ] ,
+        [ a owl:Restriction ; owl:onProperty :supportsIntersectionalAnalysis ; owl:hasValue "false"^^xsd:boolean ] ,
+        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:decimal ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_DecisionThreshold ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_EstimatedProbability ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_OutcomeLabel ] ,
@@ -2477,7 +2725,8 @@ roadmap:03339 rdfs:subClassOf :StandardMetric ,
         [ a owl:Restriction ; owl:onProperty :hasGuidanceLevel ; owl:hasValue :Inadvisable ] ,
         [ a owl:Restriction ; owl:onProperty :dependsOnPrevalence ; owl:hasValue "false"^^xsd:boolean ] ,
         [ a owl:Restriction ; owl:onProperty :proposedForHealthcare ; owl:hasValue "false"^^xsd:boolean ] ,
-        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:integer ] ,
+        [ a owl:Restriction ; owl:onProperty :supportsIntersectionalAnalysis ; owl:hasValue "false"^^xsd:boolean ] ,
+        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:decimal ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_DecisionThreshold ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_EstimatedProbability ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_OutcomeLabel ] ,
@@ -2506,7 +2755,8 @@ roadmap:03339 rdfs:subClassOf :StandardMetric ,
         [ a owl:Restriction ; owl:onProperty :hasGuidanceLevel ; owl:hasValue :Inadvisable ] ,
         [ a owl:Restriction ; owl:onProperty :dependsOnPrevalence ; owl:hasValue "false"^^xsd:boolean ] ,
         [ a owl:Restriction ; owl:onProperty :proposedForHealthcare ; owl:hasValue "true"^^xsd:boolean ] ,
-        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "1"^^xsd:integer ] ,
+        [ a owl:Restriction ; owl:onProperty :supportsIntersectionalAnalysis ; owl:hasValue "false"^^xsd:boolean ] ,
+        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "1"^^xsd:decimal ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_DecisionThreshold ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_EstimatedProbability ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_OutcomeLabel ] ,
@@ -2535,7 +2785,8 @@ roadmap:03339 rdfs:subClassOf :StandardMetric ,
         [ a owl:Restriction ; owl:onProperty :hasGuidanceLevel ; owl:hasValue :UseWithCaution ] ,
         [ a owl:Restriction ; owl:onProperty :dependsOnPrevalence ; owl:hasValue "false"^^xsd:boolean ] ,
         [ a owl:Restriction ; owl:onProperty :proposedForHealthcare ; owl:hasValue "true"^^xsd:boolean ] ,
-        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:integer ] ,
+        [ a owl:Restriction ; owl:onProperty :supportsIntersectionalAnalysis ; owl:hasValue "false"^^xsd:boolean ] ,
+        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:decimal ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_DecisionThreshold ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_EstimatedProbability ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_OutcomeLabel ] ,
@@ -2563,7 +2814,8 @@ roadmap:03339 rdfs:subClassOf :StandardMetric ,
         [ a owl:Restriction ; owl:onProperty :hasGuidanceLevel ; owl:hasValue :Inadvisable ] ,
         [ a owl:Restriction ; owl:onProperty :dependsOnPrevalence ; owl:hasValue "false"^^xsd:boolean ] ,
         [ a owl:Restriction ; owl:onProperty :proposedForHealthcare ; owl:hasValue "true"^^xsd:boolean ] ,
-        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:integer ] ,
+        [ a owl:Restriction ; owl:onProperty :supportsIntersectionalAnalysis ; owl:hasValue "false"^^xsd:boolean ] ,
+        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:decimal ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_DecisionThreshold ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_EstimatedProbability ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_OutcomeLabel ] ,
@@ -2591,7 +2843,8 @@ roadmap:03339 rdfs:subClassOf :StandardMetric ,
         [ a owl:Restriction ; owl:onProperty :hasGuidanceLevel ; owl:hasValue :UseWithCaution ] ,
         [ a owl:Restriction ; owl:onProperty :dependsOnPrevalence ; owl:hasValue "false"^^xsd:boolean ] ,
         [ a owl:Restriction ; owl:onProperty :proposedForHealthcare ; owl:hasValue "true"^^xsd:boolean ] ,
-        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "1"^^xsd:integer ] ,
+        [ a owl:Restriction ; owl:onProperty :supportsIntersectionalAnalysis ; owl:hasValue "false"^^xsd:boolean ] ,
+        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "1"^^xsd:decimal ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_DecisionThreshold ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_EstimatedProbability ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_HistoricalOutcomeData ] ,
@@ -2619,7 +2872,8 @@ roadmap:03339 rdfs:subClassOf :StandardMetric ,
         [ a owl:Restriction ; owl:onProperty :hasGuidanceLevel ; owl:hasValue :UseWithCaution ] ,
         [ a owl:Restriction ; owl:onProperty :dependsOnPrevalence ; owl:hasValue "true"^^xsd:boolean ] ,
         [ a owl:Restriction ; owl:onProperty :proposedForHealthcare ; owl:hasValue "false"^^xsd:boolean ] ,
-        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:integer ] ,
+        [ a owl:Restriction ; owl:onProperty :supportsIntersectionalAnalysis ; owl:hasValue "false"^^xsd:boolean ] ,
+        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:decimal ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_EstimatedProbability ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_SensitiveAttribute ] .
 
@@ -2644,6 +2898,7 @@ roadmap:03339 rdfs:subClassOf :StandardMetric ,
         [ a owl:Restriction ; owl:onProperty :hasGuidanceLevel ; owl:hasValue :Inadvisable ] ,
         [ a owl:Restriction ; owl:onProperty :dependsOnPrevalence ; owl:hasValue "false"^^xsd:boolean ] ,
         [ a owl:Restriction ; owl:onProperty :proposedForHealthcare ; owl:hasValue "false"^^xsd:boolean ] ,
+        [ a owl:Restriction ; owl:onProperty :supportsIntersectionalAnalysis ; owl:hasValue "false"^^xsd:boolean ] ,
         [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0.5"^^xsd:decimal ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_EstimatedProbability ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_OutcomeLabel ] ,
@@ -2674,7 +2929,8 @@ roadmap:03339 rdfs:subClassOf :StandardMetric ,
         [ a owl:Restriction ; owl:onProperty :hasGuidanceLevel ; owl:hasValue :UseWithCaution ] ,
         [ a owl:Restriction ; owl:onProperty :dependsOnPrevalence ; owl:hasValue "true"^^xsd:boolean ] ,
         [ a owl:Restriction ; owl:onProperty :proposedForHealthcare ; owl:hasValue "false"^^xsd:boolean ] ,
-        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:integer ] ,
+        [ a owl:Restriction ; owl:onProperty :supportsIntersectionalAnalysis ; owl:hasValue "false"^^xsd:boolean ] ,
+        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:decimal ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_DecisionThreshold ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_EstimatedProbability ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_SensitiveAttribute ] ,
@@ -2702,6 +2958,7 @@ roadmap:03339 rdfs:subClassOf :StandardMetric ,
         [ a owl:Restriction ; owl:onProperty :hasGuidanceLevel ; owl:hasValue :Recommended ] ,
         [ a owl:Restriction ; owl:onProperty :dependsOnPrevalence ; owl:hasValue "false"^^xsd:boolean ] ,
         [ a owl:Restriction ; owl:onProperty :proposedForHealthcare ; owl:hasValue "true"^^xsd:boolean ] ,
+        [ a owl:Restriction ; owl:onProperty :supportsIntersectionalAnalysis ; owl:hasValue "false"^^xsd:boolean ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_DecisionThreshold ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_EstimatedProbability ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_OutcomeLabel ] ,
@@ -2729,7 +2986,8 @@ roadmap:03339 rdfs:subClassOf :StandardMetric ,
         [ a owl:Restriction ; owl:onProperty :hasGuidanceLevel ; owl:hasValue :Inadvisable ] ,
         [ a owl:Restriction ; owl:onProperty :dependsOnPrevalence ; owl:hasValue "true"^^xsd:boolean ] ,
         [ a owl:Restriction ; owl:onProperty :proposedForHealthcare ; owl:hasValue "true"^^xsd:boolean ] ,
-        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:integer ] ,
+        [ a owl:Restriction ; owl:onProperty :supportsIntersectionalAnalysis ; owl:hasValue "false"^^xsd:boolean ] ,
+        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:decimal ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_Covariates ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_EstimatedProbability ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_SensitiveAttribute ] ,
@@ -2756,7 +3014,8 @@ roadmap:03339 rdfs:subClassOf :StandardMetric ,
         [ a owl:Restriction ; owl:onProperty :hasGuidanceLevel ; owl:hasValue :Inadvisable ] ,
         [ a owl:Restriction ; owl:onProperty :dependsOnPrevalence ; owl:hasValue "true"^^xsd:boolean ] ,
         [ a owl:Restriction ; owl:onProperty :proposedForHealthcare ; owl:hasValue "true"^^xsd:boolean ] ,
-        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:integer ] ,
+        [ a owl:Restriction ; owl:onProperty :supportsIntersectionalAnalysis ; owl:hasValue "false"^^xsd:boolean ] ,
+        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:decimal ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_Covariates ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_EstimatedProbability ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_SensitiveAttribute ] ,
@@ -2784,7 +3043,7 @@ roadmap:03339 rdfs:subClassOf :StandardMetric ,
         [ a owl:Restriction ; owl:onProperty :dependsOnPrevalence ; owl:hasValue "true"^^xsd:boolean ] ,
         [ a owl:Restriction ; owl:onProperty :proposedForHealthcare ; owl:hasValue "true"^^xsd:boolean ] ,
         [ a owl:Restriction ; owl:onProperty :supportsIntersectionalAnalysis ; owl:hasValue "true"^^xsd:boolean ] ,
-        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:integer ] ,
+        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:decimal ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_Covariates ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_EstimatedProbability ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_SensitiveAttribute ] ,
@@ -2813,7 +3072,8 @@ roadmap:03339 rdfs:subClassOf :StandardMetric ,
         [ a owl:Restriction ; owl:onProperty :hasGuidanceLevel ; owl:hasValue :Inadvisable ] ,
         [ a owl:Restriction ; owl:onProperty :dependsOnPrevalence ; owl:hasValue "false"^^xsd:boolean ] ,
         [ a owl:Restriction ; owl:onProperty :proposedForHealthcare ; owl:hasValue "false"^^xsd:boolean ] ,
-        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:integer ] ,
+        [ a owl:Restriction ; owl:onProperty :supportsIntersectionalAnalysis ; owl:hasValue "false"^^xsd:boolean ] ,
+        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:decimal ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_DecisionThreshold ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_EstimatedProbability ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_OutcomeLabel ] ,
@@ -2840,7 +3100,8 @@ roadmap:03339 rdfs:subClassOf :StandardMetric ,
         [ a owl:Restriction ; owl:onProperty :hasGuidanceLevel ; owl:hasValue :Inadvisable ] ,
         [ a owl:Restriction ; owl:onProperty :dependsOnPrevalence ; owl:hasValue "false"^^xsd:boolean ] ,
         [ a owl:Restriction ; owl:onProperty :proposedForHealthcare ; owl:hasValue "false"^^xsd:boolean ] ,
-        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:integer ] ,
+        [ a owl:Restriction ; owl:onProperty :supportsIntersectionalAnalysis ; owl:hasValue "false"^^xsd:boolean ] ,
+        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:decimal ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_EstimatedProbability ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_SensitiveAttribute ] .
 
@@ -2866,7 +3127,8 @@ roadmap:03339 rdfs:subClassOf :StandardMetric ,
         [ a owl:Restriction ; owl:onProperty :hasGuidanceLevel ; owl:hasValue :UseWithCaution ] ,
         [ a owl:Restriction ; owl:onProperty :dependsOnPrevalence ; owl:hasValue "true"^^xsd:boolean ] ,
         [ a owl:Restriction ; owl:onProperty :proposedForHealthcare ; owl:hasValue "false"^^xsd:boolean ] ,
-        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:integer ] ,
+        [ a owl:Restriction ; owl:onProperty :supportsIntersectionalAnalysis ; owl:hasValue "false"^^xsd:boolean ] ,
+        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:decimal ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_EstimatedProbability ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_OutcomeLabel ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_SensitiveAttribute ] .
@@ -2894,6 +3156,7 @@ roadmap:03339 rdfs:subClassOf :StandardMetric ,
         [ a owl:Restriction ; owl:onProperty :hasGuidanceLevel ; owl:hasValue :UseWithCaution ] ,
         [ a owl:Restriction ; owl:onProperty :dependsOnPrevalence ; owl:hasValue "false"^^xsd:boolean ] ,
         [ a owl:Restriction ; owl:onProperty :proposedForHealthcare ; owl:hasValue "false"^^xsd:boolean ] ,
+        [ a owl:Restriction ; owl:onProperty :supportsIntersectionalAnalysis ; owl:hasValue "false"^^xsd:boolean ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_DecisionThreshold ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_EstimatedProbability ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_OutcomeLabel ] ,
@@ -2921,6 +3184,7 @@ roadmap:03339 rdfs:subClassOf :StandardMetric ,
         [ a owl:Restriction ; owl:onProperty :hasGuidanceLevel ; owl:hasValue :Inadvisable ] ,
         [ a owl:Restriction ; owl:onProperty :dependsOnPrevalence ; owl:hasValue "false"^^xsd:boolean ] ,
         [ a owl:Restriction ; owl:onProperty :proposedForHealthcare ; owl:hasValue "false"^^xsd:boolean ] ,
+        [ a owl:Restriction ; owl:onProperty :supportsIntersectionalAnalysis ; owl:hasValue "false"^^xsd:boolean ] ,
         [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0.5"^^xsd:decimal ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_EstimatedProbability ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_OutcomeLabel ] ,
@@ -2948,7 +3212,8 @@ roadmap:03339 rdfs:subClassOf :StandardMetric ,
         [ a owl:Restriction ; owl:onProperty :hasGuidanceLevel ; owl:hasValue :Inadvisable ] ,
         [ a owl:Restriction ; owl:onProperty :dependsOnPrevalence ; owl:hasValue "false"^^xsd:boolean ] ,
         [ a owl:Restriction ; owl:onProperty :proposedForHealthcare ; owl:hasValue "false"^^xsd:boolean ] ,
-        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:integer ] ,
+        [ a owl:Restriction ; owl:onProperty :supportsIntersectionalAnalysis ; owl:hasValue "false"^^xsd:boolean ] ,
+        [ a owl:Restriction ; owl:onProperty roadmap:optimum ; owl:hasValue "0"^^xsd:decimal ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_EstimatedProbability ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_OutcomeLabel ] ,
         [ a owl:Restriction ; owl:onProperty :requiresInput ; owl:hasValue :Input_SensitiveAttribute ] .
@@ -2957,43 +3222,71 @@ roadmap:03339 rdfs:subClassOf :StandardMetric ,
 #    Open issues
 ##############################################################################
 
-###  Recorded here so that consumers know what this release does NOT yet do:
+###  Recorded here so that consumers know what this release does NOT yet do.
 ###
-###  1. :incompatibleWith and :shouldBePairedWith are annotation properties and their conditions
-###     (unequal prevalence across groups; imperfect model) are not represented. They need an
-###     n-ary reified Incompatibility pattern. :incompatibleWith is also sparsely populated
-###     (3 assertions, all from equalised odds) relative to the known impossibility results.
-###  2. Guidance levels are editorial judgements from a single appraisal. They are asserted here
+###  Resolved in the 2026-09 release:
+###
+###  - :incompatibleWith's 3 assertions (all from equalised odds) are now each backed by a
+###    :MetricIncompatibility individual (see the Metric incompatibilities section) that reifies
+###    the pair together with its :requiresCondition values (unequal prevalence across groups;
+###    imperfect model), sourced to Kleinberg et al. 2016/2017 and Chouldechova 2017.
+###    :incompatibleWith itself is kept as a lightweight, unconditional shortcut between the two
+###    metric classes.
+###  - :supportsIntersectionalAnalysis is now asserted on all 60 metrics (true on 3, false on the
+###    other 57), matching how :dependsOnPrevalence and :proposedForHealthcare are handled: absence
+###    no longer needs to be read differently across the three boolean properties.
+###  - roadmap:optimum's 55 numeric-target assertions were typed inconsistently (53 as
+###    xsd:integer, 2 as xsd:decimal) against the property's own xsd:decimal range; all 55 are now
+###    xsd:decimal.
+###  - Toolkit implementations are now pinned via :toolkitVersion (AIF360 0.6.1, Fairlearn 0.12.0,
+###    Aequitas 1.1.0, fairmodels 1.2.2 - the versions verified against for the :functionName
+###    assertions here). Aequitas and fairmodels, previously declared with no implementations, now
+###    each have 5, attached to the 6 existing metrics they overlap with (disparate impact, equal
+###    opportunity difference, negative predictive value difference, overall accuracy gap,
+###    predictive equality, predictive parity); several are ratio-valued where the ontology's own
+###    metric is difference-valued; and both toolkits are noted on the implementation individual.
+###    Coverage is still 13 of 60 metrics: the other 47 (e.g. xAUROC, HEAL, pairwise ranking
+###    fairness) have no known off-the-shelf toolkit implementation to record, in any toolkit.
+###  - CDCREC codes for ROADMAP's seven OMB 2024 combined race/ethnicity values were checked
+###    against CDC/NCHS's Race and Ethnicity Code System Version 1.3 background paper (October
+###    2024): CDCREC 1.3 is explicitly not yet aligned to the March 2024 SPD-15 revision, and
+###    CDC/NCHS describe that alignment as future work, so no current, verifiable code exists for
+###    any of the seven values. This remains open (see below) pending that release. Codes for
+###    roadmap:03431 (unknown sex) and roadmap:03440 (sex not listed) were separately added, using
+###    the HL7 AdministrativeGender code system this extension had declared but never populated.
+###  - :loincQuestionCode is now populated: 76689-9 (sex assigned at birth) on roadmap:03425;
+###    76691-5 (gender identity) on roadmap:03432; 72826-1 (Race OMB.1997) on :Race; and 69490-1
+###    (Ethnicity OMB.1997) on :Ethnicity. No LOINC question code is asserted for roadmap:03441 (the
+###    OMB 2024 combined category): no such code could be verified to exist yet, for the same
+###    reason as the CDCREC gap above.
+###  - There is now a measurement-result layer: :forSensitiveAttributeValue links a roadmap:03808
+###    model performance instance to the sensitive attribute value defining its subgroup, so a
+###    fairness metric's per-group result can be expressed as an instance (see
+###    :Example_EqualisedOddsResult_BlackPatients) rather than only characterised at the class level.
+###
+###  Still open:
+###
+###  1. Guidance levels are editorial judgements from a single appraisal. They are asserted here
 ###     as class restrictions and therefore cannot be versioned or attributed independently of the
 ###     ontology. They should move to a separate, dated recommendation resource.
-###  3. Five of the 60 target values are not plain numbers ("range (e^-eps, e^eps)", "0 (< 0.2)",
-###     "AUROC", "1 - prevalence", "Max Recall") and so have no roadmap:optimum restriction.
-###  4. Local identifiers mix numeric (:00023), CamelCase (:GroupFairness) and delimited lowercase
+###  2. Five of the 60 target values are not plain numbers ("range (e^-eps, e^eps)", "0 (< 0.2)",
+###     "AUROC", "1 - prevalence", "Max Recall") and so have no roadmap:optimum restriction. This
+###     is a limit of the source catalogue's own targets, not a gap expected to close.
+###  3. Local identifiers mix numeric (:00023), CamelCase (:GroupFairness) and delimited lowercase
 ###     (:performance-dependent_fairness_metric) forms. A single numeric scheme should be adopted.
-###  5. Toolkit implementations are not pinned to library versions, and only 13 of the 60 fairness
-###     metrics have one. Aequitas and fairmodels are declared but carry no implementations.
-###  6. :supportsIntersectionalAnalysis is asserted only where true (3 metrics), whereas
-###     :dependsOnPrevalence and :proposedForHealthcare are asserted for all 60 including false.
-###     Absence therefore means "false" for two properties and "not recorded" for the third.
-###  7. ROADMAP represents patient-descriptor values inconsistently: race / ethnicity values are
+###  4. ROADMAP represents patient-descriptor values inconsistently: race / ethnicity values are
 ###     individuals, sex values and age groups are classes. Until this is regularised, an
 ###     intersectional attribute cannot reference an age band (see
 ###     :IntersectionalExample_ElderlyBlackWoman), and mappings between the two styles have to
 ###     use skos annotations rather than owl:sameAs.
-###  8. CDCREC / SPD-15 codes are missing for ROADMAP's seven OMB 2024 combined race and
-###     ethnicity values, and for roadmap:03431 unknown sex and roadmap:03440 sex not listed.
-###  9. :loincQuestionCode is declared but unpopulated. Candidate values (LOINC 76689-9 for sex
-###     assigned at birth, 76691-5 for gender identity, and the race and ethnicity question
-###     codes) need to be verified against a current LOINC release before being asserted.
-### 10. The gender identity value set is unresolved: the SNOMED CT set carried here and the
+###  5. CDCREC codes for ROADMAP's seven OMB 2024 combined race and ethnicity values, and a LOINC
+###     question code for that same combined question, remain unassertable pending a current
+###     CDCREC / SPD-15-aligned release (see above); re-check both at that time.
+###  6. The gender identity value set is unresolved: the SNOMED CT set carried here and the
 ###     USCDI set named in roadmap:03432's comment are not the same set.
-### 11. ROADMAP's other social determinant of health branches - disability (roadmap:03589),
+###  7. ROADMAP's other social determinant of health branches - disability (roadmap:03589),
 ###     economic stability (roadmap:03588), education access and quality (roadmap:03584), health
 ###     care access and quality (roadmap:03587), neighborhood and built environment
 ###     (roadmap:03585), social and community context (roadmap:03586) - have no values at all,
 ###     and this extension adds none. Insurance or payer status, primary language and rurality
 ###     are absent from both ontologies despite being common fairness axes in clinical work.
-### 12. There is no measurement-result layer. Fairness results should be expressed as
-###     roadmap:03808 model performance instances that carry a fairness metric plus the sensitive
-###     attribute value defining the subgroup; the property to link a result to its subgroup does
-###     not yet exist.
