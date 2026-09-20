@@ -4664,7 +4664,7 @@ D - Ethical, Legal, and Maintenance"""@en ;
 
 ###  https://rsna.org/roadmap/03355
 <https://rsna.org/roadmap/03355> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/03788> ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/00658> ;
                                  rdfs:label "model property"@en ,
                                             "propiedad del modelo"@es ,
                                             "模型属性"@zh ;
@@ -12896,9 +12896,9 @@ PREV = P / n"""@en ;
 ###  https://rsna.org/roadmap/04116
 <https://rsna.org/roadmap/04116> rdf:type owl:Class ;
                                  rdfs:subClassOf <https://rsna.org/roadmap/03602> ;
-                                 rdfs:label "harmonised standards applied"@en ;
-                                 skos:altLabel "harmonized standards applied"@en ;
-                                 skos:definition "Lists the harmonised standards, common specifications, or other technical standards applied in developing and evaluating the model, or the solutions adopted to meet the applicable requirements in their absence."@en .
+                                 rdfs:label "harmonized standards applied"@en ;
+                                 skos:altLabel "harmonised standards applied"@en ;
+                                 skos:definition "Lists the harmonized standards, common specifications, or other technical standards applied in developing and evaluating the model, or the solutions adopted to meet the applicable requirements in their absence."@en .
 
 
 ###  https://rsna.org/roadmap/04117
