@@ -12886,6 +12886,149 @@ PREV = P / n"""@en ;
                                  skos:exactMatch <https://purl.org/twc/fmo#average_cohort_clustering_objective_cost> .
 
 
+###  https://rsna.org/roadmap/04115
+<https://rsna.org/roadmap/04115> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03355> ;
+                                 rdfs:label "cybersecurity measures"@en ;
+                                 skos:definition "Describes cybersecurity measures put in place for the AI model, such as access controls, vulnerability management, or secure update mechanisms."@en .
+
+
+###  https://rsna.org/roadmap/04116
+<https://rsna.org/roadmap/04116> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03602> ;
+                                 rdfs:label "harmonised standards applied"@en ;
+                                 skos:altLabel "harmonized standards applied"@en ;
+                                 skos:definition "Lists the harmonised standards, common specifications, or other technical standards applied in developing and evaluating the model, or the solutions adopted to meet the applicable requirements in their absence."@en .
+
+
+###  https://rsna.org/roadmap/04117
+<https://rsna.org/roadmap/04117> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03355> ;
+                                 rdfs:label "distribution form"@en ;
+                                 skos:definition "The form(s) in which the model is placed on the market or put into service, such as software embedded in hardware, a software download, an API, or a cloud service."@en .
+
+
+###  https://rsna.org/roadmap/04118
+<https://rsna.org/roadmap/04118> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03355> ;
+                                 rdfs:label "deployer user interface description"@en ;
+                                 skos:definition "A basic description of the user interface provided to the deployer for interacting with the model's outputs."@en .
+
+
+###  https://rsna.org/roadmap/04119
+<https://rsna.org/roadmap/04119> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03376> ;
+                                 rdfs:label "computational resources"@en ;
+                                 skos:definition "Describes the computational resources (e.g., processor type and count, memory, accelerators) used to develop, train, test, and validate the model, as distinct from the resources needed to apply it (see roadmap:03379, required processors)."@en .
+
+
+###  https://rsna.org/roadmap/04120
+<https://rsna.org/roadmap/04120> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03355> ;
+                                 rdfs:label "local acceptance-test procedure"@en ;
+                                 skos:definition "A recommended procedure by which a receiving site can verify the model's performance on local data before deployment."@en .
+
+
+###  https://rsna.org/roadmap/04121
+<https://rsna.org/roadmap/04121> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03355> ;
+                                 rdfs:label "operating range"@en ;
+                                 skos:altLabel "performance floor"@en ;
+                                 skos:definition "A declared expected performance range or minimum performance floor, used to detect when the model's real-world performance has fallen outside acceptable bounds."@en .
+
+
+###  https://rsna.org/roadmap/04122
+<https://rsna.org/roadmap/04122> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03355> ;
+                                 rdfs:label "suspend-use condition"@en ;
+                                 skos:altLabel "stop rule"@en ;
+                                 skos:definition "A condition, such as a specific performance decline or an operational change, under which use of the model should be suspended."@en .
+
+
+###  https://rsna.org/roadmap/04123
+<https://rsna.org/roadmap/04123> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03808> ;
+                                 rdfs:label "performance provenance"@en ;
+                                 skos:definition "Indicates whether a reported performance value is claimed (self-reported by the developer, e.g. from internal or external testing) or observed (derived from real-world, deployed use, e.g. registry-reported concordance)."@en .
+
+
+###  https://rsna.org/roadmap/04124
+<https://rsna.org/roadmap/04124> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03808> ;
+                                 rdfs:label "metric justification"@en ;
+                                 skos:definition "Explains why the metric(s) reported are appropriate measures of performance for this specific model and its intended use."@en .
+
+
+###  https://rsna.org/roadmap/04125
+<https://rsna.org/roadmap/04125> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03482> ;
+                                 rdfs:label "output type"@en ;
+                                 skos:definition "The general category of the value produced by the model as output, such as prediction, classification, recommendation, evaluation, or analysis."@en .
+
+
+###  https://rsna.org/roadmap/04126
+<https://rsna.org/roadmap/04126> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03355> ;
+                                 rdfs:label "bias mitigation approach"@en ;
+                                 skos:definition "Describes the approach taken during model development to identify, manage, reduce, or eliminate bias, and to help ensure the model's output is fair across relevant subgroups."@en .
+
+
+###  https://rsna.org/roadmap/04127
+<https://rsna.org/roadmap/04127> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03355> ;
+                                 rdfs:label "clinical risk level"@en ;
+                                 skos:definition "A declared level of clinical risk associated with use of the model, such as a risk classification scheme used by the developer or a relevant regulatory framework."@en .
+
+
+###  https://rsna.org/roadmap/04128
+<https://rsna.org/roadmap/04128> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/00122> ;
+                                 rdfs:label "acquisition characteristic"@en ;
+                                 skos:definition "Describes the imaging acquisition equipment and parameters used to obtain a dataset's images, such as scanner manufacturer, model, field strength, detector configuration, slice thickness, or reconstruction kernel."@en .
+
+
+###  https://rsna.org/roadmap/04129
+<https://rsna.org/roadmap/04129> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/04128> ;
+                                 rdfs:label "scanner manufacturer"@en ;
+                                 skos:definition "The manufacturer of the imaging equipment used to acquire the images, e.g. GE HealthCare, Siemens Healthineers, Philips, or Canon Medical."@en .
+
+
+###  https://rsna.org/roadmap/04130
+<https://rsna.org/roadmap/04130> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/04128> ;
+                                 rdfs:label "scanner model"@en ;
+                                 skos:definition "The specific model of the imaging equipment used to acquire the images."@en .
+
+
+###  https://rsna.org/roadmap/04131
+<https://rsna.org/roadmap/04131> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/04128> ;
+                                 rdfs:label "field strength"@en ;
+                                 skos:definition "The static magnetic field strength of the MRI scanner used to acquire the images, typically expressed in tesla (T)."@en .
+
+
+###  https://rsna.org/roadmap/04132
+<https://rsna.org/roadmap/04132> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/04128> ;
+                                 rdfs:label "detector configuration"@en ;
+                                 skos:definition "The detector configuration of the imaging equipment used to acquire the images, such as the number of detector rows for CT."@en .
+
+
+###  https://rsna.org/roadmap/04133
+<https://rsna.org/roadmap/04133> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/04128> ;
+                                 rdfs:label "slice thickness"@en ;
+                                 skos:definition "The thickness of the reconstructed image slices."@en .
+
+
+###  https://rsna.org/roadmap/04134
+<https://rsna.org/roadmap/04134> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/04128> ;
+                                 rdfs:label "reconstruction kernel"@en ;
+                                 skos:definition "The reconstruction kernel or algorithm applied to raw acquisition data to produce the reconstructed images."@en .
+
+
 #################################################################
 #    Individuals
 #################################################################
@@ -18088,155 +18231,6 @@ Tier 4: no sharing"""@en ;
                                                "Abdominal Radiology"@en ;
                                  skos:definition "Content code for Abdominal Radiology."@en ;
                                  skos:exactMatch <http://www.radlex.org/RID/RID50608> .
-
-
-#################################################################
-#    New classes proposed for ATLAS extended-crosswalk gaps
-#    (cybersecurity, standards, distribution, deployment support,
-#    performance provenance, and imaging acquisition characteristics)
-#################################################################
-
-###  https://rsna.org/roadmap/04115
-<https://rsna.org/roadmap/04115> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/03355> ;
-                                 rdfs:label "cybersecurity measures"@en ;
-                                 skos:definition "Describes cybersecurity measures put in place for the AI model, such as access controls, vulnerability management, or secure update mechanisms."@en .
-
-
-###  https://rsna.org/roadmap/04116
-<https://rsna.org/roadmap/04116> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/03602> ;
-                                 rdfs:label "harmonised standards applied"@en ;
-                                 skos:altLabel "harmonized standards applied"@en ;
-                                 skos:definition "Lists the harmonised standards, common specifications, or other technical standards applied in developing and evaluating the model, or the solutions adopted to meet the applicable requirements in their absence."@en .
-
-
-###  https://rsna.org/roadmap/04117
-<https://rsna.org/roadmap/04117> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/03355> ;
-                                 rdfs:label "distribution form"@en ;
-                                 skos:definition "The form(s) in which the model is placed on the market or put into service, such as software embedded in hardware, a software download, an API, or a cloud service."@en .
-
-
-###  https://rsna.org/roadmap/04118
-<https://rsna.org/roadmap/04118> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/03355> ;
-                                 rdfs:label "deployer user interface description"@en ;
-                                 skos:definition "A basic description of the user interface provided to the deployer for interacting with the model's outputs."@en .
-
-
-###  https://rsna.org/roadmap/04119
-<https://rsna.org/roadmap/04119> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/03376> ;
-                                 rdfs:label "computational resources"@en ;
-                                 skos:definition "Describes the computational resources (e.g., processor type and count, memory, accelerators) used to develop, train, test, and validate the model, as distinct from the resources needed to apply it (see roadmap:03379, required processors)."@en .
-
-
-###  https://rsna.org/roadmap/04120
-<https://rsna.org/roadmap/04120> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/03355> ;
-                                 rdfs:label "local acceptance-test procedure"@en ;
-                                 skos:definition "A recommended procedure by which a receiving site can verify the model's performance on local data before deployment."@en .
-
-
-###  https://rsna.org/roadmap/04121
-<https://rsna.org/roadmap/04121> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/03355> ;
-                                 rdfs:label "operating range"@en ;
-                                 skos:altLabel "performance floor"@en ;
-                                 skos:definition "A declared expected performance range or minimum performance floor, used to detect when the model's real-world performance has fallen outside acceptable bounds."@en .
-
-
-###  https://rsna.org/roadmap/04122
-<https://rsna.org/roadmap/04122> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/03355> ;
-                                 rdfs:label "suspend-use condition"@en ;
-                                 skos:altLabel "stop rule"@en ;
-                                 skos:definition "A condition, such as a specific performance decline or an operational change, under which use of the model should be suspended."@en .
-
-
-###  https://rsna.org/roadmap/04123
-<https://rsna.org/roadmap/04123> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/03642> ;
-                                 rdfs:label "performance provenance"@en ;
-                                 skos:definition "Indicates whether a reported performance value is claimed (self-reported by the developer, e.g. from internal or external testing) or observed (derived from real-world, deployed use, e.g. registry-reported concordance)."@en .
-
-
-###  https://rsna.org/roadmap/04124
-<https://rsna.org/roadmap/04124> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/03642> ;
-                                 rdfs:label "metric justification"@en ;
-                                 skos:definition "Explains why the metric(s) reported are appropriate measures of performance for this specific model and its intended use."@en .
-
-
-###  https://rsna.org/roadmap/04125
-<https://rsna.org/roadmap/04125> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/03482> ;
-                                 rdfs:label "output type"@en ;
-                                 skos:definition "The general category of the value produced by the model as output, such as prediction, classification, recommendation, evaluation, or analysis."@en .
-
-
-###  https://rsna.org/roadmap/04126
-<https://rsna.org/roadmap/04126> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/03355> ;
-                                 rdfs:label "bias mitigation approach"@en ;
-                                 skos:definition "Describes the approach taken during model development to identify, manage, reduce, or eliminate bias, and to help ensure the model's output is fair across relevant subgroups."@en .
-
-
-###  https://rsna.org/roadmap/04127
-<https://rsna.org/roadmap/04127> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/03355> ;
-                                 rdfs:label "clinical risk level"@en ;
-                                 skos:definition "A declared level of clinical risk associated with use of the model, such as a risk classification scheme used by the developer or a relevant regulatory framework."@en .
-
-
-###  https://rsna.org/roadmap/04128
-<https://rsna.org/roadmap/04128> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/00122> ;
-                                 rdfs:label "acquisition characteristic"@en ;
-                                 skos:definition "Describes the imaging acquisition equipment and parameters used to obtain a dataset's images, such as scanner manufacturer, model, field strength, detector configuration, slice thickness, or reconstruction kernel."@en .
-
-
-###  https://rsna.org/roadmap/04129
-<https://rsna.org/roadmap/04129> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/04128> ;
-                                 rdfs:label "scanner manufacturer"@en ;
-                                 skos:definition "The manufacturer of the imaging equipment used to acquire the images, e.g. GE HealthCare, Siemens Healthineers, Philips, or Canon Medical."@en .
-
-
-###  https://rsna.org/roadmap/04130
-<https://rsna.org/roadmap/04130> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/04128> ;
-                                 rdfs:label "scanner model"@en ;
-                                 skos:definition "The specific model of the imaging equipment used to acquire the images."@en .
-
-
-###  https://rsna.org/roadmap/04131
-<https://rsna.org/roadmap/04131> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/04128> ;
-                                 rdfs:label "field strength"@en ;
-                                 skos:definition "The static magnetic field strength of the MRI scanner used to acquire the images, typically expressed in tesla (T)."@en .
-
-
-###  https://rsna.org/roadmap/04132
-<https://rsna.org/roadmap/04132> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/04128> ;
-                                 rdfs:label "detector configuration"@en ;
-                                 skos:definition "The detector configuration of the imaging equipment used to acquire the images, such as the number of detector rows for CT."@en .
-
-
-###  https://rsna.org/roadmap/04133
-<https://rsna.org/roadmap/04133> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/04128> ;
-                                 rdfs:label "slice thickness"@en ;
-                                 skos:definition "The thickness of the reconstructed image slices."@en .
-
-
-###  https://rsna.org/roadmap/04134
-<https://rsna.org/roadmap/04134> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/04128> ;
-                                 rdfs:label "reconstruction kernel"@en ;
-                                 skos:definition "The reconstruction kernel or algorithm applied to raw acquisition data to produce the reconstructed images."@en .
 
 
 #################################################################
