@@ -19087,8 +19087,8 @@ Tier 4: no sharing"""@en ;
 #    and Maintenance
 #################################################################
 
-###  https://rsna.org/roadmap/04227
-<https://rsna.org/roadmap/04227> rdf:type owl:Class ;
+###  https://rsna.org/roadmap/04234
+<https://rsna.org/roadmap/04234> rdf:type owl:Class ;
                                  rdfs:subClassOf <https://rsna.org/roadmap/03355> ;
                                  rdfs:label "dataset use"@en ;
                                  skos:definition "Associates a dataset with a model's development and the dataset's role in it (e.g. training, testing), or reciprocally associates a model with a dataset it uses."@en .
