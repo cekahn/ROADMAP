@@ -19082,6 +19082,61 @@ Tier 4: no sharing"""@en ;
 
 
 #################################################################
+#    New classes for ATLAS Datasets/Models cross-reference,
+#    Model class, Foundation model, Third-party components,
+#    and Maintenance
+#################################################################
+
+###  https://rsna.org/roadmap/04234
+<https://rsna.org/roadmap/04234> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03355> ;
+                                 rdfs:label "dataset use"@en ;
+                                 skos:definition "Associates a dataset with a model's development and the dataset's role in it (e.g. training, testing), or reciprocally associates a model with a dataset it uses."@en .
+
+
+###  https://rsna.org/roadmap/04228
+<https://rsna.org/roadmap/04228> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03763> ;
+                                 rdfs:label "pretraining"@en ;
+                                 skos:definition "Data used to pretrain a component (e.g. a foundation model or encoder) prior to this model's own training."@en .
+
+
+###  https://rsna.org/roadmap/04229
+<https://rsna.org/roadmap/04229> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03763> ;
+                                 rdfs:label "fine-tuning"@en ;
+                                 skos:definition "Data used to fine-tune a pretrained component for this model's specific task."@en .
+
+
+###  https://rsna.org/roadmap/04230
+<https://rsna.org/roadmap/04230> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03355> ;
+                                 rdfs:label "model class"@en ;
+                                 skos:definition "The general architectural or algorithmic category of a model (e.g. convolutional neural network, vision transformer, large language model), as a coarse, queryable category distinct from a free-text architecture description."@en .
+
+
+###  https://rsna.org/roadmap/04231
+<https://rsna.org/roadmap/04231> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03355> ;
+                                 rdfs:label "foundation model"@en ;
+                                 skos:definition "A large pretrained model that a given model is built upon, fine-tuned from, or otherwise directly incorporates."@en .
+
+
+###  https://rsna.org/roadmap/04232
+<https://rsna.org/roadmap/04232> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03355> ;
+                                 rdfs:label "third-party component"@en ;
+                                 skos:definition "A third-party or pretrained software component incorporated into a model, other than a foundation model captured separately, that is material to the model's behavior."@en .
+
+
+###  https://rsna.org/roadmap/04233
+<https://rsna.org/roadmap/04233> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03355> ;
+                                 rdfs:label "maintenance"@en ;
+                                 skos:definition "Describes how a model's real-world performance and fairness are monitored after deployment, and the process by which the model is updated in response."@en .
+
+
+#################################################################
 #    General axioms
 #################################################################
 
