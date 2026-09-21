@@ -18585,6 +18585,8 @@ Tier 4: no sharing"""@en ;
                                           <https://rsna.org/roadmap/04155> ;
                                  dcterms:source <https://www.hl7.org/implement/standards/product_brief.cfm?product_id=185> ;
                                  rdfs:label "ADT"@en ;
+                                 skos:altLabel "Admission Discharge Transfer"@en ,
+                                               "Admit / Discharge / Transfer"@en ;
                                  skos:definition "Admit/Discharge/Transfer: conveys patient demographic and encounter events."@en .
 
 
@@ -18619,6 +18621,7 @@ Tier 4: no sharing"""@en ;
                                           <https://rsna.org/roadmap/04155> ;
                                  dcterms:source <https://www.hl7.org/implement/standards/product_brief.cfm?product_id=185> ;
                                  rdfs:label "MDM"@en ;
+                                 skos:altLabel "Medical Document Management"@en ;
                                  skos:definition "Medical Document Management: conveys the creation, status, or content of a clinical document."@en .
 
 
