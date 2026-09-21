@@ -18234,6 +18234,653 @@ Tier 4: no sharing"""@en ;
 
 
 #################################################################
+#    New classes and individuals for ATLAS Integration section
+#    (DICOM, DICOMweb, HL7 v2, FHIR, IHE Radiology profiles,
+#    result delivery, invocation, conformance statements,
+#    clinical system types, validated systems)
+#################################################################
+
+###  https://rsna.org/roadmap/04135
+<https://rsna.org/roadmap/04135> rdf:type owl:Class ;
+           rdfs:subClassOf <https://rsna.org/roadmap/03355> ;
+           rdfs:label "integration"@en ;
+           skos:definition "How an AI model is integrated into an imaging environment, expressed as interface standards (e.g. DICOM, DICOMweb, HL7, FHIR, IHE profiles) rather than named vendor products."@en .
+
+
+###  https://rsna.org/roadmap/04136
+<https://rsna.org/roadmap/04136> rdf:type owl:Class ;
+           rdfs:subClassOf <https://rsna.org/roadmap/04135> ;
+           rdfs:label "interfaces"@en ;
+           skos:definition "The interface standards a model supports for receiving input, being queried, and transporting data and results within an imaging environment."@en .
+
+
+###  https://rsna.org/roadmap/04137
+<https://rsna.org/roadmap/04137> rdf:type owl:Class ;
+           rdfs:subClassOf <https://rsna.org/roadmap/04136> ;
+           rdfs:label "DICOM network service"@en ;
+           skos:definition "A DICOM network service that a model supports as an association requester or acceptor, as defined by the DICOM Standard PS3.4 (Service Class Specifications) and PS3.7 (Message Exchange)."@en ;
+           dcterms:source <https://dicom.nema.org/medical/dicom/current/output/html/part04.html> .
+
+
+###  https://rsna.org/roadmap/04138 Verification (C-ECHO)
+<https://rsna.org/roadmap/04138> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04137> ;
+           rdfs:label "Verification (C-ECHO)"@en ;
+           skos:definition "Confirms application-level communication between two DICOM application entities."@en ;
+           dcterms:source <https://dicom.nema.org/medical/dicom/current/output/html/part04.html> .
+
+
+###  https://rsna.org/roadmap/04139 Storage SCP (C-STORE)
+<https://rsna.org/roadmap/04139> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04137> ;
+           rdfs:label "Storage SCP (C-STORE)"@en ;
+           skos:definition "Accepts, as Service Class Provider, DICOM instances sent via the Storage Service Class."@en ;
+           dcterms:source <https://dicom.nema.org/medical/dicom/current/output/html/part04.html> .
+
+
+###  https://rsna.org/roadmap/04140 Storage SCU (C-STORE)
+<https://rsna.org/roadmap/04140> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04137> ;
+           rdfs:label "Storage SCU (C-STORE)"@en ;
+           skos:definition "Sends, as Service Class User, DICOM instances via the Storage Service Class."@en ;
+           dcterms:source <https://dicom.nema.org/medical/dicom/current/output/html/part04.html> .
+
+
+###  https://rsna.org/roadmap/04141 Storage Commitment
+<https://rsna.org/roadmap/04141> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04137> ;
+           rdfs:label "Storage Commitment"@en ;
+           skos:definition "Confirms that a receiving system has taken responsibility for safely storing transferred DICOM instances."@en ;
+           dcterms:source <https://dicom.nema.org/medical/dicom/current/output/html/part04.html> .
+
+
+###  https://rsna.org/roadmap/04142 Query/Retrieve (C-FIND)
+<https://rsna.org/roadmap/04142> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04137> ;
+           rdfs:label "Query/Retrieve (C-FIND)"@en ;
+           skos:definition "Queries a remote DICOM application entity for matching studies, series, or instances."@en ;
+           dcterms:source <https://dicom.nema.org/medical/dicom/current/output/html/part04.html> .
+
+
+###  https://rsna.org/roadmap/04143 Query/Retrieve (C-MOVE)
+<https://rsna.org/roadmap/04143> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04137> ;
+           rdfs:label "Query/Retrieve (C-MOVE)"@en ;
+           skos:definition "Requests that a remote DICOM application entity transfer matching instances to a third destination."@en ;
+           dcterms:source <https://dicom.nema.org/medical/dicom/current/output/html/part04.html> .
+
+
+###  https://rsna.org/roadmap/04144 Query/Retrieve (C-GET)
+<https://rsna.org/roadmap/04144> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04137> ;
+            rdfs:label "Query/Retrieve (C-GET)"@en ;
+            skos:definition "Requests that a remote DICOM application entity transfer matching instances directly to the requester."@en ;
+            dcterms:source <https://dicom.nema.org/medical/dicom/current/output/html/part04.html> .
+
+
+###  https://rsna.org/roadmap/04145 Modality Worklist
+<https://rsna.org/roadmap/04145> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04137> ;
+            rdfs:label "Modality Worklist"@en ;
+            skos:definition "Retrieves scheduled procedure step information from a worklist provider."@en ;
+            dcterms:source <https://dicom.nema.org/medical/dicom/current/output/html/part04.html> .
+
+
+###  https://rsna.org/roadmap/04146 Modality Performed Procedure Step
+<https://rsna.org/roadmap/04146> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04137> ;
+            rdfs:label "Modality Performed Procedure Step"@en ;
+            skos:definition "Reports the status and details of a procedure step as it is performed."@en ;
+            dcterms:source <https://dicom.nema.org/medical/dicom/current/output/html/part04.html> .
+
+
+###  https://rsna.org/roadmap/04147 Unified Procedure Step (UPS)
+<https://rsna.org/roadmap/04147> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04137> ;
+            rdfs:label "Unified Procedure Step (UPS)"@en ;
+            skos:definition "Manages a general work item, such as a processing or reporting task, through creation, progress, and completion."@en ;
+            dcterms:source <https://dicom.nema.org/medical/dicom/current/output/html/part04.html> .
+
+
+###  https://rsna.org/roadmap/04148 Instance Availability Notification
+<https://rsna.org/roadmap/04148> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04137> ;
+            rdfs:label "Instance Availability Notification"@en ;
+            skos:definition "Notifies a receiver that specified DICOM instances are available for retrieval."@en ;
+            dcterms:source <https://dicom.nema.org/medical/dicom/current/output/html/part04.html> .
+
+
+###  https://rsna.org/roadmap/04149
+<https://rsna.org/roadmap/04149> rdf:type owl:Class ;
+            rdfs:subClassOf <https://rsna.org/roadmap/04136> ;
+            rdfs:label "DICOMweb service"@en ;
+            skos:definition "A RESTful web service defined by the DICOMweb family of standards (DICOM PS3.18, Web Services) for querying, retrieving, or storing DICOM instances and metadata over HTTP."@en ;
+            dcterms:source <https://dicom.nema.org/medical/dicom/current/output/html/part18.html> .
+
+
+###  https://rsna.org/roadmap/04150 QIDO-RS
+<https://rsna.org/roadmap/04150> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04149> ;
+            rdfs:label "QIDO-RS"@en ;
+            skos:definition "Query based on ID for DICOM Objects: a RESTful service for searching studies, series, and instances by attribute."@en ;
+            dcterms:source <https://dicom.nema.org/medical/dicom/current/output/html/part18.html> .
+
+
+###  https://rsna.org/roadmap/04151 WADO-RS
+<https://rsna.org/roadmap/04151> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04149> ;
+            rdfs:label "WADO-RS"@en ;
+            skos:definition "Web Access to DICOM Objects (RESTful): retrieves DICOM instances, frames, and metadata over HTTP."@en ;
+            dcterms:source <https://dicom.nema.org/medical/dicom/current/output/html/part18.html> .
+
+
+###  https://rsna.org/roadmap/04152 WADO-URI
+<https://rsna.org/roadmap/04152> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04149> ;
+            rdfs:label "WADO-URI"@en ;
+            skos:definition "Web Access to DICOM Objects (URI-based): retrieves a single DICOM instance or rendered image via an HTTP GET request with query parameters."@en ;
+            dcterms:source <https://dicom.nema.org/medical/dicom/current/output/html/part18.html> .
+
+
+###  https://rsna.org/roadmap/04153 STOW-RS
+<https://rsna.org/roadmap/04153> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04149> ;
+            rdfs:label "STOW-RS"@en ;
+            skos:definition "Store Over the Web: a RESTful service for storing DICOM instances to a remote system."@en ;
+            dcterms:source <https://dicom.nema.org/medical/dicom/current/output/html/part18.html> .
+
+
+###  https://rsna.org/roadmap/04154 UPS-RS
+<https://rsna.org/roadmap/04154> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04149> ;
+            rdfs:label "UPS-RS"@en ;
+            skos:definition "Unified Procedure Step (RESTful): manages UPS work items over a RESTful interface."@en ;
+            dcterms:source <https://dicom.nema.org/medical/dicom/current/output/html/part18.html> ;
+            rdfs:seeAlso <https://rsna.org/roadmap/04147> .
+
+
+###  https://rsna.org/roadmap/04155
+<https://rsna.org/roadmap/04155> rdf:type owl:Class ;
+            rdfs:subClassOf <https://rsna.org/roadmap/04136> ;
+            rdfs:label "HL7 v2 message type"@en ;
+            skos:definition "A Health Level Seven Version 2 (HL7 v2) message type used to exchange clinical, administrative, or order/result data between systems."@en ;
+            dcterms:source <https://www.hl7.org/implement/standards/product_brief.cfm?product_id=185> .
+
+
+###  https://rsna.org/roadmap/04156 ADT
+<https://rsna.org/roadmap/04156> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04155> ;
+            rdfs:label "ADT"@en ;
+            skos:definition "Admit/Discharge/Transfer: conveys patient demographic and encounter events."@en ;
+            dcterms:source <https://www.hl7.org/implement/standards/product_brief.cfm?product_id=185> .
+
+
+###  https://rsna.org/roadmap/04157 ORM
+<https://rsna.org/roadmap/04157> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04155> ;
+            rdfs:label "ORM"@en ;
+            skos:definition "General order message: conveys a request for a service or procedure."@en ;
+            dcterms:source <https://www.hl7.org/implement/standards/product_brief.cfm?product_id=185> .
+
+
+###  https://rsna.org/roadmap/04158 OMI
+<https://rsna.org/roadmap/04158> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04155> ;
+            rdfs:label "OMI"@en ;
+            skos:definition "Imaging order message: conveys a request for an imaging procedure."@en ;
+            dcterms:source <https://www.hl7.org/implement/standards/product_brief.cfm?product_id=185> .
+
+
+###  https://rsna.org/roadmap/04159 ORU
+<https://rsna.org/roadmap/04159> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04155> , <https://rsna.org/roadmap/04187> ;
+            rdfs:label "ORU"@en ;
+            skos:altLabel "HL7 v2 ORU message"@en ;
+            skos:definition "Observation result: conveys observation or report results."@en ;
+            dcterms:source <https://www.hl7.org/implement/standards/product_brief.cfm?product_id=185> .
+
+
+###  https://rsna.org/roadmap/04160 MDM
+<https://rsna.org/roadmap/04160> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04155> ;
+            rdfs:label "MDM"@en ;
+            skos:definition "Medical Document Management: conveys the creation, status, or content of a clinical document."@en ;
+            dcterms:source <https://www.hl7.org/implement/standards/product_brief.cfm?product_id=185> .
+
+
+###  https://rsna.org/roadmap/04161 SIU
+<https://rsna.org/roadmap/04161> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04155> ;
+            rdfs:label "SIU"@en ;
+            skos:definition "Scheduling Information Unsolicited: conveys scheduling events such as appointment booking or cancellation."@en ;
+            dcterms:source <https://www.hl7.org/implement/standards/product_brief.cfm?product_id=185> .
+
+
+###  https://rsna.org/roadmap/04162
+<https://rsna.org/roadmap/04162> rdf:type owl:Class ;
+            rdfs:subClassOf <https://rsna.org/roadmap/04136> ;
+            rdfs:label "FHIR resource"@en ;
+            skos:definition "An HL7 FHIR (Fast Healthcare Interoperability Resources) resource type or related specification used to represent or exchange imaging AI-relevant data."@en ;
+            dcterms:source <https://hl7.org/fhir/> .
+
+
+###  https://rsna.org/roadmap/04163 ImagingStudy
+<https://rsna.org/roadmap/04163> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04162> ;
+            rdfs:label "ImagingStudy"@en ;
+            skos:definition "Represents the content of a DICOM imaging study, including its series and instances, as a FHIR resource."@en ;
+            rdfs:seeAlso <https://hl7.org/fhir/imagingstudy.html> .
+
+
+###  https://rsna.org/roadmap/04164 ImagingSelection
+<https://rsna.org/roadmap/04164> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04162> ;
+            rdfs:label "ImagingSelection"@en ;
+            skos:definition "Represents a selection of images or other content, with or without annotations, for a specific purpose such as referencing key images."@en ;
+            rdfs:seeAlso <https://hl7.org/fhir/imagingselection.html> .
+
+
+###  https://rsna.org/roadmap/04165 DiagnosticReport
+<https://rsna.org/roadmap/04165> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04162> , <https://rsna.org/roadmap/04187> ;
+            rdfs:label "DiagnosticReport"@en ;
+            skos:altLabel "FHIR DiagnosticReport"@en ;
+            skos:definition "Represents the findings and interpretation of diagnostic tests, including imaging studies."@en ;
+            rdfs:seeAlso <https://hl7.org/fhir/diagnosticreport.html> .
+
+
+###  https://rsna.org/roadmap/04166 Observation
+<https://rsna.org/roadmap/04166> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04162> , <https://rsna.org/roadmap/04187> ;
+            rdfs:label "Observation"@en ;
+            skos:altLabel "FHIR Observation"@en ;
+            skos:definition "Represents a measurement or assertion made about a patient, such as a model-derived finding or score."@en ;
+            rdfs:seeAlso <https://hl7.org/fhir/observation.html> .
+
+
+###  https://rsna.org/roadmap/04167 ServiceRequest
+<https://rsna.org/roadmap/04167> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04162> ;
+            rdfs:label "ServiceRequest"@en ;
+            skos:definition "Represents a request for a procedure or service to be performed, such as an imaging study or an AI analysis."@en ;
+            rdfs:seeAlso <https://hl7.org/fhir/servicerequest.html> .
+
+
+###  https://rsna.org/roadmap/04168 Task
+<https://rsna.org/roadmap/04168> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04162> ;
+            rdfs:label "Task"@en ;
+            skos:definition "Represents a piece of work, such as an AI processing job, tracked through its lifecycle."@en ;
+            rdfs:seeAlso <https://hl7.org/fhir/task.html> .
+
+
+###  https://rsna.org/roadmap/04169 DocumentReference
+<https://rsna.org/roadmap/04169> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04162> ;
+            rdfs:label "DocumentReference"@en ;
+            skos:definition "Represents metadata about and access to a document, such as a report or encapsulated result."@en ;
+            rdfs:seeAlso <https://hl7.org/fhir/documentreference.html> .
+
+
+###  https://rsna.org/roadmap/04170 Binary
+<https://rsna.org/roadmap/04170> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04162> ;
+            rdfs:label "Binary"@en ;
+            skos:definition "Represents a resource containing raw binary content, such as an encapsulated image or PDF."@en ;
+            rdfs:seeAlso <https://hl7.org/fhir/binary.html> .
+
+
+###  https://rsna.org/roadmap/04171 Subscription
+<https://rsna.org/roadmap/04171> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04162> ;
+            rdfs:label "Subscription"@en ;
+            skos:definition "Represents a request to be notified when data matching specified criteria becomes available."@en ;
+            rdfs:seeAlso <https://hl7.org/fhir/subscription.html> .
+
+
+###  https://rsna.org/roadmap/04172 FHIRcast
+<https://rsna.org/roadmap/04172> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04162> ;
+            rdfs:label "FHIRcast"@en ;
+            skos:definition "A companion specification to FHIR for real-time, session-based context synchronization between clinical applications, such as sharing the patient or study currently in view."@en ;
+            dcterms:source <https://fhircast.org/> .
+
+
+###  https://rsna.org/roadmap/04173
+<https://rsna.org/roadmap/04173> rdf:type owl:Class ;
+            rdfs:subClassOf <https://rsna.org/roadmap/04136> ;
+            rdfs:label "IHE Radiology integration profile"@en ;
+            skos:definition "An IHE (Integrating the Healthcare Enterprise) integration profile relevant to radiology and imaging AI workflows, specifying how systems use established standards to solve a specific interoperability problem."@en ;
+            dcterms:source <https://www.ihe.net/resources/technical_frameworks/> .
+
+
+###  https://rsna.org/roadmap/04174 AIR (AI Results)
+<https://rsna.org/roadmap/04174> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04173> ;
+            rdfs:label "AIR (AI Results)"@en ;
+            skos:definition "Specifies how AI results are encoded, communicated, and integrated into radiology workflow."@en ;
+            rdfs:seeAlso <https://profiles.ihe.net/RAD/AIR/index.html> .
+
+
+###  https://rsna.org/roadmap/04175 AIW-I (AI Workflow for Imaging)
+<https://rsna.org/roadmap/04175> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04173> ;
+            rdfs:label "AIW-I (AI Workflow for Imaging)"@en ;
+            skos:definition "Specifies workflow steps for invoking and tracking AI processing of imaging studies."@en ;
+            rdfs:seeAlso <https://profiles.ihe.net/RAD/AIW-I/index.html> .
+
+
+###  https://rsna.org/roadmap/04176 SWF.b (Scheduled Workflow.b)
+<https://rsna.org/roadmap/04176> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04173> ;
+            rdfs:label "SWF.b (Scheduled Workflow.b)"@en ;
+            skos:definition "Specifies the departmental workflow for scheduling, performing, and tracking imaging procedures."@en ;
+            rdfs:seeAlso <https://profiles.ihe.net/RAD/SWF.b/index.html> .
+
+
+###  https://rsna.org/roadmap/04177 IOCM (Imaging Object Change Management)
+<https://rsna.org/roadmap/04177> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04173> ;
+            rdfs:label "IOCM (Imaging Object Change Management)"@en ;
+            skos:definition "Specifies how corrections, rejections, and other changes to imaging objects are communicated."@en ;
+            rdfs:seeAlso <https://profiles.ihe.net/RAD/IOCM/index.html> .
+
+
+###  https://rsna.org/roadmap/04178 XDS-I.b (Cross-Enterprise Document Sharing for Imaging)
+<https://rsna.org/roadmap/04178> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04173> ;
+            rdfs:label "XDS-I.b (Cross-Enterprise Document Sharing for Imaging)"@en ;
+            skos:definition "Specifies cross-enterprise sharing of imaging documents and studies."@en ;
+            rdfs:seeAlso <https://profiles.ihe.net/RAD/XDS-I.b/index.html> .
+
+
+###  https://rsna.org/roadmap/04179 IID (Invoke Image Display)
+<https://rsna.org/roadmap/04179> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04173> ;
+            rdfs:label "IID (Invoke Image Display)"@en ;
+            skos:definition "Specifies how an external application invokes a display of relevant prior and current images for a patient."@en ;
+            rdfs:seeAlso <https://profiles.ihe.net/RAD/IID/index.html> .
+
+
+###  https://rsna.org/roadmap/04180 MRRT (Management of Radiology Report Templates)
+<https://rsna.org/roadmap/04180> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04173> ;
+            rdfs:label "MRRT (Management of Radiology Report Templates)"@en ;
+            skos:definition "Specifies the format and management of structured radiology report templates."@en ;
+            rdfs:seeAlso <https://profiles.ihe.net/RAD/MRRT/index.html> .
+
+
+###  https://rsna.org/roadmap/04181 SINR (Simple Image and Numeric Report)
+<https://rsna.org/roadmap/04181> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04173> ;
+            rdfs:label "SINR (Simple Image and Numeric Report)"@en ;
+            skos:definition "Specifies a simple structured report format combining images and numeric measurements."@en ;
+            rdfs:seeAlso <https://profiles.ihe.net/RAD/SINR/index.html> .
+
+
+###  https://rsna.org/roadmap/04182 PDI (Portable Data for Imaging)
+<https://rsna.org/roadmap/04182> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04173> ;
+            rdfs:label "PDI (Portable Data for Imaging)"@en ;
+            skos:definition "Specifies the content of interchange media, such as CD or USB, for portable imaging data."@en ;
+            rdfs:seeAlso <https://profiles.ihe.net/RAD/PDI/index.html> .
+
+
+###  https://rsna.org/roadmap/04183 REM (Radiation Exposure Monitoring)
+<https://rsna.org/roadmap/04183> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04173> ;
+            rdfs:label "REM (Radiation Exposure Monitoring)"@en ;
+            skos:definition "Specifies collection and communication of radiation exposure information from imaging procedures."@en ;
+            rdfs:seeAlso <https://profiles.ihe.net/RAD/REM/index.html> .
+
+
+###  https://rsna.org/roadmap/04184 EBIW (Encounter-Based Imaging Workflow)
+<https://rsna.org/roadmap/04184> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04173> ;
+            rdfs:label "EBIW (Encounter-Based Imaging Workflow)"@en ;
+            skos:definition "Specifies imaging workflow driven by a clinical encounter rather than a traditional order."@en ;
+            rdfs:seeAlso <https://profiles.ihe.net/RAD/EBIW/index.html> .
+
+
+###  https://rsna.org/roadmap/04185 PIX (Patient Identifier Cross-Referencing)
+<https://rsna.org/roadmap/04185> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04173> ;
+            rdfs:label "PIX (Patient Identifier Cross-Referencing)"@en ;
+            skos:definition "Specifies cross-referencing of patient identifiers across multiple identifier domains."@en ;
+            rdfs:seeAlso <https://profiles.ihe.net/ITI/PIX/index.html> .
+
+
+###  https://rsna.org/roadmap/04186 PDQ (Patient Demographics Query)
+<https://rsna.org/roadmap/04186> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04173> ;
+            rdfs:label "PDQ (Patient Demographics Query)"@en ;
+            skos:definition "Specifies querying for patient demographic information across systems."@en ;
+            rdfs:seeAlso <https://profiles.ihe.net/ITI/PDQ/index.html> .
+
+
+###  https://rsna.org/roadmap/04187
+<https://rsna.org/roadmap/04187> rdf:type owl:Class ;
+            rdfs:subClassOf <https://rsna.org/roadmap/04135> ;
+            rdfs:label "result delivery channel"@en ;
+            skos:definition "A channel or object type by which an AI model's results are returned to the clinical environment."@en .
+
+
+###  https://rsna.org/roadmap/04188 DICOM Structured Report (TID 1500)
+<https://rsna.org/roadmap/04188> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04187> ;
+            rdfs:label "DICOM Structured Report (TID 1500)"@en ;
+            skos:definition "A DICOM Structured Report encoded using TID 1500 (Measurement Report), the standard template for quantitative measurements."@en ;
+            dcterms:source <https://dicom.nema.org/medical/dicom/current/output/html/part16.html> .
+
+
+###  https://rsna.org/roadmap/04189 DICOM Structured Report (other template)
+<https://rsna.org/roadmap/04189> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04187> ;
+            rdfs:label "DICOM Structured Report (other template)"@en ;
+            skos:definition "A DICOM Structured Report encoded using a template other than TID 1500."@en ;
+            dcterms:source <https://dicom.nema.org/medical/dicom/current/output/html/part16.html> .
+
+
+###  https://rsna.org/roadmap/04190 DICOM Segmentation (SEG)
+<https://rsna.org/roadmap/04190> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04187> ;
+            rdfs:label "DICOM Segmentation (SEG)"@en ;
+            skos:definition "A DICOM Segmentation object encoding one or more labeled regions of an image."@en ;
+            dcterms:source <https://dicom.nema.org/medical/dicom/current/output/html/part03.html> .
+
+
+###  https://rsna.org/roadmap/04191 DICOM Parametric Map
+<https://rsna.org/roadmap/04191> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04187> ;
+            rdfs:label "DICOM Parametric Map"@en ;
+            skos:definition "A DICOM Parametric Map object encoding a derived pixel-wise quantitative map, such as an ADC or perfusion map."@en ;
+            dcterms:source <https://dicom.nema.org/medical/dicom/current/output/html/part03.html> .
+
+
+###  https://rsna.org/roadmap/04192 DICOM Grayscale Softcopy Presentation State (GSPS)
+<https://rsna.org/roadmap/04192> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04187> ;
+            rdfs:label "DICOM Grayscale Softcopy Presentation State (GSPS)"@en ;
+            skos:definition "A DICOM object encoding display parameters and graphical annotations to be applied to referenced images."@en ;
+            dcterms:source <https://dicom.nema.org/medical/dicom/current/output/html/part03.html> .
+
+
+###  https://rsna.org/roadmap/04193 DICOM Secondary Capture
+<https://rsna.org/roadmap/04193> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04187> ;
+            rdfs:label "DICOM Secondary Capture"@en ;
+            skos:definition "A DICOM object encoding an image converted from a non-DICOM source, such as a screen capture or scanned document."@en ;
+            dcterms:source <https://dicom.nema.org/medical/dicom/current/output/html/part03.html> .
+
+
+###  https://rsna.org/roadmap/04194 DICOM Key Object Selection
+<https://rsna.org/roadmap/04194> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04187> ;
+            rdfs:label "DICOM Key Object Selection"@en ;
+            skos:definition "A DICOM object identifying a set of key images or other objects selected for a specific purpose, such as significant findings."@en ;
+            dcterms:source <https://dicom.nema.org/medical/dicom/current/output/html/part03.html> .
+
+
+###  https://rsna.org/roadmap/04195 DICOM Encapsulated PDF
+<https://rsna.org/roadmap/04195> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04187> ;
+            rdfs:label "DICOM Encapsulated PDF"@en ;
+            skos:definition "A DICOM object encapsulating a PDF document, such as a rendered report, within a DICOM-compliant wrapper."@en ;
+            dcterms:source <https://dicom.nema.org/medical/dicom/current/output/html/part03.html> .
+
+
+###  https://rsna.org/roadmap/04196 DICOM RT Structure Set
+<https://rsna.org/roadmap/04196> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04187> ;
+            rdfs:label "DICOM RT Structure Set"@en ;
+            skos:definition "A DICOM Radiotherapy Structure Set object encoding contoured anatomical or target regions for radiotherapy planning."@en ;
+            dcterms:source <https://dicom.nema.org/medical/dicom/current/output/html/part03.html> .
+
+
+###  https://rsna.org/roadmap/04197 Worklist priority flag
+<https://rsna.org/roadmap/04197> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04187> ;
+            rdfs:label "Worklist priority flag"@en ;
+            skos:definition "A flag or field written to a reading worklist to indicate priority based on the model's output, without transmitting a separate result object."@en .
+
+
+###  https://rsna.org/roadmap/04198 Notification or alert
+<https://rsna.org/roadmap/04198> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04187> ;
+            rdfs:label "Notification or alert"@en ;
+            skos:definition "A push notification or alert (e.g. secure message, pager, mobile app push) conveying the model's result outside a structured clinical object."@en .
+
+
+###  https://rsna.org/roadmap/04199 Report text insertion
+<https://rsna.org/roadmap/04199> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04187> ;
+            rdfs:label "Report text insertion"@en ;
+            skos:definition "Text generated by the model that is inserted into a report, such as a draft finding or measurement, typically via a reporting or dictation platform integration."@en .
+
+
+###  https://rsna.org/roadmap/04200 Vendor API or webhook
+<https://rsna.org/roadmap/04200> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04187> ;
+            rdfs:label "Vendor API or webhook"@en ;
+            skos:definition "A proprietary application programming interface or webhook callback used to deliver the model's result."@en .
+
+
+###  https://rsna.org/roadmap/04201 Proprietary viewer or dashboard
+<https://rsna.org/roadmap/04201> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04187> ;
+            rdfs:label "Proprietary viewer or dashboard"@en ;
+            skos:definition "A vendor-specific viewer or dashboard application through which the model's result is displayed, outside a standards-based object."@en .
+
+
+###  https://rsna.org/roadmap/04202
+<https://rsna.org/roadmap/04202> rdf:type owl:Class ;
+            rdfs:subClassOf <https://rsna.org/roadmap/04135> ;
+            rdfs:label "invocation trigger"@en ;
+            skos:definition "How execution of an AI model is triggered within an imaging workflow."@en .
+
+
+###  https://rsna.org/roadmap/04203 Automatic on study arrival
+<https://rsna.org/roadmap/04203> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04202> ;
+            rdfs:label "Automatic on study arrival"@en ;
+            skos:definition "The model is triggered automatically when a new study arrives at the system, without a separate scheduling or ordering step."@en .
+
+
+###  https://rsna.org/roadmap/04204 Modality worklist triggered
+<https://rsna.org/roadmap/04204> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04202> ;
+            rdfs:label "Modality worklist triggered"@en ;
+            skos:definition "The model is triggered by a scheduled procedure step entry retrieved via DICOM Modality Worklist."@en ;
+            rdfs:seeAlso <https://rsna.org/roadmap/04145> .
+
+
+###  https://rsna.org/roadmap/04205 UPS worklist triggered
+<https://rsna.org/roadmap/04205> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04202> ;
+            rdfs:label "UPS worklist triggered"@en ;
+            skos:definition "The model is triggered by a work item created or updated via the DICOM Unified Procedure Step service."@en ;
+            rdfs:seeAlso <https://rsna.org/roadmap/04147> .
+
+
+###  https://rsna.org/roadmap/04206 On-demand by user
+<https://rsna.org/roadmap/04206> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04202> ;
+            rdfs:label "On-demand by user"@en ;
+            skos:definition "The model is triggered manually by a user action, such as a button click in a viewer or worklist."@en .
+
+
+###  https://rsna.org/roadmap/04207 Scheduled batch
+<https://rsna.org/roadmap/04207> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04202> ;
+            rdfs:label "Scheduled batch"@en ;
+            skos:definition "The model is triggered on a recurring schedule, processing a batch of accumulated cases rather than individual arrivals."@en .
+
+
+###  https://rsna.org/roadmap/04208 Prefetch-based
+<https://rsna.org/roadmap/04208> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04202> ;
+            rdfs:label "Prefetch-based"@en ;
+            skos:definition "The model is triggered as part of a prefetch process that retrieves relevant prior studies or data in advance of anticipated need."@en .
+
+
+###  https://rsna.org/roadmap/04209 API call
+<https://rsna.org/roadmap/04209> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04202> ;
+            rdfs:label "API call"@en ;
+            skos:definition "The model is triggered by an explicit application programming interface call from another system."@en .
+
+
+###  https://rsna.org/roadmap/04210
+<https://rsna.org/roadmap/04210> rdf:type owl:Class ;
+            rdfs:subClassOf <https://rsna.org/roadmap/04135> ;
+            rdfs:label "conformance statement"@en ;
+            skos:definition "A pointer to formal documentation describing a system's or model's conformance to an interoperability standard, preferred over prose description of interface support."@en .
+
+
+###  https://rsna.org/roadmap/04211
+<https://rsna.org/roadmap/04211> rdf:type owl:Class ;
+            rdfs:subClassOf <https://rsna.org/roadmap/04210> ;
+            rdfs:label "conformance statement type"@en ;
+            skos:definition "The type of formal conformance documentation describing a system's implementation of an interoperability standard."@en .
+
+
+###  https://rsna.org/roadmap/04212 DICOM Conformance Statement
+<https://rsna.org/roadmap/04212> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04211> ;
+            rdfs:label "DICOM Conformance Statement"@en ;
+            skos:definition "A document, conforming to DICOM PS3.2, describing a system's implementation of DICOM network and media services."@en ;
+            dcterms:source <https://dicom.nema.org/medical/dicom/current/output/html/part02.html> .
+
+
+###  https://rsna.org/roadmap/04213 IHE Integration Statement
+<https://rsna.org/roadmap/04213> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04211> ;
+            rdfs:label "IHE Integration Statement"@en ;
+            skos:definition "A document describing the IHE integration profiles and actors a system supports."@en ;
+            dcterms:source <https://www.ihe.net/resources/technical_frameworks/> .
+
+
+###  https://rsna.org/roadmap/04214 FHIR CapabilityStatement
+<https://rsna.org/roadmap/04214> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04211> ;
+            rdfs:label "FHIR CapabilityStatement"@en ;
+            skos:definition "A FHIR resource documenting a system's supported FHIR capabilities, such as resources, operations, and search parameters."@en ;
+            rdfs:seeAlso <https://hl7.org/fhir/capabilitystatement.html> .
+
+
+###  https://rsna.org/roadmap/04215 HL7 v2 interface specification
+<https://rsna.org/roadmap/04215> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04211> ;
+            rdfs:label "HL7 v2 interface specification"@en ;
+            skos:definition "A document describing a system's implementation of specific HL7 v2 message types, triggers, and fields."@en ;
+            dcterms:source <https://www.hl7.org/implement/standards/product_brief.cfm?product_id=185> .
+
+
+###  https://rsna.org/roadmap/04216
+<https://rsna.org/roadmap/04216> rdf:type owl:Class ;
+            rdfs:subClassOf <https://rsna.org/roadmap/04135> ;
+            rdfs:label "clinical system type"@en ;
+            skos:definition "A category of clinical system with which an AI model exchanges data within an imaging environment."@en .
+
+
+###  https://rsna.org/roadmap/04217 PACS
+<https://rsna.org/roadmap/04217> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04216> ;
+            rdfs:label "PACS"@en ;
+            skos:definition "Picture Archiving and Communication System: stores, retrieves, manages, and displays medical images."@en .
+
+
+###  https://rsna.org/roadmap/04218 VNA
+<https://rsna.org/roadmap/04218> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04216> ;
+            rdfs:label "VNA"@en ;
+            skos:definition "Vendor Neutral Archive: a standards-based archive for clinical images and documents, decoupled from any single PACS vendor."@en .
+
+
+###  https://rsna.org/roadmap/04219 RIS
+<https://rsna.org/roadmap/04219> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04216> ;
+            rdfs:label "RIS"@en ;
+            skos:definition "Radiology Information System: manages radiology scheduling, orders, reporting, and billing workflow."@en .
+
+
+###  https://rsna.org/roadmap/04220 EHR
+<https://rsna.org/roadmap/04220> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04216> ;
+            rdfs:label "EHR"@en ;
+            skos:definition "Electronic Health Record system: manages a patient's longitudinal clinical record across an organization."@en .
+
+
+###  https://rsna.org/roadmap/04221 Reporting or dictation platform
+<https://rsna.org/roadmap/04221> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04216> ;
+            rdfs:label "Reporting or dictation platform"@en ;
+            skos:definition "A system used by clinicians to dictate, structure, and finalize diagnostic reports."@en .
+
+
+###  https://rsna.org/roadmap/04222 AI orchestration platform
+<https://rsna.org/roadmap/04222> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04216> ;
+            rdfs:label "AI orchestration platform"@en ;
+            skos:definition "A system that routes studies to one or more AI models, manages their execution, and aggregates or forwards their results."@en .
+
+
+###  https://rsna.org/roadmap/04223 Image exchange platform
+<https://rsna.org/roadmap/04223> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04216> ;
+            rdfs:label "Image exchange platform"@en ;
+            skos:definition "A system used to share images and related data across organizational boundaries, such as a cloud-based exchange network."@en .
+
+
+###  https://rsna.org/roadmap/04224 Modality
+<https://rsna.org/roadmap/04224> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04216> ;
+            rdfs:label "Modality"@en ;
+            skos:definition "An imaging acquisition device, such as a CT, MRI, or ultrasound scanner."@en .
+
+
+###  https://rsna.org/roadmap/04225 Worklist manager
+<https://rsna.org/roadmap/04225> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04216> ;
+            rdfs:label "Worklist manager"@en ;
+            skos:definition "A system that manages and prioritizes work lists, such as reading worklists, across one or more clinical systems."@en .
+
+
+###  https://rsna.org/roadmap/04226 Dose monitoring system
+<https://rsna.org/roadmap/04226> rdf:type owl:NamedIndividual , <https://rsna.org/roadmap/04216> ;
+            rdfs:label "Dose monitoring system"@en ;
+            skos:definition "A system that collects and analyzes radiation dose information from imaging procedures."@en .
+
+
+###  https://rsna.org/roadmap/04227
+<https://rsna.org/roadmap/04227> rdf:type owl:Class ;
+            rdfs:subClassOf <https://rsna.org/roadmap/04135> ;
+            rdfs:label "validated system"@en ;
+            skos:definition "A named product against which a model's integration has actually been tested."@en .
+
+
+#################################################################
 #    General axioms
 #################################################################
 
