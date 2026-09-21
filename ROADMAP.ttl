@@ -17990,20 +17990,31 @@ Tier 4: no sharing"""@en ;
 ###  https://rsna.org/roadmap/01102
 <https://rsna.org/roadmap/01102> rdf:type owl:NamedIndividual ,
                                           <https://rsna.org/roadmap/01030> ;
+                                 dcterms:source <https://hpo.jax.org/> ;
                                  rdfs:label "HPO"@en ;
-                                 skos:altLabel "Human Phenotype Ontology"@en .
+                                 rdfs:seeAlso <https://www.ebi.ac.uk/ols4/ontologies/hp> ;
+                                 skos:altLabel "Human Phenotype Ontology"@en ;
+                                 skos:definition "The Human Phenotype Ontology (HPO) is a standardized, hierarchical vocabulary of phenotypic abnormalities encountered in human disease, developed to support differential diagnosis, translational research, and computational analysis of phenotype data."@en .
 
 
 ###  https://rsna.org/roadmap/01103
 <https://rsna.org/roadmap/01103> rdf:type owl:NamedIndividual ,
                                           <https://rsna.org/roadmap/01030> ;
-                                 rdfs:label "ICD-10"@en .
+                                 dcterms:source <https://icd.who.int/browse10/2019/en> ;
+                                 rdfs:label "ICD-10"@en ;
+                                 rdfs:seeAlso <https://www.cdc.gov/nchs/icd/icd-10-cm.htm> ;
+                                 skos:altLabel "International Classification of Diseases, 10th Revision"@en ;
+                                 skos:definition "The International Classification of Diseases, 10th Revision (ICD-10) is the World Health Organization's standard diagnostic classification, used to code diseases, signs and symptoms, and external causes of injury for epidemiology, health management, and clinical purposes."@en .
 
 
 ###  https://rsna.org/roadmap/01104
 <https://rsna.org/roadmap/01104> rdf:type owl:NamedIndividual ,
                                           <https://rsna.org/roadmap/01030> ;
-                                 rdfs:label "ICD-11"@en .
+                                 dcterms:source <https://icd.who.int/en> ;
+                                 rdfs:label "ICD-11"@en ;
+                                 rdfs:seeAlso <https://icd.who.int/browse/2024-01/mms/en> ;
+                                 skos:altLabel "International Classification of Diseases, 11th Revision"@en ;
+                                 skos:definition "The International Classification of Diseases, 11th Revision (ICD-11) is the World Health Organization's current standard diagnostic classification, providing a fully digital, multilingual coding system for mortality, morbidity, and clinical documentation that supersedes ICD-10."@en .
 
 
 ###  https://rsna.org/roadmap/01105
@@ -18017,7 +18028,10 @@ Tier 4: no sharing"""@en ;
 ###  https://rsna.org/roadmap/01106
 <https://rsna.org/roadmap/01106> rdf:type owl:NamedIndividual ,
                                           <https://rsna.org/roadmap/01030> ;
-                                 rdfs:label "NDC"@en .
+                                 dcterms:source <https://www.fda.gov/drugs/drug-approvals-and-databases/national-drug-code-directory> ;
+                                 rdfs:label "NDC"@en ;
+                                 skos:altLabel "National Drug Code"@en ;
+                                 skos:definition "The National Drug Code (NDC) is the U.S. Food and Drug Administration's unique, three-segment numeric identifier assigned to every drug product marketed in the United States, identifying its labeler, product, and trade package."@en .
 
 
 ###  https://rsna.org/roadmap/01107
@@ -18043,19 +18057,26 @@ Tier 4: no sharing"""@en ;
 <https://rsna.org/roadmap/01109> rdf:type owl:NamedIndividual ,
                                           <https://rsna.org/roadmap/01030> ;
                                  dcterms:source <https://radlex.org/> ;
-                                 rdfs:label "RadLex"@en .
+                                 rdfs:label "RadLex"@en ;
+                                 skos:definition "RadLex is a comprehensive lexicon of radiology terms developed and maintained by the Radiological Society of North America (RSNA) to provide a standardized vocabulary for indexing, retrieving, and exchanging radiology information, including imaging observations, anatomy, and procedures."@en .
 
 
 ###  https://rsna.org/roadmap/01110
 <https://rsna.org/roadmap/01110> rdf:type owl:NamedIndividual ,
                                           <https://rsna.org/roadmap/01030> ;
-                                 rdfs:label "RxNorm"@en .
+                                 dcterms:source <https://www.nlm.nih.gov/research/umls/rxnorm/index.html> ;
+                                 rdfs:label "RxNorm"@en ;
+                                 skos:definition "RxNorm is a normalized naming system for generic and branded clinical drugs, produced by the U.S. National Library of Medicine, that provides standardized names and unique identifiers to support interoperability among drug vocabularies used in pharmacy management and drug interaction systems."@en .
 
 
 ###  https://rsna.org/roadmap/01111
 <https://rsna.org/roadmap/01111> rdf:type owl:NamedIndividual ,
                                           <https://rsna.org/roadmap/01030> ;
-                                 rdfs:label "SNOMED CT"@en .
+                                 dcterms:source <https://www.snomed.org/> ;
+                                 rdfs:label "SNOMED CT"@en ;
+                                 rdfs:seeAlso <https://browser.ihtsdotools.org/> ;
+                                 skos:altLabel "Systematized Nomenclature of Medicine Clinical Terms"@en ;
+                                 skos:definition "SNOMED CT (Systematized Nomenclature of Medicine—Clinical Terms) is a comprehensive, multilingual clinical terminology maintained by SNOMED International that provides standardized codes, terms, and definitions for electronic health records, covering clinical findings, procedures, and other health-related concepts."@en .
 
 
 ###  https://rsna.org/roadmap/03429
