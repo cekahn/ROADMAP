@@ -4671,7 +4671,7 @@ D - Ethical, Legal, and Maintenance"""@en ;
 
 ###  https://rsna.org/roadmap/03355
 <https://rsna.org/roadmap/03355> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/00658> ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03788> ;
                                  rdfs:label "model property"@en ,
                                             "propiedad del modelo"@es ,
                                             "模型属性"@zh ;
@@ -18079,6 +18079,62 @@ Tier 4: no sharing"""@en ;
                                  skos:definition "SNOMED CT (Systematized Nomenclature of Medicine—Clinical Terms) is a comprehensive, multilingual clinical terminology maintained by SNOMED International that provides standardized codes, terms, and definitions for electronic health records, covering clinical findings, procedures, and other health-related concepts."@en .
 
 
+###  https://rsna.org/roadmap/01112
+<https://rsna.org/roadmap/01112> rdf:type owl:NamedIndividual ,
+                                          <https://rsna.org/roadmap/01030> ;
+                                 dcterms:source <https://www.ama-assn.org/practice-management/cpt> ;
+                                 rdfs:label "CPT"@en ;
+                                 skos:altLabel "Current Procedural Terminology"@en ;
+                                 skos:definition "The Current Procedural Terminology (CPT) code set is a procedural code set developed by the American Medical Association (AMA). The CPT code set describes medical, surgical, and diagnostic services and is designed to communicate uniform information about medical services and procedures among physicians, coders, patients, accreditation organizations, and payers for administrative, financial, and analytical purposes."@en .
+
+
+###  https://rsna.org/roadmap/01113
+<https://rsna.org/roadmap/01113> rdf:type owl:NamedIndividual ,
+                                          <https://rsna.org/roadmap/01030> ;
+                                 dcterms:source <https://bioportal.bioontology.org/ontologies/FMA> ;
+                                 rdfs:label "FMA"@en ;
+                                 skos:altLabel "Foundational Model of Anatomy"@en ;
+                                 skos:definition "FMA is a domain ontology that represents a coherent body of explicit declarative knowledge about human anatomy."@en .
+
+
+###  https://rsna.org/roadmap/01114
+<https://rsna.org/roadmap/01114> rdf:type owl:NamedIndividual ,
+                                          <https://rsna.org/roadmap/01030> ;
+                                 dcterms:source <https://www.who.int/standards/classifications/other-classifications/international-classification-of-diseases-for-oncology> ;
+                                 rdfs:label "ICD-O-3"@en ;
+                                 skos:altLabel "International Classification of Diseases for Oncology, 3rd Edition"@en ;
+                                 skos:definition "International Classification of Diseases for Oncology, 3rd Edition (ICD-O-3), is used principally in tumor or cancer registries for coding the site (topography) and the histology (morphology) of neoplasms, usually obtained from a pathology report. ICD-O is a multi-axial classification of the site, morphology, behavior, and grading of neoplasms."@en .
+
+
+###  https://rsna.org/roadmap/01115
+<https://rsna.org/roadmap/01115> rdf:type owl:NamedIndividual ,
+                                          <https://rsna.org/roadmap/01030> ;
+                                 dcterms:source <https://evsexplore.semantics.cancer.gov/evsexplore/welcome?terminology=ncit> ;
+                                 rdfs:label "NCIt"@en ;
+                                 rdfs:seeAlso <https://wiki.nci.nih.gov/x/lAVy> ;
+                                 skos:altLabel "NCI Thesaurus"@en ,
+                                               "National Cancer Institute Thesaurus"@en ;
+                                 skos:definition "NCI Thesaurus (NCIt) provides reference terminology for many NCI and other systems. It covers vocabulary for clinical care, translational and basic research, and public information and administrative activities."@en .
+
+
+###  https://rsna.org/roadmap/01116
+<https://rsna.org/roadmap/01116> rdf:type owl:NamedIndividual ,
+                                          <https://rsna.org/roadmap/01030> ;
+                                 dcterms:source <https://obophenotype.github.io/uberon/> ;
+                                 rdfs:label "UBERON"@en ;
+                                 rdfs:seeAlso <http://purl.obolibrary.org/obo/uberon.owl> ;
+                                 skos:altLabel "Uber-anatomy Ontology"@en ;
+                                 skos:definition "Uberon is an integrated cross-species anatomy ontology representing a variety of entities classified according to traditional anatomical criteria such as structure, function and developmental lineage. The ontology includes comprehensive relationships to taxon-specific anatomical ontologies, allowing integration of functional, phenotype and expression data."@en .
+
+
+###  https://rsna.org/roadmap/01117
+<https://rsna.org/roadmap/01117> rdf:type owl:NamedIndividual ,
+                                          <https://rsna.org/roadmap/04173> ;
+                                 dcterms:source <https://profiles.ihe.net/RAD/IRA/> ;
+                                 rdfs:label "IRA (Integrated Reporting Applications)"@en ;
+                                 skos:definition "The Integrated Reporting Applications (IRA) Profile helps applications that are used together during reporting (e.g., image display, report creator, clinical applications, AI tools, etc.) to share information using a standard called FHIRcast."@en .
+
+
 ###  https://rsna.org/roadmap/03429
 <https://rsna.org/roadmap/03429> rdf:type owl:NamedIndividual ,
                                           <https://rsna.org/roadmap/03428> ;
@@ -18720,16 +18776,16 @@ Tier 4: no sharing"""@en ;
 ###  https://rsna.org/roadmap/04174
 <https://rsna.org/roadmap/04174> rdf:type owl:NamedIndividual ,
                                           <https://rsna.org/roadmap/04173> ;
+                                 dcterms:source <https://www.ihe.net/uploadedFiles/Documents/Radiology/IHE_RAD_Suppl_AIR.pdf> ;
                                  rdfs:label "AIR (AI Results)"@en ;
-                                 rdfs:seeAlso <https://profiles.ihe.net/RAD/AIR/index.html> ;
                                  skos:definition "Specifies how AI results are encoded, communicated, and integrated into radiology workflow."@en .
 
 
 ###  https://rsna.org/roadmap/04175
 <https://rsna.org/roadmap/04175> rdf:type owl:NamedIndividual ,
                                           <https://rsna.org/roadmap/04173> ;
+                                 dcterms:source <https://www.ihe.net/uploadedFiles/Documents/Radiology/IHE_RAD_Suppl_AIW-I.pdf> ;
                                  rdfs:label "AIW-I (AI Workflow for Imaging)"@en ;
-                                 rdfs:seeAlso <https://profiles.ihe.net/RAD/AIW-I/index.html> ;
                                  skos:definition "Specifies workflow steps for invoking and tracking AI processing of imaging studies."@en .
 
 
