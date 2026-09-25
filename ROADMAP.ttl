@@ -311,10 +311,10 @@ Note that this property is *not* transitive: some guideline items are disjunctio
 ###  https://rsna.org/roadmap/01128
 <https://rsna.org/roadmap/01128> rdf:type owl:ObjectProperty ,
                                           owl:FunctionalProperty ;
-                                 rdfs:domain <https://rsna.org/roadmap/04069> ;
+                                 rdfs:domain <https://rsna.org/roadmap/03548> ;
                                  rdfs:range <https://rsna.org/roadmap/04090> ;
-                                 rdfs:label "has cell count"@en ;
-                                 skos:definition "Links a binary confusion matrix to its cell counts (e.g., true positive count), marginal subtotals (e.g., condition positive count), and total outcome count."@en .
+                                 rdfs:label "has outcome count"@en ;
+                                 skos:definition "Links a confusion matrix to cell counts (e.g., true positive count), marginal subtotals (e.g., condition positive count), and total outcome count."@en .
 
 
 ###  https://rsna.org/roadmap/03350
@@ -777,8 +777,6 @@ owl:Thing rdf:type owl:Class .
                                                    owl:onProperty <https://rsna.org/roadmap/03350> ;
                                                    owl:someValuesFrom <https://rsna.org/roadmap/03355>
                                                  ] ;
-                                 owl:disjointWith <https://rsna.org/roadmap/00003> ,
-                                                  <https://rsna.org/roadmap/00010> ;
                                  rdfs:label "model"@en ,
                                             "modelo"@es ,
                                             "模型"@zh ;
@@ -792,7 +790,6 @@ owl:Thing rdf:type owl:Class .
                                                    owl:onProperty <https://rsna.org/roadmap/03382> ;
                                                    owl:someValuesFrom <https://rsna.org/roadmap/03381>
                                                  ] ;
-                                 owl:disjointWith <https://rsna.org/roadmap/00010> ;
                                  rdfs:label "conjunto de datos"@es ,
                                             "dataset"@en ,
                                             "数据集"@zh ;
@@ -1963,7 +1960,6 @@ owl:Thing rdf:type owl:Class .
 ###  https://rsna.org/roadmap/00074
 <https://rsna.org/roadmap/00074> rdf:type owl:Class ;
                                  rdfs:subClassOf <https://rsna.org/roadmap/00658> ;
-                                 owl:disjointWith <https://rsna.org/roadmap/03788> ;
                                  rdfs:label "código de indexación"@es ,
                                             "indexing code"@en ,
                                             "索引代码"@zh ;
@@ -2680,13 +2676,12 @@ owl:Thing rdf:type owl:Class .
 ###  https://rsna.org/roadmap/00164
 <https://rsna.org/roadmap/00164> rdf:type owl:Class ;
                                  rdfs:subClassOf <https://rsna.org/roadmap/00163> ;
-                                 rdfs:label "NDGC@k"@en ,
+                                 rdfs:label "NDCG@k"@en ,
                                             "ganancia acumulada descontada normalizada en k entradas"@es ;
                                  skos:altLabel "normalized discounted cumulative gain @ k entries"@en ;
                                  skos:definition """Normalized discounted cumulative gain (NDCG) measures the performance of a recommendation system based on the graded relevance of the recommended entities. It varies from 0.0 to 1.0, with 1.0 representing the ideal ranking of the entities. This metric is commonly used in information retrieval and to evaluate the performance of web search engines. 
 
-                                         Parameters:
-                                         k = The maximum number of entities that can be recommended"""@en .
+Parameters: k = The maximum number of entities that can be recommended"""@en .
 
 
 ###  https://rsna.org/roadmap/00165
@@ -5122,9 +5117,6 @@ D - Ethical, Legal, and Maintenance"""@en ;
 ###  https://rsna.org/roadmap/03390
 <https://rsna.org/roadmap/03390> rdf:type owl:Class ;
                                  rdfs:subClassOf <https://rsna.org/roadmap/03484> ;
-                                 owl:disjointWith <https://rsna.org/roadmap/03485> ,
-                                                  <https://rsna.org/roadmap/03486> ,
-                                                  <https://rsna.org/roadmap/03500> ;
                                  rdfs:label "radiology report text"@en ,
                                             "texto del informe de radiología"@es ,
                                             "放射科报告文本"@zh ;
@@ -5143,9 +5135,6 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                                    owl:onProperty <https://rsna.org/roadmap/00631> ;
                                                    owl:someValuesFrom <https://rsna.org/roadmap/00122>
                                                  ] ;
-                                 owl:disjointWith <https://rsna.org/roadmap/03392> ,
-                                                  <https://rsna.org/roadmap/03394> ,
-                                                  <https://rsna.org/roadmap/03484> ;
                                  rdfs:label "image"@en ,
                                             "imagen"@es ,
                                             "图像"@zh ;
@@ -5155,8 +5144,6 @@ D - Ethical, Legal, and Maintenance"""@en ;
 ###  https://rsna.org/roadmap/03392
 <https://rsna.org/roadmap/03392> rdf:type owl:Class ;
                                  rdfs:subClassOf <https://rsna.org/roadmap/03389> ;
-                                 owl:disjointWith <https://rsna.org/roadmap/03394> ,
-                                                  <https://rsna.org/roadmap/03484> ;
                                  rdfs:label "datos de registros médicos no textuales"@es ,
                                             "non-text medical record data"@en ,
                                             "非文本病历数据"@zh ;
@@ -5166,10 +5153,6 @@ D - Ethical, Legal, and Maintenance"""@en ;
 ###  https://rsna.org/roadmap/03393
 <https://rsna.org/roadmap/03393> rdf:type owl:Class ;
                                  rdfs:subClassOf <https://rsna.org/roadmap/03391> ;
-                                 owl:disjointWith <https://rsna.org/roadmap/03496> ,
-                                                  <https://rsna.org/roadmap/03497> ,
-                                                  <https://rsna.org/roadmap/03498> ,
-                                                  <https://rsna.org/roadmap/04005> ;
                                  rdfs:label "fotografía"@es ,
                                             "photograph"@en ,
                                             "照片"@zh ;
@@ -5181,7 +5164,6 @@ D - Ethical, Legal, and Maintenance"""@en ;
 ###  https://rsna.org/roadmap/03394
 <https://rsna.org/roadmap/03394> rdf:type owl:Class ;
                                  rdfs:subClassOf <https://rsna.org/roadmap/03389> ;
-                                 owl:disjointWith <https://rsna.org/roadmap/03484> ;
                                  rdfs:label "graph"@en ,
                                             "gráfico"@es ,
                                             "图表"@zh ;
@@ -6838,8 +6820,6 @@ D - Ethical, Legal, and Maintenance"""@en ;
 ###  https://rsna.org/roadmap/03485
 <https://rsna.org/roadmap/03485> rdf:type owl:Class ;
                                  rdfs:subClassOf <https://rsna.org/roadmap/03484> ;
-                                 owl:disjointWith <https://rsna.org/roadmap/03486> ,
-                                                  <https://rsna.org/roadmap/03500> ;
                                  rdfs:label "pathology report text"@en ,
                                             "texto del informe de patología"@es ,
                                             "病理报告文本"@zh ;
@@ -6851,7 +6831,6 @@ D - Ethical, Legal, and Maintenance"""@en ;
 ###  https://rsna.org/roadmap/03486
 <https://rsna.org/roadmap/03486> rdf:type owl:Class ;
                                  rdfs:subClassOf <https://rsna.org/roadmap/03484> ;
-                                 owl:disjointWith <https://rsna.org/roadmap/03500> ;
                                  rdfs:comment "This definition excludes radiology and pathology reports."@en ;
                                  rdfs:label "electronic health record text"@en ,
                                             "texto del historial clínico electrónico"@es ,
@@ -6966,9 +6945,6 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                                    owl:onProperty <https://rsna.org/roadmap/00631> ;
                                                    owl:someValuesFrom <https://rsna.org/roadmap/00121>
                                                  ] ;
-                                 owl:disjointWith <https://rsna.org/roadmap/03497> ,
-                                                  <https://rsna.org/roadmap/03498> ,
-                                                  <https://rsna.org/roadmap/04005> ;
                                  rdfs:comment "Specific about the type of radiological images are indicated by the imaging modality and imaging procedure elements."@en ;
                                  rdfs:label "imagen de radiología"@es ,
                                             "radiology image"@en ,
@@ -6979,8 +6955,6 @@ D - Ethical, Legal, and Maintenance"""@en ;
 ###  https://rsna.org/roadmap/03497
 <https://rsna.org/roadmap/03497> rdf:type owl:Class ;
                                  rdfs:subClassOf <https://rsna.org/roadmap/03391> ;
-                                 owl:disjointWith <https://rsna.org/roadmap/03498> ,
-                                                  <https://rsna.org/roadmap/04005> ;
                                  rdfs:label "imagen de patología"@es ,
                                             "pathology image"@en ,
                                             "病理图像"@zh ;
@@ -6990,7 +6964,6 @@ D - Ethical, Legal, and Maintenance"""@en ;
 ###  https://rsna.org/roadmap/03498
 <https://rsna.org/roadmap/03498> rdf:type owl:Class ;
                                  rdfs:subClassOf <https://rsna.org/roadmap/03391> ;
-                                 owl:disjointWith <https://rsna.org/roadmap/04005> ;
                                  rdfs:label "other image"@en ,
                                             "otra imagen"@es ,
                                             "其他图像"@zh ;
@@ -8067,7 +8040,7 @@ D - Ethical, Legal, and Maintenance"""@en ;
 
 ###  https://rsna.org/roadmap/03564
 <https://rsna.org/roadmap/03564> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/03422> ,
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03565> ,
                                                  [ rdf:type owl:Restriction ;
                                                    owl:onProperty <https://rsna.org/roadmap/00198> ;
                                                    owl:hasValue <https://rsna.org/roadmap/00258>
@@ -8403,7 +8376,7 @@ D - Ethical, Legal, and Maintenance"""@en ;
 
 ###  https://rsna.org/roadmap/03591
 <https://rsna.org/roadmap/03591> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/03422> ,
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03565> ,
                                                  [ rdf:type owl:Restriction ;
                                                    owl:onProperty <https://rsna.org/roadmap/00198> ;
                                                    owl:hasValue <https://rsna.org/roadmap/00253>
@@ -8735,7 +8708,7 @@ D - Ethical, Legal, and Maintenance"""@en ;
 <https://rsna.org/roadmap/03604> rdf:type owl:Class ;
                                  rdfs:subClassOf <https://rsna.org/roadmap/03602> ;
                                  rdfs:label "número de expediente reglamentario"@es ,
-                                            "regulatory identifer"@en ,
+                                            "regulatory identifier"@en ,
                                             "监管文件编号"@zh ;
                                  skos:altLabel "regulatory file number"@en ;
                                  skos:definition "Identifies the AI model's application number related to its regulatory authorization."@en .
@@ -10411,8 +10384,6 @@ When the function is the square of the difference and the variables are binary (
 ###  https://rsna.org/roadmap/03764
 <https://rsna.org/roadmap/03764> rdf:type owl:Class ;
                                  rdfs:subClassOf <https://rsna.org/roadmap/03763> ;
-                                 owl:disjointWith <https://rsna.org/roadmap/03765> ,
-                                                  <https://rsna.org/roadmap/03766> ;
                                  rdfs:label "entrenamiento"@es ,
                                             "training"@en ;
                                  skos:definition "The broad process of adjusting a model's parameters (weights) by exposing it to data and minimizing a loss function, typically via gradient descent. It covers every learning phase, including pretraining and fine-tuning."@en .
@@ -10421,7 +10392,6 @@ When the function is the square of the difference and the variables are binary (
 ###  https://rsna.org/roadmap/03765
 <https://rsna.org/roadmap/03765> rdf:type owl:Class ;
                                  rdfs:subClassOf <https://rsna.org/roadmap/03763> ;
-                                 owl:disjointWith <https://rsna.org/roadmap/03766> ;
                                  rdfs:comment "Deep learning systems often use the term \"validation,\" but in medical applications, it can be confused with clinical validation. Hence, \"optimization\" is preferred."@en ;
                                  rdfs:label "optimización"@es ,
                                             "optimization"@en ,
@@ -11072,7 +11042,7 @@ When the function is the square of the difference and the variables are binary (
 <https://rsna.org/roadmap/03884> rdf:type owl:Class ;
                                  rdfs:subClassOf <https://rsna.org/roadmap/03886> ;
                                  dcterms:source <https://doi.org/10.1038/s41746-024-01254-x> ;
-                                 rdfs:label "NMDA"@en ;
+                                 rdfs:label "NMPA"@en ;
                                  skos:altLabel "China / NMPA authorization"@en ,
                                                "China / National Medical Products Administration authorization"@en ,
                                                "NMPA authorization"@en ;
@@ -11121,7 +11091,7 @@ When the function is the square of the difference and the variables are binary (
 ###  https://rsna.org/roadmap/03903
 <https://rsna.org/roadmap/03903> rdf:type owl:Class ;
                                  rdfs:subClassOf <https://rsna.org/roadmap/03602> ;
-                                 rdfs:label "authority identifer"@en ;
+                                 rdfs:label "authority identifier"@en ;
                                  skos:definition "Four-digit Notified Body or Approved Body number where applicable, e.g. '0123'."@en .
 
 
@@ -11215,7 +11185,7 @@ When the function is the square of the difference and the variables are binary (
                                             "identificador de PubMed"@es ;
                                  skos:altLabel "PMID"@en ,
                                                "PubMed ID"@en ;
-                                 skos:definition "The unique identifer of an article available through PubMed. For example, the identifier \"38809149\" specifies the URL https://pubmed.ncbi.nlm.nih.gov/38809149/."@en ;
+                                 skos:definition "The unique identifier of an article available through PubMed. For example, the identifier \"38809149\" specifies the URL https://pubmed.ncbi.nlm.nih.gov/38809149/."@en ;
                                  <https://rsna.org/roadmap/00155> "[0-9]+" ;
                                  <https://rsna.org/roadmap/03626> <https://pubmed.ncbi.nlm.nih.gov/$> .
 
@@ -11318,7 +11288,7 @@ When the function is the square of the difference and the variables are binary (
                                  skos:altLabel "PMC ID"@en ,
                                                "PMCID"@en ,
                                                "PubMed Central ID"@en ;
-                                 skos:definition "The identifer of an article submitted and available through PubMed Central. For example, the identifier \"PMC11304031\" is part of the URL https://pmc.ncbi.nlm.nih.gov/articles/PMC11304031."@en ;
+                                 skos:definition "The identifier of an article submitted and available through PubMed Central. For example, the identifier \"PMC11304031\" is part of the URL https://pmc.ncbi.nlm.nih.gov/articles/PMC11304031."@en ;
                                  <https://rsna.org/roadmap/00155> "PMC[0-9]+" ;
                                  <https://rsna.org/roadmap/03626> <https://pmc.ncbi.nlm.nih.gov/articles/$> .
 
@@ -13133,6 +13103,7 @@ PREV = P / n"""@en ;
 ###  https://rsna.org/roadmap/04230
 <https://rsna.org/roadmap/04230> rdf:type owl:Class ;
                                  rdfs:subClassOf <https://rsna.org/roadmap/03355> ;
+                                 rdfs:comment "Examples: convolutional neural network, vision transformer, large language model, diffusion model, foundation model, traditional machine learning, ensemble, hybrid."@en ;
                                  rdfs:label "model class"@en ;
                                  skos:definition "The general architectural or algorithmic category of a model (e.g. convolutional neural network, vision transformer, large language model), as a coarse, queryable category distinct from a free-text architecture description."@en .
 
@@ -18222,6 +18193,74 @@ Tier 4: no sharing"""@en ;
                                  skos:definition "Prospective: evaluation on data acquired after the model was finalized and collected in the intended clinical workflow, rather than assembled from a retrospective archive."@en .
 
 
+###  https://rsna.org/roadmap/01129
+<https://rsna.org/roadmap/01129> rdf:type owl:NamedIndividual ,
+                                          <https://rsna.org/roadmap/04125> ;
+                                 rdfs:label "prediction output"@en .
+
+
+###  https://rsna.org/roadmap/01130
+<https://rsna.org/roadmap/01130> rdf:type owl:NamedIndividual ,
+                                          <https://rsna.org/roadmap/04125> ;
+                                 rdfs:label "classification output"@en .
+
+
+###  https://rsna.org/roadmap/01131
+<https://rsna.org/roadmap/01131> rdf:type owl:NamedIndividual ,
+                                          <https://rsna.org/roadmap/04125> ;
+                                 rdfs:label "recommendation output"@en .
+
+
+###  https://rsna.org/roadmap/01132
+<https://rsna.org/roadmap/01132> rdf:type owl:NamedIndividual ,
+                                          <https://rsna.org/roadmap/04125> ;
+                                 rdfs:label "evaluation output"@en .
+
+
+###  https://rsna.org/roadmap/01133
+<https://rsna.org/roadmap/01133> rdf:type owl:NamedIndividual ,
+                                          <https://rsna.org/roadmap/04125> ;
+                                 rdfs:label "analysis output"@en .
+
+
+###  https://rsna.org/roadmap/01134
+<https://rsna.org/roadmap/01134> rdf:type owl:NamedIndividual ,
+                                          <https://rsna.org/roadmap/04125> ;
+                                 rdfs:label "other output"@en .
+
+
+###  https://rsna.org/roadmap/01135
+<https://rsna.org/roadmap/01135> rdf:type owl:NamedIndividual ,
+                                          <https://rsna.org/roadmap/03441> ;
+                                 rdfs:label "Native Hawaiian or Pacific Islander"@en ;
+                                 skos:definition "A combined race/ethnicity category defined by OMB 2024. Potentially different from the 1997 \"race\" category where Latino or Hispanic ethnicity was documented separately."@en .
+
+
+###  https://rsna.org/roadmap/01136
+<https://rsna.org/roadmap/01136> rdf:type owl:NamedIndividual ,
+                                          <https://rsna.org/roadmap/04117> ;
+                                 rdfs:label "software embedded in hardware"@en .
+
+
+###  https://rsna.org/roadmap/01137
+<https://rsna.org/roadmap/01137> rdf:type owl:NamedIndividual ,
+                                          <https://rsna.org/roadmap/04117> ;
+                                 rdfs:label "software download"@en .
+
+
+###  https://rsna.org/roadmap/01138
+<https://rsna.org/roadmap/01138> rdf:type owl:NamedIndividual ,
+                                          <https://rsna.org/roadmap/04117> ;
+                                 rdfs:label "API"@en ;
+                                 skos:altLabel "application programming interface"@en .
+
+
+###  https://rsna.org/roadmap/01139
+<https://rsna.org/roadmap/01139> rdf:type owl:NamedIndividual ,
+                                          <https://rsna.org/roadmap/04117> ;
+                                 rdfs:label "cloud service"@en .
+
+
 ###  https://rsna.org/roadmap/03429
 <https://rsna.org/roadmap/03429> rdf:type owl:NamedIndividual ,
                                           <https://rsna.org/roadmap/03428> ;
@@ -19229,6 +19268,14 @@ Tier 4: no sharing"""@en ;
 #################################################################
 
 [ rdf:type owl:AllDisjointClasses ;
+  owl:members ( <https://rsna.org/roadmap/00002>
+                <https://rsna.org/roadmap/00003>
+                <https://rsna.org/roadmap/00010>
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
   owl:members ( <https://rsna.org/roadmap/00004>
                 <https://rsna.org/roadmap/03355>
                 <https://rsna.org/roadmap/03381>
@@ -19267,6 +19314,14 @@ Tier 4: no sharing"""@en ;
 
 
 [ rdf:type owl:AllDisjointClasses ;
+  owl:members ( <https://rsna.org/roadmap/00074>
+                <https://rsna.org/roadmap/01030>
+                <https://rsna.org/roadmap/03788>
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
   owl:members ( <https://rsna.org/roadmap/00174>
                 <https://rsna.org/roadmap/00177>
                 <https://rsna.org/roadmap/00248>
@@ -19299,7 +19354,697 @@ Tier 4: no sharing"""@en ;
                 <https://rsna.org/roadmap/00661>
                 <https://rsna.org/roadmap/00664>
                 <https://rsna.org/roadmap/00666>
+                <https://rsna.org/roadmap/03872>
               )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( <https://rsna.org/roadmap/01011>
+                <https://rsna.org/roadmap/01021>
+                <https://rsna.org/roadmap/03423>
+                <https://rsna.org/roadmap/03424>
+                <https://rsna.org/roadmap/03432>
+                <https://rsna.org/roadmap/03564>
+                <https://rsna.org/roadmap/03591>
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( <https://rsna.org/roadmap/01013>
+                <https://rsna.org/roadmap/01014>
+                <https://rsna.org/roadmap/03441>
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( <https://rsna.org/roadmap/03390>
+                <https://rsna.org/roadmap/03485>
+                <https://rsna.org/roadmap/03486>
+                <https://rsna.org/roadmap/03500>
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( <https://rsna.org/roadmap/03391>
+                <https://rsna.org/roadmap/03392>
+                <https://rsna.org/roadmap/03394>
+                <https://rsna.org/roadmap/03484>
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( <https://rsna.org/roadmap/03393>
+                <https://rsna.org/roadmap/03496>
+                <https://rsna.org/roadmap/03497>
+                <https://rsna.org/roadmap/03498>
+                <https://rsna.org/roadmap/04005>
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( <https://rsna.org/roadmap/03428>
+                <https://rsna.org/roadmap/03477>
+                <https://rsna.org/roadmap/03565>
+                <https://rsna.org/roadmap/03566>
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( <https://rsna.org/roadmap/03764>
+                <https://rsna.org/roadmap/03765>
+                <https://rsna.org/roadmap/03766>
+              )
+] .
+
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( <https://rsna.org/roadmap/00081>
+                        <https://rsna.org/roadmap/00082>
+                        <https://rsna.org/roadmap/00083>
+                        <https://rsna.org/roadmap/00084>
+                        <https://rsna.org/roadmap/00085>
+                        <https://rsna.org/roadmap/00086>
+                        <https://rsna.org/roadmap/00088>
+                        <https://rsna.org/roadmap/00089>
+                        <https://rsna.org/roadmap/00090>
+                        <https://rsna.org/roadmap/00091>
+                        <https://rsna.org/roadmap/00092>
+                        <https://rsna.org/roadmap/00093>
+                        <https://rsna.org/roadmap/00094>
+                        <https://rsna.org/roadmap/00095>
+                        <https://rsna.org/roadmap/00096>
+                        <https://rsna.org/roadmap/00097>
+                        <https://rsna.org/roadmap/00098>
+                        <https://rsna.org/roadmap/00099>
+                        <https://rsna.org/roadmap/00100>
+                        <https://rsna.org/roadmap/00101>
+                        <https://rsna.org/roadmap/00102>
+                        <https://rsna.org/roadmap/00103>
+                        <https://rsna.org/roadmap/00104>
+                        <https://rsna.org/roadmap/00105>
+                        <https://rsna.org/roadmap/00106>
+                        <https://rsna.org/roadmap/00107>
+                        <https://rsna.org/roadmap/00108>
+                        <https://rsna.org/roadmap/00109>
+                        <https://rsna.org/roadmap/00110>
+                        <https://rsna.org/roadmap/00111>
+                        <https://rsna.org/roadmap/00112>
+                        <https://rsna.org/roadmap/00170>
+                        <https://rsna.org/roadmap/00171>
+                        <https://rsna.org/roadmap/00172>
+                        <https://rsna.org/roadmap/00173>
+                        <https://rsna.org/roadmap/00175>
+                        <https://rsna.org/roadmap/00176>
+                        <https://rsna.org/roadmap/00180>
+                        <https://rsna.org/roadmap/00181>
+                        <https://rsna.org/roadmap/00182>
+                        <https://rsna.org/roadmap/00184>
+                        <https://rsna.org/roadmap/00185>
+                        <https://rsna.org/roadmap/00186>
+                        <https://rsna.org/roadmap/00187>
+                        <https://rsna.org/roadmap/00189>
+                        <https://rsna.org/roadmap/00190>
+                        <https://rsna.org/roadmap/00192>
+                        <https://rsna.org/roadmap/00193>
+                        <https://rsna.org/roadmap/00195>
+                        <https://rsna.org/roadmap/00196>
+                        <https://rsna.org/roadmap/00197>
+                        <https://rsna.org/roadmap/00203>
+                        <https://rsna.org/roadmap/00204>
+                        <https://rsna.org/roadmap/00205>
+                        <https://rsna.org/roadmap/00206>
+                        <https://rsna.org/roadmap/00207>
+                        <https://rsna.org/roadmap/00208>
+                        <https://rsna.org/roadmap/00209>
+                        <https://rsna.org/roadmap/00210>
+                        <https://rsna.org/roadmap/00211>
+                        <https://rsna.org/roadmap/00212>
+                        <https://rsna.org/roadmap/00213>
+                        <https://rsna.org/roadmap/00214>
+                        <https://rsna.org/roadmap/00215>
+                        <https://rsna.org/roadmap/00216>
+                        <https://rsna.org/roadmap/00217>
+                        <https://rsna.org/roadmap/00218>
+                        <https://rsna.org/roadmap/00219>
+                        <https://rsna.org/roadmap/00220>
+                        <https://rsna.org/roadmap/00221>
+                        <https://rsna.org/roadmap/00223>
+                        <https://rsna.org/roadmap/00224>
+                        <https://rsna.org/roadmap/00225>
+                        <https://rsna.org/roadmap/00226>
+                        <https://rsna.org/roadmap/00227>
+                        <https://rsna.org/roadmap/00228>
+                        <https://rsna.org/roadmap/00229>
+                        <https://rsna.org/roadmap/00230>
+                        <https://rsna.org/roadmap/00231>
+                        <https://rsna.org/roadmap/00232>
+                        <https://rsna.org/roadmap/00233>
+                        <https://rsna.org/roadmap/00234>
+                        <https://rsna.org/roadmap/00235>
+                        <https://rsna.org/roadmap/00236>
+                        <https://rsna.org/roadmap/00237>
+                        <https://rsna.org/roadmap/00238>
+                        <https://rsna.org/roadmap/00239>
+                        <https://rsna.org/roadmap/00240>
+                        <https://rsna.org/roadmap/00241>
+                        <https://rsna.org/roadmap/00242>
+                        <https://rsna.org/roadmap/00243>
+                        <https://rsna.org/roadmap/00244>
+                        <https://rsna.org/roadmap/00245>
+                        <https://rsna.org/roadmap/00246>
+                        <https://rsna.org/roadmap/00247>
+                        <https://rsna.org/roadmap/00253>
+                        <https://rsna.org/roadmap/00254>
+                        <https://rsna.org/roadmap/00255>
+                        <https://rsna.org/roadmap/00256>
+                        <https://rsna.org/roadmap/00257>
+                        <https://rsna.org/roadmap/00258>
+                        <https://rsna.org/roadmap/00275>
+                        <https://rsna.org/roadmap/00276>
+                        <https://rsna.org/roadmap/00277>
+                        <https://rsna.org/roadmap/00279>
+                        <https://rsna.org/roadmap/00280>
+                        <https://rsna.org/roadmap/00281>
+                        <https://rsna.org/roadmap/00282>
+                        <https://rsna.org/roadmap/00283>
+                        <https://rsna.org/roadmap/00284>
+                        <https://rsna.org/roadmap/00285>
+                        <https://rsna.org/roadmap/00286>
+                        <https://rsna.org/roadmap/00287>
+                        <https://rsna.org/roadmap/00288>
+                        <https://rsna.org/roadmap/00289>
+                        <https://rsna.org/roadmap/00290>
+                        <https://rsna.org/roadmap/00291>
+                        <https://rsna.org/roadmap/00292>
+                        <https://rsna.org/roadmap/00293>
+                        <https://rsna.org/roadmap/00294>
+                        <https://rsna.org/roadmap/00295>
+                        <https://rsna.org/roadmap/00296>
+                        <https://rsna.org/roadmap/00297>
+                        <https://rsna.org/roadmap/00298>
+                        <https://rsna.org/roadmap/00299>
+                        <https://rsna.org/roadmap/00300>
+                        <https://rsna.org/roadmap/00301>
+                        <https://rsna.org/roadmap/00302>
+                        <https://rsna.org/roadmap/00303>
+                        <https://rsna.org/roadmap/00304>
+                        <https://rsna.org/roadmap/00305>
+                        <https://rsna.org/roadmap/00306>
+                        <https://rsna.org/roadmap/00307>
+                        <https://rsna.org/roadmap/00308>
+                        <https://rsna.org/roadmap/00309>
+                        <https://rsna.org/roadmap/00310>
+                        <https://rsna.org/roadmap/00311>
+                        <https://rsna.org/roadmap/00312>
+                        <https://rsna.org/roadmap/00313>
+                        <https://rsna.org/roadmap/00314>
+                        <https://rsna.org/roadmap/00315>
+                        <https://rsna.org/roadmap/00316>
+                        <https://rsna.org/roadmap/00317>
+                        <https://rsna.org/roadmap/00318>
+                        <https://rsna.org/roadmap/00319>
+                        <https://rsna.org/roadmap/00320>
+                        <https://rsna.org/roadmap/00321>
+                        <https://rsna.org/roadmap/00322>
+                        <https://rsna.org/roadmap/00323>
+                        <https://rsna.org/roadmap/00324>
+                        <https://rsna.org/roadmap/00325>
+                        <https://rsna.org/roadmap/00326>
+                        <https://rsna.org/roadmap/00328>
+                        <https://rsna.org/roadmap/00332>
+                        <https://rsna.org/roadmap/00333>
+                        <https://rsna.org/roadmap/00334>
+                        <https://rsna.org/roadmap/00335>
+                        <https://rsna.org/roadmap/00336>
+                        <https://rsna.org/roadmap/00337>
+                        <https://rsna.org/roadmap/00338>
+                        <https://rsna.org/roadmap/00339>
+                        <https://rsna.org/roadmap/00340>
+                        <https://rsna.org/roadmap/00341>
+                        <https://rsna.org/roadmap/00342>
+                        <https://rsna.org/roadmap/00343>
+                        <https://rsna.org/roadmap/00344>
+                        <https://rsna.org/roadmap/00345>
+                        <https://rsna.org/roadmap/00346>
+                        <https://rsna.org/roadmap/00347>
+                        <https://rsna.org/roadmap/00348>
+                        <https://rsna.org/roadmap/00349>
+                        <https://rsna.org/roadmap/00350>
+                        <https://rsna.org/roadmap/00351>
+                        <https://rsna.org/roadmap/00352>
+                        <https://rsna.org/roadmap/00353>
+                        <https://rsna.org/roadmap/00354>
+                        <https://rsna.org/roadmap/00355>
+                        <https://rsna.org/roadmap/00356>
+                        <https://rsna.org/roadmap/00357>
+                        <https://rsna.org/roadmap/00358>
+                        <https://rsna.org/roadmap/00359>
+                        <https://rsna.org/roadmap/00360>
+                        <https://rsna.org/roadmap/00361>
+                        <https://rsna.org/roadmap/00362>
+                        <https://rsna.org/roadmap/00363>
+                        <https://rsna.org/roadmap/00364>
+                        <https://rsna.org/roadmap/00365>
+                        <https://rsna.org/roadmap/00366>
+                        <https://rsna.org/roadmap/00367>
+                        <https://rsna.org/roadmap/00368>
+                        <https://rsna.org/roadmap/00369>
+                        <https://rsna.org/roadmap/00370>
+                        <https://rsna.org/roadmap/00371>
+                        <https://rsna.org/roadmap/00372>
+                        <https://rsna.org/roadmap/00373>
+                        <https://rsna.org/roadmap/00374>
+                        <https://rsna.org/roadmap/00375>
+                        <https://rsna.org/roadmap/00376>
+                        <https://rsna.org/roadmap/00377>
+                        <https://rsna.org/roadmap/00378>
+                        <https://rsna.org/roadmap/00379>
+                        <https://rsna.org/roadmap/00380>
+                        <https://rsna.org/roadmap/00381>
+                        <https://rsna.org/roadmap/00382>
+                        <https://rsna.org/roadmap/00383>
+                        <https://rsna.org/roadmap/00384>
+                        <https://rsna.org/roadmap/00385>
+                        <https://rsna.org/roadmap/00386>
+                        <https://rsna.org/roadmap/00387>
+                        <https://rsna.org/roadmap/00388>
+                        <https://rsna.org/roadmap/00389>
+                        <https://rsna.org/roadmap/00390>
+                        <https://rsna.org/roadmap/00391>
+                        <https://rsna.org/roadmap/00392>
+                        <https://rsna.org/roadmap/00393>
+                        <https://rsna.org/roadmap/00394>
+                        <https://rsna.org/roadmap/00395>
+                        <https://rsna.org/roadmap/00396>
+                        <https://rsna.org/roadmap/00397>
+                        <https://rsna.org/roadmap/00398>
+                        <https://rsna.org/roadmap/00399>
+                        <https://rsna.org/roadmap/00400>
+                        <https://rsna.org/roadmap/00401>
+                        <https://rsna.org/roadmap/00402>
+                        <https://rsna.org/roadmap/00403>
+                        <https://rsna.org/roadmap/00404>
+                        <https://rsna.org/roadmap/00405>
+                        <https://rsna.org/roadmap/00406>
+                        <https://rsna.org/roadmap/00407>
+                        <https://rsna.org/roadmap/00408>
+                        <https://rsna.org/roadmap/00409>
+                        <https://rsna.org/roadmap/00410>
+                        <https://rsna.org/roadmap/00411>
+                        <https://rsna.org/roadmap/00412>
+                        <https://rsna.org/roadmap/00413>
+                        <https://rsna.org/roadmap/00414>
+                        <https://rsna.org/roadmap/00415>
+                        <https://rsna.org/roadmap/00416>
+                        <https://rsna.org/roadmap/00417>
+                        <https://rsna.org/roadmap/00418>
+                        <https://rsna.org/roadmap/00419>
+                        <https://rsna.org/roadmap/00420>
+                        <https://rsna.org/roadmap/00421>
+                        <https://rsna.org/roadmap/00422>
+                        <https://rsna.org/roadmap/00423>
+                        <https://rsna.org/roadmap/00424>
+                        <https://rsna.org/roadmap/00425>
+                        <https://rsna.org/roadmap/00426>
+                        <https://rsna.org/roadmap/00427>
+                        <https://rsna.org/roadmap/00428>
+                        <https://rsna.org/roadmap/00429>
+                        <https://rsna.org/roadmap/00430>
+                        <https://rsna.org/roadmap/00431>
+                        <https://rsna.org/roadmap/00432>
+                        <https://rsna.org/roadmap/00433>
+                        <https://rsna.org/roadmap/00434>
+                        <https://rsna.org/roadmap/00435>
+                        <https://rsna.org/roadmap/00436>
+                        <https://rsna.org/roadmap/00437>
+                        <https://rsna.org/roadmap/00438>
+                        <https://rsna.org/roadmap/00439>
+                        <https://rsna.org/roadmap/00440>
+                        <https://rsna.org/roadmap/00441>
+                        <https://rsna.org/roadmap/00442>
+                        <https://rsna.org/roadmap/00443>
+                        <https://rsna.org/roadmap/00444>
+                        <https://rsna.org/roadmap/00445>
+                        <https://rsna.org/roadmap/00446>
+                        <https://rsna.org/roadmap/00447>
+                        <https://rsna.org/roadmap/00448>
+                        <https://rsna.org/roadmap/00449>
+                        <https://rsna.org/roadmap/00450>
+                        <https://rsna.org/roadmap/00451>
+                        <https://rsna.org/roadmap/00452>
+                        <https://rsna.org/roadmap/00453>
+                        <https://rsna.org/roadmap/00454>
+                        <https://rsna.org/roadmap/00455>
+                        <https://rsna.org/roadmap/00456>
+                        <https://rsna.org/roadmap/00457>
+                        <https://rsna.org/roadmap/00458>
+                        <https://rsna.org/roadmap/00459>
+                        <https://rsna.org/roadmap/00460>
+                        <https://rsna.org/roadmap/00461>
+                        <https://rsna.org/roadmap/00462>
+                        <https://rsna.org/roadmap/00464>
+                        <https://rsna.org/roadmap/00465>
+                        <https://rsna.org/roadmap/00466>
+                        <https://rsna.org/roadmap/00467>
+                        <https://rsna.org/roadmap/00468>
+                        <https://rsna.org/roadmap/00469>
+                        <https://rsna.org/roadmap/00470>
+                        <https://rsna.org/roadmap/00471>
+                        <https://rsna.org/roadmap/00472>
+                        <https://rsna.org/roadmap/00474>
+                        <https://rsna.org/roadmap/00475>
+                        <https://rsna.org/roadmap/00476>
+                        <https://rsna.org/roadmap/00477>
+                        <https://rsna.org/roadmap/00478>
+                        <https://rsna.org/roadmap/00479>
+                        <https://rsna.org/roadmap/00480>
+                        <https://rsna.org/roadmap/00481>
+                        <https://rsna.org/roadmap/00482>
+                        <https://rsna.org/roadmap/00483>
+                        <https://rsna.org/roadmap/00484>
+                        <https://rsna.org/roadmap/00485>
+                        <https://rsna.org/roadmap/00486>
+                        <https://rsna.org/roadmap/00487>
+                        <https://rsna.org/roadmap/00488>
+                        <https://rsna.org/roadmap/00489>
+                        <https://rsna.org/roadmap/00495>
+                        <https://rsna.org/roadmap/00497>
+                        <https://rsna.org/roadmap/00498>
+                        <https://rsna.org/roadmap/00499>
+                        <https://rsna.org/roadmap/00500>
+                        <https://rsna.org/roadmap/00501>
+                        <https://rsna.org/roadmap/00502>
+                        <https://rsna.org/roadmap/00503>
+                        <https://rsna.org/roadmap/00504>
+                        <https://rsna.org/roadmap/00505>
+                        <https://rsna.org/roadmap/00506>
+                        <https://rsna.org/roadmap/00507>
+                        <https://rsna.org/roadmap/00508>
+                        <https://rsna.org/roadmap/00509>
+                        <https://rsna.org/roadmap/00510>
+                        <https://rsna.org/roadmap/00511>
+                        <https://rsna.org/roadmap/00512>
+                        <https://rsna.org/roadmap/00513>
+                        <https://rsna.org/roadmap/00514>
+                        <https://rsna.org/roadmap/00515>
+                        <https://rsna.org/roadmap/00516>
+                        <https://rsna.org/roadmap/00517>
+                        <https://rsna.org/roadmap/00518>
+                        <https://rsna.org/roadmap/00519>
+                        <https://rsna.org/roadmap/00520>
+                        <https://rsna.org/roadmap/00521>
+                        <https://rsna.org/roadmap/00522>
+                        <https://rsna.org/roadmap/00523>
+                        <https://rsna.org/roadmap/00524>
+                        <https://rsna.org/roadmap/00525>
+                        <https://rsna.org/roadmap/00526>
+                        <https://rsna.org/roadmap/00527>
+                        <https://rsna.org/roadmap/00528>
+                        <https://rsna.org/roadmap/00529>
+                        <https://rsna.org/roadmap/00530>
+                        <https://rsna.org/roadmap/00531>
+                        <https://rsna.org/roadmap/00532>
+                        <https://rsna.org/roadmap/00533>
+                        <https://rsna.org/roadmap/00534>
+                        <https://rsna.org/roadmap/00535>
+                        <https://rsna.org/roadmap/00536>
+                        <https://rsna.org/roadmap/00537>
+                        <https://rsna.org/roadmap/00538>
+                        <https://rsna.org/roadmap/00539>
+                        <https://rsna.org/roadmap/00540>
+                        <https://rsna.org/roadmap/00542>
+                        <https://rsna.org/roadmap/00543>
+                        <https://rsna.org/roadmap/00544>
+                        <https://rsna.org/roadmap/00545>
+                        <https://rsna.org/roadmap/00547>
+                        <https://rsna.org/roadmap/00548>
+                        <https://rsna.org/roadmap/00549>
+                        <https://rsna.org/roadmap/00550>
+                        <https://rsna.org/roadmap/00551>
+                        <https://rsna.org/roadmap/00553>
+                        <https://rsna.org/roadmap/00554>
+                        <https://rsna.org/roadmap/00555>
+                        <https://rsna.org/roadmap/00556>
+                        <https://rsna.org/roadmap/00557>
+                        <https://rsna.org/roadmap/00558>
+                        <https://rsna.org/roadmap/00559>
+                        <https://rsna.org/roadmap/00560>
+                        <https://rsna.org/roadmap/00562>
+                        <https://rsna.org/roadmap/00563>
+                        <https://rsna.org/roadmap/00564>
+                        <https://rsna.org/roadmap/00565>
+                        <https://rsna.org/roadmap/00566>
+                        <https://rsna.org/roadmap/00567>
+                        <https://rsna.org/roadmap/00568>
+                        <https://rsna.org/roadmap/00569>
+                        <https://rsna.org/roadmap/00570>
+                        <https://rsna.org/roadmap/00571>
+                        <https://rsna.org/roadmap/00572>
+                        <https://rsna.org/roadmap/00573>
+                        <https://rsna.org/roadmap/00574>
+                        <https://rsna.org/roadmap/00575>
+                        <https://rsna.org/roadmap/00576>
+                        <https://rsna.org/roadmap/00577>
+                        <https://rsna.org/roadmap/00578>
+                        <https://rsna.org/roadmap/00579>
+                        <https://rsna.org/roadmap/00580>
+                        <https://rsna.org/roadmap/00581>
+                        <https://rsna.org/roadmap/00582>
+                        <https://rsna.org/roadmap/00583>
+                        <https://rsna.org/roadmap/00584>
+                        <https://rsna.org/roadmap/00585>
+                        <https://rsna.org/roadmap/00586>
+                        <https://rsna.org/roadmap/00587>
+                        <https://rsna.org/roadmap/00588>
+                        <https://rsna.org/roadmap/00589>
+                        <https://rsna.org/roadmap/00590>
+                        <https://rsna.org/roadmap/00591>
+                        <https://rsna.org/roadmap/00592>
+                        <https://rsna.org/roadmap/00593>
+                        <https://rsna.org/roadmap/00594>
+                        <https://rsna.org/roadmap/00595>
+                        <https://rsna.org/roadmap/00596>
+                        <https://rsna.org/roadmap/00597>
+                        <https://rsna.org/roadmap/00598>
+                        <https://rsna.org/roadmap/00599>
+                        <https://rsna.org/roadmap/00600>
+                        <https://rsna.org/roadmap/00601>
+                        <https://rsna.org/roadmap/00602>
+                        <https://rsna.org/roadmap/00603>
+                        <https://rsna.org/roadmap/00604>
+                        <https://rsna.org/roadmap/00605>
+                        <https://rsna.org/roadmap/00606>
+                        <https://rsna.org/roadmap/00607>
+                        <https://rsna.org/roadmap/00608>
+                        <https://rsna.org/roadmap/00609>
+                        <https://rsna.org/roadmap/00610>
+                        <https://rsna.org/roadmap/00611>
+                        <https://rsna.org/roadmap/00614>
+                        <https://rsna.org/roadmap/00615>
+                        <https://rsna.org/roadmap/00616>
+                        <https://rsna.org/roadmap/00617>
+                        <https://rsna.org/roadmap/00618>
+                        <https://rsna.org/roadmap/00619>
+                        <https://rsna.org/roadmap/00620>
+                        <https://rsna.org/roadmap/00621>
+                        <https://rsna.org/roadmap/00622>
+                        <https://rsna.org/roadmap/00623>
+                        <https://rsna.org/roadmap/00624>
+                        <https://rsna.org/roadmap/00625>
+                        <https://rsna.org/roadmap/00626>
+                        <https://rsna.org/roadmap/00627>
+                        <https://rsna.org/roadmap/00628>
+                        <https://rsna.org/roadmap/00635>
+                        <https://rsna.org/roadmap/00636>
+                        <https://rsna.org/roadmap/00637>
+                        <https://rsna.org/roadmap/00638>
+                        <https://rsna.org/roadmap/00639>
+                        <https://rsna.org/roadmap/00640>
+                        <https://rsna.org/roadmap/00641>
+                        <https://rsna.org/roadmap/00642>
+                        <https://rsna.org/roadmap/00643>
+                        <https://rsna.org/roadmap/00644>
+                        <https://rsna.org/roadmap/00645>
+                        <https://rsna.org/roadmap/00646>
+                        <https://rsna.org/roadmap/00647>
+                        <https://rsna.org/roadmap/00648>
+                        <https://rsna.org/roadmap/00649>
+                        <https://rsna.org/roadmap/00650>
+                        <https://rsna.org/roadmap/00651>
+                        <https://rsna.org/roadmap/00652>
+                        <https://rsna.org/roadmap/00653>
+                        <https://rsna.org/roadmap/01008>
+                        <https://rsna.org/roadmap/01009>
+                        <https://rsna.org/roadmap/01015>
+                        <https://rsna.org/roadmap/01016>
+                        <https://rsna.org/roadmap/01017>
+                        <https://rsna.org/roadmap/01018>
+                        <https://rsna.org/roadmap/01019>
+                        <https://rsna.org/roadmap/01020>
+                        <https://rsna.org/roadmap/01022>
+                        <https://rsna.org/roadmap/01023>
+                        <https://rsna.org/roadmap/01024>
+                        <https://rsna.org/roadmap/01025>
+                        <https://rsna.org/roadmap/01026>
+                        <https://rsna.org/roadmap/01027>
+                        <https://rsna.org/roadmap/01028>
+                        <https://rsna.org/roadmap/01029>
+                        <https://rsna.org/roadmap/01100>
+                        <https://rsna.org/roadmap/01101>
+                        <https://rsna.org/roadmap/01102>
+                        <https://rsna.org/roadmap/01103>
+                        <https://rsna.org/roadmap/01104>
+                        <https://rsna.org/roadmap/01105>
+                        <https://rsna.org/roadmap/01106>
+                        <https://rsna.org/roadmap/01107>
+                        <https://rsna.org/roadmap/01108>
+                        <https://rsna.org/roadmap/01109>
+                        <https://rsna.org/roadmap/01110>
+                        <https://rsna.org/roadmap/01111>
+                        <https://rsna.org/roadmap/01112>
+                        <https://rsna.org/roadmap/01113>
+                        <https://rsna.org/roadmap/01114>
+                        <https://rsna.org/roadmap/01115>
+                        <https://rsna.org/roadmap/01116>
+                        <https://rsna.org/roadmap/01117>
+                        <https://rsna.org/roadmap/01120>
+                        <https://rsna.org/roadmap/01121>
+                        <https://rsna.org/roadmap/01124>
+                        <https://rsna.org/roadmap/01125>
+                        <https://rsna.org/roadmap/01126>
+                        <https://rsna.org/roadmap/01127>
+                        <https://rsna.org/roadmap/01129>
+                        <https://rsna.org/roadmap/01130>
+                        <https://rsna.org/roadmap/01131>
+                        <https://rsna.org/roadmap/01132>
+                        <https://rsna.org/roadmap/01133>
+                        <https://rsna.org/roadmap/01134>
+                        <https://rsna.org/roadmap/01135>
+                        <https://rsna.org/roadmap/03429>
+                        <https://rsna.org/roadmap/03430>
+                        <https://rsna.org/roadmap/03431>
+                        <https://rsna.org/roadmap/03440>
+                        <https://rsna.org/roadmap/03468>
+                        <https://rsna.org/roadmap/03469>
+                        <https://rsna.org/roadmap/03470>
+                        <https://rsna.org/roadmap/03647>
+                        <https://rsna.org/roadmap/03813>
+                        <https://rsna.org/roadmap/03814>
+                        <https://rsna.org/roadmap/03815>
+                        <https://rsna.org/roadmap/03816>
+                        <https://rsna.org/roadmap/03856>
+                        <https://rsna.org/roadmap/03857>
+                        <https://rsna.org/roadmap/03858>
+                        <https://rsna.org/roadmap/03859>
+                        <https://rsna.org/roadmap/03860>
+                        <https://rsna.org/roadmap/03861>
+                        <https://rsna.org/roadmap/03866>
+                        <https://rsna.org/roadmap/03910>
+                        <https://rsna.org/roadmap/03911>
+                        <https://rsna.org/roadmap/03912>
+                        <https://rsna.org/roadmap/03913>
+                        <https://rsna.org/roadmap/03914>
+                        <https://rsna.org/roadmap/03915>
+                        <https://rsna.org/roadmap/03916>
+                        <https://rsna.org/roadmap/03917>
+                        <https://rsna.org/roadmap/03926>
+                        <https://rsna.org/roadmap/03927>
+                        <https://rsna.org/roadmap/03928>
+                        <https://rsna.org/roadmap/03929>
+                        <https://rsna.org/roadmap/03930>
+                        <https://rsna.org/roadmap/03931>
+                        <https://rsna.org/roadmap/03932>
+                        <https://rsna.org/roadmap/03933>
+                        <https://rsna.org/roadmap/03934>
+                        <https://rsna.org/roadmap/04001>
+                        <https://rsna.org/roadmap/04138>
+                        <https://rsna.org/roadmap/04139>
+                        <https://rsna.org/roadmap/04140>
+                        <https://rsna.org/roadmap/04141>
+                        <https://rsna.org/roadmap/04142>
+                        <https://rsna.org/roadmap/04143>
+                        <https://rsna.org/roadmap/04144>
+                        <https://rsna.org/roadmap/04145>
+                        <https://rsna.org/roadmap/04146>
+                        <https://rsna.org/roadmap/04147>
+                        <https://rsna.org/roadmap/04148>
+                        <https://rsna.org/roadmap/04150>
+                        <https://rsna.org/roadmap/04151>
+                        <https://rsna.org/roadmap/04152>
+                        <https://rsna.org/roadmap/04153>
+                        <https://rsna.org/roadmap/04154>
+                        <https://rsna.org/roadmap/04156>
+                        <https://rsna.org/roadmap/04157>
+                        <https://rsna.org/roadmap/04158>
+                        <https://rsna.org/roadmap/04159>
+                        <https://rsna.org/roadmap/04160>
+                        <https://rsna.org/roadmap/04161>
+                        <https://rsna.org/roadmap/04163>
+                        <https://rsna.org/roadmap/04164>
+                        <https://rsna.org/roadmap/04165>
+                        <https://rsna.org/roadmap/04166>
+                        <https://rsna.org/roadmap/04167>
+                        <https://rsna.org/roadmap/04168>
+                        <https://rsna.org/roadmap/04169>
+                        <https://rsna.org/roadmap/04170>
+                        <https://rsna.org/roadmap/04171>
+                        <https://rsna.org/roadmap/04172>
+                        <https://rsna.org/roadmap/04174>
+                        <https://rsna.org/roadmap/04175>
+                        <https://rsna.org/roadmap/04176>
+                        <https://rsna.org/roadmap/04177>
+                        <https://rsna.org/roadmap/04178>
+                        <https://rsna.org/roadmap/04179>
+                        <https://rsna.org/roadmap/04180>
+                        <https://rsna.org/roadmap/04181>
+                        <https://rsna.org/roadmap/04182>
+                        <https://rsna.org/roadmap/04183>
+                        <https://rsna.org/roadmap/04184>
+                        <https://rsna.org/roadmap/04185>
+                        <https://rsna.org/roadmap/04186>
+                        <https://rsna.org/roadmap/04188>
+                        <https://rsna.org/roadmap/04189>
+                        <https://rsna.org/roadmap/04190>
+                        <https://rsna.org/roadmap/04191>
+                        <https://rsna.org/roadmap/04192>
+                        <https://rsna.org/roadmap/04193>
+                        <https://rsna.org/roadmap/04194>
+                        <https://rsna.org/roadmap/04195>
+                        <https://rsna.org/roadmap/04196>
+                        <https://rsna.org/roadmap/04197>
+                        <https://rsna.org/roadmap/04198>
+                        <https://rsna.org/roadmap/04199>
+                        <https://rsna.org/roadmap/04200>
+                        <https://rsna.org/roadmap/04201>
+                        <https://rsna.org/roadmap/04203>
+                        <https://rsna.org/roadmap/04204>
+                        <https://rsna.org/roadmap/04205>
+                        <https://rsna.org/roadmap/04206>
+                        <https://rsna.org/roadmap/04207>
+                        <https://rsna.org/roadmap/04208>
+                        <https://rsna.org/roadmap/04209>
+                        <https://rsna.org/roadmap/04212>
+                        <https://rsna.org/roadmap/04213>
+                        <https://rsna.org/roadmap/04214>
+                        <https://rsna.org/roadmap/04215>
+                        <https://rsna.org/roadmap/04217>
+                        <https://rsna.org/roadmap/04218>
+                        <https://rsna.org/roadmap/04219>
+                        <https://rsna.org/roadmap/04220>
+                        <https://rsna.org/roadmap/04221>
+                        <https://rsna.org/roadmap/04222>
+                        <https://rsna.org/roadmap/04223>
+                        <https://rsna.org/roadmap/04224>
+                        <https://rsna.org/roadmap/04225>
+                        <https://rsna.org/roadmap/04226>
+                      )
 ] .
 
 
