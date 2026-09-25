@@ -12730,12 +12730,13 @@ PREV = P / n"""@en ;
                                                  ] ;
                                  dcterms:source <https://doi.org/10.1007/978-3-031-47745-4_18> ;
                                  rdfs:comment "Can be used to measure model drift: the two-sample form of this statistic is a standard test for distributional drift."@en ;
-                                 rdfs:label "Kolmogorov–Smirnov distance"@en ,
+                                 rdfs:label "Kolmogorov-Smirnov distance"@en ,
                                             "distancia de Kolmogórov-Smirnov"@es ,
                                             "柯尔莫哥洛夫-斯米尔诺夫距离"@zh ;
                                  skos:altLabel "KS distance"@en ,
                                                "KS statistic"@en ,
-                                               "Kolmogorov-Smirnov distance"@en ;
+                                               "Kolmogorov-Smirnov distance"@en ,
+                                               "Kolmogorov–Smirnov distance"@en ;
                                  skos:definition "The Kolmogorov–Smirnov distance is the supremum of the absolute difference between two cumulative distribution functions, most often the empirical distribution function of a sample and the cumulative distribution function of a reference distribution. It is the test statistic of the Kolmogorov–Smirnov test, and applied to the score distributions of two protected groups it yields the fairness metric KS statistical parity."@en ;
                                  skos:exactMatch <https://purl.org/twc/fmo#KS_distance> .
 
