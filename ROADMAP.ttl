@@ -3486,6 +3486,15 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                  skos:definition "The party that conducted and reported external testing of the AI model."@en .
 
 
+###  https://rsna.org/roadmap/01123
+<https://rsna.org/roadmap/01123> rdf:type owl:Class ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/03808> ;
+                                 rdfs:label "performance test type"@en ;
+                                 skos:altLabel "test type"@en ,
+                                               "evaluation test type"@en ;
+                                 skos:definition "The relationship between the data used to evaluate an AI model and the data used to develop it, together with the point in the model's lifecycle at which the evaluation was performed."@en .
+
+
 ###  https://rsna.org/roadmap/02866
 <https://rsna.org/roadmap/02866> rdf:type owl:Class ;
                                  rdfs:subClassOf <https://rsna.org/roadmap/00059> ;
@@ -18214,6 +18223,39 @@ Tier 4: no sharing"""@en ;
                                  skos:altLabel "observed"@en ;
                                  skos:definition "Observed: derived from real-world, deployed use, e.g. registry-reported concordance."@en .
 
+
+###  https://rsna.org/roadmap/01124
+<https://rsna.org/roadmap/01124> rdf:type owl:NamedIndividual ,
+                                          <https://rsna.org/roadmap/01123> ;
+                                 rdfs:label "internal test type"@en ;
+                                 skos:altLabel "internal"@en ,
+                                               "internal testing"@en ;
+                                 skos:definition "Internal: evaluation on data drawn from the same source or sources as the development data and held out from training, such as a random, patient-level or temporal split of a single institution's cohort."@en .
+
+###  https://rsna.org/roadmap/01125
+<https://rsna.org/roadmap/01125> rdf:type owl:NamedIndividual ,
+                                          <https://rsna.org/roadmap/01123> ;
+                                 rdfs:label "external test type"@en ;
+                                 skos:altLabel "external"@en ,
+                                               "external testing"@en ;
+                                 skos:definition "External: evaluation on data from one or more sources not used in development — a different institution, region, population or scanner fleet — and not available to the developer during model training or tuning."@en .
+
+###  https://rsna.org/roadmap/01126
+<https://rsna.org/roadmap/01126> rdf:type owl:NamedIndividual ,
+                                          <https://rsna.org/roadmap/01123> ;
+                                 rdfs:label "local test type"@en ;
+                                 skos:altLabel "local"@en ,
+                                               "local testing"@en ,
+                                               "site acceptance testing"@en ;
+                                 skos:definition "Local: evaluation performed by a deploying site on data from that site, typically as acceptance testing before deployment or as ongoing monitoring after it."@en .
+
+###  https://rsna.org/roadmap/01127
+<https://rsna.org/roadmap/01127> rdf:type owl:NamedIndividual ,
+                                          <https://rsna.org/roadmap/01123> ;
+                                 rdfs:label "prospective test type"@en ;
+                                 skos:altLabel "prospective"@en ,
+                                               "prospective testing"@en ;
+                                 skos:definition "Prospective: evaluation on data acquired after the model was finalized and collected in the intended clinical workflow, rather than assembled from a retrospective archive."@en .
 
 ###  https://rsna.org/roadmap/03429
 <https://rsna.org/roadmap/03429> rdf:type owl:NamedIndividual ,
