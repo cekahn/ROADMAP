@@ -308,6 +308,14 @@ Note that this property is *not* transitive: some guideline items are disjunctio
                                  rdfs:label "has value"@en .
 
 
+###  https://rsna.org/roadmap/01128
+<https://rsna.org/roadmap/01128> rdf:type owl:ObjectProperty ,
+                                          owl:FunctionalProperty ;
+                                 rdfs:domain <https://rsna.org/roadmap/04069> ;
+                                 rdfs:range <https://rsna.org/roadmap/04090> ;
+                                 rdfs:label "has cell count"@en .
+
+
 ###  https://rsna.org/roadmap/03350
 <https://rsna.org/roadmap/03350> rdf:type owl:ObjectProperty ;
                                  rdfs:subPropertyOf <https://rsna.org/roadmap/03865> ;
@@ -3490,8 +3498,8 @@ D - Ethical, Legal, and Maintenance"""@en ;
 <https://rsna.org/roadmap/01123> rdf:type owl:Class ;
                                  rdfs:subClassOf <https://rsna.org/roadmap/03808> ;
                                  rdfs:label "performance test type"@en ;
-                                 skos:altLabel "test type"@en ,
-                                               "evaluation test type"@en ;
+                                 skos:altLabel "evaluation test type"@en ,
+                                               "test type"@en ;
                                  skos:definition "The relationship between the data used to evaluate an AI model and the data used to develop it, together with the point in the model's lifecycle at which the evaluation was performed."@en .
 
 
@@ -7406,13 +7414,13 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                                  ] ;
                                  dcterms:source <https://doi.org/10.1007/s11547-024-01886-9> ,
                                                 <https://doi.org/10.1148/radiol.220182> ;
-                                 rdfs:comment "AFROC curve"@en ;
                                  rdfs:label "alternative free-response receiver operating characteristic analysis"@en ,
                                             "análisis alternativo de la curva ROC de respuesta libre"@es ,
                                             "替代型自由响应受试者工作特征分析"@zh ;
                                  rdfs:seeAlso <https://doi.org/10.1001/jamanetworkopen.2019.1095> ;
                                  skos:altLabel "AFROC"@en ,
                                                "AFROC analysis"@en ,
+                                               "AFROC curve"@en ,
                                                "alternative free-response ROC"@en ,
                                                "alternative free-response ROC analysis"@en ,
                                                "alternative free-response operating characteristic analysis"@en ;
@@ -7450,12 +7458,12 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                  dcterms:source <https://doi.org/10.1007/s11547-024-01886-9> ,
                                                 <https://doi.org/10.1016/j.jacr.2009.06.001> ,
                                                 <https://doi.org/10.1148/radiol.220182> ;
-                                 rdfs:comment "FROC curve"@en ;
                                  rdfs:label "análisis de la curva ROC de respuesta libre"@es ,
                                             "free-response receiver operating characteristic analysis"@en ,
                                             "自由响应受试者工作特征分析"@zh ;
                                  skos:altLabel "FROC"@en ,
-                                               "FROC analysis"@en ;
+                                               "FROC analysis"@en ,
+                                               "FROC curve"@en ;
                                  skos:definition "Free-Response Operating Characteristic (FROC) analysis evaluates imaging systems by plotting per-lesion sensitivity (true positive rate) against average number of false positives per image (or per case) while changing the threshold. Unlike ROC analysis which sets strict binary decisions at the level of image (or case) without lesion localization, free-response allows observers to indicate multiple potential lesions or findings per image."@en .
 
 
@@ -9819,13 +9827,13 @@ D - Ethical, Legal, and Maintenance"""@en ;
 ###  https://rsna.org/roadmap/03682
 <https://rsna.org/roadmap/03682> rdf:type owl:Class ;
                                  rdfs:subClassOf <https://rsna.org/roadmap/03637> ;
-                                 dcterms:source <https://doi.org/10.1016/j.jacr.2009.06.001> ,
-                                                "He X, Frey E. ROC, LROC, FROC, AFROC: an alphabet soup. J Am Coll Radiol 2009; 6(9):652-5."@en ;
+                                 dcterms:source <https://doi.org/10.1016/j.jacr.2009.06.001> ;
                                  rdfs:label "análisis de la curva característica operativa del receptor de localización"@es ,
                                             "localization receiver operating characteristic analysis"@en ,
                                             "定位受试者工作特征分析"@zh ;
                                  skos:altLabel "LROC"@en ,
                                                "localization ROC"@en ,
+                                               "localization ROC curve"@en ,
                                                "location ROC"@en ;
                                  skos:definition "Localization ROC (LROC) curve plots location recall (i.e., rate of true positive decisions with correct localization) values against the false positive rate (1 − specificity) as the classification threshold varies. The area under the LROC curve provides an overall measure of performance across all thresholds."@en .
 
@@ -9866,7 +9874,8 @@ D - Ethical, Legal, and Maintenance"""@en ;
                                  rdfs:label "análisis de la curva ROC dependiente del tiempo"@es ,
                                             "time-dependent receiver operating characteristic analysis"@en ,
                                             "时间依赖性受试者工作特征分析"@zh ;
-                                 skos:altLabel "time-dependent ROC analysis"@en ;
+                                 skos:altLabel "time-dependent ROC analysis"@en ,
+                                               "time-dependent ROC curve"@en ;
                                  skos:definition "Time-dependent receiver operating characteristic (ROC) analysis refers to a set of ROC analyses performed at specific follow-up time points in time-to-event prediction. It typically involves multiple ROC analyses, each corresponding to a distinct time point during the follow-up period. For each time point, a separate ROC curve and its corresponding area under the curve (AUC) are generated. As a result, the ROC curves and their AUC values are provided as a function of time."@en .
 
 
@@ -12101,20 +12110,24 @@ When the function is the square of the difference and the variables are binary (
 <https://rsna.org/roadmap/04069> rdf:type owl:Class ;
                                  rdfs:subClassOf <https://rsna.org/roadmap/03548> ,
                                                  [ rdf:type owl:Restriction ;
-                                                   owl:onProperty <https://rsna.org/roadmap/03645> ;
-                                                   owl:someValuesFrom <https://rsna.org/roadmap/04091>
+                                                   owl:onProperty <https://rsna.org/roadmap/01128> ;
+                                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                   owl:onClass <https://rsna.org/roadmap/04091>
                                                  ] ,
                                                  [ rdf:type owl:Restriction ;
-                                                   owl:onProperty <https://rsna.org/roadmap/03645> ;
-                                                   owl:someValuesFrom <https://rsna.org/roadmap/04092>
+                                                   owl:onProperty <https://rsna.org/roadmap/01128> ;
+                                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                   owl:onClass <https://rsna.org/roadmap/04092>
                                                  ] ,
                                                  [ rdf:type owl:Restriction ;
-                                                   owl:onProperty <https://rsna.org/roadmap/03645> ;
-                                                   owl:someValuesFrom <https://rsna.org/roadmap/04093>
+                                                   owl:onProperty <https://rsna.org/roadmap/01128> ;
+                                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                   owl:onClass <https://rsna.org/roadmap/04093>
                                                  ] ,
                                                  [ rdf:type owl:Restriction ;
-                                                   owl:onProperty <https://rsna.org/roadmap/03645> ;
-                                                   owl:someValuesFrom <https://rsna.org/roadmap/04094>
+                                                   owl:onProperty <https://rsna.org/roadmap/01128> ;
+                                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                   owl:onClass <https://rsna.org/roadmap/04094>
                                                  ] ;
                                  rdfs:label "binary confusion matrix"@en ,
                                             "matriz de confusión binaria"@es ,
@@ -12389,14 +12402,10 @@ rEDR = (number of positive cases not detected by human alone) / (number of posit
 
 ###  https://rsna.org/roadmap/04090
 <https://rsna.org/roadmap/04090> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/03302> ,
+                                 rdfs:subClassOf <https://rsna.org/roadmap/00659> ,
                                                  [ rdf:type owl:Restriction ;
                                                    owl:onProperty <https://rsna.org/roadmap/03820> ;
                                                    owl:someValuesFrom xsd:nonNegativeInteger
-                                                 ] ,
-                                                 [ rdf:type owl:Restriction ;
-                                                   owl:onProperty :minimum ;
-                                                   owl:hasValue 0
                                                  ] ;
                                  dcterms:source <https://doi.org/10.1145/3514094.3534137> ;
                                  rdfs:label "número de resultados"@es ,
@@ -12408,11 +12417,7 @@ rEDR = (number of positive cases not detected by human alone) / (number of posit
 
 ###  https://rsna.org/roadmap/04091
 <https://rsna.org/roadmap/04091> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/04090> ,
-                                                 [ rdf:type owl:Restriction ;
-                                                   owl:onProperty :minimum ;
-                                                   owl:hasValue 0
-                                                 ] ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/04090> ;
                                  dcterms:source <https://doi.org/10.1145/3514094.3534137> ;
                                  rdfs:label "número de verdaderos positivos"@es ,
                                             "true positive count"@en ,
@@ -12427,15 +12432,7 @@ rEDR = (number of positive cases not detected by human alone) / (number of posit
 
 ###  https://rsna.org/roadmap/04092
 <https://rsna.org/roadmap/04092> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/04090> ,
-                                                 [ rdf:type owl:Restriction ;
-                                                   owl:onProperty :minimum ;
-                                                   owl:hasValue 0
-                                                 ] ,
-                                                 [ rdf:type owl:Restriction ;
-                                                   owl:onProperty :optimum ;
-                                                   owl:hasValue 0
-                                                 ] ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/04090> ;
                                  dcterms:source <https://doi.org/10.1145/3514094.3534137> ;
                                  rdfs:label "false positive count"@en ,
                                             "número de falsos positivos"@es ,
@@ -12451,11 +12448,7 @@ rEDR = (number of positive cases not detected by human alone) / (number of posit
 
 ###  https://rsna.org/roadmap/04093
 <https://rsna.org/roadmap/04093> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/04090> ,
-                                                 [ rdf:type owl:Restriction ;
-                                                   owl:onProperty :minimum ;
-                                                   owl:hasValue 0
-                                                 ] ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/04090> ;
                                  dcterms:source <https://doi.org/10.1145/3514094.3534137> ;
                                  rdfs:label "número de verdaderos negativos"@es ,
                                             "true negative count"@en ,
@@ -12470,15 +12463,7 @@ rEDR = (number of positive cases not detected by human alone) / (number of posit
 
 ###  https://rsna.org/roadmap/04094
 <https://rsna.org/roadmap/04094> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/04090> ,
-                                                 [ rdf:type owl:Restriction ;
-                                                   owl:onProperty :minimum ;
-                                                   owl:hasValue 0
-                                                 ] ,
-                                                 [ rdf:type owl:Restriction ;
-                                                   owl:onProperty :optimum ;
-                                                   owl:hasValue 0
-                                                 ] ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/04090> ;
                                  dcterms:source <https://doi.org/10.1145/3514094.3534137> ;
                                  rdfs:label "false negative count"@en ,
                                             "número de falsos negativos"@es ,
@@ -12494,21 +12479,16 @@ rEDR = (number of positive cases not detected by human alone) / (number of posit
 
 ###  https://rsna.org/roadmap/04095
 <https://rsna.org/roadmap/04095> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/04090> ,
-                                                 [ rdf:type owl:Restriction ;
-                                                   owl:onProperty :minimum ;
-                                                   owl:hasValue 0
-                                                 ] ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/04090> ;
                                  dcterms:source <https://doi.org/10.1145/3514094.3534137> ;
                                  rdfs:label "condición positiva"@es ,
-                                            "condition positive"@en ,
+                                            "condition positive count"@en ,
                                             "实际阳性数"@zh ;
                                  skos:altLabel "P"@en ,
                                                "actual positives"@en ,
+                                               "condition positive"@en ,
                                                "reference standard positive count"@en ;
-                                 skos:definition """The number of cases in an evaluation dataset that are positive according to the reference standard, irrespective of what the model predicted. Condition positive is a property of the evaluation dataset rather than of the model.
-
-P = TP + FN"""@en ;
+                                 skos:definition "The number of cases in an evaluation dataset that are positive according to the reference standard, irrespective of what the model predicted. Condition positive is a property of the evaluation dataset rather than of the model."@en ;
                                  skos:exactMatch <https://purl.org/twc/fmo#condition_positive> ;
                                  <https://rsna.org/roadmap/01002> "P" ;
                                  <https://rsna.org/roadmap/01003> "TP + FN" .
@@ -12516,21 +12496,16 @@ P = TP + FN"""@en ;
 
 ###  https://rsna.org/roadmap/04096
 <https://rsna.org/roadmap/04096> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/04090> ,
-                                                 [ rdf:type owl:Restriction ;
-                                                   owl:onProperty :minimum ;
-                                                   owl:hasValue 0
-                                                 ] ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/04090> ;
                                  dcterms:source <https://doi.org/10.1145/3514094.3534137> ;
                                  rdfs:label "condición negativa"@es ,
-                                            "condition negative"@en ,
+                                            "condition negative count"@en ,
                                             "实际阴性数"@zh ;
                                  skos:altLabel "N"@en ,
                                                "actual negatives"@en ,
+                                               "condition negative"@en ,
                                                "reference standard negative count"@en ;
-                                 skos:definition """The number of cases in an evaluation dataset that are negative according to the reference standard, irrespective of what the model predicted. Condition negative is a property of the evaluation dataset rather than of the model.
-
-N = TN + FP"""@en ;
+                                 skos:definition "The number of cases in an evaluation dataset that are negative according to the reference standard, irrespective of what the model predicted. Condition negative is a property of the evaluation dataset rather than of the model."@en ;
                                  skos:exactMatch <https://purl.org/twc/fmo#condition_negative> ;
                                  <https://rsna.org/roadmap/01002> "N" ;
                                  <https://rsna.org/roadmap/01003> "TN + FP" .
@@ -12538,20 +12513,15 @@ N = TN + FP"""@en ;
 
 ###  https://rsna.org/roadmap/04097
 <https://rsna.org/roadmap/04097> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/04090> ,
-                                                 [ rdf:type owl:Restriction ;
-                                                   owl:onProperty :minimum ;
-                                                   owl:hasValue 0
-                                                 ] ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/04090> ;
                                  dcterms:source <https://doi.org/10.1145/3514094.3534137> ;
                                  rdfs:label "predicción positiva"@es ,
-                                            "prediction positive"@en ,
+                                            "prediction positive count"@en ,
                                             "预测阳性数"@zh ;
                                  skos:altLabel "PP"@en ,
-                                               "predicted positive count"@en ;
-                                 skos:definition """The number of cases a model predicts as positive, irrespective of the reference standard. Prediction positive is the denominator of positive predictive value and of the false discovery rate.
-
-PP = TP + FP"""@en ;
+                                               "predicted positive count"@en ,
+                                               "prediction positive"@en ;
+                                 skos:definition "The number of cases a model predicts as positive, irrespective of the reference standard. Prediction positive is the denominator of positive predictive value and of the false discovery rate."@en ;
                                  skos:exactMatch <https://purl.org/twc/fmo#prediction_positive> ;
                                  <https://rsna.org/roadmap/01002> "PP" ;
                                  <https://rsna.org/roadmap/01003> "TP + FP" .
@@ -12559,20 +12529,15 @@ PP = TP + FP"""@en ;
 
 ###  https://rsna.org/roadmap/04098
 <https://rsna.org/roadmap/04098> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/04090> ,
-                                                 [ rdf:type owl:Restriction ;
-                                                   owl:onProperty :minimum ;
-                                                   owl:hasValue 0
-                                                 ] ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/04090> ;
                                  dcterms:source <https://doi.org/10.1145/3514094.3534137> ;
                                  rdfs:label "predicción negativa"@es ,
-                                            "prediction negative"@en ,
+                                            "prediction negative count"@en ,
                                             "预测阴性数"@zh ;
                                  skos:altLabel "PN"@en ,
-                                               "predicted negative count"@en ;
-                                 skos:definition """The number of cases a model predicts as negative, irrespective of the reference standard. Prediction negative is the denominator of negative predictive value and of the false omission rate.
-
-PN = TN + FN"""@en ;
+                                               "predicted negative count"@en ,
+                                               "prediction negative"@en ;
+                                 skos:definition "The number of cases a model predicts as negative, irrespective of the reference standard. Prediction negative is the denominator of negative predictive value and of the false omission rate."@en ;
                                  skos:exactMatch <https://purl.org/twc/fmo#prediction_negative> ;
                                  <https://rsna.org/roadmap/01002> "PN" ;
                                  <https://rsna.org/roadmap/01003> "TN + FN" .
@@ -12580,23 +12545,18 @@ PN = TN + FN"""@en ;
 
 ###  https://rsna.org/roadmap/04099
 <https://rsna.org/roadmap/04099> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/04090> ,
-                                                 [ rdf:type owl:Restriction ;
-                                                   owl:onProperty :minimum ;
-                                                   owl:hasValue 0
-                                                 ] ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/04090> ;
                                  dcterms:source <https://doi.org/10.1145/3514094.3534137> ;
                                  rdfs:label "número total de resultados"@es ,
                                             "total outcome count"@en ,
                                             "结果总数"@zh ;
                                  skos:altLabel "evaluation sample size"@en ,
-                                               "n"@en ,
                                                "total number of outcomes"@en ;
                                  skos:definition """The total number of cases evaluated, counting outcomes of every type. It is the denominator of accuracy, prevalence, and the prediction rates, and it is the quantity that determines the precision of every other metric reported for the evaluation.
 
 n = TP + FP + TN + FN = P + N = PP + PN"""@en ;
                                  skos:exactMatch <https://purl.org/twc/fmo#total_outcome_count> ;
-                                 <https://rsna.org/roadmap/01002> "n" ;
+                                 <https://rsna.org/roadmap/01002> "Total" ;
                                  <https://rsna.org/roadmap/01003> "P + N" ,
                                                                   "PP + PN" ,
                                                                   "TP + FP + TN + FN" .
@@ -12794,7 +12754,7 @@ PREV = P / n"""@en ;
 
 ###  https://rsna.org/roadmap/04108
 <https://rsna.org/roadmap/04108> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/03302> ,
+                                 rdfs:subClassOf <https://rsna.org/roadmap/00659> ,
                                                  [ rdf:type owl:Restriction ;
                                                    owl:onProperty :maximum ;
                                                    owl:hasValue 1
@@ -18232,6 +18192,7 @@ Tier 4: no sharing"""@en ;
                                                "internal testing"@en ;
                                  skos:definition "Internal: evaluation on data drawn from the same source or sources as the development data and held out from training, such as a random, patient-level or temporal split of a single institution's cohort."@en .
 
+
 ###  https://rsna.org/roadmap/01125
 <https://rsna.org/roadmap/01125> rdf:type owl:NamedIndividual ,
                                           <https://rsna.org/roadmap/01123> ;
@@ -18239,6 +18200,7 @@ Tier 4: no sharing"""@en ;
                                  skos:altLabel "external"@en ,
                                                "external testing"@en ;
                                  skos:definition "External: evaluation on data from one or more sources not used in development — a different institution, region, population or scanner fleet — and not available to the developer during model training or tuning."@en .
+
 
 ###  https://rsna.org/roadmap/01126
 <https://rsna.org/roadmap/01126> rdf:type owl:NamedIndividual ,
@@ -18249,6 +18211,7 @@ Tier 4: no sharing"""@en ;
                                                "site acceptance testing"@en ;
                                  skos:definition "Local: evaluation performed by a deploying site on data from that site, typically as acceptance testing before deployment or as ongoing monitoring after it."@en .
 
+
 ###  https://rsna.org/roadmap/01127
 <https://rsna.org/roadmap/01127> rdf:type owl:NamedIndividual ,
                                           <https://rsna.org/roadmap/01123> ;
@@ -18256,6 +18219,7 @@ Tier 4: no sharing"""@en ;
                                  skos:altLabel "prospective"@en ,
                                                "prospective testing"@en ;
                                  skos:definition "Prospective: evaluation on data acquired after the model was finalized and collected in the intended clinical workflow, rather than assembled from a retrospective archive."@en .
+
 
 ###  https://rsna.org/roadmap/03429
 <https://rsna.org/roadmap/03429> rdf:type owl:NamedIndividual ,
