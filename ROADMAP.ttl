@@ -313,7 +313,8 @@ Note that this property is *not* transitive: some guideline items are disjunctio
                                           owl:FunctionalProperty ;
                                  rdfs:domain <https://rsna.org/roadmap/04069> ;
                                  rdfs:range <https://rsna.org/roadmap/04090> ;
-                                 rdfs:label "has cell count"@en .
+                                 rdfs:label "has cell count"@en ;
+                                 skos:definition "Links a binary confusion matrix to its cell counts (e.g., true positive count), marginal subtotals (e.g., condition positive count), and total outcome count."@en .
 
 
 ###  https://rsna.org/roadmap/03350
@@ -12735,7 +12736,6 @@ PREV = P / n"""@en ;
                                             "柯尔莫哥洛夫-斯米尔诺夫距离"@zh ;
                                  skos:altLabel "KS distance"@en ,
                                                "KS statistic"@en ,
-                                               "Kolmogorov-Smirnov distance"@en ,
                                                "Kolmogorov–Smirnov distance"@en ;
                                  skos:definition "The Kolmogorov–Smirnov distance is the supremum of the absolute difference between two cumulative distribution functions, most often the empirical distribution function of a sample and the cumulative distribution function of a reference distribution. It is the test statistic of the Kolmogorov–Smirnov test, and applied to the score distributions of two protected groups it yields the fairness metric KS statistical parity."@en ;
                                  skos:exactMatch <https://purl.org/twc/fmo#KS_distance> .
