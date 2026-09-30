@@ -2660,6 +2660,10 @@ owl:Thing rdf:type owl:Class .
                                                  [ rdf:type owl:Restriction ;
                                                    owl:onProperty :minimum ;
                                                    owl:hasValue 0
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :optimum ;
+                                                   owl:hasValue 1
                                                  ] ;
                                  dcterms:source <https://proceedings.mlr.press/v30/Wang13.html> ;
                                  rdfs:label "ganancia acumulada descontada normalizada"@es ,
@@ -2676,12 +2680,11 @@ owl:Thing rdf:type owl:Class .
 ###  https://rsna.org/roadmap/00164
 <https://rsna.org/roadmap/00164> rdf:type owl:Class ;
                                  rdfs:subClassOf <https://rsna.org/roadmap/00163> ;
-                                 rdfs:label "NDCG@k"@en ,
-                                            "ganancia acumulada descontada normalizada en k entradas"@es ;
-                                 skos:altLabel "normalized discounted cumulative gain @ k entries"@en ;
-                                 skos:definition """Normalized discounted cumulative gain (NDCG) measures the performance of a recommendation system based on the graded relevance of the recommended entities. It varies from 0.0 to 1.0, with 1.0 representing the ideal ranking of the entities. This metric is commonly used in information retrieval and to evaluate the performance of web search engines. 
-
-Parameters: k = The maximum number of entities that can be recommended"""@en .
+                                 rdfs:label "ganancia acumulada descontada normalizada en k entradas"@es ,
+                                            "normalized discounted cumulative gain at k"@en ;
+                                 skos:altLabel "NDCG@k"@en ,
+                                               "normalized discounted cumulative gain @ k entries"@en ;
+                                 skos:definition "Normalized discounted cumulative gain (NDCG) measures the performance of a recommendation system based on the graded relevance of the recommended entities. For the \"NDCG at k\" metric, only the top k ranked results are scored."@en .
 
 
 ###  https://rsna.org/roadmap/00165
