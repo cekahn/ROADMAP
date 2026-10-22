@@ -17143,7 +17143,10 @@ AI actors, should, based on their roles, the context, and their ability to act, 
                                                                   <https://rsna.org/roadmap/00255> ,
                                                                   <https://rsna.org/roadmap/00256> ;
                                  rdfs:label "DECIDE-AI item 2 - Intended use"@en ;
-                                 skos:definition "a) Describe the targeted medical condition(s) and problem(s), including the current standard practice, and the intended patient population(s). b) Describe the intended users of the AI system, its planned integration in the care pathway, and the potential impact, including patient outcomes, it is intended to have."@en .
+                                 skos:definition """a) Describe the targeted medical condition(s) and problem(s), including the current standard practice, and the
+intended patient population(s).
+b) Describe the intended users of the AI system, its planned integration in the care pathway, and the potential
+effect, including patient outcomes, that it is intended to have."""@en .
 
 
 ###  https://rsna.org/roadmap/00569
@@ -17169,7 +17172,9 @@ AI actors, should, based on their roles, the context, and their ability to act, 
                                                                   <https://rsna.org/roadmap/00257> ,
                                                                   <https://rsna.org/roadmap/00258> ;
                                  rdfs:label "DECIDE-AI item 3 - Participants"@en ;
-                                 skos:definition "a) Describe how patients were recruited, stating the inclusion and exclusion criteria at both patient and data level, and how the number of recruited patients was decided."@en .
+                                 skos:definition """a) Describe how patients were recruited, stating the inclusion and exclusion criteria at both patient and data level, and how the number of recruited patients was decided.
+b) Describe how users were recruited, stating the inclusion and exclusion criteria, and how the intended number of recruited users was decided.
+c) Describe steps taken to familiarize the users with the AI system, including any training received before the study."""@en .
 
 
 ###  https://rsna.org/roadmap/00572
@@ -17180,7 +17185,9 @@ AI actors, should, based on their roles, the context, and their ability to act, 
                                                                   <https://rsna.org/roadmap/00254> ,
                                                                   <https://rsna.org/roadmap/00255> ;
                                  rdfs:label "DECIDE-AI item 4 - AI system"@en ;
-                                 skos:definition "a) Briefly describe the AI system, specifying its version and type of underlying algorithm used. Describe, or provide a direct reference to, the characteristics of the patient population on which the algorithm was trained and its performance in preclinical development/validation studies."@en .
+                                 skos:definition """a) Briefly describe the AI system, specifying its version and type of underlying algorithm used. Describe, or provide a direct reference to, the characteristics of the patient population on which the algorithm was trained and its performance in preclinical development/validation studies.
+b) Identify the data used as inputs. Describe how the data were acquired, the process needed to enter the input data, the pre-processing applied, and how missing/low-quality data were handled.
+c) Describe the AI system outputs and how they were presented to the users (an image may be useful)."""@en .
 
 
 ###  https://rsna.org/roadmap/00573
@@ -17189,7 +17196,8 @@ AI actors, should, based on their roles, the context, and their ability to act, 
                                  <https://rsna.org/roadmap/00198> <https://rsna.org/roadmap/00253> ,
                                                                   <https://rsna.org/roadmap/00256> ;
                                  rdfs:label "DECIDE-AI item 5 - Implementation"@en ;
-                                 skos:definition "a) Describe the settings in which the AI system was evaluated."@en .
+                                 skos:definition """a) Describe the settings in which the AI system was evaluated.
+b) Describe the clinical workflow/care pathway in which the AI system was evaluated, the timing of its use, and how the final supported decision was reached and by whom."""@en .
 
 
 ###  https://rsna.org/roadmap/00574
@@ -17206,7 +17214,8 @@ AI actors, should, based on their roles, the context, and their ability to act, 
                                  <https://rsna.org/roadmap/00198> <https://rsna.org/roadmap/00257> ,
                                                                   <https://rsna.org/roadmap/00258> ;
                                  rdfs:label "DECIDE-AI item 6 - Safety and errors"@en ;
-                                 skos:definition "a) Provide a description of how significant errors/malfunctions were defined and identified."@en .
+                                 skos:definition """a) Provide a description of how significant errors/malfunctions were defined and identified.
+b) Describe how any risks to patient safety or instances of harm were identified, analyzed, and minimized."""@en .
 
 
 ###  https://rsna.org/roadmap/00576
@@ -17250,7 +17259,8 @@ AI actors, should, based on their roles, the context, and their ability to act, 
                                                                   <https://rsna.org/roadmap/00253> ,
                                                                   <https://rsna.org/roadmap/00258> ;
                                  rdfs:label "DECIDE-AI item 9 - Participants"@en ;
-                                 skos:definition "a) Describe the baseline characteristics of the patients included in the study, and report on input data missingness."@en .
+                                 skos:definition """a) Describe the baseline characteristics of the patients included in the study, and report on input data missingness.
+b) Describe the baseline characteristics of the users included in the study."""@en .
 
 
 ###  https://rsna.org/roadmap/00581
@@ -17259,7 +17269,8 @@ AI actors, should, based on their roles, the context, and their ability to act, 
                                  <https://rsna.org/roadmap/00198> <https://rsna.org/roadmap/00256> ,
                                                                   <https://rsna.org/roadmap/00257> ;
                                  rdfs:label "DECIDE-AI item 10 - Implementation"@en ;
-                                 skos:definition "a) Report on the user exposure to the AI system, on the number of instances the AI system was used, and on the users’ adherence to the intended implementation."@en .
+                                 skos:definition """a) Report on the user exposure to the AI system, on the number of instances the AI system was used, and on the users’ adherence to the intended implementation.
+b) Report any significant changes to the clinical workflow or care pathway caused by the AI system."""@en .
 
 
 ###  https://rsna.org/roadmap/00582
@@ -17304,7 +17315,8 @@ AI actors, should, based on their roles, the context, and their ability to act, 
                                                                   <https://rsna.org/roadmap/00257> ,
                                                                   <https://rsna.org/roadmap/00258> ;
                                  rdfs:label "DECIDE-AI item 13 - Safety and errors"@en ;
-                                 skos:definition "a) List any significant errors/malfunctions related to: AI system recommendations, supporting software/hardware, or users. Include details of: (i) rate of occurrence, (ii) apparent causes, (iii) whether they could be corrected, and (iv) any significant potential impacts on patient care."@en .
+                                 skos:definition """a) List any significant errors/malfunctions related to: AI system recommendations, supporting software/hardware, or users. Include details of: (i) rate of occurrence, (ii) apparent causes, (iii) whether they could be corrected, and (iv) any significant potential effects on patient care.
+b) Report on any risks to patient safety or observed instances of harm (including indirect harm) identified during the study."""@en .
 
 
 ###  https://rsna.org/roadmap/00587
@@ -17313,7 +17325,8 @@ AI actors, should, based on their roles, the context, and their ability to act, 
                                  <https://rsna.org/roadmap/00198> <https://rsna.org/roadmap/00255> ,
                                                                   <https://rsna.org/roadmap/00256> ;
                                  rdfs:label "DECIDE-AI item 14 - Human factors"@en ;
-                                 skos:definition "a) Report on the usability evaluation, according to recognised standards or frameworks."@en .
+                                 skos:definition """a) Report on the usability evaluation, according to recognized standards or frameworks.
+b) Report on the user learning curves evaluation."""@en .
 
 
 ###  https://rsna.org/roadmap/00588
