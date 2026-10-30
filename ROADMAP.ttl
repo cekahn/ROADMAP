@@ -879,10 +879,6 @@ owl:Thing rdf:type owl:Class .
                                                                           ) ;
                                                        rdf:type owl:Class
                                                      ] ;
-                                 rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                   owl:onProperty <https://rsna.org/roadmap/00198> ;
-                                                   owl:hasValue <https://rsna.org/roadmap/00523>
-                                                 ] ;
                                  rdfs:label "conjunto de datos de pruebas internas"@es ,
                                             "internal testing dataset"@en ,
                                             "内部测试数据集"@zh ;
@@ -902,18 +898,6 @@ owl:Thing rdf:type owl:Class .
                                                                           ) ;
                                                        rdf:type owl:Class
                                                      ] ;
-                                 rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                   owl:onProperty <https://rsna.org/roadmap/00198> ;
-                                                   owl:hasValue <https://rsna.org/roadmap/00314>
-                                                 ] ,
-                                                 [ rdf:type owl:Restriction ;
-                                                   owl:onProperty <https://rsna.org/roadmap/00198> ;
-                                                   owl:hasValue <https://rsna.org/roadmap/00523>
-                                                 ] ,
-                                                 [ rdf:type owl:Restriction ;
-                                                   owl:onProperty <https://rsna.org/roadmap/00198> ;
-                                                   owl:hasValue <https://rsna.org/roadmap/00647>
-                                                 ] ;
                                  rdfs:comment "The term \"external testing\" is preferred over \"external validation,\" as the term \"validation\" can be ambiguous."@en ;
                                  rdfs:label "conjunto de datos de pruebas externas"@es ,
                                             "external testing dataset"@en ,
@@ -5319,15 +5303,7 @@ D - Ethical, Legal, and Maintenance"""@en ;
 
 ###  https://rsna.org/roadmap/03389
 <https://rsna.org/roadmap/03389> rdf:type owl:Class ;
-                                 rdfs:subClassOf <https://rsna.org/roadmap/00666> ,
-                                                 [ rdf:type owl:Restriction ;
-                                                   owl:onProperty <https://rsna.org/roadmap/00198> ;
-                                                   owl:hasValue <https://rsna.org/roadmap/00384>
-                                                 ] ,
-                                                 [ rdf:type owl:Restriction ;
-                                                   owl:onProperty <https://rsna.org/roadmap/00198> ;
-                                                   owl:hasValue <https://rsna.org/roadmap/00602>
-                                                 ] ;
+                                 rdfs:subClassOf <https://rsna.org/roadmap/00666> ;
                                  rdfs:label "data"@en ,
                                             "datos"@es ,
                                             "数据"@zh ;
@@ -10911,6 +10887,10 @@ When the function is the square of the difference and the variables are binary (
                                                  [ rdf:type owl:Restriction ;
                                                    owl:onProperty <https://rsna.org/roadmap/00198> ;
                                                    owl:hasValue <https://rsna.org/roadmap/00235>
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty <https://rsna.org/roadmap/00198> ;
+                                                   owl:hasValue <https://rsna.org/roadmap/00523>
                                                  ] ;
                                  owl:disjointWith <https://rsna.org/roadmap/03768> ;
                                  rdfs:comment "Often, internal testing data are a partition of the original (internal) dataset used to train and optimize a model."@en ;
@@ -10927,6 +10907,18 @@ When the function is the square of the difference and the variables are binary (
                                                  [ rdf:type owl:Restriction ;
                                                    owl:onProperty <https://rsna.org/roadmap/00198> ;
                                                    owl:hasValue <https://rsna.org/roadmap/00236>
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty <https://rsna.org/roadmap/00198> ;
+                                                   owl:hasValue <https://rsna.org/roadmap/00314>
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty <https://rsna.org/roadmap/00198> ;
+                                                   owl:hasValue <https://rsna.org/roadmap/00523>
+                                                 ] ,
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty <https://rsna.org/roadmap/00198> ;
+                                                   owl:hasValue <https://rsna.org/roadmap/00647>
                                                  ] ;
                                  rdfs:comment "The term \"external testing\" is preferred over \"external validation,\" as the term \"validation\" can be ambiguous."@en ;
                                  rdfs:label "external testing"@en ,
